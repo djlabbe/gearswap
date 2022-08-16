@@ -67,6 +67,7 @@ function get_sets()
 
     -- Load and initialize the include file.
     include('Mote-Include.lua')
+    include('jse.lua')
 end
 
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.

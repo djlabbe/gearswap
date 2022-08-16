@@ -102,6 +102,7 @@ function user_setup()
 
     gear.Empyrean = { }
     gear.Empyrean.Body = { name = "Hattori Ningi" }
+    gear.Empyrean.Body = { name = "Hattori Tekko +1" }
     gear.Empyrean.Feet = { name = "Hattori Kyahan +1" }
 
     gear.MovementFeet = { name="Danzo Sune-ate" }
@@ -175,7 +176,7 @@ function init_gear_sets()
 
     sets.precast.JA['Provoke'] = sets.Enmity
     sets.precast.JA['Mijin Gakure'] = { legs=gear.Relic.Legs }
-    -- sets.precast.JA['Futae'] = {hands="Hattori Tekko +1"}
+    sets.precast.JA['Futae'] = {hands="Hattori Tekko +1"}
     sets.precast.JA['Sange'] = { body=gear.Relic.Body }
     sets.precast.JA['Innin'] = { head=gear.Relic.Head }
     sets.precast.JA['Yonin'] = { head=gear.Relic.Head }
@@ -347,14 +348,14 @@ function init_gear_sets()
         legs="Ken. Hakama +1",
     })
 
-    sets.precast.WS['Blade: Teki'] = {
+    sets.precast.Hybrid = {
         ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
         head=gear.Relic.Head,
         neck="Fotia Gorget",
-        body=gear.Herc_MAB_body,
-        hands=gear.Herc_MAB_hands,
-        feet=gear.Herc_MAB_feet,
-        legs=gear.Herc_MAB_legs,        
+        body=gear.Nyame_body,
+        hands=gear.Nyame_hands,
+        feet=gear.Nyame_feet,
+        legs=gear.Nyame_legs,        
         left_ear="Moonshade Earring",
         right_ear={ name="Lugra Earring +1", augments={'Path: A',}},
         left_ring="Gere Ring",
@@ -363,8 +364,9 @@ function init_gear_sets()
         back=gear.NIN_WS_Cape,
     }
 
-    sets.precast.WS['Blade: To'] = sets.precast.WS['Blade: Teki']
-    sets.precast.WS['Blade: Chi'] = sets.precast.WS['Blade: Teki']
+    sets.precast.WS['Blade: Teki'] = sets.precast.Hybrid
+    sets.precast.WS['Blade: To'] = sets.precast.Hybrid
+    sets.precast.WS['Blade: Chi'] = sets.precast.Hybrid
 
     sets.precast.WS['Savage Blade'] = {
         ammo="Aurgelmir Orb +1",

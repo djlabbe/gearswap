@@ -12,7 +12,6 @@
 --              [ CTRL+F12 ]        Cycle Idle Modes
 --              [ ALT+F12 ]         Cancel Emergency -PDT/-MDT Mode
 --              [ WIN+A ]           AttackMode: Capped/Uncapped WS Modifier
---              [ WIN+C ]           Toggle Capacity Points Mode
 --
 --
 --              (Global-Binds.lua contains additional non-job-related keybinds)
@@ -45,9 +44,9 @@ end
 -------------------------------------------------------------------------------------------------------------------
 
 function user_setup()
-    state.OffenseMode:options('Normal', 'LowAcc', 'MidAcc', 'HighAcc', 'MaxAcc')
+    state.OffenseMode:options('Normal', 'Acc', 'Subtle')
     state.WeaponskillMode:options('Normal', 'Acc')
-    state.HybridMode:options('Normal', 'DT', 'Subtle')
+    state.HybridMode:options('Normal', 'DT')
     state.IdleMode:options('Normal', 'DT')
     
     state.WeaponSet = M{['description']='Weapon Set', 'Masamune', 'ShiningOne'}
@@ -122,7 +121,7 @@ function init_gear_sets()
         body="Tatenashi Haramaki +1",
         hands="Wakido Kote +3",
         legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
-        feet={ name="Ryuo Sune-Ate +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
+        feet=gear.Ryuo_C_feet,
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         ear1="Cessance Earring",
@@ -132,22 +131,11 @@ function init_gear_sets()
         back=gear.SAM_TP_Cape,
     }
 
-    sets.engaged.LowAcc = set_combine(sets.engaged, {
+    sets.engaged.Acc = set_combine(sets.engaged, {
+        ammo="Aurgelmir Orb +1",
+        head="Ken. Jinpachi +1",
         ear2="Schere Earring",
         waist="Ioskeha Belt +1",
-    })
-
-    sets.engaged.MidAcc = set_combine(sets.engaged.LowAcc, {
-        ammo="Aurgelmir Orb +1",
-    })
-
-    sets.engaged.HighAcc = set_combine(sets.engaged.MidAcc, {
-        head="Ken. Jinpachi +1",
-        left_ring="Regal Ring",
-    })
-
-    sets.engaged.MaxAcc = set_combine(sets.engaged.HighAcc, {
-        -- ammo="Amar Cluster",
         left_ring="Regal Ring",
     })
 
@@ -156,22 +144,13 @@ function init_gear_sets()
     ------------------------------------------------------------------------------------------------
 
     sets.engaged.Hybrid = {
-        head="Mpaca's Cap", --7/0
-        body="Mpaca's Doublet", --10/0
-        hands="Mpaca's Gloves", --8/0
-        legs="Mpaca's Hose", --9/0
-        feet="Mpaca's Boots", --6/0
+        head=gear.Mpaca_head, --7/0
+        body=gear.Mpaca_body, --10/0
+        hands=gear.Mpaca_hands, --8/0
+        legs=gear.Mpaca_legs, --9/0
+        feet=gear.Mpaca_feet, --6/0
         ring2="Defending Ring", --10/10
     }
-
-    -- sets.engaged.Hybrid = {
-    --     head="Ken. Jinpachi +1",
-    --     body="Dagon Breast.",
-    --     -- hands="Nyame Gauntlets",
-    --     legs="Ken. Hakama +1",
-    --     feet="Nyame Sollerets",
-    --     ring2="Defending Ring", --10/10
-    -- }
 
     sets.engaged.Subtle = {
         ammo="Aurgelmir Orb +1",
@@ -191,10 +170,7 @@ function init_gear_sets()
     }
 
     sets.engaged.DT = set_combine(sets.engaged, sets.engaged.Hybrid)
-    sets.engaged.LowAcc.DT = set_combine(sets.engaged.LowAcc, sets.engaged.Hybrid)
-    sets.engaged.MidAcc.DT = set_combine(sets.engaged.MidAcc, sets.engaged.Hybrid)
-    sets.engaged.HighAcc.DT = set_combine(sets.engaged.HighAcc, sets.engaged.Hybrid)
-
+    sets.engaged.Acc.DT = set_combine(sets.engaged.LowAcc, sets.engaged.Hybrid)
     
     ------------------------------------------------------------------------------------------------
     ------------------------------------- Weapon Skill Sets ----------------------------------------
@@ -202,7 +178,7 @@ function init_gear_sets()
 
     sets.precast.WS = {
         ammo="Knobkierrie",
-        head="Mpaca's Cap",
+        head=gear.Mpaca_head,
         body=gear.Valo_WSD_body,
         hands=gear.Valo_WSD_hands,
         legs="Hiza. Hizayoroi +2",
@@ -220,17 +196,17 @@ function init_gear_sets()
 
     sets.precast.WS["Stardiver"] = {
         ammo="Knobkierrie",
-        head="Mpaca's Cap",
+        head=gear.Mpaca_head,
         body="Tatenashi Haramaki +1",
         hands=gear.Ryuo_A_hands,
-        legs="Mpaca's Hose",
+        legs=gear.Mpaca_legs,
         feet=gear.Valo_WSD_feet,
         neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
         waist="Fotia Belt",
         left_ear="Schere Earring",
         right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
         left_ring="Niqmaddu Ring",
-        right_ring=gear.Chirich_2, -- Ew
+        right_ring="Regal Ring",
         back=gear.SAM_WS_Cape,
     }
 
@@ -256,11 +232,11 @@ function init_gear_sets()
     }
 
     sets.idle.DT = set_combine(sets.idle, {
-        head="Mpaca's Cap", --7/0
-        body="Mpaca's Doublet", --10/0
-        hands="Mpaca's Gloves", --8/0
-        legs="Mpaca's Hose", --9/0
-        feet="Mpaca's Boots", --6/0
+        head=gear.Mpaca_head, --7/0
+        body=gear.Mpaca_body, --10/0
+        hands=gear.Mpaca_hands, --8/0
+        legs=gear.Mpaca_legs, --9/0
+        feet=gear.Mpaca_feet, --6/0
         ring2="Defending Ring", --10/10
     })
 

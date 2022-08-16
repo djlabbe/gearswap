@@ -4,7 +4,7 @@
 -- include is complete.  It is called at the end of basic initialization in Mote-Include.
 -------------------------------------------------------------------------------------------------------------------
 
-function define_global_sets()
+function ()
 
     -- Malignance
     gear.Malignance_head = {name="Malignance Chapeau"}
@@ -25,6 +25,18 @@ function define_global_sets()
     gear.Sakpata_hands = {name="Sakpata's Gauntlets"}
     gear.Sakpata_legs= {name="Sakpata's Cuisses"}
     gear.Sakpata_feet = {name="Sakpata's Leggings"}
+
+    gear.Gleti_head = {name="Gleti's Mask"}
+    gear.Gleti_body = {name="Gleti's Cuirass"}
+    gear.Gleti_hands = {name="Gleti's Gauntlets"}
+    gear.Gleti_legs= {name="Gleti's Breeches"}
+    gear.Gleti_feet = {name="Gleti's Boots"}
+
+    gear.Mpaca_head = {name="Mpaca's Cap"}
+    gear.Mpaca_body = {name="Mpaca's Doublet"}
+    gear.Mpaca_hands = {name="Mpaca's Gloves"}
+    gear.Mpaca_legs= {name="Mpaca's Hose"}
+    gear.Mpaca_feet = {name="Mpaca's Boots"}
 
     -- Duplicate Items
     gear.Stikini_1 = {name="Stikini Ring +1", bag="wardrobe7"}
