@@ -97,7 +97,7 @@ function user_setup()
         'Quick Etude', 'Swift Etude', 'Vivacious Etude', 'Vital Etude', 'Dextrous Etude', 'Uncanny Etude',
         'Spirited Etude', 'Logical Etude', 'Enchanting Etude', 'Bewitching Etude'}
 
-    state.WeaponSet = M{['description']='Weapon Set', 'Naegling', 'Tauret'}
+    state.WeaponSet = M{['description']='Weapon Set', 'Carnwenhan', 'Naegling', 'Tauret'}
     state.WeaponLock = M(false, 'Weapon Lock')  
 
     info.ExtraSongInstrument = 'Daurdabla'
@@ -144,11 +144,11 @@ function user_setup()
     send_command('bind @w gs c toggle WeaponLock')
     send_command('bind @e gs c cycle WeaponSet')
 
-    send_command('bind @1  gs c set SongMode Placeholder;pause .1;input /ma "Army\'s Paeon V" <me>')
-    send_command('bind @2  gs c set SongMode Placeholder;pause .1;input /ma "Army\'s Paeon IV" <me>')
-    send_command('bind @3  gs c set SongMode Placeholder;pause .1;input /ma "Army\'s Paeon III" <me>')
-    send_command('bind @4  gs c set SongMode Placeholder;pause .1;input /ma "Army\'s Paeon II" <me>')
-    send_command('bind @5  gs c set SongMode Placeholder;pause .1;input /ma "Army\'s Paeon" <me>')
+    send_command('bind @1  gs c set SongMode Placeholder;pause .1;input /ma "Army\'s Paeon VI" <me>')
+    send_command('bind @2  gs c set SongMode Placeholder;pause .1;input /ma "Army\'s Paeon V" <me>')
+    send_command('bind @3  gs c set SongMode Placeholder;pause .1;input /ma "Army\'s Paeon IV" <me>')
+    send_command('bind @4  gs c set SongMode Placeholder;pause .1;input /ma "Army\'s Paeon III" <me>')
+    send_command('bind @5  gs c set SongMode Placeholder;pause .1;input /ma "Army\'s Paeon II" <me>')
 
     -- Set macros and style
     set_macro_page(1, 10)
@@ -283,19 +283,28 @@ function init_gear_sets()
         -- back=gear.BRD_WS2_Cape,
     })
 
-    sets.precast.WS['Mordant Rime'] = set_combine(sets.precast.WS, {
+    sets.precast.WS['Mordant Rime'] = {
+        range=gear.Linos_WS,
+        head=gear.Relic_Head,
         neck="Bard's Charm +2",
-        -- ear2="Regal Earring",
-        ring2="Metamor. Ring +1",
+        body=gear.Relic_Body,
+        hands=gear.Relic_Hands,
+        legs=gear.Relic_Legs,
+        feet=gear.Relic_Feet,
+        ear1="Ishvara Earring",
+        ear2="Enchanter's Earring +1",
+        ring1="Epaminondas's Ring",
+        ring2="Metamorph Ring +1",
         waist="Grunfeld Rope",
-    })
+        back=gear.BRD_WS2_Cape,
+    }
 
     sets.precast.WS['Rudra\'s Storm'] = set_combine(sets.precast.WS, {
         -- legs="Lustr. Subligar +1",
         feet=gear.Lustratio_D_feet,
         neck="Bard's Charm +2",
         waist="Grunfeld Rope",
-        -- back=gear.BRD_WS2_Cape,
+        back=gear.BRD_WS1_Cape,
     })
 
     sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS, {
@@ -494,8 +503,8 @@ function init_gear_sets()
     sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {neck="Nodens Gorget", waist="Siegel Sash"})
 
     sets.midcast['Enfeebling Magic'] = {
-        -- main="Carnwenhan",
-        -- sub="Ammurapi Shield",
+        main="Carnwenhan",
+        sub="Ammurapi Shield",
         head=empty;
         body="Cohort Cloak +1",
         hands="Inyanga Dastanas +2",
@@ -534,13 +543,13 @@ function init_gear_sets()
     sets.engaged = {
         range=gear.Linos_STP,
         head="Ayanmo Zucchetto +2", --6
-        body="Ayanmo Corazza +2", --4
+        body="Agony Jerkin +1", --4
         hands={ name="Gazu Bracelet +1", augments={'Path: A',}}, --15
         legs={ name="Zoar Subligar +1", augments={'Path: A',}},
         feet="Ayanmo Gambieras +2", --6
         neck="Bard's Charm +2",
         waist="Reiki Yotai",
-        left_ear="Cessance Earring",
+        left_ear="Dedition Earring",
         right_ear="Telos Earring",
         left_ring=gear.Chirich_1,
         right_ring=gear.Chirich_2,
@@ -571,10 +580,10 @@ function init_gear_sets()
     ---------------------------------------- Special Sets ------------------------------------------
     ------------------------------------------------------------------------------------------------
 
-    -- sets.SongDWDuration = {main="Carnwenhan", sub="Kali"}
+    sets.SongDWDuration = {main="Carnwenhan", sub="Kali"}
 
     sets.Obi = {waist="Hachirin-no-Obi"}
-    -- sets.Carnwenhan = {main="Carnwenhan", sub="Ternion Dagger +1"}
+    sets.Carnwenhan = {main="Carnwenhan", sub="Blurred Knife +1"}
     -- sets.Twashtar = {main="Twashtar", sub="Taming Sari"}
     sets.Tauret = {main="Tauret", sub="Gleti's Knife"}
     sets.Naegling = {main="Naegling", sub="Gleti's Knife"}
@@ -760,7 +769,7 @@ end
 function job_post_midcast(spell, action, spellMap, eventArgs)
     if spell.type == 'BardSong' then
         if player.status ~= 'Engaged' and state.WeaponLock.value == false and (player.sub_job == 'DNC' or player.sub_job == 'NIN') then
-            -- equip(sets.SongDWDuration)
+            equip(sets.SongDWDuration)
         end
     end
 end

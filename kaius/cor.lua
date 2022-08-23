@@ -292,7 +292,7 @@ function init_gear_sets()
         ammo=gear.RAccbullet,
         -- ear1="Beyla Earring",
         ear2="Telos Earring",
-        -- neck="Iskur Gorget",
+        neck="Iskur Gorget",
         ring2="Hajduk Ring +1",
         waist="K. Kachina Belt +1",
     })
@@ -301,7 +301,7 @@ function init_gear_sets()
 
     sets.precast.WS['Last Stand'].Acc = set_combine(sets.precast.WS['Last Stand'], {
         ammo=gear.RAccbullet,
-        -- neck="Iskur Gorget",
+        neck="Iskur Gorget",
         -- ear1="Beyla Earring",
         ear2="Telos Earring",
         ring2="Hajduk Ring +1",
@@ -317,7 +317,7 @@ function init_gear_sets()
         feet=gear.Relic.Feet,
         neck={ name="Comm. Charm +2", augments={'Path: A',}},
         waist="Svelt. Gouriz +1",
-        left_ring="Arvina Ringlet +1",
+        left_ring="Dingir Ring",
         right_ring="Epaminondas's Ring",
         ear1="Friomisi Earring",
         ear2="Sortiarius Earring",
@@ -335,7 +335,7 @@ function init_gear_sets()
         feet=gear.Relic.Feet,
         neck={ name="Comm. Charm +2", augments={'Path: A',}},
         waist="Svelt. Gouriz +1",
-        left_ring="Arvina Ringlet +1",
+        left_ring="Dingir Ring",
         right_ring="Archon Ring",
         ear1="Friomisi Earring",
         ear2={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
@@ -410,7 +410,7 @@ function init_gear_sets()
         waist="Skrymir Cord",      
         ear1="Friomisi Earring",   
         ear2="Sortiarius Earring",     
-        left_ring="Arvina Ringlet +1",
+        left_ring="Dingir Ring",
         right_ring="Cacoethic Ring",
         back=gear.COR_TP_Cape,
     }
@@ -458,7 +458,7 @@ function init_gear_sets()
         hands=gear.Malignance_hands,
         legs="Ikenga's Trousers",
         feet=gear.Malignance_feet,
-        neck="Rep. Plat. Medal",
+        neck="Iskur Gorget",
         ear1="Enervating Earring",
         ear2="Telos Earring",
         ring1=gear.Chirich_1,

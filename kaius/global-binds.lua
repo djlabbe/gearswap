@@ -76,7 +76,7 @@
     send_command('bind @numpad6 input /ma "Qultada" <me>')
     
     send_command('bind @numpad1 input /ma "Koru-Moru" <me>')
-    send_command('bind @numpad2 input /ma "Sylvie (UC)" <me>')
+    send_command('bind @numpad2 input /ma "Shantotto II" <me>')
     send_command('bind @numpad3 input /ma "Cornelia" <me>')
 
-    send_command('bind @numpad0 input /ma "Kupipi" <me>')
+    send_command('bind @numpad0 input /ma "Yoran-Oran (UC)" <me>')

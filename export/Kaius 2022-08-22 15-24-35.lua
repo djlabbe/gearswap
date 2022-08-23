@@ -1,0 +1,17 @@
+sets.exported={
+    main={ name="Carnwenhan", augments={'Path: A',}},
+    sub={ name="Ternion Dagger +1", augments={'Path: A',}},
+    range="Gjallarhorn",
+    head="Nyame Helm",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Fili Cothurnes +1",
+    neck={ name="Warder's Charm +1", augments={'Path: A',}},
+    waist="Carrier's Sash",
+    left_ear="Infused Earring",
+    right_ear="Eabani Earring",
+    left_ring="Moonlight Ring",
+    right_ring="Warp Ring",
+    back={ name="Intarabus's Cape", augments={'CHR+20','Accuracy+20 Attack+20','CHR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
+}

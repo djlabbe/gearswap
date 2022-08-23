@@ -91,7 +91,7 @@ function user_setup()
 
     gear.Artifact = { }
     gear.Artifact.Head = { name= "Hachiya Hatsu. +3" }
-    gear.Artifact.Feet = { name= "Hachi. Kyahan +1" }
+    gear.Artifact.Feet = { name= "Hachiya  Kyahan +3" }
 
     gear.Relic = { }
     gear.Relic.Head = { name= "Mochizuki Hatsuburi +3" }
@@ -468,10 +468,10 @@ function init_gear_sets()
         hands=gear.Malignance_hands,
         legs=gear.Malignance_legs,
         feet=gear.Malignance_feet,
-        -- neck="Iskur Gorget",
+        neck="Iskur Gorget",
         ear1="Enervating Earring",
         ear2="Telos Earring",
-        -- ring1="Dingir Ring",
+        ring1="Dingir Ring",
         ring2="Hajduk Ring +1",
         back=gear.NIN_TP_Cape,
         waist="Yemaya Belt",
@@ -543,11 +543,11 @@ function init_gear_sets()
 
     sets.engaged.MidAcc.MidHaste = set_combine(sets.engaged.LowAcc.MidHaste, {
         ring1=gear.Chirich_1,
-        -- ring2="Ilabrat Ring",
+        ring2="Ilabrat Ring",
     })
 
     sets.engaged.HighAcc.MidHaste = set_combine(sets.engaged.LowAcc.MidHaste, {
-        -- ring1="Regal Ring",
+        ring1="Regal Ring",
         ring2=gear.Chirich_2,
     })
 
@@ -576,11 +576,11 @@ function init_gear_sets()
     sets.engaged.MidAcc.MaxHaste = set_combine(sets.engaged.LowAcc.MaxHaste, {
         right_ear="Cessance Earring",
         left_ring=gear.Chirich_1,
-        -- right_ring="Ilabrat Ring",
+        right_ring="Ilabrat Ring",
     })
 
     sets.engaged.HighAcc.MaxHaste = set_combine(sets.engaged.MidAcc.MaxHaste, {
-        -- left_ring="Regal Ring",
+        left_ring="Regal Ring",
         right_ring=gear.Chirich_2,
         -- waist="Olseni Belt",
     })
@@ -591,7 +591,7 @@ function init_gear_sets()
         body=gear.Malignance_body, --9/9
         hands=gear.Malignance_hands, --5/5
         feet=gear.Malignance_feet, --4/4
-        right_ring="Defending Ring", --10/10
+        -- right_ring="Defending Ring", --10/10
         -- waist="Engraved Belt",
         -- ear2="Eabani Earring",
         -- back = 5%
@@ -687,7 +687,7 @@ function init_gear_sets()
     -- sets.buff.Sange = {ammo="Hachiya Shuriken"}
 
     sets.magic_burst = {
-        -- feet="Hachiya Kyahan +3",
+        feet="Hachiya Kyahan +3",
         -- ring1="Locus Ring",
         ring2="Mujin Band", --(5)
     }
@@ -697,13 +697,12 @@ function init_gear_sets()
     sets.TreasureHunter = {
         head="Volte Cap", 
         -- hands=gear.Herc_TH_hands, 
-        -- waist="Chaac Belt"
+        waist="Chaac Belt"
     }
 
     sets.Kikoku = {main="Kikoku", sub="Kunimitsu"}
     sets.Heishi = {main="Heishi Shorinken", sub="Kunimitsu"}
-    sets.Naegling = {main="Naegling", sub="Uzura +2"}   
-    -- sets.Hitaki = {main="Heishi Shorinken", sub="Hitaki"}
+    sets.Naegling = {main="Naegling", sub="Uzura +2"}
     sets.Tanking = {main="Fudo Masamune", sub="Kunimitsu"}
 
 end

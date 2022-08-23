@@ -466,7 +466,7 @@ function init_gear_sets()
 
     sets.midcast['Enhancing Magic'] = {
         main=gear.Colada_ENH,
-        -- sub="Ammurapi Shield",
+        sub="Ammurapi Shield",
         head=gear.Telchine_ENH_head,
         body=gear.Relic_Body,
         hands=gear.Artifact_Hands,
@@ -479,7 +479,7 @@ function init_gear_sets()
 
     sets.midcast.EnhancingDuration = {
         main=gear.Colada_ENH,
-        -- sub="Ammurapi Shield",
+        sub="Ammurapi Shield",
         head=gear.Telchine_ENH_head,
         body=gear.Relic_Body,
         hands=gear.Artifact_Hands,
@@ -510,7 +510,7 @@ function init_gear_sets()
 
     sets.midcast.Regen = set_combine(sets.midcast.EnhancingDuration, {
         main="Bolelabunga",
-        -- sub="Ammurapi Shield",
+        sub="Ammurapi Shield",
         head=gear.Telchine_ENH_head,
         body=gear.Telchine_ENH_body,
         hands=gear.Telchine_ENH_hands,
@@ -593,7 +593,7 @@ function init_gear_sets()
 
     sets.midcast.IntEnfeebles = set_combine(sets.midcast.MndEnfeebles, {
         main="Maxentius",
-        -- sub="Ammurapi Shield",
+        sub="Ammurapi Shield",
         main="Contemplator +1",
         sub="Enki Strap",
         waist="Acuity Belt +1",
@@ -601,7 +601,7 @@ function init_gear_sets()
 
     sets.midcast.IntEnfeeblesAcc = set_combine(sets.midcast.IntEnfeebles, {
         main="Crocea Mors",
-        -- sub="Ammurapi Shield",
+        sub="Ammurapi Shield",
         range="Ullr",
         ammo=empty,
         body=gear.Artifact_Body,
@@ -652,7 +652,7 @@ function init_gear_sets()
 
     sets.midcast['Dark Magic'] = {
         -- main="Rubicundity",
-        -- sub="Ammurapi Shield",
+        sub="Ammurapi Shield",
         ammo="Pemphredo Tathlum",
         head=gear.Artifact_Head,
         body="Carm. Sc. Mail +1",
@@ -763,6 +763,8 @@ function init_gear_sets()
     })
 
     sets.idle.Town = {
+        main="Crocea Mors",
+        sub="Ammurapi Shield",
         ammo="Regal Gem",
         head=gear.Relic_Head,
         body=gear.Relic_Body,

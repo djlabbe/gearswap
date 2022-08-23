@@ -67,7 +67,6 @@ function get_sets()
 
     -- Load and initialize the include file.
     include('Mote-Include.lua')
-    include('jse.lua')
 end
 
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
@@ -162,11 +161,13 @@ function init_gear_sets()
     -- Fast cast sets for spells
 
     sets.precast.FC = {
-        main="Marin Staff +1",--3
+        -- main="Marin Staff +1",--3
+        main="Malignance Pole", -- 150HP
         ammo="Incantor Stone", --2
         head="Vanya Hood", --10
         neck="Cleric's Torque +2", --4
-        ear1="Loquacious earring", --2
+        -- ear1="Loquacious earring", --2
+        ear1="Odnowa Earring +1",
         ear2="Malignance earring", --4
         body="Inyanga jubbah +2", --14
         hands="Volte gloves", --6
@@ -183,11 +184,11 @@ function init_gear_sets()
     })
 
     sets.precast.FC.Cure = set_combine(sets.precast.FC, {
-        ammo="Impatiens", --(2)
+        -- ammo="Impatiens", --(2)
         -- head="Piety Cap +3", --15
         feet="Kaykaus Boots +1", --7
-        ring1="Lebeche Ring", --(2)
-        ring2="Weather. Ring", --6(4)
+        left_ring="Weather. Ring", --5
+        right_ring="Kishar Ring", --2
         -- back="Perimede Cape", --(4)
         waist="Shinjutsu-no-Obi +1", --5
     })
@@ -266,8 +267,10 @@ function init_gear_sets()
         hands="Kaykaus Cuffs +1",
         legs="Ebers Pant. +1",
         feet="Kaykaus Boots +1", --11(+2)/(-12)    
-        ring1="Lebeche Ring", --3/(-5)
-        ring2="Mephitas's Ring +1",
+        -- ring1="Lebeche Ring", --3/(-5)
+        -- ring2="Mephitas's Ring +1",
+        ring1="Gelatinous Ring +1",
+        ring2="Menelaus's Ring",
         back=gear.WHM_Cure_Cape, --10
         waist="Shinjutsu-no-Obi +1",
       }
@@ -343,7 +346,7 @@ function init_gear_sets()
     -- 110 total Enhancing Magic Skill; caps even without Light Arts
     sets.midcast['Enhancing Magic'] = {
         -- main="Gada",
-        -- sub="Ammurapi Shield",
+        sub="Ammurapi Shield",
         head=gear.Telchine_ENH_head,
         body=gear.Telchine_ENH_body,
         hands=gear.Telchine_ENH_hands,
@@ -351,7 +354,7 @@ function init_gear_sets()
         feet=gear.Telchine_ENH_feet,
         neck="Incanter's Torque",
         ear1="Mimir Earring",
-        -- ear2="Andoaa Earring",
+        ear2="Andoaa Earring",
         ring1=gear.Stikini_1,
         ring2=gear.Stikini_2,
         back="Fi Follet Cape +1",
@@ -360,7 +363,7 @@ function init_gear_sets()
 
     sets.midcast.EnhancingDuration = {
         -- main="Gada",
-        -- sub="Ammurapi Shield",
+        sub="Ammurapi Shield",
         head=gear.Telchine_ENH_head,
         body=gear.Telchine_ENH_body,
         hands=gear.Telchine_ENH_hands,
@@ -370,8 +373,8 @@ function init_gear_sets()
         }
 
     sets.midcast.Regen = set_combine(sets.midcast.EnhancingDuration, {
-        -- main="Bolelabunga",
-        -- sub="Ammurapi Shield",
+        main="Bolelabunga",
+        sub="Ammurapi Shield",
         head="Inyanga Tiara +2",
         -- body="Piety Briault +3",
         body=gear.Telchine_ENH_body,
@@ -399,7 +402,7 @@ function init_gear_sets()
 
     sets.midcast.Aquaveil = set_combine(sets.midcast.EnhancingDuration, {
         -- main="Vadose Rod",
-        -- sub="Ammurapi Shield",
+        sub="Ammurapi Shield",
         ammo="Staunch Tathlum +1",
         hands="Regal Cuffs",
         ear1="Halasz Earring",
@@ -415,7 +418,7 @@ function init_gear_sets()
 
     sets.midcast.BarElement = set_combine(sets.midcast['Enhancing Magic'], {
         main="Beneficus",
-        -- sub="Ammurapi Shield",
+        sub="Ammurapi Shield",
         head="Ebers Cap +1",
         body="Ebers Bliaut +1",
         hands="Ebers Mitts +1",
@@ -430,7 +433,7 @@ function init_gear_sets()
 
     sets.midcast['Divine Magic'] = {
         -- main="Yagrush",
-        -- sub="Ammurapi Shield",
+        sub="Ammurapi Shield",
         ammo="Ghastly Tathlum +1",
         -- head="Theophany Cap +3",
         -- body="Theo. Briault +3",
@@ -448,7 +451,7 @@ function init_gear_sets()
 
     sets.midcast.Banish = set_combine(sets.midcast['Divine Magic'], {
         -- main="Daybreak",
-        -- sub="Ammurapi Shield",
+        sub="Ammurapi Shield",
         head=empty;
         body="Cohort Cloak +1",
         hands="Fanatic Gloves",
@@ -464,7 +467,7 @@ function init_gear_sets()
 
     sets.midcast['Dark Magic'] = {
         -- main="Rubicundity",
-        -- sub="Ammurapi Shield",
+        sub="Ammurapi Shield",
         ammo="Pemphredo Tathlum",
         head="Pixie Hairpin +1",
         body="Theo. Briault +3",
@@ -478,12 +481,12 @@ function init_gear_sets()
         ring2="Archon Ring",
         back="Aurist's Cape +1",
         waist="Fucho-no-Obi",
-        }
+    }
 
     -- Custom spell classes
     sets.midcast.MndEnfeebles = {
         -- main="Yagrush",
-        -- sub="Ammurapi Shield",
+        sub="Ammurapi Shield",
         ammo="Pemphredo Tathlum",
         head=empty;
         body="Cohort Cloak +1",
