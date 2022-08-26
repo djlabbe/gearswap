@@ -369,7 +369,7 @@ function init_gear_sets()
     sets.precast.WS['Judgment'].Acc = sets.precast.WS['True Strike'].Acc
 
     sets.precast.WS['Black Halo'] = set_combine(sets.precast.WS['Savage Blade'], {
-        -- ear2="Regal Earring",
+        ear2="Regal Earring",
         waist="Sailfi Belt +1",
     })
 
@@ -463,7 +463,7 @@ function init_gear_sets()
 
     sets.midcast['Blue Magic'].PhysicalInt = set_combine(sets.midcast['Blue Magic'].Physical, {
         ammo="Ghastly Tathlum +1",
-        -- ear2="Regal Earring",
+        ear2="Regal Earring",
         ring1="Shiva Ring +1",
         ring2="Metamor. Ring +1",
         back="Aurist's Cape +1",
@@ -471,14 +471,14 @@ function init_gear_sets()
     })
 
     sets.midcast['Blue Magic'].PhysicalMnd = set_combine(sets.midcast['Blue Magic'].Physical, {
-        -- ear2="Regal Earring",
+        ear2="Regal Earring",
         ring1=gear.Stikini_1,
         ring2=gear.Stikini_2,
         back="Aurist's Cape +1",
     })
 
     sets.midcast['Blue Magic'].PhysicalChr = set_combine(sets.midcast['Blue Magic'].Physical, {
-        -- ear1="Regal Earring", 
+        ear1="Regal Earring", 
         ear2="Enchntr. Earring +1"
     })
 
@@ -491,7 +491,7 @@ function init_gear_sets()
         feet=gear.Amalric_D_feet,
         neck="Baetyl Pendant",
         ear1="Friomisi Earring",
-        -- ear2="Regal Earring",
+        ear2="Regal Earring",
         ear2="Sortiarius Earring",
         ring1="Shiva Ring +1",
         ring2="Metamor. Ring +1",
@@ -538,7 +538,7 @@ function init_gear_sets()
 
     sets.midcast['Blue Magic'].MagicalChr = set_combine(sets.midcast['Blue Magic'].Magical, {
         ammo="Voluspa Tathlum",
-        -- ear1="Regal Earring",
+        ear1="Regal Earring",
         ear2="Enchntr. Earring +1"
     })
 
@@ -551,7 +551,7 @@ function init_gear_sets()
         feet=gear.Malignance_feet,
         neck="Mirage Stole +2",
         -- ear1="Digni. Earring",
-        -- ear2="Regal Earring",
+        ear2="Regal Earring",
         ring1=gear.Stikini_1,
         ring2=gear.Stikini_2,
         back="Aurist's Cape +1",
@@ -583,7 +583,7 @@ function init_gear_sets()
         -- legs="Assim. Shalwar +3",
         -- neck="Nuna Gorget +1",
         ear1="Mendi. Earring", -- 5
-        -- ear2="Regal Earring",
+        ear2="Regal Earring",
         ring1="Lebeche Ring", -- 3
         ring2=gear.Stikini_2,
         back="Oretan. Cape +1", --6

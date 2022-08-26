@@ -442,7 +442,7 @@ function init_gear_sets()
         -- feet="Theo. Duckbills +3",
         neck="Erra Pendant",
         -- ear1="Digni. Earring",
-        -- ear2="Regal Earring",
+        ear2="Regal Earring",
         ring1=gear.Stikini_1,
         ring2=gear.Stikini_2,
         back="Aurist's Cape +1",
