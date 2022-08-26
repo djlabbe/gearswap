@@ -91,7 +91,7 @@ function user_setup()
 
     gear.Artifact = { }
     gear.Artifact.Head = { name= "Hachiya Hatsu. +3" }
-    gear.Artifact.Feet = { name= "Hachiya  Kyahan +3" }
+    gear.Artifact.Feet = { name= "Hachiya Kyahan +3" }
 
     gear.Relic = { }
     gear.Relic.Head = { name= "Mochizuki Hatsuburi +3" }
@@ -375,10 +375,10 @@ function init_gear_sets()
         hands=gear.Relic.Hands,
         legs=gear.Relic.Legs,
         feet=gear.Herc_WS_feet,
-        neck={ name="Ninja Nodowa +2", augments={'Path: A',}},
-        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-        left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-        right_ear={ name="Lugra Earring +1", augments={'Path: A',}},
+        neck="Ninja Nodowa +2",
+        waist="Sailfi Belt +1",
+        left_ear="Moonshade Earring",
+        right_ear="Lugra Earring +1",
         left_ring="Gere Ring",
         right_ring="Epaminondas's Ring",
         back=gear.NIN_WS_Cape,
@@ -409,6 +409,9 @@ function init_gear_sets()
     -- Specific spells
     sets.midcast.Utsusemi = set_combine(sets.midcast.SpellInterrupt, {
         feet=gear.Empyrean.Feet,
+        ear1="Eabani Earring",
+        ear2="Odnowa Earring +1",
+        ring2="Defending Ring",
         -- back=gear.NIN_FC_Cape,
     })
 
@@ -428,7 +431,7 @@ function init_gear_sets()
         waist="Orpheus's Sash",
         left_ear="Hermetic Earring",
         right_ear="Friomisi Earring",
-        left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+        left_ring="Metamorph Ring +1",
         right_ring="Mujin Band",
         back=gear.NIN_TP_Cape,
     }
@@ -512,7 +515,7 @@ function init_gear_sets()
     })
 
     sets.engaged.MidAcc = set_combine(sets.engaged.LowAcc, {
-        -- ring2="Ilabrat Ring",
+        ring2="Ilabrat Ring",
         ring1=gear.Chirich_1,
     })
 
@@ -563,7 +566,7 @@ function init_gear_sets()
         neck="Ninja Nodowa +2",
         waist="Sailfi Belt +1",
         left_ear="Telos Earring",
-        right_ear="Crep. Earring",
+        right_ear="Dedition Earring",
         left_ring="Gere Ring",
         right_ring="Epona's Ring",
         back=gear.NIN_TP_Cape,
@@ -695,13 +698,14 @@ function init_gear_sets()
 --    sets.buff.Migawari = {body="Iga Ningi +2"}
 
     sets.TreasureHunter = {
+        ammo="Perfect Lucky Egg",
         head="Volte Cap", 
         -- hands=gear.Herc_TH_hands, 
         waist="Chaac Belt"
     }
 
     sets.Kikoku = {main="Kikoku", sub="Kunimitsu"}
-    sets.Heishi = {main="Heishi Shorinken", sub="Kunimitsu"}
+    sets.Heishi = {main="Heishi Shorinken", sub="Ternion Dagger +1"}
     sets.Naegling = {main="Naegling", sub="Uzura +2"}
     sets.Tanking = {main="Fudo Masamune", sub="Kunimitsu"}
 

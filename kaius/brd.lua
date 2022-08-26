@@ -359,13 +359,13 @@ function init_gear_sets()
     sets.midcast.HonorMarch = {range="Marsyas", hands=gear.Empyrean_Hands}
     sets.midcast.Lullaby = {
         body=gear.Empyrean_Body,
-        -- hands=gear.Artifact_Hands,
+        hands=gear.Artifact_Hands,
     }
     sets.midcast.Lullaby = {body=gear.Empyrean_Body}
     sets.midcast.Madrigal = {head=gear.Empyrean_Head}
     -- sets.midcast.Mambo = {feet="Mou. Crackows +1"}
     sets.midcast.March = {hands=gear.Empyrean_Hands}
-    -- sets.midcast.Minne = {legs="Mou. Seraweels +1"}
+    sets.midcast.Minne = {legs="Mou. Seraweels +1"}
     sets.midcast.Minuet = {body=gear.Empyrean_Body}
     sets.midcast.Paeon = {head=gear.Artifact_Head}
     -- sets.midcast.Threnody = {body="Mou. Manteel +1"}
@@ -397,7 +397,7 @@ function init_gear_sets()
 
     -- For song defbuffs (duration primary, accuracy secondary)
     sets.midcast.SongEnfeeble = {
-        main=gear.Kali_Song,
+        main="Carnwenhan",
         sub="Tauret",
         range="Gjallarhorn",
         neck="Incanter's Torque",
@@ -447,7 +447,7 @@ function init_gear_sets()
     -- Other general spells and classes.
     sets.midcast.Cure = {
         main="Daybreak", --30
-        sub="Genmei Shield",
+        sub="Ammurapi Shield",
         head=gear.Kaykaus_B_head, --11
         body=gear.Kaykaus_A_body, --(+4)/(-6)
         hands=gear.Kaykaus_D_hands, --11(+2)/(-6)

@@ -52,7 +52,7 @@ function define_global_sets()
     gear.Colada_ENH = { name="Colada", augments={'Enh. Mag. eff. dur. +3','INT+5','Mag. Acc.+12','"Mag.Atk.Bns."+16',}}
 
     -- gear.Gada_ENF = {name="Gada", augments={'"Conserve MP"+2','MND+14','Mag. Acc.+20','"Mag.Atk.Bns."+2','DMG:+7',}}
-    -- gear.Gada_ENH = {name="Gada", augments={'Enh. Mag. eff. dur. +6','MND+9','Mag. Acc.+9','"Mag.Atk.Bns."+1','DMG:+4',}}
+    gear.Gada_ENH = { name="Gada", augments={'Enh. Mag. eff. dur. +6','Mag. Acc.+16',}}
 
     gear.Kali_Idle = {name="Kali", augments={'MP+60','Mag. Acc.+20','"Refresh"+1',}}
     gear.Kali_Song = {name="Kali", augments={'DMG:+15','CHR+15','Mag. Acc.+15',}}
