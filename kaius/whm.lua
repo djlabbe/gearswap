@@ -345,7 +345,7 @@ function init_gear_sets()
 
     -- 110 total Enhancing Magic Skill; caps even without Light Arts
     sets.midcast['Enhancing Magic'] = {
-        -- main="Gada",
+        main=gear.Gada_ENH,
         sub="Ammurapi Shield",
         head=gear.Telchine_ENH_head,
         body=gear.Telchine_ENH_body,
@@ -362,7 +362,7 @@ function init_gear_sets()
     }
 
     sets.midcast.EnhancingDuration = {
-        -- main="Gada",
+        main=gear.Gada_ENH,
         sub="Ammurapi Shield",
         head=gear.Telchine_ENH_head,
         body=gear.Telchine_ENH_body,

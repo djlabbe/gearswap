@@ -232,7 +232,7 @@ function init_gear_sets()
         })
 
     sets.midcast.Cursna = set_combine(sets.midcast.Cure, {
-        -- main=gear.Gada_ENH,
+        main=gear.Gada_ENH,
         sub="Genmei Shield",
         head="Vanya Hood",
         -- body="Vanya Robe",
@@ -246,7 +246,7 @@ function init_gear_sets()
     })
 
     sets.midcast['Enhancing Magic'] = {
-    --     main=gear.Gada_ENH,
+        main=gear.Gada_ENH,
         sub="Ammurapi Shield",
         head=gear.Telchine_ENH_head,
         body=gear.Telchine_ENH_body,
@@ -263,7 +263,7 @@ function init_gear_sets()
         }
 
     sets.midcast.EnhancingDuration = {
-    --     main=gear.Gada_ENH,
+        main=gear.Gada_ENH,
         sub="Ammurapi Shield",
         head=gear.Telchine_ENH_head,
         body=gear.Telchine_ENH_body,

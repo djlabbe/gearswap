@@ -363,13 +363,13 @@ function init_gear_sets()
     sets.midcast.HonorMarch = {range="Marsyas", hands=gear.Empyrean_Hands}
     sets.midcast.Lullaby = {
         body=gear.Empyrean_Body,
-        -- hands=gear.Artifact_Hands,
+        hands=gear.Artifact_Hands,
     }
     sets.midcast.Lullaby = {body=gear.Empyrean_Body}
     sets.midcast.Madrigal = {head=gear.Empyrean_Head}
     -- sets.midcast.Mambo = {feet="Mou. Crackows +1"}
     sets.midcast.March = {hands=gear.Empyrean_Hands}
-    -- sets.midcast.Minne = {legs="Mou. Seraweels +1"}
+    sets.midcast.Minne = {legs="Mou. Seraweels +1"}
     sets.midcast.Minuet = {body=gear.Empyrean_Body}
     sets.midcast.Paeon = {head=gear.Artifact_Head}
     -- sets.midcast.Threnody = {body="Mou. Manteel +1"}
@@ -401,7 +401,7 @@ function init_gear_sets()
 
     -- For song defbuffs (duration primary, accuracy secondary)
     sets.midcast.SongEnfeeble = {
-        main=gear.Kali_Song,
+        main="Carnwenhan",
         sub="Tauret",
         range="Gjallarhorn",
         neck="Incanter's Torque",

@@ -80,7 +80,7 @@ function user_setup()
     include('Global-Binds.lua')
 
     gear.Relic = { }
-    gear.Relic.Head = { name= "Bagua Galero +1" }
+    gear.Relic.Head = { name= "Bagua Galero +3" }
     gear.Relic.Body = { name= "Bagua Tunic +1" }
     gear.Relic.Hands = { name= "Bagua Mitaines +1" }
     gear.Relic.Legs = { name= "Bagua Pants +1" }
@@ -222,7 +222,7 @@ function init_gear_sets()
         -- ear1="Calamitous Earring",
         -- ear2="Gifted Earring",
         -- neck="Reti Pendant",
-        ring1={name="Stikini Ring +1", bag="wardrobe3"},
+        ring1={name="Stikini Ring +1", bag="wardorbe3"},
         ring2={name="Stikini Ring +1", bag="wardrobe4"},
         back=gear.GEO_Pet_Cape,
         waist="Shinjutsu-no-Obi +1",
@@ -232,7 +232,7 @@ function init_gear_sets()
         head="Vanya Hood",
         legs=gear.Relic.Legs,
         -- feet="Azimuth Gaiters +1",
-        back={ name="Nantosuelta's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+5','Pet: "Regen"+10',}},
+        back=gear.GEO_Pet_Cape,
     })
 
     sets.midcast.Cure = {
@@ -254,7 +254,7 @@ function init_gear_sets()
 
     sets.midcast.Curaga = set_combine(sets.midcast.Cure, {
         -- neck="Nuna Gorget +1",
-        -- ring2="Metamor. Ring +1",
+        ring2="Metamor. Ring +1",
         -- waist="Luminary Sash",
     })
 
@@ -373,21 +373,22 @@ function init_gear_sets()
     -- Elemental Magic sets
 
     sets.midcast['Elemental Magic'] = {
-        -- main="Raetic Staff +1",
-        -- sub="Enki Strap",
-        head=gear.Relic.Head,
-        -- body="Amalric Doublet +1",
-        -- hands="Amalric Gages +1",
-        -- legs="Amalric Slops +1",
-        -- feet="Amalric Nails +1",
-        -- neck="Saevus Pendant +1",
-        -- ear1="Malignance Earring",
-        -- ear2="Regal Earring",
-        -- ring1="Freke Ring",
-        ring2="Metamor. Ring +1",
-        -- back=gear.GEO_MAB_Cape,
-        -- waist="Refoccilation Stone",
-        }
+        main={ name="Solstice", augments={'INT+15','"Mag.Atk.Bns."+10','"Refresh"+1',}},
+        sub="Culminus",
+        range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
+        head={ name="Bagua Galero +3", augments={'Enhances "Primeval Zeal" effect',}},
+        body={ name="Merlinic Jubbah", augments={'"Mag.Atk.Bns."+28','"Fast Cast"+7','Mag. Acc.+13',}},
+        hands="Geo. Mitaines +2",
+        legs={ name="Bagua Pants +1", augments={'Enhances "Mending Halation" effect',}},
+        feet={ name="Bagua Sandals +3", augments={'Enhances "Radial Arcana" effect',}},
+        neck="Sanctity Necklace",
+        waist="Eschan Stone",
+        left_ear="Sortiarius Earring",
+        right_ear="Friomisi Earring",
+        left_ring="Stikini Ring +1",
+        right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+        back=gear.GEO_MB_Cape,
+    }
 
     sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'], {
         -- main="Idris",
