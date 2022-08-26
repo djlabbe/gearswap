@@ -397,7 +397,7 @@ function init_gear_sets()
     -- Custom spell classes
     sets.midcast.MndEnfeebles = {
         main="Daybreak",
-        -- sub="Ammurapi Shield",
+        sub="Ammurapi Shield",
         ammo="Pemphredo Tathlum",
         head=empty;
         body="Cohort Cloak +1",
@@ -415,7 +415,7 @@ function init_gear_sets()
 
     sets.midcast.IntEnfeebles = set_combine(sets.midcast.MndEnfeebles, {
         main="Maxentius",
-        -- sub="Ammurapi Shield",
+        sub="Ammurapi Shield",
         -- head="Acad. Mortar. +3",
         -- body="Acad. Gown +3",
         legs=gear.Chironic_ENF_legs,
@@ -426,7 +426,7 @@ function init_gear_sets()
 
     sets.midcast['Dark Magic'] = {
         -- main="Rubicundity",
-        -- sub="Ammurapi Shield",
+        sub="Ammurapi Shield",
         ammo="Pemphredo Tathlum",
         -- head="Acad. Mortar. +3",
         -- body="Acad. Gown +3",
@@ -534,7 +534,7 @@ function init_gear_sets()
 
     sets.midcast.LightHelix = set_combine(sets.midcast.Helix, {
         main="Daybreak",
-        -- sub="Ammurapi Shield",
+        sub="Ammurapi Shield",
         ring2="Weather. Ring"
     })
 

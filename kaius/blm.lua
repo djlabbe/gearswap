@@ -14,9 +14,6 @@
 --              [ ALT+` ]           Toggle Magic Burst Mode
 --              [ WIN+D ]           Toggle Death Casting Mode Toggle
 --
---  Spells:     [ CTRL+` ]          Stun
---              [ ALT+P ]           Shock Spikes
---
 --  Weapons:    [ CTRL+W ]          Toggles Weapon Lock
 --
 --  WS:         [ CTRL+Numpad0 ]    Myrkr
@@ -72,12 +69,8 @@ function user_setup()
     send_command('bind !g input /ma "Gravity" <t>')
     send_command('bind !b input /ma "Bind" <t>')
 
-
     set_macro_page(1, 4)
     send_command('wait 2; input /lockstyleset 4')
-
-    state.Auto_Kite = M(false, 'Auto_Kite')
-    moving = false
 end
 
 -- Called when this job file is unloaded (eg: job change)
@@ -112,7 +105,7 @@ function init_gear_sets()
     -- Fast cast sets for spells
     sets.precast.FC = {
         head="Vanya Hood", --10
-        body=gear.Merl_FC_body, --13
+        body="Zendik Robe", --13
         legs="Jhakri Slops +2", --3
         feet="Regal Pumps +1", --7
         ear1="Malignance Earring", --4
@@ -120,7 +113,8 @@ function init_gear_sets()
         ring1="Jhakri Ring", --4
         ring2="Weather. Ring", --4
         waist="Embla Sash", --5
-    }
+        back="Fi Follet Cape +1", --10
+    } --63
 
     sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {
         waist="Siegel Sash",
@@ -135,7 +129,12 @@ function init_gear_sets()
 
     sets.precast.FC.Curaga = sets.precast.FC.Cure
     -- sets.precast.FC.Impact = set_combine(sets.precast.FC, {head=empty, body="Twilight Cloak", waist="Shinjutsu-no-Obi +1"})
-    -- sets.precast.FC.Dispelga = set_combine(sets.precast.FC, {main="Daybreak", sub="Ammurapi Shield", waist="Shinjutsu-no-Obi +1"})
+    sets.precast.FC.Dispelga = set_combine(sets.precast.FC, {
+        main="Daybreak", 
+        sub="Ammurapi Shield", 
+        waist="Shinjutsu-no-Obi +1"
+    })
+
     sets.precast.Storm = set_combine(sets.precast.FC, {ring2=gear.Stikini_2,})
 
     sets.precast.FC.DeathMode = {
@@ -178,19 +177,19 @@ function init_gear_sets()
     -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
 
     sets.precast.WS['Vidohunir'] = {
-        -- ammo="Ghastly Tathlum +1",
-        -- head="Pixie Hairpin +1",
-        -- body="Amalric Doublet +1",
-        -- hands="Amalric Gages +1",
+        ammo="Ghastly Tathlum +1",
+        head="Pixie Hairpin +1",
+        body="Amalric Doublet +1",
+        hands="Amalric Gages +1",
         -- legs="Merlinic Shalwar",
         -- feet="Merlinic Crackows",
-        -- neck="Baetyl Pendant",
-        -- ear1="Malignance Earring",
+        neck="Baetyl Pendant",
+        ear1="Malignance Earring",
         -- ear2="Moonshade Earring",
-        -- ring1="Epaminondas's Ring",
-        -- ring2="Archon Ring",
+        ring1="Epaminondas's Ring",
+        ring2="Archon Ring",
         -- back=gear.BLM_MAB_Cape,
-        -- waist="Acuity Belt +1",
+        waist="Acuity Belt +1",
     } -- INT
 
     sets.precast.WS['Myrkr'] = {
@@ -248,7 +247,7 @@ function init_gear_sets()
 
     sets.midcast['Enhancing Magic'] = {
     --     main=gear.Gada_ENH,
-    --     sub="Ammurapi Shield",
+        sub="Ammurapi Shield",
         head=gear.Telchine_ENH_head,
         body=gear.Telchine_ENH_body,
         hands=gear.Telchine_ENH_hands,
@@ -256,7 +255,7 @@ function init_gear_sets()
         feet=gear.Telchine_ENH_feet,
         neck="Incanter's Torque",
         ear1="Mimir Earring",
-    --     ear2="Andoaa Earring",
+        ear2="Andoaa Earring",
         ring1=gear.Stikini_1,
         ring2=gear.Stikini_2,
         back="Fi Follet Cape +1",
@@ -265,7 +264,7 @@ function init_gear_sets()
 
     sets.midcast.EnhancingDuration = {
     --     main=gear.Gada_ENH,
-    --     sub="Ammurapi Shield",
+        sub="Ammurapi Shield",
         head=gear.Telchine_ENH_head,
         body=gear.Telchine_ENH_body,
         hands=gear.Telchine_ENH_hands,
@@ -275,8 +274,8 @@ function init_gear_sets()
         }
 
     sets.midcast.Regen = set_combine(sets.midcast.EnhancingDuration, {
-    --     main="Bolelabunga",
-    --     sub="Ammurapi Shield",
+        main="Bolelabunga",
+        sub="Ammurapi Shield",
         head=gear.Telchine_ENH_head,
         body=gear.Telchine_ENH_body,
         hands=gear.Telchine_ENH_hands,
@@ -284,12 +283,12 @@ function init_gear_sets()
         feet=gear.Telchine_ENH_feet,
         })
 
-    -- sets.midcast.Refresh = set_combine(sets.midcast.EnhancingDuration, {
-    --     head="Amalric Coif +1",
-    --     --feet="Inspirited Boots",
-    --     waist="Gishdubar Sash",
-    --     back="Grapevine Cape",
-    --     })
+    sets.midcast.Refresh = set_combine(sets.midcast.EnhancingDuration, {
+        head="Amalric Coif +1",
+        --feet="Inspirited Boots",
+        waist="Gishdubar Sash",
+        -- back="Grapevine Cape",
+    })
 
     sets.midcast.Stoneskin = set_combine(sets.midcast.EnhancingDuration, {
         neck="Nodens Gorget",
@@ -298,7 +297,7 @@ function init_gear_sets()
 
     sets.midcast.Aquaveil = set_combine(sets.midcast.EnhancingDuration, {
         -- main="Vadose Rod",
-        -- sub="Ammurapi Shield",
+        sub="Ammurapi Shield",
         ammo="Staunch Tathlum +1",
         head="Amalric Coif +1",
         hands="Regal Cuffs",
@@ -326,16 +325,20 @@ function init_gear_sets()
 
     sets.midcast.IntEnfeebles = set_combine(sets.midcast.MndEnfeebles, {
         main="Maxentius",
-        -- sub="Ammurapi Shield",
+        sub="Ammurapi Shield",
         waist="Acuity Belt +1",
      }) -- INT/Magic accuracy
 
     -- sets.midcast.ElementalEnfeeble = sets.midcast.IntEnfeebles
-    -- sets.midcast.Dispelga = set_combine(sets.midcast.IntEnfeebles, {main="Daybreak", sub="Ammurapi Shield", waist="Shinjutsu-no-Obi +1"})
+    sets.midcast.Dispelga = set_combine(sets.midcast.IntEnfeebles, {
+        main="Daybreak", 
+        sub="Ammurapi Shield", 
+        waist="Shinjutsu-no-Obi +1"
+    })
 
     sets.midcast['Dark Magic'] = {
         -- main="Rubicundity",
-        -- sub="Ammurapi Shield",
+        sub="Ammurapi Shield",
         ammo="Pemphredo Tathlum",
         head="Ea Hat +1",
         body="Ea. Houppe +1",
@@ -397,6 +400,7 @@ function init_gear_sets()
         main="Marin Staff +1",
         sub="Elan Strap +1",
         ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
+        head=empty;
         body={ name="Cohort Cloak +1", augments={'Path: A',}},
         hands=gear.Amalric_D_hands,
         legs=gear.Amalric_A_legs,
@@ -412,9 +416,9 @@ function init_gear_sets()
 
     sets.midcast['Elemental Magic'].DeathMode = set_combine(sets.midcast['Elemental Magic'], {
         -- main=gear.Grioavolr_MB,
-        -- sub="Enki Strap",
-        -- ammo="Ghastly Tathlum +1",
-        -- legs="Amalric Slops +1",
+        sub="Enki Strap",
+        ammo="Ghastly Tathlum +1",
+        legs="Amalric Slops +1",
         -- feet="Merlinic Crackows",
         -- back=gear.BLM_Death_Cape,
     })
@@ -569,7 +573,6 @@ function init_gear_sets()
     }
 
     sets.Obi = {waist="Hachirin-no-Obi"}
-    -- sets.CP = {back="Mecisto. Mantle"}
 
 end
 

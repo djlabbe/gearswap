@@ -102,7 +102,7 @@ function user_setup()
 
     gear.Empyrean = { }
     gear.Empyrean.Body = { name = "Hattori Ningi" }
-    gear.Empyrean.Body = { name = "Hattori Tekko +1" }
+    gear.Empyrean.Hands = { name = "Hattori Tekko +1" }
     gear.Empyrean.Feet = { name = "Hattori Kyahan +1" }
 
     gear.MovementFeet = { name="Danzo Sune-ate" }
@@ -176,7 +176,7 @@ function init_gear_sets()
 
     sets.precast.JA['Provoke'] = sets.Enmity
     sets.precast.JA['Mijin Gakure'] = { legs=gear.Relic.Legs }
-    sets.precast.JA['Futae'] = {hands="Hattori Tekko +1"}
+    sets.precast.JA['Futae'] = {hands=gear.Empyrean.Hands}
     sets.precast.JA['Sange'] = { body=gear.Relic.Body }
     sets.precast.JA['Innin'] = { head=gear.Relic.Head }
     sets.precast.JA['Yonin'] = { head=gear.Relic.Head }
@@ -307,16 +307,16 @@ function init_gear_sets()
     sets.precast.WS['Blade: Metsu'].Acc = set_combine(sets.precast.WS['Blade: Metsu'], {})
 
     sets.precast.WS['Blade: Ten'] = set_combine(sets.precast.WS, {
-        ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
+        ammo="Seeth. Bomblet +1",
         head=gear.Artifact.Head,
         body="Agony Jerkin +1",
         hands=gear.Relic.Hands,
         legs=gear.Relic.Legs,
         feet=gear.Relic.Feet,
         neck="Rep. Plat. Medal",
-        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-        left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-        right_ear={ name="Lugra Earring +1", augments={'Path: A',}},
+        waist="Sailfi Belt +1",
+        left_ear="Moonshade Earring",
+        right_ear="Lugra Earring +1"
         left_ring="Gere Ring",
         right_ring="Regal Ring",
         back=gear.NIN_WS_Cape,
@@ -336,7 +336,7 @@ function init_gear_sets()
         feet=gear.Relic_Feet,
         neck="Fotia Gorget",
         waist="Fotia Belt",
-        left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+        left_ear="Moonshade Earring",
         right_ear={ name="Lugra Earring +1", augments={'Path: A',}},
         left_ring="Gere Ring",
         right_ring="Regal Ring",
@@ -375,10 +375,10 @@ function init_gear_sets()
         hands=gear.Relic.Hands,
         legs=gear.Relic.Legs,
         feet=gear.Herc_WS_feet,
-        neck={ name="Ninja Nodowa +2", augments={'Path: A',}},
-        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-        left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-        right_ear={ name="Lugra Earring +1", augments={'Path: A',}},
+        neck="Ninja Nodowa +2",
+        waist="Sailfi Belt +1",
+        left_ear="Moonshade Earring",
+        right_ear="Lugra Earring +1"
         left_ring="Gere Ring",
         right_ring="Epaminondas's Ring",
         back=gear.NIN_WS_Cape,
@@ -420,15 +420,15 @@ function init_gear_sets()
     sets.midcast.ElementalNinjutsu = {
         ammo="Ghastly Tathlum +1",
         head=gear.Relic.Head,
-        body="Nyame Mail",
-        hands="Nyame Gauntlets",
+        body=gear.Nyame_body,
+        hands=gear.Nyame_hands,
         legs="Nyame Flanchard",
         feet=gear.Relic.Feet,
         neck="Warder's Charm +1",
         waist="Orpheus's Sash",
         left_ear="Hermetic Earring",
         right_ear="Friomisi Earring",
-        left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+        left_ring="Metamor. Ring +1"
         right_ring="Mujin Band",
         back=gear.NIN_TP_Cape,
     }
@@ -493,7 +493,7 @@ function init_gear_sets()
     -- No Magic Haste (74% DW to cap)
     sets.engaged = {
         ammo="Date Shuriken",
-        head={ name="Ryuo Somen +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}}, --9
+        head=gear.Ryuo_C_head, --9
         body=gear.Relic.Body, --10
         hands=gear.Malignance_hands,
         legs="Ken. Hakama +1",
@@ -550,7 +550,6 @@ function init_gear_sets()
         ring1="Regal Ring",
         ring2=gear.Chirich_2,
     })
-
 
     -- (0-1 DW)
     sets.engaged.MaxHaste = {

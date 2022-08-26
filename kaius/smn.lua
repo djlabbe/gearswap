@@ -158,7 +158,7 @@ function job_setup()
         ['Noctoshield']     = 'spells/00106.png', -- 00106 for Phalanx
         ['Inferno Howl']    = 'spells/00298.png', -- 00298 for Ifrit
         ['Hastega']         = 'spells/00358.png', -- 00358 for Hastega
-        ['Hastega II']         = 'spells/00358.png', -- 00358 for Hastega
+        ['Hastega II']      = 'spells/00358.png', -- 00358 for Hastega
         ['Rolling Thunder'] = 'spells/00104.png', -- 00358 for Enthunder
         ['Frost Armor']     = 'spells/00250.png', -- 00250 for Ice Spikes
         ['Lightning Armor'] = 'spells/00251.png', -- 00251 for Shock Spikes

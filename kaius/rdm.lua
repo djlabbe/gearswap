@@ -879,7 +879,6 @@ function init_gear_sets()
     }
 
     sets.Obi = {waist="Hachirin-no-Obi"}
-    -- sets.CP = {back="Mecisto. Mantle"}
 
     sets.TreasureHunter = {
         head="Volte Cap",

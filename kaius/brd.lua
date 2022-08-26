@@ -232,7 +232,11 @@ function init_gear_sets()
 
     sets.precast.FC.SongPlaceholder = set_combine(sets.precast.FC.BardSong, {range=info.ExtraSongInstrument})
 
-    sets.precast.FC.Dispelga = set_combine(sets.precast.FC, {main="Daybreak", sub="Genmei Shield", waist="Shinjutsu-no-Obi +1"})
+    sets.precast.FC.Dispelga = set_combine(sets.precast.FC, {
+        main="Daybreak", 
+        sub="Ammurapi Shield", 
+        waist="Shinjutsu-no-Obi +1"
+    })
 
     -- Precast sets to enhance JAs
 
@@ -280,7 +284,7 @@ function init_gear_sets()
         hands=gear.Relic_Hands,
         ear1="Brutal Earring",
         ring1="Shukuyu Ring",
-        -- back=gear.BRD_WS2_Cape,
+        back=gear.BRD_WS1_Cape,
     })
 
     sets.precast.WS['Mordant Rime'] = {
@@ -447,7 +451,7 @@ function init_gear_sets()
     -- Other general spells and classes.
     sets.midcast.Cure = {
         main="Daybreak", --30
-        sub="Genmei Shield",
+        sub="Ammurapi Shield",
         head=gear.Kaykaus_B_head, --11
         body=gear.Kaykaus_A_body, --(+4)/(-6)
         hands=gear.Kaykaus_D_hands, --11(+2)/(-6)

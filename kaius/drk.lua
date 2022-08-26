@@ -150,7 +150,7 @@ function init_gear_sets()
         left_ear="Thrud Earring",
         right_ear="Moonshade Earring",
         left_ring="Epaminondas's Ring",
-        right_ring="Gelatinous Ring +1",
+        right_ring="Regal Ring",
         back= gear.DRK_WS1_Cape,
     }
 
@@ -215,8 +215,8 @@ function init_gear_sets()
         waist="Fotia Belt",
         left_ear="Thrud Earring",
         right_ear="Moonshade Earring",
-        left_ring="Regal Ring",
-        right_ring="Epaminondas's Ring",
+        left_ring="Epaminondas's Ring",
+        right_ring="Regal Ring",
         back= gear.DRK_WS1_Cape,
     }
 
