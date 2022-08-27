@@ -219,9 +219,9 @@ function init_gear_sets()
         -- waist="Fotia Belt",
     }
 
-    -- sets.precast.WS['Black Halo'] = set_combine(sets.precast.WS, {
-    --     neck="Caro Necklace",
-    --     })
+    sets.precast.WS['Black Halo'] = set_combine(sets.precast.WS, {
+        neck="Republican Platinum Medal",
+    })
 
     -- sets.precast.WS['Hexa Strike'] = set_combine(sets.precast.WS, {
     --     head="Blistering Sallet +1",
