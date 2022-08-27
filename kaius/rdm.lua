@@ -351,7 +351,7 @@ function init_gear_sets()
         feet=gear.Amalric_D_feet,
         neck="Sibyl Scarf",
         ear1="Malignance Earring",
-        ear2="Snotra Earring",
+        ear2="Regal Earring",
         ring1="Archon Ring",
         ring2="Epaminondas's Ring",
         back=gear.RDM_MND_Cape,
@@ -361,7 +361,7 @@ function init_gear_sets()
     sets.precast.WS['Seraph Blade'] = set_combine(sets.precast.WS['Sanguine Blade'], {
         head=empty,
         body={ name="Cohort Cloak +1", augments={'Path: A',}},
-        ear2={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+        ear1={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
         ring1="Weatherspoon Ring",
     })
 
@@ -692,7 +692,7 @@ function init_gear_sets()
         feet=gear.Amalric_D_feet,
         neck="Baetyl Pendant",
         ear1="Malignance Earring",
-        -- ear2="Regal Earring",
+        ear2="Regal Earring",
         ring1="Freke Ring",
         ring2="Metamor. Ring +1",
         -- back=gear.RDM_INT_Cape,

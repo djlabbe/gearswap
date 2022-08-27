@@ -296,7 +296,7 @@ function init_gear_sets()
         legs=gear.Relic_Legs,
         feet=gear.Relic_Feet,
         ear1="Ishvara Earring",
-        ear2="Enchanter's Earring +1",
+        ear2="Regal Earring",
         ring1="Epaminondas's Ring",
         ring2="Metamorph Ring +1",
         waist="Grunfeld Rope",
@@ -472,7 +472,7 @@ function init_gear_sets()
 
     sets.midcast.StatusRemoval = {
         head="Vanya Hood",
-        -- body="Vanya Robe",
+        body="Vanya Robe",
         legs="Aya. Cosciales +2",
         neck="Incanter's Torque",
         ear2="Meili Earring",
@@ -482,7 +482,7 @@ function init_gear_sets()
     }
 
     sets.midcast.Cursna = set_combine(sets.midcast.StatusRemoval, {
-        -- hands="Hieros Mittens",
+        hands="Inyan. Dastanas +2",
         neck="Debilis Medallion",
         ear1="Beatific Earring",
         -- back="Oretan. Cape +1",

@@ -431,23 +431,23 @@ function init_gear_sets()
         waist="Kentarch Belt +1",
     }
 
-    -- sets.midcast.CorsairShot['Light Shot'] = {
-    --     ammo=gear.RAccbullet,
-    --     head="Laksa. Tricorne +3",
-    --     body=gear.Malignance_body,
-    --     hands="Laksa. Gants +3",
-    --     legs="Malignance Tights",
-    --     feet="Laksa. Bottes +3",
-    --     neck="Comm. Charm +2",
-    --     ear1="Enchntr. Earring +1",
-    --     ear2="Digni. Earring",
-    --     ring1="Regal Ring",
-    --     ring2="Weather. Ring +1",
-    --     back=gear.COR_WS_Cape,
-    --     waist="K. Kachina Belt +1",
-    --     }
+    sets.midcast.CorsairShot['Light Shot'] = {
+        ammo=gear.RAccbullet,
+        -- head="Laksa. Tricorne +3",
+        body=gear.Malignance_body,
+        -- hands="Laksa. Gants +3",
+        legs="Malignance Tights",
+        -- feet="Laksa. Bottes +3",
+        neck="Comm. Charm +2",
+        ear1="Enchntr. Earring +1",
+        -- ear2="Digni. Earring",
+        ring1="Regal Ring",
+        ring2="Weather. Ring +1",
+        back=gear.COR_WS_Cape,
+        waist="K. Kachina Belt +1",
+    }
 
-    -- sets.midcast.CorsairShot['Dark Shot'] = sets.midcast.CorsairShot['Light Shot']
+    sets.midcast.CorsairShot['Dark Shot'] = sets.midcast.CorsairShot['Light Shot']
     -- sets.midcast.CorsairShot.Enhance = {body="Mirke Wardecors", feet="Chass. Bottes +1"}
 
     -- Ranged gear

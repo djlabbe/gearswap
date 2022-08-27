@@ -380,7 +380,7 @@ function init_gear_sets()
         feet={ name="Merlinic Crackows", augments={'Mag. Acc.+22','Magic burst dmg.+11%','INT+3','"Mag.Atk.Bns."+10',}},
         -- neck="Mizu. Kubikazari", --10
         ear1="Malignance Earring",
-        -- ear2="Regal Earring",
+        ear2="Regal Earring",
         ring1="Metamor. Ring +1",
         ring2="Mephitas's Ring +1",       
         -- back=gear.BLM_Death_Cape, --5
@@ -513,19 +513,19 @@ function init_gear_sets()
     sets.idle.DeathMode = {
         -- main=gear.Lathi_MAB,
         -- sub="Khonsu",
-        -- ammo="Ghastly Tathlum +1",
-        -- head="Pixie Hairpin +1",
-        -- body="Amalric Doublet +1",
-        -- hands="Amalric Gages +1",
-        -- legs="Amalric Slops +1",
+        ammo="Ghastly Tathlum +1",
+        head="Pixie Hairpin +1",
+        body="Amalric Doublet +1",
+        hands="Amalric Gages +1",
+        legs="Amalric Slops +1",
         -- feet="Merlinic Crackows",
-        -- neck="Sanctity Necklace",
-        -- ear1="Malignance Earring",
-        -- ear2="Regal Earring",
-        -- ring1="Mephitas's Ring +1",
+        neck="Sanctity Necklace",
+        ear1="Malignance Earring",
+        ear2="Regal Earring",
+        ring1="Mephitas's Ring +1",
         -- ring2="Mephitas's Ring",
         -- back=gear.BLM_Death_Cape,
-        -- waist="Shinjutsu-no-Obi +1",
+        waist="Shinjutsu-no-Obi +1",
     }
 
     sets.idle.Town = set_combine(sets.idle, {
