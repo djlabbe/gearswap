@@ -14,25 +14,7 @@
 --              [ F12 ]             Update Current Gear / Report Current Status
 --              [ CTRL+F12 ]        Cycle Idle Modes
 --              [ ALT+F12 ]         Cancel Emergency -PDT/-MDT Mode
---              [ CTRL+` ]          Cycle Treasure Hunter Mode
---              [ WIN+C ]           Toggle Capacity Points Mode
---
---  Abilities:  [ ALT+` ]           Flee
---              [ CTRL+Numpad/ ]    Berserk
---              [ CTRL+Numpad* ]    Warcry
---              [ CTRL+Numpad- ]    Aggressor
---              [ CTRL+Numpad0 ]    Sneak Attack
---              [ CTRL+Numpad. ]    Trick Attack
---
---  Spells:     [ WIN+, ]           Utsusemi: Ichi
---              [ WIN+. ]           Utsusemi: Ni
---
---  WS:         [ CTRL+Numpad7 ]    Exenterator
---              [ CTRL+Numpad8 ]    Mandalic Stab
---              [ CTRL+Numpad4 ]    Evisceration
---              [ CTRL+Numpad5 ]    Rudra's Storm
---              [ CTRL+Numpad1 ]    Aeolian Edge
---
+--              [ ALT+- ]           Cycle Treasure Hunter Mode
 --
 --              (Global-Binds.lua contains additional non-job-related keybinds)
 
@@ -81,7 +63,6 @@ function job_setup()
     info.default_u_ja_ids = S{201, 202, 203, 205, 207}
 
     state.Ambush = M(false, 'Ambush')
-    -- state.CP = M(false, "Capacity Points Mode")
 
     lockstyleset = 1
 end
@@ -164,22 +145,26 @@ function init_gear_sets()
     sets.precast.JA['Conspirator'] = set_combine(sets.TreasureHunter, { body="Skulker's Vest +1" })
 
     sets.precast.JA['Steal'] = {
-        ammo="Barathrum",
+        -- ammo="Barathrum",
         head="Plun. Bonnet +3",
         hands="Pillager's Armlets +1",
         feet="Pill. Poulaines +3",
     }
 
-    sets.precast.JA['Despoil'] = {ammo="Barathrum", legs="Skulk. Culottes +1", feet="Skulk. Poulaines +1"}
+    sets.precast.JA['Despoil'] = { 
+        ammo="Barathrum", 
+        legs="Skulk. Culottes +1", 
+        feet="Skulk. Poulaines +1"
+    }
+
     sets.precast.JA['Perfect Dodge'] = { hands="Plun. Armlets +3" }
     sets.precast.JA['Feint'] = { legs="Plun. Culottes +3" }
-
 
     sets.precast.Waltz = {
         ammo="Yamarang",
         body="Passion Jacket",
-        legs="Dashing Subligar",
-        ring1="Asklepian Ring",
+        -- legs="Dashing Subligar",
+        -- ring1="Asklepian Ring",
         waist="Gishdubar Sash",
     }
 
@@ -187,15 +172,16 @@ function init_gear_sets()
 
     sets.precast.FC = {
         ammo="Sapience Orb",
-        head=gear.Herc_MAB_head, --7
+        -- head=gear.Herc_MAB_head, --7
         body=gear.Taeon_FC_body, --9
         hands="Leyline Gloves", --8
         legs="Rawhide Trousers", --5
-        feet=gear.Herc_MAB_feet, --2
-        neck="Orunmila's Torque", --5
+        -- feet=gear.Herc_MAB_feet, --2
+        -- neck="Orunmila's Torque", --5
+        neck="Baetyl Pendant", --4
         ear1="Loquacious Earring", --2
         ear2="Enchntr. Earring +1", --2
-        ring2="Weather. Ring +1", --6(4)
+        ring2="Weather. Ring", --6(4)
     }
 
     sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {
@@ -209,17 +195,17 @@ function init_gear_sets()
 
     sets.precast.WS = {
         ammo="Aurgelmir Orb +1",
-        head=gear.Herc_WSD_head,
-        body=gear.Herc_WS_body,
+        head=gear.Gleti_head,
+        body=gear.Gleti_body,
         hands="Meg. Gloves +2",
-        legs="Plun. Culottes +3",
-        feet=gear.Herc_WSD_feet,
+        legs=gear.Gleti_legs,
+        feet=gear.Herc_WS_feet,
         neck="Fotia Gorget",
         ear1="Ishvara Earring",
         ear2="Moonshade Earring",
         ring1="Regal Ring",
         ring2="Epaminondas's Ring",
-        back=gear.THF_WS1_Cape,
+        back=gear.THF_TP_Cape,
         waist="Fotia Belt",
     } -- default set
 
@@ -230,12 +216,12 @@ function init_gear_sets()
 
     sets.precast.WS.Critical = {
         ammo="Yetshila +1",
-        head="Pill. Bonnet +3",
+        head=gear.Adhemar_B_head,
         body="Meg. Cuirie +2",
     }
 
     sets.precast.WS['Exenterator'] = set_combine(sets.precast.WS, {
-        head="Plun. Bonnet +3",
+        head=gear.Adhemar_B_head,
         body=gear.Adhemar_B_body,
         legs="Meg. Chausses +2",
         feet="Meg. Jam. +2",
@@ -250,21 +236,22 @@ function init_gear_sets()
 
     sets.precast.WS['Evisceration'] = set_combine(sets.precast.WS, {
         ammo="Yetshila +1",
-        head="Plun. Bonnet +3",
-        body="Pillager's Vest +3",
+        head=gear.Adhemar_B_head,
+        body=gear.Gleti_body,
         hands="Mummu Wrists +2",
         legs="Zoar Subligar +1",
-        feet="Plun. Poulaines +3",
+        feet=gear.Gleti_feet,
+        gear.Lustratio_D_feet,
         ear1="Sherida Earring",
         ear2="Mache Earring +1",
         ring1="Begrudging Ring",
         ring2="Mummu Ring",
-        back=gear.THF_WS2_Cape,
+        back=gear.THF_TP_Cape,
     })
 
     sets.precast.WS['Evisceration'].Acc = set_combine(sets.precast.WS['Evisceration'], {
         ammo="Voluspa Tathlum",
-        legs="Pill. Culottes +3",
+        -- legs="Pill. Culottes +3",
         ring1="Regal Ring",
     })
 
@@ -287,16 +274,16 @@ function init_gear_sets()
     sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS, {
         ammo="Ghastly Tathlum +1",
         head=gear.Herc_MAB_head,
-        body="Samnuha Coat",
+        body=gear.Herc_MAB_body,
         hands="Leyline Gloves",
         legs=gear.Herc_WSD_legs,
         feet=gear.Herc_WSD_feet,
         neck="Baetyl Pendant",
-        ear1="Crematio Earring",
+        -- ear1="Crematio Earring",
         ear2="Friomisi Earring",
         ring1="Metamor. Ring +1",
         ring2="Epaminondas's Ring",
-        back="Argocham. Mantle",
+        -- back="Argocham. Mantle",
         waist="Orpheus's Sash",
     })
 
