@@ -793,7 +793,7 @@ end
 -------------------------------------------------------------------------------------------------------------------
 
 function job_self_command(cmdParams, eventArgs)
-    gearinfo(cmdParams, eventArgs)
+    -- gearinfo(cmdParams, eventArgs)
     if cmdParams[1]:lower() == 'scholar' then
         handle_strategems(cmdParams)
         eventArgs.handled = true
@@ -808,7 +808,7 @@ function job_self_command(cmdParams, eventArgs)
         send_command('@input /ma '..state.BoostSpell.value..' <me>')
     end
 
-    gearinfo(cmdParams, eventArgs)
+    -- gearinfo(cmdParams, eventArgs)
 end
 
 function update_sublimation()

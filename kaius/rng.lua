@@ -83,7 +83,6 @@ function user_setup()
     state.IdleMode:options('Normal', 'DT')
 
     state.WeaponSet = M{['description']='Weapon Set', 'Annihilator', 'Fomalhaut', 'Armageddon'}
-    -- state.CP = M(false, "Capacity Points Mode")
 
     DefaultAmmo = {['Yoichinoyumi'] = "Chrono Arrow",
                    ['Gandiva'] = "Chrono Arrow",
@@ -123,46 +122,12 @@ function user_setup()
 
     -- Additional local binds
     include('Global-Binds.lua') -- OK to remove this line
-    include('Global-GEO-Binds.lua') -- OK to remove this line
 
-    send_command('bind ^` input /ja "Velocity Shot" <me>')
-    send_command ('bind @` input /ja "Scavenge" <me>')
-
-    if player.sub_job == 'DNC' then
-        send_command('bind ^, input /ja "Spectral Jig" <me>')
-        send_command('unbind ^.')
-    else
-        send_command('bind ^, input /item "Silent Oil" <me>')
-        send_command('bind ^. input /item "Prism Powder" <me>')
-    end
-
-    -- send_command('bind @c gs c toggle CP')
     send_command('bind @e gs c cycleback WeaponSet')
     send_command('bind @r gs c cycle WeaponSet')
 
-    send_command('bind ^numlock input /ja "Double Shot" <me>')
-
-    if player.sub_job == 'WAR' then
-        send_command('bind ^numpad/ input /ja "Berserk" <me>')
-        send_command('bind ^numpad* input /ja "Warcry" <me>')
-        send_command('bind ^numpad- input /ja "Aggressor" <me>')
-    elseif player.sub_job == 'SAM' then
-        send_command('bind ^numpad/ input /ja "Meditate" <me>')
-        send_command('bind ^numpad* input /ja "Sekkanoki" <me>')
-        send_command('bind ^numpad- input /ja "Third Eye" <me>')
-    end
-
-    send_command('bind ^numpad7 input /ws "Trueflight" <t>')
-    send_command('bind ^numpad8 input /ws "Last Stand" <t>')
-    send_command('bind ^numpad4 input /ws "Wildfire" <t>')
-    send_command('bind ^numpad6 input /ws "Coronach" <t>')
-    send_command('bind ^numpad2 input /ws "Sniper Shot" <t>')
-    send_command('bind ^numpad3 input /ws "Numbing Shot" <t>')
-
-    send_command('bind numpad0 input /ra <t>')
-
-    select_default_macro_book()
-    set_lockstyle()
+    set_macro_page(1, 11)
+    send_command('wait 2; input /lockstyleset 11')
 
     state.Auto_Kite = M(false, 'Auto_Kite')
     Haste = 0
@@ -176,39 +141,8 @@ end
 
 -- Called when this job file is unloaded (eg: job change)
 function user_unload()
-    send_command('unbind f9')
-    send_command('unbind ^f9')
-    send_command('unbind ^`')
-    send_command('unbind !`')
-    send_command('unbind @`')
-    send_command('unbind ^,')
-    send_command('unbind @f')
-    -- send_command('unbind @c')
     send_command('unbind @e')
-    send_command('unbind @r')
-    send_command('unbind ^numlock')
-    send_command('unbind ^numpad/')
-    send_command('unbind ^numpad*')
-    send_command('unbind ^numpad-')
-    send_command('unbind ^numpad7')
-    send_command('unbind ^numpad8')
-    send_command('unbind ^numpad4')
-    send_command('unbind ^numpad6')
-    send_command('unbind ^numpad2')
-    send_command('unbind ^numpad3')
-    send_command('unbind numpad0')
-
-    send_command('unbind #`')
-    send_command('unbind #1')
-    send_command('unbind #2')
-    send_command('unbind #3')
-    send_command('unbind #4')
-    send_command('unbind #5')
-    send_command('unbind #6')
-    send_command('unbind #7')
-    send_command('unbind #8')
-    send_command('unbind #9')
-    send_command('unbind #0')
+    send_command('unbind @r') 
 end
 
 
@@ -249,12 +183,12 @@ function init_gear_sets()
         ear2="Enchntr. Earring +1", --2
         ring1="Weather. Ring +1", --6(4)
         waist="Rumination Sash",
-        }
+    }
 
     sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {
         body="Passion Jacket",
         ring2="Lebeche Ring",
-        })
+    })
 
 
     -- (10% Snapshot, 5% Rapid from Merits)
@@ -267,17 +201,17 @@ function init_gear_sets()
         neck="Scout's Gorget +2", --4/0
         back=gear.RNG_SNP_Cape, --10/0
         waist="Impulse Belt", --3/0
-        } --60/11
+    } --60/11
 
     sets.precast.RA.Flurry1 = set_combine(sets.precast.RA, {
         head="Orion Beret +3", --0/18
         legs=gear.Adhemar_D_legs, --10/13
-        }) --45/42
+    }) --45/42
 
     sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
         feet="Arcadian Socks +3", --0/10
         waist="Yemaya Belt", --0/5
-        }) --32/57
+    }) --32/57
 
     --[[
     sets.precast.RA.Gastra = {
@@ -315,13 +249,13 @@ function init_gear_sets()
         feet="Arcadian Socks +3",
         ear1="Beyla Earring",
         waist="K. Kachina Belt +1",
-        })
+    })
 
     sets.precast.WS.Enmity = set_combine(sets.precast.WS, {
         hands="Arc. Bracers +3",
         feet="Arcadian Socks +3",
         ear1="Beyla Earring",
-        })
+    })
 
     sets.precast.WS['Apex Arrow'] = sets.precast.WS
 
@@ -329,13 +263,13 @@ function init_gear_sets()
         feet="Orion Socks +3",
         ear1="Beyla Earring",
         waist="K. Kachina Belt +1",
-        })
+    })
 
     sets.precast.WS['Apex Arrow'].Enmity = set_combine(sets.precast.WS['Apex Arrow'], {
         hands="Arc. Bracers +3",
         feet="Arcadian Socks +3",
         ear1="Beyla Earring",
-        })
+    })
 
     sets.precast.WS['Jishnu\'s Radiance'] = set_combine(sets.precast.WS, {
         head="Mummu Bonnet +2",
@@ -345,7 +279,7 @@ function init_gear_sets()
         ear1="Sherida Earring",
         ring1="Begrudging Ring",
         ring2="Mummu Ring",
-        })
+    })
 
     sets.precast.WS['Jishnu\'s Radiance'].Acc = set_combine(sets.precast.WS['Jishnu\'s Radiance'], {
         legs="Mummu Kecks +2",
@@ -356,17 +290,17 @@ function init_gear_sets()
         ring1="Regal Ring",
         ring2="Hajduk Ring +1",
         waist="K. Kachina Belt +1",
-        })
+    })
 
     sets.precast.WS['Jishnu\'s Radiance'].Enmity = set_combine(sets.precast.WS['Jishnu\'s Radiance'], {
         hands="Arc. Bracers +3",
         feet="Arcadian Socks +3",
         ear1="Beyla Earring",
-        })
+    })
 
     sets.precast.WS["Last Stand"] = set_combine(sets.precast.WS, {
         neck="Scout's Gorget +2",
-        })
+    })
 
     sets.precast.WS['Last Stand'].Acc = set_combine(sets.precast.WS['Last Stand'], {
         ammo=gear.ACCbullet,
@@ -375,28 +309,28 @@ function init_gear_sets()
         ear2="Telos Earring",
         ring2="Hajduk Ring +1",
         waist="K. Kachina Belt +1",
-        })
+    })
 
     sets.precast.WS['Last Stand'].Enmity = set_combine(sets.precast.WS['Last Stand'], {
         hands="Arc. Bracers +3",
         feet="Arcadian Socks +3",
         ear1="Beyla Earring",
-        })
+    })
 
     sets.precast.WS["Coronach"] = set_combine(sets.precast.WS['Last Stand'], {
         neck="Scout's Gorget +2",
         ear1="Sherida Earring",
         ear2="Mache Earring +1",
-        })
+    })
 
     sets.precast.WS["Coronach"].Acc = set_combine(sets.precast.WS['Coronach'], {
         ear1="Beyla Earring",
         ear2="Telos Earring",
-        })
+    })
 
     sets.precast.WS["Coronach"].Enmity = set_combine(sets.precast.WS['Coronach'], {
         ear1="Beyla Earring",
-        })
+    })
 
     sets.precast.WS["Trueflight"] = {
         head="Orion Beret +3",
@@ -411,12 +345,12 @@ function init_gear_sets()
         ring2="Epaminondas's Ring",
         back=gear.RNG_WS1_Cape,
         waist="Eschan Stone",
-        }
+    }
 
     sets.precast.WS["Wildfire"] = set_combine(sets.precast.WS["Trueflight"], {
         ring1="Regal Ring",
         waist="Skrymir Cord +1",
-        })
+    })
 
     sets.precast.WS['Evisceration'] = {
         head=gear.Adhemar_B_head,
@@ -429,14 +363,14 @@ function init_gear_sets()
         ring2="Mummu Ring",
         back=gear.RNG_TP_Cape,
         waist="Fotia Belt",
-        }
+    }
 
     sets.precast.WS['Evisceration'].Acc = set_combine(sets.precast.WS['Evisceration'], {
         head="Dampening Tam",
         body=gear.Adhemar_B_body,
         legs=gear.Herc_WS_legs,
         ring1="Regal Ring",
-        })
+    })
 
     sets.precast.WS['Rampage'] = set_combine(sets.precast.WS['Evisceration'], {feet=gear.Herc_TA_feet})
     sets.precast.WS['Rampage'].Acc = sets.precast.WS['Evisceration'].Acc
@@ -460,7 +394,7 @@ function init_gear_sets()
         ear2="Magnetic Earring", --8
         ring2="Evanescence Ring", --5
         waist="Rumination Sash", --10
-        }
+    }
 
     sets.midcast.Utsusemi = sets.midcast.SpellInterrupt
 
@@ -468,10 +402,10 @@ function init_gear_sets()
 
     sets.midcast.RA = {
         head="Arcadian Beret +3",
-        body="Malignance Tabard",
-        hands="Malignance Gloves",
-        legs="Malignance Tights",
-        feet="Malignance Boots",
+        body=gear.Malignance_body,
+        hands=gear.Malignance_hands,
+        legs=gear.Malignance_legs,
+        feet=gear.Malignance_feet,
         neck="Scout's Gorget +2",
         ear1="Enervating Earring",
         ear2="Telos Earring",
@@ -479,20 +413,20 @@ function init_gear_sets()
         ring2="Dingir Ring",
         back=gear.RNG_RA_Cape,
         waist="Yemaya Belt",
-        }
+    }
 
     sets.midcast.RA.Acc = set_combine(sets.midcast.RA, {
         feet="Orion Socks +3",
         ear1="Beyla Earring",
         ring2="Hajduk Ring +1",
-        })
+    })
 
     sets.midcast.RA.HighAcc = set_combine(sets.midcast.RA.Acc, {
         head="Orion Beret +3",
         body="Orion Jerkin +3",
         hands="Orion Bracers +3",
         waist="K. Kachina Belt +1",
-        })
+    })
 
     sets.midcast.RA.Critical = set_combine(sets.midcast.RA, {
         head="Meghanada Visor +2",
@@ -503,14 +437,14 @@ function init_gear_sets()
         ring1="Begrudging Ring",
         ring2="Mummu Ring",
         waist="K. Kachina Belt +1",
-        })
+    })
 
     sets.midcast.RA.STP = set_combine(sets.midcast.RA, {
         neck="Iskur Gorget",
         ear1="Dedition Earring",
-        ring1={name="Chirich Ring +1", bag="wardrobe3"},
-        ring2={name="Chirich Ring +1", bag="wardrobe4"},
-        })
+        ring1=gear.Chirich_1,
+        ring2=gear.Chirich_2,
+    })
 
     sets.DoubleShot = {
         head="Arcadian Beret +3",
@@ -518,17 +452,17 @@ function init_gear_sets()
         hands="Oshosi Gloves +1", -- 5
         legs="Osh. Trousers +1", --7
         feet="Osh. Leggings +1", --4
-        } --25
+    } --25
 
     sets.DoubleShot.Critical = {
         head="Meghanada Visor +2",
         waist="K. Kachina Belt +1",
-        }
+    }
 
     sets.TrueShot = {
         body="Nisroch Jerkin",
         legs="Osh. Trousers +1",
-        }
+    }
 
 
     ------------------------------------------------------------------------------------------------
@@ -539,32 +473,32 @@ function init_gear_sets()
 
     -- Idle sets
     sets.idle = {
-        head="Malignance Chapeau",
-        body="Malignance Tabard",
-        hands="Malignance Gloves",
-        legs="Malignance Tights",
-        feet="Malignance Boots",
+        head=gear.Malignance_head,
+        body=gear.Malignance_body,
+        hands=gear.Malignance_hands,
+        legs=gear.Malignance_legs,
+        feet=gear.Malignance_feet,
         neck="Scout's Gorget +2",
         neck="Bathy Choker +1",
         ear1="Sanare Earring",
         ear2="Eabani Earring",
-        ring1={name="Chirich Ring +1", bag="wardrobe3"},
-        ring2={name="Chirich Ring +1", bag="wardrobe4"},
+        ring1=gear.Chirich_1,
+        ring2=gear.Chirich_2,
         back="Moonlight Cape",
         waist="Carrier's Sash",
-        }
+    }
 
     sets.idle.DT = set_combine(sets.idle, {
-        head="Malignance Chapeau", --6/6
-        body="Malignance Tabard", --9/9
-        hands="Malignance Gloves", --5/5
-        legs="Malignance Tights", --7/7
-        feet="Malignance Boots", --4/4
+        head=gear.Malignance_head, --6/6
+        body=gear.Malignance_body, --9/9
+        hands=gear.Malignance_hands, --5/5
+        legs=gear.Malignance_legs, --7/7
+        feet=gear.Malignance_feet, --4/4
         neck="Warder's Charm +1",
         ring1="Purity Ring", --0/4
         ring2="Defending Ring", --10/10
         back="Moonlight Cape", --6/6
-        })
+    })
 
     sets.idle.Town = set_combine(sets.idle, {
         head="Orion Beret +3",
@@ -577,7 +511,7 @@ function init_gear_sets()
         ear2="Telos Earring",
         back=gear.RNG_RA_Cape,
         waist="K. Kachina Belt +1",
-        })
+    })
 
 
     ------------------------------------------------------------------------------------------------
@@ -614,37 +548,37 @@ function init_gear_sets()
         ring2="Epona's Ring",
         back=gear.RNG_TP_Cape,
         waist="Windbuffet Belt +1",
-        }
+    }
 
     sets.engaged.LowAcc = set_combine(sets.engaged, {
         head="Dampening Tam",
         hands=gear.Adhemar_A_hands,
         neck="Combatant's Torque",
-        ring1={name="Chirich Ring +1", bag="wardrobe3"},
-       })
+        ring1=gear.Chirich_1,
+    })
 
     sets.engaged.MidAcc = set_combine(sets.engaged.LowAcc, {
         ear2="Telos Earring",
         ring1="Regal Ring",
         ring2="Ilabrat Ring",
         waist="Kentarch Belt +1",
-        })
+    })
 
     sets.engaged.HighAcc = set_combine(sets.engaged.MidAcc, {
         head="Carmine Mask +1",
         hands="Gazu Bracelet +1",
         ear1="Cessance Earring",
         ear2="Mache Earring +1",
-        ring2={name="Chirich Ring +1", bag="wardrobe4"},
+        ring2=gear.Chirich_2,
         waist="Olseni Belt",
-        })
+    })
 
     sets.engaged.STP = set_combine(sets.engaged, {
-        head=gear.Herc_STP_head,
-        feet="Carmine Greaves +1",
-        ring1={name="Chirich Ring +1", bag="wardrobe3"},
-        ring2={name="Chirich Ring +1", bag="wardrobe4"},
-        })
+        -- head=gear.Herc_STP_head,
+        feet=gear.Carmine_B_feet,
+        ring1=gear.Chirich_1,
+        ring2=gear.Chirich_2,
+    })
 
     -- * DNC Subjob DW Trait: +15%
     -- * NIN Subjob DW Trait: +25%
@@ -667,15 +601,15 @@ function init_gear_sets()
 
     sets.engaged.DW.LowAcc = set_combine(sets.engaged.DW, {
         head="Dampening Tam",
-        ring1={name="Chirich Ring +1", bag="wardrobe3"},
-        })
+        ring1=gear.Chirich_1,
+    })
 
     sets.engaged.DW.MidAcc = set_combine(sets.engaged.DW.LowAcc, {
         hands=gear.Adhemar_A_hands,
         neck="Combatant's Torque",
         ring2="Ilabrat Ring",
         waist="Kentarch Belt +1",
-        })
+    })
 
     sets.engaged.DW.HighAcc = set_combine(sets.engaged.DW.MidAcc, {
         head="Carmine Mask +1",
@@ -683,15 +617,15 @@ function init_gear_sets()
         ear1="Cessance Earring",
         ear2="Mache Earring +1",
         ring1="Regal Ring",
-        ring2={name="Chirich Ring +1", bag="wardrobe4"},
+        ring2=gear.Chirich_2,
         waist="Olseni Belt",
-        })
+    })
 
     sets.engaged.DW.STP = set_combine(sets.engaged.DW, {
         head=gear.Herc_STP_head,
-        ring1={name="Chirich Ring +1", bag="wardrobe3"},
-        ring2={name="Chirich Ring +1", bag="wardrobe4"},
-        })
+        ring1=gear.Chirich_1,
+        ring2=gear.Chirich_2,
+    })
 
     -- 15% Magic Haste (67% DW to cap)
     sets.engaged.DW.LowHaste = {
@@ -707,43 +641,43 @@ function init_gear_sets()
         ring2="Epona's Ring",
         back=gear.RNG_TP_Cape,
         waist="Reiki Yotai", --7
-        } -- 42%
+    } -- 42%
 
     sets.engaged.DW.LowAcc.LowHaste = set_combine(sets.engaged.DW.LowHaste, {
         head="Dampening Tam",
         neck="Combatant's Torque",
-        ring1={name="Chirich Ring +1", bag="wardrobe3"},
-        })
+        ring1=gear.Chirich_1,
+    })
 
     sets.engaged.DW.MidAcc.LowHaste = set_combine(sets.engaged.DW.LowAcc.LowHaste, {
         hands=gear.Adhemar_A_hands,
         ear2="Telos Earring",
         ring2="Ilabrat Ring",
         waist="Kentarch Belt +1",
-        })
+    })
 
     sets.engaged.DW.HighAcc.LowHaste = set_combine(sets.engaged.DW.MidAcc.LowHaste, {
-        head="Carmine Mask +1",
+        head=gear.Carmine_D_head,
         hands="Gazu Bracelet +1",
         ear1="Cessance Earring",
         ear2="Mache Earring +1",
         ring1="Regal Ring",
-        ring2={name="Chirich Ring +1", bag="wardrobe4"},
-        waist="Olseni Belt",
-        })
+        ring2=gear.Chirich_2,
+        -- waist="Olseni Belt",
+    })
 
     sets.engaged.DW.STP.LowHaste = set_combine(sets.engaged.DW.LowHaste, {
         head=gear.Herc_STP_head,
-        ring1={name="Chirich Ring +1", bag="wardrobe3"},
-        ring2={name="Chirich Ring +1", bag="wardrobe4"},
-        })
+        ring1=gear.Chirich_1,
+        ring2=gear.Chirich_2,
+    })
 
     -- 30% Magic Haste (56% DW to cap)
     sets.engaged.DW.MidHaste = {
         head=gear.Adhemar_B_head,
         body=gear.Adhemar_B_body, --6
         hands=gear.Adhemar_B_hands,
-        legs="Samnuha Tights",
+        -- legs="Samnuha Tights",
         feet=gear.Taeon_DW_feet, --9
         neck="Iskur Gorget",
         ear1="Suppanomimi", --5
@@ -758,39 +692,39 @@ function init_gear_sets()
         head="Dampening Tam",
         hands=gear.Adhemar_A_hands,
         neck="Combatant's Torque",
-        ring1={name="Chirich Ring +1", bag="wardrobe3"},
-        })
+        ring1=gear.Chirich_1,
+    })
 
     sets.engaged.DW.MidAcc.MidHaste = set_combine(sets.engaged.DW.LowAcc.MidHaste, {
         legs="Meg. Chausses +2",
         ear2="Telos Earring",
         ring2="Ilabrat Ring",
         waist="Kentarch Belt +1",
-        })
+    })
 
     sets.engaged.DW.HighAcc.MidHaste = set_combine(sets.engaged.DW.MidAcc.MidHaste, {
-        head="Carmine Mask +1",
+        head=gear.Carmine_D_head,
         hands="Gazu Bracelet +1",
-        legs="Carmine Cuisses +1",
+        legs=gear.Carmine_D_legs,
         ear1="Cessance Earring",
         ear2="Mache Earring +1",
         ring1="Regal Ring",
-        ring2={name="Chirich Ring +1", bag="wardrobe4"},
+        ring2=gear.Chirich_2,
         waist="Olseni Belt",
-        })
+    })
 
     sets.engaged.DW.STP.MidHaste = set_combine(sets.engaged.DW.MidHaste, {
         head=gear.Herc_STP_head,
-        ring1={name="Chirich Ring +1", bag="wardrobe3"},
-        ring2={name="Chirich Ring +1", bag="wardrobe4"},
-        })
+        ring1=gear.Chirich_1,
+        ring2=gear.Chirich_2,
+    })
 
     -- 35% Magic Haste (51% DW to cap)
     sets.engaged.DW.HighHaste = {
         head=gear.Adhemar_B_head,
         body=gear.Adhemar_B_body, --6
         hands=gear.Adhemar_B_hands,
-        legs="Samnuha Tights",
+        -- legs="Samnuha Tights",
         feet=gear.Herc_TA_feet,
         neck="Iskur Gorget",
         ear1="Suppanomimi", --5
@@ -805,15 +739,15 @@ function init_gear_sets()
         head="Dampening Tam",
         hands=gear.Adhemar_A_hands,
         neck="Combatant's Torque",
-        ring1={name="Chirich Ring +1", bag="wardrobe3"},
-        })
+        ring1=gear.Chirich_1,
+    })
 
     sets.engaged.DW.MidAcc.HighHaste = set_combine(sets.engaged.DW.LowAcc.HighHaste, {
         legs="Meg. Chausses +2",
         ear2="Telos Earring",
         ring2="Ilabrat Ring",
         waist="Kentarch Belt +1",
-        })
+    })
 
     sets.engaged.DW.HighAcc.HighHaste = set_combine(sets.engaged.DW.MidAcc.HighHaste, {
         head="Carmine Mask +1",
@@ -822,15 +756,15 @@ function init_gear_sets()
         ear1="Cessance Earring",
         ear2="Mache Earring +1",
         ring1="Regal Ring",
-        ring2={name="Chirich Ring +1", bag="wardrobe4"},
+        ring2=gear.Chirich_2,
         waist="Olseni Belt",
-        })
+    })
 
     sets.engaged.DW.STP.HighHaste = set_combine(sets.engaged.DW.HighHaste, {
         head=gear.Herc_STP_head,
-        ring1={name="Chirich Ring +1", bag="wardrobe3"},
-        ring2={name="Chirich Ring +1", bag="wardrobe4"},
-        })
+        ring1=gear.Chirich_1,
+        ring2=gear.Chirich_2,
+    })
 
     -- 45% Magic Haste (36% DW to cap)
     sets.engaged.DW.MaxHaste = {
@@ -846,37 +780,37 @@ function init_gear_sets()
         ring2="Epona's Ring",
         back=gear.RNG_TP_Cape,
         waist="Windbuffet Belt +1",
-        } -- 11%
+    } -- 11%
 
     sets.engaged.DW.LowAcc.MaxHaste = set_combine(sets.engaged.DW.MaxHaste, {
         head="Dampening Tam",
         hands=gear.Adhemar_A_hands,
-        ring1={name="Chirich Ring +1", bag="wardrobe3"},
+        ring1=gear.Chirich_1,
         waist="Kentarch Belt +1",
-        })
+    })
 
     sets.engaged.DW.MidAcc.MaxHaste = set_combine(sets.engaged.DW.LowAcc.MaxHaste, {
         legs="Meg. Chausses +2",
         neck="Combatant's Torque",
         ring2="Ilabrat Ring",
-        })
+    })
 
     sets.engaged.DW.HighAcc.MaxHaste = set_combine(sets.engaged.DW.MidAcc.MaxHaste, {
-        head="Carmine Mask +1",
+        head=gear.Carmine_D_head,
         hands="Gazu Bracelet +1",
-        legs="Carmine Cuisses +1",
+        legs=gear.Carmine_D_legs,
         ear1="Cessance Earring",
         ear2="Mache Earring +1",
         ring1="Regal Ring",
-        ring2={name="Chirich Ring +1", bag="wardrobe4"},
+        ring2=gear.Chirich_2,
         waist="Olseni Belt",
-        })
+    })
 
     sets.engaged.DW.STP.MaxHaste = set_combine(sets.engaged.DW.MaxHaste, {
         head=gear.Herc_STP_head,
-        ring1={name="Chirich Ring +1", bag="wardrobe3"},
-        ring2={name="Chirich Ring +1", bag="wardrobe4"},
-        })
+        ring1=gear.Chirich_1,
+        ring2=gear.Chirich_2,
+    })
 
     sets.engaged.DW.MaxHastePlus = set_combine(sets.engaged.DW.MaxHaste, {back=gear.RNG_DW_Cape})
     sets.engaged.DW.LowAcc.MaxHastePlus = set_combine(sets.engaged.DW.LowAcc.MaxHaste, {back=gear.RNG_DW_Cape})
@@ -893,7 +827,7 @@ function init_gear_sets()
         head=gear.Adhemar_D_head, --4/0
         neck="Loricate Torque +1", --6/6
         ring2="Defending Ring", --10/10
-        }
+    }
 
     sets.engaged.DT = set_combine(sets.engaged, sets.engaged.Hybrid)
     sets.engaged.LowAcc.DT = set_combine(sets.engaged.LowAcc, sets.engaged.Hybrid)
@@ -955,8 +889,6 @@ function init_gear_sets()
 
     sets.FullTP = {ear1="Crematio Earring"}
     sets.Obi = {waist="Hachirin-no-Obi"}
-    --sets.Reive = {neck="Ygnas's Resolve +1"}
-    -- sets.CP = {back="Mecisto. Mantle"}
 
     sets.Annihilator = {main="Perun +1", sub="Blurred Knife +1", ranged="Annihilator"}
     sets.Fomalhaut = {main="Perun +1", sub="Blurred Knife +1", ranged="Fomalhaut"}
@@ -1108,15 +1040,6 @@ function job_buff_change(buff,gain)
         end
     end
 
---    if buffactive['Reive Mark'] then
---        if gain then
---            equip(sets.Reive)
---            disable('neck')
---        else
---            enable('neck')
---        end
---    end
-
     if buff == "doom" then
         if gain then
             equip(sets.buff.Doom)
@@ -1193,12 +1116,6 @@ function get_custom_wsmode(spell, action, spellMap)
 end
 
 function customize_idle_set(idleSet)
-    -- if state.CP.current == 'on' then
-    --     equip(sets.CP)
-    --     disable('back')
-    -- else
-    --     enable('back')
-    -- end
     if state.Auto_Kite.value == true then
        idleSet = set_combine(idleSet, sets.Kiting)
     end
@@ -1260,10 +1177,10 @@ windower.register_event('action',
             if act.category == 4 then
                 local param = act.param
                 if param == 845 and flurry ~= 2 then
-                    --add_to_chat(122, 'Flurry Status: Flurry I')
+                    add_to_chat(122, 'Flurry Status: Flurry I')
                     flurry = 1
                 elseif param == 846 then
-                    --add_to_chat(122, 'Flurry Status: Flurry II')
+                    add_to_chat(122, 'Flurry Status: Flurry II')
                     flurry = 2
               end
             end
@@ -1330,7 +1247,7 @@ function check_ammo(spell, action, spellMap, eventArgs)
         if player.equipment.ammo == 'empty' or player.equipment.ammo ~= DefaultAmmo[player.equipment.range] then
             if DefaultAmmo[player.equipment.range] then
                 if player.inventory[DefaultAmmo[player.equipment.range]] then
-                    --add_to_chat(3,"Using Default Ammo")
+                    add_to_chat(3,"Using Default Ammo")
                     equip({ammo=DefaultAmmo[player.equipment.range]})
                 else
                     add_to_chat(3,"Default ammo unavailable.  Leaving empty.")
@@ -1435,12 +1352,3 @@ windower.register_event('zone change',
         end
     end
 )
-
--- Select default macro book on initial load or subjob change.
-function select_default_macro_book()
-    set_macro_page(1, 6)
-end
-
-function set_lockstyle()
-    send_command('wait 2; input /lockstyleset ' .. lockstyleset)
-end
