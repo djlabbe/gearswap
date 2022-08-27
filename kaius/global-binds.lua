@@ -41,6 +41,9 @@
         or player.main_job == 'WHM' or player.sub_job == 'WHM' then
         send_command('bind !, input /ma "Sneak" <me>')
         send_command('bind !. input /ma "Invisible" <me>')
+    elseif player.sub_job == 'NIN' then
+        send_command('bind !, input /ma "Monomi: Ichi" <me>')
+        send_command('bind !. input /ma "Tonko: Ni" <me>')
     else
         send_command('bind !, input /item "Silent Oil" <me>')
         send_command('bind !. input /item "Prism Powder" <me>')
