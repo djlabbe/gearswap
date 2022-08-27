@@ -290,7 +290,7 @@ function init_gear_sets()
 
     sets.precast.WS.Acc = set_combine(sets.precast.WS, {
         ammo=gear.RAccbullet,
-        -- ear1="Beyla Earring",
+        ear1="Beyla Earring",
         ear2="Telos Earring",
         neck="Iskur Gorget",
         ring2="Hajduk Ring +1",
@@ -302,7 +302,7 @@ function init_gear_sets()
     sets.precast.WS['Last Stand'].Acc = set_combine(sets.precast.WS['Last Stand'], {
         ammo=gear.RAccbullet,
         neck="Iskur Gorget",
-        -- ear1="Beyla Earring",
+        ear1="Beyla Earring",
         ear2="Telos Earring",
         ring2="Hajduk Ring +1",
         waist="K. Kachina Belt +1",
@@ -320,7 +320,7 @@ function init_gear_sets()
         left_ring="Dingir Ring",
         right_ring="Epaminondas's Ring",
         ear1="Friomisi Earring",
-        ear2="Sortiarius Earring",
+        ear2="Novio Earring",
         back=gear.COR_WS_Cape,
     }
 
@@ -409,7 +409,7 @@ function init_gear_sets()
         neck="Baetyl Pendant",
         waist="Skrymir Cord",      
         ear1="Friomisi Earring",   
-        ear2="Sortiarius Earring",     
+        ear2="Novio Earring",     
         left_ring="Dingir Ring",
         right_ring="Cacoethic Ring",
         back=gear.COR_TP_Cape,
@@ -475,7 +475,7 @@ function init_gear_sets()
 
     sets.midcast.RA.HighAcc = set_combine(sets.midcast.RA.Acc, {
         -- legs="Laksa. Trews +3",
-        -- ring1="Regal Ring",
+        ring1="Regal Ring",
         waist="K. Kachina Belt +1",
     })
 
@@ -611,7 +611,7 @@ function init_gear_sets()
         hands=gear.Adhemar_A_hands,
         legs=gear.Herc_TA_legs,
         feet=gear.Herc_TA_feet,
-        neck="Lissome Necklace",
+        neck="Iskur Gorget",
         waist="Windbuffet Belt +1",
         left_ear="Suppanomimi",
         right_ear="Telos Earring",
@@ -644,7 +644,7 @@ function init_gear_sets()
         hands=gear.Adhemar_A_hands,
         legs=gear.Herc_TA_legs,
         feet=gear.Herc_TA_feet,
-        neck="Lissome Necklace",
+        neck="Iskur Gorget",
         waist="Windbuffet Belt +1",
         left_ear="Suppanomimi",
         right_ear="Telos Earring",
@@ -701,7 +701,7 @@ function init_gear_sets()
     --     waist="Gishdubar Sash", --10
     -- }
 
-    sets.FullTP = {ear2="Sortiarius Earring"}
+    sets.FullTP = {ear2="Novio Earring"}
     sets.Obi = {waist="Hachirin-no-Obi"}
 
     sets.Molybdosis_M = {main="Rostam", sub="Tauret", ranged="Molybdosis"}

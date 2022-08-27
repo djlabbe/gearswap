@@ -427,7 +427,7 @@ function init_gear_sets()
         hands="Jhakri Cuffs +2",
         -- legs="Luhlaza Shalwar +3",
         -- feet="Luhlaza Charuqs +3",
-        neck="Caro Necklace",
+        neck="Republican Platinum Medal",
         ring1="Shukuyu Ring",
         ring2="Ilabrat Ring",
         back=gear.BLU_TP_Cape, --TODO
@@ -491,8 +491,7 @@ function init_gear_sets()
         feet=gear.Amalric_D_feet,
         neck="Baetyl Pendant",
         ear1="Friomisi Earring",
-        -- ear2="Regal Earring",
-        ear2="Sortiarius Earring",
+        ear2="Regal Earring",
         ring1="Shiva Ring +1",
         ring2="Metamor. Ring +1",
         back="Cornflower Cape",

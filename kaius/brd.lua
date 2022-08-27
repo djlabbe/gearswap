@@ -410,7 +410,7 @@ function init_gear_sets()
         legs="Chironic Hose",
         feet=gear.Telchine_SONG_feet,
         waist={ name="Acuity Belt +1", augments={'Path: A',}},
-        left_ear="Hermetic Earring",
+        left_ear="Regal Earring",
         right_ear="Enchntr. Earring +1",
         left_ring=gear.Stikini_1,
         right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},

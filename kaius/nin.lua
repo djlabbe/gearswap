@@ -316,7 +316,7 @@ function init_gear_sets()
         neck="Rep. Plat. Medal",
         waist="Sailfi Belt +1",
         left_ear="Moonshade Earring",
-        right_ear="Lugra Earring +1"
+        right_ear="Lugra Earring +1",
         left_ring="Gere Ring",
         right_ring="Regal Ring",
         back=gear.NIN_WS_Cape,
