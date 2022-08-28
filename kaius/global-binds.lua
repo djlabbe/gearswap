@@ -49,18 +49,19 @@
         send_command('bind !. input /item "Prism Powder" <me>')
     end
 
-    -- Default Status Cure HotKeys (SHIFT + Numpad)
-    send_command('bind ~numpad7 input /ma "Paralyna" <stpc>')
-    send_command('bind ~numpad8 input /ma "Blindna" <stpc>')
-    send_command('bind ~numpad9 input /ma "Silena" <stpc>')
-  
-    send_command('bind ~numpad4 input /ma "Poisona" <stpc>')
-    send_command('bind ~numpad5 input /ma "Stona" <stpc>')
-    send_command('bind ~numpad6 input /ma "Viruna" <stpc>')
-    send_command('bind ~numpad1 input /ma "Cursna" <stpc>')
-    send_command('bind ~numpad0 input /ma "Erase" <stpc>')
+    -- Default Status Cure HotKeys (SHIFT)
+    if player.main_job == 'WHM' or player.main_job == 'SCH' or player.sub_job == 'WHM' player.sub_job == 'SCH' then
+        send_command('bind ~numpad7 input /ma "Paralyna" <stpc>')
+        send_command('bind ~numpad8 input /ma "Blindna" <stpc>')
+        send_command('bind ~numpad9 input /ma "Silena" <stpc>')
+        send_command('bind ~numpad4 input /ma "Poisona" <stpc>')
+        send_command('bind ~numpad5 input /ma "Stona" <stpc>')
+        send_command('bind ~numpad6 input /ma "Viruna" <stpc>')
+        send_command('bind ~numpad1 input /ma "Cursna" <stpc>')
+        send_command('bind ~numpad0 input /ma "Erase" <stpc>')
+    end
 
-    -- Default Item HotKeys (CTRL + Numpad)
+    -- Default Item HotKeys (CTRL)
     send_command('bind ^numpad7 input /item "Remedy" <me>')
     send_command('bind ^numpad8 input /item "Holy Water" <me>')
     send_command('bind ^numpad9 input /item "Echo Drops" <me>')
