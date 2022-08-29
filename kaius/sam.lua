@@ -36,7 +36,9 @@ function job_setup()
     state.Buff.Sekkanoki = buffactive.Sekkanoki or false
     state.Buff.Sengikori = buffactive.Sengikori or false
     state.Buff['Meikyo Shisui'] = buffactive['Meikyo Shisui'] or false
-    weapon_list = S{"Masamune", "ShiningOne"}
+
+    no_swap_gear = S{"Warp Ring", "Dim. Ring (Dem)", "Dim. Ring (Holla)", "Dim. Ring (Mea)",
+              "Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring"}
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -53,18 +55,22 @@ function user_setup()
     state.WeaponLock = M(true, 'Weapon Lock')
 
     -- Additional local binds
-    include('Global-Binds.lua') -- OK to remove this line
-    include('Global-GEO-Binds.lua') -- OK to remove this line
+    include('Global-Binds.lua')
 
     send_command('bind !` input /ja "Hasso" <me>')
     send_command('bind ^` input /ja "Seigan" <me>')
-    send_command('bind !t input /ja "Provoke" <t>')
+
+    if player.sub_job == 'WAR' then
+        send_command('bind !t input /ja "Provoke" <t>')
+    end
+
     send_command('bind @w gs c toggle WeaponLock')
     send_command('bind @e gs c cycle WeaponSet')
 
     set_macro_page(1, 12)
     send_command('wait 2; input /lockstyleset 12')
 
+    state.Auto_Kite = M(false, 'Auto_Kite')
     moving = false
 end
 
@@ -82,9 +88,7 @@ function init_gear_sets()
     ------------------------------------------------------------------------------------------------
     ---------------------------------------- Precast Sets ------------------------------------------
     ------------------------------------------------------------------------------------------------
-
-    sets.precast.JA['Meditate'] = {}    
-
+    
     -- Fast cast sets for spells
     sets.precast.FC = {
         ear1="Loquacious Earring", --2
@@ -101,29 +105,23 @@ function init_gear_sets()
     sets.precast.JA.Sekkanoki = { hands="Kasuga Kote +1" }
     sets.precast.JA.Sengikori = { hands="Kasuga Sune-Ate +1" }
 
-    ------------------------------------------------------------------------------------------------
-    ---------------------------------------- Defense Sets ------------------------------------------
-    ------------------------------------------------------------------------------------------------
-
-    sets.defense.PDT = sets.idle.DT
-    sets.defense.MDT = sets.idle.DT
 
     ------------------------------------------------------------------------------------------------
     ---------------------------------------- Engaged Sets ------------------------------------------
     ------------------------------------------------------------------------------------------------
 
-    sets.Masamune = {main="Masamune", sub="Utu Grip"}
-    sets.ShiningOne = {main="Shining One", sub="Utu Grip"}
+    sets.Masamune = { main="Masamune", sub="Utu Grip" }
+    sets.ShiningOne = { main="Shining One", sub="Utu Grip" }
 
     sets.engaged = {
         ammo="Coiste Bodhar",
         head="Flamma Zucchetto +2",
         body="Tatenashi Haramaki +1",
         hands="Wakido Kote +3",
-        legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
+        legs="Tatena. Haidate +1",
         feet=gear.Ryuo_C_feet,
-        neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
-        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+        neck="Sam. Nodowa +2",
+        waist="Sailfi Belt +1",
         ear1="Cessance Earring",
         ear2="Telos Earring",
         left_ring="Niqmaddu Ring",
@@ -183,10 +181,10 @@ function init_gear_sets()
         hands=gear.Valo_WSD_hands,
         legs="Hiza. Hizayoroi +2",
         feet=gear.Valo_WSD_feet,
-        neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
-        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+        neck="Sam. Nodowa +2",
+        waist="Sailfi Belt +1",
         left_ear="Thrud Earring",
-        right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+        right_ear="Moonshade Earring",
         left_ring="Niqmaddu Ring",
         right_ring="Epaminondas's Ring",
         back=gear.SAM_WS_Cape,
@@ -194,21 +192,40 @@ function init_gear_sets()
 
     sets.precast.WS.Acc = set_combine(sets.precast.WS, {})
 
-    sets.precast.WS["Stardiver"] = {
-        ammo="Knobkierrie",
-        head=gear.Mpaca_head,
-        body="Tatenashi Haramaki +1",
-        hands=gear.Ryuo_A_hands,
-        legs=gear.Mpaca_legs,
-        feet=gear.Valo_WSD_feet,
-        neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
-        waist="Fotia Belt",
-        left_ear="Schere Earring",
-        right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-        left_ring="Niqmaddu Ring",
-        right_ring="Regal Ring",
-        back=gear.SAM_WS_Cape,
+    s  sets.precast.WS['Impulse Drive'] = {
+        head="Blistering Sallet +1",
+        -- body="Hjarrandi Breast.",
+        hands="Flamma Manopolas +2",
+        -- legs="Pelt. Cuissots +1",
+        -- neck="Dgn. Collar +2",
+        ear2="Moonshade Earring",
+        ring1="Begrudging Ring",
+        ring2="Epaminondas's Ring",
+        -- back=gear.DRG_WS4_Cape,
+        waist="Sailfi Belt +1",
     }
+
+    sets.precast.WS['Impulse Drive'].Acc = set_combine(sets.precast.WS['Impulse Drive'], {
+        -- legs="Vishap Brais +3",
+        waist="Ioskeha Belt +1",
+    })
+
+    sets.precast.WS['Impulse Drive'].AttackCap = set_combine(sets.precast.WS['Impulse Drive'], {
+        -- head="Ptero. Armet +3",
+        -- feet="Ptero. Greaves +3",
+    })
+
+    sets.precast.WS['Impulse Drive'].HighTP = set_combine(sets.precast.WS['Impulse Drive'], {
+        head=gear.Valo_WSD_head,
+        body=gear.Valo_WSD_body,
+        -- hands="Ptero. Fin. G. +3",
+        -- legs="Vishap Brais +3",
+        -- back=gear.DRG_WS2_Cape,
+        ear2="Ishvara Earring",
+        ring1="Regal Ring",
+    })
+
+
 
         
     ------------------------------------------------------------------------------------------------
@@ -220,10 +237,10 @@ function init_gear_sets()
         head="Flamma Zucchetto +2",
         body="Tatenashi Haramaki +1",
         hands="Wakido Kote +3",
-        legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
+        legs="Tatena. Haidate +1",
         feet="Danzo Sune-Ate",
-        neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
-        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+        neck="Sam. Nodowa +2",
+        waist="Sailfi Belt +1",
         ear1="Dedition Earring",
         ear2="Telos Earring",
         left_ring="Niqmaddu Ring",
@@ -240,9 +257,21 @@ function init_gear_sets()
         ring2="Defending Ring", --10/10
     })
 
-    sets.idle.Town = set_combine(sets.engaged, {
+    sets.idle.Town =  {
+        ammo="Coiste Bodhar",
+        head="Flamma Zucchetto +2",
+        body="Tatenashi Haramaki +1",
+        hands="Wakido Kote +3",
+        legs="Tatena. Haidate +1",
         feet="Danzo Sune-Ate",
-    })
+        neck="Sam. Nodowa +2",
+        waist="Sailfi Belt +1",
+        ear1="Dedition Earring",
+        ear2="Telos Earring",
+        left_ring="Niqmaddu Ring",
+        right_ring=gear.Chirich_2,
+        back=gear.SAM_TP_Cape,
+    }
 
     sets.idle.Weak = sets.idle.DT
 
@@ -250,7 +279,19 @@ function init_gear_sets()
         feet="Danzo Sune-Ate"
     }
 
+    ------------------------------------------------------------------------------------------------
+    ---------------------------------------- Defense Sets ------------------------------------------
+    ------------------------------------------------------------------------------------------------
 
+    sets.defense.PDT = sets.idle.DT
+    sets.defense.MDT = sets.idle.DT
+
+    sets.buff.Doom = {
+        -- neck="Nicander's Necklace", --20
+        -- ring1={name="Eshmun's Ring", bag="wardrobe3"}, --20
+        -- ring2={name="Eshmun's Ring", bag="wardrobe4"}, --20
+        waist="Gishdubar Sash", --10
+    }
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -261,10 +302,17 @@ function job_precast(spell, action, spellMap, eventArgs)
 end
 
 function job_post_precast(spell, action, spellMap, eventArgs)
-    if spell.type == 'WeaponSkill' then        
+    if spell.type == 'WeaponSkill' then
         if spell.english == 'Impulse Drive' and player.tp > 2000 then
-            -- Add High TP Set
+           equip(sets.precast.WS['Impulse Drive'].HighTP)
         end
+    end
+end
+
+-- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
+function job_aftercast(spell, action, spellMap, eventArgs)
+    if player.status ~= 'Engaged' and state.WeaponLock.value == false then
+        check_weaponset()
     end
 end
 
@@ -276,12 +324,28 @@ function job_buff_change(buff,gain)
     if buff == 'Hasso' and not gain then
         add_to_chat(167, 'Hasso just expired!')
     end
+    if buff == "doom" then
+        if gain then
+            equip(sets.buff.Doom)
+            send_command('@input /p Doomed.')
+             disable('ring1','ring2','waist')
+        else
+            enable('ring1','ring2','waist')
+            handle_equipping_gear(player.status)
+        end
+    end
 end
 
-function job_state_change(field, new_value, old_value)
+-- Handle notifications of general user state change.
+function job_state_change(stateField, newValue, oldValue)
+    if state.WeaponLock.value == true then
+        disable('main','sub')
+    else
+        enable('main','sub')
+    end
+
     check_weaponset()
 end
-
 
 -------------------------------------------------------------------------------------------------------------------
 -- User code that supplements standard library decisions.
@@ -289,6 +353,7 @@ end
 
 function job_handle_equipping_gear(playerStatus, eventArgs)
     check_gear()
+    check_moving()
 end
 
 function job_update(cmdParams, eventArgs)
@@ -297,7 +362,7 @@ end
 
 function get_custom_wsmode(spell, action, spellMap)
     local wsmode
-    if state.OffenseMode.value == 'MidAcc' or state.OffenseMode.value == 'HighAcc' then
+    if state.OffenseMode.value == 'Acc' then
         wsmode = 'Acc'
     end
 
@@ -306,7 +371,17 @@ end
 
 -- Modify the default idle set after it was constructed.
 function customize_idle_set(idleSet)
+    if state.Auto_Kite.value == true then
+       idleSet = set_combine(idleSet, sets.Kiting)
+    end
+
     return idleSet
+end
+
+-- Modify the default melee set after it was constructed.
+function customize_melee_set(meleeSet)
+    check_weaponset()
+    return meleeSet
 end
 
 -- Function to display the current relevant user state when doing an update.
@@ -350,6 +425,32 @@ end
 -------------------------------------------------------------------------------------------------------------------
 
 function job_self_command(cmdParams, eventArgs)
+    gearinfo(cmdParams, eventArgs)
+end
+
+function gearinfo(cmdParams, eventArgs)
+    if cmdParams[1] == 'gearinfo' then
+        if type(cmdParams[4]) == 'string' then
+            if cmdParams[4] == 'true' then
+                moving = true
+            elseif cmdParams[4] == 'false' then
+                moving = false
+            end
+        end
+        if not midaction() then
+            job_update()
+        end
+    end
+end
+
+function check_moving()
+    if state.DefenseMode.value == 'None'  and state.Kiting.value == false then
+        if state.Auto_Kite.value == false and moving then
+            state.Auto_Kite:set(true)
+        elseif state.Auto_Kite.value == true and moving == false then
+            state.Auto_Kite:set(false)
+        end
+    end
 end
 
 function check_weaponset()
@@ -363,10 +464,33 @@ function check_weaponset()
 end
 
 
+
 function check_gear()
+    if no_swap_gear:contains(player.equipment.left_ring) then
+        disable("ring1")
+    else
+        enable("ring1")
+    end
+    if no_swap_gear:contains(player.equipment.right_ring) then
+        disable("ring2")
+    else
+        enable("ring2")
+    end
+end
+
+function check_weaponset()
+    equip(sets[state.WeaponSet.current])
 end
 
 windower.register_event('zone change',
     function()
+        if no_swap_gear:contains(player.equipment.left_ring) then
+            enable("ring1")
+            equip(sets.idle)
+        end
+        if no_swap_gear:contains(player.equipment.right_ring) then
+            enable("ring2")
+            equip(sets.idle)
+        end
     end
 )
