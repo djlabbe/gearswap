@@ -14,7 +14,6 @@
 --              [ CTRL+F12 ]        Cycle Idle Modes
 --              [ ALT+F12 ]         Cancel Emergency -PDT/-MDT Mode
 --              [ WIN+A ]           AttackMode: Capped/Uncapped WS Modifier
---              [ WIN+C ]           Toggle Capacity Points Mode
 --
 --
 --              (Global-Binds.lua contains additional non-job-related keybinds)
