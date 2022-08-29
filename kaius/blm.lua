@@ -755,9 +755,9 @@ function customize_idle_set(idleSet)
     if buffactive['Mana Wall'] then
         idleSet = set_combine(idleSet, sets.precast.JA['Mana Wall'])
     end
-    if state.Auto_Kite.value == true then
-       idleSet = set_combine(idleSet, sets.Kiting)
-    end
+    -- if state.Auto_Kite.value == true then
+    --    idleSet = set_combine(idleSet, sets.Kiting)
+    -- end
 
     return idleSet
 end
@@ -858,13 +858,13 @@ function gearinfo(cmdParams, eventArgs)
 end
 
 function check_moving()
-    if state.DefenseMode.value == 'None'  and state.Kiting.value == false then
-        if state.Auto_Kite.value == false and moving then
-            state.Auto_Kite:set(true)
-        elseif state.Auto_Kite.value == true and moving == false then
-            state.Auto_Kite:set(false)
-        end
-    end
+    -- if state.DefenseMode.value == 'None'  and state.Kiting.value == false then
+    --     if state.Auto_Kite.value == false and moving then
+    --         state.Auto_Kite:set(true)
+    --     elseif state.Auto_Kite.value == true and moving == false then
+    --         state.Auto_Kite:set(false)
+    --     end
+    -- end
 end
 
 function check_gear()
