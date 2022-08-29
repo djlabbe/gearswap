@@ -62,7 +62,7 @@ function user_setup()
     include('Global-Binds.lua') 
 
     send_command('bind !t input /ma "Stun" <t>')
-    send_command('bind !` gs c toggle MagicBurst')
+    send_command('bind ^` gs c toggle MagicBurst')
     send_command('bind @d gs c toggle DeathMode')
     send_command('bind @w gs c toggle WeaponLock')
 
@@ -76,7 +76,7 @@ end
 -- Called when this job file is unloaded (eg: job change)
 function user_unload()
     send_command('unbind !t')
-    send_command('unbind !`')
+    send_command('unbind ^`')
     send_command('unbind @d')
     send_command('unbind @w')
     send_command('unbind !g')

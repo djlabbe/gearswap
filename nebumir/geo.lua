@@ -97,7 +97,7 @@ function user_setup()
     gear.Empyrean.Head = { name= "Azimuth Hood +1" }
   
     send_command('bind @w gs c toggle WeaponLock')
-    send_command('bind !` gs c toggle MagicBurst')
+    send_command('bind ^` gs c toggle MagicBurst')
     send_command('bind ^insert gs c cycleback Element')
     send_command('bind ^delete gs c cycle Element')
     send_command('bind !h input /ma "Haste" <stpc>')

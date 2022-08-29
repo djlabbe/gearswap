@@ -194,7 +194,7 @@ function user_setup()
     send_command('bind @e gs c cycleback WeaponSet')
     send_command('bind @r gs c cycle WeaponSet')
 
-    send_command('bind !` gs c toggle MagicBurst')
+    send_command('bind ^` gs c toggle MagicBurst')
     
     send_command('bind ![ input /ja "Diffusion" <me>')
     send_command('bind !] input /ja "Unbridled Learning" <me>')
@@ -214,10 +214,10 @@ end
 -- Called when this job file is unloaded (eg: job change)
 function user_unload()
     send_command('unbind ^=')
-     send_command('unbind @w')
+     end_command('unbind @w')
     send_command('unbind @e')
     send_command('unbind @r')
-    send_command('unbind !`')
+    send_command('unbind ^`')
     send_command('unbind ![')
     send_command('unbind !]')
 
