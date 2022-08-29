@@ -283,7 +283,7 @@ function init_gear_sets()
 
     sets.midcast.CureSolace = {
         main="Daybreak",
-        sub="Sors Shield"
+        sub="Sors Shield",
         ammo="Pemphredo Tathlum",
         head=gear.Kaykaus_B_head, --11(+2)/(-6)
         neck="Clr. Torque +2", --10/(-25)
@@ -618,16 +618,21 @@ function init_gear_sets()
     })
 
     sets.idle.Town = set_combine(sets.idle, {
-        -- main="Yagrush",
         main="Daybreak",
         sub="Ammurapi Shield",
-        head="Kaykaus Mitra +1",
-        body="Kaykaus Bliaut +1",
-        legs="Kaykaus Tights +1",
-        feet="Kaykaus Boots +1",
+        ammo="Homiliary",
+        head="Ebers Cap +1",
+        body="Theo. Bliaut +2",
+        hands="Theo. Mitts +1",
+        legs="Ebers Pant. +1",
+        feet="Ebers Duckbills +1",
         neck="Clr. Torque +2",
-        ear1="Glorious Earring",
-        ear2="Regal Earring",
+        waist="Hachirin-no-Obi",
+        left_ear="Glorious Earring",
+        right_ear="Regal Earring",
+        left_ring=gear.Stikini_1,
+        right_ring=gear.Stikini_2,
+        back="Twilight Cape",
     })
 
     -- Defense sets

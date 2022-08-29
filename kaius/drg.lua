@@ -1,5 +1,3 @@
--- Original: Motenten / Modified: Arislan
-
 -------------------------------------------------------------------------------------------------------------------
 --  Keybinds
 -------------------------------------------------------------------------------------------------------------------
@@ -607,7 +605,7 @@ function get_custom_wsmode(spell, action, spellMap)
     local wsmode
     if state.OffenseMode.value == 'Acc' then
         wsmode = 'Acc'
-    elseif state.OffenseMode.value == 'AttackCap' tehn
+    elseif state.OffenseMode.value == 'AttackCap' then
         wsmode = 'AttackCap'
     end
 
@@ -642,8 +640,6 @@ function display_current_job_state(eventArgs)
         m_msg = m_msg .. '/' ..state.HybridMode.value
     end
 
-    local am_msg = '(' ..string.sub(state.AttackMode.value,1,1).. ')'
-
     local ws_msg = state.WeaponskillMode.value
 
     local d_msg = 'None'
@@ -659,7 +655,7 @@ function display_current_job_state(eventArgs)
     end
 
     add_to_chat(002, '| ' ..string.char(31,210).. 'Melee' ..cf_msg.. ': ' ..string.char(31,001)..m_msg.. string.char(31,002)..  ' |'
-        ..string.char(31,207).. ' WS' ..am_msg.. ': ' ..string.char(31,001)..ws_msg.. string.char(31,002)..  ' |'
+        ..string.char(31,207).. ' WS: ' ..string.char(31,001)..ws_msg.. string.char(31,002)..  ' |'
         ..string.char(31,004).. ' Defense: ' ..string.char(31,001)..d_msg.. string.char(31,002)..  ' |'
         ..string.char(31,008).. ' Idle: ' ..string.char(31,001)..i_msg.. string.char(31,002)..  ' |'
         ..string.char(31,002)..msg)

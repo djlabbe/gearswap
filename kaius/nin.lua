@@ -539,17 +539,19 @@ function init_gear_sets()
     })
 
     sets.idle.Town = set_combine(sets.idle, {
-        ammo="Aurgelmir Orb +1",
-        head="Ken. Jinpachi +1",
-        body="Ken. Samue +1",
-        hands="Ken. Tekko +1",
-        legs="Ken. Hakama +1",
-        feet="Ken. Sune-Ate +1",
+        ammo="Crepuscular Pebble",
+        head=gear.Artifact_Head,
+        body=gear.Relic_Body,
+        hands=gear.Relic_Hands,
+        legs=gear.Relic_Legs,
+        feet=gear.Artifact_Feet,
         neck="Ninja Nodowa +2",
-        ear1="Cessance Earring",
-        ear2="Telos Earring",
-        back=gear.NIN_TP_Cape,
-        waist="Windbuffet Belt +1",
+        waist="Reiki Yotai",
+        left_ear="Crep. Earring",
+        right_ear="Telos Earring",
+        left_ring="Gere Ring",
+        right_ring="Regal Ring",
+        back=gear.NIN_MEVA_Cape,
     })
 
     -- Defense sets

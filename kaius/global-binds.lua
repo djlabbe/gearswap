@@ -50,7 +50,7 @@
     end
 
     -- Default Status Cure HotKeys (SHIFT)
-    if player.main_job == 'WHM' or player.main_job == 'SCH' or player.sub_job == 'WHM' player.sub_job == 'SCH' then
+    if player.main_job == 'WHM' or player.main_job == 'SCH' or player.sub_job == 'WHM' or player.sub_job == 'SCH' then
         send_command('bind ~numpad7 input /ma "Paralyna" <stpc>')
         send_command('bind ~numpad8 input /ma "Blindna" <stpc>')
         send_command('bind ~numpad9 input /ma "Silena" <stpc>')

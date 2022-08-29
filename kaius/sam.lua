@@ -192,42 +192,34 @@ function init_gear_sets()
 
     sets.precast.WS.Acc = set_combine(sets.precast.WS, {})
 
-    s  sets.precast.WS['Impulse Drive'] = {
-        head="Blistering Sallet +1",
-        -- body="Hjarrandi Breast.",
-        hands="Flamma Manopolas +2",
-        -- legs="Pelt. Cuissots +1",
-        -- neck="Dgn. Collar +2",
+    sets.precast.WS['Impulse Drive'] = {
+        head=gear.Mpaca_head,
+        body="Tatena. Harama. +1",
+        hands=gear.Ryuo_A_hands,
+        legs="Tatena. Haidate +1",
+        neck="Sam. Nodowa +2",
+        ear1="Thrud Earring",
         ear2="Moonshade Earring",
-        ring1="Begrudging Ring",
+        ring1="Niqmaddu Ring",
         ring2="Epaminondas's Ring",
-        -- back=gear.DRG_WS4_Cape,
+        back=gear.SAM_WS_Cape,
         waist="Sailfi Belt +1",
     }
 
     sets.precast.WS['Impulse Drive'].Acc = set_combine(sets.precast.WS['Impulse Drive'], {
-        -- legs="Vishap Brais +3",
         waist="Ioskeha Belt +1",
     })
 
-    sets.precast.WS['Impulse Drive'].AttackCap = set_combine(sets.precast.WS['Impulse Drive'], {
-        -- head="Ptero. Armet +3",
-        -- feet="Ptero. Greaves +3",
-    })
+    sets.precast.WS['Impulse Drive'].AttackCap = sets.precast.WS['Impulse Drive']
 
     sets.precast.WS['Impulse Drive'].HighTP = set_combine(sets.precast.WS['Impulse Drive'], {
-        head=gear.Valo_WSD_head,
-        body=gear.Valo_WSD_body,
-        -- hands="Ptero. Fin. G. +3",
-        -- legs="Vishap Brais +3",
-        -- back=gear.DRG_WS2_Cape,
+        head="Blistering Sallet +1",
         ear2="Ishvara Earring",
         ring1="Regal Ring",
     })
 
+    sets.precast.WS['Sonic Thrust'] = sets.precast.WS['Impulse Drive']
 
-
-        
     ------------------------------------------------------------------------------------------------
     ----------------------------------------- Idle Sets --------------------------------------------
     ------------------------------------------------------------------------------------------------
@@ -238,7 +230,7 @@ function init_gear_sets()
         body="Tatenashi Haramaki +1",
         hands="Wakido Kote +3",
         legs="Tatena. Haidate +1",
-        feet="Danzo Sune-Ate",
+        feet="Tatena. Sune. +1",
         neck="Sam. Nodowa +2",
         waist="Sailfi Belt +1",
         ear1="Dedition Earring",
@@ -263,7 +255,7 @@ function init_gear_sets()
         body="Tatenashi Haramaki +1",
         hands="Wakido Kote +3",
         legs="Tatena. Haidate +1",
-        feet="Danzo Sune-Ate",
+        feet="Tatena. Sune. +1",
         neck="Sam. Nodowa +2",
         waist="Sailfi Belt +1",
         ear1="Dedition Earring",

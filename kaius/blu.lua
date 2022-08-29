@@ -996,13 +996,13 @@ function init_gear_sets()
         hands=gear.Adhemar_A_hands,
         ring1=gear.Chirich_1,
         waist="Kentarch Belt +1",
-        })
+    })
 
     sets.engaged.DW.MidAcc.HighHaste = set_combine(sets.engaged.DW.LowAcc.HighHaste, {
         ammo="Voluspa Tathlum",
         ear2="Telos Earring",
         ring2="Ilabrat Ring",
-        })
+    })
 
     sets.engaged.DW.HighAcc.HighHaste = set_combine(sets.engaged.DW.MidAcc.HighHaste, {
         head=gear.Carmine_D_head,
@@ -1012,13 +1012,13 @@ function init_gear_sets()
         ear2="Mache Earring +1",
         ring1=gear.Chirich_1,
         waist="Olseni Belt",
-        })
+    })
 
     sets.engaged.DW.STP.HighHaste = set_combine(sets.engaged.DW.HighHaste, {
         head=gear.Herc_STP_head,
         ring1=gear.Chirich_1,
         ring2=gear.Chirich_2,
-        })
+    })
 
     -- 45% Magic Haste (36% DW to cap)
     sets.engaged.DW.MaxHaste = {

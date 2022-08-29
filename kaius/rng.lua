@@ -70,6 +70,7 @@ function user_setup()
     state.IdleMode:options('Normal', 'DT')
 
     state.WeaponSet = M{['description']='Weapon Set', 'Annihilator', 'Fomalhaut', 'Armageddon'}
+    state.WeaponLock = M(false, 'Weapon Lock')
 
     DefaultAmmo = {['Yoichinoyumi'] = "Chrono Arrow",
                    ['Gandiva'] = "Chrono Arrow",
@@ -128,6 +129,7 @@ function user_setup()
     gear.Empyrean_Hands = { name="Amini Glovelettes +1" }
     gear.Empyrean_Feet = { name="Amini Bottillons +1" }
 
+    send_command('bind @w gs c toggle WeaponLock')
     send_command('bind @e gs c cycleback WeaponSet')
     send_command('bind @r gs c cycle WeaponSet')
 
@@ -146,6 +148,7 @@ end
 
 -- Called when this job file is unloaded (eg: job change)
 function user_unload()
+    send_command('unbind @w')
     send_command('unbind @e')
     send_command('unbind @r') 
 end
@@ -240,8 +243,9 @@ function init_gear_sets()
         head=gear.Artifact_Head,
         body="Meg. Cuirie +2", -- TODO: Herc RA?
         hands="Meg. Gloves +2",
-        legs=gear.Relic_Legs,
-        feet=gear.Herc_WSD_feet,
+        -- legs=gear.Relic_Legs,
+        legs=gear.Herc_WS_legs,
+        feet=gear.Herc_WS_feet,
         neck="Fotia Gorget",
         ear1="Ishvara Earring",
         ear2="Moonshade Earring",
@@ -375,7 +379,7 @@ function init_gear_sets()
 
     sets.precast.WS['Evisceration'].Acc = set_combine(sets.precast.WS['Evisceration'], {
         head="Dampening Tam",
-        body=gear.Adhemar_B_body,
+        body=gear.Adhemar_A_body, -- Should be B
         legs=gear.Herc_WS_legs,
         ring1="Regal Ring",
     })
@@ -550,7 +554,7 @@ function init_gear_sets()
 
     sets.engaged = {
         head=gear.Adhemar_B_head,
-        body=gear.Adhemar_B_body,
+        body=gear.Adhemar_A_body, -- Should be B
         hands=gear.Adhemar_B_hands,
         -- legs="Samnuha Tights",
         legs=gear.Herc_TA_legs,
@@ -600,10 +604,11 @@ function init_gear_sets()
     -- No Magic Haste (74% DW to cap)
     sets.engaged.DW = {
         head=gear.Adhemar_B_head,
-        body=gear.Adhemar_B_body, --6
+        body=gear.Adhemar_A_body, -- Should be B --6
         hands="Floral Gauntlets", --5
         legs=gear.Carmine_D_legs, --6
-        feet=gear.Taeon_DW_feet, --9
+        -- feet=gear.Taeon_DW_feet, --9
+        feet=gear.Herc_TA_feet,
         neck="Iskur Gorget",
         ear1="Suppanomimi", --5
         ear2="Eabani Earring", --4
@@ -644,10 +649,11 @@ function init_gear_sets()
     -- 15% Magic Haste (67% DW to cap)
     sets.engaged.DW.LowHaste = {
         head=gear.Adhemar_B_head,
-        body=gear.Adhemar_B_body, --6
+        body=gear.Adhemar_A_body, -- Should be B --6
         hands="Floral Gauntlets", --5
         legs=gear.Carmine_D_legs, --6
-        -- feet=gear.Taeon_DW_feet, --9
+         -- feet=gear.Taeon_DW_feet, --9
+        feet=gear.Herc_TA_feet,
         neck="Iskur Gorget",
         ear1="Suppanomimi", --5
         ear2="Eabani Earring", --4
@@ -689,10 +695,12 @@ function init_gear_sets()
     -- 30% Magic Haste (56% DW to cap)
     sets.engaged.DW.MidHaste = {
         head=gear.Adhemar_B_head,
-        body=gear.Adhemar_B_body, --6
+        body=gear.Adhemar_A_body, -- Should be B --6
         hands=gear.Adhemar_B_hands,
         -- legs="Samnuha Tights",
-        feet=gear.Taeon_DW_feet, --9
+        legs=gear.Herc_TA_legs,
+         -- feet=gear.Taeon_DW_feet, --9
+        feet=gear.Herc_TA_feet,
         neck="Iskur Gorget",
         ear1="Suppanomimi", --5
         ear2="Eabani Earring", --4
@@ -736,9 +744,10 @@ function init_gear_sets()
     -- 35% Magic Haste (51% DW to cap)
     sets.engaged.DW.HighHaste = {
         head=gear.Adhemar_B_head,
-        body=gear.Adhemar_B_body, --6
+        body=gear.Adhemar_A_body, -- Should be B --6
         hands=gear.Adhemar_B_hands,
         -- legs="Samnuha Tights",
+        legs=gear.Herc_TA_legs,
         feet=gear.Herc_TA_feet,
         neck="Iskur Gorget",
         ear1="Suppanomimi", --5
@@ -783,7 +792,7 @@ function init_gear_sets()
     -- 45% Magic Haste (36% DW to cap)
     sets.engaged.DW.MaxHaste = {
         head=gear.Adhemar_B_head,
-        body=gear.Adhemar_B_body, --6
+        body=gear.Adhemar_A_body, -- Should be B --6
         hands=gear.Adhemar_B_hands,
         -- legs="Samnuha Tights",
         legs=gear.Herc_TA_legs,
@@ -1075,11 +1084,11 @@ function job_buff_change(buff,gain)
 end
 
 function job_state_change(stateField, newValue, oldValue)
-    --if state.WeaponLock.value == true then
-    --    disable('ranged')
-    --else
-    --    enable('ranged')
-   -- end
+    if state.WeaponLock.value == true then
+       disable('ranged')
+    else
+       enable('ranged')
+   end
 
     check_weaponset()
 end
