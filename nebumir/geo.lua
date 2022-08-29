@@ -88,7 +88,7 @@ function user_setup()
 
     gear.Artifact = { }
     gear.Artifact.Head = { name= "Geomancy Galero" }
-    gear.Artifact.Body = { name= "Geomancy Tunic +2" }
+    gear.Artifact.Body = { name= "Geomancy Tunic +3" }
     gear.Artifact.Hands = { name= "Geomancy Mitaines +2" }
     gear.Artifact.Legs = { name= "Geomancy Pants" }
     gear.Artifact.Feet = { name= "Geomancy Sandals +3" }
@@ -337,13 +337,13 @@ function init_gear_sets()
         -- waist="Acuity Belt +1",
     }) -- INT/Magic accuracy
 
-    -- sets.midcast.LockedEnfeebles = {body="Geomancy Tunic +3"}
+    sets.midcast.LockedEnfeebles = {body=gear.Artifact.Body}
 
     sets.midcast['Dark Magic'] = {
         -- main="Rubicundity",
         -- sub="Ammurapi Shield",
         -- head="Geo. Galero +3",
-        -- body="Geomancy Tunic +3",
+        body=gear.Artifact.Body,
         -- hands="Geo. Mitaines +3",
         -- legs="Geomancy Pants +3",
         -- feet=gear.Merl_MAB_feet,
