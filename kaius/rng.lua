@@ -111,11 +111,11 @@ function user_setup()
     -- Additional local binds
     include('Global-Binds.lua') -- OK to remove this line
 
-    gear.Artifact_Head = { name="Orion Beret +3" }
-    gear.Artifact_Body = { name="Orion Jerkin +3" }
-    gear.Artifact_Legs = { name="Orion Braccae +3" }
+    gear.Artifact_Head = { name="Orion Beret +1" }
+    gear.Artifact_Body = { name="Orion Jerkin +1" }
+    gear.Artifact_Legs = { name="Orion Braccae +1" }
     gear.Artifact_Hands = { name="Orion Bracers +2" }
-    gear.Artifact_Feet = { name="Orion Socks +3" }
+    gear.Artifact_Feet = { name="Orion Socks +2" }
 
     gear.Relic_Head = { name="Arcadian Beret +3" }
     gear.Relic_Body = { name="Arcadian Jerkin +3" }
@@ -520,7 +520,7 @@ function init_gear_sets()
         head=gear.Artifact_Head,
         body="Oshosi Vest +1",
         hands="Oshosi Gloves +1",
-        legs=gear.Relic_Legs,
+        legs="Oshosi Trousers +1",
         feet="Osh. Leggings +1",
         neck="Scout's Gorget +2",
         ear1="Beyla Earring",
