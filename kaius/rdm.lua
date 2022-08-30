@@ -132,7 +132,7 @@ function user_setup()
     state.SleepMode = M{['description']='Sleep Mode', 'Normal', 'MaxDuration'}
     state.EnspellMode = M(false, 'Enspell Melee Mode')
 
-    gear.Artifact_Head = { name= "Atrophy Chapeau +1" }
+    -- gear.Artifact_Head = { name= "Atrophy Chapeau +1" }
     gear.Artifact_Body = { name= "Atrophy Tabard +3" }
     gear.Artifact_Hands = { name= "Atrophy Gloves +3" }
     gear.Artifact_Legs = { name= "Atrophy Tights +2" }
@@ -949,7 +949,7 @@ function init_gear_sets()
         waist="Reiki Yotai", --7
     } --41
 
-    sets.engaged.DW.Acc = set_combine(sets.engaged.DW.MidAcc, {
+    sets.engaged.DW.Acc = set_combine(sets.engaged.DW, {
         ammo="Voluspa Tathlum",
         head=gear.Carmine_D_head,
         -- neck="Combatant's Torque",
@@ -977,11 +977,7 @@ function init_gear_sets()
         waist="Reiki Yotai", --7
     }) --41
 
-    sets.engaged.DW.MidAcc.LowHaste = set_combine(sets.engaged.DW.LowHaste, {
-        
-        })
-
-    sets.engaged.DW.Acc.LowHaste = set_combine(sets.engaged.DW.MidAcc.LowHaste, {
+    sets.engaged.DW.Acc.LowHaste = set_combine(sets.engaged.DW.LowHaste, {
         ammo="Voluspa Tathlum",
         head=gear.Carmine_D_head,
         neck="Combatant's Torque",
@@ -1009,7 +1005,7 @@ function init_gear_sets()
         waist="Reiki Yotai", --7
     }) --31
 
-    sets.engaged.DW.Acc.MidHaste = set_combine(sets.engaged.DW.MidAcc.MidHaste, {
+    sets.engaged.DW.Acc.MidHaste = set_combine(sets.engaged.DW.MidHaste, {
         ammo="Voluspa Tathlum",
         head=gear.Carmine_D_head,
         neck="Combatant's Torque",
@@ -1038,7 +1034,7 @@ function init_gear_sets()
         waist="Reiki Yotai", --7
     }) --26
 
-    sets.engaged.DW.Acc.HighHaste = set_combine(sets.engaged.DW.MidAcc.HighHaste, {
+    sets.engaged.DW.Acc.HighHaste = set_combine(sets.engaged.DW.HighHaste, {
         ammo="Voluspa Tathlum",
         head=gear.Carmine_D_head,
         body=gear.Carmine_B_body,
@@ -1067,11 +1063,7 @@ function init_gear_sets()
         waist="Windbuffet Belt +1",
     }) --10
 
-    sets.engaged.DW.MidAcc.MaxHaste = set_combine(sets.engaged.DW.MaxHaste, {
-        
-    })
-
-    sets.engaged.DW.Acc.MaxHaste = set_combine(sets.engaged.DW.MidAcc.MaxHaste, {
+    sets.engaged.DW.Acc.MaxHaste = set_combine(sets.engaged.DW.MaxHaste, {
         ammo="Voluspa Tathlum",
         head=gear.Carmine_D_head,
         body=gear.Carmine_B_body,

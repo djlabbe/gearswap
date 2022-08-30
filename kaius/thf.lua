@@ -445,13 +445,14 @@ function init_gear_sets()
         body=gear.Adhemar_B_body, -- 6
         hands=gear.Adhemar_A_hands,
         legs="Samnuha Tights",
-        feet=gear.Taeon_DW_feet, --9
+        -- feet=gear.Taeon_DW_feet, --9
+        feet=gear.Herc_TA_Feet,
         neck="Asn. Gorget +2",
         ear1="Eabani Earring", --4
         ear2="Suppanomimi", --5
         ring1="Gere Ring",
         ring2="Epona's Ring",
-        back=gear.THF_DW_Cape, --10
+        back=gear.THF_TP_Cape, --Should be DW --10
         waist="Reiki Yotai", --7
     } -- 41%
 
@@ -493,13 +494,14 @@ function init_gear_sets()
         body=gear.Adhemar_B_body, -- 6
         hands=gear.Adhemar_A_hands,
         legs="Samnuha Tights",
-        feet=gear.Taeon_DW_feet, --9
+        -- feet=gear.Taeon_DW_feet, --9
+        feet=gear.Herc_TA_Feet,
         neck="Asn. Gorget +2",
         ear1="Cessance Earring",
         ear2="Suppanomimi", --5
         ring1="Gere Ring",
         ring2="Epona's Ring",
-        back=gear.THF_DW_Cape, --10
+        back=gear.THF_TP_Cape, --Should be DW --10
         waist="Reiki Yotai", --7
     } -- 37%
 
@@ -540,13 +542,14 @@ function init_gear_sets()
         body="Pillager's Vest +3",
         hands=gear.Adhemar_A_hands,
         legs="Samnuha Tights",
-        feet="Plun. Poulaines +3",
+        -- feet="Plun. Poulaines +3",
+        feet=gear.Herc_TA_Feet,
         neck="Asn. Gorget +2",
         ear1="Eabani Earring", --4
         ear2="Suppanomimi", --5
         ring1="Gere Ring",
         ring2="Epona's Ring",
-        back=gear.THF_DW_Cape, --10
+        back=gear.THF_TP_Cape, --Should be DW --10
         waist="Reiki Yotai", --7
     } -- 26%
 
@@ -589,13 +592,14 @@ function init_gear_sets()
         body="Pillager's Vest +3",
         hands=gear.Adhemar_A_hands,
         legs="Samnuha Tights",
-        feet="Plun. Poulaines +3",
+        -- feet="Plun. Poulaines +3",
+        feet=gear.Herc_TA_Feet,
         neck="Asn. Gorget +2",
         ear1="Sherida Earring",
         ear2="Suppanomimi", --5
         ring1="Gere Ring",
         ring2="Epona's Ring",
-        back=gear.THF_DW_Cape, --10
+        back=gear.THF_TP_Cape, --Should be DW --10
         waist="Reiki Yotai", --7
     } -- 22%
 
@@ -637,7 +641,8 @@ function init_gear_sets()
         body="Pillager's Vest +3",
         hands=gear.Adhemar_A_hands,
         legs="Samnuha Tights",
-        feet="Plun. Poulaines +3",
+        -- feet="Plun. Poulaines +3",
+        feet=gear.Herc_TA_Feet,
         neck="Asn. Gorget +2",
         ear1="Sherida Earring",
         ear2="Suppanomimi", --5
