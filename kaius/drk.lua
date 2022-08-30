@@ -1,8 +1,11 @@
+-------------------------------------------------------------------------------------------------------------------
+-- Setup functions for this job.  Generally should not be modified.
+-------------------------------------------------------------------------------------------------------------------
+
 -- Initialization function for this job file.
 function get_sets()
     mote_include_version = 2
     include('Mote-Include.lua')
-    include('Mote-TreasureHunter')
 end
 
 
@@ -12,7 +15,8 @@ function job_setup()
     state.Buff.Souleater = buffactive.souleater or false
     state.Buff['Last Resort'] = buffactive['Last Resort'] or false
 
-    weapon_list = S{"Apocalypse", "Caladbolg", "Loxotic"}
+    no_swap_gear = S{"Warp Ring", "Dim. Ring (Dem)", "Dim. Ring (Holla)", "Dim. Ring (Mea)",
+              "Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring"}
 
     elemental_ws = S{'Dark Harvest','Shadow of Death','Infernal Scythe','Frostbite','Freezebite',
               'Burning Blade','Red Lotus Blade','Shining Blade','Seraph Blade','Sanguine Blade'}
@@ -32,6 +36,7 @@ function user_setup()
 
     state.WeaponSet = M{['description']='Weapon Set', 'Caladbolg', 'Apocalypse', 'Loxotic'}
 
+    state.MagicBurst = M(false, 'Magic Burst')
     state.Critical = M(false, 'Critical Aftermath TP')
     state.WeaponLock = M(true, 'Weapon Lock')
 
@@ -54,8 +59,12 @@ function user_setup()
     -- gear.Empyrean_Feet = { name= "Heathen's Sollerets +1" }
 
     include('Global-Binds.lua')    
-    send_command('bind !` input /ja "Hasso" <me>')
-    send_command('bind ^` input /ja "Seigan" <me>')
+
+    if player.sub_job == 'SAM' then
+        send_command('bind !` input /ja "Hasso" <me>')
+        send_command('bind ^` input /ja "Seigan" <me>')
+    end
+
     send_command('bind !t input /ma "Stun" <t>')
     send_command('bind !y input /ja "Weapon Bash" <t>')
     send_command('bind !d input /ja "Scarlet Delirium" <me>')
@@ -63,6 +72,7 @@ function user_setup()
     send_command('bind !a input /ja "Arcane Crest" <t>')
     send_command('bind !c input /ja "Arcane Circle" <me>')
     send_command('bind ^c input /ja "Warding Circle" <me>')
+
     send_command('bind @w gs c toggle WeaponLock')
     send_command('bind @a gs c toggle Critical')
     send_command('bind @e gs c cycle WeaponSet')
@@ -133,7 +143,6 @@ function init_gear_sets()
         head=gear.Relic_Head,
     })
 
-
     ------------------------------------------------------------------------------------------------
     ------------------------------------- Weapon Skill Sets ----------------------------------------
     ------------------------------------------------------------------------------------------------
@@ -154,6 +163,10 @@ function init_gear_sets()
         back= gear.DRK_WS1_Cape,
     }
 
+    sets.precast.WS.Acc = set_combine(sets.precast.WS, {
+     
+    })
+
     sets.precast.WS['Catastrophe'] = {
         ammo="Crepuscular Pebble",
         head="Ratri Sallet +1",
@@ -169,6 +182,8 @@ function init_gear_sets()
         right_ring="Epaminondas's Ring",
         back= gear.DRK_WS1_Cape,
     }
+
+     sets.precast.WS['Catastrophe'].Acc = set_combine(sets.precast.WS['Catastrophe'], {})
 
     sets.precast.WS['Torcleaver'] = {
         ammo="Knobkierrie",
@@ -186,6 +201,8 @@ function init_gear_sets()
         back= gear.DRK_WS2_Cape,
     }
 
+    sets.precast.WS['Torcleaver'].Acc = set_combine(sets.precast.WS['Torcleaver'], {})
+
     sets.precast.WS['Cross Reaper'] = {
         ammo="Knobkierrie",
         head="Ratri Sallet +1",
@@ -202,8 +219,8 @@ function init_gear_sets()
         back= gear.DRK_WS2_Cape,
     }
 
+    sets.precast.WS['Cross Reaper'].Acc = set_combine(sets.precast.WS['Cross Reaper'], {})
 
-    
     sets.precast.WS['Shockwave'] = {
         ammo="Knobkierrie",
         head=gear.Relic_Head,
@@ -219,6 +236,8 @@ function init_gear_sets()
         right_ring="Regal Ring",
         back= gear.DRK_WS1_Cape,
     }
+
+    sets.precast.WS['Shockwave'].Acc = set_combine(sets.precast.WS['Shockwave'], {})
 
     ------------------------------------------------------------------------------------------------
     ---------------------------------------- Midcast Sets ------------------------------------------
@@ -306,7 +325,7 @@ function init_gear_sets()
         head=gear.Sakpata_head,
         body=gear.Sakpata_body,
         hands=gear.Sakpata_hands,
-        legs=gear.Carmine_D_legs,
+        legs=gear.Sakpata_legs,
         feet=gear.Sakpata_feet,
         neck="Sibyl Scarf",
         ear1="Infused Earring",
@@ -329,6 +348,21 @@ function init_gear_sets()
         back="Moonlight Cape", --6/6
     })
 
+     sets.idle.Town = set_combine(sets.idle.DT, {
+        ammo="Aurgelmir Orb +1",
+        head=gear.Relic_Head,
+        body=gear.Artifact_Body,
+        hands=gear.Sakpata_hands,
+        legs=gear.Artifact_Legs,
+        feet=gear.Artifact_Feet,
+        neck="Abyssal Beads +2",
+        waist="Sailfi Belt +1",
+        left_ear="Cessance Earring",
+        right_ear="Telos Earring",
+        left_ring="Niqmaddu ring",
+        right_ring="Hetairoi Ring",
+        back= gear.DRK_TP_Cape,
+    })
 
     sets.idle.Weak = set_combine(sets.idle, {})
 
@@ -381,32 +415,17 @@ function init_gear_sets()
         back= gear.DRK_TP_Cape,
     }
 
-    sets.engaged.Aftermath = {
-        ammo="Yetshila +1", --2/6
-        body="Hjarrandi Breast.", --13/0
-        hands="Flam. Manopolas +2", --8/0,
-    }
-
     sets.engaged.Acc = set_combine(sets.engaged, {
         ammo="Seeth. Bomblet +1",
         hands="Gazu Bracelet +1",
     })
 
-    sets.idle.Town = set_combine(sets.idle.DT, {
-        ammo="Aurgelmir Orb +1",
-        head=gear.Relic_Head,
-        body=gear.Artifact_Body,
-        hands=gear.Sakpata_hands,
-        legs=gear.Artifact_Legs,
-        feet=gear.Artifact_Feet,
-        neck="Abyssal Beads +2",
-        waist="Sailfi Belt +1",
-        left_ear="Cessance Earring",
-        right_ear="Telos Earring",
-        left_ring="Niqmaddu ring",
-        right_ring="Hetairoi Ring",
-        back= gear.DRK_TP_Cape,
-    })
+    sets.engaged.Aftermath = {
+        ammo="Yetshila +1", --2/6
+        head="Blistering Sallet +1", --10/0
+        body="Hjarrandi Breast.", --13/0
+        hands="Flam. Manopolas +2", --8/0,
+    }
 
     ------------------------------------------------------------------------------------------------
     ---------------------------------------- Hybrid Sets -------------------------------------------
@@ -428,7 +447,15 @@ function init_gear_sets()
     ---------------------------------------- Special Sets ------------------------------------------
     ------------------------------------------------------------------------------------------------
 
-    sets.latent_refresh = {waist="Fucho-no-obi"}
+    sets.latent_refresh = { waist="Fucho-no-obi" }
+    sets.Kiting = { legs="Carmine Cuisses +1" }
+
+    sets.buff.Doom = {
+        -- neck="Nicander's Necklace", --20
+        -- ring1={name="Eshmun's Ring", bag="wardrobe3"}, --20
+        -- ring2={name="Eshmun's Ring", bag="wardrobe4"}, --20
+        waist="Gishdubar Sash", --10
+    }
 
     sets.Caladbolg = {main="Caladbolg", sub="Utu Grip"}
     sets.Apocalypse = {main="Apocalypse", sub="Utu Grip"}
@@ -459,10 +486,18 @@ function job_state_change(field, new_value, old_value)
     check_weaponset()
 end
 
--- Called when a player gains or loses a buff.
--- buff == buff gained or lost
--- gain == true if the buff was gained, false if it was lost.
 function job_buff_change(buff,gain)
+    if buff == "doom" then
+        if gain then
+            equip(sets.buff.Doom)
+            send_command('@input /p Doomed.')
+            disable('ring1','ring2','waist')
+        else
+            enable('ring1','ring2','waist')
+            handle_equipping_gear(player.status)
+        end
+    end
+
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -472,6 +507,10 @@ end
 -- Called by the 'update' self-command, for common needs.
 -- Set eventArgs.handled to true if we don't want automatic equipping of gear.
 function job_handle_equipping_gear(playerStatus, eventArgs)
+    check_gear()
+    update_combat_form()
+    determine_haste_group()
+    check_moving()
 end
 
 function job_update(cmdParams, eventArgs)
@@ -479,12 +518,24 @@ function job_update(cmdParams, eventArgs)
     get_combat_weapon()
 end
 
+function get_custom_wsmode(spell, action, spellMap)
+    local wsmode
+    if state.OffenseMode.value == 'Acc' then
+        wsmode = 'Acc'
+    end
+
+    return wsmode
+end
 
 -- Modify the default idle set after it was constructed.
 function customize_idle_set(idleSet)
     if player.mpp < 51 then
         idleSet = set_combine(idleSet, sets.latent_refresh)
     end
+    if state.Auto_Kite.value == true then
+       idleSet = set_combine(idleSet, sets.Kiting)
+    end
+
     return idleSet
 end
 
@@ -546,12 +597,49 @@ function get_combat_weapon()
 end
 
 function job_self_command(cmdParams, eventArgs)
+    gearinfo(cmdParams, eventArgs)
 end
 
+function gearinfo(cmdParams, eventArgs)
+    if cmdParams[1] == 'gearinfo' then
+        if type(cmdParams[4]) == 'string' then
+            if cmdParams[4] == 'true' then
+                moving = true
+            elseif cmdParams[4] == 'false' then
+                moving = false
+            end
+        end
+        if not midaction() then
+            job_update()
+        end
+    end
+end
+
+function check_moving()
+    if state.DefenseMode.value == 'None'  and state.Kiting.value == false then
+        if state.Auto_Kite.value == false and moving then
+            state.Auto_Kite:set(true)
+        elseif state.Auto_Kite.value == true and moving == false then
+            state.Auto_Kite:set(false)
+        end
+    end
+end
+
+function check_gear()
+    if no_swap_gear:contains(player.equipment.left_ring) then
+        disable("ring1")
+    else
+        enable("ring1")
+    end
+    if no_swap_gear:contains(player.equipment.right_ring) then
+        disable("ring2")
+    else
+        enable("ring2")
+    end
+end
 
 function check_weaponset()
     equip(sets[state.WeaponSet.current])
-
     if state.WeaponSet.current == "Caladbolg" then
         send_command('@input /macro set 1')
     elseif state.WeaponSet.current == "Apocalypse" then
@@ -560,3 +648,16 @@ function check_weaponset()
         send_command('@input /macro set 3')
     end
 end
+
+windower.register_event('zone change',
+    function()
+        if no_swap_gear:contains(player.equipment.left_ring) then
+            enable("ring1")
+            equip(sets.idle)
+        end
+        if no_swap_gear:contains(player.equipment.right_ring) then
+            enable("ring2")
+            equip(sets.idle)
+        end
+    end
+)

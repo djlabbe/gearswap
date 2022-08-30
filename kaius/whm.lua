@@ -553,7 +553,7 @@ function init_gear_sets()
         feet="Theo. Duckbills +3",
         ring1="Freke Ring",
         ring2="Archon Ring",
-        }
+    }
 
     -- Initializes trusts at iLvl 119
     sets.midcast.Trust = sets.precast.FC

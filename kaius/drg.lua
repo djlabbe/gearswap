@@ -86,9 +86,9 @@ function init_gear_sets()
     ---------------------------------------- Precast Sets ------------------------------------------
     ------------------------------------------------------------------------------------------------
 
-    sets.precast.JA['Spirit Surge'] = {body="Ptero. Mail +3"}
-    sets.precast.JA['Call Wyvern'] = {body="Ptero. Mail +3"}
-    sets.precast.JA['Ancient Circle'] = {legs="Vishap Brais +3"}
+    sets.precast.JA['Spirit Surge'] = { body="Ptero. Mail +3" }
+    sets.precast.JA['Call Wyvern'] = { body="Ptero. Mail +3" }
+    sets.precast.JA['Ancient Circle'] = { legs="Vishap Brais +3" }
 
     sets.precast.JA['Spirit Link'] = {
         head="Vishap Armet +3",

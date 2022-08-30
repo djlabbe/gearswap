@@ -262,9 +262,9 @@ function init_gear_sets()
         legs="Jokushu Haidate",
         feet=gear.Relic_Feet,
         neck="Rep. Plat. Medal",
-        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+        waist="Sailfi Belt +1",
         left_ear="Odr Earring",
-        right_ear={ name="Lugra Earring +1", augments={'Path: A',}},
+        right_ear="Lugra Earring +1",
         ring1="Gere Ring",
         ring2="Regal Ring",
         back=gear.NIN_WS_Cape,
@@ -325,7 +325,7 @@ function init_gear_sets()
         neck="Fotia Gorget",
         waist="Fotia Belt",
         left_ear="Mache Earring +1",
-        right_ear={ name="Lugra Earring +1", augments={'Path: A',}},
+        right_ear="Lugra Earring +1",
         ring1="Gere Ring",
         ring2="Regal Ring",
         back=gear.NIN_TP_Cape,
@@ -352,7 +352,7 @@ function init_gear_sets()
     sets.precast.WS['Blade: Kamu'].Acc = set_combine(sets.precast.WS['Blade: Kamu'], {})
 
     sets.precast.Hybrid = {
-        ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
+        ammo="Seeth. Bomblet +1",
         head=gear.Relic_Head,
         neck="Fotia Gorget",
         body=gear.Nyame_body,
@@ -360,7 +360,7 @@ function init_gear_sets()
         feet=gear.Nyame_feet,
         legs=gear.Nyame_legs,        
         left_ear="Moonshade Earring",
-        right_ear={ name="Lugra Earring +1", augments={'Path: A',}},
+        right_ear="Lugra Earring +1",
         left_ring="Gere Ring",
         right_ring="Epaminondas's Ring",
         waist="Orpheus's Sash",
@@ -458,7 +458,7 @@ function init_gear_sets()
     })
 
     sets.midcast.EnfeeblingNinjutsu = {
-         ammo="Yamarang",
+        ammo="Yamarang",
         head=gear.Artifact_Head,
         body=gear.Malignance_body,
         hands=gear.Malignance_hands,

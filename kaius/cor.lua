@@ -368,10 +368,10 @@ function init_gear_sets()
         hands="Meg. Gloves +2",
         legs=gear.Herc_WS_legs,
         feet=gear.Relic.Feet,
-        neck={ name="Comm. Charm +2", augments={'Path: A',}},
-        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+        neck="Comm. Charm +2",
+        waist="Sailfi Belt +1",
         left_ear="Ishvara Earring",
-        right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+        right_ear="Moonshade Earring",
         left_ring="Shukuyu Ring +1",
         right_ring="Epaminondas's Ring",
         back=gear.COR_WS_Cape,
@@ -469,7 +469,7 @@ function init_gear_sets()
 
     sets.midcast.RA.Acc = set_combine(sets.midcast.RA, {
         ammo=gear.RAccbullet,
-        -- ear1="Beyla Earring",
+        ear1="Beyla Earring",
         ring2="Hajduk Ring +1",
      })
 
