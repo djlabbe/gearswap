@@ -168,17 +168,19 @@ function define_global_sets()
     -- gear.Chironic_WSD_hands = {name="Chironic Gloves", augments={'MND+11','Pet: STR+8','Weapon skill damage +10%','Accuracy+16 Attack+16','Mag. Acc.+6 "Mag.Atk.Bns."+6',}}
 
     -- -- Herculean
+    gear.Herc_TA_legs = { name="Herculean Trousers", augments={'Accuracy+22 Attack+22','"Triple Atk."+4','Attack+3',}}
+    gear.Herc_TA_feet = { name="Herculean Boots", augments={'Attack+14','"Triple Atk."+4','AGI+8','Accuracy+13',}}
+
     gear.Herc_MAB_head = { name="Herculean Helm", augments={'"Mag.Atk.Bns."+25','Weapon skill damage +1%','Mag. Acc.+5 "Mag.Atk.Bns."+5',}}
-    gear.Herc_WS_head ={ name="Herculean Helm", augments={'Accuracy+14','Weapon skill damage +3%','STR+7','Attack+10',}}
     gear.Herc_MAB_body = { name="Herculean Vest", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +4%','DEX+2','Mag. Acc.+10',}}
     gear.Herc_MAB_hands = { name="Herculean Gloves", augments={'Mag. Acc.+19 "Mag.Atk.Bns."+19','"Mag.Atk.Bns."+15',}}
-    gear.Herc_WS_hands = { name="Herculean Gloves", augments={'Weapon skill damage +3%','INT+14','Mag. Acc.+3','"Mag.Atk.Bns."+6',}}
-    gear.Herc_TA_legs = { name="Herculean Trousers", augments={'Accuracy+22 Attack+22','"Triple Atk."+4','Attack+3',}}
-    gear.Herc_WS_legs = { name="Herculean Trousers", augments={'Attack+18','Weapon skill damage +5%','AGI+4','Accuracy+7',}}
     gear.Herc_MAB_legs = { name="Herculean Trousers", augments={'"Mag.Atk.Bns."+15','Weapon skill damage +5%','DEX+7','Mag. Acc.+7',}}
-    gear.Herc_TA_feet = { name="Herculean Boots", augments={'Attack+14','"Triple Atk."+4','AGI+8','Accuracy+13',}}
     gear.Herc_MAB_feet = { name="Herculean Boots", augments={'"Mag.Atk.Bns."+21','Weapon skill damage +3%','INT+9',}}
-    gear.Herc_WS_feet = { name="Herculean Boots", augments={'Pet: INT+2','Enmity-4','Weapon skill damage +6%',}}
+
+    gear.Herc_WSD_head ={ name="Herculean Helm", augments={'Accuracy+14','Weapon skill damage +3%','STR+7','Attack+10',}}
+    gear.Herc_WSD_hands = { name="Herculean Gloves", augments={'Weapon skill damage +3%','INT+14','Mag. Acc.+3','"Mag.Atk.Bns."+6',}}
+    gear.Herc_WSD_legs = { name="Herculean Trousers", augments={'Attack+18','Weapon skill damage +5%','AGI+4','Accuracy+7',}}
+    gear.Herc_WSD_feet = { name="Herculean Boots", augments={'Pet: INT+2','Enmity-4','Weapon skill damage +6%',}}
 
     -- -- Valorous
     gear.Valo_TP_body = { name="Valorous Mail", augments={'Accuracy+27','"Dbl.Atk."+5',}}

@@ -293,12 +293,12 @@ function init_gear_sets()
 
     sets.precast.WS = {
        ammo="Aurgelmir Orb +1",
-        head=gear.Herc_WS_head,
+        head=gear.Herc_WSD_head,
         body="Assim. Jubbah +3",
         body=gear.Malignance_body,
         hands="Jhakri Cuffs +2",
         legs="Luhlaza Shalwar +3",
-        feet=gear.Herc_WS_feet,
+        feet=gear.Herc_WSD_feet,
         neck="Fotia Gorget",
         ear1="Moonshade Earring",
         ear2="Ishvara Earring",
@@ -311,7 +311,7 @@ function init_gear_sets()
     sets.precast.WS.Acc = set_combine(sets.precast.WS, {
         ammo="Voluspa Tathlum",
         -- head="Dampening Tam",
-        hands=gear.Herc_WS_hands,
+        hands=gear.Herc_WSD_hands,
         ear2="Telos Earring",
         })
 

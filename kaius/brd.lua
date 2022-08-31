@@ -357,28 +357,28 @@ function init_gear_sets()
     sets.midcast.Utsusemi = sets.midcast.SpellInterrupt
 
   -- Gear to enhance certain classes of songs.
-    sets.midcast.Ballad = {legs=gear.Empyrean_Legs}
-    -- sets.midcast.Carol = {hands="Mousai Gages +1"}
-    -- sets.midcast.Etude = {head="Mousai Turban +1"}
-    sets.midcast.HonorMarch = {range="Marsyas", hands=gear.Empyrean_Hands}
+    sets.midcast.Ballad = { legs=gear.Empyrean_Legs }
+    -- sets.midcast.Carol = { hands="Mousai Gages +1" }
+    -- sets.midcast.Etude = { head="Mousai Turban +1" }
+    sets.midcast.HonorMarch = { range="Marsyas", hands=gear.Empyrean_Hands }
     sets.midcast.Lullaby = {
         body=gear.Empyrean_Body,
         hands=gear.Artifact_Hands,
     }
-    sets.midcast.Lullaby = {body=gear.Empyrean_Body}
-    sets.midcast.Madrigal = {head=gear.Empyrean_Head}
-    -- sets.midcast.Mambo = {feet="Mou. Crackows +1"}
-    sets.midcast.March = {hands=gear.Empyrean_Hands}
-    sets.midcast.Minne = {legs="Mou. Seraweels +1"}
-    sets.midcast.Minuet = {body=gear.Empyrean_Body}
-    sets.midcast.Paeon = {head=gear.Artifact_Head}
-    -- sets.midcast.Threnody = {body="Mou. Manteel +1"}
-    sets.midcast['Adventurer\'s Dirge'] = {range="Marsyas", hands=gear.Relic_Hands}
-    sets.midcast['Adventurer\'s Dirge'] = {range="Marsyas"}
-    sets.midcast['Foe Sirvente'] = {head=gear.Relic_Head}
-    sets.midcast['Magic Finale'] = {legs=gear.Empyrean_Legs}
-    sets.midcast["Sentinel's Scherzo"] = {feet=gear.Empyrean_Feet}
-    sets.midcast["Chocobo Mazurka"] = {range="Marsyas"}
+    sets.midcast.Lullaby = { body=gear.Empyrean_Body }
+    sets.midcast.Madrigal = { head=gear.Empyrean_Head }
+    -- sets.midcast.Mambo = { feet="Mou. Crackows +1" }
+    sets.midcast.March = { hands=gear.Empyrean_Hands }
+    sets.midcast.Minne = { legs="Mou. Seraweels +1" }
+    sets.midcast.Minuet = { body=gear.Empyrean_Body }
+    sets.midcast.Paeon = { head=gear.Artifact_Head }
+    -- sets.midcast.Threnody = { body="Mou. Manteel +1" }
+    sets.midcast['Adventurer\'s Dirge'] = { range="Marsyas", hands=gear.Relic_Hands }
+    sets.midcast['Adventurer\'s Dirge'] = { range="Marsyas" }
+    sets.midcast['Foe Sirvente'] = { head=gear.Relic_Head }
+    sets.midcast['Magic Finale'] = { legs=gear.Empyrean_Legs }
+    sets.midcast["Sentinel's Scherzo"] = { feet=gear.Empyrean_Feet }
+    sets.midcast["Chocobo Mazurka"] = { range="Marsyas" }
 
     -- For song buffs (duration and AF3 set bonus)
     sets.midcast.SongEnhancing = {
@@ -516,18 +516,27 @@ function init_gear_sets()
     sets.midcast.Regen = set_combine(sets.midcast['Enhancing Magic'], {
         head="Inyanga Tiara +2"
     })
+
     sets.midcast.Haste = sets.midcast['Enhancing Magic']
 
     sets.midcast.Refresh = set_combine(sets.midcast['Enhancing Magic'], {
-        waist="Gishdubar Sash", back="Grapevine Cape"
+        waist="Gishdubar Sash", 
+        back="Grapevine Cape"
     })
 
     sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {
-        neck="Nodens Gorget", waist="Siegel Sash"
+        neck="Nodens Gorget", 
+        waist="Siegel Sash"
     })
 
-    sets.midcast.Aquaveil = set_combine(sets.midcast['Enhancing Magic'], {waist="Emphatikos Rope"})
-    sets.midcast.Protect = set_combine(sets.midcast['Enhancing Magic'], {ring2="Sheltered Ring"})
+    sets.midcast.Aquaveil = set_combine(sets.midcast['Enhancing Magic'], {
+        waist="Emphatikos Rope"
+    })
+
+    sets.midcast.Protect = set_combine(sets.midcast['Enhancing Magic'], {
+        ring2="Sheltered Ring"
+    })
+
     sets.midcast.Protectra = sets.midcast.Protect
     sets.midcast.Shell = sets.midcast.Protect
     sets.midcast.Shellra = sets.midcast.Shell
@@ -632,8 +641,8 @@ function init_gear_sets()
     sets.defense.PDT = sets.idle.DT
     sets.defense.MDT = sets.idle.DT
 
-    sets.Kiting = {feet=gear.Empyrean_Feet}
-    sets.latent_refresh = {waist="Fucho-no-obi"}
+    sets.Kiting = { feet=gear.Empyrean_Feet }
+    sets.latent_refresh = { waist="Fucho-no-obi" }
 
     ------------------------------------------------------------------------------------------------
     ---------------------------------------- Engaged Sets ------------------------------------------

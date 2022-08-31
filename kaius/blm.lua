@@ -201,7 +201,7 @@ function init_gear_sets()
         ammo="Ghastly Tathlum +1",
         head="Pixie Hairpin +1",
         body=gear.Amalric_A_body,
-        hands="Amalric Gages +1",
+        hands=gear.Amalric_D_hands,
         legs="Merlinic Shalwar",
         feet="Merlinic Crackows",
         neck="Baetyl Pendant",
@@ -218,7 +218,7 @@ function init_gear_sets()
         head="Pixie Hairpin +1",
         body=gear.Amalric_A_body,
         hands=gear.Telchine_ENH_hands,
-        legs="Amalric Slops +1",
+        legs=gear.Amalric_A_legs,
         feet="Medium's Sabots",
         neck="Orunmila's Torque",
         ear1="Etiolation Earring",
@@ -404,8 +404,8 @@ function init_gear_sets()
         ammo="Ghastly Tathlum +1",
         head="Pixie Hairpin +1",
         body=gear.Merl_MB_body, --10
-        hands="Amalric Gages", --(5)
-        legs="Amalric Slops +1",
+        hands=gear.Amalric_D_hands, --(5)
+        legs=gear.Amalric_A_legs,
         feet="Merlinic Crackows", --11
         neck="Mizu. Kubikazari", --10
         ear1="Malignance Earring",
@@ -431,9 +431,9 @@ function init_gear_sets()
         ammo="Ghastly Tathlum +1",
         head="Merlinic Hood",
         body=gear.Amalric_A_body,
-        hands="Amalric Gages +1",
-        legs="Amalric Slops +1",
-        feet="Amalric Nails +1",
+        hands=gear.Amalric_D_hands,
+        legs=gear.Amalric_A_legs,
+        feet=gear.Amalric_D_feet,
         neck="Baetyl Pendant",
         ear1="Malignance Earring",
         ear2="Regal Earring",
@@ -447,7 +447,7 @@ function init_gear_sets()
         main=gear.Grioavolr_MB,
         sub="Enki Strap",
         ammo="Ghastly Tathlum +1",
-        legs="Amalric Slops +1",
+        legs=gear.Amalric_A_legs,
         feet="Merlinic Crackows",
         back=gear.BLM_Death_Cape,
     })
@@ -507,7 +507,7 @@ function init_gear_sets()
         ring2=gear.Stikini_2,
         back="Moonlight Cape",
         waist="Carrier's Sash",
-        }
+    }
 
     sets.idle.DT = set_combine(sets.idle, {
         main="Daybreak",
@@ -524,7 +524,7 @@ function init_gear_sets()
         ring2="Defending Ring", --10/10
         back="Moonlight Cape", --6/6
         waist="Carrier's Sash",
-        })
+    })
 
     sets.idle.ManaWall = {
         feet="Wicce Sabots +1",
@@ -538,7 +538,7 @@ function init_gear_sets()
         head="Pixie Hairpin +1",
         body=gear.Amalric_A_body,
         hands="Amalric Gages",
-        legs="Amalric Slops +1",
+        legs=gear.Amalric_A_legs,
         feet="Merlinic Crackows",
         neck="Sanctity Necklace",
         ear1="Malignance Earring",
@@ -577,7 +577,7 @@ function init_gear_sets()
     sets.magic_burst = {
         head="Ea Hat +1", --7/(7)
         body="Ea Houppe. +1", --9/(9)
-        hands="Amalric Gages +1", --(6)
+        hands=gear.Amalric_D_hands, --(6)
         legs="Ea Slops +1", --8/(8)
         feet="Ea Pigaches +1", --5/(5)
         neck="Mizu. Kubikazari", --10

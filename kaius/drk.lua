@@ -79,7 +79,9 @@ function user_setup()
 
     set_macro_page(1, 8)
     send_command('wait 2; input /lockstyleset 8')
-    get_combat_weapon()
+
+    state.Auto_Kite = M(false, 'Auto_Kite')
+    moving = false
 end
 
 
@@ -457,9 +459,9 @@ function init_gear_sets()
         waist="Gishdubar Sash", --10
     }
 
-    sets.Caladbolg = {main="Caladbolg", sub="Utu Grip"}
-    sets.Apocalypse = {main="Apocalypse", sub="Utu Grip"}
-    sets.Loxotic = {main="Loxotic Mace +1", sub="Blurred Shield +1"}
+    sets.Caladbolg = { main="Caladbolg", sub="Utu Grip" }
+    sets.Apocalypse = { main="Apocalypse", sub="Utu Grip" }
+    sets.Loxotic = { main="Loxotic Mace +1", sub="Blurred Shield +1" }
 end
 
 
@@ -515,7 +517,6 @@ end
 
 function job_update(cmdParams, eventArgs)
     handle_equipping_gear(player.status)
-    get_combat_weapon()
 end
 
 function get_custom_wsmode(spell, action, spellMap)
@@ -589,12 +590,6 @@ end
 -- Utility functions specific to this job.
 -------------------------------------------------------------------------------------------------------------------
 
-function get_combat_weapon()
-    state.CombatWeapon:reset()
-    if weapon_list:contains(player.equipment.main) then
-        state.CombatWeapon:set(player.equipment.main)
-    end
-end
 
 function job_self_command(cmdParams, eventArgs)
     gearinfo(cmdParams, eventArgs)

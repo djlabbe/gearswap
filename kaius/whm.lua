@@ -28,12 +28,6 @@
 --
 --  Weapons:    [ CTRL+W ]          Toggles Weapon Lock
 --
---  WS:         [ CTRL+Numpad7 ]    Black Halo
---              [ CTRL+Numpad8 ]    Hexa Strike
---              [ CTRL+Numpad9 ]    Realmrazer
---              [ CTRL+Numpad1 ]    Flash Nova
---              [ CTRL+Numpad0 ]    Mystic Boon
---
 --
 --              (Global-Binds.lua contains additional non-job-related keybinds)
 

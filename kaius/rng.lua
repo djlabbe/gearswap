@@ -244,8 +244,8 @@ function init_gear_sets()
         body="Meg. Cuirie +2", -- TODO: Herc RA?
         hands="Meg. Gloves +2",
         -- legs=gear.Relic_Legs,
-        legs=gear.Herc_WS_legs,
-        feet=gear.Herc_WS_feet,
+        legs=gear.Herc_WSD_legs,
+        feet=gear.Herc_WSD_feet,
         neck="Fotia Gorget",
         ear1="Ishvara Earring",
         ear2="Moonshade Earring",
@@ -380,7 +380,7 @@ function init_gear_sets()
     sets.precast.WS['Evisceration'].Acc = set_combine(sets.precast.WS['Evisceration'], {
         head="Dampening Tam",
         body=gear.Adhemar_A_body, -- Should be B
-        legs=gear.Herc_WS_legs,
+        legs=gear.Herc_WSD_legs,
         ring1="Regal Ring",
     })
 

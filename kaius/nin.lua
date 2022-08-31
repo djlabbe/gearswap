@@ -233,7 +233,7 @@ function init_gear_sets()
     sets.precast.WS.Acc = set_combine(sets.precast.WS, {
         ammo="Voluspa Tathlum",
         hands=gear.Adhemar_A_hands,
-        -- legs=gear.Herc_WS_legs,
+        -- legs=gear.Herc_WSD_legs,
         ear2="Telos Earring",
     })
 
@@ -392,7 +392,7 @@ function init_gear_sets()
         body="Agony Jerkin +1",
         hands=gear.Relic_Hands,
         legs=gear.Relic_Legs,
-        feet=gear.Herc_WS_feet,
+        feet=gear.Herc_WSD_feet,
         neck="Ninja Nodowa +2",
         waist="Sailfi Belt +1",
         left_ear="Moonshade Earring",

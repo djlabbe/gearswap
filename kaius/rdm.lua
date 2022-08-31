@@ -16,7 +16,6 @@
 --              [ CTRL+F12 ]        Cycle Idle Modes
 --              [ ALT+F12 ]         Cancel Emergency -PDT/-MDT Mode
 --              [ ALT+` ]           Toggle Magic Burst Mode
---              [ WIN+C ]           Toggle Capacity Points Mode
 --
 --  Abilities:  [ CTRL+` ]          Composure
 --              [ CTRL+- ]          Light Arts/Addendum: White
@@ -25,24 +24,7 @@
 --              [ ALT+[ ]           Accesion/Manifestation
 --              [ ALT+; ]           Penury/Parsimony
 --
---  Spells:     [ CTRL+` ]          Stun
---              [ ALT+Q ]           Temper
---              [ ALT+W ]           Flurry II
---              [ ALT+E ]           Haste II
---              [ ALT+R ]           Refresh II
---              [ ALT+Y ]           Phalanx
---              [ ALT+O ]           Regen II
---              [ ALT+P ]           Shock Spikes
---              [ WIN+, ]           Utsusemi: Ichi
---              [ WIN+. ]           Utsusemi: Ni
---
 --  Weapons:    [ CTRL+W ]          Toggles Weapon Lock
---
---  WS:         [ CTRL+Numpad7 ]    Savage Blade
---              [ CTRL+Numpad9 ]    Chant Du Cygne
---              [ CTRL+Numpad4 ]    Requiescat
---              [ CTRL+Numpad1 ]    Sanguine Blade
---
 --
 --              (Global-Binds.lua contains additional non-job-related keybinds)
 
@@ -80,7 +62,6 @@ end
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
 function job_setup()
 
-    -- state.CP = M(false, "Capacity Points Mode")
     state.Buff.Composure = buffactive.Composure or false
     state.Buff.Saboteur = buffactive.Saboteur or false
     state.Buff.Stymie = buffactive.Stymie or false
@@ -133,26 +114,25 @@ function user_setup()
     state.EnspellMode = M(false, 'Enspell Melee Mode')
 
     -- gear.Artifact_Head = { name= "Atrophy Chapeau +1" }
-    gear.Artifact_Body = { name= "Atrophy Tabard +3" }
-    gear.Artifact_Hands = { name= "Atrophy Gloves +3" }
-    gear.Artifact_Legs = { name= "Atrophy Tights +2" }
+    gear.Artifact_Body = { name="Atrophy Tabard +3" }
+    gear.Artifact_Hands = { name="Atrophy Gloves +3" }
+    gear.Artifact_Legs = { name="Atrophy Tights +2" }
 
-    gear.Relic_Head = { name= "Vitiation Chapeau +3" }
-    gear.Relic_Body = { name= "Vitiation Tabard +3" }
-    gear.Relic_Hands = { name= "Vitiation Gloves +3" }
-    gear.Relic_Legs = { name= "Vitiation Tights +3" }
-    gear.Relic_Feet = { name= "Vitiation Boots +3" }
+    gear.Relic_Head = { name="Vitiation Chapeau +3" }
+    gear.Relic_Body = { name="Vitiation Tabard +3" }
+    gear.Relic_Hands = { name="Vitiation Gloves +3" }
+    gear.Relic_Legs = { name="Vitiation Tights +3" }
+    gear.Relic_Feet = { name="Vitiation Boots +3" }
 
-    gear.Empyrean_Head = { name= "Lethargy Chappel +1" }
-    gear.Empyrean_Body = { name= "Lethargy Sayon +1" }
-    gear.Empyrean_Hands = { name= "Lethargy Gantherots +1" }
-    gear.Empyrean_Legs = { name= "Lethargy Fuseau +1" }
-    gear.Empyrean_Feet = { name= "Lethargy Houseaux +1" }
+    gear.Empyrean_Head = { name="Lethargy Chappel +1" }
+    gear.Empyrean_Body = { name="Lethargy Sayon +1" }
+    gear.Empyrean_Hands = { name="Lethargy Gantherots +1" }
+    gear.Empyrean_Legs = { name="Lethargy Fuseau +1" }
+    gear.Empyrean_Feet = { name="Lethargy Houseaux +1" }
 
     -- Additional local binds
     include('Global-Binds.lua') -- OK to remove this line
 
-    
     send_command('bind !` input /ja "Composure" <me>')
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind ^` gs c toggle MagicBurst')
@@ -297,7 +277,7 @@ function init_gear_sets()
         ring2="Weather. Ring", --5/(4)
         -- back="Perimede Cape", --(4)
         waist="Embla Sash",
-        })
+    })
 
     sets.precast.FC.Curaga = sets.precast.FC.Cure
     sets.precast.FC['Healing Magic'] = sets.precast.FC.Cure
@@ -1071,7 +1051,7 @@ function init_gear_sets()
         legs=gear.Carmine_D_legs,
         ear1="Cessance Earring",
         ear2="Mache Earring +1",
-        neck="Combatant's Torque",
+        -- neck="Combatant's Torque",
         ring1=gear.Chirich_1,
         waist="Kentarch Belt +1",
     })

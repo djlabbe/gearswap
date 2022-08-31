@@ -199,7 +199,7 @@ function init_gear_sets()
         body=gear.Gleti_body,
         hands="Meg. Gloves +2",
         legs=gear.Gleti_legs,
-        feet=gear.Herc_WS_feet,
+        feet=gear.Herc_WSD_feet,
         neck="Fotia Gorget",
         ear1="Ishvara Earring",
         ear2="Moonshade Earring",

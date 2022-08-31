@@ -512,9 +512,9 @@ function init_gear_sets()
         waist="Gishdubar Sash", --10
     }
 
-    sets.Trishula = {main="Trishula", sub="Utu Grip"}
-    sets.ShiningOne = {main="Shining One", sub="Utu Grip"}
-    sets.Naegling = {main="Naegling", sub=empty}
+    sets.Trishula = { main="Trishula", sub="Utu Grip" }
+    sets.ShiningOne = { main="Shining One", sub="Utu Grip" }
+    sets.Naegling = { main="Naegling", sub=empty }
 
 end
 
