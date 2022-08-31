@@ -265,8 +265,8 @@ function init_gear_sets()
     })
 
     sets.precast.WS['Impulse Drive'].HighTP = set_combine(sets.precast.WS['Impulse Drive'], {
-        head=gear.Valo_WSD_head,
-        body=gear.Valo_WSD_body,
+        -- head=gear.Valo_WSD_head,
+        -- body=gear.Valo_WSD_body,
         hands="Ptero. Fin. G. +3",
         legs="Vishap Brais +3",
         back=gear.DRG_WS2_Cape,
