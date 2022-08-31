@@ -118,10 +118,10 @@ function user_setup()
     gear.Artifact_Feet = { name="Orion Socks +2" }
 
     gear.Relic_Head = { name="Arcadian Beret +3" }
-    gear.Relic_Body = { name="Arcadian Jerkin +3" }
-    gear.Relic_Legs = { name="Arcadian Braccae +3" }
+    -- gear.Relic_Body = { name="Arcadian Jerkin +3" }
+    -- gear.Relic_Legs = { name="Arcadian Braccae +3" }
     gear.Relic_Hands = { name="Arcadian Bracers +3" }
-    gear.Relic_Feet = { name="Arcadian Socks +3" }
+    -- gear.Relic_Feet = { name="Arcadian Socks +3" }
 
     gear.Empyrean_Head = { name="Amini Gapette +1" }
     gear.Empyrean_Body = { name="Amini Caban +1" }
@@ -516,18 +516,19 @@ function init_gear_sets()
         back="Moonlight Cape", --6/6
     })
 
-    sets.idle.Town = set_combine(sets.idle, {
-        head=gear.Artifact_Head,
-        body="Oshosi Vest +1",
-        hands="Oshosi Gloves +1",
-        legs="Oshosi Trousers +1",
-        feet="Osh. Leggings +1",
-        neck="Scout's Gorget +2",
-        ear1="Beyla Earring",
-        ear2="Telos Earring",
-        back=gear.RNG_RA_Cape,
-        waist="K. Kachina Belt +1",
-    })
+    sets.idle.Town = sets.idle.DT
+    -- sets.idle.Town = set_combine(sets.idle, {
+    --     head=gear.Artifact_Head,
+    --     body="Oshosi Vest +1",
+    --     hands="Oshosi Gloves +1",
+    --     legs="Oshosi Trousers +1",
+    --     feet="Osh. Leggings +1",
+    --     neck="Scout's Gorget +2",
+    --     ear1="Beyla Earring",
+    --     ear2="Telos Earring",
+    --     back=gear.RNG_RA_Cape,
+    --     waist="K. Kachina Belt +1",
+    -- })
 
 
     ------------------------------------------------------------------------------------------------
