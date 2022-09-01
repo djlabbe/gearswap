@@ -510,8 +510,8 @@ end
 -- Set eventArgs.handled to true if we don't want automatic equipping of gear.
 function job_handle_equipping_gear(playerStatus, eventArgs)
     check_gear()
-    update_combat_form()
-    determine_haste_group()
+    -- update_combat_form()
+    -- determine_haste_group()
     check_moving()
 end
 

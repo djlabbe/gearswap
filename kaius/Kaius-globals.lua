@@ -244,6 +244,13 @@ function define_global_sets()
     gear.BLU_TP_Cape = { name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}}
     gear.BLU_CDC_Cape = { name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Crit.hit rate+10',}} --*
     gear.BLU_BLUSKILL_Cape = { name="Cornflower Cape", augments={'MP+29','DEX+3','Accuracy+4','Blue Magic skill +7',}}
+
+    gear.RNG_DW_Cape = {name="Lutian Cape"}
+    gear.RNG_RA_Cape = {name="Lutian Cape"}
+    gear.RNG_SNP_Cape = {name="Lutian Cape"}
+    gear.RNG_TP_Cape = {name="Lutian Cape"}
+    gear.RNG_WS1_Cape = {name="Lutian Cape"}
+    gear.RNG_WS2_Cape = {name="Lutian Cape"}
 end
 
 -- function define_war_sets()

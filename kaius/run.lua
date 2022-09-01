@@ -89,9 +89,6 @@ function job_setup()
 
     rayke_duration = 35
     gambit_duration = 96
-
-    lockstyleset = 2
-
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -118,61 +115,22 @@ function user_setup()
 
     -- Additional local binds
     include('Global-Binds.lua') -- OK to remove this line
-    include('Global-GEO-Binds.lua') -- OK to remove this line
-
     send_command('bind ^` input //gs c rune')
     send_command('bind !` input /ja "Vivacious Pulse" <me>')
     send_command('bind ^insert gs c cycleback Runes')
     send_command('bind ^delete gs c cycle Runes')
     send_command('bind ^f11 gs c cycle MagicalDefenseMode')
     send_command('bind @a gs c cycle AttackMode')
-    -- send_command('bind @c gs c toggle CP')
     send_command('bind @e gs c cycleback WeaponSet')
     send_command('bind @r gs c cycle WeaponSet')
     send_command('bind @w gs c toggle WeaponLock')
     send_command('bind @k gs c toggle Knockback')
-    send_command('bind !q input /ma "Temper" <me>')
-
-    if player.sub_job == 'BLU' then
-        send_command('bind !w input /ma "Cocoon" <me>')
-    elseif player.sub_job == 'WAR' then
-        send_command('bind !w input /ja "Defender" <me>')
-    elseif player.sub_job == 'DRK' then
-        send_command('bind !w input /ja "Last Resort" <me>')
-    elseif player.sub_job == 'SAM' then
-        send_command('bind !w input /ja "Hasso" <me>')
-    end
-
-    send_command('bind !o input /ma "Regen IV" <stpc>')
-    send_command('bind !p input /ma "Shock Spikes" <me>')
 
     send_command('bind @w gs c toggle WeaponLock')
 
-    if player.sub_job == 'WAR' then
-        send_command('bind ^numpad/ input /ja "Berserk" <me>')
-        send_command('bind ^numpad* input /ja "Warcry" <me>')
-        send_command('bind ^numpad- input /ja "Aggressor" <me>')
-    elseif player.sub_job == 'DRK' then
-        send_command('bind ^numpad/ input /ja "Souleater" <me>')
-        send_command('bind ^numpad* input /ja "Arcane Circle" <me>')
-        send_command('bind ^numpad- input /ja "Weapon Bash" <me>')
-    elseif player.sub_job == 'SAM' then
-        send_command('bind ^numpad/ input /ja "Meditate" <me>')
-        send_command('bind ^numpad* input /ja "Sekkanoki" <me>')
-        send_command('bind ^numpad- input /ja "Third Eye" <me>')
-    end
 
-    send_command('bind ^numpad7 input /ws "Resolution" <t>')
-    send_command('bind ^numpad8 input /ws "Upheaval" <t>')
-    send_command('bind ^numpad9 input /ws "Dimidiation" <t>')
-    send_command('bind ^numpad5 input /ws "Ground Strike" <t>;input /p Ground Strike')
-    send_command('bind ^numpad6 input /ws "Full Break" <t>')
-    send_command('bind ^numpad1 input /ws "Herculean Slash" <t>')
-    send_command('bind ^numpad2 input /ws "Shockwave" <t>')
-    send_command('bind ^numpad3 input /ws "Armor Break" <t>')
-
-    set_macro_page(1, 20)
-    send_command('wait 2; input /lockstyleset 20')
+    set_macro_page(1, 22)
+    send_command('wait 2; input /lockstyleset 22')
 
     state.Auto_Kite = M(false, 'Auto_Kite')
     moving = false
