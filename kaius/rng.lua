@@ -169,7 +169,6 @@ function init_gear_sets()
     sets.precast.JA['Shadowbind'] = { hands=gear.Artifact_Feet }
     sets.precast.JA['Sharpshot'] = { legs=gear.Artifact_Legs }
 
-
     -- Fast cast sets for spells
 
     sets.precast.Waltz = {
@@ -208,6 +207,7 @@ function init_gear_sets()
         legs=gear.Adhemar_D_legs, --10/0
         feet="Meg. Jam. +2", --10/0
         neck="Scout's Gorget +2", --4/0
+        ring1="Crepuscular Ring", --3/0
         back=gear.RNG_SNP_Cape, --10/0
         waist="Impulse Belt", --3/0
     } --60/11
@@ -218,7 +218,7 @@ function init_gear_sets()
     }) --45/42
 
     sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
-        feet=gear.Relic_Feet, --0/10
+        -- feet=gear.Relic_Feet, --0/10
         waist="Yemaya Belt", --0/5
     }) --32/57
 
@@ -417,12 +417,17 @@ function init_gear_sets()
 
     sets.midcast.RA = {
         head=gear.Relic_Head,
-        body=gear.Malignance_body,
-        hands=gear.Malignance_hands,
-        legs=gear.Malignance_legs,
-        feet=gear.Malignance_feet,
+        -- body=gear.Malignance_body,
+        -- hands=gear.Malignance_hands,
+        -- legs=gear.Malignance_legs,
+        -- feet=gear.Malignance_feet,
+        body=gear.Ikenga_body,
+        hands=gear.Ikenga_hands,
+        legs=gear.Ikenga_legs,
+        feet=gear.Ikenga_feet,
         neck="Scout's Gorget +2",
-        ear1="Enervating Earring",
+        -- ear1="Enervating Earring",
+        ear1="Crepuscular Earring",
         ear2="Telos Earring",
         ring1="Regal Ring",
         ring2="Dingir Ring",

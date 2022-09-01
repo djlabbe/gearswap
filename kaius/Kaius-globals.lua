@@ -38,6 +38,12 @@ function define_global_sets()
     gear.Mpaca_legs= {name="Mpaca's Hose"}
     gear.Mpaca_feet = {name="Mpaca's Boots"}
 
+    gear.Ikenga_head = {name="Ikenga's Hat"}
+    gear.Ikenga_body = {name="Ikenga's Vest"}
+    gear.Ikenga_hands = {name="Ikenga's Gloves"}
+    gear.Ikenga_legs= {name="Ikenga's Trousers"}
+    gear.Ikenga_feet = {name="Mpaca's Clogs"}
+
     -- Duplicate Items
     gear.Stikini_1 = {name="Stikini Ring +1", bag="wardrobe7"}
     gear.Stikini_2 = {name="Stikini Ring +1", bag="wardrobe8"}

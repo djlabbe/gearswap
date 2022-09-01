@@ -107,7 +107,8 @@ function user_setup()
     state.BarStatus = M{['description']='BarStatus', 'Baramnesia', 'Barvirus', 'Barparalyze', 'Barsilence', 'Barpetrify', 'Barpoison', 'Barblind', 'Barsleep'}
     state.GainSpell = M{['description']='GainSpell', 'Gain-STR', 'Gain-INT', 'Gain-AGI', 'Gain-VIT', 'Gain-DEX', 'Gain-MND', 'Gain-CHR'}
 
-    state.WeaponSet = M{['description']='Weapon Set', 'CroceaDark', 'CroceaLight', 'Almace', 'Naegling', 'Tauret', 'Idle'}
+    -- state.WeaponSet = M{['description']='Weapon Set', 'CroceaDark', 'CroceaLight', 'Almace', 'Naegling', 'Tauret', 'Idle'}
+    state.WeaponSet = M{['description']='Weapon Set', 'CroceaDark', 'CroceaLight', 'Naegling', 'Tauret'}
     state.WeaponLock = M(false, 'Weapon Lock')
     state.MagicBurst = M(false, 'Magic Burst')
     state.SleepMode = M{['description']='Sleep Mode', 'Normal', 'MaxDuration'}
@@ -739,8 +740,8 @@ function init_gear_sets()
     })
 
     sets.midcast.Aspir = sets.midcast.Drain
-    sets.midcast.Stun = set_combine(sets.midcast['Dark Magic'], {waist="Luminary Sash"})
-    sets.midcast['Bio III'] = set_combine(sets.midcast['Dark Magic'], {legs="Viti. Tights +3"})
+    sets.midcast.Stun = set_combine(sets.midcast['Dark Magic'], { waist="Luminary Sash" })
+    sets.midcast['Bio III'] = set_combine(sets.midcast['Dark Magic'], { legs=gear.Relic_Legs })
 
     sets.midcast['Elemental Magic'] = {
         main="Marin Staff +1",
@@ -864,7 +865,7 @@ function init_gear_sets()
     sets.magic_burst = {
         head="Ea Hat +1", --7/(7)
         body="Ea Houppe. +1", --9/(9)
-        hands="Amalric Gages +1", --(6)
+        hands=gear.Amalric_D_hands, --(6)
         legs="Ea Slops +1", --8/(8)
         -- feet="Ea Pigaches +1", --5/(5)
         -- neck="Mizu. Kubikazari", --10
@@ -1029,7 +1030,7 @@ function init_gear_sets()
     -- 45% Magic Haste (36% DW to cap)
     sets.engaged.DW.MaxHaste = set_combine(sets.engaged.DW, {
         ammo="Aurgelmir Orb +1",
-         head=gear.Malignance_head,
+        head=gear.Malignance_head,
         body=gear.Malignance_body,
         hands=gear.Malignance_hands,
         legs=gear.Malignance_legs,
@@ -1100,25 +1101,25 @@ function init_gear_sets()
 
     sets.buff.Doom = {
         neck="Nicander's Necklace", --20
-        ring1={name="Eshmun's Ring", bag="wardrobe3"}, --20
-        ring2={name="Eshmun's Ring", bag="wardrobe4"}, --20
+        -- ring1={ name="Eshmun's Ring", bag="wardrobe3" }, --20
+        -- ring2={ name="Eshmun's Ring", bag="wardrobe4" }, --20
         waist="Gishdubar Sash", --10
     }
 
     sets.Obi = {waist="Hachirin-no-Obi"}
 
     sets.TreasureHunter = {
-        head="Volte Cap", 
-        feet="Volte Boots", 
-        waist="Chaac Belt"
+        head="Volte Cap", --1
+        feet=gear.Merl_TH_feet, --2
+        waist="Chaac Belt" --1
     }
 
     sets.CroceaDark = { main="Crocea Mors", sub="Ternion Dagger +1" }
     sets.CroceaLight = { main="Crocea Mors", sub="Daybreak" }
-    sets.Almace = { main="Almace", sub="Ternion Dagger +1" }
+    -- sets.Almace = { main="Almace", sub="Ternion Dagger +1" }
     sets.Naegling = { main="Naegling", sub="Thibron" }
     sets.Tauret = { main="Tauret", sub="Ternion Dagger +1" }
-    sets.Idle = { main="Daybreak", sub="Sacro Bulwark" }
+    -- sets.Idle = { main="Daybreak", sub="Sacro Bulwark" }
 
 end
 
