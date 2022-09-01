@@ -616,8 +616,9 @@ function init_gear_sets()
         ring1="Hetairoi Ring",
         ring2="Epona's Ring",
         back=gear.RNG_DW_Cape, --10
-        waist="Reiki Yotai", --7
-        } -- 52%
+        -- waist="Reiki Yotai", --7
+        waist="Windbuffet Belt +1",
+    } -- 52%
 
     sets.engaged.DW.LowAcc = set_combine(sets.engaged.DW, {
         -- head="Dampening Tam",
@@ -661,7 +662,8 @@ function init_gear_sets()
         ring1="Hetairoi Ring",
         ring2="Epona's Ring",
         back=gear.RNG_TP_Cape,
-        waist="Reiki Yotai", --7
+         -- waist="Reiki Yotai", --7
+         waist="Windbuffet Belt +1",
     } -- 42%
 
     sets.engaged.DW.LowAcc.LowHaste = set_combine(sets.engaged.DW.LowHaste, {
@@ -708,7 +710,8 @@ function init_gear_sets()
         ring1="Hetairoi Ring",
         ring2="Epona's Ring",
         back=gear.RNG_TP_Cape,
-        waist="Reiki Yotai", --7
+         -- waist="Reiki Yotai", --7
+         waist="Windbuffet Belt +1",
       } -- 31%
 
     sets.engaged.DW.LowAcc.MidHaste = set_combine(sets.engaged.DW.MidHaste, {
@@ -756,7 +759,8 @@ function init_gear_sets()
         ring1="Hetairoi Ring",
         ring2="Epona's Ring",
         back=gear.RNG_TP_Cape,
-        waist="Reiki Yotai", --7
+          -- waist="Reiki Yotai", --7
+          waist="Windbuffet Belt +1",
       } -- 27%
 
     sets.engaged.DW.LowAcc.HighHaste = set_combine(sets.engaged.DW.HighHaste, {
