@@ -322,7 +322,7 @@ function init_gear_sets()
 
     sets.idle = {
         ammo="Staunch Tathlum +1",
-        head="Malignance Chapeau", --6/6
+        head=gear.Malignance_head, --6/6
         body="Malignance Tabard", --9/9
         hands="Malignance Gloves", --5/5
         legs="Malignance Tights", --7/7
@@ -338,7 +338,7 @@ function init_gear_sets()
 
     sets.idle.DT = set_combine(sets.idle, {
         ammo="Staunch Tathlum +1", --3/3
-        head="Malignance Chapeau", --6/6
+        head=gear.Malignance_head, --6/6
         body="Malignance Tabard", --9/9
         hands="Malignance Gloves", --5/5
         legs="Malignance Tights", --7/7
@@ -351,12 +351,6 @@ function init_gear_sets()
         back="Moonlight Cape", --6/6
         })
 
-   sets.idle.Refresh = set_combine(sets.idle, {
-        ring1={name="Stikini Ring +1", bag="wardrobe3"},
-        ring2={name="Stikini Ring +1", bag="wardrobe4"},
-        })
-
-
     sets.idle.Town = set_combine(sets.idle, {
         ammo="Aurgelmir Orb +1",
         neck="Asn. Gorget +2",
@@ -364,7 +358,7 @@ function init_gear_sets()
         ear2="Telos Earring",
         back=gear.THF_TP_Cape,
         waist="Windbuffet Belt +1",
-        })
+    })
 
     ------------------------------------------------------------------------------------------------
     ---------------------------------------- Defense Sets ------------------------------------------
@@ -392,7 +386,7 @@ function init_gear_sets()
         head="Plun. Bonnet +3",
         body=gear.Adhemar_B_body,
         hands=gear.Adhemar_A_hands,
-        legs="Samnuha Tights",
+        -- legs="Samnuha Tights",
         feet="Plun. Poulaines +3",
         neck="Asn. Gorget +2",
         ear1="Sherida Earring",
@@ -444,7 +438,8 @@ function init_gear_sets()
         head="Plun. Bonnet +3",
         body=gear.Adhemar_B_body, -- 6
         hands=gear.Adhemar_A_hands,
-        legs="Samnuha Tights",
+        -- legs="Samnuha Tights",
+        legs=gear.Herc_TA_legs,
         -- feet=gear.Taeon_DW_feet, --9
         feet=gear.Herc_TA_Feet,
         neck="Asn. Gorget +2",
@@ -462,7 +457,7 @@ function init_gear_sets()
 
     sets.engaged.DW.MidAcc = set_combine(sets.engaged.DW.LowAcc, {
         ammo="Yamarang",
-        head="Dampening Tam",
+        -- head="Dampening Tam",
         body="Pillager's Vest +3",
         ring2="Ilabrat Ring",
         waist="Kentarch Belt +1",
@@ -476,11 +471,11 @@ function init_gear_sets()
         ear2="Telos Earring",
         ring1="Regal Ring",
         ring2=gear.Chirich_2,
-        waist="Olseni Belt",
+        -- waist="Olseni Belt",
     })
 
     sets.engaged.DW.STP = set_combine(sets.engaged.DW, {
-        head=gear.Herc_STP_head,
+        -- head=gear.Herc_STP_head,
         neck="Anu Torque",
         ring1=gear.Chirich_1,
         ring2=gear.Chirich_2,
@@ -493,7 +488,8 @@ function init_gear_sets()
         head="Plun. Bonnet +3",
         body=gear.Adhemar_B_body, -- 6
         hands=gear.Adhemar_A_hands,
-        legs="Samnuha Tights",
+        -- legs="Samnuha Tights",
+        legs=gear.Herc_TA_legs,
         -- feet=gear.Taeon_DW_feet, --9
         feet=gear.Herc_TA_Feet,
         neck="Asn. Gorget +2",
@@ -511,7 +507,7 @@ function init_gear_sets()
 
     sets.engaged.DW.MidAcc.LowHaste = set_combine(sets.engaged.DW.LowAcc.LowHaste, {
         ammo="Yamarang",
-        head="Dampening Tam",
+        -- head="Dampening Tam",
         body="Pillager's Vest +3",
         ring2="Ilabrat Ring",
         waist="Kentarch Belt +1",
@@ -524,11 +520,11 @@ function init_gear_sets()
         ear2="Telos Earring",
         ring1="Regal Ring",
         ring2=gear.Chirich_2,
-        waist="Olseni Belt",
+        -- waist="Olseni Belt",
     })
 
     sets.engaged.DW.STP.LowHaste = set_combine(sets.engaged.DW.LowHaste, {
-        head=gear.Herc_STP_head,
+        -- head=gear.Herc_STP_head,
         neck="Anu Torque",
         ring1=gear.Chirich_1,
         ring2=gear.Chirich_2,
@@ -541,7 +537,8 @@ function init_gear_sets()
         head="Plun. Bonnet +3",
         body="Pillager's Vest +3",
         hands=gear.Adhemar_A_hands,
-        legs="Samnuha Tights",
+        -- legs="Samnuha Tights",
+        legs=gear.Herc_TA_legs,
         -- feet="Plun. Poulaines +3",
         feet=gear.Herc_TA_Feet,
         neck="Asn. Gorget +2",
@@ -559,7 +556,7 @@ function init_gear_sets()
 
     sets.engaged.DW.MidAcc.MidHaste = set_combine(sets.engaged.DW.LowAcc.MidHaste, {
         ammo="Yamarang",
-        head="Dampening Tam",
+        -- head="Dampening Tam",
         ear1="Cessance Earring",
         ring2="Ilabrat Ring",
         waist="Kentarch Belt +1",
@@ -572,7 +569,7 @@ function init_gear_sets()
         ear2="Telos Earring",
         ring1="Regal Ring",
         ring2=gear.Chirich_2,
-        waist="Olseni Belt",
+        -- waist="Olseni Belt",
     })
 
     sets.engaged.DW.STP.MidHaste = set_combine(sets.engaged.DW.MidHaste, {
@@ -591,7 +588,8 @@ function init_gear_sets()
         head="Plun. Bonnet +3",
         body="Pillager's Vest +3",
         hands=gear.Adhemar_A_hands,
-        legs="Samnuha Tights",
+         -- legs="Samnuha Tights",
+        legs=gear.Herc_TA_legs,
         -- feet="Plun. Poulaines +3",
         feet=gear.Herc_TA_Feet,
         neck="Asn. Gorget +2",
@@ -610,7 +608,7 @@ function init_gear_sets()
 
     sets.engaged.DW.MidAcc.HighHaste = set_combine(sets.engaged.DW.LowAcc.HighHaste, {
         ammo="Yamarang",
-        head="Dampening Tam",
+        -- head="Dampening Tam",
         ear1="Cessance Earring",
         ring2="Ilabrat Ring",
         waist="Kentarch Belt +1",
@@ -623,7 +621,7 @@ function init_gear_sets()
         ear2="Telos Earring",
         ring1="Regal Ring",
         ring2=gear.Chirich_2,
-        waist="Olseni Belt",
+        -- waist="Olseni Belt",
     })
 
     sets.engaged.DW.STP.HighHaste = set_combine(sets.engaged.DW.HighHaste, {
@@ -637,10 +635,13 @@ function init_gear_sets()
     -- 45% Magic Haste (36% DW to cap)
     sets.engaged.DW.MaxHaste = {
         ammo="Aurgelmir Orb +1",
-        head="Plun. Bonnet +3",
-        body="Pillager's Vest +3",
+        -- head="Plun. Bonnet +3",
+        head=gear.Gleti_head,
+        -- body="Pillager's Vest +3",
+        body=gear.Gleti_body,
         hands=gear.Adhemar_A_hands,
-        legs="Samnuha Tights",
+        -- legs="Samnuha Tights",
+        legs=gear.Herc_TA_legs,
         -- feet="Plun. Poulaines +3",
         feet=gear.Herc_TA_Feet,
         neck="Asn. Gorget +2",
@@ -659,7 +660,7 @@ function init_gear_sets()
 
     sets.engaged.DW.MidAcc.MaxHaste = set_combine(sets.engaged.DW.LowAcc.MaxHaste, {
         ammo="Yamarang",
-        head="Dampening Tam",
+        -- head="Dampening Tam",
         ear1="Cessance Earring",
         ring2="Ilabrat Ring",
     })
