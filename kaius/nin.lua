@@ -440,12 +440,12 @@ function init_gear_sets()
         hands=gear.Nyame_hands,
         legs="Nyame Flanchard",
         feet=gear.Relic_Feet,
-        neck="Warder's Charm +1",
+        neck="Sibyl Scarf",
         waist="Skrymir Cord +1",
         left_ear="Hermetic Earring",
         right_ear="Friomisi Earring",
         left_ring="Metamorph Ring +1",
-        right_ring="Mujin Band",
+        right_ring="Dingir Ring",
         back=gear.NIN_TP_Cape,
     }
 
@@ -837,16 +837,17 @@ function init_gear_sets()
 
     sets.magic_burst = {
         feet=gear.Artifact_Feet,
+        neck="Warder's Charm +1",
         -- ring1="Locus Ring",
         ring2="Mujin Band", --(5)
     }
 
     sets.buff.Doom = {
-        -- neck="Nicander's Necklace", --20
+        neck="Nicander's Necklace", --20
         -- ring1={name="Eshmun's Ring", bag="wardrobe3"}, --20
         -- ring2={name="Eshmun's Ring", bag="wardrobe4"}, --20
         waist="Gishdubar Sash", --10
-        }
+    }
 
     sets.TreasureHunter = {
         ammo="Perfect Lucky Egg",
