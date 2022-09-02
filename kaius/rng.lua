@@ -63,9 +63,9 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('Normal', 'LowAcc', 'MidAcc', 'HighAcc', 'STP')
+    state.OffenseMode:options('Normal', 'LowAcc', 'MidAcc', 'HighAcc')
     state.HybridMode:options('Normal', 'DT')
-    state.RangedMode:options('STP', 'Normal', 'Acc', 'HighAcc', 'Critical')
+    state.RangedMode:options('Normal', 'Acc', 'HighAcc', 'Critical')
     state.WeaponskillMode:options('Normal', 'Acc', 'Enmity')
     state.IdleMode:options('Normal', 'DT')
 
@@ -111,7 +111,7 @@ function user_setup()
     -- Additional local binds
     include('Global-Binds.lua') -- OK to remove this line
 
-    gear.Artifact_Head = { name="Orion Beret +1" }
+    gear.Artifact_Head = { name="Orion Beret +2" }
     gear.Artifact_Body = { name="Orion Jerkin +1" }
     gear.Artifact_Legs = { name="Orion Braccae +1" }
     gear.Artifact_Hands = { name="Orion Bracers +2" }
@@ -429,7 +429,8 @@ function init_gear_sets()
         -- ear1="Enervating Earring",
         ear1="Crepuscular Earring",
         ear2="Telos Earring",
-        ring1="Regal Ring",
+        -- ring1="Regal Ring",
+        ring="Crepuscular Ring",
         ring2="Dingir Ring",
         back=gear.RNG_RA_Cape,
         waist="Yemaya Belt",
@@ -457,13 +458,6 @@ function init_gear_sets()
         ring1="Begrudging Ring",
         ring2="Mummu Ring",
         waist="K. Kachina Belt +1",
-    })
-
-    sets.midcast.RA.STP = set_combine(sets.midcast.RA, {
-        neck="Iskur Gorget",
-        ear1="Dedition Earring",
-        ring1=gear.Chirich_1,
-        ring2=gear.Chirich_2,
     })
 
     sets.DoubleShot = {
@@ -597,13 +591,6 @@ function init_gear_sets()
         waist="Olseni Belt",
     })
 
-    sets.engaged.STP = set_combine(sets.engaged, {
-        -- head=gear.Herc_STP_head,
-        feet=gear.Carmine_B_feet,
-        ring1=gear.Chirich_1,
-        ring2=gear.Chirich_2,
-    })
-
     -- * DNC Subjob DW Trait: +15%
     -- * NIN Subjob DW Trait: +25%
 
@@ -647,12 +634,6 @@ function init_gear_sets()
         waist="Olseni Belt",
     })
 
-    sets.engaged.DW.STP = set_combine(sets.engaged.DW, {
-        -- head=gear.Herc_STP_head,
-        ring1=gear.Chirich_1,
-        ring2=gear.Chirich_2,
-    })
-
     -- 15% Magic Haste (67% DW to cap)
     sets.engaged.DW.LowHaste = {
         head=gear.Adhemar_B_head,
@@ -692,12 +673,6 @@ function init_gear_sets()
         ring1="Regal Ring",
         ring2=gear.Chirich_2,
         -- waist="Olseni Belt",
-    })
-
-    sets.engaged.DW.STP.LowHaste = set_combine(sets.engaged.DW.LowHaste, {
-        head=gear.Herc_STP_head,
-        ring1=gear.Chirich_1,
-        ring2=gear.Chirich_2,
     })
 
     -- 30% Magic Haste (56% DW to cap)
@@ -744,12 +719,6 @@ function init_gear_sets()
         -- waist="Olseni Belt",
     })
 
-    sets.engaged.DW.STP.MidHaste = set_combine(sets.engaged.DW.MidHaste, {
-        head=gear.Herc_STP_head,
-        ring1=gear.Chirich_1,
-        ring2=gear.Chirich_2,
-    })
-
     -- 35% Magic Haste (51% DW to cap)
     sets.engaged.DW.HighHaste = {
         head=gear.Adhemar_B_head,
@@ -793,12 +762,6 @@ function init_gear_sets()
         -- waist="Olseni Belt",
     })
 
-    sets.engaged.DW.STP.HighHaste = set_combine(sets.engaged.DW.HighHaste, {
-        head=gear.Herc_STP_head,
-        ring1=gear.Chirich_1,
-        ring2=gear.Chirich_2,
-    })
-
     -- 45% Magic Haste (36% DW to cap)
     sets.engaged.DW.MaxHaste = {
         head=gear.Adhemar_B_head,
@@ -840,18 +803,10 @@ function init_gear_sets()
         -- waist="Olseni Belt",
     })
 
-    sets.engaged.DW.STP.MaxHaste = set_combine(sets.engaged.DW.MaxHaste, {
-        head=gear.Herc_STP_head,
-        ring1=gear.Chirich_1,
-        ring2=gear.Chirich_2,
-    })
-
     sets.engaged.DW.MaxHastePlus = set_combine(sets.engaged.DW.MaxHaste, {back=gear.RNG_DW_Cape})
     sets.engaged.DW.LowAcc.MaxHastePlus = set_combine(sets.engaged.DW.LowAcc.MaxHaste, {back=gear.RNG_DW_Cape})
     sets.engaged.DW.MidAcc.MaxHastePlus = set_combine(sets.engaged.DW.MidAcc.MaxHaste, {back=gear.RNG_DW_Cape})
     sets.engaged.DW.HighAcc.MaxHastePlus = set_combine(sets.engaged.DW.HighAcc.MaxHaste, {back=gear.RNG_DW_Cape})
-    sets.engaged.DW.STP.MaxHastePlus = set_combine(sets.engaged.DW.STP.MaxHaste, {back=gear.RNG_DW_Cape})
-
 
     ------------------------------------------------------------------------------------------------
     ---------------------------------------- Hybrid Sets -------------------------------------------
@@ -867,43 +822,36 @@ function init_gear_sets()
     sets.engaged.LowAcc.DT = set_combine(sets.engaged.LowAcc, sets.engaged.Hybrid)
     sets.engaged.MidAcc.DT = set_combine(sets.engaged.MidAcc, sets.engaged.Hybrid)
     sets.engaged.HighAcc.DT = set_combine(sets.engaged.HighAcc, sets.engaged.Hybrid)
-    sets.engaged.STP.DT = set_combine(sets.engaged.STP, sets.engaged.Hybrid)
 
     sets.engaged.DW.DT = set_combine(sets.engaged.DW, sets.engaged.Hybrid)
     sets.engaged.DW.LowAcc.DT = set_combine(sets.engaged.DW.LowAcc, sets.engaged.Hybrid)
     sets.engaged.DW.MidAcc.DT = set_combine(sets.engaged.DW.MidAcc, sets.engaged.Hybrid)
     sets.engaged.DW.HighAcc.DT = set_combine(sets.engaged.DW.HighAcc, sets.engaged.Hybrid)
-    sets.engaged.DW.STP.DT = set_combine(sets.engaged.DW.STP, sets.engaged.Hybrid)
 
     sets.engaged.DW.DT.LowHaste = set_combine(sets.engaged.DW.LowHaste, sets.engaged.Hybrid)
     sets.engaged.DW.LowAcc.DT.LowHaste = set_combine(sets.engaged.DW.LowAcc.LowHaste, sets.engaged.Hybrid)
     sets.engaged.DW.MidAcc.DT.LowHaste = set_combine(sets.engaged.DW.MidAcc.LowHaste, sets.engaged.Hybrid)
     sets.engaged.DW.HighAcc.DT.LowHaste = set_combine(sets.engaged.DW.HighAcc.LowHaste, sets.engaged.Hybrid)
-    sets.engaged.DW.STP.DT.LowHaste = set_combine(sets.engaged.DW.STP.LowHaste, sets.engaged.Hybrid)
 
     sets.engaged.DW.DT.MidHaste = set_combine(sets.engaged.DW.MidHaste, sets.engaged.Hybrid)
     sets.engaged.DW.LowAcc.DT.MidHaste = set_combine(sets.engaged.DW.LowAcc.MidHaste, sets.engaged.Hybrid)
     sets.engaged.DW.MidAcc.DT.MidHaste = set_combine(sets.engaged.DW.MidAcc.MidHaste, sets.engaged.Hybrid)
     sets.engaged.DW.HighAcc.DT.MidHaste = set_combine(sets.engaged.DW.HighAcc.MidHaste, sets.engaged.Hybrid)
-    sets.engaged.DW.STP.DT.MidHaste = set_combine(sets.engaged.DW.STP.MidHaste, sets.engaged.Hybrid)
 
     sets.engaged.DW.DT.HighHaste = set_combine(sets.engaged.DW.HighHaste, sets.engaged.Hybrid)
     sets.engaged.DW.LowAcc.DT.HighHaste = set_combine(sets.engaged.DW.LowAcc.HighHaste, sets.engaged.Hybrid)
     sets.engaged.DW.MidAcc.DT.HighHaste = set_combine(sets.engaged.DW.MidAcc.HighHaste, sets.engaged.Hybrid)
     sets.engaged.DW.HighAcc.DT.HighHaste = set_combine(sets.engaged.DW.HighAcc.HighHaste, sets.engaged.Hybrid)
-    sets.engaged.DW.STP.DT.HighHaste = set_combine(sets.engaged.DW.HighHaste.STP, sets.engaged.Hybrid)
 
     sets.engaged.DW.DT.MaxHaste = set_combine(sets.engaged.DW.MaxHaste, sets.engaged.Hybrid)
     sets.engaged.DW.LowAcc.DT.MaxHaste = set_combine(sets.engaged.DW.LowAcc.MaxHaste, sets.engaged.Hybrid)
     sets.engaged.DW.MidAcc.DT.MaxHaste = set_combine(sets.engaged.DW.MidAcc.MaxHaste, sets.engaged.Hybrid)
     sets.engaged.DW.HighAcc.DT.MaxHaste = set_combine(sets.engaged.DW.HighAcc.MaxHaste, sets.engaged.Hybrid)
-    sets.engaged.DW.STP.DT.MaxHaste = set_combine(sets.engaged.DW.STP.MaxHaste, sets.engaged.Hybrid)
 
     sets.engaged.DW.DT.MaxHastePlus = set_combine(sets.engaged.DW.MaxHastePlus, sets.engaged.Hybrid)
     sets.engaged.DW.LowAcc.DT.MaxHastePlus = set_combine(sets.engaged.DW.LowAcc.MaxHastePlus, sets.engaged.Hybrid)
     sets.engaged.DW.MidAcc.DT.MaxHastePlus = set_combine(sets.engaged.DW.MidAcc.MaxHastePlus, sets.engaged.Hybrid)
     sets.engaged.DW.HighAcc.DT.MaxHastePlus = set_combine(sets.engaged.DW.HighAcc.MaxHastePlus, sets.engaged.Hybrid)
-    sets.engaged.DW.STP.DT.MaxHastePlus = set_combine(sets.engaged.DW.STP.MaxHastePlus, sets.engaged.Hybrid)
 
 
     ------------------------------------------------------------------------------------------------
@@ -1036,9 +984,6 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
         if state.Buff.Barrage then
             equip(sets.buff.Barrage)
         end
---        if state.Buff['Velocity Shot'] and state.RangedMode.value == 'STP' then
---            equip(sets.buff['Velocity Shot'])
---        end
     end
 end
 
@@ -1095,10 +1040,11 @@ end
 
 function job_state_change(stateField, newValue, oldValue)
     if state.WeaponLock.value == true then
-       disable('ranged')
+        disable('main','sub','range')
     else
-       enable('ranged')
-   end
+        enable('main','sub','range')
+    end
+
 
     check_weaponset()
 end

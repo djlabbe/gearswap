@@ -800,7 +800,7 @@ function init_gear_sets()
     sets.Obi = { waist="Hachirin-no-Obi" }
 
     sets.Carnwenhan = { main="Carnwenhan", sub="Ternion Dagger +1" }
-    sets.Twashtar = { main="Twashtar", sub="Taming Sari" }
+    -- sets.Twashtar = { main="Twashtar", sub="Taming Sari" }
     sets.Tauret = { main="Tauret", sub="Ternion Dagger +1" }
     sets.Naegling = { main="Naegling", sub="Centovente" }
 
