@@ -97,7 +97,7 @@ function user_setup()
     gear.Relic_Hands = { name = "Mochizuki Tekko +3" }
     gear.Relic_Feet = { name = "Mochizuki Kyahan +3" }
 
-    gear.Empyrean_Body = { name = "Hattori Ningi" }
+    -- gear.Empyrean_Body = { name = "Hattori Ningi" }
     gear.Empyrean_Hands = { name = "Hattori Tekko +1" }
     gear.Empyrean_Feet = { name = "Hattori Kyahan +1" }
 

@@ -154,7 +154,7 @@ function init_gear_sets()
     sets.precast.WS = {
         ammo="Aurgelmir Orb +1",
         head="Pteroslaver Armet +3",
-        body=gear.Valo_TP_body,
+        body=gear.Gleti_body,
         hands="Sulev. Gauntlets +2",
         legs="Sulev. Cuisses +2",
         feet="Sulevia's Leggings +2",
