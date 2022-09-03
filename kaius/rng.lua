@@ -69,7 +69,7 @@ function user_setup()
     state.WeaponskillMode:options('Normal', 'Acc', 'Enmity')
     state.IdleMode:options('Normal', 'DT')
 
-    state.WeaponSet = M{['description']='Weapon Set', 'Annihilator', 'Fomalhaut', 'Armageddon'}
+    state.WeaponSet = M{['description']='Weapon Set', 'Annihilator', 'Fomalhaut', 'Fomalhaut_TF', 'Armageddon'}
     state.WeaponLock = M(false, 'Weapon Lock')
 
     DefaultAmmo = {['Yoichinoyumi'] = "Chrono Arrow",
@@ -347,8 +347,8 @@ function init_gear_sets()
         head=empty,
         body="Cohort Cloak +1",
         hands=gear.Carmine_D_hands,
-        legs=gear.Herc_WSD_legs,
-        feet=gear.Herc_WSD_feet,
+        legs=gear.Herc_MAB_legs,
+        feet=gear.Herc_MAB_feet,
         neck="Scout's Gorget +2",
         ear1="Moonshade Earring",
         ear2="Friomisi Earring",
@@ -869,7 +869,7 @@ function init_gear_sets()
     }
 
     sets.buff.Doom = {
-        -- neck="Nicander's Necklace", --20
+        neck="Nicander's Necklace", --20
         -- ring1={name="Eshmun's Ring", bag="wardrobe3"}, --20
         -- ring2={name="Eshmun's Ring", bag="wardrobe4"}, --20
         waist="Gishdubar Sash", --10
@@ -880,6 +880,11 @@ function init_gear_sets()
 
     sets.Annihilator = {main="Perun +1", sub="Blurred Knife +1", ranged="Annihilator"}
     sets.Fomalhaut = {main="Perun +1", sub="Blurred Knife +1", ranged="Fomalhaut"}
+    sets.Fomalhaut_TF= {
+        main={ name="Malevolence", augments={'INT+10','"Mag.Atk.Bns."+6',}},
+        sub={ name="Malevolence", augments={'INT+4','Mag. Acc.+3','"Mag.Atk.Bns."+2','"Fast Cast"+2',}},
+        ranged="Fomalhaut"
+    }
     sets.Armageddon = {main="Perun +1", sub="Malevolence", ranged="Armageddon"}
     --sets.Gastraphetes = {main="Malevolence", sub="Malevolence", ranged="Gastraphetes"}
 
@@ -938,8 +943,7 @@ function job_post_precast(spell, action, spellMap, eventArgs)
             end
         end
       elseif spell.type == 'WeaponSkill' then
-        -- Replace TP-bonus gear if not needed.
-        if spell.english == 'Trueflight' or spell.english == 'Aeolian Edge' and player.tp > 2900 then
+        if (spell.english == 'Trueflight' or spell.english == 'Aeolian Edge') and player.tp > 2900 then
             equip(sets.FullTP)
         end
         -- Equip obi if weather/day matches for WS.

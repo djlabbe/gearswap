@@ -188,19 +188,19 @@ function init_gear_sets()
      sets.precast.WS['Catastrophe'].Acc = set_combine(sets.precast.WS['Catastrophe'], {})
 
     sets.precast.WS['Torcleaver'] = {
-        ammo="Knobkierrie",
-        head="Ratri Sallet +1",
-        body=gear.Artifact_Body,
-        hands=gear.Ody_WS_hands,
-        legs=gear.Relic_Legs,
-        feet="Sulev. Leggings +2",
+        ammo="Knobkierrie", --6
+        head="Ratri Sallet +1", --8
+        body=gear.Artifact_Body, --10
+        hands=gear.Sakpata_hands,
+        legs=gear.Relic_Legs, --10
+        feet="Sulev. Leggings +2", --7 
         neck="Abyssal Beads +2",
         waist="Sailfi Belt +1",
-        left_ear="Thrud Earring",
+        left_ear="Thrud Earring", --3
         right_ear="Moonshade Earring",
         left_ring="Niqmaddu Ring",
         right_ring="Regal Ring",
-        back= gear.DRK_WS2_Cape,
+        back= gear.DRK_WS2_Cape, --10
     }
 
     sets.precast.WS['Torcleaver'].Acc = set_combine(sets.precast.WS['Torcleaver'], {})

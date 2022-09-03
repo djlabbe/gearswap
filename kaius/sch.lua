@@ -425,7 +425,7 @@ function init_gear_sets()
     sets.midcast.ElementalEnfeeble = sets.midcast.Enfeebles
 
     sets.midcast['Dark Magic'] = {
-        -- main="Rubicundity",
+        main="Rubicundity",
         sub="Ammurapi Shield",
         ammo="Pemphredo Tathlum",
         -- head="Acad. Mortar. +3",

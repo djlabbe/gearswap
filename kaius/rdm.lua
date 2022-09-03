@@ -712,7 +712,7 @@ function init_gear_sets()
     sets.midcast.Dispelga = set_combine(sets.midcast.IntEnfeeblesAcc, {main="Daybreak", sub="Ammurapi Shield", waist="Shinjutsu-no-Obi +1"})
 
     sets.midcast['Dark Magic'] = {
-        -- main="Rubicundity",
+        main="Rubicundity",
         sub="Ammurapi Shield",
         ammo="Pemphredo Tathlum",
          head=gear.Artifact_Head,
