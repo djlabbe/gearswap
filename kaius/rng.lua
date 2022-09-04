@@ -119,7 +119,7 @@ function user_setup()
 
     gear.Relic_Head = { name="Arcadian Beret +3" }
     -- gear.Relic_Body = { name="Arcadian Jerkin +3" }
-    -- gear.Relic_Legs = { name="Arcadian Braccae +3" }
+    gear.Relic_Legs = { name="Arcadian Braccae +3" }
     gear.Relic_Hands = { name="Arcadian Bracers +3" }
     -- gear.Relic_Feet = { name="Arcadian Socks +3" }
 
@@ -347,7 +347,7 @@ function init_gear_sets()
         head=empty,
         body="Cohort Cloak +1",
         hands=gear.Carmine_D_hands,
-        legs=gear.Herc_MAB_legs,
+        legs=gear.Relic_Legs,
         feet=gear.Herc_MAB_feet,
         neck="Scout's Gorget +2",
         ear1="Moonshade Earring",
