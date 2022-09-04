@@ -601,7 +601,7 @@ function init_gear_sets()
         ring1="Freke Ring",
         -- ring2="Evanescence Ring",
         -- waist="Emphatikos Rope",
-       })
+    })
 
     sets.midcast.Storm = sets.midcast.EnhancingDuration
     sets.midcast.GainSpell = {hands=gear.Relic_Hands}
@@ -610,6 +610,7 @@ function init_gear_sets()
     sets.midcast.Protect = set_combine(sets.midcast.EnhancingDuration, {
         ring2="Sheltered Ring"
     })
+    
     sets.midcast.Protectra = sets.midcast.Protect
     sets.midcast.Shell = sets.midcast.Protect
     sets.midcast.Shellra = sets.midcast.Shell
@@ -1102,7 +1103,7 @@ function init_gear_sets()
     sets.buff.Doom = {
         neck="Nicander's Necklace", --20
         -- ring1={ name="Eshmun's Ring", bag="wardrobe3" }, --20
-        -- ring2={ name="Eshmun's Ring", bag="wardrobe4" }, --20
+        ring2=gear.Eshmun_2, --20
         waist="Gishdubar Sash", --10
     }
 

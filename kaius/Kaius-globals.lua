@@ -53,6 +53,7 @@ function define_global_sets()
     gear.Moonlight_2 = {name="Moonlight Ring", bag="wardrobe8"}
     gear.Varar_1 = {name="Varar Ring +1", bag="wardrobe7"}
     gear.Varar_2 = {name="Varar Ring +1", bag="wardrobe8"}
+    gear.Eshmun_2 = {name="Eshmun's Ring", bag="wardrobe8"}
 
     -- Augmented Weapons
     gear.Colada_ENH = { name="Colada", augments={'Enh. Mag. eff. dur. +3','INT+5','Mag. Acc.+12','"Mag.Atk.Bns."+16',}}
