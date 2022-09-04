@@ -1,0 +1,18 @@
+sets.exported={
+    main={ name="Malevolence", augments={'INT+10','"Mag.Atk.Bns."+6',}},
+    sub={ name="Malevolence", augments={'INT+4','Mag. Acc.+3','"Mag.Atk.Bns."+2','"Fast Cast"+2',}},
+    range={ name="Fomalhaut", augments={'Path: A',}},
+    ammo="Chrono Bullet",
+    head="Malignance Chapeau",
+    body="Malignance Tabard",
+    hands="Malignance Gloves",
+    legs="Malignance Tights",
+    feet="Malignance Boots",
+    neck={ name="Bathy Choker +1", augments={'Path: A',}},
+    waist="Carrier's Sash",
+    left_ear="Infused Earring",
+    right_ear="Eabani Earring",
+    left_ring="Chirich Ring +1",
+    right_ring="Chirich Ring +1",
+    back={ name="Lutian Cape", augments={'STR+4','AGI+2','"Store TP"+3','"Snapshot"+1',}},
+}

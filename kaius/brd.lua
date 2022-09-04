@@ -267,7 +267,7 @@ function init_gear_sets()
         -- hands=gear.Chironic_WSD_hands,
         hands="Gazu Bracelet +1",
         legs=gear.Relic_Legs,
-        feet=gear.Relic.Feet,
+        feet=gear.Relic_Feet,
         neck="Fotia Gorget",
         ear1="Ishvara Earring",
         ear2="Moonshade Earring",
@@ -722,7 +722,7 @@ function init_gear_sets()
         body="Agony Jerkin +1",
         hands="Gazu Bracelet +1",
         legs="Zoar Subligar +1",
-        feet="Ayanmo Gambieras +2"
+        feet="Ayanmo Gambieras +2",
         neck="Bard's Charm +2",
         ear1="Eabani Earring", --4
         ear2="Telos Earring",
