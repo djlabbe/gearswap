@@ -516,18 +516,18 @@ function init_gear_sets()
     })
 
     -- sets.idle.Town = sets.idle
-    sets.idle.Town = set_combine(sets.idle, {
-        head=gear.Relic_Head,
-        body="Oshosi Vest +1",
-        hands="Oshosi Gloves +1",
-        legs="Oshosi Trousers +1",
-        feet="Osh. Leggings +1",
-        neck="Scout's Gorget +2",
-        ear1="Beyla Earring",
-        ear2="Telos Earring",
-        back=gear.RNG_RA_Cape,
-        waist="K. Kachina Belt +1",
-    })
+    -- sets.idle.Town = set_combine(sets.idle, {
+    --     head=gear.Relic_Head,
+    --     body="Oshosi Vest +1",
+    --     hands="Oshosi Gloves +1",
+    --     legs="Oshosi Trousers +1",
+    --     feet="Osh. Leggings +1",
+    --     neck="Scout's Gorget +2",
+    --     ear1="Beyla Earring",
+    --     ear2="Telos Earring",
+    --     back=gear.RNG_RA_Cape,
+    --     waist="K. Kachina Belt +1",
+    -- })
 
 
     ------------------------------------------------------------------------------------------------

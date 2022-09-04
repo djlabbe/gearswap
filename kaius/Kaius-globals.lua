@@ -196,7 +196,6 @@ function define_global_sets()
     gear.Valo_WSD_feet = { name="Valorous Greaves", augments={'Attack+15','Weapon skill damage +4%','STR+4','Accuracy+4',}}
 
     -- -- Odyssean
-    gear.Ody_WS_hands = { name="Odyssean Gauntlets", augments={'Weapon skill damage +4%','VIT+7','Accuracy+9','Attack+10',}}
     gear.Ody_CURE_feet = { name="Odyssean Greaves", augments={'Accuracy+29','"Cure" potency +6%','STR+5','Attack+1',}}
 
     -- -- Merlinic
