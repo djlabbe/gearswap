@@ -453,9 +453,9 @@ function init_gear_sets()
     sets.Kiting = { legs="Carmine Cuisses +1" }
 
     sets.buff.Doom = {
-        -- neck="Nicander's Necklace", --20
-        -- ring1={name="Eshmun's Ring", bag="wardrobe3"}, --20
-        -- ring2={name="Eshmun's Ring", bag="wardrobe4"}, --20
+        neck="Nicander's Necklace", --20
+        ring1=gear.Eshmun_1, --20
+        ring2=gear.Eshmun_2, --20
         waist="Gishdubar Sash", --10
     }
 

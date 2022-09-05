@@ -69,7 +69,7 @@ function user_setup()
     state.WeaponskillMode:options('Normal', 'Acc', 'Enmity')
     state.IdleMode:options('Normal', 'DT')
 
-    state.WeaponSet = M{['description']='Weapon Set', 'Annihilator', 'Fomalhaut', 'Fomalhaut_TF', 'Armageddon'}
+    state.WeaponSet = M{['description']='Weapon Set', 'Fomalhaut_TF', 'Fomalhaut', 'Armageddon', 'Annihilator'}
     state.WeaponLock = M(false, 'Weapon Lock')
 
     DefaultAmmo = {['Yoichinoyumi'] = "Chrono Arrow",
@@ -118,7 +118,7 @@ function user_setup()
     gear.Artifact_Feet = { name="Orion Socks +2" }
 
     gear.Relic_Head = { name="Arcadian Beret +3" }
-    -- gear.Relic_Body = { name="Arcadian Jerkin +3" }
+    gear.Relic_Body = { name="Arcadian Jerkin +1" }
     gear.Relic_Legs = { name="Arcadian Braccae +3" }
     gear.Relic_Hands = { name="Arcadian Bracers +3" }
     -- gear.Relic_Feet = { name="Arcadian Socks +3" }
@@ -243,8 +243,7 @@ function init_gear_sets()
         head=gear.Artifact_Head,
         body="Meg. Cuirie +2", -- TODO: Herc RA?
         hands="Meg. Gloves +2",
-        -- legs=gear.Relic_Legs,
-        legs=gear.Herc_WSD_legs,
+        legs=gear.Relic_Legs,
         feet=gear.Herc_WSD_feet,
         neck="Fotia Gorget",
         ear1="Ishvara Earring",
@@ -600,8 +599,7 @@ function init_gear_sets()
         body=gear.Adhemar_A_body, -- Should be B --6
         hands="Floral Gauntlets", --5
         legs=gear.Carmine_D_legs, --6
-        -- feet=gear.Taeon_DW_feet, --9
-        feet=gear.Herc_TA_feet,
+        feet=gear.Taeon_DW_feet, --9
         neck="Iskur Gorget",
         ear1="Suppanomimi", --5
         ear2="Eabani Earring", --4
@@ -640,8 +638,7 @@ function init_gear_sets()
         body=gear.Adhemar_A_body, -- Should be B --6
         hands="Floral Gauntlets", --5
         legs=gear.Carmine_D_legs, --6
-         -- feet=gear.Taeon_DW_feet, --9
-        feet=gear.Herc_TA_feet,
+         feet=gear.Taeon_DW_feet, --9
         neck="Iskur Gorget",
         ear1="Suppanomimi", --5
         ear2="Eabani Earring", --4
@@ -682,8 +679,7 @@ function init_gear_sets()
         hands=gear.Adhemar_B_hands,
         -- legs="Samnuha Tights",
         legs=gear.Herc_TA_legs,
-         -- feet=gear.Taeon_DW_feet, --9
-        feet=gear.Herc_TA_feet,
+        feet=gear.Taeon_DW_feet, --9
         neck="Iskur Gorget",
         ear1="Suppanomimi", --5
         ear2="Eabani Earring", --4
@@ -870,8 +866,8 @@ function init_gear_sets()
 
     sets.buff.Doom = {
         neck="Nicander's Necklace", --20
-        -- ring1={name="Eshmun's Ring", bag="wardrobe3"}, --20
-        -- ring2={name="Eshmun's Ring", bag="wardrobe4"}, --20
+        ring1=gear.Eshmun_1, --20
+        ring2=gear.Eshmun_2, --20
         waist="Gishdubar Sash", --10
     }
 

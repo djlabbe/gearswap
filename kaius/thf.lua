@@ -440,8 +440,7 @@ function init_gear_sets()
         hands=gear.Adhemar_A_hands,
         -- legs="Samnuha Tights",
         legs=gear.Herc_TA_legs,
-        -- feet=gear.Taeon_DW_feet, --9
-        feet=gear.Herc_TA_Feet,
+        feet=gear.Taeon_DW_feet, --9
         neck="Asn. Gorget +2",
         ear1="Eabani Earring", --4
         ear2="Suppanomimi", --5
@@ -490,8 +489,7 @@ function init_gear_sets()
         hands=gear.Adhemar_A_hands,
         -- legs="Samnuha Tights",
         legs=gear.Herc_TA_legs,
-        -- feet=gear.Taeon_DW_feet, --9
-        feet=gear.Herc_TA_Feet,
+        feet=gear.Taeon_DW_feet, --9
         neck="Asn. Gorget +2",
         ear1="Cessance Earring",
         ear2="Suppanomimi", --5
@@ -742,9 +740,9 @@ function init_gear_sets()
     sets.buff['Ambush'] = {body="Plunderer's Vest +3"}
 
     sets.buff.Doom = {
-        -- neck="Nicander's Necklace", --20
-        -- ring1={name="Eshmun's Ring", bag="wardrobe3"}, --20
-        -- ring2={name="Eshmun's Ring", bag="wardrobe4"}, --20
+        neck="Nicander's Necklace", --20
+        ring1=gear.Eshmun_1, --20
+        ring2=gear.Eshmun_2, --20
         waist="Gishdubar Sash", --10
     }
 

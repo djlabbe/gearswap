@@ -264,7 +264,7 @@ function init_gear_sets()
         ear1="Glorious Earring", -- (+2)/(-5)
         ear2="Nourishing earring",
         body="Ebers Bliaut +1",
-        hands="Vanya Cuffs",
+        hands="Theophany Mitts +3",
         legs="Ebers Pant. +1",
         feet="Vanya Clogs", --11(+2)/(-12)    
         ring1="Metamorph Ring +1", --3/(-5)
@@ -279,7 +279,7 @@ function init_gear_sets()
     })
 
     sets.midcast.CureNormal = set_combine(sets.midcast.CureSolace, {
-        -- body="Theo. Briault +3", --0(+6)/(-6)
+        body="Theo. Briault +3", --0(+6)/(-6)
      })
 
     sets.midcast.CureWeather = set_combine(sets.midcast.CureNormal, {
@@ -289,14 +289,15 @@ function init_gear_sets()
     })
 
     sets.midcast.CuragaNormal = set_combine(sets.midcast.CureNormal, {
-        -- body="Theo. Briault +3", --0(+6)/(-6)
+        body="Theo. Briault +3", --0(+6)/(-6)
+        hands="Theophany Mitts +3",
         -- ring1="Metamor. Ring +1",
         -- ring2="Mephitas's Ring +1",
         -- waist="Luminary Sash",
     })
 
     sets.midcast.CuragaWeather = {
-        -- body="Theo. Briault +3", --0(+6)/(-6)
+        body="Theo. Briault +3", --0(+6)/(-6)
         -- hands="Kaykaus Cuffs +1", --11/(-6)
         -- ring1="Metamor. Ring +1",
         -- ring2="Mephitas's Ring +1",
@@ -569,6 +570,27 @@ function init_gear_sets()
         back="Alaunus's Cape",
         waist="Slipor Sash",
     })
+
+    sets.idle.Town = {
+        -- main="Malignance Pole",
+        -- sub="Mensch Strap",
+        ammo="Homiliary",
+        main="Queller Rod",
+        sub="Genmei Shield",
+        head="Inyanga Tiara +2",
+        body="Theo. Bliaut +3",
+        hands="Theophany Mitts +3",
+        legs="Assid. Pants +1",
+        feet="Inyan. Crackows +2",
+        neck="Loricate Torque +1",
+        ear1="Infused Earring",
+        ear2="Eabani Earring",
+        ring1={name="Stikini Ring +1", bag="wardrobe3"},
+        ring2="Inyanga Ring",
+        back="Alaunus's Cape",
+        waist="Slipor Sash",
+    }
+    
     
     -- Defense sets
 
