@@ -244,7 +244,7 @@ function init_gear_sets()
         head="Vanya Hood",
         --body="Vedic Coat",
         --hands="Shrieker's Cuffs",
-        --legs="Vanya Slops",
+        legs="Vanya Slops",
         feet="Kaykaus Boots +1",
         ear2="Mendi. Earring",
         back="Solemnity Cape",
@@ -256,7 +256,7 @@ function init_gear_sets()
     sets.midcast.CureSolace = {
         -- main="Chatoyant Staff", --10(+20)
         -- sub="Enki Strap",
-        main="Queller Rod",
+        main="Raetic Rod +1",
         sub="Sors Shield",
         ammo="Clarus Stone",
         head="Vanya Hood", --11(+2)/(-6)
@@ -564,7 +564,7 @@ function init_gear_sets()
         feet="Inyan. Crackows +2",
         neck="Warder's Charm +1",
         ear1="Eabani Earring",
-        -- ear2="Sanare Earring",
+        -- ear2="Infused Earring",
         ring1="Purity Ring",
         ring2="Inyanga Ring",
         back="Alaunus's Cape",

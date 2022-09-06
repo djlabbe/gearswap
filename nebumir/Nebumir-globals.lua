@@ -11,12 +11,11 @@ function define_global_sets()
     gear.Stikini_1 = {name="Stikini Ring +1", bag="wardrobe3"}
     gear.Stikini_2 = {name="Stikini Ring +1", bag="wardrobe4"}
 
-    gear.Telchine_ENH_head = { name="Telchine Cap", augments={'Mag. Evasion+24','"Conserve MP"+3','Enh. Mag. eff. dur. +10',}}
-    gear.Telchine_ENH_body = { name="Telchine Chas.", augments={'Mag. Evasion+20','"Conserve MP"+5','Enh. Mag. eff. dur. +10',}}
-    gear.Telchine_ENH_hands= { name="Telchine Gloves", augments={'Mag. Evasion+20','"Conserve MP"+5','Enh. Mag. eff. dur. +10',}}
-    gear.Telchine_ENH_legs = { name="Telchine Braconi", augments={'Mag. Evasion+23','"Conserve MP"+5','Enh. Mag. eff. dur. +10',}}
-    gear.Telchine_ENH_feet = { name="Telchine Pigaches", augments={'Mag. Evasion+19','"Conserve MP"+4','Enh. Mag. eff. dur. +10',}}
-    gear.Telchine_SONG_feet = { name="Telchine Pigaches", augments={'Mag. Evasion+25','Song spellcasting time -6%','Enh. Mag. eff. dur. +10',}}
+    gear.Telchine_ENH_head = { name="Telchine Cap", augments={'Enh. Mag. eff. dur. +10',}}
+    -- gear.Telchine_ENH_body = { name="Telchine Chas.", augments={'Mag. Evasion+20','"Conserve MP"+5','Enh. Mag. eff. dur. +10',}}
+    gear.Telchine_ENH_hands = { name="Telchine Gloves", augments={'Enh. Mag. eff. dur. +8',}}
+    gear.Telchine_ENH_legs = { name="Telchine Braconi", augments={'Enh. Mag. eff. dur. +9',}}
+    gear.Telchine_ENH_feet = { name="Telchine Pigaches", augments={'Enh. Mag. eff. dur. +10',}}
 
     -- -- Kaykaus
     gear.Kaykaus_B_head = { name="Kaykaus Mitra +1", augments={'MP+80','"Cure" spellcasting time -7%','Enmity-6',}}

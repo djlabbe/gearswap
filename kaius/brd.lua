@@ -212,8 +212,8 @@ function init_gear_sets()
         legs="Kaykaus Tights +1", --7
         -- feet="Volte Gaiters", --6
         neck="Baetyl Pendant", --4
-        ear1="Loquac. Earring", --2
-        ear2="Enchanter's Earring +1", --2    
+        ear1="Enchanter's Earring +1", --2    
+        ear2="Loquac. Earring", --2
         ring1="Weather. Ring", --4
         ring2="Kishar Ring", --4
         back="Fi Follet Cape +1", --10
@@ -391,8 +391,9 @@ function init_gear_sets()
         legs="Inyanga Shalwar +2",
         feet=gear.Artifact_Feet,
         neck="Mnbw. Whistle +1",
-        ear1="Odnowa Earring +1",
-        -- ear2="Etiolation Earring",
+        ear1="Enchanter's Earring +1",
+        -- ear1="Etiolation Earring",
+        ear2="Odnowa Earring +1",
         ring1="Moonlight Ring",
         ring2="Defending Ring",
         waist="Flume Belt +1",
@@ -411,6 +412,7 @@ function init_gear_sets()
         feet=gear.Artifact_Feet,
         neck="Mnbw. Whistle +1",
         -- ear1="Digni. Earring",
+        ear1="Enchanter's Earring +1",
         ear2="Regal Earring",
         left_ring=gear.Stikini_1,
         ring2="Metamor. Ring +1",
@@ -470,7 +472,7 @@ function init_gear_sets()
     }
 
     sets.midcast.Curaga = set_combine(sets.midcast.Cure, {
-        neck="Nuna Gorget +1",
+        -- neck="Nuna Gorget +1",
         ring1=gear.Stikini_1,
         ring2="Metamor. Ring +1",
         waist="Luminary Sash",
@@ -490,7 +492,7 @@ function init_gear_sets()
     }
 
     sets.midcast.Cursna = set_combine(sets.midcast.StatusRemoval, {
-        hands="Hieros Mittens",
+        -- hands="Hieros Mittens",
         neck="Debilis Medallion",
         ear1="Beatific Earring",
         back="Oretan. Cape +1",
@@ -550,8 +552,9 @@ function init_gear_sets()
         legs=gear.Artifact_Legs,
         feet=gear.Artifact_Feet,
         neck="Mnbw. Whistle +1",
-        ear1="Digni. Earring",
-        ear2="Vor Earring",
+        -- ear1="Digni. Earring",
+        ear1="Vor Earring",
+        ear2="Regal Earring",
         ring1="Kishar Ring",
         ring2="Metamor. Ring +1",
         waist="Acuity Belt +1",
@@ -582,7 +585,7 @@ function init_gear_sets()
         -- feet="Volte Gaiters",
         neck="Bathy Choker +1",
         ear1="Eabani Earring",
-        ear2="Sanare Earring",
+        ear2="Infused Earring",
         ring1=gear.Stikini_1,
         ring2=gear.Stikini_2,
         back="Moonlight Cape",
@@ -597,8 +600,9 @@ function init_gear_sets()
         legs=gear.Artifact_Legs, --8/8
         feet="Inyan. Crackows +2", --0/3
         neck="Loricate Torque +1", --6/6
+        ear1="Eabani Earring",
+        -- ear1="Etiolation Earring", --0/3
         ear1="Odnowa Earring +1", --3/5
-        ear2="Etiolation Earring", --0/3
         ring1="Moonlight Ring", --5/5
         ring2="Defending Ring",  --10/10
         back="Moonlight Cape", --6/6
@@ -613,7 +617,7 @@ function init_gear_sets()
         feet="Inyan. Crackows +2", --0/3
         neck="Warder's Charm +1",
         ear1="Eabani Earring",
-        ear2="Sanare Earring",
+        ear2="Infused Earring",
         ring1="Purity Ring",
         ring2="Inyanga Ring",
         back="Moonlight Cape", --6/6
@@ -667,7 +671,7 @@ function init_gear_sets()
         ear2="Telos Earring",
         ring1=gear.Chirich_1,
         ring2=gear.Chirich_2,
-        back=gear.BRD_STP_Cape,
+        back=gear.BRD_TP_Cape,
         waist="Windbuffet Belt +1",
     }
 
@@ -694,7 +698,7 @@ function init_gear_sets()
         ear2="Suppanomimi", --5
         ring1=gear.Chirich_1,
         ring2=gear.Chirich_2,
-        back=gear.BRD_DW_Cape, --10
+        back=gear.BRD_TP_Cape, --10 should be DW
         waist="Reiki Yotai", --7
         } -- 26%
 
@@ -728,7 +732,7 @@ function init_gear_sets()
         ear2="Telos Earring",
         ring1=gear.Chirich_1,
         ring2=gear.Chirich_2,
-        back=gear.BRD_STP_Cape,
+        back=gear.BRD_TP_Cape,
         waist="Reiki Yotai", --7
     }
 
@@ -749,7 +753,7 @@ function init_gear_sets()
         neck="Bard's Charm +2",
         ring1=gear.Chirich_1,
         ring2=gear.Chirich_2,
-        back=gear.BRD_STP_Cape,
+        back=gear.BRD_TP_Cape,
     }
 
     ------------------------------------------------------------------------------------------------

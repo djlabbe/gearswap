@@ -388,7 +388,7 @@ function init_gear_sets()
         feet="Ptero. Greaves +3",
         neck="Bathy Choker +1",
         ear1="Eabani Earring",
-        ear2="Sanare Earring",
+        ear2="Infused Earring",
         ring1=gear.Chirich_1,
         ring2=gear.Chirich_2,
         back="Moonlight Cape", --6/6
@@ -402,7 +402,7 @@ function init_gear_sets()
         hands="Flam. Manopolas +2",
         feet="Ptero. Greaves +3",
         neck="Loricate Torque +1", --6/6
-        ear1="Sanare Earring",
+        ear1="Infused Earring",
         ear2="Anastasi Earring",
         ring1="Moonlight Ring", --5/5
         ring2="Defending Ring", --10/10

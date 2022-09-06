@@ -501,7 +501,7 @@ function init_gear_sets()
         legs="Volte Brais",
         feet="Volte Gaiters",
         neck="Bathy Choker +1",
-        ear1="Sanare Earring",
+        ear1="Infused Earring",
         ear2="Lugalbanda Earring",
         ring1=gear.Stikini_1,
         ring2=gear.Stikini_2,
@@ -518,7 +518,7 @@ function init_gear_sets()
         hands="Raetic Bangles +1",
         feet="Volte Gaiters",
         neck="Loricate Torque +1", --6/6
-        ear1="Sanare Earring",
+        ear1="Infused Earring",
         ear2="Lugalbanda Earring",
         ring1="Gelatinous Ring +1", --7/(-1)
         ring2="Defending Ring", --10/10

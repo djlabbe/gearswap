@@ -93,7 +93,7 @@ function define_global_sets()
     gear.Taeon_Pet_legs = { name="Taeon Tights", augments={'Pet: Accuracy+18 Pet: Rng. Acc.+18','Pet: "Dbl. Atk."+4','Pet: Damage taken -4%',}}
     gear.Taeon_Pet_feet = { name="Taeon Boots", augments={'Pet: Accuracy+21 Pet: Rng. Acc.+21','Pet: "Dbl. Atk."+4','Pet: Damage taken -4%',}}
 
-    gear.Taeon_DW_feet = {name="Taeon Boots", augments={'Accuracy+20 Attack+20','"Dual Wield"+5','STR+7 DEX+7',}}
+    gear.Taeon_DW_feet = { name="Taeon Boots", augments={'Accuracy+19 Attack+19','"Dual Wield"+5','STR+7 DEX+7',}}
 
     gear.Telchine_ENH_head = { name="Telchine Cap", augments={'Mag. Evasion+24','"Conserve MP"+3','Enh. Mag. eff. dur. +10',}}
     gear.Telchine_ENH_body = { name="Telchine Chas.", augments={'Mag. Evasion+20','"Conserve MP"+5','Enh. Mag. eff. dur. +10',}}
