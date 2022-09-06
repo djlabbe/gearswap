@@ -600,7 +600,7 @@ function init_gear_sets()
         -- ear1="Halasz Earring",
         ring1="Freke Ring",
         -- ring2="Evanescence Ring",
-        -- waist="Emphatikos Rope",
+        waist="Emphatikos Rope",
     })
 
     sets.midcast.Storm = sets.midcast.EnhancingDuration
@@ -815,7 +815,7 @@ function init_gear_sets()
         feet=gear.Malignance_feet,
         neck="Bathy Choker +1",
         ear1="Eabani Earring",
-        ear2="Sanare Earring",
+        ear2="Infused Earring",
         ring1=gear.Stikini_1,
         ring2=gear.Stikini_2,
         back="Moonlight Cape",
@@ -830,7 +830,7 @@ function init_gear_sets()
         feet=gear.Malignance_feet, --4/4
         neck="Warder's Charm +1",
         ear1="Eabani Earring",
-        ear2="Sanare Earring",
+        ear2="Infused Earring",
         ring2="Defending Ring", --10/10
         -- back=gear.RDM_INT_Cape,
         back=gear.RDM_MND_Cape,
@@ -1393,6 +1393,7 @@ end
 function determine_haste_group()
     classes.CustomMeleeGroups:clear()
     if DW == true then
+        -- add_to_chat(123,'DW NEEDED: '.. DW_needed)
         if DW_needed <= 14 then
             classes.CustomMeleeGroups:append('MaxHaste')
         elseif DW_needed > 15 and DW_needed <= 26 then

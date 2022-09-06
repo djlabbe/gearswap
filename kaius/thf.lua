@@ -329,7 +329,7 @@ function init_gear_sets()
         feet="Malignance Boots", --4/4
         neck="Bathy Choker +1",
         ear1="Eabani Earring",
-        ear2="Sanare Earring",
+        ear2="Infused Earring",
         ring1=gear.Chirich_1,
         ring2=gear.Chirich_2,
         back="Moonlight Cape",
@@ -345,11 +345,11 @@ function init_gear_sets()
         feet="Malignance Boots", --4/4
         neck="Warder's Charm +1",
         ear1="Eabani Earring",
-        ear2="Sanare Earring",
+        ear2="Infused Earring",
         ring1="Purity Ring", --0/4
         ring2="Defending Ring", --10/10
         back="Moonlight Cape", --6/6
-        })
+    })
 
     sets.idle.Town = set_combine(sets.idle, {
         ammo="Aurgelmir Orb +1",

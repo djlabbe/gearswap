@@ -584,7 +584,7 @@ function init_gear_sets()
         legs=gear.Malignance_legs, --7/7
         feet=gear.Malignance_feet, --4/4
         neck="Warder's Charm +1",
-        -- ear1="Sanare Earring",
+        ear1="Infused Earring",
         ear2="Eabani Earring",
         ring1="Purity Ring", --0/4
         ring2="Defending Ring", --10/10

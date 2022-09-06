@@ -214,7 +214,7 @@ end
 -- Called when this job file is unloaded (eg: job change)
 function user_unload()
     send_command('unbind ^=')
-     end_command('unbind @w')
+    send_command('unbind @w')
     send_command('unbind @e')
     send_command('unbind @r')
     send_command('unbind ^`')
@@ -690,7 +690,7 @@ function init_gear_sets()
     sets.midcast.Aquaveil = set_combine(sets.midcast.EnhancingDuration, {
         head=gear.Amalric_A_head,
         hands="Regal Cuffs",
-        -- waist="Emphatikos Rope",
+        waist="Emphatikos Rope",
         })
 
     sets.midcast.Protect = set_combine(sets.midcast.EnhancingDuration, {ring1="Sheltered Ring"})

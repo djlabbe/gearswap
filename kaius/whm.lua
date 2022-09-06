@@ -604,7 +604,7 @@ function init_gear_sets()
         feet=gear.Nyame_feet,
         neck="Warder's Charm +1",
         ear1="Eabani Earring",
-        ear2="Sanare Earring",
+        ear2="Infused Earring",
         ring1="Purity Ring",
         ring2="Inyanga Ring",
         back=gear.WHM_FC_Cape,
