@@ -932,7 +932,8 @@ function init_gear_sets()
         head=gear.Adhemar_B_head,
         body=gear.Adhemar_B_body, --6
         hands=gear.Adhemar_B_hands,
-        legs="Samnuha Tights",
+        -- legs="Samnuha Tights",
+        legs=gear.Herc_TA_legs,
         feet=gear.Taeon_DW_feet, --9
         neck="Mirage Stole +2",
         ear1="Cessance Earring",
@@ -980,7 +981,8 @@ function init_gear_sets()
         head=gear.Adhemar_B_head,
         body=gear.Adhemar_B_body, --6
         hands=gear.Adhemar_B_hands,
-        legs="Samnuha Tights",
+        -- legs="Samnuha Tights",
+        legs=gear.Herc_TA_legs,
         feet=gear.Herc_TA_feet,
         neck="Mirage Stole +2",
         ear1="Eabani Earring", --4
@@ -1026,7 +1028,8 @@ function init_gear_sets()
         head=gear.Adhemar_B_head,
         body=gear.Adhemar_B_body, --6
         hands=gear.Adhemar_B_hands,
-        legs="Samnuha Tights",
+        -- legs="Samnuha Tights",
+        legs=gear.Herc_TA_legs,
         feet=gear.Herc_TA_feet,
         neck="Mirage Stole +2",
         ear1="Cessance Earring",

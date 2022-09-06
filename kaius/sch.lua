@@ -314,7 +314,7 @@ function init_gear_sets()
         ammo="Ghastly Tathlum +1",
         head="Pixie Hairpin +1",
         body=gear.Relic_Body,
-        legs=gear.Relic_Pants
+        legs=gear.Relic_Pants,
         feet="Merlinic Crackows",
         ear1="Malignance Earring",
         ear2="Regal Earring",
@@ -526,7 +526,7 @@ function init_gear_sets()
         head=gear.Artifact_Head,
         body=gear.Artifact_Body,
         hands=gear.Artifact_Hands,
-        legs=gear.Relic_Pants
+        legs=gear.Relic_Pants,
         feet=gear.Artifact_Feet,
         neck="Argute Stole +2",
         ear1="Malignance Earring",
@@ -592,7 +592,7 @@ function init_gear_sets()
         ammo="Pemphredo Tathlum",
         head="Merlinic Hood",
         body="Seidr Cotehardie",
-        legs=gear.Relic_Pants
+        legs=gear.Relic_Pants,
         feet="Merlinic Crackows",
         neck="Erra Pendant",
         waist="Acuity Belt +1",
@@ -686,7 +686,7 @@ function init_gear_sets()
         head=gear.Relic_Head,
         body=gear.Amalric_A_body,
         hands="Regal Cuffs",
-        legs=gear.Relic_Pants
+        legs=gear.Relic_Pants,
         feet=gear.Relic_Feet,
         neck="Argute Stole +2",
         ear1="Malignance Earring",
@@ -717,7 +717,7 @@ function init_gear_sets()
         head="Blistering Sallet +1",
         body="Jhakri Robe +2",
         hands="Gazu Bracelet +1",
-        legs=gear.Relic_Pants
+        legs=gear.Relic_Pants,
         feet=gear.Telchine_STP_feet,
         neck="Combatant's Torque",
         ear1="Cessance Earring",
