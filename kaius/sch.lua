@@ -361,13 +361,14 @@ function init_gear_sets()
         ear2="Meili Earring",
         ring1="Lebeche Ring", --3/(-5)
         ring2="Menelaus's Ring",
-        back=gear.SCH_Cure_Cape, --10
+        back="Fi Follet Cape +1",
         waist="Bishop's Sash",
     }
 
     sets.midcast.CureWeather = set_combine(sets.midcast.Cure, {
         main="Chatoyant Staff", --10
-        sub="Khonsu", --0/(-5)
+        -- sub="Khonsu", --0/(-5)
+        sub="Enki Strap",
         waist="Hachirin-no-Obi",
     })
 
@@ -380,7 +381,8 @@ function init_gear_sets()
 
     sets.midcast.StatusRemoval = {
         main="Musa",
-        sub="Khonsu",
+        -- sub="Khonsu", --0/(-5)
+        sub="Enki Strap",
         head="Vanya Hood",
         body="Vanya Robe",
         hands=gear.Relic_Hands,
@@ -425,7 +427,8 @@ function init_gear_sets()
 
     sets.midcast.EnhancingDuration = {
         main="Musa",
-        sub="Khonsu",
+        -- sub="Khonsu", --0/(-5)
+        sub="Enki Strap",
         head=gear.Telchine_ENH_head,
         body=gear.Relic_Body,
         hands=gear.Telchine_ENH_hands,
@@ -436,7 +439,8 @@ function init_gear_sets()
 
     sets.midcast.Regen = set_combine(sets.midcast.EnhancingDuration, {
         main="Musa",
-        sub="Khonsu",
+        -- sub="Khonsu", --0/(-5)
+        sub="Enki Strap",
         head=gear.Empyrean_Head,
         body=gear.Telchine_ENH_body,
         hands=gear.Telchine_ENH_hands,
@@ -608,7 +612,8 @@ function init_gear_sets()
 
     sets.midcast.Impact = set_combine(sets.midcast['Elemental Magic'], {
         main="Akademos",
-        sub="Khonsu",
+        -- sub="Khonsu", --0/(-5)
+        sub="Enki Strap",
         head=empty,
         body="Twilight Cloak",
         ring2="Archon Ring",
@@ -681,7 +686,8 @@ function init_gear_sets()
 
     sets.idle.Town = set_combine(sets.idle, {
         main="Musa",
-        sub="Khonsu",
+        -- sub="Khonsu", --0/(-5)
+        sub="Enki Strap",
         ammo="Ghastly Tathlum +1",
         head=gear.Relic_Head,
         body=gear.Amalric_A_body,
