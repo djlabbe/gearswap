@@ -402,7 +402,7 @@ function init_gear_sets()
         back=gear.NIN_WS_Cape,
     } 
 
-    sets.Lugra = {ear2="Lugra Earring +1"}
+    sets.Lugra = { ear2="Lugra Earring +1" }
 
     --------------------------------------
     -- Midcast sets

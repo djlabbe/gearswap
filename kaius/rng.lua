@@ -377,7 +377,7 @@ function init_gear_sets()
     }
 
     sets.precast.WS['Evisceration'].Acc = set_combine(sets.precast.WS['Evisceration'], {
-        head="Dampening Tam",
+        -- head="Dampening Tam",
         body=gear.Adhemar_A_body, -- Should be B
         legs=gear.Herc_WSD_legs,
         ring1="Regal Ring",
@@ -416,10 +416,6 @@ function init_gear_sets()
 
     sets.midcast.RA = {
         head=gear.Relic_Head,
-        -- body=gear.Malignance_body,
-        -- hands=gear.Malignance_hands,
-        -- legs=gear.Malignance_legs,
-        -- feet=gear.Malignance_feet,
         body=gear.Ikenga_body,
         hands=gear.Ikenga_hands,
         legs=gear.Ikenga_legs,
@@ -587,7 +583,7 @@ function init_gear_sets()
         ear1="Cessance Earring",
         ear2="Mache Earring +1",
         ring2=gear.Chirich_2,
-        waist="Olseni Belt",
+        -- waist="Olseni Belt",
     })
 
     -- * DNC Subjob DW Trait: +15%
