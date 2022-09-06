@@ -100,7 +100,7 @@ function user_setup()
     -- How many extra songs we can keep from Daurdabla/Terpander
     info.ExtraSongs = 2
 
-    gear.Artifact_Head = { name= "Brioso Roundlet +2" }
+    gear.Artifact_Head = { name= "Brioso Roundlet +3" }
     gear.Artifact_Body = { name= "Brioso Justaucorps +3" }
     gear.Artifact_Hands = { name= "Brioso Cuffs +2" }
     gear.Artifact_Legs = { name= "Brioso Cannions +2" }
