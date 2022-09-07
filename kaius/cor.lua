@@ -199,10 +199,10 @@ function init_gear_sets()
 
     sets.precast.CorsairRoll = {
         head=gear.Relic.Head,
-        body=gear.Malignance_body, --9/9
+        body=gear.Malignance_Body, --9/9
         hands=gear.Empyrean.Hands,
         -- legs="Desultor Tassets",
-        feet=gear.Malignance_feet, --4/0
+        feet=gear.Malignance_Feet, --4/0
         neck="Regal Necklace",
         ear1="Odnowa Earring +1", --3/5
         -- ear2="Etiolation Earring", --0/3
@@ -230,7 +230,7 @@ function init_gear_sets()
 
     sets.precast.FC = {
         head="Carmine Mask +1", --14
-        body=gear.Taeon_FC_body, --9
+        body=gear.Taeon_FC_Body, --9
         hands="Leyline Gloves", --5
         legs="Rawhide Trousers", --5
         feet="Carmine Greaves +1", --8
@@ -251,7 +251,7 @@ function init_gear_sets()
         head="Ikenga's Hat", --6/0
         body="Oshosi Vest", --12/0
         hands=gear.Relic.Hands, --13/0
-        legs=gear.Adhemar_D_legs, --10/13
+        legs=gear.Adhemar_D_Legs, --10/13
         feet="Meghanada Jambeaux +2", --10/0
         neck="Comm. Charm +2", --4/0
         back="Navarch's Mantle", --10/0
@@ -263,7 +263,7 @@ function init_gear_sets()
     })
 
     sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
-        hands=gear.Carmine_D_hands, --8/11
+        hands=gear.Carmine_D_Hands, --8/11
         feet="Pursuer's Gaiters", --0/10
     })
 
@@ -277,14 +277,14 @@ function init_gear_sets()
         head=gear.Relic.Head,
         body=gear.Artifact.Body,
         hands="Meg. Gloves +2",
-        legs=gear.Herc_MAB_legs,
+        legs=gear.Herc_MAB_Legs,
         feet=gear.Relic.Feet,
         neck="Fotia Gorget",
         ear1="Moonshade Earring",
         ear2="Enervating Earring",
         ring1="Regal Ring",
         ring2="Epaminondas's Ring",
-        back=gear.COR_WS_cape,
+        back=gear.COR_WS_Cape,
         waist="Fotia Belt",
     }
 
@@ -310,10 +310,10 @@ function init_gear_sets()
 
     sets.precast.WS['Wildfire'] = {
         ammo=gear.MAbullet,
-        head=gear.Herc_MAB_head,
+        head=gear.Herc_MAB_Head,
         body=gear.Relic.Body,
-        hands=gear.Herc_MAB_hands,
-        legs=gear.Herc_MAB_legs,
+        hands=gear.Herc_MAB_Hands,
+        legs=gear.Herc_MAB_Legs,
         feet=gear.Relic.Feet,
         neck={ name="Comm. Charm +2", augments={'Path: A',}},
         waist="Svelt. Gouriz +1",
@@ -331,7 +331,7 @@ function init_gear_sets()
         head="Pixie Hairpin +1",
         body=gear.Relic.Body,
         hands={ name="Herculean Gloves", augments={'Mag. Acc.+19 "Mag.Atk.Bns."+19','"Mag.Atk.Bns."+15',}},
-        legs=gear.Herc_MAB_legs,
+        legs=gear.Herc_MAB_Legs,
         feet=gear.Relic.Feet,
         neck={ name="Comm. Charm +2", augments={'Path: A',}},
         waist="Svelt. Gouriz +1",
@@ -363,10 +363,10 @@ function init_gear_sets()
     })
 
     sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
-        head=gear.Herc_WSD_head,
+        head=gear.Herc_WSD_Head,
         body=gear.Artifact.Body,
         hands="Meg. Gloves +2",
-        legs=gear.Herc_WSD_legs,
+        legs=gear.Herc_WSD_Legs,
         feet=gear.Relic.Feet,
         neck="Comm. Charm +2",
         waist="Sailfi Belt +1",
@@ -401,10 +401,10 @@ function init_gear_sets()
 
     sets.midcast.CorsairShot = {
         ammo=gear.QDbullet,
-        head=gear.Herc_MAB_head,
-        body=gear.Malignance_body,
-        hands=gear.Carmine_D_hands,
-        legs=gear.Herc_MAB_legs,
+        head=gear.Herc_MAB_Head,
+        body=gear.Malignance_Body,
+        hands=gear.Carmine_D_Hands,
+        legs=gear.Herc_MAB_Legs,
         feet=gear.Relic.Feet,
         neck="Baetyl Pendant",
         waist="Skrymir Cord",      
@@ -417,11 +417,11 @@ function init_gear_sets()
 
     sets.midcast.CorsairShot.STP = {
         ammo=gear.QDbullet,
-        head=gear.Malignance_head,
-        body=gear.Malignance_body,
-        hands=gear.Malignance_hands,
-        legs=gear.Malignance_legs,
-        feet=gear.Malignance_feet,
+        head=gear.Malignance_Head,
+        body=gear.Malignance_Body,
+        hands=gear.Malignance_Hands,
+        legs=gear.Malignance_Legs,
+        feet=gear.Malignance_Feet,
         neck="Rep. Plat. Medal",
         ear1="Dedition Earring",
         ear2="Telos Earring",
@@ -434,7 +434,7 @@ function init_gear_sets()
     sets.midcast.CorsairShot['Light Shot'] = {
         ammo=gear.RAccbullet,
         -- head="Laksa. Tricorne +3",
-        body=gear.Malignance_body,
+        body=gear.Malignance_Body,
         -- hands="Laksa. Gants +3",
         legs="Malignance Tights",
         -- feet="Laksa. Bottes +3",
@@ -453,11 +453,11 @@ function init_gear_sets()
     -- Ranged gear
     sets.midcast.RA = {
         ammo=gear.RAbullet,
-        head=gear.Malignance_head,
-        body=gear.Malignance_body,
-        hands=gear.Malignance_hands,
+        head=gear.Malignance_Head,
+        body=gear.Malignance_Body,
+        hands=gear.Malignance_Hands,
         legs="Ikenga's Trousers",
-        feet=gear.Malignance_feet,
+        feet=gear.Malignance_Feet,
         neck="Iskur Gorget",
         ear1="Enervating Earring",
         ear2="Telos Earring",
@@ -523,11 +523,11 @@ function init_gear_sets()
 
     sets.idle = {
         ammo=gear.RAbullet,
-        head=gear.Malignance_head,
-        body=gear.Malignance_body,
-        hands=gear.Malignance_hands,
-        legs=gear.Carmine_D_legs,
-        feet=gear.Malignance_feet,
+        head=gear.Malignance_Head,
+        body=gear.Malignance_Body,
+        hands=gear.Malignance_Hands,
+        legs=gear.Carmine_D_Legs,
+        feet=gear.Malignance_Feet,
         neck="Bathy Choker +1",
         ear1="Infused Earring",
         ear2="Eabani Earring",
@@ -538,11 +538,11 @@ function init_gear_sets()
     }
 
     sets.idle.DT = set_combine(sets.idle, {
-        head=gear.Malignance_head, --6/6
-        body=gear.Malignance_body, --9/9
-        hands=gear.Malignance_hands, --5/5
+        head=gear.Malignance_Head, --6/6
+        body=gear.Malignance_Body, --9/9
+        hands=gear.Malignance_Hands, --5/5
         legs="Malignance Tights", --7/7
-        feet=gear.Malignance_feet, --4/4
+        feet=gear.Malignance_Feet, --4/4
         neck="Warder's Charm +1",
         ring1="Purity Ring", --0/4
         ring2="Defending Ring", --10/10
@@ -550,7 +550,7 @@ function init_gear_sets()
     })
 
     sets.idle.Refresh = set_combine(sets.idle, {
-        -- head=gear.Herc_Idle_head,
+        -- head=gear.Herc_Idle_Head,
         --body="Mekosu. Harness",
         -- legs="Rawhide Trousers",
         ring1=gear.Stikini_1,
@@ -578,11 +578,11 @@ function init_gear_sets()
     sets.defense.PDT = sets.idle.DT
 
     sets.defense.MDT = {
-        head=gear.Malignance_head, --6/6
-        body=gear.Malignance_body, --9/9
-        hands=gear.Malignance_hands, --5/5
-        legs=gear.Malignance_legs, --7/7
-        feet=gear.Malignance_feet, --4/4
+        head=gear.Malignance_Head, --6/6
+        body=gear.Malignance_Body, --9/9
+        hands=gear.Malignance_Hands, --5/5
+        legs=gear.Malignance_Legs, --7/7
+        feet=gear.Malignance_Feet, --4/4
         neck="Warder's Charm +1",
         ear1="Infused Earring",
         ear2="Eabani Earring",
@@ -592,7 +592,7 @@ function init_gear_sets()
         waist="Carrier's Sash",
     }
 
-    sets.Kiting = {legs=gear.Carmine_D_legs}
+    sets.Kiting = {legs=gear.Carmine_D_Legs}
 
 
     ------------------------------------------------------------------------------------------------
@@ -606,11 +606,11 @@ function init_gear_sets()
 
     sets.engaged = {
         ammo=gear.RAbullet,
-        head=gear.Adhemar_B_head,
-        body=gear.Adhemar_A_body,
-        hands=gear.Adhemar_A_hands,
-        legs=gear.Herc_TA_legs,
-        feet=gear.Herc_TA_feet,
+        head=gear.Adhemar_B_Head,
+        body=gear.Adhemar_A_Body,
+        hands=gear.Adhemar_A_Hands,
+        legs=gear.Herc_TA_Legs,
+        feet=gear.Herc_TA_Feet,
         neck="Iskur Gorget",
         waist="Windbuffet Belt +1",
         left_ear="Suppanomimi",
@@ -627,8 +627,8 @@ function init_gear_sets()
 
 
     sets.engaged.STP = set_combine(sets.engaged, {
-        head=gear.Herc_STP_head,
-        feet=gear.Carmine_B_feet,
+        head=gear.Herc_STP_Head,
+        feet=gear.Carmine_B_Feet,
         ring1=gear.Chirich_1,
         ring2=gear.Chirich_2,
     })
@@ -639,11 +639,11 @@ function init_gear_sets()
     -- No Magic Haste (74% DW to cap)
     sets.engaged.DW = {
         ammo=gear.RAbullet,
-        head=gear.Adhemar_B_head,
-        body=gear.Adhemar_A_body,
-        hands=gear.Adhemar_A_hands,
-        legs=gear.Herc_TA_legs,
-        feet=gear.Herc_TA_feet,
+        head=gear.Adhemar_B_Head,
+        body=gear.Adhemar_A_Body,
+        hands=gear.Adhemar_A_Hands,
+        legs=gear.Herc_TA_Legs,
+        feet=gear.Herc_TA_Feet,
         neck="Iskur Gorget",
         waist="Windbuffet Belt +1",
         left_ear="Suppanomimi",
@@ -654,7 +654,7 @@ function init_gear_sets()
       } -- 48%
 
     sets.engaged.DW.Acc = set_combine(sets.engaged.DW, {
-        head=gear.Carmine_D_head,
+        head=gear.Carmine_D_Head,
         hands="Gazu Bracelet +1",
         ear1="Mache Earring +1",
         ear2="Odr Earring",
@@ -675,11 +675,11 @@ function init_gear_sets()
     ------------------------------------------------------------------------------------------------
 
     sets.engaged.Hybrid = {
-        head=gear.Malignance_head, --6/6
-        body=gear.Malignance_body, --9/9
-        hands=gear.Malignance_hands, --5/5
-        legs=gear.Malignance_legs, --7/7
-        feet=gear.Malignance_feet, --4/4
+        head=gear.Malignance_Head, --6/6
+        body=gear.Malignance_Body, --9/9
+        hands=gear.Malignance_Hands, --5/5
+        legs=gear.Malignance_Legs, --7/7
+        feet=gear.Malignance_Feet, --4/4
     }
 
     sets.engaged.DT = set_combine(sets.engaged, sets.engaged.Hybrid)

@@ -342,7 +342,7 @@ function init_gear_sets()
         main="Espiritus",
         sub="Elan Strap +1",
         ammo="Sancus Sachet +1",
-        head=gear.Apogee_A_head,
+        head=gear.Apogee_A_Head,
         neck="Summoner's Collar +2",
         ear1="Kyrene's Earring",
         ear2="Gelos Earring",
@@ -351,8 +351,8 @@ function init_gear_sets()
         ring1=gear.Varar_1,
         ring2=gear.Varar_2,
         waist="Klouskap Sash",
-        legs=gear.Apogee_D_legs,
-        feet=gear.Apogee_A_feet,
+        legs=gear.Apogee_D_Legs,
+        feet=gear.Apogee_A_Feet,
     }
 
     sets.midcast.Pet.PhysicalBloodPactRage = {
@@ -368,8 +368,8 @@ function init_gear_sets()
         ring1="Varar Ring +1",
         ring2="Varar Ring +1",
         waist="Klouskap Sash +1",
-        legs=gear.Apogee_D_legs,
-        feet=gear.Apogee_A_feet,
+        legs=gear.Apogee_D_Legs,
+        feet=gear.Apogee_A_Feet,
     }
 
     sets.midcast.Pet.PhysicalBloodPactRage.Acc = sets.midcast.Pet.PhysicalBloodPactRage
@@ -413,7 +413,7 @@ function init_gear_sets()
         back="Campestres's Cape",
         waist="Lucidity Sash",
         legs="Assid. Pants +1",
-        feet=gear.Apogee_A_feet,
+        feet=gear.Apogee_A_Feet,
     }
 
     sets.idle.PDT = {  
@@ -431,7 +431,7 @@ function init_gear_sets()
         back="Campestres's Cape",
         waist="Lucidity Sash",
         legs="Assid. Pants +1",
-        feet=gear.Apogee_A_feet,
+        feet=gear.Apogee_A_Feet,
     }
 
     -- perp costs:
@@ -469,7 +469,7 @@ function init_gear_sets()
         back="Campestres's Cape",
         waist="Lucidity Sash",
         legs="Assid. Pants +1",
-        feet=gear.Apogee_A_feet,
+        feet=gear.Apogee_A_Feet,
     }
 
     sets.idle.PDT.Avatar = {
@@ -487,7 +487,7 @@ function init_gear_sets()
         back="Campestres's Cape",
         waist="Lucidity Sash",
         legs="Assid. Pants +1",
-        feet=gear.Apogee_A_feet,
+        feet=gear.Apogee_A_Feet,
     }
 
     sets.idle.Spirit = {
@@ -505,7 +505,7 @@ function init_gear_sets()
         back="Campestres's Cape",
         waist="Lucidity Sash",
         legs="Assid. Pants +1",
-        feet=gear.Apogee_A_feet,
+        feet=gear.Apogee_A_Feet,
     }
 
     -- sets.idle.Town = {main="Bolelabunga",sub="Genbu's Shield",ammo="Sancus Sachet +1",
@@ -549,7 +549,7 @@ function init_gear_sets()
         back="Campestres's Cape",
         waist="Lucidity Sash",
         legs="Assid. Pants +1",
-        feet=gear.Apogee_A_feet,
+        feet=gear.Apogee_A_Feet,
     }
 
     sets.defense.MDT = {
@@ -567,7 +567,7 @@ function init_gear_sets()
         back="Campestres's Cape",
         waist="Lucidity Sash",
         legs="Assid. Pants +1",
-        feet=gear.Apogee_A_feet,
+        feet=gear.Apogee_A_Feet,
     }
 
     sets.Kiting = {

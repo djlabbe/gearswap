@@ -214,11 +214,11 @@ function init_gear_sets()
 
     sets.precast.JA['Lunge'] = {
         ammo="Ghastly Tathlum +1",
-        head=gear.Herc_MAB_head,
+        head=gear.Herc_MAB_Head,
         body="Carm. Sc. Mail +1",
         hands="Carmine Fin. Ga. +1",
-        legs=gear.Herc_MAB_legs,
-        feet=gear.Herc_MAB_feet,
+        legs=gear.Herc_MAB_Legs,
+        feet=gear.Herc_MAB_Feet,
         neck="Baetyl Pendant",
         ear1="Crematio Earring",
         ear2="Friomisi Earring",
@@ -256,7 +256,7 @@ function init_gear_sets()
     sets.precast.FC = {
         ammo="Sapience Orb", --2
         head={name="Rune. Bandeau +3", priority=3},
-        body=gear.Taeon_FC_body, --9
+        body=gear.Taeon_FC_Body, --9
         hands="Leyline Gloves", --8
         legs="Aya. Cosciales +2", --6
         feet="Carmine Greaves +1", --8
@@ -290,11 +290,11 @@ function init_gear_sets()
 
     sets.precast.WS = {
         ammo="Knobkierrie",
-        head=gear.Herc_WSD_head,
-        body=gear.Herc_WSD_body,
+        head=gear.Herc_WSD_Head,
+        body=gear.Herc_WSD_Body,
         hands="Meg. Gloves +2",
-        legs=gear.Herc_WSD_legs,
-        feet=gear.Herc_TA_feet,
+        legs=gear.Herc_WSD_Legs,
+        feet=gear.Herc_TA_Feet,
         neck="Fotia Gorget",
         ear1="Sherida Earring",
         ear2="Moonshade Earring",
@@ -306,7 +306,7 @@ function init_gear_sets()
 
     sets.precast.WS.Acc = set_combine(sets.precast.WS, {
         ammo="Voluspa Tathlum",
-        body=gear.Adhemar_B_body,
+        body=gear.Adhemar_B_Body,
         legs="Meg. Chausses +2",
         ear2="Telos Earring",
         })
@@ -319,7 +319,7 @@ function init_gear_sets()
         ammo="Seeth. Bomblet +1",
         head="Lustratio Cap +1",
         body="Lustr. Harness +1",
-        hands=gear.Adhemar_B_hands,
+        hands=gear.Adhemar_B_Hands,
         legs="Samnuha Tights",
         feet="Lustra. Leggings +1",
         --neck="Futhark Torque +2",
@@ -330,27 +330,27 @@ function init_gear_sets()
     sets.precast.WS['Resolution'].Acc = set_combine(sets.precast.WS['Resolution'], {
         ammo="Voluspa Tathlum",
         head="Blistering Sallet +1",
-        hands=gear.Adhemar_A_hands,
+        hands=gear.Adhemar_A_Hands,
         legs="Meg. Chausses +2",
         ear2="Telos Earring",
         })
 
     sets.precast.WS['Resolution'].Uncapped = set_combine(sets.precast.WS['Resolution'], {
-        body=gear.Adhemar_B_body,
+        body=gear.Adhemar_B_Body,
         legs="Meg. Chausses +2",
-        feet=gear.Herc_TA_feet,
+        feet=gear.Herc_TA_Feet,
         ring1="Regal Ring",
         })
 
     sets.precast.WS['Resolution'].Safe = set_combine(sets.precast.WS['Resolution'], {
         head="Blistering Sallet +1",
-        body=gear.Adhemar_B_body,
-        feet=gear.Herc_TA_feet,
+        body=gear.Adhemar_B_Body,
+        feet=gear.Herc_TA_Feet,
         })
 
     sets.precast.WS['Dimidiation'] = set_combine(sets.precast.WS, {
         ammo="Aurgelmir Orb +1",
-        body=gear.Adhemar_B_body,
+        body=gear.Adhemar_B_Body,
         legs="Lustr. Subligar +1",
         feet="Lustra. Leggings +1",
         ear1="Odr Earring",
@@ -360,7 +360,7 @@ function init_gear_sets()
 
     sets.precast.WS['Dimidiation'].Acc = set_combine(sets.precast.WS['Dimidiation'], {
         ammo="Voluspa Tathlum",
-        body=gear.Adhemar_B_body,
+        body=gear.Adhemar_B_Body,
         legs="Samnuha Tights",
         ear2="Mache Earring +1",
         })
@@ -372,7 +372,7 @@ function init_gear_sets()
 
     sets.precast.WS['Dimidiation'].Safe = set_combine(sets.precast.WS['Dimidiation'], {
         legs="Lustr. Subligar +1",
-        feet=gear.Herc_TA_feet,
+        feet=gear.Herc_TA_Feet,
         })
 
     sets.precast.WS['Herculean Slash'] = sets.precast.JA['Lunge']
@@ -432,10 +432,10 @@ function init_gear_sets()
     sets.midcast.SpellInterrupt = {
         ammo="Staunch Tathlum +1", --11
         head={name="Runeist's Bandeau +3", priority=2},
-        body=gear.Taeon_Phalanx_body, --10
-        hands=gear.Taeon_Phalanx_hands, --10
-        legs=gear.Taeon_Phalanx_legs, --10
-        feet=gear.Taeon_Phalanx_feet, --10
+        body=gear.Taeon_Phalanx_Body, --10
+        hands=gear.Taeon_Phalanx_Hands, --10
+        legs=gear.Taeon_Phalanx_Legs, --10
+        feet=gear.Taeon_Phalanx_Feet, --10
         neck="Moonlight Necklace", --15
         ear1={name="Tuisto Earring", priority=3},
         ear2="Magnetic Earring", --8
@@ -473,10 +473,10 @@ function init_gear_sets()
     sets.midcast['Phalanx'] = set_combine(sets.midcast['Enhancing Magic'], {
         main="Deacon Sword", --4
         head="Fu. Bandeau +3", --7
-        body=gear.Taeon_Phalanx_body, --3(10)
-        hands=gear.Taeon_Phalanx_hands, --3(10)
-        legs=gear.Taeon_Phalanx_legs, --3(10)
-        feet=gear.Taeon_Phalanx_feet, --3(10)
+        body=gear.Taeon_Phalanx_Body, --3(10)
+        hands=gear.Taeon_Phalanx_Hands, --3(10)
+        legs=gear.Taeon_Phalanx_Legs, --3(10)
+        feet=gear.Taeon_Phalanx_Feet, --3(10)
         })
 
     sets.midcast['Aquaveil'] = set_combine(sets.midcast['Enhancing Magic'], {
@@ -577,7 +577,7 @@ function init_gear_sets()
 
     sets.idle.Refresh = set_combine(sets.idle, {
         ammo="Homiliary",
-        head=gear.Herc_Idle_head,
+        head=gear.Herc_Idle_Head,
         body="Runeist's Coat +3",
         hands="Regal Gauntlets",
         legs="Rawhide Trousers",
@@ -639,7 +639,7 @@ function init_gear_sets()
     sets.defense.HP = {
         sub="Mensch Strap +1", --5/0
         ammo="Staunch Tathlum +1", --3/3
-        head=gear.Adhemar_D_head, --4/0
+        head=gear.Adhemar_D_Head, --4/0
         body={name="Runeist's Coat +3", priority=2},
         hands={name="Regal Gauntlets", priority=3},
         legs="Eri. Leg Guards +1", --7/0
@@ -667,11 +667,11 @@ function init_gear_sets()
     sets.engaged = {
         sub="Utu Grip",
         ammo="Aurgelmir Orb +1",
-        head=gear.Adhemar_B_head,
-        body=gear.Adhemar_B_body,
-        hands=gear.Adhemar_B_hands,
+        head=gear.Adhemar_B_Head,
+        body=gear.Adhemar_B_Body,
+        hands=gear.Adhemar_B_Hands,
         legs="Samnuha Tights",
-        feet=gear.Herc_TA_feet,
+        feet=gear.Herc_TA_Feet,
         neck="Anu Torque",
         ear1="Sherida Earring",
         ear2="Brutal Earring",
@@ -683,7 +683,7 @@ function init_gear_sets()
 
     sets.engaged.LowAcc = set_combine(sets.engaged, {
         head="Dampening Tam",
-        hands=gear.Adhemar_A_hands,
+        hands=gear.Adhemar_A_Hands,
         neck="Combatant's Torque",
         waist="Ioskeha Belt +1",
         })
@@ -733,7 +733,7 @@ function init_gear_sets()
     ------------------------------------------------------------------------------------------------
 
     sets.Hybrid = {
-        head=gear.Adhemar_D_head, --4/0
+        head=gear.Adhemar_D_Head, --4/0
         body="Ashera Harness", --7/7
         neck="Futhark Torque +2", --7/7
         ring1="Moonlight Ring", --5/5
@@ -750,7 +750,7 @@ function init_gear_sets()
     sets.engaged.Aftermath.DT = {
         head="Aya. Zucchetto +2",
         body="Ashera Harness",
-        hands=gear.Adhemar_A_hands,
+        hands=gear.Adhemar_A_Hands,
         legs="Meg. Chausses +2",
         neck="Futhark Torque +2",
         ear1="Sherida Earring",

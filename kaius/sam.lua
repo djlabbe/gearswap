@@ -119,7 +119,7 @@ function init_gear_sets()
         body="Tatenashi Haramaki +1",
         hands="Wakido Kote +3",
         legs="Tatena. Haidate +1",
-        feet=gear.Ryuo_C_feet,
+        feet=gear.Ryuo_C_Feet,
         neck="Sam. Nodowa +2",
         waist="Sailfi Belt +1",
         ear1="Cessance Earring",
@@ -142,11 +142,11 @@ function init_gear_sets()
     ------------------------------------------------------------------------------------------------
 
     sets.engaged.Hybrid = {
-        head=gear.Mpaca_head, --7/0
-        body=gear.Mpaca_body, --10/0
-        hands=gear.Mpaca_hands, --8/0
-        legs=gear.Mpaca_legs, --9/0
-        feet=gear.Mpaca_feet, --6/0
+        head=gear.Mpaca_Head, --7/0
+        body=gear.Mpaca_Body, --10/0
+        hands=gear.Mpaca_Hands, --8/0
+        legs=gear.Mpaca_Legs, --9/0
+        feet=gear.Mpaca_Feet, --6/0
         ring2="Defending Ring", --10/10
     }
 
@@ -156,7 +156,7 @@ function init_gear_sets()
         body="Dagon Breastplate",
         hands="Wakido Kote +3",
         legs="Mpaca's Hose",
-        feet=gear.Ryuo_C_feet,
+        feet=gear.Ryuo_C_Feet,
         neck="Bathy Choker +1",
         ear1="Schere Earring",
         -- ear2="Digni. Earring",
@@ -176,11 +176,11 @@ function init_gear_sets()
 
     sets.precast.WS = {
         ammo="Knobkierrie",
-        head=gear.Mpaca_head,
-        body=gear.Valo_WSD_body,
-        hands=gear.Valo_WSD_hands,
+        head=gear.Mpaca_Head,
+        body=gear.Valo_WSD_Body,
+        hands=gear.Valo_WSD_Hands,
         legs="Hiza. Hizayoroi +2",
-        feet=gear.Valo_WSD_feet,
+        feet=gear.Valo_WSD_Feet,
         neck="Sam. Nodowa +2",
         waist="Sailfi Belt +1",
         left_ear="Thrud Earring",
@@ -193,9 +193,9 @@ function init_gear_sets()
     sets.precast.WS.Acc = set_combine(sets.precast.WS, {})
 
     sets.precast.WS['Impulse Drive'] = {
-        head=gear.Mpaca_head,
+        head=gear.Mpaca_Head,
         body="Tatena. Harama. +1",
-        hands=gear.Ryuo_A_hands,
+        hands=gear.Ryuo_A_Hands,
         legs="Tatena. Haidate +1",
         neck="Sam. Nodowa +2",
         ear1="Thrud Earring",
@@ -241,11 +241,11 @@ function init_gear_sets()
     }
 
     sets.idle.DT = set_combine(sets.idle, {
-        head=gear.Mpaca_head, --7/0
-        body=gear.Mpaca_body, --10/0
-        hands=gear.Mpaca_hands, --8/0
-        legs=gear.Mpaca_legs, --9/0
-        feet=gear.Mpaca_feet, --6/0
+        head=gear.Mpaca_Head, --7/0
+        body=gear.Mpaca_Body, --10/0
+        hands=gear.Mpaca_Hands, --8/0
+        legs=gear.Mpaca_Legs, --9/0
+        feet=gear.Mpaca_Feet, --6/0
         ring2="Defending Ring", --10/10
     })
 

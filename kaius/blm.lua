@@ -113,8 +113,8 @@ function init_gear_sets()
     sets.precast.FC = {
     --    /RDM --15
         ammo="Sapience Orb", --2
-        head=gear.Amalric_A_head, --11
-        body=gear.Merl_FC_body, --13
+        head=gear.Amalric_A_Head, --11
+        body=gear.Merl_FC_Body, --13
         hands="Merlinic Dastanas", --6
         legs="Volte Brais", --8
         feet="Volte Gaiters", --6
@@ -156,8 +156,8 @@ function init_gear_sets()
 
     sets.precast.FC.DeathMode = {
         ammo="Ghastly Tathlum +1",
-        head=gear.Amalric_A_head, --11
-        body=gear.Amalric_A_body,
+        head=gear.Amalric_A_Head, --11
+        body=gear.Amalric_A_Body,
         hands="Merlinic Dastanas", --6
         legs="Volte Brais", --8
         feet="Volte Gaiters", --6
@@ -184,7 +184,7 @@ function init_gear_sets()
         head="Jhakri Coronal +2",
         body="Jhakri Robe +2",
         hands="Jhakri Cuffs +2",
-        legs=gear.Telchine_ENH_legs,
+        legs=gear.Telchine_ENH_Legs,
         feet="Jhakri Pigaches +2",
         neck="Fotia Gorget",
         ear1="Moonshade Earring",
@@ -200,8 +200,8 @@ function init_gear_sets()
     sets.precast.WS['Vidohunir'] = {
         ammo="Ghastly Tathlum +1",
         head="Pixie Hairpin +1",
-        body=gear.Amalric_A_body,
-        hands=gear.Amalric_D_hands,
+        body=gear.Amalric_A_Body,
+        hands=gear.Amalric_D_Hands,
         legs="Merlinic Shalwar",
         feet="Merlinic Crackows",
         neck="Baetyl Pendant",
@@ -216,9 +216,9 @@ function init_gear_sets()
     sets.precast.WS['Myrkr'] = {
         ammo="Ghastly Tathlum +1",
         head="Pixie Hairpin +1",
-        body=gear.Amalric_A_body,
-        hands=gear.Telchine_ENH_hands,
-        legs=gear.Amalric_A_legs,
+        body=gear.Amalric_A_Body,
+        hands=gear.Telchine_ENH_Hands,
+        legs=gear.Amalric_A_Legs,
         feet="Medium's Sabots",
         neck="Orunmila's Torque",
         ear1="Etiolation Earring",
@@ -239,7 +239,7 @@ function init_gear_sets()
         sub="Sors Shield", --3/(-5)
         ammo="Esper Stone +1", --0/(-5)
         body="Vanya Robe",
-        hands=gear.Telchine_ENH_hands, --10
+        hands=gear.Telchine_ENH_Hands, --10
         feet="Medium's Sabots", --12
         neck="Nodens Gorget", --5
         ear1="Mendi. Earring", --5
@@ -274,11 +274,11 @@ function init_gear_sets()
     sets.midcast['Enhancing Magic'] = {
         main=gear.Gada_ENH,
         sub="Ammurapi Shield",
-        head=gear.Telchine_ENH_head,
-        body=gear.Telchine_ENH_body,
-        hands=gear.Telchine_ENH_hands,
-        legs=gear.Telchine_ENH_legs,
-        feet=gear.Telchine_ENH_feet,
+        head=gear.Telchine_ENH_Head,
+        body=gear.Telchine_ENH_Body,
+        hands=gear.Telchine_ENH_Hands,
+        legs=gear.Telchine_ENH_Legs,
+        feet=gear.Telchine_ENH_Feet,
         neck="Incanter's Torque",
         ear1="Mimir Earring",
         ear2="Andoaa Earring",
@@ -291,26 +291,26 @@ function init_gear_sets()
     sets.midcast.EnhancingDuration = {
         main=gear.Gada_ENH,
         sub="Ammurapi Shield",
-        head=gear.Telchine_ENH_head,
-        body=gear.Telchine_ENH_body,
-        hands=gear.Telchine_ENH_hands,
-        legs=gear.Telchine_ENH_legs,
-        feet=gear.Telchine_ENH_feet,
+        head=gear.Telchine_ENH_Head,
+        body=gear.Telchine_ENH_Body,
+        hands=gear.Telchine_ENH_Hands,
+        legs=gear.Telchine_ENH_Legs,
+        feet=gear.Telchine_ENH_Feet,
         waist="Embla Sash",
         }
 
     sets.midcast.Regen = set_combine(sets.midcast.EnhancingDuration, {
         main="Bolelabunga",
         sub="Ammurapi Shield",
-        head=gear.Telchine_ENH_head,
-        body=gear.Telchine_ENH_body,
-        hands=gear.Telchine_ENH_hands,
-        legs=gear.Telchine_ENH_legs,
-        feet=gear.Telchine_ENH_feet,
+        head=gear.Telchine_ENH_Head,
+        body=gear.Telchine_ENH_Body,
+        hands=gear.Telchine_ENH_Hands,
+        legs=gear.Telchine_ENH_Legs,
+        feet=gear.Telchine_ENH_Feet,
         })
 
     sets.midcast.Refresh = set_combine(sets.midcast.EnhancingDuration, {
-        head=gear.Amalric_A_head,
+        head=gear.Amalric_A_Head,
         --feet="Inspirited Boots",
         waist="Gishdubar Sash",
         back="Grapevine Cape",
@@ -325,7 +325,7 @@ function init_gear_sets()
         main="Vadose Rod",
         sub="Ammurapi Shield",
         ammo="Staunch Tathlum +1",
-        head=gear.Amalric_A_head,
+        head=gear.Amalric_A_Head,
         hands="Regal Cuffs",
         ear1="Halasz Earring",
         ring1="Freke Ring",
@@ -403,9 +403,9 @@ function init_gear_sets()
         sub="Enki Strap",
         ammo="Ghastly Tathlum +1",
         head="Pixie Hairpin +1",
-        body=gear.Merl_MB_body, --10
-        hands=gear.Amalric_D_hands, --(5)
-        legs=gear.Amalric_A_legs,
+        body=gear.Merl_MB_Body, --10
+        hands=gear.Amalric_D_Hands, --(5)
+        legs=gear.Amalric_A_Legs,
         feet="Merlinic Crackows", --11
         neck="Mizu. Kubikazari", --10
         ear1="Malignance Earring",
@@ -419,7 +419,7 @@ function init_gear_sets()
     sets.midcast.Death.Resistant = set_combine(sets.midcast.Death, {
         main=gear.Grioavolr_MB,
         sub="Enki Strap",
-        head=gear.Amalric_A_head,
+        head=gear.Amalric_A_Head,
         waist="Acuity Belt +1",
     })
 
@@ -430,10 +430,10 @@ function init_gear_sets()
         sub="Enki Strap",
         ammo="Ghastly Tathlum +1",
         head="Merlinic Hood",
-        body=gear.Amalric_A_body,
-        hands=gear.Amalric_D_hands,
-        legs=gear.Amalric_A_legs,
-        feet=gear.Amalric_D_feet,
+        body=gear.Amalric_A_Body,
+        hands=gear.Amalric_D_Hands,
+        legs=gear.Amalric_A_Legs,
+        feet=gear.Amalric_D_Feet,
         neck="Baetyl Pendant",
         ear1="Malignance Earring",
         ear2="Regal Earring",
@@ -447,7 +447,7 @@ function init_gear_sets()
         main=gear.Grioavolr_MB,
         sub="Enki Strap",
         ammo="Ghastly Tathlum +1",
-        legs=gear.Amalric_A_legs,
+        legs=gear.Amalric_A_Legs,
         feet="Merlinic Crackows",
         back=gear.BLM_Death_Cape,
     })
@@ -536,9 +536,9 @@ function init_gear_sets()
         sub="Khonsu",
         ammo="Ghastly Tathlum +1",
         head="Pixie Hairpin +1",
-        body=gear.Amalric_A_body,
+        body=gear.Amalric_A_Body,
         hands="Amalric Gages",
-        legs=gear.Amalric_A_legs,
+        legs=gear.Amalric_A_Legs,
         feet="Merlinic Crackows",
         neck="Sanctity Necklace",
         ear1="Malignance Earring",
@@ -577,7 +577,7 @@ function init_gear_sets()
     sets.magic_burst = {
         head="Ea Hat +1", --7/(7)
         body="Ea Houppe. +1", --9/(9)
-        hands=gear.Amalric_D_hands, --(6)
+        hands=gear.Amalric_D_Hands, --(6)
         legs="Ea Slops +1", --8/(8)
         feet="Ea Pigaches +1", --5/(5)
         neck="Mizu. Kubikazari", --10
@@ -605,7 +605,7 @@ function init_gear_sets()
         head="Blistering Sallet +1",
         body="Jhakri Robe +2",
         hands="Gazu Bracelet +1",
-        legs=gear.Telchine_ENH_legs,
+        legs=gear.Telchine_ENH_Legs,
         feet="Battlecast Gaiters",
         neck="Combatant's Torque",
         ear1="Cessance Earring",
