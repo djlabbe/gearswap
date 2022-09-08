@@ -231,7 +231,7 @@ function init_gear_sets()
         body=gear.Artifact_Body,
         hands=gear.Telchine_ENH_hands,
         legs=gear.Artifact_Legs,
-        feet="Skaoi Boots",
+        -- feet="Skaoi Boots",
         neck="Unmoving Collar +1",
         ear1="Eabani Earring",
         ear2="Etiolation Earring",
@@ -331,10 +331,10 @@ function init_gear_sets()
         hands=gear.Kaykaus_D_hands,
         legs=gear.Amalric_A_legs,
         feet=gear.Kaykaus_B_feet,
-        neck="Orunmila's Torque",
+        -- neck="Orunmila's Torque",
         ear1="Loquacious Earring",
         ear2="Etiolation Earring",
-        ring1={name="Fenrir Ring +1", bag="wardrobe3"},
+        ring1="Mephitas's Ring +1",
         ring2="Metamor. Ring +1",
         back="Fi Follet Cape +1",
         waist="Shinjutsu-no-Obi +1",
@@ -651,18 +651,22 @@ function init_gear_sets()
         main="Daybreak",
         sub="Genmei Shield",
         ammo="Homiliary",
-        head="Volte Beret",
-        body=gear.Artifact_Body,
-        hands="Raetic Bangles +1",
+        -- head="Volte Beret",
+        head=gear.Relic_Head,
+        body="Jhakri Robe +2",
+        -- body=gear.Artifact_Body,
+        -- hands="Raetic Bangles +1",
+        hands="Volte Gloves",
         -- legs="Volte Brais",
         legs="Assid. Pants +1",
-        feet="Volte Gaiters",
+        -- feet="Volte Gaiters",
+        feet=gear.Artifact_Feet,
         neck="Bathy Choker +1",
         ear1="Infused Earring",
         ear2="Lugalbanda Earring",
         ring1=gear.Stikini_1,
         ring2=gear.Stikini_2,
-        back=gear.SCH_FC_Cape,
+        back=gear.SCH_MAB_Cape,
         waist="Carrier's Sash",
     }
 
@@ -672,7 +676,7 @@ function init_gear_sets()
         ammo="Staunch Tathlum +1", --3/3
         -- head="Volte Beret",
         body="Mallquis Saio +2", --8/8
-        hands="Gende. Gages +1", --4/4
+        -- hands="Gende. Gages +1", --4/4
         -- feet="Volte Gaiters",
         neck="Loricate Torque +1", --6/6
         ear1="Infused Earring",
@@ -759,7 +763,7 @@ function init_gear_sets()
     sets.buff['Klimaform'] = {feet=gear.Empyrean_Feet}
 
     sets.buff.FullSublimation = {
-       main="Siriti", --1
+       -- main="Siriti", --1
        sub="Genmei Shield", --10/0
        head=gear.Artifact_Head, --4
        body=gear.Relic_Body, --5

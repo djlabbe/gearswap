@@ -179,7 +179,7 @@ function user_setup()
     send_command('bind @w gs c toggle WeaponLock')
     send_command('bind @e gs c cycleback WeaponSet')
 
-     if player.sub_job == 'NIN' then
+    if player.sub_job == 'NIN' then
         set_macro_page(1, 5)
     elseif player.sub_job == 'WHM' then
         set_macro_page(2, 5)

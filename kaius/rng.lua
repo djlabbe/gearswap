@@ -133,7 +133,15 @@ function user_setup()
     send_command('bind @e gs c cycleback WeaponSet')
     send_command('bind @r gs c cycle WeaponSet')
 
-    set_macro_page(1, 11)
+
+    if player.sub_job == 'WAR' then
+        set_macro_page(1, 11)
+    elseif player.sub_job == 'DNC' then
+        set_macro_page(2, 11)
+    else
+        set_macro_page(1, 11)
+    end
+
     send_command('wait 2; input /lockstyleset 11')
 
     state.Auto_Kite = M(false, 'Auto_Kite')
