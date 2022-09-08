@@ -129,10 +129,10 @@ function init_gear_sets()
 
     sets.precast.FC = {
         ammo="Sapience Orb", --2
-        head=gear.Carmine_D_head, --10
+        head=gear.Carmine_D_Head, --10
         hands="Leyline Gloves", --8
-        -- legs=gear.Ody_FC_legs, -- 5
-        feet=gear.Carmine_B_feet, -- 8
+        -- legs=gear.Ody_FC_Legs, -- 5
+        feet=gear.Carmine_B_Feet, -- 8
         neck="Baetyl Pendant", --4
         ear1="Loquacious Earring", --2
         ear2="Malignance Earring", --4
@@ -153,7 +153,7 @@ function init_gear_sets()
         ammo="Knobkierrie",
         head="Flamma Zucchetto +2",
         body=gear.Artifact_Body,
-        hands= gear.Valo_WSD_hands,
+        hands= gear.Valo_WSD_Hands,
         legs=gear.Relic_Legs,
         feet="Sulev. Leggings +2",
         neck="Abyssal Beads +2",
@@ -191,7 +191,7 @@ function init_gear_sets()
         ammo="Knobkierrie", --6
         head="Ratri Sallet +1", --8
         body=gear.Artifact_Body, --10
-        hands=gear.Sakpata_hands,
+        hands=gear.Sakpata_Hands,
         legs=gear.Relic_Legs, --10
         feet="Sulev. Leggings +2", --7 
         neck="Abyssal Beads +2",
@@ -227,7 +227,7 @@ function init_gear_sets()
         ammo="Knobkierrie",
         head=gear.Relic_Head,
         body=gear.Artifact_Body,
-        hands= gear.Valo_WSD_hands,
+        hands= gear.Valo_WSD_Hands,
         legs=gear.Relic_Legs,
         feet="Sulev. Leggings +2",
         neck="Abyssal Beads +2",
@@ -249,7 +249,7 @@ function init_gear_sets()
 
     sets.midcast['Enfeebling Magic'] = {
         ammo="Pemphredo Tathlum",
-        head=gear.Carmine_D_head,
+        head=gear.Carmine_D_Head,
         body="Hjarrandi Breast.",
         hands="Ratri Gadlings +1",
         legs="Ratri Cuisses +1",
@@ -264,8 +264,8 @@ function init_gear_sets()
 
     sets.midcast['Dark Magic'] = {
         ammo="Pemphredo Tathlum",
-        head=gear.Carmine_D_head,
-        body=gear.Carmine_B_body,
+        head=gear.Carmine_D_Head,
+        body=gear.Carmine_B_Body,
         hands="Ratri Gadlings +1",
         legs=gear.Relic_Legs,
         feet="Rat. Sollerets +1",
@@ -324,11 +324,11 @@ function init_gear_sets()
 
     sets.idle = {
         ammo="Staunch Tathlum +1",
-        head=gear.Sakpata_head,
-        body=gear.Sakpata_body,
-        hands=gear.Sakpata_hands,
-        legs=gear.Sakpata_legs,
-        feet=gear.Sakpata_feet,
+        head=gear.Sakpata_Head,
+        body=gear.Sakpata_Body,
+        hands=gear.Sakpata_Hands,
+        legs=gear.Sakpata_Legs,
+        feet=gear.Sakpata_Feet,
         neck="Sibyl Scarf",
         ear1="Infused Earring",
         ear2="Eabani Earring",
@@ -340,11 +340,11 @@ function init_gear_sets()
 
     sets.idle.DT = set_combine(sets.idle, {
         ammo="Staunch Tathlum +1", --3
-        head=gear.Sakpata_head, --10
-        body=gear.Sakpata_body, --12
-        hands=gear.Sakpata_hands, --8
-        legs=gear.Sakpata_legs, --9
-        feet=gear.Sakpata_feet, --6
+        head=gear.Sakpata_Head, --10
+        body=gear.Sakpata_Body, --12
+        hands=gear.Sakpata_Hands, --8
+        legs=gear.Sakpata_Legs, --9
+        feet=gear.Sakpata_Feet, --6
         neck="Loricate Torque +1", --6/6
         ear1="Odnowa Earring +1", --3/5a
         back="Moonlight Cape", --6/6
@@ -354,7 +354,7 @@ function init_gear_sets()
         ammo="Aurgelmir Orb +1",
         head=gear.Relic_Head,
         body=gear.Artifact_Body,
-        hands=gear.Sakpata_hands,
+        hands=gear.Sakpata_Hands,
         legs=gear.Artifact_Legs,
         feet=gear.Artifact_Feet,
         neck="Abyssal Beads +2",
@@ -375,19 +375,19 @@ function init_gear_sets()
     sets.defense.PDT = {
         head="Hjarrandi Helm", --10
         body="Hjarrandi Breastplate", --12
-        hands=gear.Sakpata_hands, --8
-        legs=gear.Sakpata_legs, --9
-        feet=gear.Sakpata_feet, --6
+        hands=gear.Sakpata_Hands, --8
+        legs=gear.Sakpata_Legs, --9
+        feet=gear.Sakpata_Feet, --6
         ring2=gear.Moonlight_2, --5
     }
 
     sets.defense.MDT = {
         ammo="Staunch Tathlum +1", --3
-        head=gear.Sakpata_head, --10
-        body=gear.Sakpata_body, --12
-        hands=gear.Sakpata_hands, --8
-        legs=gear.Sakpata_legs, --9
-        feet=gear.Sakpata_feet, --6
+        head=gear.Sakpata_Head, --10
+        body=gear.Sakpata_Body, --12
+        hands=gear.Sakpata_Hands, --8
+        legs=gear.Sakpata_Legs, --9
+        feet=gear.Sakpata_Feet, --6
         neck="Warder's Charm +1",
         ear1="Odnowa Earring +1", --3/5a
     }
@@ -404,8 +404,8 @@ function init_gear_sets()
     sets.engaged = {
         ammo="Coiste Bodhar",
         head="Flamma Zucchetto +2",
-        body=gear.Sakpata_body,
-        hands=gear.Sakpata_hands,
+        body=gear.Sakpata_Body,
+        hands=gear.Sakpata_Hands,
         legs=gear.Artifact_Legs,
         feet="Flamma Gambieras +2",
         neck="Abyssal Beads +2",
@@ -434,11 +434,11 @@ function init_gear_sets()
     ------------------------------------------------------------------------------------------------
 
     sets.engaged.Hybrid = {
-        head=gear.Sakpata_head, --7
+        head=gear.Sakpata_Head, --7
         body="Hjarrandi Breast.", --12
-        hands=gear.Sakpata_hands, --8
-        legs=gear.Sakpata_legs, --9
-        feet=gear.Sakpata_feet, --6
+        hands=gear.Sakpata_Hands, --8
+        legs=gear.Sakpata_Legs, --9
+        feet=gear.Sakpata_Feet, --6
         right_ring=gear.Moonlight_2,
     } --47
 

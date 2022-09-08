@@ -127,7 +127,7 @@ function init_gear_sets()
     sets.precast.JA['Soul Jump'] = set_combine(sets.precast.JA['Jump'], {
         body="Vishap Mail +3", 
         hands="Emi. Gauntlets +1", 
-        legs=gear.Valo_STP_legs
+        legs=gear.Valo_STP_Legs
     })
     sets.precast.JA['Super Jump'] = {}
 
@@ -136,7 +136,7 @@ function init_gear_sets()
     -- Fast cast sets for spells
     sets.precast.FC = {
         ammo="Sapience Orb", --2
-        head=gear.Carmine_D_head, --14
+        head=gear.Carmine_D_Head, --14
         -- body="Sacro Breastplate", --10
         hands="Leyline Gloves", --8
         legs="Aya. Cosciales +2", --6
@@ -154,7 +154,7 @@ function init_gear_sets()
     sets.precast.WS = {
         ammo="Aurgelmir Orb +1",
         head="Pteroslaver Armet +3",
-        body=gear.Gleti_body,
+        body=gear.Gleti_Body,
         hands="Sulev. Gauntlets +2",
         legs="Sulev. Cuisses +2",
         feet="Sulevia's Leggings +2",
@@ -179,7 +179,7 @@ function init_gear_sets()
         neck="Fotia Gorget",
         ear1="Sherida Earring",
         ear2="Moonshade Earring",
-        body=gear.Gleti_body,
+        body=gear.Gleti_Body,
         hands="Sulev. Gauntlets +2",
         ring1="Regal Ring",
         ring2="Niqmaddu Ring",
@@ -199,8 +199,8 @@ function init_gear_sets()
         ammo="Crepuscular Pebble",
         head="Flamma Zucchetto +2",
         neck="Dragoon's Collar +2",
-        hands=gear.Gleti_hands,
-        legs=gear.Gleti_legs,
+        hands=gear.Gleti_Hands,
+        legs=gear.Gleti_Legs,
         feet="Ptero. Greaves +3",
     })
 
@@ -265,8 +265,8 @@ function init_gear_sets()
     })
 
     sets.precast.WS['Impulse Drive'].HighTP = set_combine(sets.precast.WS['Impulse Drive'], {
-        -- head=gear.Valo_WSD_head,
-        -- body=gear.Valo_WSD_body,
+        -- head=gear.Valo_WSD_Head,
+        -- body=gear.Valo_WSD_Body,
         hands="Ptero. Fin. G. +3",
         legs="Vishap Brais +3",
         back=gear.DRG_WS2_Cape,
@@ -352,8 +352,8 @@ function init_gear_sets()
 
     sets.midcast.HealingBreath = {
         head="Ptero. Armet +3",
-        body=gear.Acro_Pet_body,
-        hands=gear.Acro_Pet_hands,
+        body=gear.Acro_Pet_Body,
+        hands=gear.Acro_Pet_Hands,
         legs="Vishap Brais +3",
         feet="Ptero. Greaves +3",
         neck="Dgn. Collar +2",
@@ -365,8 +365,8 @@ function init_gear_sets()
 
     sets.midcast.ElementalBreath = {
         head="Ptero. Armet +3",
-        body=gear.Acro_Pet_body,
-        hands=gear.Acro_Pet_hands,
+        body=gear.Acro_Pet_Body,
+        hands=gear.Acro_Pet_Hands,
         neck="Lancer's Torque",
         ear1="Enmerkar Earring",
         ear2="Dragoon's Earring",
@@ -384,7 +384,7 @@ function init_gear_sets()
         head="Hjarrandi Helm", --10/10
         body="Hjarrandi Breastplate",
         hands="Sulev. Gauntlets +2", --5/5
-        legs=gear.Gleti_legs,
+        legs=gear.Gleti_Legs,
         feet="Ptero. Greaves +3",
         neck="Bathy Choker +1",
         ear1="Eabani Earring",
@@ -442,7 +442,7 @@ function init_gear_sets()
     })
 
     sets.idle.Weak = sets.idle.DT
-    sets.Kiting = { legs=gear.Carmine_D_legs }
+    sets.Kiting = { legs=gear.Carmine_D_Legs }
 
 
     ------------------------------------------------------------------------------------------------
@@ -459,8 +459,8 @@ function init_gear_sets()
     sets.engaged = {
         ammo="Coiste Bodhar",
         head="Flam. Zucchetto +2",
-        body=gear.Gleti_body,
-        hands=gear.Gleti_hands,
+        body=gear.Gleti_Body,
+        hands=gear.Gleti_Hands,
         legs="Ptero. Brais +3",
         feet="Flam. Gambieras +2",
         neck="Vim Torque",

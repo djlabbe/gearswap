@@ -147,7 +147,7 @@ function init_gear_sets()
         -- sub="Chanter's Shield", --3
         -- head="Amalric Coif +1", --11
         body={ name="Merlinic Jubbah", augments={'"Mag.Atk.Bns."+28','"Fast Cast"+7','Mag. Acc.+13',}}, --13
-        -- hands=gear.Merl_FC_hands, --7
+        -- hands=gear.Merl_FC_Hands, --7
         legs="Geomancy Pants +1", --11
         -- feet="Volte Gaiters", --6
         neck="Baetyl Pendant", --4
@@ -201,7 +201,7 @@ function init_gear_sets()
         -- main="Sucellus",
         -- sub="Chanter's Shield",
         -- head="Amalric Coif +1",
-        -- hands=gear.Merl_FC_hands,
+        -- hands=gear.Merl_FC_Hands,
         -- legs="Geomancy Pants +3",
         -- ear1="Malignance Earring",
         -- ear2="Etiolation Earring",
@@ -346,7 +346,7 @@ function init_gear_sets()
         body=gear.Artifact.Body,
         -- hands="Geo. Mitaines +3",
         -- legs="Geomancy Pants +3",
-        -- feet=gear.Merl_MAB_feet,
+        -- feet=gear.Merl_MAB_Feet,
         -- neck="Erra Pendant",
         -- ear1="Malignance Earring",
         -- ear2="Regal Earring",
@@ -394,8 +394,8 @@ function init_gear_sets()
         -- main="Idris",
         -- sub="Ammurapi Shield",
         hands=gear.Relic.Hands,
-        -- legs=gear.Merl_MAB_legs,
-        -- feet=gear.Merl_MAB_feet,
+        -- legs=gear.Merl_MAB_Legs,
+        -- feet=gear.Merl_MAB_Feet,
         -- neck="Sanctity Necklace",
         -- ear2="Digni. Earring",
         -- waist="Acuity Belt +1",

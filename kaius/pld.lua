@@ -74,34 +74,34 @@ function init_gear_sets()
     sets.precast.JA['Chivalry'] = { -- Max MND
         ammo="Sapience Orb",
         head="Hjarrandi Helm",
-        body=gear.Souveran_C_body,
-        hands=gear.Souveran_C_hands,
-        legs=gear.Souveran_C_legs,
-        feet=gear.Eschite_A_feet,
+        body=gear.Souveran_C_Body,
+        hands=gear.Souveran_C_Hands,
+        legs=gear.Souveran_C_Legs,
+        feet=gear.Eschite_A_Feet,
         neck="Unmoving Collar +1",
         waist="Creed Baudrier",
         left_ear="Tuisto Earring",
         -- right_ear="Cryptic Earring",
         left_ring="Apeile Ring +1",
         right_ring="Eihwaz Ring",
-        back=gear.PLD_cape,
+        back=gear.PLD_Cape,
     }
 
 
     sets.precast.FC = { -- FC/SIRD
         ammo="Staunch Tathlum +1", -- 0/11
-        head=gear.Souveran_C_head, -- 0/20
+        head=gear.Souveran_C_Head, -- 0/20
         -- body="Rev. Surcoat +3", 
         hands="Leyline Gloves", --5/0
         legs={ name="Founder's Hose", augments={'MND+8','Mag. Acc.+14','Attack+13','Breath dmg. taken -3%',}}, -- 0/30
-        feet=gear.Ody_CURE_feet, -- 5/20
+        feet=gear.Ody_CURE_Feet, -- 5/20
         neck="Moonlight Necklace", -- 0/15
         waist="Audumbla Sash", -- 0/10
         left_ear="Tuisto Earring",
         -- right_ear="Etiolation Earring",
         left_ring="Weather. Ring", --5/0
         right_ring="Gelatinous Ring +1",
-        back=gear.PLD_FC_cape, --8/10
+        back=gear.PLD_FC_Cape, --8/10
     } -- 23% FC, 112% SIRD
 
     sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {waist="Siegel Sash"})
@@ -136,67 +136,67 @@ function init_gear_sets()
 
     sets.Enmity = {
         ammo="Sapience Orb",
-        head=gear.Souveran_C_head,
-        body=gear.Souveran_C_body,
-        hands=gear.Souveran_C_hands,
+        head=gear.Souveran_C_Head,
+        body=gear.Souveran_C_Body,
+        hands=gear.Souveran_C_Hands,
         legs={ name="Founder's Hose", augments={'MND+8','Mag. Acc.+14','Attack+13','Breath dmg. taken -3%',}},
-        feet=gear.Eschite_C_feet,
+        feet=gear.Eschite_C_Feet,
         neck="Unmoving Collar +1",
         waist="Audumbla Sash",
         left_ear="Tuisto Earring",
         right_ear="Knightly Earring",
         left_ring="Apeile Ring +1",
         right_ring="Gelatinous Ring +1",
-        back=gear.PLD_cape,
+        back=gear.PLD_Cape,
     }
 
     sets.midcast.Flash = set_combine(sets.Enmity, {{
         head="Loess Barbuta +1",
-        body=gear.Souveran_C_body,
-        hands=gear.Souveran_C_hands,
-        legs=gear.Souveran_C_legs,
-        feet=gear.Eschite_A_feet,
+        body=gear.Souveran_C_Body,
+        hands=gear.Souveran_C_Hands,
+        legs=gear.Souveran_C_Legs,
+        feet=gear.Eschite_A_Feet,
         neck="Unmoving Collar +1",
         waist="Creed Baudrier",
         left_ear="Tuisto Earring",
         -- right_ear="Cryptic Earring",
         left_ring="Apeile Ring +1",
         right_ring="Eihwaz Ring",
-        back=gear.PLD_cape,
+        back=gear.PLD_Cape,
     }})
     
     sets.midcast.Stun = sets.midcast.Flash
     
     sets.midcast.Cure = { -- Cure/SIRD 
         ammo="Staunch Tathlum +1", -- 0/11
-        head=gear.Souveran_C_head, --0/20
-        body=gear.Souveran_C_body, --11/0
+        head=gear.Souveran_C_Head, --0/20
+        body=gear.Souveran_C_Body, --11/0
         hands="Macabre Gaunt. +1", --11/0
         legs={ name="Founder's Hose", augments={'MND+8','Mag. Acc.+14','Attack+13','Breath dmg. taken -3%',}}, --0/30
-        feet=gear.Ody_CURE_feet, --13/20
+        feet=gear.Ody_CURE_Feet, --13/20
         neck="Unmoving Collar +1",
         waist="Audumbla Sash", --0/10
         left_ear="Nourishing Earring +1", --7/5
         right_ear="Knightly Earring", --0/9
         left_ring="Apeile Ring +1",
         right_ring="Gelatinous Ring +1",
-        back=gear.PLD_cape, 
+        back=gear.PLD_Cape, 
     } -- 42/105
 
     sets.midcast.Blue = { --Enm/SIRD
         ammo="Staunch Tathlum +1", -- 0/11
-        head=gear.Souveran_C_head, --9/20
-        body=gear.Souveran_C_body, --20/0
-        hands=gear.Souveran_C_hands, --9/0
+        head=gear.Souveran_C_Head, --9/20
+        body=gear.Souveran_C_Body, --20/0
+        hands=gear.Souveran_C_Hands, --9/0
         legs={ name="Founder's Hose", augments={'MND+8','Mag. Acc.+14','Attack+13','Breath dmg. taken -3%',}}, --0/30
-        feet=gear.Ody_CURE_feet, --0/20
+        feet=gear.Ody_CURE_Feet, --0/20
         neck="Moonlight Necklac", --15/15
         waist="Audumbla Sash", --0/10
         left_ear="Tuisto Earring",
         right_ear="Odnowa Earring +1",
         left_ring="Apeile Ring +1", --9/0
         right_ring="Gelatinous Ring +1",
-        back=gear.PLD_cape, --10/0
+        back=gear.PLD_Cape, --10/0
     } --115 sird
         
     
@@ -208,18 +208,18 @@ function init_gear_sets()
 
     sets.midcast['Enhancing Magic'] = {
         ammo="Staunch Tathlum +1",
-        head=gear.Souveran_C_head,
-        body=gear.Souveran_C_body,
-        hands=gear.Souveran_C_hands,
+        head=gear.Souveran_C_Head,
+        body=gear.Souveran_C_Body,
+        hands=gear.Souveran_C_Hands,
         legs={ name="Founder's Hose", augments={'MND+8','Mag. Acc.+14','Attack+13','Breath dmg. taken -3%',}},
-        feet=gear.Eschite_C_feet,
+        feet=gear.Eschite_C_Feet,
         neck="Unmoving Collar +1",
         waist="Audumbla Sash",
         left_ear="Tuisto Earring",
         right_ear="Knightly Earring",
         left_ring="Apeile Ring +1",
         right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-        back=gear.PLD_cape,
+        back=gear.PLD_Cape,
     }
     
     sets.midcast.Protect = {sub="Priwen"}
@@ -229,11 +229,11 @@ function init_gear_sets()
         main="Sakpata's Sword",
         sub={ name="Priwen", augments={'HP+50','Mag. Evasion+50','Damage Taken -3%',}},
         ammo="Staunch Tathlum +1",
-        head=gear.Yorium_PHLX_head,
-        body=gear.Yorium_PHLX_body,
-        hands=gear.Souveran_C_hands,
+        head=gear.Yorium_PHLX_Head,
+        body=gear.Yorium_PHLX_Body,
+        hands=gear.Souveran_C_Hands,
         legs="Sakpata's Cuisses",
-        feet=gear.Souveran_D_feet,
+        feet=gear.Souveran_D_Feet,
         neck="Incanter's Torque",
         waist="Olympus Sash",
         left_ear="Mimir Earring",
@@ -246,22 +246,22 @@ function init_gear_sets()
 	sets.precast.JA = {
         ammo="Sapience Orb",
         head="Loess Barbuta +1",
-        body=gear.Souveran_C_body,
-        hands=gear.Souveran_C_hands,
-        legs=gear.Souveran_C_legs,
-        feet=gear.Eschite_A_feet,
+        body=gear.Souveran_C_Body,
+        hands=gear.Souveran_C_Hands,
+        legs=gear.Souveran_C_Legs,
+        feet=gear.Eschite_A_Feet,
         neck="Unmoving Collar +1",
         waist="Creed Baudrier",
         left_ear="Tuisto Earring",
         -- right_ear="Cryptic Earring",
         left_ring="Apeile Ring +1",
         right_ring="Eihwaz Ring",
-        back=gear.PLD_cape,
+        back=gear.PLD_Cape,
     }
 
 	sets.midcast.Reprisal = {
         ammo="Staunch Tathlum +1",
-        head=gear.Souveran_C_head,
+        head=gear.Souveran_C_Head,
         -- body="Rev. Surcoat +3",
         hands="Leyline Gloves",
         legs={ name="Founder's Hose", augments={'MND+8','Mag. Acc.+14','Attack+13','Breath dmg. taken -3%',}},
@@ -299,7 +299,7 @@ function init_gear_sets()
         right_ear="Odnowa Earring +1",
         left_ring="Moonlight Ring",
         right_ring="Moonlight Ring",
-        back=gear.PLD_cape,
+        back=gear.PLD_Cape,
     }
 
     sets.idle.Town = {
@@ -315,7 +315,7 @@ function init_gear_sets()
         right_ear="Odnowa Earring +1",
         left_ring="Moonlight Ring",
         right_ring="Moonlight Ring",
-        back=gear.PLD_cape,
+        back=gear.PLD_Cape,
     }
     
     
@@ -354,7 +354,7 @@ function init_gear_sets()
  
     sets.defense.Charm = {
         neck="Unmoving Collar +1",
-        legs=gear.Souveran_C_legs,
+        legs=gear.Souveran_C_Legs,
         back="Solemnity Cape", -- Yes
     }
 
@@ -370,7 +370,7 @@ function init_gear_sets()
         ear2="Eabani Earring",      
         ring1="Defending Ring",
         ring2="Purity Ring",
-        back=gear.PLD_cape,
+        back=gear.PLD_Cape,
         waist="Asklepian Belt",
     }
 
@@ -393,7 +393,7 @@ function init_gear_sets()
         right_ear="Odnowa Earring +1",
         left_ring="Moonlight Ring", --5
         right_ring="Moonlight Ring",--5
-        back=gear.PLD_cape,
+        back=gear.PLD_Cape,
     } --53 + (5 cape)
 
 

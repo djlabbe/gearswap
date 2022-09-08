@@ -61,9 +61,9 @@ function init_gear_sets()
 
     sets.engaged = {
         ammo="Coiste Bodhar",
-        head=gear.Adhemar_B_head,
-        body=gear.Adhemar_A_body,
-        hands=gear.Adhemar_A_hands,
+        head=gear.Adhemar_B_Head,
+        body=gear.Adhemar_A_Body,
+        hands=gear.Adhemar_A_Hands,
         legs="Mpaca's Hose",
         feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
         neck="Anu Torque",
@@ -78,9 +78,9 @@ function init_gear_sets()
     sets.engaged.Hybrid = {
         ammo="Coiste Bodhar",
         head="Kendatsuba Jinpachi +1",
-        body=gear.Malignance_body,
-        hands=gear.Malignance_hands,
-        legs=gear.Malignance_legs,
+        body=gear.Malignance_Body,
+        hands=gear.Malignance_Hands,
+        legs=gear.Malignance_Legs,
         feet="Kendatsuba Sune-Ate +1",
         neck="Mnk. Nodowa +2",
         waist="Moonbow Belt +1",
@@ -112,9 +112,9 @@ function init_gear_sets()
         ammo="Knobkierre",
         head="Mpaca's Cap",
         body="Tatena. Harama. +1",
-        hands=gear.Adhemar_A_hands,
+        hands=gear.Adhemar_A_Hands,
         legs="Mpaca's Hose",
-        feet=gear.Herc_TA_feet,
+        feet=gear.Herc_TA_Feet,
         neck="Fotia Gorget",
         waist="Moonbow Belt +1",
         left_ear="Sherida Earring",
@@ -137,9 +137,9 @@ function init_gear_sets()
         ammo="Knobkierre",
         head="Mpaca's Cap",
         body="Tatena. Harama. +1",
-        hands=gear.Adhemar_A_hands,
+        hands=gear.Adhemar_A_Hands,
         legs="Mpaca's Hose",
-        feet=gear.Herc_TA_feet,
+        feet=gear.Herc_TA_Feet,
         neck="Fotia Gorget",
         waist="Moonbow Belt +1",
         left_ear="Sherida Earring",
@@ -158,11 +158,11 @@ function init_gear_sets()
 
     sets.idle = {
         ammo="Coiste Bodhar",
-        head=gear.Malignance_head, --6/6
-        legs=gear.Malignance_legs, --8/8
-        body=gear.Malignance_body, --9/9
-        hands=gear.Malignance_hands, --5/5
-        feet=gear.Malignance_feet, --4/4
+        head=gear.Malignance_Head, --6/6
+        legs=gear.Malignance_Legs, --8/8
+        body=gear.Malignance_Body, --9/9
+        hands=gear.Malignance_Hands, --5/5
+        feet=gear.Malignance_Feet, --4/4
         neck="Mnk. Nodowa +2",
         waist="Moonbow Belt +1",
         left_ear="Sherida Earring",

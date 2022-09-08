@@ -89,7 +89,7 @@ function job_setup()
               "Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring"}
     degrade_array = {
         ['Aspirs'] = {'Aspir','Aspir II'}
-        }
+    }
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -221,15 +221,15 @@ function init_gear_sets()
     ------------------------------------------------------------------------------------------------
 
     -- Precast sets to enhance JAs
-    sets.precast.JA['Tabula Rasa'] = {legs=gear.Relic.Legs}
-    sets.precast.JA['Enlightenment'] = {body=gear.Relic.Body}
+    sets.precast.JA['Tabula Rasa'] = {legs=gear.Relic_Legs}
+    sets.precast.JA['Enlightenment'] = {body=gear.Relic_Body}
     
     sets.precast.JA['Sublimation'] = {
         main="Musa",
         sub="Enki Strap",
         head=gear.Artifact_Head,
         body=gear.Artifact_Body,
-        hands=gear.Telchine_ENH_hands,
+        hands=gear.Telchine_ENH_Hands,
         legs=gear.Artifact_Legs,
         -- feet="Skaoi Boots",
         neck="Unmoving Collar +1",
@@ -245,14 +245,14 @@ function init_gear_sets()
     sets.precast.FC = {
     --    /RDM --15
         ammo="Sapience Orb", --2
-        head=gear.Amalric_A_head, --11
-        body=gear.Merl_FC_body, --13
+        head=gear.Amalric_A_Head, --11
+        body=gear.Merl_FC_Body, --13
         hands=gear.Artifact_Hands, --9
         -- legs="Volte Brais", --8
-        legs=gear.Kaykaus_A_legs, -- 7
+        legs=gear.Kaykaus_A_Legs, -- 7
         feet=gear.Relic_Feet, --8
         -- neck="Orunmila's Torque", --5
-        neck="Baetyl Pendant",
+        neck="Baetyl Pendant", --4
         ear1="Malignance Earring", --4
         ear2="Enchntr. Earring +1", --2
         ring1="Kishar Ring", --4
@@ -262,8 +262,8 @@ function init_gear_sets()
     }
 
      sets.precast.FC.Grimoire = {
-        head=gear.Relic.Head, 
-        feet=gear.Artifact.Feet
+        head=gear.Relic_Head, 
+        feet=gear.Artifact_Feet
     }
 
     sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {
@@ -273,7 +273,7 @@ function init_gear_sets()
     sets.precast.FC['Elemental Magic'] = set_combine(sets.precast.FC, {})
 
     sets.precast.FC.Cure = set_combine(sets.precast.FC, {
-        feet=gear.Kaykaus_B_feet, --7
+        feet=gear.Kaykaus_B_Feet, --7
         ear1="Mendi. Earring", --5
         ring1="Lebeche Ring", --(2)
     })
@@ -299,7 +299,7 @@ function init_gear_sets()
         head="Jhakri Coronal +2",
         body="Jhakri Robe +2",
         hands="Jhakri Cuffs +2",
-        legs=gear.Telchine_ENH_legs,
+        legs=gear.Telchine_ENH_Legs,
         feet="Jhakri Pigaches +2",
         neck="Fotia Gorget",
         ear1="Moonshade Earring",
@@ -327,10 +327,10 @@ function init_gear_sets()
     sets.precast.WS['Myrkr'] = {
         ammo="Ghastly Tathlum +1",
         head="Pixie Hairpin +1",
-        body=gear.Amalric_A_body,
-        hands=gear.Kaykaus_D_hands,
-        legs=gear.Amalric_A_legs,
-        feet=gear.Kaykaus_B_feet,
+        body=gear.Amalric_A_Body,
+        hands=gear.Kaykaus_D_Hands,
+        legs=gear.Amalric_A_Legs,
+        feet=gear.Kaykaus_B_Feet,
         -- neck="Orunmila's Torque",
         ear1="Loquacious Earring",
         ear2="Etiolation Earring",
@@ -351,11 +351,11 @@ function init_gear_sets()
         main="Daybreak", --30
         sub="Sors Shield", --3/(-5)
         ammo="Esper Stone +1", --0/(-5)
-        head=gear.Kaykaus_B_head, --11(+2)/(-6)
-        body=gear.Kaykaus_A_body, --(+4)/(-6)
+        head=gear.Kaykaus_B_Head, --11(+2)/(-6)
+        body=gear.Kaykaus_A_Body, --(+4)/(-6)
         hands=gear.Relic_Hands, --(+3)/(-7)
-        legs=gear.Kaykaus_A_legs, --11(+2)/(-6)
-        feet=gear.Kaykaus_B_feet, --11(+2)/(-12)
+        legs=gear.Kaykaus_A_Legs, --11(+2)/(-6)
+        feet=gear.Kaykaus_B_Feet, --11(+2)/(-12)
         neck="Incanter's Torque",
         ear1="Beatific Earring",
         ear2="Meili Earring",
@@ -398,7 +398,7 @@ function init_gear_sets()
     sets.midcast.Cursna = set_combine(sets.midcast.StatusRemoval, {
         main=gear.Gada_ENH,
         sub="Ammurapi Shield",
-        hands="Hieros Mittens",
+        -- hands="Hieros Mittens",
         feet="Vanya Clogs",
         --feet="Gende. Galosh. +1",
         neck="Debilis Medallion",
@@ -411,11 +411,11 @@ function init_gear_sets()
         main=gear.Gada_ENH,
         sub="Ammurapi Shield",
         ammo="Savant's Treatise",
-        head=gear.Telchine_ENH_head,
+        head=gear.Telchine_ENH_Head,
         body=gear.Relic_Body,
-        hands=gear.Telchine_ENH_hands,
-        legs=gear.Telchine_ENH_legs,
-        feet=gear.Telchine_ENH_feet,
+        hands=gear.Telchine_ENH_Hands,
+        legs=gear.Telchine_ENH_Legs,
+        feet=gear.Telchine_ENH_Feet,
         neck="Incanter's Torque",
         ear1="Mimir Earring",
         ear2="Andoaa Earring",
@@ -429,11 +429,11 @@ function init_gear_sets()
         main="Musa",
         -- sub="Khonsu", --0/(-5)
         sub="Enki Strap",
-        head=gear.Telchine_ENH_head,
+        head=gear.Telchine_ENH_Head,
         body=gear.Relic_Body,
-        hands=gear.Telchine_ENH_hands,
-        legs=gear.Telchine_ENH_legs,
-        feet=gear.Telchine_ENH_feet,
+        hands=gear.Telchine_ENH_Hands,
+        legs=gear.Telchine_ENH_Legs,
+        feet=gear.Telchine_ENH_Feet,
         waist="Embla Sash",
         }
 
@@ -442,22 +442,22 @@ function init_gear_sets()
         -- sub="Khonsu", --0/(-5)
         sub="Enki Strap",
         head=gear.Empyrean_Head,
-        body=gear.Telchine_ENH_body,
-        hands=gear.Telchine_ENH_hands,
-        legs=gear.Telchine_ENH_legs,
-        feet=gear.Telchine_ENH_feet,
+        body=gear.Telchine_ENH_Body,
+        hands=gear.Telchine_ENH_Hands,
+        legs=gear.Telchine_ENH_Legs,
+        feet=gear.Telchine_ENH_Feet,
         back="Bookworm's Cape",
     })
 
     sets.midcast.RegenDuration = set_combine(sets.midcast.EnhancingDuration, {
-        head=gear.Telchine_ENH_head,
+        head=gear.Telchine_ENH_Head,
         back=gear.SCH_FC_Cape,
     })
 
     sets.midcast.Haste = sets.midcast.EnhancingDuration
 
     sets.midcast.Refresh = set_combine(sets.midcast.EnhancingDuration, {
-        head=gear.Amalric_A_head,
+        head=gear.Amalric_A_Head,
         waist="Gishdubar Sash",
         back="Grapevine Cape",
     })
@@ -471,7 +471,7 @@ function init_gear_sets()
         main="Vadose Rod",
         sub="Ammurapi Shield",
         ammo="Staunch Tathlum +1",
-        head=gear.Amalric_A_head,
+        head=gear.Amalric_A_Head,
         hands="Regal Cuffs",
         ear1="Halasz Earring",
         ear2="Magnetic Earring",
@@ -546,8 +546,8 @@ function init_gear_sets()
         sub="Enki Strap",
         ammo="Ghastly Tathlum +1",
         head="Pixie Hairpin +1",
-        body=gear.Merl_MB_body, --10
-        hands=gear.Amalric_D_hands, --(5)
+        body=gear.Merl_MB_Body, --10
+        hands=gear.Amalric_D_Hands, --(5)
         legs="Mallquis Trews +2", --6
         feet="Merlinic Crackows", --11
         neck="Argute Stole +2", --10
@@ -579,10 +579,10 @@ function init_gear_sets()
         sub="Enki Strap",
         ammo="Ghastly Tathlum +1",
         head=gear.Relic_Head,
-        body=gear.Amalric_A_body,
-        hands=gear.Amalric_D_hands,
-        legs=gear.Amalric_A_legs,
-        feet=gear.Amalric_D_feet,
+        body=gear.Amalric_A_Body,
+        hands=gear.Amalric_D_Hands,
+        legs=gear.Amalric_A_Legs,
+        feet=gear.Amalric_D_Feet,
         neck="Baetyl Pendant",
         ear1="Malignance Earring",
         ear2="Regal Earring",
@@ -694,7 +694,7 @@ function init_gear_sets()
         sub="Enki Strap",
         ammo="Ghastly Tathlum +1",
         head=gear.Relic_Head,
-        body=gear.Amalric_A_body,
+        body=gear.Amalric_A_Body,
         hands="Regal Cuffs",
         legs=gear.Relic_Pants,
         feet=gear.Relic_Feet,
@@ -728,7 +728,7 @@ function init_gear_sets()
         body="Jhakri Robe +2",
         hands="Gazu Bracelet +1",
         legs=gear.Relic_Pants,
-        feet=gear.Telchine_STP_feet,
+        feet=gear.Telchine_STP_Feet,
         neck="Combatant's Torque",
         ear1="Cessance Earring",
         ear2="Telos Earring",
@@ -745,8 +745,8 @@ function init_gear_sets()
     sets.magic_burst = {
         -- Akademos 10
         head=gear.Relic_Head, --(4)
-        body=gear.Merl_MB_body, --10
-        hands=gear.Amalric_D_hands, --(6)
+        body=gear.Merl_MB_Body, --10
+        hands=gear.Amalric_D_Hands, --(6)
         feet="Merlinic Crackows", --11
         neck="Argute Stole +2", --10
         ring2="Mujin Band", --(5)
@@ -763,8 +763,8 @@ function init_gear_sets()
     sets.buff['Klimaform'] = {feet=gear.Empyrean_Feet}
 
     sets.buff.FullSublimation = {
-       -- main="Siriti", --1
-       sub="Genmei Shield", --10/0
+    --    main="Siriti", --1
+    --    sub="Genmei Shield", --10/0
        head=gear.Artifact_Head, --4
        body=gear.Relic_Body, --5
        ear1="Savant's Earring", --1
@@ -778,11 +778,18 @@ function init_gear_sets()
         waist="Gishdubar Sash", --10
     }
 
-    sets.LightArts = {legs=gear.Artifact_Legs, feet=gear.Artifact_Feet}
-    sets.DarkArts = {body=gear.Artifact_Body, feet=gear.Artifact_Feet}
+    sets.LightArts = { 
+        legs=gear.Artifact_Legs, 
+        feet=gear.Artifact_Feet 
+    }
 
-    sets.Obi = {waist="Hachirin-no-Obi"}
-    sets.Bookworm = {back="Bookworm's Cape"}
+    sets.DarkArts = { 
+        body=gear.Artifact_Body, 
+        feet=gear.Artifact_Feet 
+    }
+
+    sets.Obi = { waist="Hachirin-no-Obi" }
+    sets.Bookworm = { back="Bookworm's Cape" }
     -- sets.CP = {back="Mecisto. Mantle"}
 
 end

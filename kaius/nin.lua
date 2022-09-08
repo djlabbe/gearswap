@@ -190,11 +190,11 @@ function init_gear_sets()
 
     sets.precast.FC = {
         -- ammo="Sapience Orb", --2
-        -- head=gear.Herc_MAB_head, --7
-        body=gear.Taeon_FC_body, --9
+        -- head=gear.Herc_MAB_Head, --7
+        body=gear.Taeon_FC_Body, --9
         hands="Leyline Gloves", --8
         legs="Rawhide Trousers", --5
-        -- feet=gear.Herc_MAB_feet, --2
+        -- feet=gear.Herc_MAB_Feet, --2
         -- neck="Orunmila's Torque", --5
         neck="Baetyl Pendant", --4
         ear1="Loquacious Earring", --2
@@ -218,7 +218,7 @@ function init_gear_sets()
         ammo="Seeth. Bomblet +1",
         head=gear.Artifact_Head,
         body="Ken. Samue +1",
-        hands=gear.Adhemar_B_hands,
+        hands=gear.Adhemar_B_Hands,
         legs=gear.Relic_Legs,
         feet=gear.Relic_Feet,
         neck="Fotia Gorget",
@@ -232,8 +232,8 @@ function init_gear_sets()
 
     sets.precast.WS.Acc = set_combine(sets.precast.WS, {
         ammo="Voluspa Tathlum",
-        hands=gear.Adhemar_A_hands,
-        -- legs=gear.Herc_WSD_legs,
+        hands=gear.Adhemar_A_Hands,
+        -- legs=gear.Herc_WSD_Legs,
         ear2="Telos Earring",
     })
 
@@ -241,8 +241,8 @@ function init_gear_sets()
         ammo="Yetshila +1",
         head="Blistering Sallet +1",
         body="Ken. Samue +1",
-        hands=gear.Ryuo_A_hands,
-        feet=gear.Adhemar_D_feet,
+        hands=gear.Ryuo_A_Hands,
+        feet=gear.Adhemar_D_Feet,
         neck="Ninja Nodowa +2",
         waist="Sailfi Belt +1",
         ear1="Odr Earring",
@@ -297,8 +297,8 @@ function init_gear_sets()
     sets.precast.WS['Blade: Shun'] = set_combine(sets.precast.WS, {
         ammo="Crepuscular Pebble",
         head="Mpaca's Cap",
-        body=gear.Malignance_body,
-        hands=gear.Adhemar_B_hands,
+        body=gear.Malignance_Body,
+        hands=gear.Adhemar_B_Hands,
         legs=gear.Rao_B_pants,
         feet="Ken. Sune-Ate +1",
         neck="Ninja Nodowa +2",
@@ -317,7 +317,7 @@ function init_gear_sets()
 
   sets.precast.WS['Blade: Ku'] = {
         ammo="Seeth. Bomblet +1",
-        head=gear.Adhemar_B_head,
+        head=gear.Adhemar_B_Head,
         body="Agony Jerkin +1",
         hands=gear.Relic_Hands,
         legs="Tatena. Haidate +1",
@@ -355,10 +355,10 @@ function init_gear_sets()
         ammo="Seeth. Bomblet +1",
         head=gear.Relic_Head,
         neck="Fotia Gorget",
-        body=gear.Nyame_body,
-        hands=gear.Nyame_hands,
-        feet=gear.Nyame_feet,
-        legs=gear.Nyame_legs,        
+        body=gear.Nyame_Body,
+        hands=gear.Nyame_Hands,
+        feet=gear.Nyame_Feet,
+        legs=gear.Nyame_Legs,        
         left_ear="Moonshade Earring",
         right_ear="Lugra Earring +1",
         left_ring="Gere Ring",
@@ -376,8 +376,8 @@ function init_gear_sets()
         head="Hachiya Hatsu. +3",
         -- body="Samnuha Coat",
         hands="Leyline Gloves",
-        legs=gear.Herc_WSD_legs,
-        feet=gear.Herc_MAB_feet,
+        legs=gear.Herc_WSD_Legs,
+        feet=gear.Herc_MAB_Feet,
         neck="Baetyl Pendant",
         -- ear1="Crematio Earring",
         ear2="Friomisi Earring",
@@ -388,11 +388,11 @@ function init_gear_sets()
 
     sets.precast.WS['Savage Blade'] = {
         ammo="Seething Bomblet +1",
-        head=gear.Mpaca_head,
+        head=gear.Mpaca_Head,
         body="Agony Jerkin +1",
         hands=gear.Relic_Hands,
         legs=gear.Relic_Legs,
-        feet=gear.Herc_WSD_feet,
+        feet=gear.Herc_WSD_Feet,
         neck="Ninja Nodowa +2",
         waist="Sailfi Belt +1",
         left_ear="Moonshade Earring",
@@ -412,10 +412,10 @@ function init_gear_sets()
 
     sets.midcast.SpellInterrupt = {
         ammo="Staunch Tathlum +1", --11
-        body=gear.Taeon_Phalanx_body, --10
+        body=gear.Taeon_Phalanx_Body, --10
         -- hands="Rawhide Gloves", --15
-        legs=gear.Taeon_Phalanx_legs, --10
-        feet=gear.Taeon_Phalanx_feet, --10
+        legs=gear.Taeon_Phalanx_Legs, --10
+        feet=gear.Taeon_Phalanx_Feet, --10
         neck="Moonlight Necklace", --15
         -- ear1="Halasz Earring", --5
         -- ear2="Magnetic Earring", --8
@@ -436,8 +436,8 @@ function init_gear_sets()
     sets.midcast.ElementalNinjutsu = {
         ammo="Ghastly Tathlum +1",
         head=gear.Relic_Head,
-        body=gear.Nyame_body,
-        hands=gear.Nyame_hands,
+        body=gear.Nyame_Body,
+        hands=gear.Nyame_Hands,
         legs="Nyame Flanchard",
         feet=gear.Relic_Feet,
         neck="Sibyl Scarf",
@@ -460,9 +460,9 @@ function init_gear_sets()
     sets.midcast.EnfeeblingNinjutsu = {
         ammo="Yamarang",
         head=gear.Artifact_Head,
-        body=gear.Malignance_body,
-        hands=gear.Malignance_hands,
-        legs=gear.Malignance_legs,
+        body=gear.Malignance_Body,
+        hands=gear.Malignance_Hands,
+        legs=gear.Malignance_Legs,
         feet=gear.Artifact_Feet,
         neck="Sanctity Necklace",
         ear1="Enchntr. Earring +1",
@@ -487,11 +487,11 @@ function init_gear_sets()
     sets.midcast.Stun = sets.midcast.EnfeeblingNinjutsu
 
     sets.midcast.RA = {
-        head=gear.Malignance_head,
-        body=gear.Malignance_body,
-        hands=gear.Malignance_hands,
-        legs=gear.Malignance_legs,
-        feet=gear.Malignance_feet,
+        head=gear.Malignance_Head,
+        body=gear.Malignance_Body,
+        hands=gear.Malignance_Hands,
+        legs=gear.Malignance_Legs,
+        feet=gear.Malignance_Feet,
         neck="Iskur Gorget",
         ear1="Enervating Earring",
         ear2="Telos Earring",
@@ -511,11 +511,11 @@ function init_gear_sets()
     -- Idle sets
     sets.idle = {
         ammo="Date Shuriken",
-        head=gear.Malignance_head,
-        body=gear.Malignance_body,
-        hands=gear.Malignance_hands,
-        legs=gear.Malignance_legs,
-        feet=gear.Malignance_feet,
+        head=gear.Malignance_Head,
+        body=gear.Malignance_Body,
+        hands=gear.Malignance_Hands,
+        legs=gear.Malignance_Legs,
+        feet=gear.Malignance_Feet,
         neck="Bathy Choker +1",
         ear1="Eabani Earring",
         ear2="Cessance Earring",
@@ -526,11 +526,11 @@ function init_gear_sets()
     }
 
     sets.idle.DT = set_combine(sets.idle, {
-        head=gear.Malignance_head, --6/6
-        body=gear.Malignance_body, --9/9
-        hands=gear.Malignance_hands, --5/5
-        legs=gear.Malignance_legs, --7/7
-        feet=gear.Malignance_feet, --4/4
+        head=gear.Malignance_Head, --6/6
+        body=gear.Malignance_Body, --9/9
+        hands=gear.Malignance_Hands, --5/5
+        legs=gear.Malignance_Legs, --7/7
+        feet=gear.Malignance_Feet, --4/4
         neck="Warder's Charm +1",
         ear2="Infused Earring",
         ring1="Purity Ring", --0/4
@@ -580,22 +580,22 @@ function init_gear_sets()
     -- No Magic Haste (74% DW to cap)
     sets.engaged = {
         ammo="Date Shuriken",
-        head=gear.Ryuo_C_head, --9
+        head=gear.Ryuo_C_Head, --9
         neck="Ninja Nodowa +2",
         ear1="Telos Earring",
         ear2="Suppanomimi", --5
         body=gear.Relic_Body, --10
-        hands=gear.Malignance_hands,
+        hands=gear.Malignance_Hands,
         ring1="Gere Ring",
         ring2=gear.Chirich_2,
         back=gear.NIN_TP_Cape,
         waist="Reiki Yotai", --7
-        legs=gear.Malignance_legs,
+        legs=gear.Malignance_Legs,
         feet="Hiza. Sune-Ate +2", --8
       } -- 38%
 
     sets.engaged.LowAcc = set_combine(sets.engaged, {
-        hands=gear.Adhemar_A_hands,
+        hands=gear.Adhemar_A_Hands,
     })
 
     sets.engaged.MidAcc = set_combine(sets.engaged.LowAcc, {
@@ -617,11 +617,11 @@ function init_gear_sets()
     -- 15% Magic Haste (67% DW to cap)
     sets.engaged.LowHaste = {
         ammo="Date Shuriken",
-        head=gear.Ryuo_C_head, --9
+        head=gear.Ryuo_C_Head, --9
         body=gear.Relic_Body, --10
-        hands=gear.Adhemar_A_hands,
+        hands=gear.Adhemar_A_Hands,
         legs="Ken. Hakama +1",
-        feet=gear.Herc_TA_feet,
+        feet=gear.Herc_TA_Feet,
         neck="Ninja Nodowa +2",
         ear1="Cessance Earring",
         ear2="Suppanomimi", --5
@@ -632,7 +632,7 @@ function init_gear_sets()
     } -- 30%
 
     sets.engaged.LowAcc.LowHaste = set_combine(sets.engaged.LowHaste, {
-        hands=gear.Adhemar_A_hands,
+        hands=gear.Adhemar_A_Hands,
     })
 
     sets.engaged.MidAcc.LowHaste = set_combine(sets.engaged.LowAcc.LowHaste, {
@@ -655,22 +655,22 @@ function init_gear_sets()
     -- 30% Magic Haste (56% DW to cap)
     sets.engaged.MidHaste = {
         ammo="Date Shuriken",
-        head=gear.Ryuo_C_head, --9
+        head=gear.Ryuo_C_Head, --9
         neck="Ninja Nodowa +2",
         left_ear="Telos Earring",
         right_ear="Dedition Earring",
-        body=gear.Adhemar_A_body, --6
-        hands=gear.Adhemar_A_hands,
+        body=gear.Adhemar_A_Body, --6
+        hands=gear.Adhemar_A_Hands,
         left_ring="Gere Ring",
         right_ring="Epona's Ring",
         back=gear.NIN_TP_Cape,
         waist="Reiki Yotai", --7        
         legs="Ken. Hakama +1",
-        feet=gear.Malignance_feet,
+        feet=gear.Malignance_Feet,
     } -- 22%
 
     sets.engaged.LowAcc.MidHaste = set_combine(sets.engaged.MidHaste, {
-        hands=gear.Adhemar_A_hands,
+        hands=gear.Adhemar_A_Hands,
     })
 
     sets.engaged.MidAcc.MidHaste = set_combine(sets.engaged.LowAcc.MidHaste, {
@@ -693,22 +693,22 @@ function init_gear_sets()
     -- 35% Magic Haste (51% DW to cap)
     sets.engaged.HighHaste = {
         ammo="Date Shuriken",
-        head=gear.Ryuo_C_head, --9
+        head=gear.Ryuo_C_Head, --9
         neck="Ninja Nodowa +2",
         left_ear="Telos Earring",
         right_ear="Dedition Earring",
         body="Tatena. Harama. +1",
-        hands=gear.Adhemar_A_hands,
+        hands=gear.Adhemar_A_Hands,
         left_ring="Gere Ring",
         right_ring="Epona's Ring",
         back=gear.NIN_TP_Cape,
         waist="Reiki Yotai", --7        
         legs="Ken. Hakama +1",
-        feet=gear.Malignance_feet,
+        feet=gear.Malignance_Feet,
       } -- 16%
 
     sets.engaged.LowAcc.HighHaste = set_combine(sets.engaged.HighHaste, {
-        hands=gear.Adhemar_A_hands,
+        hands=gear.Adhemar_A_Hands,
     })
 
     sets.engaged.MidAcc.HighHaste = set_combine(sets.engaged.LowAcc.HighHaste, {
@@ -731,22 +731,22 @@ function init_gear_sets()
     -- 45% Magic Haste (36% DW to cap)
     sets.engaged.MaxHaste = {
         ammo="Date Shuriken",
-        head=gear.Malignance_head,
+        head=gear.Malignance_Head,
         neck="Ninja Nodowa +2",
         left_ear="Telos Earring",
         right_ear="Dedition Earring",
         body="Tatena. Harama. +1",
-        hands=gear.Adhemar_A_hands,
+        hands=gear.Adhemar_A_Hands,
         left_ring="Gere Ring",
         right_ring="Epona's Ring",
         back=gear.NIN_TP_Cape,
         waist="Sailfi Belt +1",        
         legs="Ken. Hakama +1",
-        feet=gear.Malignance_feet,
+        feet=gear.Malignance_Feet,
     } -- 0%
 
     sets.engaged.LowAcc.MaxHaste = set_combine(sets.engaged.MaxHaste, {
-        hands=gear.Adhemar_A_hands,
+        hands=gear.Adhemar_A_Hands,
         waist="Kentarch Belt +1",
     })
 
@@ -773,11 +773,11 @@ function init_gear_sets()
 
     sets.engaged.Kei = {
         ammo="Date Shuriken",
-        head=gear.Malignance_head, --6/6
-        legs=gear.Malignance_legs, --8/8
-        body=gear.Malignance_body, --9/9
-        hands=gear.Malignance_hands, --5/5
-        feet=gear.Malignance_feet, --4/4
+        head=gear.Malignance_Head, --6/6
+        legs=gear.Malignance_Legs, --8/8
+        body=gear.Malignance_Body, --9/9
+        hands=gear.Malignance_Hands, --5/5
+        feet=gear.Malignance_Feet, --4/4
         neck="Ninja Nodowa +2",
         ear1="Eabani Earring",
         ear2="Odnowa Earring +1",
@@ -788,11 +788,11 @@ function init_gear_sets()
     }
 
     sets.engaged.Hybrid = {
-        head=gear.Malignance_head, --6/6
-        legs=gear.Malignance_legs, --8/8
-        body=gear.Malignance_body, --9/9
-        hands=gear.Malignance_hands, --5/5
-        feet=gear.Malignance_feet, --4/4
+        head=gear.Malignance_Head, --6/6
+        legs=gear.Malignance_Legs, --8/8
+        body=gear.Malignance_Body, --9/9
+        hands=gear.Malignance_Hands, --5/5
+        feet=gear.Malignance_Feet, --4/4
         -- ring2="Defending Ring", --10/10
     }
 

@@ -264,7 +264,7 @@ function init_gear_sets()
         -- legs="Volte Brais", --8
         ear1="Malignance Earring", --4
         ear2="Enchanter's Earring +1", --2 
-        feet=gear.Carmine_B_feet, --8
+        feet=gear.Carmine_B_Feet, --8
         ring2="Weather. Ring", --4
     }
 
@@ -342,7 +342,7 @@ function init_gear_sets()
         ammo="Yetshila +1",
         head="Blistering Sallet +1",
         body="Ayanmo Corazza +2",
-        hands=gear.Malignance_hands,
+        hands=gear.Malignance_Hands,
         legs="Zoar Subligar +1",
         feet="Thereoid Greaves",
         ear1="Sherida Earring",
@@ -388,10 +388,10 @@ function init_gear_sets()
     sets.precast.WS['Sanguine Blade'] = {
         ammo="Ghastly Tathlum +1",
         head="Pixie Hairpin +1",
-        body=gear.Amalric_A_body,
+        body=gear.Amalric_A_Body,
         hands="Jhakri Cuffs +2",
-        legs=gear.Amalric_A_legs,
-        feet=gear.Amalric_D_feet,
+        legs=gear.Amalric_A_Legs,
+        feet=gear.Amalric_D_Feet,
         neck="Baetyl Pendant",
         ear1="Malignance Earring",
         ear2="Regal Earring",
@@ -439,7 +439,7 @@ function init_gear_sets()
     sets.midcast.SpellInterrupt = {
         ammo="Staunch Tathlum +1", --11
         --body="Ros. Jaseran +1", --25
-        -- hands=gear.Chironic_WSD_hands, --20
+        -- hands=gear.Chironic_WSD_Hands, --20
         legs="Carmine Cuisses +1", --20
         neck="Loricate Torque +1", --5
         -- ear1="Halasz Earring", --5
@@ -454,11 +454,11 @@ function init_gear_sets()
         main="Daybreak", --30
         sub="Sors Shield", --3/(-5)
         ammo="Esper Stone +1", --0/(-5)
-        head=gear.Kaykaus_B_head, --11(+2)/(-6)
-        body=gear.Kaykaus_A_body, --(+4)/(-6)
-        hands=gear.Kaykaus_D_hands, --11(+2)/(-6)
-        legs=gear.Kaykaus_A_legs, --11(+2)/(-6)
-        feet=gear.Kaykaus_B_feet, --11(+2)/(-12)
+        head=gear.Kaykaus_B_Head, --11(+2)/(-6)
+        body=gear.Kaykaus_A_Body, --(+4)/(-6)
+        hands=gear.Kaykaus_D_Hands, --11(+2)/(-6)
+        legs=gear.Kaykaus_A_Legs, --11(+2)/(-6)
+        feet=gear.Kaykaus_B_Feet, --11(+2)/(-12)
         neck="Incanter's Torque",
         ear1="Beatific Earring",
         ear2="Meili Earring",
@@ -515,7 +515,7 @@ function init_gear_sets()
         sub="Ammurapi Shield",
         ammo="Regal Gem",
         -- head="Befouled Crown",
-        head=gear.Telchine_ENH_head,
+        head=gear.Telchine_ENH_Head,
         body=gear.Relic_Body,
         hands=gear.Artifact_Hands,
         legs=gear.Artifact_Legs,
@@ -532,10 +532,10 @@ function init_gear_sets()
     sets.midcast.EnhancingDuration = {
         main=gear.Colada_ENH,
         sub="Ammurapi Shield",
-        head=gear.Telchine_ENH_head,
+        head=gear.Telchine_ENH_Head,
         body=gear.Relic_Body,
         hands=gear.Artifact_Hands,
-        legs=gear.Telchine_ENH_legs,
+        legs=gear.Telchine_ENH_Legs,
         feet=gear.Empyrean_Feet,
         neck="Dls. Torque +2",
         back="Ghostfyre Cape",
@@ -546,7 +546,7 @@ function init_gear_sets()
         main="Pukulatmuj +1",
         sub="Pukulatmuj",
           -- head="Befouled Crown",
-        head=gear.Carmine_D_head,
+        head=gear.Carmine_D_Head,
         neck="Incanter's Torque",
         ear1="Mimir Earring",
         ear2="Andoaa Earring",
@@ -562,15 +562,15 @@ function init_gear_sets()
     sets.midcast.Regen = set_combine(sets.midcast.EnhancingDuration, {
         main="Bolelabunga",
         sub="Ammurapi Shield",
-        head=gear.Telchine_ENH_head,
-        body=gear.Telchine_ENH_body,
-        hands=gear.Telchine_ENH_hands,
-        legs=gear.Telchine_ENH_legs,
-        feet=gear.Telchine_ENH_feet,
+        head=gear.Telchine_ENH_Head,
+        body=gear.Telchine_ENH_Body,
+        hands=gear.Telchine_ENH_Hands,
+        legs=gear.Telchine_ENH_Legs,
+        feet=gear.Telchine_ENH_Feet,
     })
 
     sets.midcast.Refresh = set_combine(sets.midcast.EnhancingDuration, {
-        head=gear.Amalric_A_head, -- +1
+        head=gear.Amalric_A_Head, -- +1
         body=gear.Artifact_Body, -- +3
         legs=gear.Empyrean_Legs, -- +2
     })
@@ -587,15 +587,15 @@ function init_gear_sets()
 
     sets.midcast['Phalanx II'] = set_combine(sets.midcast.EnhancingDuration, {
         main="Sakpata's Sword",
-        body=gear.Taeon_Phalanx_body, --3(10)
-        hands=gear.Taeon_Phalanx_hands, --3(10)
-        legs=gear.Taeon_Phalanx_legs, --3(10)
-        feet=gear.Taeon_Phalanx_feet, --3(10)
+        body=gear.Taeon_Phalanx_Body, --3(10)
+        hands=gear.Taeon_Phalanx_Hands, --3(10)
+        legs=gear.Taeon_Phalanx_Legs, --3(10)
+        feet=gear.Taeon_Phalanx_Feet, --3(10)
     })
 
     sets.midcast.Aquaveil = set_combine(sets.midcast.EnhancingDuration, {
         ammo="Staunch Tathlum +1",
-        head=gear.Amalric_A_head,
+        head=gear.Amalric_A_Head,
         hands="Regal Cuffs",
         -- ear1="Halasz Earring",
         ring1="Freke Ring",
@@ -625,7 +625,7 @@ function init_gear_sets()
         head=gear.Relic_Head,
         body=gear.Empyrean_Body,
         hands="Regal Cuffs",
-        legs=gear.Chironic_ENF_legs,
+        legs=gear.Chironic_ENF_Legs,
         feet=gear.Relic_Feet,
         neck="Dls. Torque +2",
         ear1="Malignance Earring",
@@ -643,7 +643,7 @@ function init_gear_sets()
         ammo=empty,
         head=gear.Artifact_Head,
         body=gear.Artifact_Body,
-        hands=gear.Kaykaus_D_hands,
+        hands=gear.Kaykaus_D_Hands,
         ring1=gear.Stikini_1,
         waist="Acuity Belt +1",
     })
@@ -667,7 +667,7 @@ function init_gear_sets()
         range="Ullr",
         ammo=empty,
         body=gear.Artifact_Body,
-        hands=gear.Kaykaus_D_hands,
+        hands=gear.Kaykaus_D_Hands,
         ring1=gear.Stikini_1,
         waist="Acuity Belt +1",
     })
@@ -717,8 +717,8 @@ function init_gear_sets()
         sub="Ammurapi Shield",
         ammo="Pemphredo Tathlum",
          head=gear.Artifact_Head,
-        body=gear.Carmine_B_body,
-        hands=gear.Kaykaus_D_hands,
+        body=gear.Carmine_B_Body,
+        hands=gear.Kaykaus_D_Hands,
         legs="Ea Slops +1",
         -- feet="Merlinic Crackows",
         neck="Erra Pendant",
@@ -750,9 +750,9 @@ function init_gear_sets()
         ammo="Ghastly Tathlum +1",
         head=empty,
         body="Cohort Cloak +1",
-        hands=gear.Amalric_D_hands,
-        legs=gear.Amalric_A_legs,
-        feet=gear.Amalric_D_feet,
+        hands=gear.Amalric_D_Hands,
+        legs=gear.Amalric_A_Legs,
+        feet=gear.Amalric_D_Feet,
         neck="Baetyl Pendant",
         ear1="Malignance Earring",
         ear2="Regal Earring",
@@ -810,9 +810,9 @@ function init_gear_sets()
         ammo="Homiliary",
         head=gear.Relic_Head,
         body=gear.Artifact_Body,
-        hands=gear.Malignance_hands,
-        legs=gear.Malignance_legs,
-        feet=gear.Malignance_feet,
+        hands=gear.Malignance_Hands,
+        legs=gear.Malignance_Legs,
+        feet=gear.Malignance_Feet,
         neck="Bathy Choker +1",
         ear1="Eabani Earring",
         ear2="Infused Earring",
@@ -823,11 +823,11 @@ function init_gear_sets()
     }
 
     sets.idle.DT = set_combine(sets.idle, {
-        head=gear.Malignance_head, --6/6
-        body=gear.Malignance_body, --9/9
-        hands=gear.Malignance_hands, --5/5
-        legs=gear.Malignance_legs, --7/7
-        feet=gear.Malignance_feet, --4/4
+        head=gear.Malignance_Head, --6/6
+        body=gear.Malignance_Body, --9/9
+        hands=gear.Malignance_Hands, --5/5
+        legs=gear.Malignance_Legs, --7/7
+        feet=gear.Malignance_Feet, --4/4
         neck="Warder's Charm +1",
         ear1="Eabani Earring",
         ear2="Infused Earring",
@@ -866,14 +866,14 @@ function init_gear_sets()
     sets.magic_burst = {
         head="Ea Hat +1", --7/(7)
         body="Ea Houppe. +1", --9/(9)
-        hands=gear.Amalric_D_hands, --(6)
+        hands=gear.Amalric_D_Hands, --(6)
         legs="Ea Slops +1", --8/(8)
         -- feet="Ea Pigaches +1", --5/(5)
         -- neck="Mizu. Kubikazari", --10
         ring2="Mujin Band", --(5)
     }
 
-    sets.Kiting = {legs=gear.Carmine_D_legs}
+    sets.Kiting = {legs=gear.Carmine_D_Legs}
     sets.latent_refresh = {waist="Fucho-no-obi"}
 
 
@@ -888,11 +888,11 @@ function init_gear_sets()
 
     sets.engaged = {
         ammo="Aurgelmir Orb +1",
-        head=gear.Malignance_head, --6
-        body=gear.Malignance_body, --9
-        hands=gear.Malignance_hands, --5
-        legs=gear.Malignance_legs, --7
-        feet=gear.Malignance_feet, --4
+        head=gear.Malignance_Head, --6
+        body=gear.Malignance_Body, --9
+        hands=gear.Malignance_Hands, --5
+        legs=gear.Malignance_Legs, --7
+        feet=gear.Malignance_Feet, --4
         neck="Anu Torque",
         ear1="Sherida Earring",
         ear2="Telos Earring",
@@ -903,9 +903,9 @@ function init_gear_sets()
     }
     sets.engaged.Acc = set_combine(sets.engaged, {
         ammo="Voluspa Tathlum",
-        head=gear.Carmine_D_head,
+        head=gear.Carmine_D_Head,
         -- neck="Combatant's Torque",
-        body=gear.Carmine_B_body,
+        body=gear.Carmine_B_Body,
         hands="Gazu Bracelet +1",
         legs="Carmine Cuisses +1",
         ear1="Cessance Earring",
@@ -917,11 +917,11 @@ function init_gear_sets()
     -- No Magic Haste (74% DW to cap)
     sets.engaged.DW = {
         ammo="Aurgelmir Orb +1",
-        head=gear.Malignance_head,
-        body=gear.Malignance_body,
-        hands=gear.Malignance_hands,
-        legs=gear.Carmine_D_legs, --6
-        feet=gear.Taeon_DW_feet, --9
+        head=gear.Malignance_Head,
+        body=gear.Malignance_Body,
+        hands=gear.Malignance_Hands,
+        legs=gear.Carmine_D_Legs, --6
+        feet=gear.Taeon_DW_Feet, --9
         neck="Anu Torque",
         ear1="Eabani Earring", --4
         ear2="Suppanomimi", --5
@@ -933,10 +933,10 @@ function init_gear_sets()
 
     sets.engaged.DW.Acc = set_combine(sets.engaged.DW, {
         ammo="Voluspa Tathlum",
-        head=gear.Carmine_D_head,
+        head=gear.Carmine_D_Head,
         -- neck="Combatant's Torque",
         ring1=gear.Chirich_1,
-        body=gear.Carmine_B_body,
+        body=gear.Carmine_B_Body,
         hands="Gazu Bracelet +1",
         ear1="Cessance Earring",
         ear2="Mache Earring +1",
@@ -945,11 +945,11 @@ function init_gear_sets()
     -- 15% Magic Haste (67% DW to cap)
     sets.engaged.DW.LowHaste = set_combine(sets.engaged.DW, {
         ammo="Aurgelmir Orb +1",
-        head=gear.Malignance_head,
-        body=gear.Malignance_body,
-        hands=gear.Malignance_hands,
-        legs=gear.Carmine_D_legs, --6
-        feet=gear.Taeon_DW_feet, --9
+        head=gear.Malignance_Head,
+        body=gear.Malignance_Body,
+        hands=gear.Malignance_Hands,
+        legs=gear.Carmine_D_Legs, --6
+        feet=gear.Taeon_DW_Feet, --9
         neck="Anu Torque",
         ear1="Eabani Earring", --4
         ear2="Suppanomimi", --5
@@ -961,10 +961,10 @@ function init_gear_sets()
 
     sets.engaged.DW.Acc.LowHaste = set_combine(sets.engaged.DW.LowHaste, {
         ammo="Voluspa Tathlum",
-        head=gear.Carmine_D_head,
+        head=gear.Carmine_D_Head,
         neck="Combatant's Torque",
         ring1=gear.Chirich_1,
-        body=gear.Carmine_B_body,
+        body=gear.Carmine_B_Body,
         hands="Gazu Bracelet +1",
         ear1="Cessance Earring",
         ear2="Mache Earring +1",
@@ -973,11 +973,11 @@ function init_gear_sets()
     -- 30% Magic Haste (56% DW to cap)
     sets.engaged.DW.MidHaste = set_combine(sets.engaged.DW, {
         ammo="Aurgelmir Orb +1",
-        head=gear.Malignance_head,
-        body=gear.Malignance_body,
-        hands=gear.Malignance_hands,
-        legs=gear.Malignance_legs, 
-        feet=gear.Taeon_DW_feet, --9
+        head=gear.Malignance_Head,
+        body=gear.Malignance_Body,
+        hands=gear.Malignance_Hands,
+        legs=gear.Malignance_Legs, 
+        feet=gear.Taeon_DW_Feet, --9
         neck="Anu Torque",
         ear1="Sherida Earring",
         ear2="Suppanomimi", --5
@@ -989,10 +989,10 @@ function init_gear_sets()
 
     sets.engaged.DW.Acc.MidHaste = set_combine(sets.engaged.DW.MidHaste, {
         ammo="Voluspa Tathlum",
-        head=gear.Carmine_D_head,
+        head=gear.Carmine_D_Head,
         neck="Combatant's Torque",
-        body=gear.Carmine_B_body,
-        legs=gear.Carmine_D_legs, --6
+        body=gear.Carmine_B_Body,
+        legs=gear.Carmine_D_Legs, --6
         hands="Gazu Bracelet +1",
         ear1="Cessance Earring",
         ear2="Telos Earring",
@@ -1002,11 +1002,11 @@ function init_gear_sets()
     -- 35% Magic Haste (51% DW to cap)
     sets.engaged.DW.HighHaste = set_combine(sets.engaged.DW, {
         ammo="Aurgelmir Orb +1",
-        head=gear.Malignance_head,
-        body=gear.Malignance_body,
-        hands=gear.Malignance_hands,
-        legs=gear.Malignance_legs,
-        feet=gear.Taeon_DW_feet, --9
+        head=gear.Malignance_Head,
+        body=gear.Malignance_Body,
+        hands=gear.Malignance_Hands,
+        legs=gear.Malignance_Legs,
+        feet=gear.Taeon_DW_Feet, --9
         neck="Anu Torque",
         ear1="Sherida Earring",
         ear2="Telos Earring",
@@ -1018,12 +1018,12 @@ function init_gear_sets()
 
     sets.engaged.DW.Acc.HighHaste = set_combine(sets.engaged.DW.HighHaste, {
         ammo="Voluspa Tathlum",
-        head=gear.Carmine_D_head,
-        body=gear.Carmine_B_body,
+        head=gear.Carmine_D_Head,
+        body=gear.Carmine_B_Body,
         hands="Gazu Bracelet +1",
         ear1="Cessance Earring",
         ear2="Mache Earring +1",
-        legs=gear.Carmine_D_legs, --6
+        legs=gear.Carmine_D_Legs, --6
         neck="Combatant's Torque",
         ring1=gear.Chirich_1,
     })
@@ -1031,11 +1031,11 @@ function init_gear_sets()
     -- 45% Magic Haste (36% DW to cap)
     sets.engaged.DW.MaxHaste = set_combine(sets.engaged.DW, {
         ammo="Aurgelmir Orb +1",
-        head=gear.Malignance_head,
-        body=gear.Malignance_body,
-        hands=gear.Malignance_hands,
-        legs=gear.Malignance_legs,
-        feet=gear.Malignance_feet,
+        head=gear.Malignance_Head,
+        body=gear.Malignance_Body,
+        hands=gear.Malignance_Hands,
+        legs=gear.Malignance_Legs,
+        feet=gear.Malignance_Feet,
         neck="Anu Torque",
         ear1="Sherida Earring",
         ear2="Telos Earring",
@@ -1047,10 +1047,10 @@ function init_gear_sets()
 
     sets.engaged.DW.Acc.MaxHaste = set_combine(sets.engaged.DW.MaxHaste, {
         ammo="Voluspa Tathlum",
-        head=gear.Carmine_D_head,
-        body=gear.Carmine_B_body,
+        head=gear.Carmine_D_Head,
+        body=gear.Carmine_B_Body,
         hands="Gazu Bracelet +1",
-        legs=gear.Carmine_D_legs,
+        legs=gear.Carmine_D_Legs,
         ear1="Cessance Earring",
         ear2="Mache Earring +1",
         -- neck="Combatant's Torque",
@@ -1111,7 +1111,7 @@ function init_gear_sets()
 
     sets.TreasureHunter = {
         head="Volte Cap", --1
-        feet=gear.Merl_TH_feet, --2
+        feet=gear.Merl_TH_Feet, --2
         waist="Chaac Belt" --1
     }
 

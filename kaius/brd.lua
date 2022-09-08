@@ -230,7 +230,7 @@ function init_gear_sets()
     sets.precast.FC.BardSong = set_combine(sets.precast.FC, {
         head=gear.Empyrean_Head, --14
         body=gear.Artifact_Body, --15
-        feet=gear.Telchine_SONG_feet, --6
+        feet=gear.Telchine_SONG_Feet, --6
         neck="Loricate Torque +1",
         ear1="Odnowa Earring +1",
         ring2="Defending Ring",
@@ -261,10 +261,10 @@ function init_gear_sets()
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
         range=gear.Linos_WS,
-        -- head=gear.Chironic_WSD_head,
+        -- head=gear.Chironic_WSD_Head,
         head="Blistering Sallet +1",
         body=gear.Relic_Head,
-        -- hands=gear.Chironic_WSD_hands,
+        -- hands=gear.Chironic_WSD_Hands,
         hands="Gazu Bracelet +1",
         legs=gear.Relic_Legs,
         feet=gear.Relic_Feet,
@@ -284,7 +284,7 @@ function init_gear_sets()
         body="Ayanmo Corazza +2",
         hands=gear.Relic_Hands,
         legs="Zoar Subligar +1",
-        feet=gear.Lustratio_D_feet,
+        feet=gear.Lustratio_D_Feet,
         ear1="Brutal Earring",
         ring1="Begrudging Ring",
         back=gear.BRD_WS2_Cape,
@@ -308,7 +308,7 @@ function init_gear_sets()
 
     sets.precast.WS['Rudra\'s Storm'] = set_combine(sets.precast.WS, {
         legs="Lustr. Subligar +1",
-        feet=gear.Lustratio_D_feet,
+        feet=gear.Lustratio_D_Feet,
         neck="Bard's Charm +2",
         waist="Grunfeld Rope",
         back=gear.BRD_WS2_Cape,
@@ -317,7 +317,7 @@ function init_gear_sets()
     sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS, {
         head=empty;
         body="Cohort Cloak +1",
-        legs=gear.Kaykaus_A_legs,
+        legs=gear.Kaykaus_A_Legs,
         -- feet="Volte Gaiters",
         neck="Baetyl Pendant",
         ring2="Shiva Ring +1",
@@ -327,7 +327,7 @@ function init_gear_sets()
     })
 
     sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
-        feet=gear.Lustratio_D_feet,
+        feet=gear.Lustratio_D_Feet,
         body="Agony Jerkin +1",
         neck="Bard's Charm +2",
         ring1="Epaminondas's Ring",
@@ -346,7 +346,7 @@ function init_gear_sets()
 
     sets.midcast.SpellInterrupt = {
         ammo="Staunch Tathlum +1", --11
-        hands=gear.Chironic_WSD_hands, --20
+        hands=gear.Chironic_WSD_Hands, --20
         neck="Loricate Torque +1", --5
         ear1="Halasz Earring", --5
         ear2="Magnetic Earring", --8
@@ -457,11 +457,11 @@ function init_gear_sets()
     sets.midcast.Cure = {
         main="Daybreak", --30
         sub="Ammurapi Shield",
-        head=gear.Kaykaus_B_head, --11
-        body=gear.Kaykaus_A_body, --(+4)/(-6)
-        hands=gear.Kaykaus_D_hands, --11(+2)/(-6)
-        legs=gear.Kaykaus_A_legs, --11/(+2)/(-6)
-        feet=gear.Kaykaus_B_feet, --11(+2)/(-12)
+        head=gear.Kaykaus_B_Head, --11
+        body=gear.Kaykaus_A_Body, --(+4)/(-6)
+        hands=gear.Kaykaus_D_Hands, --11(+2)/(-6)
+        legs=gear.Kaykaus_A_Legs, --11/(+2)/(-6)
+        feet=gear.Kaykaus_B_Feet, --11(+2)/(-12)
         neck="Incanter's Torque",
         ear1="Beatific Earring",
         ear2="Meili Earring",
@@ -501,11 +501,11 @@ function init_gear_sets()
     sets.midcast['Enhancing Magic'] = {
         main="Carnwenhan",
         sub="Ammurapi Shield",
-        head=gear.Telchine_ENH_head,
-        body=gear.Telchine_ENH_body,
-        hands=gear.Telchine_ENH_hands,
-        legs=gear.Telchine_ENH_legs,
-        feet=gear.Telchine_ENH_feet,
+        head=gear.Telchine_ENH_Head,
+        body=gear.Telchine_ENH_Body,
+        hands=gear.Telchine_ENH_Hands,
+        legs=gear.Telchine_ENH_Legs,
+        feet=gear.Telchine_ENH_Feet,
         neck="Incanter's Torque",
         ear1="Mimir Earring",
         ear2="Andoaa Earring",
@@ -577,11 +577,11 @@ function init_gear_sets()
         -- body="Mou. Manteel +1",
         -- hands="Raetic Bangles +1",
         -- legs="Volte Brais",
-        head=gear.Nyame_head,
-        body=gear.Nyame_body,
-        hands=gear.Nyame_hands,
-        legs=gear.Nyame_legs,
-        feet=gear.Nyame_feet,
+        head=gear.Nyame_Head,
+        body=gear.Nyame_Body,
+        hands=gear.Nyame_Hands,
+        legs=gear.Nyame_Legs,
+        feet=gear.Nyame_Feet,
         -- feet="Volte Gaiters",
         neck="Bathy Choker +1",
         ear1="Eabani Earring",
@@ -596,7 +596,7 @@ function init_gear_sets()
         head=gear.Artifact_Head, --6/0
         body=gear.Artifact_Body, --7/0
         -- hands="Raetic Bangles +1",
-        hands=gear.Nyame_hands,
+        hands=gear.Nyame_Hands,
         legs=gear.Artifact_Legs, --8/8
         feet="Inyan. Crackows +2", --0/3
         neck="Loricate Torque +1", --6/6
@@ -747,7 +747,7 @@ function init_gear_sets()
     sets.engaged.Aftermath = {
         -- head="Volte Tiara",
         -- body="Ashera Harness",
-        -- hands=gear.Telchine_STP_hands,
+        -- hands=gear.Telchine_STP_Hands,
         legs="Aya. Cosciales +2",
         -- feet="Volte Spats",
         neck="Bard's Charm +2",

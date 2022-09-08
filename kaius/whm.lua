@@ -187,7 +187,7 @@ function init_gear_sets()
         right_ring="Kishar Ring", --2
         back="Fi Follet Cape +1", --10
         waist="Shinjutsu-no-Obi +1", --5
-        legs=gear.Kaykaus_A_legs, -- 7
+        legs=gear.Kaykaus_A_Legs, -- 7
         feet="Regal Pumps +1", --4
     }
 
@@ -198,7 +198,7 @@ function init_gear_sets()
     sets.precast.FC.Cure = set_combine(sets.precast.FC, {
         ammo="Impatiens", --(2)
         head="Piety Cap +3", --15
-        feet=gear.Kaykaus_B_feet, --7
+        feet=gear.Kaykaus_B_Feet, --7
         ring1="Lebeche Ring", --(2)
         ring2="Weather. Ring", --6(4)
         -- back="Perimede Cape", --(4)
@@ -253,7 +253,7 @@ function init_gear_sets()
         ammo="Ghastly Tathlum +1",
         head=empty;
         body="Cohort Cloak +1",
-        legs=gear.Kaykaus_A_legs,
+        legs=gear.Kaykaus_A_Legs,
     })
 
     -- Midcast Sets
@@ -267,7 +267,7 @@ function init_gear_sets()
         --body="Vedic Coat",
         --hands="Shrieker's Cuffs",
         --legs="Vanya Slops",
-        feet=gear.Kaykaus_B_feet,
+        feet=gear.Kaykaus_B_Feet,
         ear2="Mendi. Earring",
         back="Solemnity Cape",
         waist="Shinjutsu-no-Obi +1",
@@ -279,14 +279,14 @@ function init_gear_sets()
         main="Daybreak",
         sub="Sors Shield",
         ammo="Pemphredo Tathlum",
-        head=gear.Kaykaus_B_head, --11(+2)/(-6)
+        head=gear.Kaykaus_B_Head, --11(+2)/(-6)
         neck="Clr. Torque +2", --10/(-25)
         ear1="Glorious Earring", -- (+2)/(-5)
         ear2="Nourishing earring +1",
         body="Ebers Bliaut +1",
-        hands=gear.Kaykaus_D_hands,
+        hands=gear.Kaykaus_D_Hands,
         legs="Ebers Pant. +1",
-        feet=gear.Kaykaus_B_feet, --11(+2)/(-12)    
+        feet=gear.Kaykaus_B_Feet, --11(+2)/(-12)    
         -- ring1="Lebeche Ring", --3/(-5)
         -- ring2="Mephitas's Ring +1",
         ring1="Gelatinous Ring +1",
@@ -370,10 +370,10 @@ function init_gear_sets()
     sets.midcast['Enhancing Magic'] = {
         main=gear.Gada_ENH,
         sub="Ammurapi Shield",
-        head=gear.Telchine_ENH_head,
-        body=gear.Telchine_ENH_body,
+        head=gear.Telchine_ENH_Head,
+        body=gear.Telchine_ENH_Body,
         hands="Dynasty Mitts",
-        legs=gear.Telchine_ENH_legs,
+        legs=gear.Telchine_ENH_Legs,
         feet="Theo. Duckbills +3",
         neck="Incanter's Torque",
         ear1="Mimir Earring",
@@ -387,10 +387,10 @@ function init_gear_sets()
     sets.midcast.EnhancingDuration = {
        main=gear.Gada_ENH,
         sub="Ammurapi Shield",
-        head=gear.Telchine_ENH_head,
-        body=gear.Telchine_ENH_body,
-        hands=gear.Telchine_ENH_hands,
-        legs=gear.Telchine_ENH_legs,
+        head=gear.Telchine_ENH_Head,
+        body=gear.Telchine_ENH_Body,
+        hands=gear.Telchine_ENH_Hands,
+        legs=gear.Telchine_ENH_Legs,
         feet="Theo. Duckbills +3",
         waist="Embla Sash",
     }
@@ -400,13 +400,13 @@ function init_gear_sets()
         sub="Ammurapi Shield",
         head="Inyanga Tiara +2",
         body="Piety Briault +3",
-        hands=gear.Telchine_ENH_hands,
-        legs=gear.Telchine_ENH_legs,
-        feet=gear.Telchine_ENH_feet,
+        hands=gear.Telchine_ENH_Hands,
+        legs=gear.Telchine_ENH_Legs,
+        feet=gear.Telchine_ENH_Feet,
     })
 
     sets.midcast.RegenDuration = set_combine(sets.midcast.EnhancingDuration, {
-        body=gear.Telchine_ENH_body,
+        body=gear.Telchine_ENH_Body,
         hands="Ebers Mitts +1",
         legs="Th. Pant. +3",
         feet="Theo. Duckbills +3",
@@ -597,11 +597,11 @@ function init_gear_sets()
         main="Daybreak",
         sub="Genmei Shield",
         ammo="Staunch Tathlum +1",
-        head=gear.Nyame_head,
-        body=gear.Nyame_body,
+        head=gear.Nyame_Head,
+        body=gear.Nyame_Body,
         --hands="Raetic Bangles +1",
-        legs=gear.Nyame_legs,
-        feet=gear.Nyame_feet,
+        legs=gear.Nyame_Legs,
+        feet=gear.Nyame_Feet,
         neck="Warder's Charm +1",
         ear1="Eabani Earring",
         ear2="Infused Earring",
@@ -650,9 +650,9 @@ function init_gear_sets()
         sub="Ammurapi Shield",
         head="Blistering Sallet +1",
         body="Ayanmo Corazza +2",
-        hands=gear.Telchine_STP_hands,
+        hands=gear.Telchine_STP_Hands,
         legs="Aya. Cosciales +2",
-        feet=gear.Chironic_QA_feet,
+        feet=gear.Chironic_QA_Feet,
         neck="Combatant's Torque",
         ear1="Cessance Earring",
         ear2="Telos Earring",
@@ -673,9 +673,9 @@ function init_gear_sets()
         sub="C. Palug Hammer",
         head="Blistering Sallet +1",
         body="Ayanmo Corazza +2",
-        hands=gear.Telchine_STP_hands,
+        hands=gear.Telchine_STP_Hands,
         legs="Aya. Cosciales +2",
-        feet=gear.Chironic_QA_feet,
+        feet=gear.Chironic_QA_Feet,
         neck="Combatant's Torque",
         ear1="Cessance Earring",
         ear2="Suppanomimi", --5
@@ -693,9 +693,9 @@ function init_gear_sets()
 
     sets.engaged.Aftermath = {
         head="Aya. Zucchetto +2",
-        hands=gear.Telchine_STP_hands,
+        hands=gear.Telchine_STP_Hands,
         legs="Aya. Cosciales +2",
-        feet=gear.Telchine_STP_feet,
+        feet=gear.Telchine_STP_Feet,
         ring1=gear.Chirich_1,
         ring2=gear.Chirich_2,
         back=gear.WHM_STP_Cape,

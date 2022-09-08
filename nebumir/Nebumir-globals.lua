@@ -11,18 +11,18 @@ function define_global_sets()
     gear.Stikini_1 = {name="Stikini Ring +1", bag="wardrobe3"}
     gear.Stikini_2 = {name="Stikini Ring +1", bag="wardrobe4"}
 
-    gear.Telchine_ENH_head = { name="Telchine Cap", augments={'Enh. Mag. eff. dur. +10',}}
-    -- gear.Telchine_ENH_body = { name="Telchine Chas.", augments={'Mag. Evasion+20','"Conserve MP"+5','Enh. Mag. eff. dur. +10',}}
-    gear.Telchine_ENH_hands = { name="Telchine Gloves", augments={'Enh. Mag. eff. dur. +8',}}
-    gear.Telchine_ENH_legs = { name="Telchine Braconi", augments={'Enh. Mag. eff. dur. +9',}}
-    gear.Telchine_ENH_feet = { name="Telchine Pigaches", augments={'Enh. Mag. eff. dur. +10',}}
+    gear.Telchine_ENH_Head = { name="Telchine Cap", augments={'Enh. Mag. eff. dur. +10',}}
+    -- gear.Telchine_ENH_Body = { name="Telchine Chas.", augments={'Mag. Evasion+20','"Conserve MP"+5','Enh. Mag. eff. dur. +10',}}
+    gear.Telchine_ENH_Hands = { name="Telchine Gloves", augments={'Enh. Mag. eff. dur. +8',}}
+    gear.Telchine_ENH_Legs = { name="Telchine Braconi", augments={'Enh. Mag. eff. dur. +9',}}
+    gear.Telchine_ENH_Feet = { name="Telchine Pigaches", augments={'Enh. Mag. eff. dur. +10',}}
 
     -- -- Kaykaus
-    gear.Kaykaus_B_head = { name="Kaykaus Mitra +1", augments={'MP+80','"Cure" spellcasting time -7%','Enmity-6',}}
-    gear.Kaykaus_A_body = { name="Kaykaus Bliaut +1", augments={'MP+80','MND+12','Mag. Acc.+20',}}
-    gear.Kaykaus_D_hands = { name="Kaykaus Cuffs +1", augments={'MP+80','"Conserve MP"+7','"Fast Cast"+4',}}
-    gear.Kaykaus_A_legs = { name="Kaykaus Tights +1", augments={'MP+80','MND+12','Mag. Acc.+20',}}
-    gear.Kaykaus_B_feet = { name="Kaykaus Boots +1", augments={'MP+80','"Cure" spellcasting time -7%','Enmity-6',}}
+    gear.Kaykaus_B_Head = { name="Kaykaus Mitra +1", augments={'MP+80','"Cure" spellcasting time -7%','Enmity-6',}}
+    gear.Kaykaus_A_Body = { name="Kaykaus Bliaut +1", augments={'MP+80','MND+12','Mag. Acc.+20',}}
+    gear.Kaykaus_D_Hands = { name="Kaykaus Cuffs +1", augments={'MP+80','"Conserve MP"+7','"Fast Cast"+4',}}
+    gear.Kaykaus_A_Legs = { name="Kaykaus Tights +1", augments={'MP+80','MND+12','Mag. Acc.+20',}}
+    gear.Kaykaus_B_Feet = { name="Kaykaus Boots +1", augments={'MP+80','"Cure" spellcasting time -7%','Enmity-6',}}
 
 
     -- -- Ambuscade Capes
