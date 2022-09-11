@@ -79,12 +79,28 @@ function user_setup()
     state.WeaponskillMode:options('Normal', 'Acc', 'LowBuff')
     state.IdleMode:options('Normal', 'DT', 'Refresh')
 
+    state.WeaponSet = M{['description']='Weapon Set', 'Tauret', 'Gandring'}
+    state.WeaponLock = M(false, 'Weapon Lock')
+
     -- Additional local binds
     include('Global-Binds.lua') -- OK to remove this line
 
     send_command('bind !` input /ja "Flee" <me>')
     send_command('bind ^= gs c cycle treasuremode')
+    send_command('bind @w gs c toggle WeaponLock')
+    send_command('bind @e gs c cycle WeaponSet')
 
+    send_command('bind !numpad7 input /equip Main "Ceremonial Dagger"; input /equip Sub "Ceremonial Dagger"; input /ws "Cyclone" <t>;gs c set WeaponLock true;')
+    send_command('bind !numpad8 input /equip Main "Ceremonial Dagger"; input /equip Sub "Ceremonial Dagger"; input /ws "Energy Drain" <t>;gs c set WeaponLock true;')
+    send_command('bind !numpad9 input /equip Main "Wax Sword"; input /equip Sub "Ceremonial Dagger"; input /ws "Red Lotus Blade" <t>;gs c set WeaponLock true;')
+    send_command('bind !numpad4 input /equip Main "Wax Sword"; input /equip Sub "Ceremonial Dagger"; input /ws "Seraph Blade" <t>;gs c set WeaponLock true;')
+    send_command('bind !numpad5 input /equip Main "Ash Club"; input /equip Sub "Ceremonial Dagger"; input /ws "Seraph Strike" <t>;gs c set WeaponLock true;')
+    send_command('bind !numpad6 input /equip Main "Iapetus"; input /ws "Raiden Thrust" <t>;gs c set WeaponLock true;')
+    send_command('bind !numpad1 input /equip Main "Lament";input /ws "Freezebite" <t>;gs c set WeaponLock true;')
+    send_command('bind !numpad2 input /equip Main "Profane Staff"; input /ws "Earth Crusher" <t>;gs c set WeaponLock true;')
+    send_command('bind !numpad3 input /equip Main "Profane Staff"; input /ws "Sunburst" <t>;gs c set WeaponLock true;')
+    send_command('bind !numpad0 input /equip Main "Ark Scythe"; input /ws "Shadow of Death" <t>;gs c set WeaponLock true;')
+    
     if player.sub_job == 'WAR' then
         send_command('bind !t input /ja "Provoke" <t>')
     end
@@ -273,13 +289,13 @@ function init_gear_sets()
 
     sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS, {
         ammo="Ghastly Tathlum +1",
-        head=gear.Herc_MAB_Head,
-        body=gear.Herc_MAB_Body,
-        hands="Leyline Gloves",
-        legs=gear.Herc_WSD_Legs,
-        feet=gear.Herc_WSD_Feet,
+        head=gear.Nyame_Head,
+        body=gear.Nyame_Body,
+        hands=gear.Nyame_Hands,
+        legs=gear.Nyame_Legs,
+        feet=gear.Nyame_Legs,
         neck="Baetyl Pendant",
-        -- ear1="Crematio Earring",
+        ear1="Moonshade Earring",
         ear2="Friomisi Earring",
         ring1="Metamor. Ring +1",
         ring2="Epaminondas's Ring",
@@ -746,6 +762,9 @@ function init_gear_sets()
         waist="Gishdubar Sash", --10
     }
 
+    sets.Tauret = {main="Tauret", sub="Gleti's Knife"}
+    sets.Gandring = {main="Gandring", sub="Gleti's Knife"}
+
 end
 
 
@@ -793,6 +812,9 @@ function job_aftercast(spell, action, spellMap, eventArgs)
         state.Buff['Trick Attack'] = false
         state.Buff['Feint'] = false
     end
+    if player.status ~= 'Engaged' and state.WeaponLock.value == false then
+        check_weaponset()
+    end
 end
 
 -- Called after the default aftercast handling is complete.
@@ -825,6 +847,18 @@ function job_buff_change(buff,gain)
         handle_equipping_gear(player.status)
     end
 end
+
+-- Handle notifications of general user state change.
+function job_state_change(stateField, newValue, oldValue)
+    if state.WeaponLock.value == true then
+        disable('main','sub')
+    else
+        enable('main','sub')
+    end
+
+    check_weaponset()
+end
+
 
 
 -------------------------------------------------------------------------------------------------------------------
@@ -881,6 +915,8 @@ function customize_melee_set(meleeSet)
     if state.TreasureMode.value == 'Fulltime' then
         meleeSet = set_combine(meleeSet, sets.TreasureHunter)
     end
+
+    check_weaponset()
 
     return meleeSet
 end
@@ -1042,6 +1078,10 @@ function check_gear()
     else
         enable("ring2")
     end
+end
+
+function check_weaponset()
+    equip(sets[state.WeaponSet.current])
 end
 
 windower.register_event('zone change',

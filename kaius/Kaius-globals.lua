@@ -208,6 +208,7 @@ function define_global_sets()
     -- gear.Merl_MB_Body = {name="Merlinic Jubbah", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','Magic burst dmg.+10%','VIT+5','"Mag.Atk.Bns."+12',}}
     gear.Merl_TH_Feet = { name="Merlinic Crackows", augments={'Weapon skill damage +2%','"Waltz" potency +3%','"Treasure Hunter"+2','Mag. Acc.+16 "Mag.Atk.Bns."+16',}}
     gear.Merl_TH_Hands = { name="Merlinic Dastanas", augments={'MND+10','"Treasure Hunter"+1',}}
+    gear.Merl_MB_Feet = { name="Merlinic Crackows", augments={'Mag. Acc.+22','Magic burst dmg.+11%','INT+3','"Mag.Atk.Bns."+10',}}
   
 
     -- -- Ambuscade Capes
