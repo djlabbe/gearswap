@@ -554,19 +554,26 @@ function init_gear_sets()
     sets.latent_dt = { ear2="Sorcerer's Earring" }
 
     sets.magic_burst = {
+        main="Marin Staff +1",
+        sub="Alber Strap",
         head="Ea Hat +1", --7/(7)
+        neck="Sorcerer's Stole +2",
+        ear1="Malignance Earring",
+        ear2="Regal Earring",
         body="Ea Houppe. +1", --9/(9)
         hands=gear.Amalric_D_Hands, --(6)
-        legs="Ea Slops +1", --8/(8)
-        -- feet="Ea Pigaches +1", --5/(5)
-        neck="Mizu. Kubikazari", --10
+        ring1="Freke Ring",
         ring2="Mujin Band", --(5)
         back=gear.BLM_MAB_Cape, --5
+        waist="Acuity Belt +1",
+        legs="Ea Slops +1", --8/(8)
+        -- feet="Ea Pigaches +1", --5/(5)
+        feet=gear.Merl_MB_Feet,
     }
 
     sets.magic_burst.Resistant = {
-        feet="Merlinic Crackows", --11
-        neck="Sanctity Necklace",
+        ring1="Metamorph Ring +1",
+        feet=gear.Relic_Feet, --11
     }
 
     -- Death Sets
@@ -598,7 +605,8 @@ function init_gear_sets()
         -- hands="Agwu's Gages", --6
         -- legs="Volte Brais", --8
         feet=gear.Amalric_D_Feet, --6
-        neck="Orunmila's Torque", --5
+        -- neck="Orunmila's Torque", --5
+        neck="Baetyl Pendant",
         ear1="Etiolation Earring", --1
         ear2="Loquacious Earring", --2
         ring1="Mephitas's Ring +1",
