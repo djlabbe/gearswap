@@ -144,8 +144,7 @@ function user_setup()
     send_command('bind !b input /ma "Bind" <t>')
 
     send_command('bind !` input /ja Immanence <me>')
-    send_command('bind ^` gs c toggle MagicBurst')
-
+    
     send_command('bind !- gs c scholar light')
     send_command('bind != gs c scholar dark')
 
@@ -158,6 +157,7 @@ function user_setup()
     send_command('bind ^; gs c scholar speed')   
     send_command('bind !; gs c scholar cost')
 
+    send_command('bind @q gs c toggle MagicBurst')
     send_command('bind @h gs c cycle HelixMode')
     send_command('bind @r gs c cycle RegenMode')
     send_command('bind @s gs c toggle StormSurge')
@@ -205,6 +205,7 @@ function user_unload()
     send_command('unbind ^;') -- speed
     send_command('unbind !;') -- cost
 
+    send_command('unbind @q') -- MB mode
     send_command('unbind @h') -- helix mode
     send_command('unbind @r') -- regen mode
     send_command('unbind @s') -- stormsurge mode

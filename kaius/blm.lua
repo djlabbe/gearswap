@@ -71,7 +71,7 @@ function user_setup()
     gear.Relic_Legs = { name="Archmage's Tonban +3" }
     gear.Relic_Feet = { name="Archmage's Sabots +3" }
 
-    send_command('bind ^` gs c toggle MagicBurst')
+    send_command('bind @q gs c toggle MagicBurst')
     send_command('bind @d gs c toggle DeathMode')
     send_command('bind @w gs c toggle WeaponLock')
 
@@ -91,7 +91,7 @@ end
 -- Called when this job file is unloaded (eg: job change)
 function user_unload()
     send_command('unbind !t')
-    send_command('unbind ^`')
+    send_command('unbind @q')
     send_command('unbind @d')
     send_command('unbind @w')
     send_command('unbind !g')
@@ -161,8 +161,6 @@ function init_gear_sets()
     sets.precast.Storm = set_combine(sets.precast.FC, {
         ring2=gear.Stikini_2,
     })
-
-    
 
     -- sets.precast.FC.Impact.DeathMode = set_combine(sets.precast.FC.DeathMode, {
     --     head=empty, 
@@ -256,7 +254,7 @@ function init_gear_sets()
         sub="Genmei Shield",
         head="Vanya Hood",
         body="Vanya Robe",
-        hands="Hieros Mittens",
+        -- hands="Hieros Mittens",
         feet="Vanya Clogs",
         neck="Debilis Medallion",
         ear1="Beatific Earring",
@@ -316,7 +314,7 @@ function init_gear_sets()
     })
 
     sets.midcast.Aquaveil = set_combine(sets.midcast.EnhancingDuration, {
-        main="Vadose Rod",
+        -- main="Vadose Rod",
         sub="Ammurapi Shield",
         ammo="Staunch Tathlum +1",
         head=gear.Amalric_A_Head,
@@ -327,7 +325,10 @@ function init_gear_sets()
         waist="Emphatikos Rope",
     })
 
-    sets.midcast.Protect = set_combine(sets.midcast.EnhancingDuration, {ring1="Sheltered Ring"})
+    sets.midcast.Protect = set_combine(sets.midcast.EnhancingDuration, {
+        ring1="Sheltered Ring"
+    })
+
     sets.midcast.Protectra = sets.midcast.Protect
     sets.midcast.Shell = sets.midcast.Protect
     sets.midcast.Shellra = sets.midcast.Protect
@@ -340,14 +341,15 @@ function init_gear_sets()
         body="Cohort Cloak +1",
         hands="Regal Cuffs",
         legs="Ea Slops +1",
-        feet="Skaoi Boots",
+        -- feet="Skaoi Boots",
         neck="Erra Pendant",
         ear1="Malignance Earring",
         ear2="Vor Earring",
         ring1=gear.Stikini_1,
         ring2=gear.Stikini_2,
         back="Aurist's Cape +1",
-        waist="Luminary Sash",
+        -- waist="Luminary Sash",
+        waist="Acuity Belt +1",
     } -- MND/Magic accuracy
 
     sets.midcast.IntEnfeebles = set_combine(sets.midcast.MndEnfeebles, {
@@ -652,8 +654,8 @@ function init_gear_sets()
         waist="Gishdubar Sash", --10
     }
 
-    sets.DarkAffinity = {head="Pixie Hairpin +1",ring2="Archon Ring"}
-    sets.Obi = {waist="Hachirin-no-Obi"}
+    sets.DarkAffinity = { head="Pixie Hairpin +1",ring2="Archon Ring" }
+    sets.Obi = { waist="Hachirin-no-Obi" }
 
 end
 

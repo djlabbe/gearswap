@@ -76,6 +76,7 @@ function user_setup()
     send_command('bind @w gs c toggle WeaponLock')
     send_command('bind @a gs c toggle Critical')
     send_command('bind @e gs c cycle WeaponSet')
+    send_command('bind @q gs c toggle MagicBurst')
 
     set_macro_page(1, 8)
     send_command('wait 2; input /lockstyleset 8')
@@ -98,7 +99,7 @@ function user_unload()
     send_command('unbind ^c')
     send_command('unbind @a')
     send_command('unbind @e')
-    send_command('unbind @r')
+    send_command('unbind @q')
 end
 
 
