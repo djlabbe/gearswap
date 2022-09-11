@@ -136,7 +136,7 @@ function user_setup()
 
     send_command('bind !` input /ja "Composure" <me>')
     send_command('bind ^= gs c cycle treasuremode')
-    send_command('bind ^` gs c toggle MagicBurst')
+    send_command('bind @q gs c toggle MagicBurst')
 
     if player.sub_job == 'SCH' then
         send_command('bind !- gs c scholar light')
@@ -167,17 +167,22 @@ function user_setup()
 
     send_command('bind !insert gs c cycleback EnSpell')
     send_command('bind !delete gs c cycle EnSpell')
-    send_command('bind ^insert gs c cycleback GainSpell')
-    send_command('bind ^delete gs c cycle GainSpell')
-    send_command('bind ^home gs c cycleback BarElement')
-    send_command('bind ^end gs c cycle BarElement')
-    send_command('bind ^pageup gs c cycleback BarStatus')
-    send_command('bind ^pagedown gs c cycle BarStatus')
 
-    send_command('bind @s gs c cycle SleepMode')
-    send_command('bind @r gs c cycle EnspellMode')
+    send_command('bind ^home gs c cycleback GainSpell')
+    send_command('bind ^end gs c cycle GainSpell')
+    
+    send_command('bind ^pageup gs c cycleback BarElement')
+    send_command('bind ^pagedown gs c cycle BarElement')
+
+    -- send_command('bind ^pageup gs c cycleback BarStatus')
+    -- send_command('bind ^pagedown gs c cycle BarStatus')
+
+    
+   
     send_command('bind @w gs c toggle WeaponLock')
-    send_command('bind @e gs c cycleback WeaponSet')
+    send_command('bind @e gs c cycle WeaponSet')
+    send_command('bind @r gs c cycle EnspellMode')
+    send_command('bind @s gs c cycle SleepMode')
 
     if player.sub_job == 'NIN' then
         set_macro_page(1, 5)
@@ -238,6 +243,7 @@ function user_unload()
     send_command('unbind !pageup')
     send_command('unbind !pagedown')
 
+    send_command('unbind @q')
     send_command('unbind @s')
     send_command('unbind @e')
     send_command('unbind @w')
