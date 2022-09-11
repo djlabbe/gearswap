@@ -65,6 +65,12 @@ function user_setup()
     -- Additional local binds
     include('Global-Binds.lua') -- OK to remove this line
 
+    gear.Relic_Head = { name="Archmage's Petasos +3" }
+    gear.Relic_Body = { name="Archmage's Coat +3" }
+    gear.Relic_Hands = { name="Archmage's Gloves +3" }
+    gear.Relic_Legs = { name="Archmage's Tonban +3" }
+    gear.Relic_Feet = { name="Archmage's Sabots +3" }
+
     send_command('bind ^` gs c toggle MagicBurst')
     send_command('bind @d gs c toggle DeathMode')
     send_command('bind @w gs c toggle WeaponLock')
@@ -116,14 +122,16 @@ function init_gear_sets()
         head=gear.Amalric_A_Head, --11
         body=gear.Merl_FC_Body, --13
         hands="Merlinic Dastanas", --6
-        legs="Volte Brais", --8
-        feet="Volte Gaiters", --6
-        neck="Orunmila's Torque", --5
+        -- legs="Volte Brais", --8
+        -- feet="Volte Gaiters", --6
+        feet="Regal Pumps +1", --6
+        -- neck="Orunmila's Torque", --5
+        neck="Baetyl Pendant",
         ear1="Malignance Earring", --4
         ear2="Enchntr. Earring +1", --2
         ring1="Kishar Ring", --4
         ring2="Weather. Ring +1", --5
-        back=gear.BLM_FC_Cape, --10
+        back="Fi Follet Cape +1", --10
         waist="Embla Sash",
     }
 
@@ -286,7 +294,7 @@ function init_gear_sets()
         ring2=gear.Stikini_2,
         back="Fi Follet Cape +1",
         waist="Olympus Sash",
-        }
+    }
 
     sets.midcast.EnhancingDuration = {
         main=gear.Gada_ENH,
@@ -297,7 +305,7 @@ function init_gear_sets()
         legs=gear.Telchine_ENH_Legs,
         feet=gear.Telchine_ENH_Feet,
         waist="Embla Sash",
-        }
+    }
 
     sets.midcast.Regen = set_combine(sets.midcast.EnhancingDuration, {
         main="Bolelabunga",
@@ -307,19 +315,19 @@ function init_gear_sets()
         hands=gear.Telchine_ENH_Hands,
         legs=gear.Telchine_ENH_Legs,
         feet=gear.Telchine_ENH_Feet,
-        })
+    })
 
     sets.midcast.Refresh = set_combine(sets.midcast.EnhancingDuration, {
         head=gear.Amalric_A_Head,
         --feet="Inspirited Boots",
         waist="Gishdubar Sash",
         back="Grapevine Cape",
-        })
+    })
 
     sets.midcast.Stoneskin = set_combine(sets.midcast.EnhancingDuration, {
         neck="Nodens Gorget",
         waist="Siegel Sash",
-        })
+    })
 
     sets.midcast.Aquaveil = set_combine(sets.midcast.EnhancingDuration, {
         main="Vadose Rod",
@@ -354,13 +362,13 @@ function init_gear_sets()
         ring2=gear.Stikini_2,
         back="Aurist's Cape +1",
         waist="Luminary Sash",
-        } -- MND/Magic accuracy
+    } -- MND/Magic accuracy
 
     sets.midcast.IntEnfeebles = set_combine(sets.midcast.MndEnfeebles, {
         main="Maxentius",
         sub="Ammurapi Shield",
         waist="Acuity Belt +1",
-        }) -- INT/Magic accuracy
+    }) -- INT/Magic accuracy
 
     sets.midcast.ElementalEnfeeble = sets.midcast.IntEnfeebles
     sets.midcast.Dispelga = set_combine(sets.midcast.IntEnfeebles, {main="Daybreak", sub="Ammurapi Shield", waist="Shinjutsu-no-Obi +1"})
@@ -370,7 +378,7 @@ function init_gear_sets()
         sub="Ammurapi Shield",
         ammo="Pemphredo Tathlum",
         head="Ea Hat +1",
-        body="Ea. Houppe +1",
+        body="Ea Houppe. +1",
         hands="Raetic Bangles +1",
         legs="Ea Slops +1",
         feet="Merlinic Crackows",
@@ -381,7 +389,7 @@ function init_gear_sets()
         ring2=gear.Stikini_2,
         back=gear.BLM_MAB_Cape,
         waist="Acuity Belt +1",
-        }
+    }
 
     sets.midcast.Drain = set_combine(sets.midcast['Dark Magic'], {
         head="Pixie Hairpin +1",
@@ -395,7 +403,7 @@ function init_gear_sets()
     sets.midcast.Aspir = sets.midcast.Drain
 
     sets.midcast.Stun = set_combine(sets.midcast['Dark Magic'], {
-        feet="Volte Gaiters",
+        -- feet="Volte Gaiters",
     })
 
     sets.midcast.Death = {
@@ -429,11 +437,11 @@ function init_gear_sets()
         main=gear.Lathi_MAB,
         sub="Enki Strap",
         ammo="Ghastly Tathlum +1",
-        head="Merlinic Hood",
-        body=gear.Amalric_A_Body,
-        hands=gear.Amalric_D_Hands,
-        legs=gear.Amalric_A_Legs,
-        feet=gear.Amalric_D_Feet,
+        head=gear.Relic_Head
+        body=gear.Relic_Body,
+        hands=gear.Relic_Hands,
+        legs=gear.Relic_Legs,
+        feet=gear.Relic_Hands,
         neck="Baetyl Pendant",
         ear1="Malignance Earring",
         ear2="Regal Earring",
@@ -487,7 +495,7 @@ function init_gear_sets()
     sets.resting = {
         main="Chatoyant Staff",
         waist="Shinjutsu-no-Obi +1",
-        }
+    }
 
     -- Idle sets
 
@@ -537,7 +545,7 @@ function init_gear_sets()
         ammo="Ghastly Tathlum +1",
         head="Pixie Hairpin +1",
         body=gear.Amalric_A_Body,
-        hands="Amalric Gages",
+        hands=gear.Amalric_D_Hands,
         legs=gear.Amalric_A_Legs,
         feet="Merlinic Crackows",
         neck="Sanctity Necklace",
@@ -550,20 +558,24 @@ function init_gear_sets()
         }
 
     sets.idle.Town = set_combine(sets.idle, {
-        main=gear.Grioavolr_MB,
-        sub="Khonsu",
+        -- main=gear.Grioavolr_MB,
+        -- sub="Khonsu",
+        main="Marin Staff +1",
+        sub="Enki Strap",
         head="Ea Hat +1",
         body="Ea Houppe. +1",
+        hands="Regal Cuffs",
         legs="Ea Slops +1",
-        feet="Volte Gaiters",
-        neck="Incanter's Torque",
+        -- feet="Volte Gaiters",
+        feet=gear.Merl_MB_Feet,
+        neck="Sibyl Scarf",
         ear1="Malignance Earring",
         ear2="Regal Earring",
         ring1="Freke Ring",
         ring2="Metamor. Ring +1",
         back=gear.BLM_MAB_Cape,
         waist="Acuity Belt +1",
-        })
+    })
 
     -- Defense sets
 
@@ -579,16 +591,16 @@ function init_gear_sets()
         body="Ea Houppe. +1", --9/(9)
         hands=gear.Amalric_D_Hands, --(6)
         legs="Ea Slops +1", --8/(8)
-        feet="Ea Pigaches +1", --5/(5)
+        -- feet="Ea Pigaches +1", --5/(5)
         neck="Mizu. Kubikazari", --10
         ring2="Mujin Band", --(5)
         back=gear.BLM_MAB_Cape, --5
-        }
+    }
 
     sets.magic_burst.Resistant = {
         feet="Merlinic Crackows", --11
         neck="Sanctity Necklace",
-        }
+    }
 
     -- Engaged sets
 
@@ -611,9 +623,9 @@ function init_gear_sets()
         ear1="Cessance Earring",
         ear2="Telos Earring",
         ring1="Hetairoi Ring",
-        ring2={name="Chirich Ring +1", bag="wardrobe4"},
+        ring2=gear.Chirich_2,
         back="Relucent Cape",
-        }
+    }
 
     sets.buff.Doom = {
         neck="Nicander's Necklace", --20

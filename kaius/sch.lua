@@ -44,7 +44,7 @@
 --              the current Arts.
 --                                          Light Arts                    Dark Arts
 --                                          ----------                  ---------
---                gs c scholar light          Light Arts/Addendum
+--              gs c scholar light          Light Arts/Addendum
 --              gs c scholar dark                                       Dark Arts/Addendum
 --              gs c scholar cost           Penury                      Parsimony
 --              gs c scholar speed          Celerity                    Alacrity
@@ -1023,6 +1023,9 @@ function job_self_command(cmdParams, eventArgs)
     gearinfo(cmdParams, eventArgs)
     if cmdParams[1]:lower() == 'scholar' then
         handle_strategems(cmdParams)
+        eventArgs.handled = true
+    if cmdParams[1]:lower() == 'skillchain' then
+        sch_skillchain(cmdParams)
         eventArgs.handled = true
     elseif cmdParams[1]:lower() == 'nuke' then
         handle_nuking(cmdParams)
