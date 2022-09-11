@@ -113,7 +113,7 @@ function init_gear_sets()
         back=gear.BLM_Death_Cape,
     }
 
-    sets.precast.JA.Manafont = {body="Arch. Coat +1"}
+    sets.precast.JA.Manafont = { body="Arch. Coat +1" }
 
     -- Fast cast sets for spells
     sets.precast.FC = {
@@ -162,21 +162,7 @@ function init_gear_sets()
         ring2=gear.Stikini_2,
     })
 
-    sets.precast.FC.DeathMode = {
-        ammo="Ghastly Tathlum +1",
-        head=gear.Amalric_A_Head, --11
-        body=gear.Amalric_A_Body,
-        hands="Merlinic Dastanas", --6
-        legs="Volte Brais", --8
-        feet="Volte Gaiters", --6
-        neck="Orunmila's Torque", --5
-        ear1="Etiolation Earring", --1
-        ear2="Loquacious Earring", --2
-        ring1="Mephitas's Ring +1",
-        ring2="Weather. Ring +1", --5
-        back="Bane Cape", --4
-        waist="Embla Sash",
-    }
+    
 
     -- sets.precast.FC.Impact.DeathMode = set_combine(sets.precast.FC.DeathMode, {
     --     head=empty, 
@@ -339,7 +325,7 @@ function init_gear_sets()
         ring1="Freke Ring",
         ring2="Evanescence Ring",
         waist="Emphatikos Rope",
-        })
+    })
 
     sets.midcast.Protect = set_combine(sets.midcast.EnhancingDuration, {ring1="Sheltered Ring"})
     sets.midcast.Protectra = sets.midcast.Protect
@@ -442,7 +428,7 @@ function init_gear_sets()
         hands=gear.Relic_Hands,
         legs=gear.Relic_Legs,
         feet=gear.Relic_Hands,
-        neck="Baetyl Pendant",
+        neck="Saevus Pendant +1",
         ear1="Malignance Earring",
         ear2="Regal Earring",
         ring1="Freke Ring",
@@ -451,14 +437,7 @@ function init_gear_sets()
         waist="Refoccilation Stone",
     }
 
-    sets.midcast['Elemental Magic'].DeathMode = set_combine(sets.midcast['Elemental Magic'], {
-        main=gear.Grioavolr_MB,
-        sub="Enki Strap",
-        ammo="Ghastly Tathlum +1",
-        legs=gear.Amalric_A_Legs,
-        feet="Merlinic Crackows",
-        back=gear.BLM_Death_Cape,
-    })
+  
 
     sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'], {
         sub="Khonsu",
@@ -503,11 +482,13 @@ function init_gear_sets()
         main="Daybreak",
         sub="Genmei Shield",
         ammo="Ghastly Tathlum +1",
-        head="Volte Beret",
+        -- head="Volte Beret",
         body="Jhakri Robe +2",
-        hands="Raetic Bangles +1",
-        legs="Volte Brais",
-        feet="Volte Gaiters",
+        -- hands="Raetic Bangles +1",
+        hands="Volte Gloves",
+        -- legs="Volte Brais",
+        legs="Assid. Pants +1"
+        -- feet="Volte Gaiters",
         neck="Bathy Choker +1",
         ear1="Infused Earring",
         ear2="Lugalbanda Earring",
@@ -537,25 +518,9 @@ function init_gear_sets()
     sets.idle.ManaWall = {
         feet="Wicce Sabots +1",
         back=gear.BLM_Death_Cape,
-        }
+    }
 
-    sets.idle.DeathMode = {
-        main=gear.Lathi_MAB,
-        sub="Khonsu",
-        ammo="Ghastly Tathlum +1",
-        head="Pixie Hairpin +1",
-        body=gear.Amalric_A_Body,
-        hands=gear.Amalric_D_Hands,
-        legs=gear.Amalric_A_Legs,
-        feet="Merlinic Crackows",
-        neck="Sanctity Necklace",
-        ear1="Malignance Earring",
-        ear2="Regal Earring",
-        ring1="Mephitas's Ring +1",
-        ring2="Mephitas's Ring",
-        back=gear.BLM_Death_Cape,
-        waist="Shinjutsu-no-Obi +1",
-        }
+   
 
     sets.idle.Town = set_combine(sets.idle, {
         -- main=gear.Grioavolr_MB,
@@ -582,9 +547,9 @@ function init_gear_sets()
     sets.defense.PDT = sets.idle.DT
     sets.defense.MDT = sets.idle.DT
 
-    sets.Kiting = {feet="Herald's Gaiters"}
-    sets.latent_refresh = {waist="Fucho-no-obi"}
-    sets.latent_dt = {ear2="Sorcerer's Earring"}
+    sets.Kiting = { feet="Herald's Gaiters" }
+    sets.latent_refresh = { waist="Fucho-no-obi" }
+    sets.latent_dt = { ear2="Sorcerer's Earring" }
 
     sets.magic_burst = {
         head="Ea Hat +1", --7/(7)
@@ -601,6 +566,59 @@ function init_gear_sets()
         feet="Merlinic Crackows", --11
         neck="Sanctity Necklace",
     }
+
+    -- Death Sets
+
+    sets.idle.DeathMode = {
+        main=gear.Lathi_MAB,
+        sub="Khonsu",
+        ammo="Ghastly Tathlum +1",
+        head=gear.Nyame_Head,
+        -- body="Rosette Jaseran +1",
+        body=gear.Nyame_Body,
+        hands=gear.Nyame_Hands,
+        legs=gear.Amalric_A_Legs,
+        feet=gear.Nyame_Feet,
+        neck="Sanctity Necklace",
+        ear1="Malignance Earring",
+        ear2="Regal Earring",
+        ring1="Mephitas's Ring +1",
+        ring2="Mephitas's Ring",
+        back=gear.BLM_Death_Cape,
+        waist="Shinjutsu-no-Obi +1",
+    }
+
+    sets.precast.FC.DeathMode = {
+        ammo="Sapience Orb",
+        head=gear.Amalric_A_Head, --11
+        -- body="Rosette Jaseran +1",
+        body="Zendic Robe", --14
+        -- hands="Agwu's Gages", --6
+        -- legs="Volte Brais", --8
+        feet=gear.Amalric_D_Feet, --6
+        neck="Orunmila's Torque", --5
+        ear1="Etiolation Earring", --1
+        ear2="Loquacious Earring", --2
+        ring1="Mephitas's Ring +1",
+        ring2="Weather. Ring", --5
+        back="Bane Cape", --4
+        waist="Embla Sash",
+    }
+
+    sets.midcast['Elemental Magic'].DeathMode = set_combine(sets.midcast['Elemental Magic'], {
+        main=gear.Grioavolr_MB,
+        sub="Enki Strap",
+        ammo="Ghastly Tathlum +1",
+        head="Pixie Hairpin +1",
+        body=gear.Amalric_A_Body,
+        hands=gear.Amalric_D_Hands,
+        legs=gear.Amalric_A_Legs,
+        feet=gear.Amalric_D_Feet,
+        waist="Acuity Belt +1",
+        ring1="Mephitas's Ring +1",
+        ring2="Archon Ring",
+        back=gear.BLM_Death_Cape,
+    })
 
     -- Engaged sets
 
@@ -636,7 +654,6 @@ function init_gear_sets()
 
     sets.DarkAffinity = {head="Pixie Hairpin +1",ring2="Archon Ring"}
     sets.Obi = {waist="Hachirin-no-Obi"}
-    -- sets.CP = {back="Mecisto. Mantle"}
 
 end
 
