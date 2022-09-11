@@ -423,7 +423,7 @@ function init_gear_sets()
         main=gear.Lathi_MAB,
         sub="Enki Strap",
         ammo="Ghastly Tathlum +1",
-        head=gear.Relic_Head
+        head=gear.Relic_Head,
         body=gear.Relic_Body,
         hands=gear.Relic_Hands,
         legs=gear.Relic_Legs,
@@ -487,7 +487,7 @@ function init_gear_sets()
         -- hands="Raetic Bangles +1",
         hands="Volte Gloves",
         -- legs="Volte Brais",
-        legs="Assid. Pants +1"
+        legs="Assid. Pants +1",
         -- feet="Volte Gaiters",
         neck="Bathy Choker +1",
         ear1="Infused Earring",

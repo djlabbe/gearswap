@@ -1024,7 +1024,7 @@ function job_self_command(cmdParams, eventArgs)
     if cmdParams[1]:lower() == 'scholar' then
         handle_strategems(cmdParams)
         eventArgs.handled = true
-    if cmdParams[1]:lower() == 'skillchain' then
+    elseif cmdParams[1]:lower() == 'skillchain' then
         sch_skillchain(cmdParams)
         eventArgs.handled = true
     elseif cmdParams[1]:lower() == 'nuke' then
