@@ -260,8 +260,8 @@ function define_global_sets()
     gear.RNG_RA_Cape = {name="Lutian Cape"}
     gear.RNG_SNP_Cape = {name="Lutian Cape"}
     gear.RNG_TP_Cape = {name="Lutian Cape"}
-    gear.RNG_WS1_Cape = {name="Lutian Cape"}
-    gear.RNG_WS2_Cape = {name="Lutian Cape"}
+    gear.RNG_WS1_Cape = { name="Belenus's Cape", augments={'AGI+1','Weapon skill damage +10%',}}
+    gear.RNG_WS2_Cape = { name="Belenus's Cape", augments={'AGI+1','Weapon skill damage +10%',}}
 end
 
 -- function define_war_sets()

@@ -522,20 +522,17 @@ function init_gear_sets()
         back=gear.BLM_Death_Cape,
     }
 
-   
-
     sets.idle.Town = set_combine(sets.idle, {
         -- main=gear.Grioavolr_MB,
         -- sub="Khonsu",
         main="Marin Staff +1",
         sub="Enki Strap",
-        head="Ea Hat +1",
-        body="Ea Houppe. +1",
-        hands="Regal Cuffs",
-        legs="Ea Slops +1",
-        -- feet="Volte Gaiters",
-        feet=gear.Merl_MB_Feet,
-        neck="Sibyl Scarf",
+        head=gear.Relic_Head,
+        body=gear.Relic_Body,
+        hands=gear.Relic_Hands,
+        legs=gear.Relic_Legs,
+        feet=gear.Relic_Feet,
+        neck="Sorcerer's Stole +2",
         ear1="Malignance Earring",
         ear2="Regal Earring",
         ring1="Freke Ring",
