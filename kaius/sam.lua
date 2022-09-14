@@ -54,6 +54,24 @@ function user_setup()
     state.WeaponSet = M{['description']='Weapon Set', 'Masamune', 'ShiningOne'}
     state.WeaponLock = M(true, 'Weapon Lock')
 
+    -- gear.Artifact_Head = { name= "Wakido Kabuto +3" }
+    -- gear.Artifact_Body = { name= "Wakido Domaru +3" }
+    gear.Artifact_Hands = { name= "Wakido Kote +3" }
+    -- gear.Artifact_Legs = { name= "Wakido Haidate +3" }
+    -- gear.Artifact_Feet = { name= "Wakido Sune-Ate +3" }
+
+    gear.Relic_Head = { name= "Sakonji Kabuto +3" }
+    gear.Relic_Body = { name= "Sakonji Domaru +3" }
+    gear.Relic_Hands = { name= "Sakonji Kote +3" }
+    gear.Relic_Legs = { name= "Sakonji Haidate +3" }
+    gear.Relic_Feet = { name= "Sakonji Sune-Ate +3" }
+
+    -- gear.Empyrean_Head = { name= "Kasuga Kabuto +1" }
+    gear.Empyrean_Body = { name= "Kasuga Domaru +1" }
+    gear.Empyrean_Hands = { name= "Kasuga Kote +1" }
+    -- gear.Empyrean_Legs = { name= "Kasuga Haidate +1" }
+    -- gear.Empyrean_Feet = { name= "Kasuga Sune-Ate +1" }
+
     -- Additional local binds
     include('Global-Binds.lua')
 
@@ -121,7 +139,7 @@ function init_gear_sets()
         ammo="Coiste Bodhar",
         head="Flamma Zucchetto +2",
         body="Tatenashi Haramaki +1",
-        hands="Wakido Kote +3",
+        hands=gear.Artifact_Hands,
         legs="Tatena. Haidate +1",
         feet=gear.Ryuo_C_Feet,
         neck="Sam. Nodowa +2",
@@ -158,7 +176,7 @@ function init_gear_sets()
         ammo="Aurgelmir Orb +1",
         head="Ken. Jinpachi +1",
         body="Dagon Breastplate",
-        hands="Wakido Kote +3",
+        hands=gear.Artifact_Hands,
         legs="Mpaca's Hose",
         feet=gear.Ryuo_C_Feet,
         neck="Bathy Choker +1",
@@ -179,20 +197,20 @@ function init_gear_sets()
     ------------------------------------------------------------------------------------------------
 
     sets.precast.WS = {
-        ammo="Knobkierrie",
+        ammo="Knobkierrie", --6
         head=gear.Mpaca_Head,
-        body=gear.Valo_WSD_Body,
-        hands=gear.Valo_WSD_Hands,
-        legs="Hiza. Hizayoroi +2",
-        feet=gear.Valo_WSD_Feet,
+        body=gear.Relic_Body, --10
+        hands=gear.Valo_WSD_Hands, --3
+        legs="Hiza. Hizayoroi +2", --7
+        feet=gear.Valo_WSD_Feet, --4
         neck="Sam. Nodowa +2",
         waist="Sailfi Belt +1",
-        left_ear="Thrud Earring",
+        left_ear="Thrud Earring", --3
         right_ear="Moonshade Earring",
         left_ring="Niqmaddu Ring",
-        right_ring="Epaminondas's Ring",
-        back=gear.SAM_WS_Cape,
-    }
+        right_ring="Epaminondas's Ring", --5
+        back=gear.SAM_WS_Cape, --10
+    } --48
 
     sets.precast.WS.Acc = set_combine(sets.precast.WS, {})
 
@@ -232,7 +250,7 @@ function init_gear_sets()
         ammo="Coiste Bodhar",
         head="Flamma Zucchetto +2",
         body="Tatenashi Haramaki +1",
-        hands="Wakido Kote +3",
+        hands=gear.Artifact_Hands,
         legs="Tatena. Haidate +1",
         feet="Tatena. Sune. +1",
         neck="Sam. Nodowa +2",
@@ -257,7 +275,7 @@ function init_gear_sets()
         ammo="Coiste Bodhar",
         head="Flamma Zucchetto +2",
         body="Tatenashi Haramaki +1",
-        hands="Wakido Kote +3",
+        hands=gear.Artifact_Hands,
         legs="Tatena. Haidate +1",
         feet="Tatena. Sune. +1",
         neck="Sam. Nodowa +2",

@@ -111,7 +111,7 @@ function user_setup()
     -- Additional local binds
     include('Global-Binds.lua') -- OK to remove this line
 
-    gear.Artifact_Head = { name="Orion Beret +2" }
+    gear.Artifact_Head = { name="Orion Beret +3" }
     gear.Artifact_Body = { name="Orion Jerkin +1" }
     gear.Artifact_Legs = { name="Orion Braccae +1" }
     gear.Artifact_Hands = { name="Orion Bracers +2" }
