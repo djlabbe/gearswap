@@ -67,7 +67,11 @@ function user_setup()
     send_command('bind @w gs c toggle WeaponLock')
     send_command('bind @e gs c cycle WeaponSet')
 
-    set_macro_page(1, 12)
+    if player.sub_job == 'DRG' then
+        set_macro_page(2, 12)
+    else
+        set_macro_page(1, 12)
+    end
     send_command('wait 2; input /lockstyleset 12')
 
     state.Auto_Kite = M(false, 'Auto_Kite')
