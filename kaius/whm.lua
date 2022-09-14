@@ -226,7 +226,7 @@ function init_gear_sets()
     sets.precast.WS = {
         --ammo="Floestone",
         -- head="Piety Cap +3",
-        -- body="Piety Briault +3",
+        -- body="Piety Bliaut +3",
         -- hands="Piety Mitts +3",
         -- legs="Piety Pantaln. +3",
         -- feet="Piety Duckbills +2",
@@ -287,10 +287,10 @@ function init_gear_sets()
         hands=gear.Kaykaus_D_Hands,
         legs="Ebers Pant. +1",
         feet=gear.Kaykaus_B_Feet, --11(+2)/(-12)    
-        -- ring1="Lebeche Ring", --3/(-5)
-        -- ring2="Mephitas's Ring +1",
-        ring1="Gelatinous Ring +1",
-        ring2="Menelaus's Ring",
+        ring1="Lebeche Ring", --3/(-5)
+        ring2="Mephitas's Ring +1",
+        -- ring1="Gelatinous Ring +1",
+        -- ring2="Menelaus's Ring",
         back=gear.WHM_Cure_Cape, --10
         waist="Shinjutsu-no-Obi +1",
       }
@@ -302,7 +302,7 @@ function init_gear_sets()
     })
 
     sets.midcast.CureNormal = set_combine(sets.midcast.CureSolace, {
-        body="Theo. Briault +3", --0(+6)/(-6)
+        body="Theophany Bliaut +3", --0(+6)/(-6)
     })
 
     sets.midcast.CureWeather = set_combine(sets.midcast.CureNormal, {
@@ -313,20 +313,20 @@ function init_gear_sets()
     })
 
     sets.midcast.CuragaNormal = set_combine(sets.midcast.CureNormal, {
-        body="Theo. Briault +3", --0(+6)/(-6)
+        body="Theophany Bliaut +3", --0(+6)/(-6)
         ring1=gear.Stikini_1,
         ring2="Metamor. Ring +1",
         waist="Luminary Sash",
-        })
+    })
 
     sets.midcast.CuragaWeather = {
-        body="Theo. Briault +3", --0(+6)/(-6)
+        body="Theophany Bliaut +3", --0(+6)/(-6)
         hands="Kaykaus Cuffs +1", --11/(-6)
         ring1=gear.Stikini_1,
         ring2="Metamor. Ring +1",
         back="Twilight Cape",
         waist="Hachirin-no-Obi",
-        }
+    }
 
     --sets.midcast.CureMelee = sets.midcast.CureSolace
 
@@ -342,7 +342,7 @@ function init_gear_sets()
         ear1="Loquacious Earring",
         ear2="Etiolation Earring",
         ring1="Kishar Ring",
-        ring2="Weather. Ring +1",
+        ring2="Weather. Ring",
         back=gear.WHM_FC_Cape,
         waist="Embla Sash",
     }
@@ -399,7 +399,7 @@ function init_gear_sets()
         main="Bolelabunga",
         sub="Ammurapi Shield",
         head="Inyanga Tiara +2",
-        body="Piety Briault +3",
+        body="Piety Bliaut +3",
         hands=gear.Telchine_ENH_Hands,
         legs=gear.Telchine_ENH_Legs,
         feet=gear.Telchine_ENH_Feet,
@@ -465,7 +465,7 @@ function init_gear_sets()
         sub="Ammurapi Shield",
         ammo="Ghastly Tathlum +1",
         head="Theophany Cap +3",
-        body="Theo. Briault +3",
+        body="Theophany Bliaut +3",
         hands="Piety Mitts +3",
         legs="Chironic Hose",
         feet="Theo. Duckbills +3",
@@ -488,9 +488,9 @@ function init_gear_sets()
         neck="Sanctity Necklace",
         ear1="Malignance Earring",
         ring1="Freke Ring",
-        ring2="Weather. Ring +1",
+        ring2="Weather. Ring",
         waist="Refoccilation Stone",
-        })
+    })
 
     sets.midcast.Holy = sets.midcast.Banish
 
@@ -499,7 +499,7 @@ function init_gear_sets()
         sub="Ammurapi Shield",
         ammo="Pemphredo Tathlum",
         head="Pixie Hairpin +1",
-        body="Theo. Briault +3",
+        body="Theophany Bliaut +3",
         hands="Theophany Mitts +3",
         legs="Chironic Hose",
         feet="Theo. Duckbills +3",
@@ -537,17 +537,17 @@ function init_gear_sets()
 
     sets.midcast.Dispelga = set_combine(sets.midcast.IntEnfeebles, {main="Daybreak", sub="Ammurapi Shield"})
 
-    sets.midcast.Impact = {
-        main="Yagrush",
-        sub="Ammurapi Shield",
-        head=empty,
-        body="Twilight Cloak",
-        hands="Raetic Bangles +1",
-        legs="Th. Pant. +3",
-        feet="Theo. Duckbills +3",
-        ring1="Freke Ring",
-        ring2="Archon Ring",
-    }
+    -- sets.midcast.Impact = {
+    --     main="Yagrush",
+    --     sub="Ammurapi Shield",
+    --     head=empty,
+    --     body="Twilight Cloak",
+    --     hands="Raetic Bangles +1",
+    --     legs="Th. Pant. +3",
+    --     feet="Theo. Duckbills +3",
+    --     ring1="Freke Ring",
+    --     ring2="Archon Ring",
+    -- }
 
     -- Initializes trusts at iLvl 119
     sets.midcast.Trust = sets.precast.FC
@@ -566,7 +566,7 @@ function init_gear_sets()
         sub="Genmei Shield",
         ammo="Homiliary",
         head="Inyanga Tiara +2",
-        body="Theo. Bliaut +3",
+        body="Theophany Bliaut +3",
         --hands="Raetic Bangles +1",
         legs="Assid. Pants +1",
         feet="Inyan. Crackows +2",
@@ -616,17 +616,17 @@ function init_gear_sets()
         sub="Ammurapi Shield",
         ammo="Homiliary",
         head="Ebers Cap +1",
-        body="Theo. Bliaut +3",
-        hands="Theo. Mitts +1",
+        body="Theophany Bliaut +3",
+        hands="Volte Gloves",
         legs="Ebers Pant. +1",
         feet="Ebers Duckbills +1",
         neck="Clr. Torque +2",
-        waist="Hachirin-no-Obi",
+        waist="Shinjutsu-no-Obi +1", --5
         left_ear="Glorious Earring",
         right_ear="Regal Earring",
         left_ring=gear.Stikini_1,
         right_ring=gear.Stikini_2,
-        back="Twilight Cape",
+        back=gear.WHM_Cure_Cape,
     })
 
     -- Defense sets
