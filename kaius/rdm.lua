@@ -1124,7 +1124,8 @@ function init_gear_sets()
     sets.CroceaDark = { main="Crocea Mors", sub="Ternion Dagger +1" }
     sets.CroceaLight = { main="Crocea Mors", sub="Daybreak" }
     -- sets.Almace = { main="Almace", sub="Ternion Dagger +1" }
-    sets.Naegling = { main="Naegling", sub="Thibron" }
+    -- sets.Naegling = { main="Naegling", sub="Thibron" }
+    sets.Naegling = { main="Naegling",  sub="Ternion Dagger +1"  }
     sets.Tauret = { main="Tauret", sub="Ternion Dagger +1" }
     -- sets.Idle = { main="Daybreak", sub="Sacro Bulwark" }
 

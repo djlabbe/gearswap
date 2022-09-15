@@ -241,7 +241,8 @@ function define_global_sets()
     gear.DRK_WS2_Cape = { name="Ankou's Mantle", augments={'VIT+20','Accuracy+20 Attack+20','VIT+10','Weapon skill damage +10%',}} --*
     gear.DRK_DRK_Cape = { name="Niht Mantle", augments={'Attack+15','Dark magic skill +10','"Drain" and "Aspir" potency +23',}}
 
-    gear.SAM_TP_Cape = { name="Takaha Mantle", augments={'STR+3','"Zanshin"+3','"Store TP"+3',}}
+    -- gear.SAM_TP_Cape = { name="Takaha Mantle", augments={'STR+3','"Zanshin"+3','"Store TP"+3',}}
+    gear.SAM_TP_Cape = { name="Smertrios's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Store TP"+10','Phys. dmg. taken-10%',}}
     gear.SAM_WS_Cape = { name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}} --*
 
     gear.NIN_TP_Cape = { name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Store TP"+10','Damage taken-5%',}}
@@ -260,8 +261,8 @@ function define_global_sets()
     gear.RNG_RA_Cape = {name="Lutian Cape"}
     gear.RNG_SNP_Cape = {name="Lutian Cape"}
     gear.RNG_TP_Cape = {name="Lutian Cape"}
-    gear.RNG_WS1_Cape = { name="Belenus's Cape", augments={'AGI+1','Weapon skill damage +10%',}}
-    gear.RNG_WS2_Cape = { name="Belenus's Cape", augments={'AGI+1','Weapon skill damage +10%',}}
+    gear.RNG_WS1_Cape = { name="Belenus's Cape", augments={'AGI+11','Weapon skill damage +10%',}}
+    gear.RNG_WS2_Cape = { name="Belenus's Cape", augments={'AGI+11','Weapon skill damage +10%',}}
 end
 
 -- function define_war_sets()

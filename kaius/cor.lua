@@ -135,7 +135,8 @@ function user_setup()
     state.WeaponskillMode:options('Normal', 'Acc')
     state.IdleMode:options('Normal', 'DT', 'Refresh')
 
-    state.WeaponSet = M{['description']='Weapon Set', 'DeathPenalty_M', 'DeathPenalty_R', 'Armageddon_M', 'Armageddon_R', 'Fomalhaut_M', 'Fomalhaut_R', 'Ataktos'}
+    -- state.WeaponSet = M{['description']='Weapon Set', 'DeathPenalty_M', 'DeathPenalty_R', 'Armageddon_M', 'Armageddon_R', 'Fomalhaut_M', 'Fomalhaut_R', 'Ataktos'}
+    state.WeaponSet = M{['description']='Weapon Set', 'Fomalhaut_M', 'Fomalhaut_R', 'Ataktos'}
     state.WeaponLock = M(false, 'Weapon Lock')
 
     gear.RAbullet = "Chrono Bullet"
@@ -222,7 +223,7 @@ function init_gear_sets()
         waist="Flume Belt +1", --4/0
         }
 
-    sets.precast.CorsairRoll.Duration = {main={name="Rostam", bag="wardrobe"}, range="Compensator"}
+    sets.precast.CorsairRoll.Duration = {main={name="Rostam"}, range="Compensator"}
 
     sets.precast.CorsairRoll.LowerDelay = {back="Gunslinger's Cape"}
 
@@ -613,12 +614,11 @@ function init_gear_sets()
     })
 
     sets.idle.Town = set_combine(sets.idle, {
-        ammo=gear.MAbullet,
-        head=gear.Relic_Head,
-        body="Oshosi Vest +1",
-        hands=gear.Relic_Hands,
-        legs="Osh. Trousers +1",
-        feet=gear.Relic_Feet,
+        head=gear.Malignance_Head, --6/6
+        body=gear.Malignance_Body, --9/9
+        hands=gear.Malignance_Hands, --5/5
+        legs=gear.Malignance_Legs, --7/7
+        feet=gear.Malignance_Feet, --4/4
         neck="Comm. Charm +2",
         ear1="Beyla Earring",
         ear2="Telos Earring",
@@ -987,17 +987,17 @@ function init_gear_sets()
         waist="Chaac Belt"
     }
 
-    sets.DeathPenalty_M = {main={name="Rostam", bag="wardrobe3"}, sub="Tauret", ranged="Death Penalty"}
-    sets.DeathPenalty_M.Acc = {main={name="Rostam", bag="wardrobe3"}, sub={name="Rostam", bag="wardrobe"}, ranged="Death Penalty"}
-    sets.DeathPenalty_R = {main="Lanun Knife", sub="Tauret", ranged="Death Penalty"}
-    sets.DeathPenalty_R.Acc = {main="Lanun Knife", sub={name="Rostam", bag="wardrobe"}, ranged="Death Penalty"}
-    sets.Armageddon_M = {main="Naegling", sub="Tauret", ranged="Armageddon"}
-    sets.Armageddon_M.Acc = {main={name="Rostam", bag="wardrobe3"}, sub={name="Rostam", bag="wardrobe4"}, ranged="Armageddon"}
-    sets.Armageddon_R = {main="Lanun Knife", sub="Kustawi +1", ranged="Armageddon"}
-    sets.Armageddon_R.Acc = sets.Armageddon_R
-    sets.Fomalhaut_M = {main={name="Rostam", bag="wardrobe3"}, sub="Blurred Knife +1", ranged="Fomalhaut"}
-    sets.Fomalhaut_M.Acc = {main={name="Rostam", bag="wardrobe3"}, sub="Kustawi +1", ranged="Fomalhaut"}
-    sets.Fomalhaut_R = {main="Lanun Knife", sub="Kustawi +1", ranged="Fomalhaut"}
+    -- sets.DeathPenalty_M = {main={name="Rostam", bag="wardrobe3"}, sub="Tauret", ranged="Death Penalty"}
+    -- sets.DeathPenalty_M.Acc = {main={name="Rostam", bag="wardrobe3"}, sub={name="Rostam", bag="wardrobe"}, ranged="Death Penalty"}
+    -- sets.DeathPenalty_R = {main="Lanun Knife", sub="Tauret", ranged="Death Penalty"}
+    -- sets.DeathPenalty_R.Acc = {main="Lanun Knife", sub={name="Rostam", bag="wardrobe"}, ranged="Death Penalty"}
+    -- sets.Armageddon_M = {main="Naegling", sub="Tauret", ranged="Armageddon"}
+    -- sets.Armageddon_M.Acc = {main={name="Rostam", bag="wardrobe3"}, sub={name="Rostam", bag="wardrobe4"}, ranged="Armageddon"}
+    -- sets.Armageddon_R = {main="Lanun Knife", sub="Kustawi +1", ranged="Armageddon"}
+    -- sets.Armageddon_R.Acc = sets.Armageddon_R
+    sets.Fomalhaut_M = {main="Rostam", sub="Blurred Knife +1", ranged="Fomalhaut"}
+    sets.Fomalhaut_M.Acc = {main="Rostam", sub="Blurred Knife +1", ranged="Fomalhaut"}
+    sets.Fomalhaut_R = {main="Rostam", sub="Blurred Knife +1", ranged="Fomalhaut"}
     sets.Fomalhaut_R.Acc = sets.Fomalhaut_R
     sets.Ataktos = {main="Naegling", sub="Blurred Knife +1", ranged="Ataktos"}
     sets.Ataktos.Acc = {main="Naegling", sub="Demers. Degen +1", ranged="Ataktos"}

@@ -35,6 +35,7 @@ function job_setup()
     state.Buff.Seigan = buffactive.Seigan or false
     state.Buff.Sekkanoki = buffactive.Sekkanoki or false
     state.Buff.Sengikori = buffactive.Sengikori or false
+    state.Buff['Third Eye'] = buffactive['Third Eye'] or false
     state.Buff['Meikyo Shisui'] = buffactive['Meikyo Shisui'] or false
 
     no_swap_gear = S{"Warp Ring", "Dim. Ring (Dem)", "Dim. Ring (Holla)", "Dim. Ring (Mea)",
@@ -67,7 +68,7 @@ function user_setup()
     gear.Relic_Feet = { name= "Sakonji Sune-Ate +3" }
 
     -- gear.Empyrean_Head = { name= "Kasuga Kabuto +1" }
-    gear.Empyrean_Body = { name= "Kasuga Domaru +1" }
+    gear.Empyrean_Body = { name= "Kasuga Domaru +2" }
     gear.Empyrean_Hands = { name= "Kasuga Kote +1" }
     -- gear.Empyrean_Legs = { name= "Kasuga Haidate +1" }
     -- gear.Empyrean_Feet = { name= "Kasuga Sune-Ate +1" }
@@ -119,13 +120,16 @@ function init_gear_sets()
     }
 
     sets.precast.JA.Meditate = {
-        -- head="Wakido Kabuto +2",
-        hands="Sakonji Kote +3",
+        head=gear.Artifact_Head,
+        hands=gear.Relic_Hands,
         back=gear.SAM_WS_Cape,
     }
 
-    sets.precast.JA.Sekkanoki = { hands="Kasuga Kote +1" }
-    sets.precast.JA.Sengikori = { hands="Kasuga Sune-Ate +1" }
+    sets.buff['Meikyo Shisui'] = {feet=gear.Relic_Feet}
+    sets.precast.JA.Sekkanoki = { hands=gear.Empyrean_Hands }
+    sets.precast.JA.Sengikori = { feet=gear.Empyrean_Feet }
+    sets.precast.JA['Warding Circle'] = {head=gear.Artifact_Helm}
+    -- sets.precast.JA['Third Eye'] = {legs=gear.Relic_Legs}
 
 
     ------------------------------------------------------------------------------------------------
@@ -164,12 +168,12 @@ function init_gear_sets()
     ------------------------------------------------------------------------------------------------
 
     sets.engaged.Hybrid = {
-        head=gear.Mpaca_Head, --7/0
-        body=gear.Mpaca_Body, --10/0
-        hands=gear.Mpaca_Hands, --8/0
-        legs=gear.Mpaca_Legs, --9/0
-        feet=gear.Mpaca_Feet, --6/0
-        ring2="Defending Ring", --10/10
+        -- head=gear.Mpaca_Head, --7/0
+        body=gear.Empyrean_Body, --13/13
+        -- hands=gear.Mpaca_Hands, --8/0
+        -- legs=gear.Mpaca_Legs, --9/0
+        -- feet=gear.Mpaca_Feet, --6/0
+        -- ring2="Defending Ring", --10/10
     }
 
     sets.engaged.Subtle = {
@@ -277,7 +281,7 @@ function init_gear_sets()
         body="Tatenashi Haramaki +1",
         hands=gear.Artifact_Hands,
         legs="Tatena. Haidate +1",
-        feet="Tatena. Sune. +1",
+        feet=gear.Ryuo_C_Feet,
         neck="Sam. Nodowa +2",
         waist="Sailfi Belt +1",
         ear1="Dedition Earring",
@@ -297,8 +301,43 @@ function init_gear_sets()
     ---------------------------------------- Defense Sets ------------------------------------------
     ------------------------------------------------------------------------------------------------
 
-    sets.defense.PDT = sets.idle.DT
-    sets.defense.MDT = sets.idle.DT
+    sets.defense.PDT = {
+        -- ammo="Staunch Tathlum +1", --3
+        ammo="Coiste Bodhar",
+        head="Flamma Zucchetto +2",
+        neck="Sam. Nodowa +2",
+        ear1="Dedition Earring",
+        ear2="Telos Earring",
+        body=gear.Empyrean_Body, --13
+        hands=gear.Artifact_Hands,
+        ring1="Niqmaddu Ring",
+        ring2="Defending Ring", --10
+        back=gear.SAM_TP_Cape, --10/0
+        waist="Sailfi Belt +1",
+        legs=gear.Mpaca_Legs, --9
+        feet=gear.Mpaca_Feet, --6
+    } --48/23
+
+    sets.defense.MDT = {
+        ammo="Staunch Tathlum +1", --3
+        head=gear.Nyame_Head,
+        neck="Warder's Charm +1",
+        ear1="Flashward Earring",
+        ear2="Eabani Earring",
+        body=gear.Nyame_Body,
+        hands=gear.Nyame_Hands,
+        ring1="Purity Ring",
+        ring2="Defending Ring",
+        back=gear.SAM_TP_Cape, 
+        waist="Carrier's Sash",
+        legs=gear.Nyame_Legs,
+        feet=gear.Nyame_Feet,
+    }
+
+    sets.buff.ThirdEye = {
+        -- head=gear.Empyrean_Head,
+        legs=gear.Relic_Legs,
+    }
 
     sets.buff.Doom = {
         neck="Nicander's Necklace", --20
@@ -342,9 +381,17 @@ function job_buff_change(buff,gain)
         if gain then
             equip(sets.buff.Doom)
             send_command('@input /p Doomed.')
-             disable('ring1','ring2','waist')
+            disable('ring1','ring2','waist')
         else
             enable('ring1','ring2','waist')
+            handle_equipping_gear(player.status)
+        end
+    elseif buff == "Third Eye" then
+        if gain and state.Buff.Seigan then
+            equip(sets.buff.ThirdEye)
+            disable('legs')
+        else
+            enable('legs')
             handle_equipping_gear(player.status)
         end
     end
