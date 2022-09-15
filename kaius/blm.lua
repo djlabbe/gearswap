@@ -422,7 +422,7 @@ function init_gear_sets()
     -- Elemental Magic sets
 
     sets.midcast['Elemental Magic'] = {
-        main=gear.Lathi_MAB,
+        main="Marin Staff +1",
         sub="Enki Strap",
         ammo="Ghastly Tathlum +1",
         head=gear.Relic_Head,
@@ -442,6 +442,7 @@ function init_gear_sets()
   
 
     sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'], {
+        main="Marin Staff +1",
         sub="Khonsu",
         ammo="Pemphredo Tathlum",
         legs="Merlinic Shalwar",
@@ -450,6 +451,7 @@ function init_gear_sets()
     })
 
     sets.midcast['Elemental Magic'].Spaekona = set_combine(sets.midcast['Elemental Magic'], {
+        main="Marin Staff +1",
         sub="Khonsu",
         ammo="Pemphredo Tathlum",
         body="Spaekona's Coat +2",
@@ -484,7 +486,7 @@ function init_gear_sets()
         main="Daybreak",
         sub="Genmei Shield",
         ammo="Ghastly Tathlum +1",
-        -- head="Volte Beret",
+        head=gear.Nyame_Head,
         body="Jhakri Robe +2",
         -- hands="Raetic Bangles +1",
         hands="Volte Gloves",
@@ -495,8 +497,8 @@ function init_gear_sets()
         ear1="Infused Earring",
         ear2="Lugalbanda Earring",
         ring1=gear.Stikini_1,
-        ring2=gear.Stikini_2,
-        back="Moonlight Cape",
+        ring2="Mephitas's Ring +1",
+        back=gear.BLM_MAB_Cape,
         waist="Carrier's Sash",
     }
 
@@ -551,21 +553,20 @@ function init_gear_sets()
     sets.latent_dt = { ear2="Sorcerer's Earring" }
 
     sets.magic_burst = {
-        main="Bunzi's Rod",
-        sub="Ammurapi Shield",
+        main="Marin Staff +1",
+        sub="Alber Strap",
         head="Ea Hat +1", --7/(7)
         neck="Sorcerer's Stole +2",
         ear1="Malignance Earring",
         ear2="Regal Earring",
         body="Ea Houppe. +1", --9/(9)
-        hands=gear.Amalric_D_Hands, --(6)
+        hands=gear.Agwu_Hands, --8
         ring1="Freke Ring",
         ring2="Mujin Band", --(5)
         back=gear.BLM_MAB_Cape, --5
         waist="Acuity Belt +1",
         legs="Ea Slops +1", --8/(8)
-        -- feet="Ea Pigaches +1", --5/(5)
-        feet=gear.Merl_MB_Feet,
+        feet=gear.Agwu_Feet,
     }
 
     sets.magic_burst.Resistant = {
@@ -599,7 +600,7 @@ function init_gear_sets()
         head=gear.Amalric_A_Head, --11
         -- body="Rosette Jaseran +1",
         body="Zendic Robe", --14
-        -- hands="Agwu's Gages", --6
+        hands="Agwu's Gages", --6
         -- legs="Volte Brais", --8 
         feet=gear.Amalric_D_Feet, --6
         -- neck="Orunmila's Torque", --5

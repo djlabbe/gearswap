@@ -690,7 +690,7 @@ function init_gear_sets()
     })
 
     sets.engaged.HighAcc = set_combine(sets.engaged.MidAcc, {
-        head="Carmine Mask +1",
+        head=gear.Carmine_D_Head,
         hands="Gazu Bracelet +1",
         ear1="Mache Earring +1",
         ear2="Odr Earring",
@@ -708,7 +708,7 @@ function init_gear_sets()
         head=gear.Adhemar_B_head,
         body=gear.Adhemar_B_body, --6
         hands="Floral Gauntlets", --5
-        legs="Carmine Cuisses +1", --6
+        legs=gear.Carmine_D_Legs, --6
         feet=gear.Taeon_DW_feet, --9
         neck="Iskur Gorget",
         ear1="Suppanomimi", --5
@@ -717,7 +717,7 @@ function init_gear_sets()
         ring2="Epona's Ring",
         back=gear.COR_DW_Cape, --10
         waist="Reiki Yotai", --7
-      } -- 48%
+    } -- 48%
 
     sets.engaged.DW.LowAcc = set_combine(sets.engaged.DW, {
         head="Dampening Tam",
@@ -732,10 +732,10 @@ function init_gear_sets()
         ring1="Regal Ring",
         ring2="Ilabrat Ring",
         waist="Kentarch Belt +1",
-        })
+    })
 
     sets.engaged.DW.HighAcc = set_combine(sets.engaged.DW.MidAcc, {
-        head="Carmine Mask +1",
+        head=gear.Carmine_D_Head,
         hands="Gazu Bracelet +1",
         ear1="Mache Earring +1",
         ear2="Odr Earring",
@@ -750,7 +750,7 @@ function init_gear_sets()
         head=gear.Adhemar_B_head,
         body=gear.Adhemar_B_body, --6
         hands="Floral Gauntlets", --5
-        legs="Carmine Cuisses +1", --6
+        legs=gear.Carmine_D_Legs, --6
         feet=gear.Taeon_DW_feet, --9
         neck="Iskur Gorget",
         ear1="Suppanomimi", --5
@@ -896,7 +896,7 @@ function init_gear_sets()
 
     sets.engaged.DW.MidAcc.MaxHaste = set_combine(sets.engaged.DW.LowAcc.MaxHaste, {
         legs="Meg. Chausses +2",
-        neck="Combatant's Torque",
+        -- neck="Combatant's Torque",
         ear1="Cessance Earring",
         ring1="Regal Ring",
         ring2="Ilabrat Ring",

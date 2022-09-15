@@ -225,8 +225,8 @@ function define_global_sets()
 
     -- -- Ambuscade Capes
 
-    gear.BLM_MAB_Cape = { name="Taranus's Cape", augments={'INT+20','"Mag.Atk.Bns."+7',}}
-    gear.BLM_Death_Cape = { name="Taranus's Cape", augments={'INT+20','"Mag.Atk.Bns."+7',}}
+    gear.BLM_MAB_Cape = { name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10','Phys. dmg. taken-10%',}}
+    gear.BLM_Death_Cape = { name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10','Phys. dmg. taken-10%',}}
 
     gear.WHM_Cure_Cape = { name="Alaunus's Cape", augments={'MND+20','Eva.+20 /Mag. Eva.+20','"Cure" potency +10%','Spell interruption rate down-10%',}}
 
@@ -272,12 +272,12 @@ function define_global_sets()
     gear.BLU_CDC_Cape = { name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Crit.hit rate+10',}} --*
     gear.BLU_BLUSKILL_Cape = { name="Cornflower Cape", augments={'MP+29','DEX+3','Accuracy+4','Blue Magic skill +7',}}
 
-    gear.RNG_DW_Cape = {name="Lutian Cape"}
-    gear.RNG_RA_Cape = {name="Lutian Cape"}
-    gear.RNG_SNP_Cape = {name="Lutian Cape"}
-    gear.RNG_TP_Cape = {name="Lutian Cape"}
-    gear.RNG_WS1_Cape = { name="Belenus's Cape", augments={'AGI+11','Weapon skill damage +10%',}}
-    gear.RNG_WS2_Cape = { name="Belenus's Cape", augments={'AGI+11','Weapon skill damage +10%',}}
+    gear.RNG_DW_Cape = { name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','AGI+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}}
+    gear.RNG_RA_Cape = { name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','AGI+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}}
+    gear.RNG_SNP_Cape = { name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','AGI+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}}
+    gear.RNG_TP_Cape = { name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','AGI+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}}
+    gear.RNG_WS1_Cape = { name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','AGI+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}}
+    gear.RNG_WS2_Cape = { name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','AGI+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}}
 end
 
 -- function define_war_sets()
