@@ -367,7 +367,7 @@ function init_gear_sets()
     sets.precast.WS['Vorpal Blade'].Acc = sets.precast.WS['Chant du Cygne'].Acc
 
     sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
-        neck="Dls. Torque +2",
+        neck="Rep. Plat. Medal",
         waist="Sailfi Belt +1",
     })
 
@@ -555,7 +555,7 @@ function init_gear_sets()
         head=gear.Carmine_D_Head,
         neck="Incanter's Torque",
         ear1="Mimir Earring",
-        ear2="Andoaa Earring",
+        ear2="Leth. Earring +1",
         hands=gear.Relic_Hands,
         ring1=gear.Stikini_1,
         ring2=gear.Stikini_2,
@@ -751,8 +751,8 @@ function init_gear_sets()
     sets.midcast['Bio III'] = set_combine(sets.midcast['Dark Magic'], { legs=gear.Relic_Legs })
 
     sets.midcast['Elemental Magic'] = {
-        main="Marin Staff +1",
-        sub="Enki Strap",
+        main="Bunzi's Rod",
+        sub="Ammurapi Shield",
         ammo="Ghastly Tathlum +1",
         head=empty,
         body="Cohort Cloak +1",
@@ -816,7 +816,7 @@ function init_gear_sets()
         ammo="Homiliary",
         head=gear.Relic_Head,
         body=gear.Artifact_Body,
-        hands=gear.Malignance_Hands,
+        hands="Volte Gloves",
         legs=gear.Malignance_Legs,
         feet=gear.Malignance_Feet,
         neck="Bathy Choker +1",
@@ -870,13 +870,20 @@ function init_gear_sets()
     sets.defense.MDT = sets.idle.DT
 
     sets.magic_burst = {
+        main="Bunzi's Rod",
+        sub="Ammurapi Shield",
+        ammo="Ghastly Tathlum +1"
         head="Ea Hat +1", --7/(7)
+        neck="Sibyl Scarf",
+        ear1="Malignance Earring",
+        ear2="Regal Earring",
         body="Ea Houppe. +1", --9/(9)
         hands=gear.Amalric_D_Hands, --(6)
-        legs="Ea Slops +1", --8/(8)
-        -- feet="Ea Pigaches +1", --5/(5)
-        -- neck="Mizu. Kubikazari", --10
+        ring1="Freke Ring",
         ring2="Mujin Band", --(5)
+        waist="Acuity Belt +1",
+        legs="Ea Slops +1", --8/(8)
+        feet=gear.Bunzi_Feet, --6  
     }
 
     sets.Kiting = {legs=gear.Carmine_D_Legs}

@@ -100,7 +100,7 @@ end
 function user_setup()
     state.OffenseMode:options('Normal', 'Acc')
     state.CastingMode:options('Normal', 'Seidr', 'Resistant')
-    state.IdleMode:options('Normal', 'DT', 'Vagary')
+    state.IdleMode:options('Normal', 'DT')
 
     state.WeaponLock = M(false, 'Weapon Lock')
     state.MagicBurst = M(false, 'Magic Burst')
@@ -280,7 +280,9 @@ function init_gear_sets()
     })
 
     sets.precast.FC.Curaga = sets.precast.FC.Cure
+
     -- sets.precast.FC.Impact = set_combine(sets.precast.FC, {head=empty, body="Twilight Cloak", waist="Shinjutsu-no-Obi +1"})
+    
     sets.precast.FC.Dispelga = set_combine(sets.precast.FC, {
         main="Daybreak", 
         sub="Ammurapi Shield"
@@ -540,23 +542,23 @@ function init_gear_sets()
         ring2=gear.Stikini_2,
         back="Aurist's Cape +1",
         waist="Acuity Belt +1",
-        }
+    }
 
     sets.midcast.Kaustra = {
-        main="Akademos", --10
-        sub="Enki Strap",
-        ammo="Ghastly Tathlum +1",
+        main="Bunzu's Rod", --10
+        sub="Ammurapi Shield",
+        ammo="Pemphredo Tathlum",
         head="Pixie Hairpin +1",
-        body=gear.Merl_MB_Body, --10
+        body=gear.Agwu_Body, --10
         hands=gear.Amalric_D_Hands, --(5)
         legs="Mallquis Trews +2", --6
-        feet="Merlinic Crackows", --11
+        feet=gear.Amalric_D_Feet, --11
         neck="Argute Stole +2", --10
         ear1="Malignance Earring",
         ear2="Regal Earring",
         ring1="Freke Ring",
         ring2="Archon Ring",
-        back="Aurist's Cape +1",
+        back=gear.SCH_MAB_Cape,
         waist="Acuity Belt +1",
     }
 
@@ -565,6 +567,7 @@ function init_gear_sets()
         ear1="Hirudinea Earring",
         ring1="Evanescence Ring",
         ring2="Archon Ring",
+        feet=gear.Agwu_Feet,
         waist="Fucho-no-obi",
     })
 
@@ -576,8 +579,8 @@ function init_gear_sets()
 
     -- Elemental Magic
     sets.midcast['Elemental Magic'] = {
-        main="Akademos",
-        sub="Enki Strap",
+        main="Bunzi's Rod",
+        sub="Ammurapi Shield",
         ammo="Ghastly Tathlum +1",
         head=gear.Relic_Head,
         body=gear.Amalric_A_Body,
@@ -611,22 +614,32 @@ function init_gear_sets()
         waist="Sacro Cord",
     })
 
-    sets.midcast.Impact = set_combine(sets.midcast['Elemental Magic'], {
-        main="Akademos",
-        -- sub="Khonsu", --0/(-5)
-        sub="Enki Strap",
-        head=empty,
-        body="Twilight Cloak",
-        ring2="Archon Ring",
-        waist="Shinjutsu-no-Obi +1",
-    })
+    -- sets.midcast.Impact = set_combine(sets.midcast['Elemental Magic'], {
+    --     main="Akademos",
+    --     -- sub="Khonsu", --0/(-5)
+    --     sub="Enki Strap",
+    --     head=empty,
+    --     body="Twilight Cloak",
+    --     ring2="Archon Ring",
+    --     waist="Shinjutsu-no-Obi +1",
+    -- })
 
     sets.midcast.Helix = {
-        main="Akademos",
-        sub="Enki Strap",
+        main="Bunzi's Rod",
+        sub="Culminus",
         ammo="Ghastly Tathlum +1",
+        head=gear.Agwu_Head,
         neck="Argute Stole +2",
-        waist="Skrymir Cord +1",
+        ear1="Malignance Earring",
+        ear2="Regal Earring",
+        body=gear.Agwu_Body,
+        hands=gear.Amalric_D_Hands,
+        ring1="Freke Ring",
+        ring2="Mallquis Ring",
+        back=gear.SCH_MAB_Cape,
+        waist="Acuity Belt +1",
+        legs=gear.Agwu_Legs,
+        feet=gear.Amalric_D_Feet,
     }
 
     sets.midcast.DarkHelix = set_combine(sets.midcast.Helix, {
@@ -687,8 +700,6 @@ function init_gear_sets()
         waist="Carrier's Sash",
     })
 
-    sets.idle.Vagary = sets.midcast['Elemental Magic']
-
     sets.idle.Town = set_combine(sets.idle, {
         main="Musa",
         -- sub="Khonsu", --0/(-5)
@@ -744,19 +755,27 @@ function init_gear_sets()
     ------------------------------------------------------------------------------------------------
 
     sets.magic_burst = {
-        -- Akademos 10
+        main="Bunzi's Rod", --10
+        sub="Ammurapi Shield",
+        ammo="Ghastly Tathlum +1",
         head=gear.Relic_Head, --(4)
-        body=gear.Merl_MB_Body, --10
-        hands=gear.Amalric_D_Hands, --(6)
-        feet="Merlinic Crackows", --11
         neck="Argute Stole +2", --10
+        ear1="Malignance Earring",
+        ear2="Regal Earring",
+        body=gear.Agwu_Body, --10
+        hands=gear.Amalric_D_Hands, --(6)
+        ring1="Freke Ring",
         ring2="Mujin Band", --(5)
-    }
+        back=gear.SCH_MAB_Cape,
+        waist="Acuity Belt +1",,
+        legs=gear.Agwu_Legs,
+        feet=gear.Agwu_Feet, --6
+    } -- 36/15
 
     --sets.buff['Ebullience'] = {head=gear.Empyrean_Head}
     sets.buff['Rapture'] = {head=gear.Empyrean_Head}
     sets.buff['Perpetuance'] = {hands=gear.Empyrean_Hands}
-    sets.buff['Immanence'] = {hands=gear.Empyrean_Hands, "Lugh's Cape"}
+    sets.buff['Immanence'] = {hands=gear.Empyrean_Hands}
     sets.buff['Penury'] = {legs=gear.Empyrean_Legs}
     sets.buff['Parsimony'] = {legs=gear.Empyrean_Legs}
     sets.buff['Celerity'] = {feet=gear.Relic_Feet}
