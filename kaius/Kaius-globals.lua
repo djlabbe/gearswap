@@ -225,6 +225,9 @@ function define_global_sets()
 
     -- -- Ambuscade Capes
 
+    gear.BLM_MAB_Cape = { name="Taranus's Cape", augments={'INT+20','"Mag.Atk.Bns."+7',}}
+    gear.BLM_Death_Cape = { name="Taranus's Cape", augments={'INT+20','"Mag.Atk.Bns."+7',}}
+
     gear.WHM_Cure_Cape = { name="Alaunus's Cape", augments={'MND+20','Eva.+20 /Mag. Eva.+20','"Cure" potency +10%','Spell interruption rate down-10%',}}
 
     gear.THF_TP_Cape ={ name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Store TP"+10','Damage taken-5%',}}

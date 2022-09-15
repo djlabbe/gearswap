@@ -462,7 +462,7 @@ function init_gear_sets()
     sets.midcast.Refresh = set_combine(sets.midcast.EnhancingDuration, {
         head=gear.Amalric_A_Head,
         waist="Gishdubar Sash",
-        back="Grapevine Cape",
+        -- back="Grapevine Cape",
     })
 
     sets.midcast.Stoneskin = set_combine(sets.midcast.EnhancingDuration, {
@@ -767,7 +767,7 @@ function init_gear_sets()
         ring1="Freke Ring",
         ring2="Mujin Band", --(5)
         back=gear.SCH_MAB_Cape,
-        waist="Acuity Belt +1",,
+        waist="Acuity Belt +1",
         legs=gear.Agwu_Legs,
         feet=gear.Agwu_Feet, --6
     } -- 36/15

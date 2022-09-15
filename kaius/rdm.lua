@@ -872,7 +872,7 @@ function init_gear_sets()
     sets.magic_burst = {
         main="Bunzi's Rod",
         sub="Ammurapi Shield",
-        ammo="Ghastly Tathlum +1"
+        ammo="Ghastly Tathlum +1",
         head="Ea Hat +1", --7/(7)
         neck="Sibyl Scarf",
         ear1="Malignance Earring",

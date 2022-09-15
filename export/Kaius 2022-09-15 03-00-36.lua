@@ -1,0 +1,17 @@
+sets.exported={
+    main={ name="Marin Staff +1", augments={'Path: A',}},
+    sub="Enki Strap",
+    ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
+    head={ name="Arch. Petasos +3", augments={'Increases Ancient Magic damage and magic burst damage',}},
+    body={ name="Arch. Coat +3", augments={'Enhances "Manafont" effect',}},
+    hands={ name="Arch. Gloves +3", augments={'Increases Elemental Magic accuracy',}},
+    legs={ name="Arch. Tonban +3", augments={'Increases Elemental Magic debuff time and potency',}},
+    feet={ name="Arch. Sabots +3", augments={'Increases Aspir absorption amount',}},
+    neck={ name="Src. Stole +2", augments={'Path: A',}},
+    waist={ name="Acuity Belt +1", augments={'Path: A',}},
+    left_ear="Malignance Earring",
+    right_ear="Regal Earring",
+    left_ring="Freke Ring",
+    right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+    back=,
+}

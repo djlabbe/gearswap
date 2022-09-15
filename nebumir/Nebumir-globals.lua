@@ -6,7 +6,6 @@
 
 function define_global_sets()
 
-
     -- Duplicate Items
     gear.Stikini_1 = {name="Stikini Ring +1", bag="wardrobe3"}
     gear.Stikini_2 = {name="Stikini Ring +1", bag="wardrobe4"}
@@ -23,6 +22,8 @@ function define_global_sets()
     gear.Kaykaus_D_Hands = { name="Kaykaus Cuffs +1", augments={'MP+80','"Conserve MP"+7','"Fast Cast"+4',}}
     gear.Kaykaus_A_Legs = { name="Kaykaus Tights +1", augments={'MP+80','MND+12','Mag. Acc.+20',}}
     gear.Kaykaus_B_Feet = { name="Kaykaus Boots +1", augments={'MP+80','"Cure" spellcasting time -7%','Enmity-6',}}
+
+    gear.Amalric_D_Hands = { name="Amalric Gages +1", augments={'INT+12','Mag. Acc.+20','"Mag.Atk.Bns."+20',}}
 
 
     -- -- Ambuscade Capes

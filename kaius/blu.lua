@@ -646,7 +646,7 @@ function init_gear_sets()
     sets.midcast['Blue Magic'].Refresh = set_combine(sets.midcast['Blue Magic'], {
         head=gear.Amalric_A_Head, 
         waist="Gishdubar Sash", 
-        back="Grapevine Cape"
+        -- back="Grapevine Cape"
     })
 
     sets.midcast['Blue Magic'].SkillBasedBuff = sets.midcast['Blue Magic']
@@ -690,7 +690,7 @@ function init_gear_sets()
     sets.midcast.Refresh = set_combine(sets.midcast.EnhancingDuration, {
         head=gear.Amalric_A_Head, 
         waist="Gishdubar Sash", 
-        back="Grapevine Cape"
+        -- back="Grapevine Cape"
     })
 
     sets.midcast.Stoneskin = set_combine(sets.midcast.EnhancingDuration, {waist="Siegel Sash"})

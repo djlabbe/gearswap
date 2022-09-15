@@ -149,6 +149,7 @@ function user_setup()
 
     set_macro_page(1, 10)
     send_command('wait 2; input /lockstyleset 10')
+    send_command('gs enable range')
 
     state.Auto_Kite = M(false, 'Auto_Kite')
     Haste = 0
@@ -523,7 +524,7 @@ function init_gear_sets()
 
     sets.midcast.Refresh = set_combine(sets.midcast['Enhancing Magic'], {
         waist="Gishdubar Sash", 
-        back="Grapevine Cape"
+        -- back="Grapevine Cape"
     })
 
     sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {

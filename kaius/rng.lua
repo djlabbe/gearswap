@@ -158,7 +158,8 @@ end
 function user_unload()
     send_command('unbind @w')
     send_command('unbind @e')
-    send_command('unbind @r') 
+    send_command('unbind @r')
+    enable('main','sub','range')
 end
 
 

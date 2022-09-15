@@ -305,7 +305,7 @@ function init_gear_sets()
         head=gear.Amalric_A_Head,
         --feet="Inspirited Boots",
         waist="Gishdubar Sash",
-        back="Grapevine Cape",
+        -- back="Grapevine Cape",
     })
 
     sets.midcast.Stoneskin = set_combine(sets.midcast.EnhancingDuration, {
@@ -525,8 +525,8 @@ function init_gear_sets()
     sets.idle.Town = set_combine(sets.idle, {
         -- main=gear.Grioavolr_MB,
         -- sub="Khonsu",
-        main="Marin Staff +1",
-        sub="Enki Strap",
+        main="Bunzi's Rod",
+        sub="Ammurapi Shield",
         head=gear.Relic_Head,
         body=gear.Relic_Body,
         hands=gear.Relic_Hands,
@@ -551,8 +551,8 @@ function init_gear_sets()
     sets.latent_dt = { ear2="Sorcerer's Earring" }
 
     sets.magic_burst = {
-        main="Marin Staff +1",
-        sub="Alber Strap",
+        main="Bunzi's Rod",
+        sub="Ammurapi Shield",
         head="Ea Hat +1", --7/(7)
         neck="Sorcerer's Stole +2",
         ear1="Malignance Earring",
@@ -600,7 +600,7 @@ function init_gear_sets()
         -- body="Rosette Jaseran +1",
         body="Zendic Robe", --14
         -- hands="Agwu's Gages", --6
-        -- legs="Volte Brais", --8
+        -- legs="Volte Brais", --8 
         feet=gear.Amalric_D_Feet, --6
         -- neck="Orunmila's Torque", --5
         neck="Baetyl Pendant",
@@ -613,7 +613,7 @@ function init_gear_sets()
     }
 
     sets.midcast['Elemental Magic'].DeathMode = set_combine(sets.midcast['Elemental Magic'], {
-        main=gear.Grioavolr_MB,
+        main="Marin Staff +1",
         sub="Enki Strap",
         ammo="Ghastly Tathlum +1",
         head="Pixie Hairpin +1",
