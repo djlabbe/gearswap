@@ -82,12 +82,12 @@ function user_setup()
     gear.Relic_Head = { name= "Bagua Galero +3" }
     gear.Relic_Body = { name= "Bagua Tunic +1" }
     gear.Relic_Hands = { name= "Bagua Mitaines +1" }
-    gear.Relic_Legs = { name= "Bagua Pants +1" }
+    gear.Relic_Legs = { name= "Bagua Pants +3" }
     gear.Relic_Feet = { name= "Bagua Sandals +3" }
 
     gear.Artifact_Head = { name= "Geomancy Galero" }
     gear.Artifact_Body = { name= "Geomancy Tunic +3" }
-    gear.Artifact_Hands = { name= "Geomancy Mitaines +2" }
+    gear.Artifact_Hands = { name= "Geomancy Mitaines +3" }
     gear.Artifact_Legs = { name= "Geomancy Pants" }
     gear.Artifact_Feet = { name= "Geomancy Sandals +3" }
 
@@ -422,13 +422,13 @@ function init_gear_sets()
     sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'], {
         main="Idris",
         sub="Ammurapi Shield",
-        hands="Bagua Mitaines +3",
+        hands=gear.Relic_Hands,
         legs=gear.Merl_MAB_legs,
         feet=gear.Merl_MAB_feet,
         neck="Sanctity Necklace",
         ear2="Digni. Earring",
         waist="Acuity Belt +1",
-        })
+    })
 
     sets.midcast.GeoElem = set_combine(sets.midcast['Elemental Magic'], {})
 
@@ -477,7 +477,7 @@ function init_gear_sets()
     sets.idle.DT = set_combine(sets.idle, {
         sub="Genmei Shield", --10/0
         body="Mallquis Saio +2", --8/8
-        hands="Geo. Mitaines +3", --3/0
+        hands=gear.Artifact_Hands, --3/0
         neck="Loricate Torque +1", --6/6
         ear1="Genmei Earring", --2/0
         ear2="Odnowa Earring +1", --3/3
@@ -523,7 +523,8 @@ function init_gear_sets()
         main="Idris",
         sub="Ammurapi Shield",
         head=gear.Relic_Head,
-        body=gear.Relic_Body,
+        body=gear.Artifact_Body,
+        hands=gear.Artifact_Hands,
         legs=gear.Relic_Legs,
         feet=gear.Relic_Feet,
         neck="Bagua Charm +1",

@@ -58,7 +58,7 @@ function user_setup()
     -- gear.Artifact_Head = { name= "Wakido Kabuto +3" }
     -- gear.Artifact_Body = { name= "Wakido Domaru +3" }
     gear.Artifact_Hands = { name= "Wakido Kote +3" }
-    -- gear.Artifact_Legs = { name= "Wakido Haidate +3" }
+    gear.Artifact_Legs = { name= "Wakido Haidate +3" }
     -- gear.Artifact_Feet = { name= "Wakido Sune-Ate +3" }
 
     gear.Relic_Head = { name= "Sakonji Kabuto +3" }
@@ -205,7 +205,7 @@ function init_gear_sets()
         head=gear.Mpaca_Head,
         body=gear.Relic_Body, --10
         hands=gear.Valo_WSD_Hands, --3
-        legs="Hiza. Hizayoroi +2", --7
+        legs= gear.Artifact_Legs, --10
         feet=gear.Valo_WSD_Feet, --4
         neck="Sam. Nodowa +2",
         waist="Sailfi Belt +1",
