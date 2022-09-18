@@ -171,9 +171,9 @@ function init_gear_sets()
         -- head=gear.Mpaca_Head, --7/0
         body=gear.Empyrean_Body, --13/13
         -- hands=gear.Mpaca_Hands, --8/0
-        -- legs=gear.Mpaca_Legs, --9/0
-        -- feet=gear.Mpaca_Feet, --6/0
-        -- ring2="Defending Ring", --10/10
+        legs=gear.Mpaca_Legs, --9/0
+        feet=gear.Mpaca_Feet, --6/0
+        ring2="Defending Ring", --10/10
     }
 
     sets.engaged.Subtle = {

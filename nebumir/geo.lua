@@ -402,21 +402,22 @@ function init_gear_sets()
     -- Elemental Magic sets
 
     sets.midcast['Elemental Magic'] = {
-        main="Raetic Staff +1",
-        sub="Enki Strap",
-        head="Bagua Galero +3",
-        body="Amalric Doublet +1",
-        hands="Amalric Gages +1",
-        legs="Amalric Slops +1",
-        feet="Amalric Nails +1",
-        neck="Saevus Pendant +1",
-        ear1="Malignance Earring",
-        ear2="Regal Earring",
-        ring1="Freke Ring",
-        ring2="Metamor. Ring +1",
-        back=gear.GEO_MAB_Cape,
-        waist="Refoccilation Stone",
-        }
+        main={ name="Solstice", augments={'INT+15','"Mag.Atk.Bns."+10','"Refresh"+1',}},
+        sub="Culminus",
+        range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
+        head={ name="Bagua Galero +3", augments={'Enhances "Primeval Zeal" effect',}},
+        body={ name="Merlinic Jubbah", augments={'"Mag.Atk.Bns."+28','"Fast Cast"+7','Mag. Acc.+13',}},
+        hands={ name="Amalric Gages +1", augments={'INT+12','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
+        legs={ name="Bagua Pants +3", augments={'Enhances "Mending Halation" effect',}},
+        feet={ name="Bagua Sandals +3", augments={'Enhances "Radial Arcana" effect',}},
+        neck="Baetyl Pendant",
+        waist="Eschan Stone",
+        left_ear="Sortiarius Earring",
+        right_ear="Friomisi Earring",
+        left_ring="Jhakri Ring",
+        right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+        back={ name="Nantosuelta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10',}},
+    }
 
     sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'], {
         main="Idris",

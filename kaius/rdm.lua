@@ -646,7 +646,8 @@ function init_gear_sets()
     sets.midcast.MndEnfeeblesAcc = set_combine(sets.midcast.MndEnfeebles, {
         main="Crocea Mors",
         sub="Ammurapi Shield",
-        range="Ullr",
+        -- range="Ullr",
+        range="Regal Gem",
         ammo=empty,
         head=gear.Artifact_Head,
         body=gear.Artifact_Body,
@@ -802,6 +803,7 @@ function init_gear_sets()
     -- Job-specific buff sets
     sets.buff.ComposureOther = set_combine(sets.midcast.EnhancingDuration, {
         head=gear.Empyrean_Head,
+        body=gear.Empyrean_Body,
         legs=gear.Empyrean_Legs,
         feet=gear.Empyrean_Feet,
     });
