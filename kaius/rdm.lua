@@ -818,7 +818,7 @@ function init_gear_sets()
     sets.idle = {
         ammo="Homiliary",
         head=gear.Relic_Head,
-        body=gear.Artifact_Body,
+        body="Shamash Robe",
         hands="Volte Gloves",
         legs=gear.Malignance_Legs,
         feet=gear.Malignance_Feet,
@@ -849,7 +849,7 @@ function init_gear_sets()
     sets.idle.Town = set_combine(sets.idle, {
         ammo="Regal Gem",
         head=gear.Relic_Head,
-        body=gear.Relic_Body,
+        body="Shamash Robe",
         hands="Regal Cuffs",
         legs=gear.Relic_Legs,
         feet=gear.Relic_Feet,

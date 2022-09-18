@@ -155,7 +155,7 @@ function init_gear_sets()
         ring2="Weather. Ring +1", --6(4)
         back="Fi Follet Cape +1", --10
         waist="Shinjutsu-no-Obi +1", --5
-        }
+    }
 
     sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {
         back="Perimede Cape",
@@ -442,7 +442,7 @@ function init_gear_sets()
         head=empty,
         body="Twilight Cloak",
         ring2="Archon Ring",
-        })
+    })
 
     -- Initializes trusts at iLvl 119
     sets.midcast.Trust = sets.precast.FC
