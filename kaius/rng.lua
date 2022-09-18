@@ -250,7 +250,7 @@ function init_gear_sets()
 
     sets.precast.WS = {
         head=gear.Artifact_Head,
-        body="Meg. Cuirie +2", -- TODO: Herc RA?
+        body=gear.Ikenga_Body, -- TODO: Herc RA?
         hands="Meg. Gloves +2",
         legs=gear.Relic_Legs,
         feet=gear.Herc_WSD_Feet,

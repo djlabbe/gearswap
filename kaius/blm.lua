@@ -230,7 +230,7 @@ function init_gear_sets()
         main="Daybreak", --30
         sub="Sors Shield", --3/(-5)
         ammo="Esper Stone +1", --0/(-5)
-        body="Vanya Robe",
+        body="Shamash Robe",
         hands=gear.Telchine_ENH_Hands, --10
         feet="Medium's Sabots", --12
         neck="Nodens Gorget", --5
@@ -487,7 +487,7 @@ function init_gear_sets()
         sub="Genmei Shield",
         ammo="Ghastly Tathlum +1",
         head=gear.Nyame_Head,
-        body="Jhakri Robe +2",
+        body="Shamash Robe",
         -- hands="Raetic Bangles +1",
         hands="Volte Gloves",
         -- legs="Volte Brais",
@@ -520,6 +520,7 @@ function init_gear_sets()
     })
 
     sets.idle.ManaWall = {
+        body="Shamash Robe",
         feet="Wicce Sabots +1",
         back=gear.BLM_Death_Cape,
     }

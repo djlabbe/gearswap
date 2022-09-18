@@ -667,7 +667,7 @@ function init_gear_sets()
         ammo="Homiliary",
         -- head="Volte Beret",
         head=gear.Relic_Head,
-        body="Jhakri Robe +2",
+        body="Shamash Robe",
         -- body=gear.Artifact_Body,
         -- hands="Raetic Bangles +1",
         hands="Volte Gloves",
@@ -689,7 +689,7 @@ function init_gear_sets()
         sub="Genmei Shield", --10/0
         ammo="Staunch Tathlum +1", --3/3
         -- head="Volte Beret",
-        body="Mallquis Saio +2", --8/8
+         body="Shamash Robe", --10/0
         -- hands="Gende. Gages +1", --4/4
         -- feet="Volte Gaiters",
         neck="Loricate Torque +1", --6/6

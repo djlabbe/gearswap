@@ -566,7 +566,7 @@ function init_gear_sets()
         sub="Genmei Shield",
         ammo="Homiliary",
         head="Inyanga Tiara +2",
-        body="Theophany Bliaut +3",
+        body="Shamash Robe",
         --hands="Raetic Bangles +1",
         legs="Assid. Pants +1",
         feet="Inyan. Crackows +2",
@@ -584,6 +584,7 @@ function init_gear_sets()
         sub="Genmei Shield", --10/0
         ammo="Staunch Tathlum +1", --3/3
         head="Aya. Zucchetto +2", --3/3
+        body="Shamash Robe", --10/0
         hands="Gende. Gages +1", --4/4
         neck="Loricate Torque +1", --6/6
         ear1="Odnowa Earring +1", --3/5
@@ -591,21 +592,21 @@ function init_gear_sets()
         ring2="Defending Ring", --10/10
         back="Moonlight Cape", --6/6
         waist="Carrier's Sash",
-        })
+    })
 
     sets.idle.MEva = set_combine(sets.idle.DT, {
         main="Daybreak",
         sub="Genmei Shield",
         ammo="Staunch Tathlum +1",
-        head=gear.Nyame_Head,
-        body=gear.Nyame_Body,
-        --hands="Raetic Bangles +1",
-        legs=gear.Nyame_Legs,
-        feet=gear.Nyame_Feet,
+        head=gear.Bunzi_Head,
+        body=gear.Bunzi_Body,
+        hands=gear.Bunzi_Hands,
+        legs=gear.Bunzi_Legs,
+        feet=gear.Bunzi_Feet,
         neck="Warder's Charm +1",
         ear1="Eabani Earring",
         ear2="Infused Earring",
-        ring1="Purity Ring",
+        ring1="Defending Ring",
         ring2="Inyanga Ring",
         back=gear.WHM_FC_Cape,
         waist="Carrier's Sash",
