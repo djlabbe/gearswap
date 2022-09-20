@@ -218,6 +218,11 @@ function init_gear_sets()
 
     sets.precast.WS.Acc = set_combine(sets.precast.WS, {})
 
+    sets.precast.WS.HighTP = set_combine(sets.precast.WS, {
+        head=gear.Valo_WSD_Head,
+        ear2="Lugra Earring +1",
+    })
+
     sets.precast.WS['Impulse Drive'] = {
         head=gear.Mpaca_Head,
         body="Tatena. Harama. +1",
@@ -230,6 +235,21 @@ function init_gear_sets()
         ring2="Epaminondas's Ring",
         back=gear.SAM_WS_Cape,
         waist="Sailfi Belt +1",
+    }
+
+    sets.precast.WS['Tachi: Jinpu'] = {
+        head=gear.Nyame_Head,
+        body=gear.Nyame_Body,
+        hands=gear.Nyame_Hands,
+        legs=gear.Nyame_Legs,
+        feet=gear.Nyame_Feet,
+        neck="Sam. Nodowa +2",
+        ear1="Friomisi Earring",
+        ear2="Moonshade Earring",
+        ring1="Niqmaddu Ring",
+        ring2="Epaminondas's Ring",
+        back=gear.SAM_WS_Cape,
+        waist="Orpheus's Sash",
     }
 
     sets.precast.WS['Impulse Drive'].Acc = set_combine(sets.precast.WS['Impulse Drive'], {
@@ -358,7 +378,10 @@ function job_post_precast(spell, action, spellMap, eventArgs)
     if spell.type == 'WeaponSkill' then
         if spell.english == 'Impulse Drive' and player.tp > 2000 then
            equip(sets.precast.WS['Impulse Drive'].HighTP)
+        elseif player.tp == 3000 then
+            equp(sets.precast.WS.HighTP)
         end
+        
     end
 end
 
