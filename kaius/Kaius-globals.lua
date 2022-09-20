@@ -234,7 +234,7 @@ function define_global_sets()
 
     gear.RDM_DW_Cape = { name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dual Wield"+10','Phys. dmg. taken-10%',}}
     gear.RDM_MND_Cape = { name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%','Mag. Evasion+15',}} --*
-    gear.RDM_ENH_Cape = { name="Ghostfyre Cape", augments={'Enfb.mag. skill +8','Enha.mag. skill +1','Mag. Acc.+1','Enh. Mag. eff. dur. +18',}}
+    gear.RDM_ENH_Cape = { name="Ghostfyre Cape", augments={'Enfb.mag. skill +7','Enha.mag. skill +10','Mag. Acc.+7','Enh. Mag. eff. dur. +20',}}
 
     gear.PLD_Cape = { name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Damage taken-5%',}}
     gear.PLD_FC_Cape = { name="Rudianos's Mantle", augments={'"Fast Cast"+8','Spell interruption rate down-10%',}}

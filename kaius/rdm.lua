@@ -265,14 +265,14 @@ function init_gear_sets()
     -- Fast cast sets for spells
     -- Fast cast sets for spells (80% cap - 38% job = 42% target)
     sets.precast.FC = {
-        head=gear.Artifact_Head, --16
+        -- head=gear.Artifact_Head, --16
         body=gear.Relic_Body, --15
         -- legs="Volte Brais", --8
         ear1="Malignance Earring", --4
-        ear2="Enchanter's Earring +1", --2 
+        ear2="Leth. Earring +1", --8 
         feet=gear.Carmine_B_Feet, --8
         ring2="Weather. Ring", --4
-    }
+    } --27
 
     sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {
         waist="Siegel Sash"
@@ -560,7 +560,7 @@ function init_gear_sets()
         hands=gear.Relic_Hands,
         ring1=gear.Stikini_1,
         ring2=gear.Stikini_2,
-        back="Fi Follet Cape +1",
+        back=gear.RDM_ENH_Cape,
         wasit="Olympus Sash",
         legs=gear.Artifact_Legs,
         feet=gear.Empyrean_Feet,
