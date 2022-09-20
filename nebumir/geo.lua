@@ -147,7 +147,7 @@ function init_gear_sets()
         body=gear.Merl_MB_body, --6
         hands=gear.Merl_FC_hands, --7
         legs=gear.Artifact_Legs, --15
-        feet="Volte Gaiters", --6
+        feet="Regal Pumps +1", --4
         neck="Baetyl Pendant", --4
         ear1="Malignance Earring", --4
         ear2="Etiolation Earring", --1
@@ -342,8 +342,8 @@ function init_gear_sets()
 
 
     sets.midcast.MndEnfeebles = {
-        main="Idris",
-        sub="Ammurapi Shield",
+        -- main="Idris",
+        -- sub="Ammurapi Shield",
         head=empty,
         body="Cohort Cloak +1",
         hands=gear.Artifact_Hands,
@@ -420,8 +420,8 @@ function init_gear_sets()
     }
 
     sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'], {
-        main="Idris",
-        sub="Ammurapi Shield",
+        -- main="Idris",
+        -- sub="Ammurapi Shield",
         hands=gear.Relic_Hands,
         legs=gear.Merl_MAB_legs,
         feet=gear.Merl_MAB_feet,
@@ -520,8 +520,8 @@ function init_gear_sets()
     --sets.idle.DT.Pet.Indi = set_combine(sets.idle.DT.Pet, {})
 
     sets.idle.Town = set_combine(sets.idle, {
-        main="Idris",
-        sub="Ammurapi Shield",
+        -- main="Idris",
+        -- sub="Ammurapi Shield",
         head=gear.Relic_Head,
         body=gear.Artifact_Body,
         hands=gear.Artifact_Hands,

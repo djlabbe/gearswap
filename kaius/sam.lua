@@ -178,20 +178,19 @@ function init_gear_sets()
 
     sets.engaged.Subtle = {
         ammo="Aurgelmir Orb +1",
-        head="Ken. Jinpachi +1",
-        body="Dagon Breastplate",
+        head="Ken. Jinpachi +1", --8
+        body="Dagon Breastplate", --(10)
         hands=gear.Artifact_Hands,
-        legs="Mpaca's Hose",
-        feet=gear.Ryuo_C_Feet,
-        neck="Bathy Choker +1",
-        ear1="Schere Earring",
+        legs=gear.Mpaca_Legs, --(5)
+        feet=gear.Ryuo_C_Feet, --8
+        neck="Bathy Choker +1", --11
+        ear1="Schere Earring", --3
         -- ear2="Digni. Earring",
-        ring1="Niqmaddu Ring",
-        ring2="Chirich Ring +1",
-        waist="Sarissapho. Belt",
+        ring1="Niqmaddu Ring", --(5)
+        ring2="Chirich Ring +1", --10
+        waist="Sarissapho. Belt", --5
         back=gear.SAM_TP_Cape,
-        
-    }
+    } --45/20
 
     sets.engaged.DT = set_combine(sets.engaged, sets.engaged.Hybrid)
     sets.engaged.Acc.DT = set_combine(sets.engaged.LowAcc, sets.engaged.Hybrid)

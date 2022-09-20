@@ -190,7 +190,7 @@ enmity_plus_moves = S{'Provoke','Berserk','Warcry','Aggressor','Holy Circle','Se
 
 -- Random Lockstyle generator.
 
-    send_command('@wait 5;input /lockstyleset 10')
+    send_command('@wait 5;input /lockstyleset 9')
     display_mode_info()
 end
 
@@ -1688,8 +1688,8 @@ function init_gear_sets()
         ear2="Thrud Earring",
         body="Nzingha Cuirass",
         hands="Totemic Gloves +3",
-        ring1="Epaminondas's Ring",r
-        ing2="Ilabrat Ring",
+        ring1="Epaminondas's Ring",
+        ring2="Ilabrat Ring",
         back=STR_WS_back,
         waist="Sailfi Belt +1",
         legs="Ankusa Trousers +3",

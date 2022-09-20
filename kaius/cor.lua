@@ -221,7 +221,7 @@ function init_gear_sets()
         ring2="Defending Ring", --10/10
         back=gear.COR_SNP_Cape,
         waist="Flume Belt +1", --4/0
-        }
+    }
 
     sets.precast.CorsairRoll.Duration = {main={name="Rostam"}, range="Compensator"}
 
@@ -354,7 +354,7 @@ function init_gear_sets()
 
     sets.precast.WS['Evisceration'] = {
         head=gear.Adhemar_B_head,
-        body="Abnoba Kaftan",
+        -- body="Abnoba Kaftan",
         hands="Mummu Wrists +2",
         legs="Zoar Subligar +1",
         feet="Mummu Gamash. +2",
