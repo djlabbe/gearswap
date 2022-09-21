@@ -70,7 +70,7 @@ function user_setup()
     -- gear.Empyrean_Head = { name= "Kasuga Kabuto +1" }
     gear.Empyrean_Body = { name= "Kasuga Domaru +2" }
     gear.Empyrean_Hands = { name= "Kasuga Kote +1" }
-    -- gear.Empyrean_Legs = { name= "Kasuga Haidate +1" }
+    gear.Empyrean_Legs = { name= "Kasuga Haidate +2" }
     -- gear.Empyrean_Feet = { name= "Kasuga Sune-Ate +1" }
 
     -- Additional local binds
@@ -272,9 +272,9 @@ function init_gear_sets()
     sets.idle = {
         ammo="Coiste Bodhar",
         head="Flamma Zucchetto +2",
-        body="Tatenashi Haramaki +1",
+        body=gear.Empyrean_Body,
         hands=gear.Artifact_Hands,
-        legs="Tatena. Haidate +1",
+        legs=gear.Empyrean_Legs,
         feet="Tatena. Sune. +1",
         neck="Sam. Nodowa +2",
         waist="Sailfi Belt +1",
@@ -297,9 +297,9 @@ function init_gear_sets()
     sets.idle.Town =  {
         ammo="Coiste Bodhar",
         head="Flamma Zucchetto +2",
-        body="Tatenashi Haramaki +1",
-        hands=gear.Artifact_Hands,
-        legs="Tatena. Haidate +1",
+        body=gear.Empyrean_Body,
+        hands="Tatenashi Gote +1",
+        legs=gear.Empyrean_Legs,
         feet=gear.Ryuo_C_Feet,
         neck="Sam. Nodowa +2",
         waist="Sailfi Belt +1",

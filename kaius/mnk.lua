@@ -1,3 +1,5 @@
+-- Original: Motenten / Modified: Arislan
+
 -------------------------------------------------------------------------------------------------------------------
 --  Keybinds
 -------------------------------------------------------------------------------------------------------------------
@@ -11,6 +13,7 @@
 --              [ F12 ]             Update Current Gear / Report Current Status
 --              [ CTRL+F12 ]        Cycle Idle Modes
 --              [ ALT+F12 ]         Cancel Emergency -PDT/-MDT Mode
+--              [ WIN+C ]           Toggle Capacity Points Mode
 --
 --
 --              (Global-Binds.lua contains additional non-job-related keybinds)
@@ -29,214 +32,205 @@ end
 
 -- Setup vars that are user-independent.
 function job_setup()
-    weapon_list = S{"Karambit"}
+
+    no_swap_gear = S{"Warp Ring", "Dim. Ring (Dem)", "Dim. Ring (Holla)", "Dim. Ring (Mea)",
+              "Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring"}
+
+    include('Mote-TreasureHunter')
+
+    -- For th_action_check():
+    -- JA IDs for actions that always have TH: Provoke, Animated Flourish
+    info.default_ja_ids = S{35, 204}
+    -- Unblinkable JA IDs for actions that always have TH: Quick/Box/Stutter Step, Desperate/Violent Flourish
+    info.default_u_ja_ids = S{201, 202, 203, 205, 207}
+
+    lockstyleset = 1
+
 end
 
+-------------------------------------------------------------------------------------------------------------------
+-- User setup functions for this job.  Recommend that these be overridden in a sidecar file.
+-------------------------------------------------------------------------------------------------------------------
+
 function user_setup()
-    state.OffenseMode:options('Normal', 'Acc')
-    state.WeaponskillMode:options('Normal', 'Acc')
+    state.OffenseMode:options('Normal')
+    state.WeaponskillMode:options('Normal')
     state.HybridMode:options('Normal', 'DT')
     state.IdleMode:options('Normal', 'DT')
 
-    state.WeaponSet = M{['description']='Weapon Set', 'Karambit'}
-
     -- Additional local binds
-    include('Global-Binds.lua')
+    include('Global-Binds.lua') -- OK to remove this line
 
-    send_command('bind !t input /ja "Provoke" <t>')
+    send_command('bind ^` gs c cycle treasuremode')
 
-    set_macro_page(1, 2)
+    set_macro_page(2, 2)
     send_command('wait 2; input /lockstyleset 2')
-    get_combat_weapon()
 end
 
 function user_unload()
-    send_command('unbind !t')
 end
 
 -- Define sets and vars used by this job file.
 function init_gear_sets()
 
-    sets.Karambit = {main="Karambit"}
+    ------------------------------------------------------------------------------------------------
+    ---------------------------------------- Precast Sets ------------------------------------------
+    ------------------------------------------------------------------------------------------------
 
-    sets.engaged = {
-        ammo="Coiste Bodhar",
-        head=gear.Adhemar_B_Head,
-        body=gear.Adhemar_A_Body,
-        hands=gear.Adhemar_A_Hands,
-        legs="Mpaca's Hose",
-        feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
-        neck="Anu Torque",
-        waist="Moonbow Belt +1",
-        left_ear="Sherida Earring",
-        right_ear="Schere Earring",
-        left_ring="Gere Ring",
-        right_ring="Niqmaddu Ring",
-        back="Relucent Cape",
+    -- Fast cast sets for spells
+    sets.precast.FC = {
+        ammo="Sapience Orb", --2
+        head=gear.Herc_MAB_head, --7
+        body=gear.Taeon_FC_body, --9
+        hands="Leyline Gloves", --8
+        legs="Rawhide Trousers", --5
+        feet=gear.Herc_MAB_feet, --2
+        neck="Orunmila's Torque", --5
+        ear1="Loquacious Earring", --2
+        ear2="Enchntr. Earring +1", --2
+        ring1="Weather. Ring +1", --6(4)
+        ring2="Kishar Ring", --4
     }
 
-    sets.engaged.Hybrid = {
-        ammo="Coiste Bodhar",
-        head="Kendatsuba Jinpachi +1",
-        body=gear.Malignance_Body,
-        hands=gear.Malignance_Hands,
-        legs=gear.Malignance_Legs,
-        feet="Kendatsuba Sune-Ate +1",
-        neck="Mnk. Nodowa +2",
-        waist="Moonbow Belt +1",
-        left_ear="Sherida Earring",
-        right_ear="Schere Earring",
-        left_ring="Gere Ring",
-        right_ring="Niqmaddu Ring",
-        back="Relucent Cape",
-    }
-    
-
-    sets.engaged.Acc = {
-        ammo="Ginsen",
-        head="Kendatsuba Jinpachi +1",
-        body="Bhikku Cyclas +1",
-        hands="Mpaca's Gloves",
-        legs="Ken. Hakama +1",
-        feet="Ken. Sune-Ate +1",
-        neck="Mnk. Nodowa +2",
-        waist="Moonbow Belt +1",
-        left_ear="Sherida Earring",
-        right_ear="Telos Earring",
-        left_ring="Gere Ring",
-        right_ring="Niqmaddu Ring",
-        back="Relucent Cape",
-    }
+    ------------------------------------------------------------------------------------------------
+    ------------------------------------- Weapon Skill Sets ----------------------------------------
+    ------------------------------------------------------------------------------------------------
 
     sets.precast.WS = {
-        ammo="Knobkierre",
-        head="Mpaca's Cap",
-        body="Tatena. Harama. +1",
-        hands=gear.Adhemar_A_Hands,
-        legs="Mpaca's Hose",
-        feet=gear.Herc_TA_Feet,
+        ammo="Aurgelmir Orb +1",
+        head=gear.Adhemar_B_head,
+        body=gear.Herc_WS_body,
+        hands=gear.Adhemar_B_hands,
+        legs="Samnuha Tights",
+        feet=gear.Herc_TA_feet,
         neck="Fotia Gorget",
-        waist="Moonbow Belt +1",
-        left_ear="Sherida Earring",
-        right_ear="Ishvara Earring",
-        left_ring="Gelatinous Ring +1",
-        right_ring="Niqmaddu Ring",
+        ear1="Moonshade Earring",
+        ear2="Ishvara Earring",
+        ring1="Gere Ring",
+        ring2="Epaminondas's Ring",
         back="Relucent Cape",
-    }
+        waist="Fotia Belt",
+    } -- default set
 
-    sets.precast.WS.Acc = {
-        -- TODO
-    }
+    ------------------------------------------------------------------------------------------------
+    ---------------------------------------- Midcast Sets ------------------------------------------
+    ------------------------------------------------------------------------------------------------
 
-    -- Add custom WSs here
-    -- sets.precast.WS['Raging Fists'] = {
-        -- TODO
-    -- }
-
-    sets.precast.WS['Final Heaven'] = {
-        ammo="Knobkierre",
-        head="Mpaca's Cap",
-        body="Tatena. Harama. +1",
-        hands=gear.Adhemar_A_Hands,
-        legs="Mpaca's Hose",
-        feet=gear.Herc_TA_Feet,
-        neck="Fotia Gorget",
-        waist="Moonbow Belt +1",
-        left_ear="Sherida Earring",
-        right_ear="Ishvara Earring",
-        left_ring="Gelatinous Ring +1",
-        right_ring="Niqmaddu Ring",
-        back="Relucent Cape",
-    }
-
-    sets.precast.FC = {
-         -- TODO
-    }
-
-    sets.engaged.DT = set_combine(sets.engaged, sets.engaged.Hybrid)
-    sets.engaged.Acc.DT = set_combine(sets.engaged.Acc, sets.engaged.Hybrid)
+    ------------------------------------------------------------------------------------------------
+    ----------------------------------------- Idle Sets --------------------------------------------
+    ------------------------------------------------------------------------------------------------
 
     sets.idle = {
-        ammo="Coiste Bodhar",
-        head=gear.Malignance_Head, --6/6
-        legs=gear.Malignance_Legs, --8/8
-        body=gear.Malignance_Body, --9/9
-        hands=gear.Malignance_Hands, --5/5
-        feet=gear.Malignance_Feet, --4/4
-        neck="Mnk. Nodowa +2",
-        waist="Moonbow Belt +1",
-        left_ear="Sherida Earring",
-        right_ear="Schere Earring",
-        left_ring="Gere Ring",
-        right_ring="Niqmaddu Ring",
+        ammo="Seki Shuriken",
+        head="Volte Cap",
+        body="Hiza. Haramaki +2",
+        hands=gear.Herc_DT_hands,
+        legs="Samnuha Tights",
+        feet="Herald's Gaiters",
+        neck="Bathy Choker +1",
+        ear1="Eabani Earring",
+        ear2="Sanare Earring",
+        ring1={name="Chirich Ring +1", bag="wardrobe3"},
+        ring2={name="Chirich Ring +1", bag="wardrobe4"},
         back="Moonlight Cape",
+        waist="Flume Belt +1",
+        }
+
+    sets.idle.Town = sets.idle
+
+    sets.idle.Weak = sets.idle.DT
+
+
+    ------------------------------------------------------------------------------------------------
+    ---------------------------------------- Defense Sets ------------------------------------------
+    ------------------------------------------------------------------------------------------------
+
+
+    ------------------------------------------------------------------------------------------------
+    ---------------------------------------- Engaged Sets ------------------------------------------
+    ------------------------------------------------------------------------------------------------
+
+    sets.engaged = {
+        ammo="Aurgelmir Orb +1",
+        head=gear.Herc_STP_head,
+        body=gear.Adhemar_B_body,
+        hands=gear.Adhemar_B_hands,
+        legs="Samnuha Tights",
+        feet=gear.Herc_TA_feet,
+        neck="Anu Torque",
+        ear1="Mache Earring +1",
+        ear2="Brutal Earring",
+        ring1="Niqmaddu Ring",
+        ring2="Epona's Ring",
+        back="Relucent Cape",
+        waist="Windbuffet Belt +1",
+        }
+
+
+    ------------------------------------------------------------------------------------------------
+    ---------------------------------------- Hybrid Sets -------------------------------------------
+    ------------------------------------------------------------------------------------------------
+
+
+    ------------------------------------------------------------------------------------------------
+    ---------------------------------------- Special Sets ------------------------------------------
+    ------------------------------------------------------------------------------------------------
+
+    sets.buff.Doom = {
+        neck="Nicander's Necklace", --20
+        ring1={name="Eshmun's Ring", bag="wardrobe3"}, --20
+        ring2={name="Eshmun's Ring", bag="wardrobe4"}, --20
+        waist="Gishdubar Sash", --10
     }
 
-end
+    sets.TreasureHunter = {head="Volte Cap", waist="Chaac Belt"}
 
+end
 
 -------------------------------------------------------------------------------------------------------------------
 -- Job-specific hooks for standard casting events.
 -------------------------------------------------------------------------------------------------------------------
 
--- Run after the default precast() is done.
--- eventArgs is the same one used in job_precast, in case information needs to be persisted.
-function job_precast(spell, action, spellMap, eventArgs)
-
-end
-
-
--- Run after the default midcast() is done.
--- eventArgs is the same one used in job_midcast, in case information needs to be persisted.
-function job_aftercast(spell, action, spellMap, eventArgs)
-
-end
-
 -------------------------------------------------------------------------------------------------------------------
 -- Job-specific hooks for non-casting events.
 -------------------------------------------------------------------------------------------------------------------
 
-function job_state_change(field, new_value, old_value)
-    check_weaponset()
+function job_buff_change(buff,gain)
+    if buff == "doom" then
+        if gain then
+            equip(sets.buff.Doom)
+            send_command('@input /p Doomed.')
+             disable('ring1','ring2','waist')
+        else
+            enable('ring1','ring2','waist')
+            handle_equipping_gear(player.status)
+        end
+    end
+
 end
 
--- Called when a player gains or loses a buff.
--- buff == buff gained or lost
--- gain == true if the buff was gained, false if it was lost.
-function job_buff_change(buff,gain)
-end
 
 -------------------------------------------------------------------------------------------------------------------
 -- User code that supplements standard library decisions.
 -------------------------------------------------------------------------------------------------------------------
 
--- Called by the 'update' self-command, for common needs.
--- Set eventArgs.handled to true if we don't want automatic equipping of gear.
 function job_handle_equipping_gear(playerStatus, eventArgs)
+    check_gear()
 end
 
-function job_update(cmdParams, eventArgs)
-    handle_equipping_gear(player.status)
-    get_combat_weapon()
-end
-
-function check_weaponset()
-    equip(sets[state.WeaponSet.current])
-
-    -- if state.WeaponSet.current == "Caladbolg" then
-    --     send_command('@input /macro set 1')
-    -- elseif state.WeaponSet.current == "Apocalypse" then
-    --     send_command('@input /macro set 2')
-    -- end
-end
-
-function get_combat_weapon()
-    state.CombatWeapon:reset()
-    if weapon_list:contains(player.equipment.main) then
-        state.CombatWeapon:set(player.equipment.main)
+function get_custom_wsmode(spell, action, spellMap)
+    local wsmode
+    if state.OffenseMode.value == 'MidAcc' or state.OffenseMode.value == 'HighAcc' then
+        wsmode = 'Acc'
     end
+
+    return wsmode
 end
 
+-- Modify the default idle set after it was constructed.
+function customize_idle_set(idleSet)
+    return idleSet
+end
 
 -- Function to display the current relevant user state when doing an update.
 -- Set eventArgs.handled to true if display was handled, and you don't want the default info shown.
@@ -273,3 +267,52 @@ function display_current_job_state(eventArgs)
 
     eventArgs.handled = true
 end
+
+
+-------------------------------------------------------------------------------------------------------------------
+-- User code that supplements self-commands.
+-------------------------------------------------------------------------------------------------------------------
+
+function job_update(cmdParams, eventArgs)
+    handle_equipping_gear(player.status)
+    th_update(cmdParams, eventArgs)
+end
+
+-- Modify the default melee set after it was constructed.
+function customize_melee_set(meleeSet)
+    if state.TreasureMode.value == 'Fulltime' then
+        meleeSet = set_combine(meleeSet, sets.TreasureHunter)
+    end
+
+    return meleeSet
+end
+
+-------------------------------------------------------------------------------------------------------------------
+-- Utility functions specific to this job.
+-------------------------------------------------------------------------------------------------------------------
+
+function check_gear()
+    if no_swap_gear:contains(player.equipment.left_ring) then
+        disable("ring1")
+    else
+        enable("ring1")
+    end
+    if no_swap_gear:contains(player.equipment.right_ring) then
+        disable("ring2")
+    else
+        enable("ring2")
+    end
+end
+
+windower.register_event('zone change',
+    function()
+        if no_swap_gear:contains(player.equipment.left_ring) then
+            enable("ring1")
+            equip(sets.idle)
+        end
+        if no_swap_gear:contains(player.equipment.right_ring) then
+            enable("ring2")
+            equip(sets.idle)
+        end
+    end
+)
