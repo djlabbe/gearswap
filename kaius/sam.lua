@@ -394,7 +394,7 @@ function job_post_precast(spell, action, spellMap, eventArgs)
         if spell.english == 'Impulse Drive' and player.tp > 2000 then
            equip(sets.precast.WS['Impulse Drive'].HighTP)
         elseif player.tp == 3000 then
-            equp(sets.precast.WS.HighTP)
+            equip(sets.precast.WS.HighTP)
         end
         
     end
