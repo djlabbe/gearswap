@@ -265,24 +265,40 @@ function init_gear_sets()
 
     sets.precast.WS['Sonic Thrust'] = sets.precast.WS['Impulse Drive']
 
+     sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS, {
+        ammo="Knobkierrie",
+        head=gear.Nyame_Head,
+        body=gear.Nyame_Body,
+        hands=gear.Nyame_Hands,
+        legs=gear.Nyame_Legs,
+        feet=gear.Nyame_Legs,
+        neck="Sibyl Scarf",
+        ear1="Moonshade Earring",
+        ear2="Friomisi Earring",
+        ring1="Metamor. Ring +1",
+        ring2="Epaminondas's Ring",
+        back=gear.SAM_WS_Cape,
+        waist="Orpheus's Sash",
+    })
+
     ------------------------------------------------------------------------------------------------
     ----------------------------------------- Idle Sets --------------------------------------------
     ------------------------------------------------------------------------------------------------
 
     sets.idle = {
-        ammo="Coiste Bodhar",
-        head="Flamma Zucchetto +2",
+        ammo="Staunch Tathlum +1",
+        head=gear.Artifact_Head,
+        neck="Loricate Torque +1",
+        ear1="Dawn Earring",
+        ear2="Infused Earring",
         body=gear.Empyrean_Body,
-        hands=gear.Artifact_Hands,
-        legs=gear.Empyrean_Legs,
-        feet="Tatena. Sune. +1",
-        neck="Sam. Nodowa +2",
-        waist="Sailfi Belt +1",
-        ear1="Dedition Earring",
-        ear2="Telos Earring",
-        left_ring="Niqmaddu Ring",
-        right_ring=gear.Chirich_2,
+        hands=gear.Mpaca_Hands,
+        ring1=gear.Chirich_1,
+        ring2=gear.Chirich_2,
         back=gear.SAM_TP_Cape,
+        waist="Flume Belt +1",
+        legs=gear.Rao_B_pants,
+        feet=gear.Mpaca_Feet,
     }
 
     sets.idle.DT = set_combine(sets.idle, {
@@ -305,8 +321,8 @@ function init_gear_sets()
         waist="Sailfi Belt +1",
         ear1="Dedition Earring",
         ear2="Telos Earring",
-        left_ring="Niqmaddu Ring",
-        right_ring=gear.Chirich_2,
+        ring1="Niqmaddu Ring",
+        ring2=gear.Chirich_2,
         back=gear.SAM_TP_Cape,
     }
 
