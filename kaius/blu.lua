@@ -635,7 +635,7 @@ function init_gear_sets()
     sets.midcast['Blue Magic']['White Wind'] = set_combine(sets.midcast['Blue Magic'].Healing, {
          head=gear.Adhemar_D_Head,
         neck="Sanctity Necklace",
-        -- ear2="Etiolation Earring",
+        ear2="Etiolation Earring",
         ring2="Eihwaz Ring",
         back="Moonlight Cape",
         -- waist="Kasiri Belt",

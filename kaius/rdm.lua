@@ -824,8 +824,8 @@ function init_gear_sets()
         legs=gear.Malignance_Legs,
         feet=gear.Malignance_Feet,
         neck="Bathy Choker +1",
-        ear1="Eabani Earring",
-        ear2="Infused Earring",
+        ear1="Odnowa Earring +1",
+        ear2="Etiolation Earring",
         ring1=gear.Stikini_1,
         ring2=gear.Stikini_2,
         back="Moonlight Cape",
@@ -839,8 +839,8 @@ function init_gear_sets()
         legs=gear.Malignance_Legs, --7/7
         feet=gear.Malignance_Feet, --4/4
         neck="Warder's Charm +1",
-        ear1="Eabani Earring",
-        ear2="Infused Earring",
+        ear1="Odnowa Earring +1",
+        ear2="Etiolation Earring",
         ring2="Defending Ring", --10/10
         -- back=gear.RDM_INT_Cape,
         back=gear.RDM_MND_Cape,

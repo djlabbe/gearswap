@@ -214,7 +214,7 @@ function init_gear_sets()
         -- feet="Volte Gaiters", --6
         neck="Baetyl Pendant", --4
         ear1="Enchanter's Earring +1", --2    
-        ear2="Loquac. Earring", --2
+        ear2="Etiolation Earring", --1
         ring1="Weather. Ring", --4
         ring2="Kishar Ring", --4
         back="Fi Follet Cape +1", --10
@@ -393,7 +393,7 @@ function init_gear_sets()
         feet=gear.Artifact_Feet,
         neck="Mnbw. Whistle +1",
         ear1="Enchanter's Earring +1",
-        -- ear1="Etiolation Earring",
+        ear1="Etiolation Earring",
         ear2="Odnowa Earring +1",
         ring1="Moonlight Ring",
         ring2="Defending Ring",
@@ -602,7 +602,7 @@ function init_gear_sets()
         feet="Inyan. Crackows +2", --0/3
         neck="Loricate Torque +1", --6/6
         ear1="Eabani Earring",
-        -- ear1="Etiolation Earring", --0/3
+        ear1="Etiolation Earring", --0/3
         ear1="Odnowa Earring +1", --3/5
         ring1="Moonlight Ring", --5/5
         ring2="Defending Ring",  --10/10
