@@ -237,15 +237,15 @@ function init_gear_sets()
     }
 
     sets.precast.WS['Tachi: Jinpu'] = {
-        head=gear.Nyame_Head,
-        body=gear.Nyame_Body,
+        head=gear.Mpaca_Head,
+        body=gear.Relic_Body,
         hands=gear.Nyame_Hands,
-        legs=gear.Nyame_Legs,
+        legs=gear.Artifact_Legs,
         feet=gear.Nyame_Feet,
         neck="Sam. Nodowa +2",
         ear1="Friomisi Earring",
         ear2="Moonshade Earring",
-        ring1="Niqmaddu Ring",
+        ring1="Regal Ring",
         ring2="Epaminondas's Ring",
         back=gear.SAM_WS_Cape,
         waist="Orpheus's Sash",
