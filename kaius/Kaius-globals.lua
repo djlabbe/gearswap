@@ -176,7 +176,9 @@ function define_global_sets()
     gear.Ryuo_D_Legs = { name="Ryuo Hakama +1", augments={'Accuracy+25','"Store TP"+5','Phys. dmg. taken -4',}}
 
     -- -- Rao
-    gear.Rao_B_pants = { name="Rao Haidate +1", augments={'STR+12','DEX+12','Attack+20',}}
+    gear.Rao_D_Hands = { name="Rao Kote +1", augments={'MND+12','Mag. Evasion+20','Magic dmg. taken -5',}}
+    gear.Rao_D_Feet = { name="Rao Sune-Ate +1", augments={'HP+65','Crit. hit rate+4%','"Dbl.Atk."+4',}}
+    gear.Rao_B_Pants = { name="Rao Haidate +1", augments={'STR+12','DEX+12','Attack+20',}}
 
     -- -- Lustratio
     gear.Lustratio_D_Feet = { name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}}

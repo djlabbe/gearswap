@@ -369,6 +369,7 @@ function init_gear_sets()
     sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
         neck="Rep. Plat. Medal",
         waist="Sailfi Belt +1",
+        ring1="Metamorph Ring +1",
     })
 
     sets.precast.WS['Savage Blade'].Acc = set_combine(sets.precast.WS['Savage Blade'], {

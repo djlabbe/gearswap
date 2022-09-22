@@ -313,7 +313,7 @@ function init_gear_sets()
         head="Mpaca's Cap",
         body=gear.Malignance_Body,
         hands=gear.Adhemar_B_Hands,
-        legs=gear.Rao_B_pants,
+        legs=gear.Rao_B_Pants,
         feet="Ken. Sune-Ate +1",
         neck="Ninja Nodowa +2",
         waist="Fotia Belt",

@@ -1,0 +1,17 @@
+sets.exported={
+    main={ name="Heishi Shorinken", augments={'Path: A',}},
+    sub="Kunimitsu",
+    ammo="Date Shuriken",
+    head="Hachiya Hatsu. +3",
+    body={ name="Mochi. Chainmail +3", augments={'Enhances "Sange" effect',}},
+    hands={ name="Rao Kote +1", augments={'MND+12','Mag. Evasion+20','Magic dmg. taken -5',}},
+    legs={ name="Mochi. Hakama +3", augments={'Enhances "Mijin Gakure" effect',}},
+    feet={ name="Rao Sune-Ate +1", augments={'HP+65','Crit. hit rate+4%','"Dbl.Atk."+4',}},
+    neck={ name="Ninja Nodowa +2", augments={'Path: A',}},
+    waist="Reiki Yotai",
+    left_ear="Crep. Earring",
+    right_ear="Telos Earring",
+    left_ring="Gere Ring",
+    right_ring="Regal Ring",
+    back={ name="Andartia's Mantle", augments={'DEX+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','"Store TP"+10','Mag. Evasion+15',}},
+}

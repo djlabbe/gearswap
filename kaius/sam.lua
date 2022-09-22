@@ -142,9 +142,9 @@ function init_gear_sets()
     sets.engaged = {
         ammo="Coiste Bodhar",
         head="Flamma Zucchetto +2",
-        body="Tatenashi Haramaki +1",
-        hands=gear.Artifact_Hands,
-        legs="Tatena. Haidate +1",
+        body=gear.Empyrean_Body,
+        hands="Tatenashi Gote +1",
+        legs=gear.Empyrean_Legs,
         feet=gear.Ryuo_C_Feet,
         neck="Sam. Nodowa +2",
         waist="Sailfi Belt +1",
@@ -270,17 +270,17 @@ function init_gear_sets()
     ------------------------------------------------------------------------------------------------
 
     sets.idle = {
-        ammo="Coiste Bodhar",
+        ammo="Staunch Tathlum +1",
         head="Flamma Zucchetto +2",
         body=gear.Empyrean_Body,
-        hands=gear.Artifact_Hands,
+        hands=gear.Rao_D_Hands,
         legs=gear.Empyrean_Legs,
-        feet="Tatena. Sune. +1",
-        neck="Sam. Nodowa +2",
-        waist="Sailfi Belt +1",
-        ear1="Dedition Earring",
-        ear2="Telos Earring",
-        left_ring="Niqmaddu Ring",
+        feet=gear.Rao_D_Feet,
+        neck="Loricate Torque +1",
+        waist="Flume Belt +1",
+        ear1="Eabani Earring",
+        ear2="Infused Earring",
+        left_ring=gear.Chirich_1,
         right_ring=gear.Chirich_2,
         back=gear.SAM_TP_Cape,
     }
