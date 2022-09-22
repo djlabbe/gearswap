@@ -232,7 +232,6 @@ function init_gear_sets()
     Reward_Axe = "Farsha"
     Reward_Axe2 = {name="Kumbhakarna", augments={'Pet: Mag. Evasion+20','Pet: "Regen"+3','MND+17',}}
    
-
     Pet_MDT_feet = {name="Taeon Boots", augments={'Pet: Mag. Evasion+22','Pet: "Regen"+3','Pet: Damage taken -4%',}}
     Pet_DT_legs = {name="Acro Breeches", augments={'Pet: DEF+25','Pet: "Regen"+3','Pet: Damage taken -4%',}}
     Pet_DT_feet = {name="Acro Leggings", augments={'Pet: DEF+25','Pet: "Regen"+3','Pet: Damage taken -4%',}}
@@ -243,7 +242,6 @@ function init_gear_sets()
     Ready_MAB_head = {name="Valorous Mask", augments={'Pet: "Mag.Atk.Bns."+30','Pet: "Store TP"+2','Pet: INT+8','Pet: Attack+6 Pet: Rng.Atk.+6',}}
     Ready_MAB_legs = {name="Valorous Hose", augments={'Pet: "Mag.Atk.Bns."+30','Pet: INT+10','Pet: Accuracy+7 Pet: Rng. Acc.+7','Pet: Attack+6 Pet: Rng.Atk.+6',}}
     Ready_MAB_feet = {name="Valorous Greaves", augments={'Pet: "Mag.Atk.Bns."+30','Pet: INT+13','Pet: Accuracy+9 Pet: Rng. Acc.+9','Pet: Attack+15 Pet: Rng.Atk.+15',}}
-
 
     Ready_DA_Axe = "Skullrender"
     Ready_DA_Axe2 = "Skullrender"
@@ -260,16 +258,10 @@ function init_gear_sets()
     MAB_body = "Sacro Breastplate"
     MAB_legs = {name="Valorous Hose", augments={'"Mag.Atk.Bns."+30','Accuracy+10','Crit.hit rate+2','Mag. Acc.+20 "Mag.Atk.Bns."+20',}}
     MAB_feet = {name="Valorous Greaves", augments={'CHR+8','"Mag.Atk.Bns."+28','"Refresh"+2','Accuracy+2 Attack+2','Mag. Acc.+14 "Mag.Atk.Bns."+14',}}
-
-    FC_head = {name="Valorous Mask", augments={'"Resist Silence"+2','MND+3','"Fast Cast"+7','Mag. Acc.+9 "Mag.Atk.Bns."+9',}}
-    FC_body = "Sacro Breastplate"
-    FC_legs = {name="Valorous Hose", augments={'Crit.hit rate+2','"Dual Wield"+1','"Fast Cast"+7',}}
-    FC_feet = {name="Valorous Greaves", augments={'"Mag.Atk.Bns."+17','AGI+7','"Fast Cast"+7','Accuracy+14 Attack+14',}}
     CB_head = {name="Acro Helm", augments={'Pet: Mag. Acc.+25','"Call Beast" ability delay -5',}}
     CB_legs = {name="Acro Breeches", augments={'Pet: Mag. Acc.+25','"Call Beast" ability delay -5',}}
     Cure_Potency_axe = {name="Kumbhakarna", augments={'Pet: Mag. Acc.+20','"Cure" potency +15%','Pet: TP Bonus+180',}}
-    Cure_Potency_legs = "Totemic Trousers +3"
-    Cure_Potency_feet = {name="Taeon Boots", augments={'"Cure" potency +5%',}}
+    Cure_Potency_feet = {name="Taeon Boots", augments={'"Cure" potency +5%',}}    
     STP_feet = {name="Valorous Greaves", augments={'Accuracy+23 Attack+23','"Store TP"+8','AGI+4',}}
     TH_legs = {name="Valorous Hose", augments={'STR+3','INT+5','"Treasure Hunter"+2','Mag. Acc.+18 "Mag.Atk.Bns."+18',}}
     Enmity_plus_feet = {name="Acro Leggings", augments={'Pet: Mag. Acc.+23','Enmity+10',}}
@@ -297,8 +289,6 @@ function init_gear_sets()
     Ready_Acc_back = {name="Artio's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+20 /Mag. Eva.+20','Pet: Accuracy+10 Pet: Rng. Acc.+10','Pet: Haste+10','System: 1 ID: 1246 Val: 4',}}
     Pet_MDT_back = {name="Artio's Mantle", augments={'INT+20','Eva.+20 /Mag. Eva.+20','Pet: "Regen"+10','System: 1 ID: 1247 Val: 4',}}
     Ready_Atk_back = {name="Artio's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+20 /Mag. Eva.+20','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10','System: 1 ID: 1246 Val: 4',}}
-
-
 
     sets.Enmity = {
         ammo="Paeapua",
@@ -1173,18 +1163,18 @@ function init_gear_sets()
 
     sets.precast.FC = {
         ammo="Sapience Orb",
-        head=FC_head,
+        head={name="Valorous Mask", augments={'"Resist Silence"+2','MND+3','"Fast Cast"+7','Mag. Acc.+9 "Mag.Atk.Bns."+9',}},
         neck="Orunmila's Torque",
         ear1="Loquacious Earring",
         ear2="Enchanter Earring +1",
-        body=FC_body,
+        body="Sacro Breastplate",
         hands="Leyline Gloves",
         ring1="Prolix Ring",
         ring2="Rahab Ring",
         back=FC_back,
         waist="Moblin Cest",
-        legs=FC_legs,
-        feet=FC_feet
+        legs={name="Valorous Hose", augments={'Crit.hit rate+2','"Dual Wield"+1','"Fast Cast"+7',}},
+        feet={name="Valorous Greaves", augments={'"Mag.Atk.Bns."+17','AGI+7','"Fast Cast"+7','Accuracy+14 Attack+14',}}
     }
 
     sets.precast.FCNE = set_combine(sets.precast.FC, {
@@ -1206,18 +1196,18 @@ function init_gear_sets()
 
     sets.midcast.FastRecast = {
         ammo="Sapience Orb",
-        head=FC_head,
+        head={name="Valorous Mask", augments={'"Resist Silence"+2','MND+3','"Fast Cast"+7','Mag. Acc.+9 "Mag.Atk.Bns."+9',}},
         neck="Orunmila's Torque",
         ear1="Loquacious Earring",
         ear2="Enchanter Earring +1",
-        body=FC_body,
+        body="Sacro Breastplate",
         hands="Leyline Gloves",
         ring1="Prolix Ring",
         ring2="Rahab Ring",
         back=FC_back,
         waist="Moblin Cest",
-        legs=FC_legs,
-        feet=FC_feet
+        legs={name="Valorous Hose", augments={'Crit.hit rate+2','"Dual Wield"+1','"Fast Cast"+7',}},
+        feet={name="Valorous Greaves", augments={'"Mag.Atk.Bns."+17','AGI+7','"Fast Cast"+7','Accuracy+14 Attack+14',}}
     }
 
     sets.midcast.Cure = {
@@ -1232,7 +1222,7 @@ function init_gear_sets()
         ring2="Asklepian Ring",
         back=Cure_Potency_back,
         waist="Gishdubar Sash",
-        legs=Cure_Potency_legs,
+        legs="Totemic Trousers +3",
         feet=Cure_Potency_feet
     }
 
