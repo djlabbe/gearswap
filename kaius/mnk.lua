@@ -101,14 +101,14 @@ function init_gear_sets()
         head=gear.Adhemar_B_head,
         body=gear.Herc_WS_body,
         hands=gear.Adhemar_B_hands,
-        legs="Samnuha Tights",
+        legs="Ken. Hamaka +1",
         feet=gear.Herc_TA_feet,
         neck="Fotia Gorget",
         ear1="Moonshade Earring",
         ear2="Ishvara Earring",
         ring1="Gere Ring",
         ring2="Epaminondas's Ring",
-        back="Relucent Cape",
+        back="Phalangite Mantle",
         waist="Fotia Belt",
     } -- default set
 
@@ -152,19 +152,19 @@ function init_gear_sets()
 
     sets.engaged = {
         ammo="Aurgelmir Orb +1",
-        head=gear.Herc_STP_head,
-        body=gear.Adhemar_B_body,
+        head=gear.Adhemar_B_head,
+        body=gear.Malignance_Body,
         hands=gear.Adhemar_B_hands,
-        legs="Samnuha Tights",
-        feet=gear.Herc_TA_feet,
+        legs="Tatenashi Haidate +1",
+        feet="Ken. Sude-Ate +1",
         neck="Anu Torque",
         ear1="Mache Earring +1",
         ear2="Brutal Earring",
         ring1="Niqmaddu Ring",
         ring2="Epona's Ring",
-        back="Relucent Cape",
+        back="Phalangite Mantle",
         waist="Windbuffet Belt +1",
-        }
+    }
 
 
     ------------------------------------------------------------------------------------------------

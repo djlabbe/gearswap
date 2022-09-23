@@ -255,7 +255,6 @@ function init_gear_sets()
     DW_feet = {name="Taeon Boots", augments={'Accuracy+23','"Dual Wield"+5','Crit. hit damage +2%',}}
 
     MAB_head = {name="Valorous Mask", augments={'AGI+5','"Mag.Atk.Bns."+25','Haste+2','Accuracy+19 Attack+19','Mag. Acc.+19 "Mag.Atk.Bns."+19',}}
-    MAB_body = "Sacro Breastplate"
     MAB_legs = {name="Valorous Hose", augments={'"Mag.Atk.Bns."+30','Accuracy+10','Crit.hit rate+2','Mag. Acc.+20 "Mag.Atk.Bns."+20',}}
     MAB_feet = {name="Valorous Greaves", augments={'CHR+8','"Mag.Atk.Bns."+28','"Refresh"+2','Accuracy+2 Attack+2','Mag. Acc.+14 "Mag.Atk.Bns."+14',}}
     CB_head = {name="Acro Helm", augments={'Pet: Mag. Acc.+25','"Call Beast" ability delay -5',}}
@@ -264,8 +263,6 @@ function init_gear_sets()
     Cure_Potency_feet = {name="Taeon Boots", augments={'"Cure" potency +5%',}}    
     STP_feet = {name="Valorous Greaves", augments={'Accuracy+23 Attack+23','"Store TP"+8','AGI+4',}}
     TH_legs = {name="Valorous Hose", augments={'STR+3','INT+5','"Treasure Hunter"+2','Mag. Acc.+18 "Mag.Atk.Bns."+18',}}
-    Enmity_plus_feet = {name="Acro Leggings", augments={'Pet: Mag. Acc.+23','Enmity+10',}}
-
 
     PDT_back = {name="Artio's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','VIT+10','Enmity-10','Phys. dmg. taken-10%',}}
     MAcc_back = {name="Artio's Mantle", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','Enmity+10','Phys. dmg. taken-10%',}}
@@ -291,8 +288,8 @@ function init_gear_sets()
     Ready_Atk_back = {name="Artio's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+20 /Mag. Eva.+20','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10','System: 1 ID: 1246 Val: 4',}}
 
     sets.Enmity = {
-        ammo="Paeapua",
-        head="Halitus Helm",
+        -- ammo="Paeapua",
+        -- head="Halitus Helm",
         neck="Unmoving Collar +1",
         ear1="Trux Earring",
         ear2="Cryptic Earring",
@@ -303,7 +300,7 @@ function init_gear_sets()
         back=Enmity_plus_back,
         waist="Trance Belt",
         legs="Zoar Subligar +1",
-        feet=Enmity_plus_feet
+        -- feet={name="Acro Leggings", augments={'Pet: Mag. Acc.+23','Enmity+10',}}
     }
 
     sets.EnmityNE = set_combine(sets.Enmity, {main="Freydis",sub="Evalach +1"})
@@ -1282,7 +1279,7 @@ function init_gear_sets()
         neck="Baetyl Pendant",
         ear1="Hecate's Earring",
         ear2="Friomisi Earring",
-        body=MAB_body,
+        body="Sacro Breastplate",
         hands="Leyline Gloves",
         ring1="Acumen Ring",
         ring2="Fenrir Ring +1",
@@ -1605,7 +1602,7 @@ function init_gear_sets()
         neck="Baetyl Pendant",
         ear1="Moonshade Earring",
         ear2="Friomisi Earring",
-        body=MAB_body,
+        body="Sacro Breastplate",
         hands="Leyline Gloves",
         ring1="Acumen Ring",
         ring2="Epaminondas's Ring",
@@ -1656,7 +1653,7 @@ function init_gear_sets()
         neck="Baetyl Pendant",
         ear1="Moonshade Earring",
         ear2="Friomisi Earring",
-        body=MAB_body,
+        body="Sacro Breastplate",
         hands="Leyline Gloves",
         ring1="Acumen Ring",
         ring2="Epaminondas's Ring",

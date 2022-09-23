@@ -201,7 +201,19 @@ function user_setup()
     send_command('bind ![ input /ja "Diffusion" <me>')
     send_command('bind !] input /ja "Unbridled Learning" <me>')
 
+    
+    
+    if player.sub_job == 'RDM' then
+        set_macro_page(2, 5)
+    elseif player.sub_job == 'WAR' then
+        set_macro_page(1, 5)
+    else
+        set_macro_page(1, 5)
+    end
+    
     set_macro_page(1, 16)
+
+
     send_command('wait 2; input /lockstyleset 16')
 
     state.Auto_Kite = M(false, 'Auto_Kite')

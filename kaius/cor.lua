@@ -623,7 +623,7 @@ function init_gear_sets()
         neck="Comm. Charm +2",
         ear1="Beyla Earring",
         ear2="Telos Earring",
-        waist="Skrymir Cord +1",
+        waist="Flume Belt +1",
     })
 
 
@@ -1000,8 +1000,8 @@ function init_gear_sets()
     sets.Fomalhaut_M.Acc = {main="Rostam", sub="Blurred Knife +1", ranged="Fomalhaut"}
     sets.Fomalhaut_R = {main="Rostam", sub="Blurred Knife +1", ranged="Fomalhaut"}
     sets.Fomalhaut_R.Acc = sets.Fomalhaut_R
-    sets.Ataktos = {main="Naegling", sub="Blurred Knife +1", ranged="Ataktos"}
-    sets.Ataktos.Acc = {main="Naegling", sub="Demers. Degen +1", ranged="Ataktos"}
+    sets.Ataktos = {main="Naegling", sub="Blurred Knife +1", ranged="Anarchy +2"}
+    sets.Ataktos.Acc = {main="Naegling", sub="Demers. Degen +1", ranged="Anarchy +2"}
 
     sets.DefaultShield = {sub="Nusku Shield"}
 
@@ -1170,9 +1170,9 @@ end
 -- Handle notifications of general user state change.
 function job_state_change(stateField, newValue, oldValue)
     if state.WeaponLock.value == true then
-        disable('ranged')
+        disable('main', 'sub', 'ranged')
     else
-        enable('ranged')
+        enable('main', 'sub', 'ranged')
     end
 
     check_weaponset()

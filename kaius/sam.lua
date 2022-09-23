@@ -294,7 +294,7 @@ function init_gear_sets()
         feet=gear.Rao_D_Feet,
         neck="Loricate Torque +1",
         waist="Flume Belt +1",
-        ear1="Eabani Earring",
+        ear1="Etiolation Earring",
         ear2="Infused Earring",
         left_ring=gear.Chirich_1,
         right_ring=gear.Chirich_2,
