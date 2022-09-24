@@ -29,6 +29,8 @@ end
 
 -- Setup vars that are user-independent.
 function job_setup()
+    no_swap_gear = S{"Warp Ring", "Dim. Ring (Dem)", "Dim. Ring (Holla)", "Dim. Ring (Mea)",
+    "Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring"}
 end
 
 function user_setup()
@@ -37,13 +39,19 @@ function user_setup()
     state.HybridMode:options('Normal', 'DT')
     state.IdleMode:options('Normal', 'DT')
 
+    state.WeaponSet = M{['description']='Weapon Set', 'Naegling' }
+    state.WeaponLock = M(false, 'Weapon Lock')
+
     -- Additional local binds
     include('Global-Binds.lua')
 
+    send_command('bind @w gs c toggle WeaponLock')
+    send_command('bind @e gs c cycle WeaponSet')
     
-    send_command('bind !` input /ja "Hasso" <me>')
-    send_command('bind ^` input /ja "Seigan" <me>')
-    send_command('bind !t input /ja "Provoke" <t>')
+    if player.sub_job == 'SAM' then
+        send_command('bind !` input /ja "Hasso" <me>')
+        send_command('bind ^` input /ja "Seigan" <me>')
+    end
     send_command('bind !t input /ja "Provoke" <t>')
 
     -- Set macros and style
@@ -51,6 +59,9 @@ function user_setup()
     styleSet = 3
     set_macro_page(1, macroBook)
     send_command('wait 2; input /lockstyleset ' .. styleSet)
+
+    state.Auto_Kite = M(false, 'Auto_Kite')
+    moving = false
 end
 
 function user_unload()
@@ -116,10 +127,78 @@ function init_gear_sets()
          -- TODO
     }
 
+    sets.buff.Doom = {
+        neck="Nicander's Necklace", --20
+        ring1=gear.Eshmun_1, --20
+        ring2=gear.Eshmun_2, --20
+        waist="Gishdubar Sash", --10
+    }
+
     sets.idle = sets.engaged
+    sets.Naegling = { main="Naegling", sub="Blurred Shield +1" }
+    sets.Kiting = { feet="Hermes' Sandals" }
 
 end
 
+-- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
+function job_aftercast(spell, action, spellMap, eventArgs)
+    if player.status ~= 'Engaged' and state.WeaponLock.value == false then
+        check_weaponset()
+    end
+end
+
+function job_handle_equipping_gear(playerStatus, eventArgs)
+    check_gear()
+    check_moving()
+end
+
+function job_update(cmdParams, eventArgs)
+    handle_equipping_gear(player.status)
+end
+
+
+function job_buff_change(buff,gain)
+    if buff == "doom" then
+        if gain then
+            equip(sets.buff.Doom)
+            send_command('@input /p Doomed.')
+             disable('ring1','ring2','waist')
+        else
+            enable('ring1','ring2','waist')
+            handle_equipping_gear(player.status)
+        end
+    end
+
+    if buff == 'Hasso' and not gain then
+        add_to_chat(167, 'Hasso just expired!')
+    end
+end
+
+-- Handle notifications of general user state change.
+function job_state_change(stateField, newValue, oldValue)
+    if state.WeaponLock.value == true then
+        disable('main','sub')
+    else
+        enable('main','sub')
+    end
+
+    check_weaponset()
+end
+
+-- Modify the default idle set after it was constructed.
+function customize_idle_set(idleSet)
+    if state.Auto_Kite.value == true then
+       idleSet = set_combine(idleSet, sets.Kiting)
+    end
+
+    return idleSet
+end
+
+-- Modify the default melee set after it was constructed.
+function customize_melee_set(meleeSet)
+    check_weaponset()
+    return meleeSet
+end
 
 -- Function to display the current relevant user state when doing an update.
 -- Set eventArgs.handled to true if display was handled, and you don't want the default info shown.
@@ -156,3 +235,68 @@ function display_current_job_state(eventArgs)
 
     eventArgs.handled = true
 end
+
+
+-------------------------------------------------------------------------------------------------------------------
+-- Utility functions specific to this job.
+-------------------------------------------------------------------------------------------------------------------
+
+function job_self_command(cmdParams, eventArgs)
+    gearinfo(cmdParams, eventArgs)
+end
+
+function gearinfo(cmdParams, eventArgs)
+    if cmdParams[1] == 'gearinfo' then
+        if type(cmdParams[4]) == 'string' then
+            if cmdParams[4] == 'true' then
+                moving = true
+            elseif cmdParams[4] == 'false' then
+                moving = false
+            end
+        end
+        if not midaction() then
+            job_update()
+        end
+    end
+end
+
+function check_moving()
+    if state.DefenseMode.value == 'None'  and state.Kiting.value == false then
+        if state.Auto_Kite.value == false and moving then
+            state.Auto_Kite:set(true)
+        elseif state.Auto_Kite.value == true and moving == false then
+            state.Auto_Kite:set(false)
+        end
+    end
+end
+
+function check_gear()
+    if no_swap_gear:contains(player.equipment.left_ring) then
+        disable("ring1")
+    else
+        enable("ring1")
+    end
+    if no_swap_gear:contains(player.equipment.right_ring) then
+        disable("ring2")
+    else
+        enable("ring2")
+    end
+end
+
+function check_weaponset()
+    equip(sets[state.WeaponSet.current])
+end
+
+windower.register_event('zone change',
+    function()
+        if no_swap_gear:contains(player.equipment.left_ring) then
+            enable("ring1")
+            equip(sets.idle)
+        end
+        if no_swap_gear:contains(player.equipment.right_ring) then
+            enable("ring2")
+            equip(sets.idle)
+        end
+    end
+)
+
