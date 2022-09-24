@@ -49,17 +49,6 @@ function get_sets()
 end
 
 function job_setup()
-     no_swap_gear = S{"Warp Ring", "Dim. Ring (Dem)", "Dim. Ring (Holla)", "Dim. Ring (Mea)",
-              "Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring"}
-
-    include('Mote-TreasureHunter')
-
-    -- For th_action_check():
-    -- JA IDs for actions that always have TH: Provoke, Animated Flourish
-    info.default_ja_ids = S{35, 204}
-    -- Unblinkable JA IDs for actions that always have TH: Quick/Box/Stutter Step, Desperate/Violent Flourish
-    info.default_u_ja_ids = S{201, 202, 203, 205, 207}
-
     -- Display and Random Lockstyle Generator options
     DisplayPetBuffTimers = 'false'
     DisplayModeInfo = 'false'
@@ -109,7 +98,7 @@ function job_setup()
 end
 
 function user_setup()
-    state.OffenseMode:options('Normal', 'Acc',)
+    state.OffenseMode:options('Normal', 'MedAcc', 'HighAcc', 'MaxAcc')
     state.WeaponskillMode:options('Normal')
     state.HybridMode:options('Normal', 'SubtleBlow')
     state.CastingMode:options('Normal')
@@ -148,63 +137,60 @@ function user_setup()
     -- 'Out of Range' distance; Melee WSs will auto-cancel
     target_distance = 8
 
-    -- Categorized list of Ready moves
-    physical_ready_moves = S{'Foot Kick','Whirl Claws','Sheep Charge','Lamb Chop','Head Butt','Wild Oats',
-        'Leaf Dagger','Claw Cyclone','Razor Fang','Crossthrash','Nimble Snap','Cyclotail','Rhino Attack',
-        'Power Attack','Mandibular Bite','Big Scissors','Grapple','Spinning Top','Double Claw','Frogkick',
-        'Blockhead','Brain Crush','Tail Blow','Scythe Tail','Ripper Fang','Chomp Rush','Needleshot',
-        'Recoil Dive','Sudden Lunge','Spiral Spin','Wing Slap','Beak Lunge','Suction','Back Heel',
-        'Fantod','Tortoise Stomp','Sensilla Blades','Tegmina Buffet','Pentapeck','Sweeping Gouge',
-        'Somersault','Tickling Tendrils','Pecking Flurry','Sickle Slash','Disembowel','Extirpating Salvo',
-        'Mega Scissors','Rhinowrecker','Hoof Volley','Fluid Toss','Fluid Spread'}
+-- Categorized list of Ready moves
+physical_ready_moves = S{'Foot Kick','Whirl Claws','Sheep Charge','Lamb Chop','Head Butt','Wild Oats',
+    'Leaf Dagger','Claw Cyclone','Razor Fang','Crossthrash','Nimble Snap','Cyclotail','Rhino Attack',
+    'Power Attack','Mandibular Bite','Big Scissors','Grapple','Spinning Top','Double Claw','Frogkick',
+    'Blockhead','Brain Crush','Tail Blow','Scythe Tail','Ripper Fang','Chomp Rush','Needleshot',
+    'Recoil Dive','Sudden Lunge','Spiral Spin','Wing Slap','Beak Lunge','Suction','Back Heel',
+    'Fantod','Tortoise Stomp','Sensilla Blades','Tegmina Buffet','Pentapeck','Sweeping Gouge',
+    'Somersault','Tickling Tendrils','Pecking Flurry','Sickle Slash','Disembowel','Extirpating Salvo',
+    'Mega Scissors','Rhinowrecker','Hoof Volley','Fluid Toss','Fluid Spread'}
 
-    magic_atk_ready_moves = S{'Dust Cloud','Cursed Sphere','Venom','Toxic Spit','Bubble Shower','Drainkiss',
-        'Silence Gas','Dark Spore','Fireball','Plague Breath','Snow Cloud','Charged Whisker','Corrosive Ooze',
-        'Aqua Breath','Stink Bomb','Nectarous Deluge','Nepenthic Plunge','Pestilent Plume','Foul Waters',
-        'Acid Spray','Infected Leech','Gloom Spray','Venom Shower'}
+magic_atk_ready_moves = S{'Dust Cloud','Cursed Sphere','Venom','Toxic Spit','Bubble Shower','Drainkiss',
+    'Silence Gas','Dark Spore','Fireball','Plague Breath','Snow Cloud','Charged Whisker','Corrosive Ooze',
+    'Aqua Breath','Stink Bomb','Nectarous Deluge','Nepenthic Plunge','Pestilent Plume','Foul Waters',
+    'Acid Spray','Infected Leech','Gloom Spray','Venom Shower'}
 
-    magic_acc_ready_moves = S{'Sheep Song','Scream','Dream Flower','Roar','Predatory Glare','Gloeosuccus',
-        'Palsy Pollen','Soporific','Geist Wall','Toxic Spit','Numbing Noise','Spoil','Hi-Freq Field',
-        'Sandpit','Sandblast','Venom Spray','Filamented Hold','Queasyshroom','Numbshroom','Spore','Shakeshroom',
-        'Infrasonics','Chaotic Eye','Blaster','Purulent Ooze','Intimidate','Noisome Powder','Acid Mist',
-        'Choke Breath','Jettatura','Nihility Song','Molting Plumage','Swooping Frenzy','Spider Web'}
+magic_acc_ready_moves = S{'Sheep Song','Scream','Dream Flower','Roar','Predatory Glare','Gloeosuccus',
+    'Palsy Pollen','Soporific','Geist Wall','Toxic Spit','Numbing Noise','Spoil','Hi-Freq Field',
+    'Sandpit','Sandblast','Venom Spray','Filamented Hold','Queasyshroom','Numbshroom','Spore','Shakeshroom',
+    'Infrasonics','Chaotic Eye','Blaster','Purulent Ooze','Intimidate','Noisome Powder','Acid Mist',
+    'Choke Breath','Jettatura','Nihility Song','Molting Plumage','Swooping Frenzy','Spider Web'}
 
-    multi_hit_ready_moves = S{'Pentapeck','Tickling Tendrils','Sweeping Gouge','Chomp Rush','Wing Slap',
-        'Pecking Flurry'}
+multi_hit_ready_moves = S{'Pentapeck','Tickling Tendrils','Sweeping Gouge','Chomp Rush','Wing Slap',
+    'Pecking Flurry'}
 
-    tp_based_ready_moves = S{'Foot Kick','Dust Cloud','Snow Cloud','Sheep Song','Sheep Charge','Lamb Chop',
-        'Head Butt','Scream','Dream Flower','Wild Oats','Leaf Dagger','Claw Cyclone','Razor Fang','Roar',
-        'Gloeosuccus','Palsy Pollen','Soporific','Cursed Sphere','Somersault','Geist Wall','Numbing Noise',
-        'Frogkick','Nimble Snap','Cyclotail','Spoil','Rhino Attack','Hi-Freq Field','Sandpit','Sandblast',
-        'Mandibular Bite','Metallic Body','Bubble Shower','Grapple','Spinning Top','Double Claw','Spore',
-        'Filamented Hold','Blockhead','Fireball','Tail Blow','Plague Breath','Brain Crush','Infrasonics',
-        'Needleshot','Chaotic Eye','Blaster','Ripper Fang','Intimidate','Recoil Dive','Water Wall',
-        'Sudden Lunge','Noisome Powder','Wing Slap','Beak Lunge','Suction','Drainkiss','Acid Mist',
-        'TP Drainkiss','Back Heel','Jettatura','Choke Breath','Fantod','Charged Whisker','Purulent Ooze',
-        'Corrosive Ooze','Tortoise Stomp','Aqua Breath','Sensilla Blades','Tegmina Buffet','Sweeping Gouge',
-        'Tickling Tendrils','Pecking Flurry','Pestilent Plume','Foul Waters','Spider Web','Gloom Spray',
-        'Disembowel','Extirpating Salvo','Rhinowrecker','Venom Shower','Fluid Toss','Fluid Spread','Digest'}
+tp_based_ready_moves = S{'Foot Kick','Dust Cloud','Snow Cloud','Sheep Song','Sheep Charge','Lamb Chop',
+    'Head Butt','Scream','Dream Flower','Wild Oats','Leaf Dagger','Claw Cyclone','Razor Fang','Roar',
+    'Gloeosuccus','Palsy Pollen','Soporific','Cursed Sphere','Somersault','Geist Wall','Numbing Noise',
+    'Frogkick','Nimble Snap','Cyclotail','Spoil','Rhino Attack','Hi-Freq Field','Sandpit','Sandblast',
+    'Mandibular Bite','Metallic Body','Bubble Shower','Grapple','Spinning Top','Double Claw','Spore',
+    'Filamented Hold','Blockhead','Fireball','Tail Blow','Plague Breath','Brain Crush','Infrasonics',
+    'Needleshot','Chaotic Eye','Blaster','Ripper Fang','Intimidate','Recoil Dive','Water Wall',
+    'Sudden Lunge','Noisome Powder','Wing Slap','Beak Lunge','Suction','Drainkiss','Acid Mist',
+    'TP Drainkiss','Back Heel','Jettatura','Choke Breath','Fantod','Charged Whisker','Purulent Ooze',
+    'Corrosive Ooze','Tortoise Stomp','Aqua Breath','Sensilla Blades','Tegmina Buffet','Sweeping Gouge',
+    'Tickling Tendrils','Pecking Flurry','Pestilent Plume','Foul Waters','Spider Web','Gloom Spray',
+    'Disembowel','Extirpating Salvo','Rhinowrecker','Venom Shower','Fluid Toss','Fluid Spread','Digest'}
 
-    -- List of Pet Buffs and Ready moves exclusively modified by Pet TP Bonus gear.
-    pet_buff_moves = S{'Wild Carrot','Bubble Curtain','Scissor Guard','Secretion','Rage','Harden Shell',
-        'TP Drainkiss','Fantod','Rhino Guard','Zealous Snort','Frenzied Rage','Digest'}
+-- List of Pet Buffs and Ready moves exclusively modified by Pet TP Bonus gear.
+pet_buff_moves = S{'Wild Carrot','Bubble Curtain','Scissor Guard','Secretion','Rage','Harden Shell',
+    'TP Drainkiss','Fantod','Rhino Guard','Zealous Snort','Frenzied Rage','Digest'}
 
-    -- List of Jug Modes that will cancel if Call Beast is used (Bestial Loyalty-only jug pets, HQs generally).
-    call_beast_cancel = S{'Vis. Broth','Ferm. Broth','Bubbly Broth','Windy Greens','Bug-Ridden Broth','Tant. Broth',
-        'Glazed Broth','Slimy Webbing','Deepwater Broth','Venomous Broth','Heavenly Broth'}
+-- List of Jug Modes that will cancel if Call Beast is used (Bestial Loyalty-only jug pets, HQs generally).
+call_beast_cancel = S{'Vis. Broth','Ferm. Broth','Bubbly Broth','Windy Greens','Bug-Ridden Broth','Tant. Broth',
+    'Glazed Broth','Slimy Webbing','Deepwater Broth','Venomous Broth','Heavenly Broth'}
 
-    -- List of abilities to reference for applying Treasure Hunter gear.
-    abilities_to_check = S{'Feral Howl','Quickstep','Box Step','Stutter Step','Desperate Flourish',
-        'Violent Flourish','Animated Flourish','Provoke','Dia','Dia II','Flash','Bio','Bio II',
-        'Sleep','Sleep II','Drain','Aspir','Dispel','Stun','Steal','Mug'}
+-- List of abilities to reference for applying Treasure Hunter gear.
+abilities_to_check = S{'Feral Howl','Quickstep','Box Step','Stutter Step','Desperate Flourish',
+    'Violent Flourish','Animated Flourish','Provoke','Dia','Dia II','Flash','Bio','Bio II',
+    'Sleep','Sleep II','Drain','Aspir','Dispel','Stun','Steal','Mug'}
 
-    enmity_plus_moves = S{'Provoke','Berserk','Warcry','Aggressor','Holy Circle','Sentinel','Last Resort',
-        'Souleater','Vallation','Swordplay'}
+enmity_plus_moves = S{'Provoke','Berserk','Warcry','Aggressor','Holy Circle','Sentinel','Last Resort',
+    'Souleater','Vallation','Swordplay'}
 
-
-   if player.sub_job == 'WAR' then
-        send_command('bind !t input /ja "Provoke" <t>')
-    end
+-- Random Lockstyle generator.
 
     send_command('@wait 5;input /lockstyleset 9')
     display_mode_info()
@@ -229,14 +215,6 @@ function file_unload()
     send_command('text CorrelationText delete')
     send_command('text AxeModeText delete')
     send_command('text AccuracyText delete')
-
-    state.Auto_Kite = M(false, 'Auto_Kite')
-    Haste = 0
-    DW_needed = 0
-    DW = false
-    moving = false
-    update_combat_form()
-    determine_haste_group()
 end
 
 -- BST gearsets
@@ -287,13 +265,7 @@ function init_gear_sets()
     TH_legs = {name="Valorous Hose", augments={'STR+3','INT+5','"Treasure Hunter"+2','Mag. Acc.+18 "Mag.Atk.Bns."+18',}}
 
     PDT_back = {name="Artio's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','VIT+10','Enmity-10','Phys. dmg. taken-10%',}}
-
     MAcc_back = {name="Artio's Mantle", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','Enmity+10','Phys. dmg. taken-10%',}}
-    Enmity_plus_back = {name="Artio's Mantle", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','Enmity+10','Phys. dmg. taken-10%',}}
-
-    Cloud_back = {name="Artio's Mantle", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%',}}
-    Reward_back = {name="Artio's Mantle", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%',}}
-
     MEva_back = {name="Artio's Mantle", augments={'MND+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity-10','Occ. inc. resist. to stat. ailments+10',}}
     Waltz_back = {name="Artio's Mantle", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','CHR+10','Weapon skill damage +10%',}}
     STP_back = {name="Artio's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}}
@@ -302,12 +274,15 @@ function init_gear_sets()
     Crit_back = {name="Artio's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Crit.hit rate+10','Phys. dmg. taken-10%',}}
     Onslaught_back = {name="Artio's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}}
     Primal_back = {name="Artio's Mantle", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','CHR+10','Weapon skill damage +10%',}}
+    Cloud_back = {name="Artio's Mantle", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%',}}
+    Reward_back = {name="Artio's Mantle", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%',}}
     Cure_Potency_back = {name="Artio's Mantle", augments={'MND+20','Eva.+20 /Mag. Eva.+20','MND+10','"Cure" potency +10%','Spell interruption rate down-10%',}}
     Pet_PDT_back = {name="Artio's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','Evasion+10','Pet: "Regen"+10','System: 1 ID: 1246 Val: 4',}}
     FC_back = {name="Artio's Mantle", augments={'INT+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','"Fast Cast"+10','Spell interruption rate down-10%',}}
     DW_back = {name="Artio's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dual Wield"+10','Phys. dmg. taken-10%',}}
     Pet_Regen_back = {name="Artio's Mantle", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Mag. Acc.+10','Pet: "Regen"+10','Pet: "Regen"+5',}}
     Ready_MAcc_back = {name="Artio's Mantle", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Mag. Acc.+10','Pet: "Regen"+10','Pet: "Regen"+5',}}
+    Enmity_plus_back = {name="Artio's Mantle", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','Enmity+10','Phys. dmg. taken-10%',}}
     Ready_Acc_back = {name="Artio's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+20 /Mag. Eva.+20','Pet: Accuracy+10 Pet: Rng. Acc.+10','Pet: Haste+10','System: 1 ID: 1246 Val: 4',}}
     Pet_MDT_back = {name="Artio's Mantle", augments={'INT+20','Eva.+20 /Mag. Eva.+20','Pet: "Regen"+10','System: 1 ID: 1247 Val: 4',}}
     Ready_Atk_back = {name="Artio's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+20 /Mag. Eva.+20','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10','System: 1 ID: 1246 Val: 4',}}
@@ -457,8 +432,25 @@ function init_gear_sets()
         feet=gear.Gleti_Feet
     }
 
+    sets.midcast.Pet.MedAcc = set_combine(sets.midcast.Pet.Normal, {
+        ear2="Enmerkar Earring",
+        body="Heyoka Harness +1",
+        back=Ready_Acc_back,
+        waist="Incarnation Sash",
+        legs="Heyoka Subligar +1"
+    })
 
-    sets.midcast.Pet.Acc = set_combine(sets.midcast.Pet.Normal, {
+    sets.midcast.Pet.HighAcc = set_combine(sets.midcast.Pet.Normal, {
+        ear1="Ferine Earring",
+        ear2="Enmerkar Earring",
+        body="Heyoka Harness +1",
+        back=Ready_Acc_back,
+        waist="Klouskap Sash +1",
+        legs="Heyoka Subligar +1",
+        feet=gear.Gleti_Feet
+    })
+
+    sets.midcast.Pet.MaxAcc = set_combine(sets.midcast.Pet.Normal, {
         ammo="Voluspa Tathlum",
         head="Gleti's Mask",
         neck="Beastmaster Collar +2",
@@ -490,7 +482,22 @@ function init_gear_sets()
         feet=Ready_MAB_feet
     }
 
-    sets.midcast.Pet.MagicAtkReady.Acc = set_combine(sets.midcast.Pet.MagicAtkReady.Normal, {
+    sets.midcast.Pet.MagicAtkReady.MedAcc = set_combine(sets.midcast.Pet.MagicAtkReady.Normal, {
+        head="Gleti's Mask",
+        ear2="Enmerkar Earring",
+        legs=gear.Gleti_Legs
+    })
+
+    sets.midcast.Pet.MagicAtkReady.HighAcc = set_combine(sets.midcast.Pet.MagicAtkReady.Normal, {
+        head="Gleti's Mask",
+        ear2="Enmerkar Earring",
+        body=gear.Gleti_Body,
+        hands=gear.Gleti_Hands,
+        back=Ready_MAcc_back,
+        legs=gear.Gleti_Legs
+    })
+
+    sets.midcast.Pet.MagicAtkReady.MaxAcc = set_combine(sets.midcast.Pet.MagicAtkReady.Normal, {
         head="Gleti's Mask",
         neck="Beastmaster Collar +2",
         ear1="Kyrene's Earring",
@@ -504,7 +511,7 @@ function init_gear_sets()
 
     sets.midcast.Pet.MagicAccReady = set_combine(sets.midcast.Pet.Normal, {
         ammo="Voluspa Tathlum",
-        head="Gleti's Mask",
+        head=gear.Gleti_Head,
         neck="Beastmaster Collar +2",
         ear1="Kyrene's Earring",
         ear2="Enmerkar Earring",
@@ -538,12 +545,16 @@ function init_gear_sets()
     -- Physical Ready Attacks w/o TP Modifier for Damage (ex. Sickle Slash, Whirl Claws, Swooping Frenzy, etc.)
     sets.midcast.Pet.ReadyNE = {}
     sets.midcast.Pet.ReadyNE.Normal = set_combine(sets.midcast.Pet.Normal, {main="Aymur"})
-    sets.midcast.Pet.ReadyNE.Acc = set_combine(sets.midcast.Pet.Acc, {main="Aymur"})
+    sets.midcast.Pet.ReadyNE.MedAcc = set_combine(sets.midcast.Pet.MedAcc, {main="Aymur"})
+    sets.midcast.Pet.ReadyNE.HighAcc = set_combine(sets.midcast.Pet.HighAcc, {main="Aymur"})
+    sets.midcast.Pet.ReadyNE.MaxAcc = set_combine(sets.midcast.Pet.MaxAcc, {main="Arktoi"})
 
     -- Physical TP Bonus Ready Attacks (ex. Razor Fang, Tegmina Buffet, Tail Blow, Recoil Dive, etc.)
     sets.midcast.Pet.ReadyNE.TPBonus = {}
     sets.midcast.Pet.ReadyNE.TPBonus.Normal = set_combine(sets.midcast.Pet.ReadyNE.Normal, {main="Aymur"})
-    sets.midcast.Pet.ReadyNE.TPBonus.Acc = set_combine(sets.midcast.Pet.ReadyNE.Acc, {main="Aymur"})
+    sets.midcast.Pet.ReadyNE.TPBonus.MedAcc = set_combine(sets.midcast.Pet.ReadyNE.MedAcc, {main="Aymur"})
+    sets.midcast.Pet.ReadyNE.TPBonus.HighAcc = set_combine(sets.midcast.Pet.ReadyNE.HighAcc, {main="Aymur"})
+    sets.midcast.Pet.ReadyNE.TPBonus.MaxAcc = set_combine(sets.midcast.Pet.ReadyNE.MaxAcc, {main="Arktoi"})
 
     -- Multihit Ready Attacks w/o TP Modifier for Damage (Pentapeck, Chomp Rush)
     sets.midcast.Pet.MultiStrikeNE = set_combine(sets.midcast.Pet.MultiStrike, {main="Agwu's Axe"})
@@ -554,12 +565,16 @@ function init_gear_sets()
     -- Magical Ready Attacks w/o TP Modifier for Damage (ex. Molting Plumage, Venom, Stink Bomb, etc.)
     sets.midcast.Pet.MagicAtkReadyNE = {}
     sets.midcast.Pet.MagicAtkReadyNE.Normal = set_combine(sets.midcast.Pet.MagicAtkReady.Normal, {main=Ready_MAB_Axe})
-    sets.midcast.Pet.MagicAtkReadyNE.Acc = set_combine(sets.midcast.Pet.MagicAtkReady.Acc, {main=Ready_MAB_Axe})
+    sets.midcast.Pet.MagicAtkReadyNE.MedAcc = set_combine(sets.midcast.Pet.MagicAtkReady.MedAcc, {main=Ready_MAB_Axe})
+    sets.midcast.Pet.MagicAtkReadyNE.HighAcc = set_combine(sets.midcast.Pet.MagicAtkReady.HighAcc, {main=Ready_MAB_Axe})
+    sets.midcast.Pet.MagicAtkReadyNE.MaxAcc = set_combine(sets.midcast.Pet.MagicAtkReady.MaxAcc, {main=Ready_MAcc_Axe2})
 
     -- Magical TP Bonus Ready Attacks (ex. Fireball, Cursed Sphere, Corrosive Ooze, etc.)
     sets.midcast.Pet.MagicAtkReadyNE.TPBonus = {}
     sets.midcast.Pet.MagicAtkReadyNE.TPBonus.Normal = set_combine(sets.midcast.Pet.MagicAtkReadyNE.Normal, {main=Ready_MAB_TPBonus_Axe})
-    sets.midcast.Pet.MagicAtkReadyNE.TPBonus.Acc = set_combine(sets.midcast.Pet.MagicAtkReadyNE.Acc, {main=Ready_MAB_TPBonus_Axe})
+    sets.midcast.Pet.MagicAtkReadyNE.TPBonus.MedAcc = set_combine(sets.midcast.Pet.MagicAtkReadyNE.MedAcc, {main=Ready_MAB_TPBonus_Axe})
+    sets.midcast.Pet.MagicAtkReadyNE.TPBonus.HighAcc = set_combine(sets.midcast.Pet.MagicAtkReadyNE.HighAcc, {main=Ready_MAB_TPBonus_Axe})
+    sets.midcast.Pet.MagicAtkReadyNE.TPBonus.MaxAcc = set_combine(sets.midcast.Pet.MagicAtkReadyNE.MaxAcc, {main=Ready_MAcc_Axe2})
 
     -- Magical Ready Enfeebles (ex. Roar, Sheep Song, Infrasonics, etc.)
     sets.midcast.Pet.MagicAccReadyNE = set_combine(sets.midcast.Pet.MagicAccReady, {main="Pangu"})
@@ -570,12 +585,14 @@ function init_gear_sets()
     -- Axe Swaps for when Pet TP is above a certain value.
     sets.UnleashAtkAxeShield = {}
     sets.UnleashAtkAxeShield.Normal = {main="Aymur"}
-    sets.UnleashAtkAxeShield.Acc = {main="Aymur"}
+    sets.UnleashAtkAxeShield.MedAcc = {main="Aymur"}
+    sets.UnleashAtkAxeShield.HighAcc = {main="Aymur"}
     sets.UnleashMultiStrikeAxeShield = {main=Ready_DA_Axe}
 
     sets.UnleashMABAxeShield = {}
     sets.UnleashMABAxeShield.Normal = {main=Ready_MAB_Axe}
-    sets.UnleashMABAxeShield.Acc = {main=Ready_MAB_Axe}
+    sets.UnleashMABAxeShield.MedAcc = {main=Ready_MAB_Axe}
+    sets.UnleashMABAxeShield.HighAcc = {main=Ready_MAB_Axe}
 
     ------------------------------------
     -- DUAL WIELD PET-ONLY READY SETS --
@@ -584,12 +601,16 @@ function init_gear_sets()
     -- DW Axe Swaps for Physical Ready Attacks w/o TP Modifier for Damage (ex. Sickle Slash, Whirl Claws, Swooping Frenzy, etc.)
     sets.midcast.Pet.ReadyDWNE = {}
     sets.midcast.Pet.ReadyDWNE.Normal = set_combine(sets.midcast.Pet.ReadyNE.Normal, {main="Aymur",sub="Agwu's Axe"})
-    sets.midcast.Pet.ReadyDWNE.Acc = set_combine(sets.midcast.Pet.ReadyNE.Acc, {main="Aymur",sub="Arktoi"})
+    sets.midcast.Pet.ReadyDWNE.MedAcc = set_combine(sets.midcast.Pet.ReadyNE.MedAcc, {main="Aymur",sub="Arktoi"})
+    sets.midcast.Pet.ReadyDWNE.HighAcc = set_combine(sets.midcast.Pet.ReadyNE.HighAcc, {main="Aymur",sub="Arktoi"})
+    sets.midcast.Pet.ReadyDWNE.MaxAcc = set_combine(sets.midcast.Pet.ReadyNE.MaxAcc, {main="Arktoi",sub="Agwu's Axe"})
 
     -- DW Axe Swaps for Physical TP Bonus Ready Attacks (ex. Razor Fang, Tegmina Buffet, Tail Blow, Recoil Dive, etc.)
     sets.midcast.Pet.ReadyDWNE.TPBonus = {}
     sets.midcast.Pet.ReadyDWNE.TPBonus.Normal = set_combine(sets.midcast.Pet.ReadyNE.Normal, {main="Aymur",sub="Agwu's Axe"})
-    sets.midcast.Pet.ReadyDWNE.TPBonus.Acc = set_combine(sets.midcast.Pet.ReadyNE.Acc, {main="Aymur",sub="Agwu's Axe"})
+    sets.midcast.Pet.ReadyDWNE.TPBonus.MedAcc = set_combine(sets.midcast.Pet.ReadyNE.MedAcc, {main="Aymur",sub="Agwu's Axe"})
+    sets.midcast.Pet.ReadyDWNE.TPBonus.HighAcc = set_combine(sets.midcast.Pet.ReadyNE.HighAcc, {main="Aymur",sub="Agwu's Axe"})
+    sets.midcast.Pet.ReadyDWNE.TPBonus.MaxAcc = set_combine(sets.midcast.Pet.ReadyNE.MaxAcc, {main="Arktoi",sub="Agwu's Axe"})
 
     -- DW Axe Swaps for Multihit Ready Attacks w/o TP Modifier for Damage (Pentapeck, Chomp Rush)
     sets.midcast.Pet.MultiStrikeDWNE = set_combine(sets.midcast.Pet.MultiStrikeNE, {main="Aymur",sub="Agwu's Axe"})
@@ -600,12 +621,16 @@ function init_gear_sets()
     -- DW Axe Swaps for Magical Ready Attacks w/o TP Modifier for Damage (ex. Molting Plumage, Stink Bomb, Venom, etc.)
     sets.midcast.Pet.MagicAtkReadyDWNE = {}
     sets.midcast.Pet.MagicAtkReadyDWNE.Normal = set_combine(sets.midcast.Pet.MagicAtkReadyNE.Normal, {main=Ready_MAB_Axe,sub=Ready_MAB_Axe2})
-    sets.midcast.Pet.MagicAtkReadyDWNE.Acc = set_combine(sets.midcast.Pet.MagicAtkReadyNE.Acc, {main=Ready_MAB_Axe,sub=Ready_MAB_Axe2})
+    sets.midcast.Pet.MagicAtkReadyDWNE.MedAcc = set_combine(sets.midcast.Pet.MagicAtkReadyNE.MedAcc, {main=Ready_MAB_Axe,sub=Ready_MAB_Axe2})
+    sets.midcast.Pet.MagicAtkReadyDWNE.HighAcc = set_combine(sets.midcast.Pet.MagicAtkReadyNE.HighAcc, {main=Ready_MAB_Axe,sub=Ready_MAcc_Axe})
+    sets.midcast.Pet.MagicAtkReadyDWNE.MaxAcc = set_combine(sets.midcast.Pet.MagicAtkReadyNE.MaxAcc, {main=Ready_MAB_Axe,sub=Ready_MAcc_Axe})
 
     -- DW Axe Swaps for Magical TP Bonus Ready Attacks (ex. Fireball, Cursed Sphere, Corrosive Ooze, etc.)
     sets.midcast.Pet.MagicAtkReadyDWNE.TPBonus = {}
     sets.midcast.Pet.MagicAtkReadyDWNE.TPBonus.Normal = set_combine(sets.midcast.Pet.MagicAtkReadyNE.Normal, {main=Ready_MAB_TPBonus_Axe,sub=Ready_MAB_TPBonus_Axe2})
-    sets.midcast.Pet.MagicAtkReadyDWNE.TPBonus.Acc = set_combine(sets.midcast.Pet.MagicAtkReadyNE.Acc, {main=Ready_MAB_TPBonus_Axe,sub=Ready_MAB_TPBonus_Axe2})
+    sets.midcast.Pet.MagicAtkReadyDWNE.TPBonus.MedAcc = set_combine(sets.midcast.Pet.MagicAtkReadyNE.MedAcc, {main=Ready_MAB_TPBonus_Axe,sub=Ready_MAB_TPBonus_Axe2})
+    sets.midcast.Pet.MagicAtkReadyDWNE.TPBonus.HighAcc = set_combine(sets.midcast.Pet.MagicAtkReadyNE.HighAcc, {main=Ready_MAB_TPBonus_Axe,sub=Ready_MAB_TPBonus_Axe2})
+    sets.midcast.Pet.MagicAtkReadyDWNE.TPBonus.MaxAcc = set_combine(sets.midcast.Pet.MagicAtkReadyNE.MaxAcc, {main=Ready_MAB_Axe,sub=Ready_MAcc_Axe})
 
     -- DW Axe Swaps for Magical Ready Enfeebles (ex. Roar, Sheep Song, Infrasonics, etc.)
     sets.midcast.Pet.MagicAccReadyDWNE = set_combine(sets.midcast.Pet.MagicAccReadyNE, {main="Pangu",sub="Pangu"})
@@ -616,12 +641,14 @@ function init_gear_sets()
     -- Axe Swaps for when Pet TP is above a certain value.
     sets.UnleashAtkAxes = {}
     sets.UnleashAtkAxes.Normal = {main="Aymur",sub="Agwu's Axe"}
-    sets.UnleashAtkAxes.Acc = {main="Aymur",sub="Agwu's Axe"}
+    sets.UnleashAtkAxes.MedAcc = {main="Aymur",sub="Agwu's Axe"}
+    sets.UnleashAtkAxes.HighAcc = {main="Aymur",sub="Agwu's Axe"}
     sets.UnleashMultiStrikeAxes = {main=Ready_DA_Axe,sub=Ready_DA_Axe2}
 
     sets.UnleashMABAxes = {}
     sets.UnleashMABAxes.Normal = {main=Ready_MAB_Axe,sub=Ready_MAB_Axe2}
-    sets.UnleashMABAxes.Acc = {main=Ready_MAB_Axe,sub=Ready_MAB_Axe2}
+    sets.UnleashMABAxes.MedAcc = {main=Ready_MAB_Axe,sub=Ready_MAB_Axe2}
+    sets.UnleashMABAxes.HighAcc = {main=Ready_MAB_Axe,sub=Ready_MAB_Axe2}
 
     ---------------
     -- IDLE SETS --
@@ -1299,7 +1326,7 @@ function init_gear_sets()
         body="Sacro Breastplate",hands=gear.Malignance_Hands,ring1="Chirich Ring +1",ring2="Chirich Ring +1",
         back=STP_back,waist="Sarissaphoroi Belt",legs="Malignance Tights",feet="Malignance Boots"}
 
-    sets.engaged.Acc = {ammo="Aurgelmir Orb +1",
+    sets.engaged.MaxAcc = {ammo="Aurgelmir Orb +1",
         head="Totemic Helm +3",neck="Beastmaster Collar +2",ear1="Zennaroi Earring",ear2="Telos Earring",
         body="Totemic Jackcoat +3",hands="Totemic Gloves +3",ring1="Ilabrat Ring",ring2="Regal Ring",
         back=STP_back,waist="Klouskap Sash +1",legs="Totemic Trousers +3",feet="Totemic Gaiters +3"}
@@ -1313,7 +1340,6 @@ function init_gear_sets()
     -- DUAL-WIELD MASTER ENGAGED SETS --
     ------------------------------------
 
-     -- No Magic Haste (74% DW to cap)
     sets.engaged.DW = {
         ammo="Coiste Bodhar",
         head=gear.Malignance_Head,
@@ -1337,23 +1363,7 @@ function init_gear_sets()
         -- feet=STP_feet
     }
 
-    sets.engaged.DW.Acc = {
-        ammo="Aurgelmir Orb +1",
-        head="Totemic Helm +3",
-        neck="Beastmaster Collar +2",
-        ear1="Suppanomimi",
-        ear2="Eabani Earring",
-        body="Totemic Jackcoat +3",
-        hands="Totemic Gloves +3",
-        ring1="Ilabrat Ring",
-        ring2="Regal Ring",
-        back=DW_back,
-        waist="Reiki Yotai",
-        legs="Totemic Trousers +3",
-        feet=DW_feet
-    }
-
-      sets.engaged.DW.Aftermath = {
+    sets.engaged.DW.Aftermath = {
         ammo="Aurgelmir Orb +1",
         head=gear.Malignance_Head,
         neck="Ainia Collar",
@@ -1369,138 +1379,53 @@ function init_gear_sets()
         feet=STP_feet
     }
 
-    -- 15% Magic Haste (67% DW to cap)
-    sets.engaged.DW.LowHaste = set_combine(sets.engaged.DW, {
+    sets.engaged.DW.MedAcc = {
+        ammo="Coiste Bodhar",
+        head=DW_head,
+        neck="Shulmanu Collar",
+        ear1="Suppanomimi",
+        ear2="Eabani Earring",
+        body=DW_body,
+        hands="Emicho Gauntlets +1",
+        ring1="Gere Ring",
+        ring2="Epona's Ring",
+        back=DW_back,
+        waist="Reiki Yotai",
+        legs=DW_legs,
+        feet=DW_feet
+    }
+
+    sets.engaged.DW.HighAcc = {
+        ammo="Coiste Bodhar",
+        head=DW_head,
+        neck="Shulmanu Collar",
+        ear1="Suppanomimi",
+        ear2="Eabani Earring",
+        body=DW_body,
+        hands="Emicho Gauntlets +1",
+        ring1="Gere Ring",
+        ring2="Epona's Ring",
+        back=DW_back,
+        waist="Reiki Yotai",
+        legs=DW_legs,
+        feet=DW_feet
+    }
+
+    sets.engaged.DW.MaxAcc = {
         ammo="Aurgelmir Orb +1",
-        head=gear.Malignance_Head,
-        body=gear.Malignance_Body,
-        hands=gear.Malignance_Hands,
-        legs=gear.Carmine_D_Legs, --6
-        feet=gear.Taeon_DW_Feet, --9
-        neck="Anu Torque",
-        ear1="Eabani Earring", --4
-        ear2="Suppanomimi", --5
-        ring1="Hetairoi Ring",
-        ring2=gear.Chirich_2,
-        back=gear.RDM_DW_Cape, --10
-        waist="Reiki Yotai", --7
-    }) --41
-
-     sets.engaged.DW.Acc.LowHaste = set_combine(sets.engaged.DW.LowHaste, {
-        ammo="Voluspa Tathlum",
-        head=gear.Carmine_D_Head,
-        neck="Combatant's Torque",
-        ring1=gear.Chirich_1,
-        body=gear.Carmine_B_Body,
-        hands="Gazu Bracelet +1",
-        ear1="Cessance Earring",
-        ear2="Mache Earring +1",
-    })
-
-    sets.engaged.DW.Aftermath.LowHaste = set_combine(sets.engaged.DW.LowHaste, {
-
-    })
-
-    -- 30% Magic Haste (56% DW to cap)
-    sets.engaged.DW.MidHaste = set_combine(sets.engaged.DW, {
-        ammo="Aurgelmir Orb +1",
-        head=gear.Malignance_Head,
-        body=gear.Malignance_Body,
-        hands=gear.Malignance_Hands,
-        legs=gear.Malignance_Legs, 
-        feet=gear.Taeon_DW_Feet, --9
-        neck="Anu Torque",
-        ear1="Sherida Earring",
-        ear2="Suppanomimi", --5
-        ring1="Hetairoi Ring",
-        ring2=gear.Chirich_2,
-        back=gear.RDM_DW_Cape, --10
-        waist="Reiki Yotai", --7
-    }) --31
-
-    sets.engaged.DW.Acc.MidHaste = set_combine(sets.engaged.DW.MidHaste, {
-        ammo="Voluspa Tathlum",
-        head=gear.Carmine_D_Head,
-        neck="Combatant's Torque",
-        body=gear.Carmine_B_Body,
-        legs=gear.Carmine_D_Legs, --6
-        hands="Gazu Bracelet +1",
-        ear1="Cessance Earring",
-        ear2="Telos Earring",
-        ring1=gear.Chirich_1,
-    })
-
-    sets.engaged.DW.Aftermath.MidHaste = set_combine(sets.engaged.DW.MidHaste, {
-        
-    })
-
-     -- 35% Magic Haste (51% DW to cap)
-    sets.engaged.DW.HighHaste = set_combine(sets.engaged.DW, {
-        ammo="Aurgelmir Orb +1",
-        head=gear.Malignance_Head,
-        body=gear.Malignance_Body,
-        hands=gear.Malignance_Hands,
-        legs=gear.Malignance_Legs,
-        feet=gear.Taeon_DW_Feet, --9
-        neck="Anu Torque",
-        ear1="Sherida Earring",
-        ear2="Telos Earring",
-        ring1="Hetairoi Ring",
-        ring2=gear.Chirich_2,
-        back=gear.RDM_DW_Cape, --10
-        waist="Reiki Yotai", --7
-    }) --26
-
-    sets.engaged.DW.Acc.HighHaste = set_combine(sets.engaged.DW.HighHaste, {
-        ammo="Voluspa Tathlum",
-        head=gear.Carmine_D_Head,
-        body=gear.Carmine_B_Body,
-        hands="Gazu Bracelet +1",
-        ear1="Cessance Earring",
-        ear2="Mache Earring +1",
-        legs=gear.Carmine_D_Legs, --6
-        neck="Combatant's Torque",
-        ring1=gear.Chirich_1,
-    })
-
-    sets.engaged.DW.Aftermath.HighHaste = set_combine(sets.engaged.DW.HighHaste, {
-        
-    })
-
-       -- 45% Magic Haste (36% DW to cap)
-    sets.engaged.DW.MaxHaste = set_combine(sets.engaged.DW, {
-        ammo="Aurgelmir Orb +1",
-        head=gear.Malignance_Head,
-        body=gear.Malignance_Body,
-        hands=gear.Malignance_Hands,
-        legs=gear.Malignance_Legs,
-        feet=gear.Malignance_Feet,
-        neck="Anu Torque",
-        ear1="Sherida Earring",
-        ear2="Telos Earring",
-        ring1="Hetairoi Ring",
-        ring2=gear.Chirich_2,
-        back=gear.RDM_DW_Cape, --10
-        waist="Windbuffet Belt +1",
-    }) --10
-
-    sets.engaged.DW.Acc.MaxHaste = set_combine(sets.engaged.DW.MaxHaste, {
-        ammo="Voluspa Tathlum",
-        head=gear.Carmine_D_Head,
-        body=gear.Carmine_B_Body,
-        hands="Gazu Bracelet +1",
-        legs=gear.Carmine_D_Legs,
-        ear1="Cessance Earring",
-        ear2="Mache Earring +1",
-        -- neck="Combatant's Torque",
-        ring1=gear.Chirich_1,
-        waist="Kentarch Belt +1",
-    })
-
-     sets.engaged.DW.Aftermath.MaxHaste = set_combine(sets.engaged.DW.MaxHaste, {
-        
-    })
-  
+        head="Totemic Helm +3",
+        neck="Beastmaster Collar +2",
+        ear1="Suppanomimi",
+        ear2="Eabani Earring",
+        body="Totemic Jackcoat +3",
+        hands="Totemic Gloves +3",
+        ring1="Ilabrat Ring",
+        ring2="Regal Ring",
+        back=DW_back,
+        waist="Reiki Yotai",
+        legs="Totemic Trousers +3",
+        feet=DW_feet
+    }
 
     sets.engaged.DW.SubtleBlow = {
         ammo="Coiste Bodhar",
@@ -1890,25 +1815,18 @@ function init_gear_sets()
     }
 
     --Precast Gear Sets for DRG subjob abilities:
-    sets.precast.JA.Jump = {
-        hands="Crusher Gauntlets",
-        feet="Ostro Greaves"
-    }
+    sets.precast.JA.Jump = {hands="Crusher Gauntlets",feet="Ostro Greaves"}
     sets.precast.JA['High Jump'] = sets.precast.JA.Jump
 
     --Misc Gear Sets
     sets.FrenzySallet = {head="Frenzy Sallet"}
     sets.precast.LuzafRing = {ring1="Luzaf's Ring"}
     sets.buff['Killer Instinct'] = {body="Nukumi Gausape +1"}
-
     sets.THGear = {
         ammo="Perfect Lucky Egg",
-        -- legs=TH_legs,
+        legs=TH_legs,
         waist="Chaac Belt"
     }
-
-    sets.DefaultShield = { sub="Adapa Shield" }
-
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -2392,7 +2310,7 @@ function equip_ready_gear(spell)
         end
 
         -- Equip Headgear based on Neutral or Favorable Correlation Modes:
-        if state.OffenseMode.value ~= 'Acc' then
+        if state.OffenseMode.value ~= 'MaxAcc' then
             equip(sets.midcast.Pet[state.CorrelationMode.value])
         end
     end
@@ -2443,7 +2361,7 @@ function equip_ready_gear(spell)
 
     --If Pet TP, before bonuses, is less than a certain value then equip Nukumi Manoplas +1.
     --Or if Pet TP, before bonuses, is more than a certain value then equip Unleash-specific Axes.
-    if (physical_ready_moves:contains(spell.name) or magic_atk_ready_moves:contains(spell.name)) and state.OffenseMode.value ~= 'Acc' then
+    if (physical_ready_moves:contains(spell.name) or magic_atk_ready_moves:contains(spell.name)) and state.OffenseMode.value ~= 'MaxAcc' then
         if tp_based_ready_moves:contains(spell.name) and PetJob == 'Warrior' then
             if pet_tp < 1300 then
                 equip(sets.midcast.Pet.TPBonus)
@@ -2911,90 +2829,5 @@ function get_combat_form()
         state.CombatForm:set('DW')
     else
         state.CombatForm:reset()
-    end
-end
-
-function determine_haste_group()
-    classes.CustomMeleeGroups:clear()
-    if DW == true then
-        -- add_to_chat(123,'DW NEEDED: '.. DW_needed)
-        if DW_needed <= 14 then
-            classes.CustomMeleeGroups:append('MaxHaste')
-        elseif DW_needed > 15 and DW_needed <= 26 then
-            classes.CustomMeleeGroups:append('HighHaste')
-        elseif DW_needed > 26 and DW_needed <= 32 then
-            classes.CustomMeleeGroups:append('MidHaste')
-        elseif DW_needed > 32 and DW_needed <= 43 then
-            classes.CustomMeleeGroups:append('LowHaste')
-        elseif DW_needed > 43 then
-            classes.CustomMeleeGroups:append('')
-        end
-    end
-end
-
-function gearinfo(cmdParams, eventArgs)
-    if cmdParams[1] == 'gearinfo' then
-        if type(tonumber(cmdParams[2])) == 'number' then
-            if tonumber(cmdParams[2]) ~= DW_needed then
-            DW_needed = tonumber(cmdParams[2])
-            DW = true
-            end
-        elseif type(cmdParams[2]) == 'string' then
-            if cmdParams[2] == 'false' then
-                DW_needed = 0
-                DW = false
-            end
-        end
-        if type(tonumber(cmdParams[3])) == 'number' then
-            if tonumber(cmdParams[3]) ~= Haste then
-                Haste = tonumber(cmdParams[3])
-            end
-        end
-        if type(cmdParams[4]) == 'string' then
-            if cmdParams[4] == 'true' then
-                moving = true
-            elseif cmdParams[4] == 'false' then
-                moving = false
-            end
-        end
-        if not midaction() then
-            job_update()
-        end
-    end
-end
-
--- Check for various actions that we've specified in user code as being used with TH gear.
--- This will only ever be called if TreasureMode is not 'None'.
--- Category and Param are as specified in the action event packet.
-function th_action_check(category, param)
-    if category == 2 or -- any ranged attack
-        --category == 4 or -- any magic action
-        (category == 3 and param == 30) or -- Aeolian Edge
-        (category == 6 and info.default_ja_ids:contains(param)) or -- Provoke, Animated Flourish
-        (category == 14 and info.default_u_ja_ids:contains(param)) -- Quick/Box/Stutter Step, Desperate/Violent Flourish
-        then return true
-    end
-end
-
-function check_moving()
-    if state.DefenseMode.value == 'None'  and state.Kiting.value == false then
-        if state.Auto_Kite.value == false and moving then
-            state.Auto_Kite:set(true)
-        elseif state.Auto_Kite.value == true and moving == false then
-            state.Auto_Kite:set(false)
-        end
-    end
-end
-
-function check_gear()
-    if no_swap_gear:contains(player.equipment.left_ring) then
-        disable("ring1")
-    else
-        enable("ring1")
-    end
-    if no_swap_gear:contains(player.equipment.right_ring) then
-        disable("ring2")
-    else
-        enable("ring2")
     end
 end

@@ -95,6 +95,7 @@ function init_gear_sets()
     sets.engaged.Acc.DT = set_combine(sets.engaged.Acc, sets.engaged.Hybrid)
 
     sets.precast.WS = {
+        head="Agoge Mask +3",
         ring="Rajas Ring",
         ring2="Petrov Ring",
         ammo="Knobkierrie",
