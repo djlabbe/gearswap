@@ -81,7 +81,7 @@ function init_gear_sets()
         legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
         feet="Flam. Gambieras +2",
         neck={ name="War. Beads +1", augments={'Path: A',}},
-        waist="Ioskeha Belt +1",
+        waist="Sailfi Belt +1",
         left_ear="Cessance Earring",
         right_ear="Brutal Earring",
         left_ring="Flamma Ring",
@@ -107,8 +107,10 @@ function init_gear_sets()
 
     sets.precast.WS = {
         head="Agoge Mask +3",
+        body="Pumeler's Lorica +2",
         ring="Rajas Ring",
         ring2="Petrov Ring",
+        waist="Sailfi Belt +1",
         ammo="Knobkierrie",
         feet="Sulevia's Leggings +2",
         back=gear.WAR_WS1_Cape,

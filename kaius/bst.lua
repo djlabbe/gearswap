@@ -49,6 +49,12 @@ function get_sets()
 end
 
 function job_setup()
+    
+    no_swap_gear = S{"Warp Ring", "Dim. Ring (Dem)", "Dim. Ring (Holla)", "Dim. Ring (Mea)",
+              "Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring",
+              "Dev. Bul. Pouch", "Chr. Bul. Pouch", "Liv. Bul. Pouch"}
+              
+
     -- Display and Random Lockstyle Generator options
     DisplayPetBuffTimers = 'false'
     DisplayModeInfo = 'false'
@@ -92,8 +98,8 @@ function job_setup()
         DisplayTrue = 1
     end
 
-    update_combat_form()
-    get_melee_groups()
+  
+    -- get_melee_groups()
 end
 
 function user_setup()
@@ -106,7 +112,7 @@ function user_setup()
     state.PhysicalDefenseMode:options('PDT', 'PetPDT')
     state.MagicalDefenseMode:options('MDT', 'PetMDT')
 
-    state.WeaponSet = M{['description']='Weapon Set', 'Ike-Agw'}
+    state.WeaponSet = M{['description']='Weapon Set', 'IkeAgw'}
     state.WeaponLock = M(false, 'Weapon Lock')
 
     include('Global-Binds.lua')
@@ -195,8 +201,13 @@ function user_setup()
     send_command('wait 2; input /lockstyleset 9')
     display_mode_info()
 
+    state.Auto_Kite = M(false, 'Auto_Kite')
+    Haste = 0
+    DW_needed = 0
     DW = false
+    moving = false
     update_combat_form()
+    determine_haste_group()
 end
 
 function file_unload()
@@ -961,6 +972,11 @@ function init_gear_sets()
         -- feet=STP_feet
     }
 
+    sets.engaged.DW.LowHaste = sets.engaged.DW
+    sets.engaged.DW.MidHaste = sets.engaged.DW
+    sets.engaged.DW.HighHaste = sets.engaged.DW
+    sets.engaged.DW.MaxHaste = sets.engaged.DW
+
     sets.engaged.DW.Aftermath = {
         ammo="Aurgelmir Orb +1",
         head=gear.Malignance_Head,
@@ -1408,6 +1424,8 @@ function init_gear_sets()
         legs=TH_legs,
         waist="Chaac Belt"
     }
+
+    sets.IkeAgw = {main="Ikenga's Axe", sub="Agwu's Axe"}
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -1536,6 +1554,10 @@ function job_aftercast(spell, action, spellMap, eventArgs)
     if player.equipment.main == 'Aymur' then
         custom_aftermath_timers_aftercast(spell)
     end
+
+    if player.status ~= 'Engaged' and state.WeaponLock.value == false then
+        check_weaponset()
+    end
 end
 
 function job_pet_midcast(spell, action, spellMap, eventArgs)
@@ -1561,6 +1583,7 @@ function customize_idle_set(idleSet)
 end
 
 function customize_melee_set(meleeSet)
+    check_weaponset()
     return meleeSet
 end
 
@@ -1604,16 +1627,19 @@ end
 
 -- Called any time we attempt to handle automatic gear equips (ie: engaged or idle gear).
 function job_handle_equipping_gear(playerStatus, eventArgs)
-
+    check_gear()
+    update_combat_form()
+    determine_haste_group()
+    -- get_melee_groups()
+    check_moving()
+    pet_info_update()
+    update_display_mode_info()
 end
 
 -- Called by the 'update' self-command, for common needs.
 -- Set eventArgs.handled to true if we don't want automatic equipping of gear.
 function job_update(cmdParams, eventArgs)
-    update_combat_form()
-    get_melee_groups()
-    pet_info_update()
-    update_display_mode_info()
+    handle_equipping_gear(player.status)
 end
 
 -- Updates gear based on pet status changes.
@@ -1679,7 +1705,11 @@ function job_self_command(cmdParams, eventArgs)
 	    end
 	    add_to_chat(28,'Ready Recast:'..ready..'   Charges Remaining:'..charges..'')
     end
+
+    gearinfo(cmdParams, eventArgs)
 end
+
+
  
 function ready_move(cmdParams)
     local move = cmdParams[2]:lower()
@@ -2191,12 +2221,75 @@ function checkblocking(spell)
     end
 end
 
-function get_melee_groups()
-    classes.CustomMeleeGroups:clear()
-    if buffactive['Aftermath: Lv.3'] then
-        classes.CustomMeleeGroups:append('Aftermath')
+-- function get_melee_groups()
+--     classes.CustomMeleeGroups:clear()
+--     if buffactive['Aftermath: Lv.3'] then
+--         classes.CustomMeleeGroups:append('Aftermath')
+--     end
+-- end
+
+function gearinfo(cmdParams, eventArgs)
+    if cmdParams[1] == 'gearinfo' then
+        if type(tonumber(cmdParams[2])) == 'number' then
+            if tonumber(cmdParams[2]) ~= DW_needed then
+            DW_needed = tonumber(cmdParams[2])
+            DW = true
+            end
+        elseif type(cmdParams[2]) == 'string' then
+            if cmdParams[2] == 'false' then
+                DW_needed = 0
+                DW = false
+            end
+        end
+        if type(tonumber(cmdParams[3])) == 'number' then
+            if tonumber(cmdParams[3]) ~= Haste then
+                Haste = tonumber(cmdParams[3])
+            end
+        end
+        if type(cmdParams[4]) == 'string' then
+            if cmdParams[4] == 'true' then
+                moving = true
+            elseif cmdParams[4] == 'false' then
+                moving = false
+            end
+        end
+        if not midaction() then
+            job_update()
+        end
     end
 end
+
+function determine_haste_group()
+    classes.CustomMeleeGroups:clear()
+    if DW == true then
+        if DW_needed <= 11 then
+            classes.CustomMeleeGroups:append('MaxHaste')
+        elseif DW_needed > 11 and DW_needed <= 21 then
+            classes.CustomMeleeGroups:append('MaxHastePlus')
+        elseif DW_needed > 21 and DW_needed <= 27 then
+            classes.CustomMeleeGroups:append('HighHaste')
+        elseif DW_needed > 27 and DW_needed <= 31 then
+            classes.CustomMeleeGroups:append('MidHaste')
+        elseif DW_needed > 31 and DW_needed <= 42 then
+            classes.CustomMeleeGroups:append('LowHaste')
+        elseif DW_needed > 42 then
+            classes.CustomMeleeGroups:append('')
+        end
+    end
+    -- add_to_chat(104, 'Determined haste...' .. classes.CustomMeleeGroups)
+end
+
+
+function check_moving()
+    if state.DefenseMode.value == 'None'  and state.Kiting.value == false then
+        if state.Auto_Kite.value == false and moving then
+            state.Auto_Kite:set(true)
+        elseif state.Auto_Kite.value == true and moving == false then
+            state.Auto_Kite:set(false)
+        end
+    end
+end
+
 
 function update_combat_form()
     if DW == true then
@@ -2206,9 +2299,44 @@ function update_combat_form()
     end
 end
 
+function check_gear()
+    if no_swap_gear:contains(player.equipment.left_ring) then
+        disable("ring1")
+    else
+        enable("ring1")
+    end
+    if no_swap_gear:contains(player.equipment.right_ring) then
+        disable("ring2")
+    else
+        enable("ring2")
+    end
+    if no_swap_gear:contains(player.equipment.waist) then
+        disable("waist")
+    else
+        enable("waist")
+    end
+end
+
 function check_weaponset()
     equip(sets[state.WeaponSet.current])
     if player.sub_job ~= 'NIN' and player.sub_job ~= 'DNC' then
        equip(sets.DefaultShield)
     end
 end
+
+windower.register_event('zone change',
+    function()
+        if no_swap_gear:contains(player.equipment.left_ring) then
+            enable("ring1")
+            equip(sets.idle)
+        end
+        if no_swap_gear:contains(player.equipment.right_ring) then
+            enable("ring2")
+            equip(sets.idle)
+        end
+        if no_swap_gear:contains(player.equipment.waist) then
+            enable("waist")
+            equip(sets.idle)
+        end
+    end
+)

@@ -1566,6 +1566,7 @@ function check_weaponset()
     else
         equip(sets[state.WeaponSet.current])
     end
+    
     if player.sub_job ~= 'NIN' and player.sub_job ~= 'DNC' then
         equip(sets.DefaultShield)
     end
