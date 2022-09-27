@@ -119,7 +119,7 @@ function user_setup()
 
     -- Set up Jug Pet cycling and keybind Alt+F8/Ctrl+F8
     -- INPUT PREFERRED JUG PETS HERE
-    state.JugMode = M{['description']='Jug Mode', 'Dire Broth', 'Tant. Broth', 'Lyrical Broth'}
+    state.JugMode = M{['description']='Jug Mode', 'Dire Broth', 'Tant. Broth', 'Lyrical Broth', 'Spicy Broth', 'Bubbly Broth'}
     send_command('bind !f8 gs c cycle JugMode')
     send_command('bind ^f8 gs c cycleback JugMode')
 
@@ -197,6 +197,9 @@ function user_setup()
     send_command('bind @w gs c toggle WeaponLock')
     send_command('bind @e gs c cycle WeaponSet')
 
+    send_command('bind !l input /pet Leave <me>')
+    send_command('bind !l input /pet Heel <me>')
+
     set_macro_page(1, 9)
     send_command('wait 2; input /lockstyleset 9')
     display_mode_info()
@@ -222,6 +225,10 @@ function file_unload()
     send_command('unbind ^f8')
     send_command('unbind @f8')
     send_command('unbind ^f11')
+
+    send_command('unbind !l')
+    send_command('unbind !h')
+
 
     -- Removes any Text Info Boxes
     send_command('text JugPetText delete')
@@ -592,6 +599,22 @@ function init_gear_sets()
         feet=gear.Gleti_Feet,
     }
 
+    sets.idle.Town = {
+        ammo="Staunch Tathlum +1",
+        head=gear.Gleti_Head,
+        neck="Bathy Choker +1",
+        ear1="Tuisto Earring",
+        ear2="Odnowa Earring +1",
+        body="Nukumi Gausape +2",
+        hands="Totemic Gloves +3",
+        ring1=gear.Chirich_1,
+        ring2=gear.Chirich_2,
+        back="Phalangite Mantle",
+        waist="Flume Belt +1",
+        legs=gear.Gleti_Legs,
+        feet=gear.Gleti_Feet,
+    }
+
     sets.idle.Refresh = set_combine(sets.idle, {
         head="Jumalik Helm",
         body="Jumalik Mail",
@@ -742,7 +765,7 @@ function init_gear_sets()
         neck="Loricate Torque +1",
         ear1="Beast Earring",
         ear2="Odnowa Earring +1",
-        body="Nukumi Gausape +1",
+        body="Nukumi Gausape +2",
         hands=gear.Malignance_Hands,
         ring1="Gelatinous Ring +1",
         ring2="Defending Ring",
@@ -879,7 +902,7 @@ function init_gear_sets()
         ear2="Friomisi Earring",
         body="Sacro Breastplate",
         hands="Leyline Gloves",
-        ring1="Acumen Ring",
+        ring1="Shiva Ring +1",
         ring2="Fenrir Ring +1",
         back=MAcc_back,
         waist="Eschan Stone",
@@ -942,7 +965,7 @@ function init_gear_sets()
 
     sets.engaged.Farsha = {ammo="Coiste Bodhar",
         head="Nukumi Cabasset +1",neck="Beastmaster Collar +2",ear1="Sherida Earring",ear2="Moonshade Earring",
-        body="Nukumi Gausape +1",hands="Nukumi Manoplas +1",ring1="Gere Ring",ring2="Epona's Ring",
+        body="Nukumi Gausape +2",hands="Nukumi Manoplas +1",ring1="Gere Ring",ring2="Epona's Ring",
         back=STP_back,waist="Windbuffet Belt +1",legs="Nukumi Quijotes +1",feet="Nukumi Ocreae +1"}
 
     ------------------------------------
@@ -1195,18 +1218,23 @@ function init_gear_sets()
 
     sets.precast.WS['Primal Rend'] = {
         ammo="Pemphredo Tathlum",
-        head=MAB_head,
+        -- head=MAB_head,
+        head=gear.Nyame_Head,
         neck="Baetyl Pendant",
         ear1="Moonshade Earring",
         ear2="Friomisi Earring",
-        body="Sacro Breastplate",
-        hands="Leyline Gloves",
-        ring1="Acumen Ring",
+        -- body="Sacro Breastplate",
+        body="Nukumi Gausape +2",
+        -- hands="Leyline Gloves",
+        hands="Totemic Gloves +3",
+        ring1="Weatherspoon Ring",
         ring2="Epaminondas's Ring",
         back=Primal_back,
-        waist="Eschan Stone",
-        legs=MAB_legs,
-        feet=MAB_feet
+        waist="Orpheus's Sash",
+        legs=gear.Nyame_Legs,
+        feet=gear.Nyame_Feet,
+        -- legs=MAB_legs,
+        -- feet=MAB_feet
     }
 
     sets.precast.WS['Primal Rend'].HighAcc = {
@@ -1220,12 +1248,15 @@ function init_gear_sets()
         ring1="Sangoma Ring",
         ring2="Rufescent Ring",
         back=MAcc_back,
-        waist="Eschan Stone",
+        waist="Orpheus's Sash",
         legs="Malignance Tights",
         feet="Malignance Boots"
     }
 
-    sets.precast.WS['Cloudsplitter'] = set_combine(sets.precast.WS['Primal Rend'], {back=Cloud_back})
+    sets.precast.WS['Cloudsplitter'] = set_combine(sets.precast.WS['Primal Rend'], {
+        ring1="Metamorph Ring +1",
+        back=Cloud_back
+    })
 
     -- DAGGER WSs --
     sets.precast.WS['Evisceration'] = {
@@ -1252,7 +1283,7 @@ function init_gear_sets()
         ear2="Friomisi Earring",
         body="Sacro Breastplate",
         hands="Leyline Gloves",
-        ring1="Acumen Ring",
+        ring1="Shiva Ring +1",
         ring2="Epaminondas's Ring",
         back=Primal_back,
         waist="Eschan Stone",
@@ -1418,7 +1449,7 @@ function init_gear_sets()
     --Misc Gear Sets
     sets.FrenzySallet = {head="Frenzy Sallet"}
     sets.precast.LuzafRing = {ring1="Luzaf's Ring"}
-    sets.buff['Killer Instinct'] = {body="Nukumi Gausape +1"}
+    sets.buff['Killer Instinct'] = {body="Nukumi Gausape +2"}
     sets.THGear = {
         ammo="Perfect Lucky Egg",
         legs=TH_legs,
@@ -1492,7 +1523,7 @@ function job_precast(spell, action, spellMap, eventArgs)
 end
 
 function job_post_precast(spell, action, spellMap, eventArgs)
-    --If Killer Instinct is active during WS (except for Primal/Cloudsplitter where Sacro Body is superior), equip Nukumi Gausape +1.
+    --If Killer Instinct is active during WS (except for Primal/Cloudsplitter where Sacro Body is superior), equip Nukumi Gausape +2.
     if spell.type:lower() == 'weaponskill' and buffactive['Killer Instinct'] then
         if spell.english ~= "Primal Rend" and spell.english ~= "Cloudsplitter" then
             equip(sets.buff['Killer Instinct'])

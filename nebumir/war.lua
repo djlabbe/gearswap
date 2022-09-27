@@ -73,6 +73,10 @@ end
 -- Define sets and vars used by this job file.
 function init_gear_sets()
 
+    sets.precast.JA["Berserk"] = {
+        body="Pummeler's Lorica +2",
+    }
+
     sets.engaged = {
         ammo="Ginsen",
         head="Flam. Zucchetto +2",
@@ -107,7 +111,7 @@ function init_gear_sets()
 
     sets.precast.WS = {
         head="Agoge Mask +3",
-        body="Pumeler's Lorica +2",
+        body="Pummeler's Lorica +2",
         ring="Rajas Ring",
         ring2="Petrov Ring",
         waist="Sailfi Belt +1",
