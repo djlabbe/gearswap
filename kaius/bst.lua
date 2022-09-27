@@ -479,7 +479,7 @@ function init_gear_sets()
         main="Arktoi",
         sub="Agwu's Axe",
         ammo="Voluspa Tathlum",
-        head="Gleti's Mask",
+        head=gear.Gleti_Head,
         neck="Beastmaster Collar +2",
         ear1="Enmerkar Earring",
         ear2="Kyrene's Earring",
@@ -517,14 +517,14 @@ function init_gear_sets()
     }
 
     sets.midcast.Pet.MagicAtkReady.MedAcc = set_combine(sets.midcast.Pet.MagicAtkReady.Normal, {
-        head="Gleti's Mask",
+        head=gear.Gleti_Head,
         ear2="Enmerkar Earring",
         legs=gear.Gleti_Legs
     })
 
     sets.midcast.Pet.MagicAtkReady.HighAcc = set_combine(sets.midcast.Pet.MagicAtkReady.Normal, {
         sub=Ready_MAcc_Axe,
-        head="Gleti's Mask",
+        head=gear.Gleti_Head,
         ear2="Enmerkar Earring",
         body=gear.Gleti_Body,
         hands=gear.Gleti_Hands,
@@ -534,7 +534,7 @@ function init_gear_sets()
 
     sets.midcast.Pet.MagicAtkReady.MaxAcc = set_combine(sets.midcast.Pet.MagicAtkReady.Normal, {
         sub=Ready_MAcc_Axe,
-        head="Gleti's Mask",
+        head=gear.Gleti_Head,
         neck="Beastmaster Collar +2",
         ear1="Kyrene's Earring",
         ear2="Enmerkar Earring",
@@ -687,7 +687,7 @@ function init_gear_sets()
     -- Master PDT and MDT sets:
     sets.defense.PDT = {
         ammo="Iron Gobbet",
-        head="Gleti's Mask",
+        head=gear.Gleti_Head,
         neck="Loricate Torque +1",
         ear1="Tuisto Earring",
         ear2="Odnowa Earring +1",
@@ -972,47 +972,33 @@ function init_gear_sets()
         ammo="Coiste Bodhar",
         head=gear.Malignance_Head,
         neck="Anu Torque",
-        ear1="Eabani Earring", --4
-        ear2="Suppanomimi", --5
+        ear1="Suppanomimi", --5
+        ear2="Eabani Earring", --4
         body="Tali'ah Manteel +2",
-        hands=gear.Malignance_Hands,
+        hands=gear.Emicho_D_Hands, --6
         ring1="Gere Ring",
         ring2="Epona's Ring",
         back="Phalangite Mantle",
         waist="Reiki Yotai", --7
         legs=gear.Malignance_Legs,
         feet=gear.Taeon_DW_Feet, --9
-    }
+    } --31
 
     -- 15% Magic Haste (67% DW to cap) 42 NIN
-    sets.engaged.DW.LowHaste = set_combine(sets.engaged.DW, {
-
-    })
+    sets.engaged.DW.LowHaste = sets.engaged.DW
 
     -- 30% Magic Haste (56% DW to cap) 31 NIN
-    sets.engaged.DW.MidHaste = = set_combine(sets.engaged.DW, {
-        
-    })
+    sets.engaged.DW.MidHaste = sets.engaged.DW
 
     -- 35% Magic Haste (51% DW to cap) 20 NIN
-    sets.engaged.DW.HighHaste = = set_combine(sets.engaged.DW, {
-        
-    })
+    sets.engaged.DW.HighHaste = set_combine(sets.engaged.DW, {
+        feet=gear.Malignance_Feet,
+    }) --22
 
     -- 45% Magic Haste (36% DW to cap) 11 NIN
-    sets.engaged.DW.MaxHaste = = set_combine(sets.engaged.DW, {
-        ammo="Coiste Bodhar",
-        head=gear.Malignance_Head,
-        neck="Anu Torque",
+    sets.engaged.DW.MaxHaste = set_combine(sets.engaged.DW, {
         ear1="Sherida Earring",
-        ear2="Eabani Earring", --4
-        body="Tali'ah Manteel +2",
         hands=gear.Malignance_Hands,
-        ring1="Gere Ring",
-        ring2="Epona's Ring",
-        back="Phalangite Mantle",
-        waist="Reiki Yotai", --7
-        legs=gear.Malignance_Legs,
         feet=gear.Malignance_Feet,
     })
 
@@ -1103,7 +1089,7 @@ function init_gear_sets()
     -- AXE WSs --
     sets.precast.WS = {
         ammo="Aurgelmir Orb +1",
-        head="Gleti's Mask",
+        head=gear.Gleti_Head,
         neck="Beastmaster Collar +2",
         ear1="Moonshade Earring",
         ear2="Telos Earring",
@@ -1118,14 +1104,14 @@ function init_gear_sets()
     }
 
     sets.precast.WS['Rampage'] = {
-        ammo="Coiste Bodhar",
+        ammo="Aurgelmir Orb +1",
         head="Blistering Sallet +1",
         neck="Fotia Gorget",
         ear1="Sherida Earring",
         ear2="Moonshade Earring",
         body=gear.Gleti_Body,
         hands=gear.Gleti_Hands,
-        ring1="Gere Ring",
+        ring1="Regal Ring",
         ring2="Begrudging Ring",
         back=Crit_back,
         waist="Fotia Belt",
@@ -1135,6 +1121,7 @@ function init_gear_sets()
 
     sets.precast.WS['Calamity'] = {
         ammo="Aurgelmir Orb +1",
+        -- ammo="Oshasha's Treatise",
         head="Ankusa Helm +3",
         neck="Beastmaster Collar +2",
         ear1="Moonshade Earring",
@@ -1167,17 +1154,17 @@ function init_gear_sets()
 
     sets.precast.WS['Decimation'] = {
         ammo="Coiste Bodhar",
-        head="Gleti's Mask",
+        head=gear.Gleti_Head,
         neck="Fotia Gorget",
         ear1="Sherida Earring",
-        ear2="Brutal Earring",
-        body="Tali'ah Manteel +2",
+        ear2="Sroda Earring",
+        body=gear.Gleti_Body,
         hands=gear.Gleti_Hands,
         ring1="Gere Ring",
         ring2="Epona's Ring",
         back=STR_DA_back,
         waist="Fotia Belt",
-        legs="Meghanada Chausses +2",
+        legs=gear.Gleti_Legs,
         feet=gear.Gleti_Feet
     }
     sets.precast.WS['Decimation'].Gavialis = set_combine(sets.precast.WS['Ruinator'], {head="Gavialis Helm"})
@@ -1200,7 +1187,7 @@ function init_gear_sets()
 
     sets.precast.WS['Ruinator'] = {
         ammo="Coiste Bodhar",
-        head="Gleti's Mask",
+        head=gear.Gleti_Head,
         neck="Fotia Gorget",
         ear1="Sherida Earring",
         ear2="Telos Earring",
@@ -1309,7 +1296,7 @@ function init_gear_sets()
 
     sets.precast.WS['Exenterator'] = {
         ammo="Coiste Bodhar",
-        head="Gleti's Mask",
+        head=gear.Gleti_Head,
         neck="Fotia Gorget",
         ear1="Sherida Earring",
         ear2="Telos Earring",
@@ -1384,7 +1371,7 @@ function init_gear_sets()
 
     sets.precast.WS['Entropy'] = {
         ammo="Coiste Bodhar",
-        head="Gleti's Mask",
+        head=gear.Gleti_Head,
         neck="Fotia Gorget",
         ear1="Sherida Earring",
         ear2="Telos Earring",
