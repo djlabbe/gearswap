@@ -119,8 +119,8 @@ function user_setup()
     gear.Relic = { }
     gear.Relic_Head = { name= "Pedagogy Mortarboard +3" }
     gear.Relic_Body = { name= "Pedagogy Gown +1" }
-    gear.Relic_Hands = { name= "Pedagogy Bracers +1" }
-    gear.Relic_Legs = { name= "Pedagogy Pants +1" }
+    gear.Relic_Hands = { name= "Pedagogy Bracers +3" }
+    gear.Relic_Legs = { name= "Pedagogy Pants +3" }
     gear.Relic_Feet = { name= "Pedagogy Loafers +1" }
 
     gear.Empyrean = { }
@@ -701,12 +701,12 @@ function init_gear_sets()
     })
 
     sets.idle.Town = set_combine(sets.idle, {
-        main="Musa",
+        -- main="Musa",
         -- sub="Khonsu", --0/(-5)
-        sub="Enki Strap",
+        -- sub="Enki Strap",
         ammo="Ghastly Tathlum +1",
         head=gear.Relic_Head,
-        body=gear.Amalric_A_Body,
+        body=gear.Artifact_Body,
         hands="Regal Cuffs",
         legs=gear.Relic_Pants,
         feet=gear.Relic_Feet,

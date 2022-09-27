@@ -80,8 +80,8 @@ function user_setup()
     state.MagicBurst = M(false, 'Magic Burst')
 
     gear.Relic_Head = { name= "Bagua Galero +3" }
-    gear.Relic_Body = { name= "Bagua Tunic +1" }
-    gear.Relic_Hands = { name= "Bagua Mitaines +1" }
+    gear.Relic_Body = { name= "Bagua Tunic +3" }
+    gear.Relic_Hands = { name= "Bagua Mitaines +3" }
     gear.Relic_Legs = { name= "Bagua Pants +3" }
     gear.Relic_Feet = { name= "Bagua Sandals +3" }
 
