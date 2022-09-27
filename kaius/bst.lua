@@ -944,33 +944,54 @@ function init_gear_sets()
     -- DUAL-WIELD MASTER ENGAGED SETS --
     ------------------------------------
 
+    -- No Magic Haste (74% DW to cap) 49 NIN
     sets.engaged.DW = {
         ammo="Coiste Bodhar",
         head=gear.Malignance_Head,
         neck="Anu Torque",
-        -- neck="Ainia Collar",
-        -- neck="Beastmaster Collar +2",
-        ear1="Sherida Earring",
-        ear2="Eabani Earring",
+        ear1="Eabani Earring", --4
+        ear2="Suppanomimi", --5
         body="Tali'ah Manteel +2",
-        -- body=gear.Malignance_Body,
-        -- hands="Emicho Gauntlets +1",
         hands=gear.Malignance_Hands,
         ring1="Gere Ring",
         ring2="Epona's Ring",
-        -- back=STP_back,
         back="Phalangite Mantle",
-        waist="Reiki Yotai",
+        waist="Reiki Yotai", --7
         legs=gear.Malignance_Legs,
-        feet=gear.Malignance_Feet,
-        -- legs="Meghanada Chausses +2",
-        -- feet=STP_feet
+        feet=gear.Taeon_DW_Feet, --9
     }
 
-    sets.engaged.DW.LowHaste = sets.engaged.DW
-    sets.engaged.DW.MidHaste = sets.engaged.DW
-    sets.engaged.DW.HighHaste = sets.engaged.DW
-    sets.engaged.DW.MaxHaste = sets.engaged.DW
+    -- 15% Magic Haste (67% DW to cap) 42 NIN
+    sets.engaged.DW.LowHaste = set_combine(sets.engaged.DW, {
+
+    })
+
+    -- 30% Magic Haste (56% DW to cap) 31 NIN
+    sets.engaged.DW.MidHaste = = set_combine(sets.engaged.DW, {
+        
+    })
+
+    -- 35% Magic Haste (51% DW to cap) 20 NIN
+    sets.engaged.DW.HighHaste = = set_combine(sets.engaged.DW, {
+        
+    })
+
+    -- 45% Magic Haste (36% DW to cap) 11 NIN
+    sets.engaged.DW.MaxHaste = = set_combine(sets.engaged.DW, {
+        ammo="Coiste Bodhar",
+        head=gear.Malignance_Head,
+        neck="Anu Torque",
+        ear1="Sherida Earring",
+        ear2="Eabani Earring", --4
+        body="Tali'ah Manteel +2",
+        hands=gear.Malignance_Hands,
+        ring1="Gere Ring",
+        ring2="Epona's Ring",
+        back="Phalangite Mantle",
+        waist="Reiki Yotai", --7
+        legs=gear.Malignance_Legs,
+        feet=gear.Malignance_Feet,
+    })
 
     sets.engaged.DW.Aftermath = {
         ammo="Aurgelmir Orb +1",
