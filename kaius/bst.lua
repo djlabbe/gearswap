@@ -119,7 +119,7 @@ function user_setup()
 
     -- Set up Jug Pet cycling and keybind Alt+F8/Ctrl+F8
     -- INPUT PREFERRED JUG PETS HERE
-    state.JugMode = M{['description']='Jug Mode', 'Dire Broth', 'Tant. Broth', 'Lyrical Broth'}
+    state.JugMode = M{['description']='Jug Mode', 'Dire Broth', 'Tant. Broth', 'Lyrical Broth', 'Spicy Broth', 'Bubbly Broth'}
     send_command('bind !f8 gs c cycle JugMode')
     send_command('bind ^f8 gs c cycleback JugMode')
 
@@ -197,6 +197,9 @@ function user_setup()
     send_command('bind @w gs c toggle WeaponLock')
     send_command('bind @e gs c cycle WeaponSet')
 
+    send_command('bind !l input /pet Leave <me>')
+    send_command('bind !l input /pet Heel <me>')
+
     set_macro_page(1, 9)
     send_command('wait 2; input /lockstyleset 9')
     display_mode_info()
@@ -222,6 +225,10 @@ function file_unload()
     send_command('unbind ^f8')
     send_command('unbind @f8')
     send_command('unbind ^f11')
+
+    send_command('unbind !l')
+    send_command('unbind !h')
+
 
     -- Removes any Text Info Boxes
     send_command('text JugPetText delete')
@@ -472,7 +479,7 @@ function init_gear_sets()
         main="Arktoi",
         sub="Agwu's Axe",
         ammo="Voluspa Tathlum",
-        head="Gleti's Mask",
+        head=gear.Gleti_Head,
         neck="Beastmaster Collar +2",
         ear1="Enmerkar Earring",
         ear2="Kyrene's Earring",
@@ -510,14 +517,14 @@ function init_gear_sets()
     }
 
     sets.midcast.Pet.MagicAtkReady.MedAcc = set_combine(sets.midcast.Pet.MagicAtkReady.Normal, {
-        head="Gleti's Mask",
+        head=gear.Gleti_Head,
         ear2="Enmerkar Earring",
         legs=gear.Gleti_Legs
     })
 
     sets.midcast.Pet.MagicAtkReady.HighAcc = set_combine(sets.midcast.Pet.MagicAtkReady.Normal, {
         sub=Ready_MAcc_Axe,
-        head="Gleti's Mask",
+        head=gear.Gleti_Head,
         ear2="Enmerkar Earring",
         body=gear.Gleti_Body,
         hands=gear.Gleti_Hands,
@@ -527,7 +534,7 @@ function init_gear_sets()
 
     sets.midcast.Pet.MagicAtkReady.MaxAcc = set_combine(sets.midcast.Pet.MagicAtkReady.Normal, {
         sub=Ready_MAcc_Axe,
-        head="Gleti's Mask",
+        head=gear.Gleti_Head,
         neck="Beastmaster Collar +2",
         ear1="Kyrene's Earring",
         ear2="Enmerkar Earring",
@@ -584,6 +591,22 @@ function init_gear_sets()
         ear2="Odnowa Earring +1",
         body=gear.Gleti_Body,
         hands=gear.Gleti_Hands,
+        ring1=gear.Chirich_1,
+        ring2=gear.Chirich_2,
+        back="Phalangite Mantle",
+        waist="Flume Belt +1",
+        legs=gear.Gleti_Legs,
+        feet=gear.Gleti_Feet,
+    }
+
+    sets.idle.Town = {
+        ammo="Staunch Tathlum +1",
+        head=gear.Gleti_Head,
+        neck="Bathy Choker +1",
+        ear1="Tuisto Earring",
+        ear2="Odnowa Earring +1",
+        body="Nukumi Gausape +2",
+        hands="Totemic Gloves +3",
         ring1=gear.Chirich_1,
         ring2=gear.Chirich_2,
         back="Phalangite Mantle",
@@ -664,7 +687,7 @@ function init_gear_sets()
     -- Master PDT and MDT sets:
     sets.defense.PDT = {
         ammo="Iron Gobbet",
-        head="Gleti's Mask",
+        head=gear.Gleti_Head,
         neck="Loricate Torque +1",
         ear1="Tuisto Earring",
         ear2="Odnowa Earring +1",
@@ -737,7 +760,7 @@ function init_gear_sets()
         neck="Loricate Torque +1",
         ear1="Beast Earring",
         ear2="Odnowa Earring +1",
-        body="Nukumi Gausape +1",
+        body="Nukumi Gausape +2",
         hands=gear.Malignance_Hands,
         ring1="Gelatinous Ring +1",
         ring2="Defending Ring",
@@ -874,7 +897,7 @@ function init_gear_sets()
         ear2="Friomisi Earring",
         body="Sacro Breastplate",
         hands="Leyline Gloves",
-        ring1="Acumen Ring",
+        ring1="Shiva Ring +1",
         ring2="Fenrir Ring +1",
         back=MAcc_back,
         waist="Eschan Stone",
@@ -937,7 +960,7 @@ function init_gear_sets()
 
     sets.engaged.Farsha = {ammo="Coiste Bodhar",
         head="Nukumi Cabasset +1",neck="Beastmaster Collar +2",ear1="Sherida Earring",ear2="Moonshade Earring",
-        body="Nukumi Gausape +1",hands="Nukumi Manoplas +1",ring1="Gere Ring",ring2="Epona's Ring",
+        body="Nukumi Gausape +2",hands="Nukumi Manoplas +1",ring1="Gere Ring",ring2="Epona's Ring",
         back=STP_back,waist="Windbuffet Belt +1",legs="Nukumi Quijotes +1",feet="Nukumi Ocreae +1"}
 
     ------------------------------------
@@ -949,47 +972,33 @@ function init_gear_sets()
         ammo="Coiste Bodhar",
         head=gear.Malignance_Head,
         neck="Anu Torque",
-        ear1="Eabani Earring", --4
-        ear2="Suppanomimi", --5
+        ear1="Suppanomimi", --5
+        ear2="Eabani Earring", --4
         body="Tali'ah Manteel +2",
-        hands=gear.Malignance_Hands,
+        hands=gear.Emicho_D_Hands, --6
         ring1="Gere Ring",
         ring2="Epona's Ring",
         back="Phalangite Mantle",
         waist="Reiki Yotai", --7
         legs=gear.Malignance_Legs,
         feet=gear.Taeon_DW_Feet, --9
-    }
+    } --31
 
     -- 15% Magic Haste (67% DW to cap) 42 NIN
-    sets.engaged.DW.LowHaste = set_combine(sets.engaged.DW, {
-
-    })
+    sets.engaged.DW.LowHaste = sets.engaged.DW
 
     -- 30% Magic Haste (56% DW to cap) 31 NIN
-    sets.engaged.DW.MidHaste = = set_combine(sets.engaged.DW, {
-        
-    })
+    sets.engaged.DW.MidHaste = sets.engaged.DW
 
     -- 35% Magic Haste (51% DW to cap) 20 NIN
-    sets.engaged.DW.HighHaste = = set_combine(sets.engaged.DW, {
-        
-    })
+    sets.engaged.DW.HighHaste = set_combine(sets.engaged.DW, {
+        feet=gear.Malignance_Feet,
+    }) --22
 
     -- 45% Magic Haste (36% DW to cap) 11 NIN
-    sets.engaged.DW.MaxHaste = = set_combine(sets.engaged.DW, {
-        ammo="Coiste Bodhar",
-        head=gear.Malignance_Head,
-        neck="Anu Torque",
+    sets.engaged.DW.MaxHaste = set_combine(sets.engaged.DW, {
         ear1="Sherida Earring",
-        ear2="Eabani Earring", --4
-        body="Tali'ah Manteel +2",
         hands=gear.Malignance_Hands,
-        ring1="Gere Ring",
-        ring2="Epona's Ring",
-        back="Phalangite Mantle",
-        waist="Reiki Yotai", --7
-        legs=gear.Malignance_Legs,
         feet=gear.Malignance_Feet,
     })
 
@@ -1080,7 +1089,7 @@ function init_gear_sets()
     -- AXE WSs --
     sets.precast.WS = {
         ammo="Aurgelmir Orb +1",
-        head="Gleti's Mask",
+        head=gear.Gleti_Head,
         neck="Beastmaster Collar +2",
         ear1="Moonshade Earring",
         ear2="Telos Earring",
@@ -1095,14 +1104,14 @@ function init_gear_sets()
     }
 
     sets.precast.WS['Rampage'] = {
-        ammo="Coiste Bodhar",
+        ammo="Aurgelmir Orb +1",
         head="Blistering Sallet +1",
         neck="Fotia Gorget",
         ear1="Sherida Earring",
         ear2="Moonshade Earring",
         body=gear.Gleti_Body,
         hands=gear.Gleti_Hands,
-        ring1="Gere Ring",
+        ring1="Regal Ring",
         ring2="Begrudging Ring",
         back=Crit_back,
         waist="Fotia Belt",
@@ -1112,6 +1121,7 @@ function init_gear_sets()
 
     sets.precast.WS['Calamity'] = {
         ammo="Aurgelmir Orb +1",
+        -- ammo="Oshasha's Treatise",
         head="Ankusa Helm +3",
         neck="Beastmaster Collar +2",
         ear1="Moonshade Earring",
@@ -1144,17 +1154,17 @@ function init_gear_sets()
 
     sets.precast.WS['Decimation'] = {
         ammo="Coiste Bodhar",
-        head="Gleti's Mask",
+        head=gear.Gleti_Head,
         neck="Fotia Gorget",
         ear1="Sherida Earring",
-        ear2="Brutal Earring",
-        body="Tali'ah Manteel +2",
+        ear2="Sroda Earring",
+        body=gear.Gleti_Body,
         hands=gear.Gleti_Hands,
         ring1="Gere Ring",
         ring2="Epona's Ring",
         back=STR_DA_back,
         waist="Fotia Belt",
-        legs="Meghanada Chausses +2",
+        legs=gear.Gleti_Legs,
         feet=gear.Gleti_Feet
     }
     sets.precast.WS['Decimation'].Gavialis = set_combine(sets.precast.WS['Ruinator'], {head="Gavialis Helm"})
@@ -1177,7 +1187,7 @@ function init_gear_sets()
 
     sets.precast.WS['Ruinator'] = {
         ammo="Coiste Bodhar",
-        head="Gleti's Mask",
+        head=gear.Gleti_Head,
         neck="Fotia Gorget",
         ear1="Sherida Earring",
         ear2="Telos Earring",
@@ -1211,18 +1221,23 @@ function init_gear_sets()
 
     sets.precast.WS['Primal Rend'] = {
         ammo="Pemphredo Tathlum",
-        head=MAB_head,
+        -- head=MAB_head,
+        head=gear.Nyame_Head,
         neck="Baetyl Pendant",
         ear1="Moonshade Earring",
         ear2="Friomisi Earring",
-        body="Sacro Breastplate",
-        hands="Leyline Gloves",
-        ring1="Acumen Ring",
+        -- body="Sacro Breastplate",
+        body="Nukumi Gausape +2",
+        -- hands="Leyline Gloves",
+        hands="Totemic Gloves +3",
+        ring1="Weatherspoon Ring",
         ring2="Epaminondas's Ring",
         back=Primal_back,
-        waist="Eschan Stone",
-        legs=MAB_legs,
-        feet=MAB_feet
+        waist="Orpheus's Sash",
+        legs=gear.Nyame_Legs,
+        feet=gear.Nyame_Feet,
+        -- legs=MAB_legs,
+        -- feet=MAB_feet
     }
 
     sets.precast.WS['Primal Rend'].HighAcc = {
@@ -1236,12 +1251,15 @@ function init_gear_sets()
         ring1="Sangoma Ring",
         ring2="Rufescent Ring",
         back=MAcc_back,
-        waist="Eschan Stone",
+        waist="Orpheus's Sash",
         legs="Malignance Tights",
         feet="Malignance Boots"
     }
 
-    sets.precast.WS['Cloudsplitter'] = set_combine(sets.precast.WS['Primal Rend'], {back=Cloud_back})
+    sets.precast.WS['Cloudsplitter'] = set_combine(sets.precast.WS['Primal Rend'], {
+        ring1="Metamorph Ring +1",
+        back=Cloud_back
+    })
 
     -- DAGGER WSs --
     sets.precast.WS['Evisceration'] = {
@@ -1268,7 +1286,7 @@ function init_gear_sets()
         ear2="Friomisi Earring",
         body="Sacro Breastplate",
         hands="Leyline Gloves",
-        ring1="Acumen Ring",
+        ring1="Shiva Ring +1",
         ring2="Epaminondas's Ring",
         back=Primal_back,
         waist="Eschan Stone",
@@ -1278,7 +1296,7 @@ function init_gear_sets()
 
     sets.precast.WS['Exenterator'] = {
         ammo="Coiste Bodhar",
-        head="Gleti's Mask",
+        head=gear.Gleti_Head,
         neck="Fotia Gorget",
         ear1="Sherida Earring",
         ear2="Telos Earring",
@@ -1353,7 +1371,7 @@ function init_gear_sets()
 
     sets.precast.WS['Entropy'] = {
         ammo="Coiste Bodhar",
-        head="Gleti's Mask",
+        head=gear.Gleti_Head,
         neck="Fotia Gorget",
         ear1="Sherida Earring",
         ear2="Telos Earring",
@@ -1434,7 +1452,7 @@ function init_gear_sets()
     --Misc Gear Sets
     sets.FrenzySallet = {head="Frenzy Sallet"}
     sets.precast.LuzafRing = {ring1="Luzaf's Ring"}
-    sets.buff['Killer Instinct'] = {body="Nukumi Gausape +1"}
+    sets.buff['Killer Instinct'] = {body="Nukumi Gausape +2"}
     sets.THGear = {
         ammo="Perfect Lucky Egg",
         legs=TH_legs,
@@ -1508,7 +1526,7 @@ function job_precast(spell, action, spellMap, eventArgs)
 end
 
 function job_post_precast(spell, action, spellMap, eventArgs)
-    --If Killer Instinct is active during WS (except for Primal/Cloudsplitter where Sacro Body is superior), equip Nukumi Gausape +1.
+    --If Killer Instinct is active during WS (except for Primal/Cloudsplitter where Sacro Body is superior), equip Nukumi Gausape +2.
     if spell.type:lower() == 'weaponskill' and buffactive['Killer Instinct'] then
         if spell.english ~= "Primal Rend" and spell.english ~= "Cloudsplitter" then
             equip(sets.buff['Killer Instinct'])

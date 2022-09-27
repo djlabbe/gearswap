@@ -152,7 +152,7 @@ function init_gear_sets()
         ear1="Malignance Earring", --4
         ear2="Etiolation Earring", --1
         ring1="Kishar Ring", --4
-        ring2="Weather. Ring +1", --6(4)
+        ring2="Weather. Ring", --6(4)
         back="Fi Follet Cape +1", --10
         waist="Shinjutsu-no-Obi +1", --5
     }
@@ -235,9 +235,9 @@ function init_gear_sets()
    sets.midcast.Geomancy = {
         main="Idris",
         sub="Chanter's Shield",
-        head="Bagua Galero +3",
+        head=gear.Empyrean_Head,
         body="Amalric Doublet +1",
-        hands="Shrieker's Cuffs",
+        hands=gear.Artifact_Hands,
         legs="Vanya Slops",
         feet="Amalric Nails +1",
         ear1="Calamitous Earring",
@@ -268,7 +268,7 @@ function init_gear_sets()
         ear1="Beatific Earring",
         ear2="Meili Earring",
         ring1="Lebeche Ring", --3/(-5)
-        ring2={name="Haoma's Ring", bag="wardrobe3"},
+        ring2="Haoma's Ring",
         back=gear.GEO_Cure_Cape, --0/(-10)
         waist="Bishop's Sash",
     }
@@ -281,10 +281,10 @@ function init_gear_sets()
 
     sets.midcast.Cursna = set_combine(sets.midcast.Cure, {
         neck="Malison Medallion",
-        ring1={name="Haoma's Ring", bag="wardrobe3"},
-        ring2={name="Haoma's Ring", bag="wardrobe4"},
+        -- ring1={name="Haoma's Ring", bag="wardrobe3"},
+        -- ring2={name="Haoma's Ring", bag="wardrobe4"},
         back="Oretan. Cape +1",
-        })
+    })
 
     sets.midcast['Enhancing Magic'] = {
         main=gear.Gada_ENH,
@@ -312,7 +312,7 @@ function init_gear_sets()
         legs=gear.Telchine_ENH_Legs,
         feet=gear.Telchine_ENH_Feet,
         waist="Embla Sash",
-        }
+    }
 
     sets.midcast.Regen = set_combine(sets.midcast.EnhancingDuration, {
         main="Bolelabunga",
@@ -383,7 +383,7 @@ function init_gear_sets()
         ring2="Metamor. Ring +1",
         back="Aurist's Cape +1",
         waist="Acuity Belt +1",
-        }
+    }
 
     sets.midcast.Drain = set_combine(sets.midcast['Dark Magic'], {
         head="Bagua Galero +3",
@@ -404,18 +404,18 @@ function init_gear_sets()
     sets.midcast['Elemental Magic'] = {
         main={ name="Solstice", augments={'INT+15','"Mag.Atk.Bns."+10','"Refresh"+1',}},
         sub="Culminus",
-        range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
-        head={ name="Bagua Galero +3", augments={'Enhances "Primeval Zeal" effect',}},
+        range="Dunna",
+        head=gear.Relic_Head,
         body={ name="Merlinic Jubbah", augments={'"Mag.Atk.Bns."+28','"Fast Cast"+7','Mag. Acc.+13',}},
-        hands={ name="Amalric Gages +1", augments={'INT+12','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
-        legs={ name="Bagua Pants +3", augments={'Enhances "Mending Halation" effect',}},
-        feet={ name="Bagua Sandals +3", augments={'Enhances "Radial Arcana" effect',}},
+        hands="Amalric Gages +1",
+        legs=gear.Relic_Legs,
+        feet=gear.Relic_Feet,
         neck="Baetyl Pendant",
         waist="Eschan Stone",
         left_ear="Sortiarius Earring",
         right_ear="Friomisi Earring",
         left_ring="Jhakri Ring",
-        right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+        right_ring="Metamor. Ring +1",
         back={ name="Nantosuelta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10',}},
     }
 
@@ -493,14 +493,15 @@ function init_gear_sets()
         main="Idris", --0/0/25/0
         sub="Genmei Shield", --10/0/0/0
         head=gear.Telchine_ENH_Head, --0/0/0/3
-        body="Telchine Chas.", --0/0/0/3
+        body=gear.Artifact_Body, --0/0/0/3
         hands=gear.Artifact_Hands, --3/0/13/0
         legs=gear.Telchine_ENH_Legs, --0/0/0/3
         feet=gear.Relic_Feet, --0/0/0/5
-        neck="Bagua Charm +1",
-        ear1="Lugalbanda Earring",
+        -- neck="Bagua Charm +1",
+        neck="Loricate Torque +1",
+        ear1="Etiolation Earring",
         ear2="Odnowa Earring +1", --3/3/0/0
-        ring1="Gelatinous Ring +1", --7/(-1)/0/0
+        ring1=gear.Stikini_1, --7/(-1)/0/0
         ring2="Defending Ring", --10/10/0/0
         back=gear.GEO_Pet_Cape, --0/0/0/15
         waist="Isa Belt" --0/0/3/1
@@ -524,7 +525,7 @@ function init_gear_sets()
         -- sub="Ammurapi Shield",
         head=gear.Relic_Head,
         body=gear.Artifact_Body,
-        hands=gear.Artifact_Hands,
+        hands=gear.Relic_Hands,
         legs=gear.Relic_Legs,
         feet=gear.Relic_Feet,
         neck="Bagua Charm +1",

@@ -129,7 +129,7 @@ function user_setup()
     gear.Empyrean_Body = { name="Lethargy Sayon +1" }
     gear.Empyrean_Hands = { name="Lethargy Gantherots +1" }
     gear.Empyrean_Legs = { name="Lethargy Fuseau +1" }
-    gear.Empyrean_Feet = { name="Lethargy Houseaux +1" }
+    gear.Empyrean_Feet = { name="Lethargy Houseaux +2" }
 
     -- Additional local binds
     include('Global-Binds.lua') -- OK to remove this line
@@ -370,6 +370,7 @@ function init_gear_sets()
         neck="Rep. Plat. Medal",
         waist="Sailfi Belt +1",
         ring1="Metamorph Ring +1",
+        feet=gear.Empyrean_Feet,
     })
 
     sets.precast.WS['Savage Blade'].Acc = set_combine(sets.precast.WS['Savage Blade'], {
@@ -398,7 +399,7 @@ function init_gear_sets()
         body=gear.Amalric_A_Body,
         hands="Jhakri Cuffs +2",
         legs=gear.Amalric_A_Legs,
-        feet=gear.Amalric_D_Feet,
+        feet=gear.Empyrean_Feet,
         neck="Baetyl Pendant",
         ear1="Malignance Earring",
         ear2="Regal Earring",

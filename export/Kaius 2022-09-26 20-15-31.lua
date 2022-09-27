@@ -1,0 +1,17 @@
+sets.exported={
+    main="Ikenga's Axe",
+    sub="Agwu's Axe",
+    ammo="Staunch Tathlum +1",
+    head="Gleti's Mask",
+    body={ name="Valorous Mail", augments={'Pet: Mag. Acc.+24','Pet: "Dbl.Atk."+4 Pet: Crit.hit rate +4','Pet: MND+8','Pet: Accuracy+12 Pet: Rng. Acc.+12',}},
+    hands={ name="Emi. Gauntlets +1", augments={'Pet: Accuracy+20','Pet: Attack+20','Pet: "Dbl. Atk."+4',}},
+    legs="Gleti's Breeches",
+    feet="Gleti's Boots",
+    neck={ name="Bathy Choker +1", augments={'Path: A',}},
+    waist="Flume Belt +1",
+    left_ear="Tuisto Earring",
+    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    left_ring="Chirich Ring +1",
+    right_ring="Chirich Ring +1",
+    back="Phalangite Mantle",
+}
