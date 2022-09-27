@@ -113,7 +113,7 @@ function user_setup()
     state.WeaponskillMode:options('Normal')
     state.HybridMode:options('Normal', 'SubtleBlow')
     state.CastingMode:options('Normal')
-    state.IdleMode:options('Normal', 'Reraise', 'Refresh')
+    state.IdleMode:options('Normal', 'Refresh')
     state.RestingMode:options('Normal')
     state.PhysicalDefenseMode:options('PDT', 'PetPDT')
     state.MagicalDefenseMode:options('MDT', 'PetMDT')
@@ -648,11 +648,6 @@ function init_gear_sets()
         body="Jumalik Mail",
         ring1=gear.Stikini_1,
         ring2=gear.Stikini_2
-    })
-
-    sets.idle.Reraise = set_combine(sets.idle, {
-        head="Twilight Helm",
-        body="Twilight Mail"
     })
 
     sets.idle.Pet = set_combine(sets.idle, {
