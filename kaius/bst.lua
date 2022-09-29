@@ -443,8 +443,8 @@ function init_gear_sets()
         neck="Shulmanu Collar",
         ear1="Sroda Earring",
         ear2="Hija Earring",
-        body=Ready_Atk_body,
-        hands=gear.Emich,
+        body=gear.Nyame_Body,
+        hands=gear.Emicho_C_Hands,
         ring1="Thurandaut Ring +1",
         ring2="Cath Palug Ring",
         back=Ready_Atk_back,
@@ -457,10 +457,10 @@ function init_gear_sets()
         main="Aymur",
         sub="Arktoi",
         ear2="Enmerkar Earring",
-        body="Heyoka Harness +1",
+        -- body="Heyoka Harness +1",
         back=Ready_Acc_back,
         waist="Incarnation Sash",
-        legs="Heyoka Subligar +1"
+        legs=gear.Nyame_Legs,
     })
 
     sets.midcast.Pet.HighAcc = set_combine(sets.midcast.Pet.Normal, {
@@ -468,10 +468,10 @@ function init_gear_sets()
         sub="Arktoi",
         ear1="Ferine Earring",
         ear2="Enmerkar Earring",
-        body="Heyoka Harness +1",
+        -- body="Heyoka Harness +1",
         back=Ready_Acc_back,
         waist="Klouskap Sash +1",
-        legs="Heyoka Subligar +1",
+        legs=gear.Nyame_Legs,
         feet=gear.Gleti_Feet
     })
 
@@ -483,11 +483,11 @@ function init_gear_sets()
         neck="Beastmaster Collar +2",
         ear1="Enmerkar Earring",
         ear2="Kyrene's Earring",
-        body="Heyoka Harness +1",
+        -- body="Heyoka Harness +1",
         hands=gear.Gleti_Hands,
         back=Ready_Acc_back,
         waist="Klouskap Sash +1",
-        legs="Heyoka Subligar +1",
+        legs=gear.Nyame_Legs,
         feet=gear.Gleti_Feet
     })
 
@@ -504,7 +504,7 @@ function init_gear_sets()
         ammo="Voluspa Tathlum",
         head=Ready_MAB_head,
         neck="Adad Amulet",
-        ear1="Diamond Earring",
+        ear1="Crepuscular Earring",
         ear2="Hija Earring",
         body="Udug Jacket",
         hands={name="Valorous Mitts", augments={'Pet: "Mag.Atk.Bns."+29','Pet: "Store TP"+9','Pet: INT+12','Pet: Attack+4 Pet: Rng.Atk.+4',}},
@@ -569,7 +569,7 @@ function init_gear_sets()
         ear1="Domesticator's Earring",
         ear2="Kyrene's Earring",
         body=Ready_DA_body,
-        hands="Emicho Gauntlets +1",
+        hands=gear.Emicho_C_Hands,
         legs="Emicho Hose +1",
         feet=Ready_DA_feet
     })
