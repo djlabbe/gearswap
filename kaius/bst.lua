@@ -251,12 +251,18 @@ function init_gear_sets()
     -- AUGMENTED GEAR AND GENERAL GEAR DEFINITIONS --
     -------------------------------------------------
 
-    Ready_MAB_Axe = {name="Digirbalag", augments={'Pet: Mag. Acc.+21','Pet: "Mag.Atk.Bns."+30','INT+2 MND+2 CHR+2',}}
-    Ready_MAB_Axe2 = "Deacon Tabar"
-    Ready_MAcc_Axe = {name="Kumbhakarna", augments={'Pet: Mag. Acc.+20','"Cure" potency +15%','Pet: TP Bonus+180',}}
+  
+    Ready_MAB_Axe = { name="Kumbhakarna", augments={'Pet: "Mag.Atk.Bns."+16','Pet: Phys. dmg. taken -2%','Pet: TP Bonus+160',}},
+    Ready_MAB_Axe2 = { name="Kumbhakarna", augments={'Pet: "Mag.Atk.Bns."+17','Pet: Phys. dmg. taken -4%','Pet: TP Bonus+180',}},
+
+    Ready_MAcc_Axe = { name="Kumbhakarna", augments={'Pet: Mag. Acc.+20','Pet: TP Bonus+200',}}
     Ready_MAcc_Axe2 = "Agwu's Axe"
+
+    -- Ready_MAB_Axe = {name="Digirbalag", augments={'Pet: Mag. Acc.+21','Pet: "Mag.Atk.Bns."+30','INT+2 MND+2 CHR+2',}}
+    -- Ready_MAB_Axe2 = "Deacon Tabar"
+   
     Reward_Axe = "Farsha"
-    Reward_Axe2 = {name="Kumbhakarna", augments={'Pet: Mag. Evasion+20','Pet: "Regen"+3','MND+17',}}
+    Reward_Axe2 =  { name="Kumbhakarna", augments={'Pet: "Regen"+3','MND+6',}},
    
     Pet_MDT_feet = {name="Taeon Boots", augments={'Pet: Mag. Evasion+22','Pet: "Regen"+3','Pet: Damage taken -4%',}}
     Pet_DT_legs = {name="Acro Breeches", augments={'Pet: DEF+25','Pet: "Regen"+3','Pet: Damage taken -4%',}}
@@ -285,8 +291,7 @@ function init_gear_sets()
     MAB_feet = {name="Valorous Greaves", augments={'CHR+8','"Mag.Atk.Bns."+28','"Refresh"+2','Accuracy+2 Attack+2','Mag. Acc.+14 "Mag.Atk.Bns."+14',}}
     CB_head = {name="Acro Helm", augments={'Pet: Mag. Acc.+25','"Call Beast" ability delay -5',}}
     CB_legs = {name="Acro Breeches", augments={'Pet: Mag. Acc.+25','"Call Beast" ability delay -5',}}
-    Cure_Potency_axe = {name="Kumbhakarna", augments={'Pet: Mag. Acc.+20','"Cure" potency +15%','Pet: TP Bonus+180',}}
-    Cure_Potency_feet = {name="Taeon Boots", augments={'"Cure" potency +5%',}}    
+ 
     STP_feet = {name="Valorous Greaves", augments={'Accuracy+23 Attack+23','"Store TP"+8','AGI+4',}}
     TH_legs = {name="Valorous Hose", augments={'STR+3','INT+5','"Treasure Hunter"+2','Mag. Acc.+18 "Mag.Atk.Bns."+18',}}
 
@@ -430,8 +435,9 @@ function init_gear_sets()
     sets.midcast.Pet.TPBonus = { 
         main="Aymur",
         sub="Agwu's Axe", 
-        hands="Nukumi Manoplas +1" 
+        hands="Nukumi Manoplas +2" 
     }
+
     sets.midcast.Pet.Neutral = { head="Emicho Coronet +1" }
     sets.midcast.Pet.Favorable = { head="Nukumi Cabasset +1" }
 
@@ -819,87 +825,6 @@ function init_gear_sets()
         feet={name="Valorous Greaves", augments={'"Mag.Atk.Bns."+17','AGI+7','"Fast Cast"+7','Accuracy+14 Attack+14',}}
     }
 
-    sets.midcast.Cure = {
-        main=Cure_Potency_axe,
-        sub="Sacro Bulwark",
-        ammo="Pemphredo Tathlum",
-        head="Emicho Coronet +1",
-        neck="Phalaina Locket",
-        ear1="Beatific Earring",
-        ear2="Mendicant's Earring",
-        body="Jumalik Mail",
-        hands="Buremte Gloves",
-        ring1="Menelaus's Ring",
-        ring2="Asklepian Ring",
-        back=Cure_Potency_back,
-        waist="Gishdubar Sash",
-        legs="Totemic Trousers +3",
-        feet=Cure_Potency_feet
-    }
-
-    sets.midcast.Curaga = sets.midcast.Cure
-
-    -- sets.midcast.Stoneskin = {
-    --     ammo="Pemphredo Tathlum",
-    --     head="Jumalik Helm",
-    --     neck="Stone Gorget",
-    --     ear1="Earthcry Earring",
-    --     ear2="Lifestorm Earring",
-    --     body="Totemic Jackcoat +3",
-    --     hands="Stone Mufflers",
-    --     ring1=gear.Stikini_1,
-    --     ring2="Defending Ring",
-    --     back=Pet_PDT_back,
-    --     waist="Engraved Belt",
-    --     legs="Haven Hose"
-    -- }
-
-    sets.midcast.Cursna = set_combine(sets.midcast.FastRecast, {
-        neck="Malison Medallion",
-        ring1="Eshmun's Ring",
-        ring2="Haoma's Ring",
-        waist="Gishdubar Sash"
-    })
-
-    sets.midcast.Protect = {ring2="Sheltered Ring"}
-    sets.midcast.Protectra = sets.midcast.Protect
-
-    sets.midcast.Shell = {ring2="Sheltered Ring"}
-    sets.midcast.Shellra = sets.midcast.Shell
-
-    sets.midcast['Enfeebling Magic'] = {
-        ammo="Pemphredo Tathlum",
-        head=gear.Malignance_Head,
-        neck="Sanctity Necklace",
-        ear1="Hermetic Earring",
-        ear2="Dignitary's Earring",
-        body=gear.Malignance_Body,
-        hands=gear.Malignance_Hands,
-        ring1="Metamorph Ring +1",
-        ring2="Kishar Ring",
-        back=MAcc_back,
-        waist="Eschan Stone",
-        legs=gear.Malignance_Legs,
-        feet=gear.Malignance_Feet,
-    }
-
-    sets.midcast['Elemental Magic'] = {
-        ammo="Pemphredo Tathlum",
-        head=MAB_head,
-        neck="Baetyl Pendant",
-        ear1="Hecate's Earring",
-        ear2="Friomisi Earring",
-        body="Sacro Breastplate",
-        hands="Leyline Gloves",
-        ring1="Shiva Ring +1",
-        ring2="Fenrir Ring +1",
-        back=MAcc_back,
-        waist="Eschan Stone",
-        legs=MAB_legs,
-        feet=MAB_feet
-    }
-
-    sets.midcast.Flash = sets.Enmity
 
     --------------------------------------
     -- SINGLE-WIELD MASTER ENGAGED SETS --
@@ -965,7 +890,7 @@ function init_gear_sets()
 
     sets.engaged.Farsha = {ammo="Coiste Bodhar",
         head="Nukumi Cabasset +1",neck="Beastmaster Collar +2",ear1="Sherida Earring",ear2="Moonshade Earring",
-        body="Nukumi Gausape +2",hands="Nukumi Manoplas +1",ring1="Gere Ring",ring2="Epona's Ring",
+        body="Nukumi Gausape +2",hands="Nukumi Manoplas +2",ring1="Gere Ring",ring2="Epona's Ring",
         back=STP_back,waist="Windbuffet Belt +1",legs="Nukumi Quijotes +1",feet="Nukumi Ocreae +1"}
 
     ------------------------------------
@@ -1863,7 +1788,7 @@ function equip_ready_gear(spell)
         equip(sets.midcast.Pet.Buff)
     end
 
-    --If Pet TP, before bonuses, is less than a certain value then equip Nukumi Manoplas +1.
+    --If Pet TP, before bonuses, is less than a certain value then equip Nukumi Manoplas +2.
     --Or if Pet TP, before bonuses, is more than a certain value then equip Unleash-specific Axes.
     if (physical_ready_moves:contains(spell.name) or magic_atk_ready_moves:contains(spell.name)) and state.OffenseMode.value ~= 'MaxAcc' then
         if tp_based_ready_moves:contains(spell.name) and PetJob == 'Warrior' then
