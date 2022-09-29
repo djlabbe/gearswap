@@ -498,7 +498,7 @@ function init_gear_sets()
         feet=gear.Malignance_Feet,
         neck="Scout's Gorget +2",
         neck="Bathy Choker +1",
-        ear1="Infused Earring",
+        ear1="Etiolation Earring",
         ear2="Eabani Earring",
         ring1=gear.Chirich_1,
         ring2=gear.Chirich_2,

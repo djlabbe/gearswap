@@ -247,7 +247,7 @@ function init_gear_sets()
     --    /RDM --15
         ammo="Sapience Orb", --2
         head=gear.Amalric_A_Head, --11
-        body=gear.Merl_FC_Body, --13
+        body="Zendik Robe", --13
         hands=gear.Artifact_Hands, --9
         -- legs="Volte Brais", --8
         legs=gear.Kaykaus_A_Legs, -- 7
@@ -676,7 +676,7 @@ function init_gear_sets()
         -- feet="Volte Gaiters",
         feet=gear.Artifact_Feet,
         neck="Bathy Choker +1",
-        ear1="Infused Earring",
+        ear1="Etiolation Earring",
         ear2="Lugalbanda Earring",
         ring1=gear.Stikini_1,
         ring2=gear.Stikini_2,
@@ -693,7 +693,7 @@ function init_gear_sets()
         -- hands="Gende. Gages +1", --4/4
         -- feet="Volte Gaiters",
         neck="Loricate Torque +1", --6/6
-        ear1="Infused Earring",
+        ear1="Etiolation Earring",
         ring1="Gelatinous Ring +1", --7/(-1)
         ring2="Defending Ring", --10/10
         back="Moonlight Cape", --6/6

@@ -295,7 +295,7 @@ function init_gear_sets()
         neck="Loricate Torque +1",
         waist="Flume Belt +1",
         ear1="Etiolation Earring",
-        ear2="Infused Earring",
+        ear2="Eabani Earring",
         left_ring=gear.Chirich_1,
         right_ring=gear.Chirich_2,
     }

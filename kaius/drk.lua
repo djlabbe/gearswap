@@ -296,8 +296,8 @@ function init_gear_sets()
         head=gear.Artifact_Head,
         hands="Pavor Gauntlets",
         ring1="Kishar Ring",
-        back="Chuparrosa Mantle",
-        waist="Casso Sash",
+        -- back="Chuparrosa Mantle",
+        -- waist="Casso Sash",
     })
 
     sets.midcast['Absorb-TP'] = set_combine(sets.midcast.Absorb, {hands=gear.Empyrean_Hands})
@@ -331,7 +331,7 @@ function init_gear_sets()
         legs=gear.Sakpata_Legs,
         feet=gear.Sakpata_Feet,
         neck="Sibyl Scarf",
-        ear1="Infused Earring",
+        ear1="Etiolation Earring",
         ear2="Eabani Earring",
         ring1=gear.Stikini_1,
         ring2=gear.Stikini_2,

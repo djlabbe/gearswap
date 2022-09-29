@@ -120,7 +120,7 @@ function init_gear_sets()
     --    /RDM --15
         ammo="Sapience Orb", --2
         head=gear.Amalric_A_Head, --11
-        body=gear.Merl_FC_Body, --13
+        body="Zendik Robe", --13
         hands="Merlinic Dastanas", --6
         -- legs="Volte Brais", --8
         -- feet="Volte Gaiters", --6
@@ -494,7 +494,7 @@ function init_gear_sets()
         legs="Assid. Pants +1",
         -- feet="Volte Gaiters",
         neck="Bathy Choker +1",
-        ear1="Infused Earring",
+        ear1="Etiolation Earring",
         ear2="Lugalbanda Earring",
         ring1=gear.Stikini_1,
         ring2="Mephitas's Ring +1",
@@ -511,7 +511,7 @@ function init_gear_sets()
         hands="Raetic Bangles +1",
         feet="Volte Gaiters",
         neck="Loricate Torque +1", --6/6
-        ear1="Infused Earring",
+        ear1="Etiolation Earring",
         ear2="Lugalbanda Earring",
         ring1="Gelatinous Ring +1", --7/(-1)
         ring2="Defending Ring", --10/10
@@ -578,7 +578,8 @@ function init_gear_sets()
     -- Death Sets
 
     sets.idle.DeathMode = {
-        main=gear.Lathi_MAB,
+        -- main=gear.Lathi_MAB,
+        main=gear.Grioavolr_MB,
         sub="Khonsu",
         ammo="Ghastly Tathlum +1",
         head=gear.Nyame_Head,

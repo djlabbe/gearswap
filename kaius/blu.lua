@@ -752,7 +752,7 @@ function init_gear_sets()
         feet=gear.Malignance_Feet,
         neck="Sibyl Scarf",
         ear1="Eabani Earring",
-        ear2="Infused Earring",
+        ear2="Etiolation Earring",
         ring1=gear.Stikini_1,
         ring2=gear.Stikini_2,
         back=gear.BLU_TP_Cape,
@@ -1113,7 +1113,7 @@ function init_gear_sets()
         --ear1="Static Earring",--5
         ring1="Mujin Band", --(5)
         --ring2="Locus Ring", --5
-        back="Seshaw Cape", --5
+        -- back="Seshaw Cape", --5
     })
 
     sets.Kiting = {legs=gear.Carmine_D_Legs}

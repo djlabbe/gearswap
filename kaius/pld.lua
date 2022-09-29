@@ -125,7 +125,7 @@ function init_gear_sets()
     sets.precast.WS.Acc = sets.precast.WS
 
     sets.precast.WS['Sanguine Blade'] = {
-        ammo="Ginsen",
+        -- ammo="Ginsen",
         ear1="Friomisi Earring",
         ring1="Shiva Ring +1",
     }
