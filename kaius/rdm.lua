@@ -326,7 +326,7 @@ function init_gear_sets()
         body=gear.Relic_Body,
         hands=gear.Artifact_Hands,
         legs=gear.Relic_Legs,
-        feet="Jhakri Pigaches +2",
+        feet=gear.Empyrean_Feet,
         neck="Fotia Gorget",
         ear1="Ishvara Earring",
         ear2="Moonshade Earring",

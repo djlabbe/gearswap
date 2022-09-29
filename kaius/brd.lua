@@ -586,7 +586,7 @@ function init_gear_sets()
         -- feet="Volte Gaiters",
         neck="Bathy Choker +1",
         ear1="Eabani Earring",
-        ear2="Infused Earring",
+        ear2="Etiolation Earring",
         ring1=gear.Stikini_1,
         ring2=gear.Stikini_2,
         back="Moonlight Cape",
@@ -618,7 +618,7 @@ function init_gear_sets()
         feet="Inyan. Crackows +2", --0/3
         neck="Warder's Charm +1",
         ear1="Eabani Earring",
-        ear2="Infused Earring",
+        ear2="Etiolation Earring",
         ring1="Purity Ring",
         ring2="Inyanga Ring",
         back="Moonlight Cape", --6/6

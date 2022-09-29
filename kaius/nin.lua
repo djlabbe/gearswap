@@ -180,8 +180,8 @@ function init_gear_sets()
         -- ear2="Trux Earring", --5
         -- ring1="Pernicious Ring", --5
         ring2="Eihwaz Ring", --5
-        -- waist="Kasiri Belt", --3
-        }
+        waist="Kasiri Belt", --3
+    }
 
     sets.precast.JA['Provoke'] = sets.Enmity
     sets.precast.JA['Mijin Gakure'] = { legs=gear.Relic_Legs }
@@ -546,7 +546,7 @@ function init_gear_sets()
         legs=gear.Malignance_Legs, --7/7
         feet=gear.Malignance_Feet, --4/4
         neck="Warder's Charm +1",
-        ear2="Infused Earring",
+        ear2="Etiolation Earring",
         ring1="Purity Ring", --0/4
         ring2="Defending Ring", --10/10
         back="Moonlight Cape", --6/6

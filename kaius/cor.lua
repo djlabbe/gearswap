@@ -368,10 +368,10 @@ function init_gear_sets()
     }
 
     sets.precast.WS['Evisceration'].Acc = set_combine(sets.precast.WS['Evisceration'], {
-        head="Meghanada Visor +2",
+
         body=gear.Adhemar_B_body,
         legs=gear.Herc_WS_legs,
-        })
+    })
 
     sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
         head=gear.Herc_WSD_head,
@@ -403,7 +403,6 @@ function init_gear_sets()
     })
 
     sets.precast.WS['Swift Blade'].Acc = set_combine(sets.precast.WS['Swift Blade'], {
-        head="Meghanada Visor +2",
         hands=gear.Adhemar_A_hands,
         ear2="Telos Earring",
     })
@@ -416,7 +415,6 @@ function init_gear_sets()
     }) --MND
 
     sets.precast.WS['Requiescat'].Acc = set_combine(sets.precast.WS['Requiescat'], {
-        head="Meghanada Visor +2",
         ear1="Cessance Earring",
     })
 
@@ -1001,7 +999,7 @@ function init_gear_sets()
     sets.Fomalhaut_R = {main="Rostam", sub="Blurred Knife +1", ranged="Fomalhaut"}
     sets.Fomalhaut_R.Acc = sets.Fomalhaut_R
     sets.Ataktos = {main="Naegling", sub="Blurred Knife +1", ranged="Anarchy +2"}
-    sets.Ataktos.Acc = {main="Naegling", sub="Demers. Degen +1", ranged="Anarchy +2"}
+    sets.Ataktos.Acc = {main="Naegling", sub="Blurred Knife +1", ranged="Anarchy +2"}
 
     sets.DefaultShield = {sub="Nusku Shield"}
 

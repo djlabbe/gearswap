@@ -125,9 +125,16 @@ function user_setup()
     send_command('bind @e gs c cycle RegenMode')
     send_command('bind !h input /ma "Haste" <stpc>')
 
+   
+
     styleSet = 2
     set_macro_page(1, 2) -- page,set
     send_command('wait 2; input /lockstyleset ' .. styleSet)
+
+    state.Auto_Kite = M(false, 'Auto_Kite')
+    DW = false
+    moving = false
+    update_combat_form()
 end
 
 function user_unload()
@@ -723,12 +730,21 @@ end
 -- Set eventArgs.handled to true if we don't want automatic equipping of gear.
 function job_handle_equipping_gear(playerStatus, eventArgs)
     check_gear()
+    update_combat_form()
     check_moving()
 end
 
 function job_update(cmdParams, eventArgs)
     handle_equipping_gear(player.status)
     update_sublimation()
+end
+
+function update_combat_form()
+    if DW == true then
+        state.CombatForm:set('DW')
+    elseif DW == false then
+        state.CombatForm:reset()
+    end
 end
 
 -- Custom spell mapping.
@@ -927,13 +943,37 @@ function gearinfo(cmdParams, eventArgs)
 end
 
 function check_moving()
+    if state.DefenseMode.value == 'None'  and state.Kiting.value == false then
+        if state.Auto_Kite.value == false and moving then
+            state.Auto_Kite:set(true)
+        elseif state.Auto_Kite.value == true and moving == false then
+            state.Auto_Kite:set(false)
+        end
+    end
 end
 
 function check_gear()
+    if no_swap_gear:contains(player.equipment.left_ring) then
+        disable("ring1")
+    else
+        enable("ring1")
+    end
+    if no_swap_gear:contains(player.equipment.right_ring) then
+        disable("ring2")
+    else
+        enable("ring2")
+    end
 end
 
 windower.register_event('zone change',
     function()
-      
+        if no_swap_gear:contains(player.equipment.left_ring) then
+            enable("ring1")
+            equip(sets.idle)
+        end
+        if no_swap_gear:contains(player.equipment.right_ring) then
+            enable("ring2")
+            equip(sets.idle)
+        end
     end
 )

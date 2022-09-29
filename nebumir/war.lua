@@ -74,7 +74,7 @@ end
 function init_gear_sets()
 
     sets.precast.JA["Berserk"] = {
-        body="Pummeler's Lorica +2",
+        body="Pummeler's Lorica +3",
     }
 
     sets.engaged = {
@@ -111,7 +111,7 @@ function init_gear_sets()
 
     sets.precast.WS = {
         head="Agoge Mask +3",
-        body="Pummeler's Lorica +2",
+        body="Pummeler's Lorica +3",
         ring="Rajas Ring",
         ring2="Petrov Ring",
         waist="Sailfi Belt +1",

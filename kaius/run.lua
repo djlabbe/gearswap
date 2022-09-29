@@ -550,7 +550,7 @@ function init_gear_sets()
         legs="Turms Subligar +1",
         feet="Turms Leggings +1",
         neck="Bathy Choker +1",
-        ear1="Infused Earring",
+        ear1="Etiolation Earring",
         ear2="Odnowa Earring +1",
         ring1={name="Chirich Ring +1", bag="wardrobe3"},
         ring2={name="Chirich Ring +1", bag="wardrobe4"},
@@ -567,7 +567,7 @@ function init_gear_sets()
         legs="Turms Subligar +1",
         feet="Turms Leggings +1",
         neck="Futhark Torque +2", --7/7
-        ear1="Infused Earring",
+        ear1="Etiolation Earring",
         ear2="Odnowa Earring +1", --0/2
         ring1="Moonlight Ring", --5/5
         ring2="Defending Ring", --10/10
@@ -590,8 +590,8 @@ function init_gear_sets()
         head="Turms Cap +1",
         body="Ashera Harness",
         neck="Futhark Torque +2",
-        ear1="Infused Earring",
-        })
+        ear1="Etiolation Earring",
+    })
 
     sets.Kiting = {legs="Carmine Cuisses +1"}
 
