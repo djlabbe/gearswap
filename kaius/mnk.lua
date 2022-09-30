@@ -43,9 +43,6 @@ function job_setup()
     info.default_ja_ids = S{35, 204}
     -- Unblinkable JA IDs for actions that always have TH: Quick/Box/Stutter Step, Desperate/Violent Flourish
     info.default_u_ja_ids = S{201, 202, 203, 205, 207}
-
-    lockstyleset = 1
-
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -58,13 +55,26 @@ function user_setup()
     state.HybridMode:options('Normal', 'DT')
     state.IdleMode:options('Normal', 'DT')
 
+    state.WeaponLock = M(true, 'Weapon Lock')
+    state.WeaponSet = M{['description']='Weapon Set', 'Karambit', 'Spharai'}
+
+
     -- Additional local binds
     include('Global-Binds.lua') -- OK to remove this line
 
-    send_command('bind ^` gs c cycle treasuremode')
+    send_command('bind @w gs c toggle WeaponLock')
+    send_command('bind @e gs c cycle WeaponSet')
 
-    set_macro_page(2, 2)
+
+    send_command('bind ^` gs c cycle treasuremode')
+    send_command('bind !t input /ja "Provoke" <t>')
+
+
+    set_macro_page(1, 2)
     send_command('wait 2; input /lockstyleset 2')
+
+    state.Auto_Kite = M(false, 'Auto_Kite')
+    moving = false
 end
 
 function user_unload()
@@ -98,18 +108,18 @@ function init_gear_sets()
 
     sets.precast.WS = {
         ammo="Aurgelmir Orb +1",
-        head=gear.Adhemar_B_head,
-        body=gear.Herc_WS_body,
-        hands=gear.Adhemar_B_hands,
-        legs="Ken. Hamaka +1",
+        head=gear.Malignance_Head,
+        body=gear.Malignance_Body,
+        hands=gear.Rao_D_Hands,
+        legs=gear.Mpaca_Legs,
         feet=gear.Herc_TA_feet,
         neck="Fotia Gorget",
         ear1="Moonshade Earring",
         ear2="Ishvara Earring",
-        ring1="Gere Ring",
-        ring2="Epaminondas's Ring",
+        ring1="Regal Ring",
+        ring2="Gere Ring",
         back="Phalangite Mantle",
-        waist="Fotia Belt",
+        waist="Moonbow Belt +1",
     } -- default set
 
     ------------------------------------------------------------------------------------------------
@@ -121,20 +131,20 @@ function init_gear_sets()
     ------------------------------------------------------------------------------------------------
 
     sets.idle = {
-        ammo="Seki Shuriken",
-        head="Volte Cap",
+        ammo="Staunch Tathlum +1",
+        head=gear.Malignance_Head,
         body="Hiza. Haramaki +2",
-        hands=gear.Herc_DT_hands,
-        legs="Samnuha Tights",
-        feet="Herald's Gaiters",
+        hands=gear.Rao_D_Hands,
+        legs=gear.Rao_B_Pants,
+        feet=gear.Rao_D_Feet,
         neck="Bathy Choker +1",
-        ear1="Eabani Earring",
-        ear2="Sanare Earring",
-        ring1={name="Chirich Ring +1", bag="wardrobe3"},
-        ring2={name="Chirich Ring +1", bag="wardrobe4"},
+        ear1="Infused Earring",
+        ear2="Etiolation Earring",
+        ring1=gear.Chirich_1,
+        ring2=gear.Chirich_2,
         back="Moonlight Cape",
-        waist="Flume Belt +1",
-        }
+        waist="Moonbow Belt +1",
+    }
 
     sets.idle.Town = sets.idle
 
@@ -152,18 +162,18 @@ function init_gear_sets()
 
     sets.engaged = {
         ammo="Aurgelmir Orb +1",
-        head=gear.Adhemar_B_head,
+        head=gear.Adhemar_B_Head,
         body=gear.Malignance_Body,
-        hands=gear.Adhemar_B_hands,
-        legs="Tatenashi Haidate +1",
-        feet="Ken. Sude-Ate +1",
-        neck="Anu Torque",
-        ear1="Mache Earring +1",
-        ear2="Brutal Earring",
+        hands=gear.Adhemar_B_Hands,
+        legs=gear.Mpaca_Legs,
+        feet=gear.Malignance_Feet,
+        neck="Monk's Nodowa +2",
+        ear1="Sherida Earring",
+        ear2="Telos Earring",
         ring1="Niqmaddu Ring",
-        ring2="Epona's Ring",
+        ring2="Gere Ring",
         back="Phalangite Mantle",
-        waist="Windbuffet Belt +1",
+        waist="Moonbow Belt +1",
     }
 
 
@@ -178,22 +188,27 @@ function init_gear_sets()
 
     sets.buff.Doom = {
         neck="Nicander's Necklace", --20
-        ring1={name="Eshmun's Ring", bag="wardrobe3"}, --20
-        ring2={name="Eshmun's Ring", bag="wardrobe4"}, --20
+        ring1=gear.Eshmun_1, --20
+        ring2=gear.Eshmun_2, --20
         waist="Gishdubar Sash", --10
     }
 
     sets.TreasureHunter = {head="Volte Cap", waist="Chaac Belt"}
 
-end
+    sets.Kiting = { feet="Hermes' Sandals" }
 
--------------------------------------------------------------------------------------------------------------------
--- Job-specific hooks for standard casting events.
--------------------------------------------------------------------------------------------------------------------
+    sets.Karambit = { main="Karambit" }
+    sets.Spharai = { main="Spharai" }
+
+end
 
 -------------------------------------------------------------------------------------------------------------------
 -- Job-specific hooks for non-casting events.
 -------------------------------------------------------------------------------------------------------------------
+
+function job_state_change(field, new_value, old_value)
+    check_weaponset()
+end
 
 function job_buff_change(buff,gain)
     if buff == "doom" then
@@ -216,6 +231,7 @@ end
 
 function job_handle_equipping_gear(playerStatus, eventArgs)
     check_gear()
+    check_moving()
 end
 
 function get_custom_wsmode(spell, action, spellMap)
@@ -227,10 +243,6 @@ function get_custom_wsmode(spell, action, spellMap)
     return wsmode
 end
 
--- Modify the default idle set after it was constructed.
-function customize_idle_set(idleSet)
-    return idleSet
-end
 
 -- Function to display the current relevant user state when doing an update.
 -- Set eventArgs.handled to true if display was handled, and you don't want the default info shown.
@@ -278,6 +290,17 @@ function job_update(cmdParams, eventArgs)
     th_update(cmdParams, eventArgs)
 end
 
+
+-- Modify the default idle set after it was constructed.
+function customize_idle_set(idleSet)
+    if state.Auto_Kite.value == true then
+        idleSet = set_combine(idleSet, sets.Kiting)
+    end
+
+    return idleSet
+end
+
+
 -- Modify the default melee set after it was constructed.
 function customize_melee_set(meleeSet)
     if state.TreasureMode.value == 'Fulltime' then
@@ -291,6 +314,69 @@ end
 -- Utility functions specific to this job.
 -------------------------------------------------------------------------------------------------------------------
 
+
+function check_moving()
+    if state.DefenseMode.value == 'None'  and state.Kiting.value == false then
+        if state.Auto_Kite.value == false and moving then
+            state.Auto_Kite:set(true)
+        elseif state.Auto_Kite.value == true and moving == false then
+            state.Auto_Kite:set(false)
+        end
+    end
+end
+
+function determine_haste_group()
+    classes.CustomMeleeGroups:clear()
+    -- if DW == true then
+    --     if DW_needed <= 1 then
+    --         classes.CustomMeleeGroups:append('MaxHaste')
+    --     elseif DW_needed > 1 and DW_needed <= 16 then
+    --         classes.CustomMeleeGroups:append('HighHaste')
+    --     elseif DW_needed > 16 and DW_needed <= 21 then
+    --         classes.CustomMeleeGroups:append('MidHaste')
+    --     elseif DW_needed > 21 and DW_needed <= 34 then
+    --         classes.CustomMeleeGroups:append('LowHaste')
+    --     elseif DW_needed > 34 then
+    --         classes.CustomMeleeGroups:append('')
+    --     end
+    -- end
+end
+
+function job_self_command(cmdParams, eventArgs)
+    gearinfo(cmdParams, eventArgs)
+end
+
+function gearinfo(cmdParams, eventArgs)
+    if cmdParams[1] == 'gearinfo' then
+        -- if type(tonumber(cmdParams[2])) == 'number' then
+        --     if tonumber(cmdParams[2]) ~= DW_needed then
+        --     DW_needed = tonumber(cmdParams[2])
+        --     DW = true
+        --     end
+        -- elseif type(cmdParams[2]) == 'string' then
+        --     if cmdParams[2] == 'false' then
+        --         DW_needed = 0
+        --         DW = false
+        --     end
+        -- end
+        if type(tonumber(cmdParams[3])) == 'number' then
+            if tonumber(cmdParams[3]) ~= Haste then
+                Haste = tonumber(cmdParams[3])
+            end
+        end
+        if type(cmdParams[4]) == 'string' then
+            if cmdParams[4] == 'true' then
+                moving = true
+            elseif cmdParams[4] == 'false' then
+                moving = false
+            end
+        end
+        if not midaction() then
+            job_update()
+        end
+    end
+end
+
 function check_gear()
     if no_swap_gear:contains(player.equipment.left_ring) then
         disable("ring1")
@@ -302,6 +388,10 @@ function check_gear()
     else
         enable("ring2")
     end
+end
+
+function check_weaponset()
+    equip(sets[state.WeaponSet.current])
 end
 
 windower.register_event('zone change',

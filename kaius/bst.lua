@@ -112,7 +112,7 @@ function user_setup()
     state.PhysicalDefenseMode:options('PDT', 'PetPDT')
     state.MagicalDefenseMode:options('MDT', 'PetMDT')
 
-    state.WeaponSet = M{['description']='Weapon Set', 'IkeAgw'}
+    state.WeaponSet = M{['description']='Weapon Set', 'Dolichenus', 'IkeAgw'}
     state.WeaponLock = M(false, 'Weapon Lock')
 
     include('Global-Binds.lua')
@@ -198,7 +198,7 @@ function user_setup()
     send_command('bind @e gs c cycle WeaponSet')
 
     send_command('bind !l input /pet Leave <me>')
-    send_command('bind !l input /pet Heel <me>')
+    send_command('bind !h input /pet Heel <me>')
 
     if player.sub_job == 'DNC' then
         send_command('bind ^` input /ja "Chocobo Jig" <me>')
@@ -257,14 +257,14 @@ function init_gear_sets()
     Ready_DA_Axe2 = "Skullrender"
     Ready_MAB_Axe = {name="Digirbalag", augments={'Pet: Mag. Acc.+21','Pet: "Mag.Atk.Bns."+30','INT+2 MND+2 CHR+2',}}
     Ready_MAB_Axe2 = "Deacon Tabar"
-    Ready_MABTP_Axe = { name="Kumbhakarna", augments={'Pet: "Mag.Atk.Bns."+16','Pet: Phys. dmg. taken -2%','Pet: TP Bonus+160',}},
-    Ready_MABTP_Axe2 = { name="Kumbhakarna", augments={'Pet: "Mag.Atk.Bns."+17','Pet: Phys. dmg. taken -4%','Pet: TP Bonus+180',}},
+    Ready_MABTP_Axe = { name="Kumbhakarna", augments={'Pet: "Mag.Atk.Bns."+16','Pet: Phys. dmg. taken -2%','Pet: TP Bonus+160',}}
+    Ready_MABTP_Axe2 = { name="Kumbhakarna", augments={'Pet: "Mag.Atk.Bns."+17','Pet: Phys. dmg. taken -4%','Pet: TP Bonus+180',}}
 
     Ready_MAcc_Axe = { name="Kumbhakarna", augments={'Pet: Mag. Acc.+20','Pet: TP Bonus+200',}}
     Ready_MAcc_Axe2 = "Agwu's Axe"
 
     Reward_Axe = "Farsha"
-    Reward_Axe2 =  { name="Kumbhakarna", augments={'Pet: "Regen"+3','MND+6',}},
+    Reward_Axe2 =  { name="Kumbhakarna", augments={'Pet: "Regen"+3','MND+6',}}
     Pet_Idle_AxeMain = "Pangu"
 
  
@@ -342,7 +342,7 @@ function init_gear_sets()
         main=Ready_DA_Axe,
         sub=Ready_DA_Axe2,
         back=MEva_back,
-        feet="Nukumi Ocreae +1"
+        feet="Nukumi Ocreae +2"
     }
 
     sets.precast.JA['Feral Howl'] = {
@@ -370,8 +370,8 @@ function init_gear_sets()
         sub=Reward_Axe2,
         head="Stout Bonnet",
         neck="Aife's Medal",
-        ear1="Lifestorm Earring",
-        ear2="Neptune's Pearl",
+        -- ear1="Lifestorm Earring",
+        -- ear2="Neptune's Pearl",
         body="Totemic Jackcoat +3",
         hands=gear.Malignance_Hands,
         ring1="Metamorph Ring +1",
@@ -388,8 +388,8 @@ function init_gear_sets()
         ammo="Voluspa Tathlum",
         head="Totemic Helm +3",
         neck="Unmoving Collar +1",
-        ear1="Enchanter's Earring",
-        ear2="Enchanter Earring +1",
+        -- ear1="Enchanter's Earring",
+        ear2="Enchanter's Earring +1",
         body="Ankusa Jackcoat +3",
         hands="Ankusa Gloves +3",
         ring1="Metamorph Ring +1",
@@ -470,7 +470,7 @@ function init_gear_sets()
         feet=gear.Gleti_Feet
     })
 
-
+    sets.midcast.Pet.MagicAtkReady = {}
     sets.midcast.Pet.MagicAtkReady.Normal = {
         main=Ready_MAB_Axe,
         sub=Ready_MAB_Axe2,
@@ -869,7 +869,7 @@ function init_gear_sets()
         back=STP_back,
         waist="Windbuffet Belt +1",
         legs="Nukumi Quijotes +1",
-        feet="Nukumi Ocreae +1"
+        feet="Nukumi Ocreae +2"
     }
 
     ------------------------------------
@@ -890,7 +890,7 @@ function init_gear_sets()
         back="Phalangite Mantle",
         waist="Reiki Yotai", --7
         legs=gear.Malignance_Legs,
-        feet=gear.Taeon_gear.Taeon_DW_Feet, --9
+        feet=gear.Taeon_DW_Feet, --9
     } --31
 
     -- 15% Magic Haste (67% DW to cap) 42 NIN
@@ -1309,7 +1309,7 @@ function init_gear_sets()
         head="Totemic Helm +3",
         neck="Unmoving Collar +1",
         ear1="Handler's Earring +1",
-        ear2="Enchanter Earring +1",
+        ear2="Enchanter's Earring +1",
         body=gear.Gleti_Body,
         hands="Totemic Gloves +3",
         ring1="Asklepian Ring",
@@ -1366,6 +1366,11 @@ function init_gear_sets()
 
     sets.IkeAgw = {
         main="Ikenga's Axe", 
+        sub="Agwu's Axe"
+    }
+
+    sets.Dolichenus = {
+        main="Dolichenus",
         sub="Agwu's Axe"
     }
     

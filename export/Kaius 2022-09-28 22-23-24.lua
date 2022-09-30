@@ -1,6 +1,5 @@
 sets.exported={
-    main={ name="Kumbhakarna", augments={'Pet: "Mag.Atk.Bns."+17','Pet: Phys. dmg. taken -4%','Pet: TP Bonus+180',}},
-    sub={ name="Kumbhakarna", augments={'Pet: Mag. Acc.+20','Pet: TP Bonus+200',}},
+  
     ammo="Staunch Tathlum +1",
     head="Gleti's Mask",
     body="Nukumi Gausape +2",
