@@ -281,14 +281,15 @@ function init_gear_sets()
     Primal_back = {name="Artio's Mantle", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','CHR+10','Weapon skill damage +10%',}}
     Cloud_back = {name="Artio's Mantle", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%',}}
     Reward_back = {name="Artio's Mantle", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%',}}
-    Cure_Potency_back = {name="Artio's Mantle", augments={'MND+20','Eva.+20 /Mag. Eva.+20','MND+10','"Cure" potency +10%','Spell interruption rate down-10%',}}
-    Pet_PDT_back = {name="Artio's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','Evasion+10','Pet: "Regen"+10','System: 1 ID: 1246 Val: 4',}}
+    Pet_PDT_back = {name="Artio's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','Evasion+10','Pet: "Regen"+10',}}
     FC_back = {name="Artio's Mantle", augments={'INT+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','"Fast Cast"+10','Spell interruption rate down-10%',}}
     Pet_Regen_back = {name="Artio's Mantle", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Mag. Acc.+10','Pet: "Regen"+10','Pet: "Regen"+5',}}
     Ready_MAcc_back = {name="Artio's Mantle", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Mag. Acc.+10','Pet: "Regen"+10','Pet: "Regen"+5',}}
     Enmity_plus_back = {name="Artio's Mantle", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','Enmity+10','Phys. dmg. taken-10%',}}
     Ready_Acc_back = {name="Artio's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+20 /Mag. Eva.+20','Pet: Accuracy+10 Pet: Rng. Acc.+10','Pet: Haste+10','System: 1 ID: 1246 Val: 4',}}
-    Pet_MDT_back = {name="Artio's Mantle", augments={'INT+20','Eva.+20 /Mag. Eva.+20','Pet: "Regen"+10','System: 1 ID: 1247 Val: 4',}}
+    Pet_MDT_back = {name="Artio's Mantle", augments={'INT+20','Eva.+20 /Mag. Eva.+20','Pet: "Regen"+10',}}
+
+    Cure_Potency_back = {name="Artio's Mantle", augments={'MND+20','Eva.+20 /Mag. Eva.+20','MND+10','"Cure" potency +10%','Spell interruption rate down-10%',}}
     Ready_Atk_back = {name="Artio's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+20 /Mag. Eva.+20','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10','System: 1 ID: 1246 Val: 4',}}
 
     sets.Enmity = {
@@ -421,14 +422,17 @@ function init_gear_sets()
         ammo="Hesperiidae",
         neck="Shulmanu Collar",
         ear1="Sroda Earring",
-        ear2="Hija Earring",
+        -- ear2="Hija Earring",
+        ear2="Kyrene's Earring",
         body=gear.Nyame_Body,
-        hands=gear.Emicho_C_Hands,
-        ring1="Thurandaut Ring +1",
-        ring2="Cath Palug Ring",
+        hands="Nukumi Manoplas +2",
+        -- ring1="Thurandaut Ring +1",
+        ring1="Tali'ah Ring",
+        -- ring2="Cath Palug Ring",
         back=Ready_Atk_back,
         waist="Incarnation Sash",
-        legs="Totemic Trousers +3",
+        -- legs="Totemic Trousers +3",
+        legs=gear.Nyame_Legs,
         feet=gear.Gleti_Feet
     }
 
@@ -919,8 +923,8 @@ function init_gear_sets()
         ear2="Eabani Earring",
         body=gear.Malignance_Body,
         hands=gear.Malignance_Hands,
-        ring1="Chirich Ring +1",
-        ring2="Chirich Ring +1",
+        ring1=gear.Chirich_1,
+        ring2=gear.Chirich_2,
         back=STP_back,
         waist="Reiki Yotai",
         legs=gear.Malignance_Legs,
@@ -983,8 +987,8 @@ function init_gear_sets()
         ear2="Eabani Earring",
         body="Sacro Breastplate",
         hands="Emicho Gauntlets +1",
-        ring1="Chirich Ring +1",
-        ring2="Chirich Ring +1",
+        ring1=gear.Chirich_1,
+        ring2=gear.Chirich_2,
         back=DW_back,
         waist="Reiki Yotai",
         legs=gear.Malignance_Legs,
@@ -1050,7 +1054,7 @@ function init_gear_sets()
         head="Ankusa Helm +3",
         neck="Beastmaster Collar +2",
         ear1="Moonshade Earring",
-        ear2="Thrud Earring",
+        ear2="Lugra Earring +1",
         body=gear.Gleti_Body,
         hands="Totemic Gloves +3",
         ring1="Regal Ring",
@@ -1058,7 +1062,7 @@ function init_gear_sets()
         back=STR_WS_back,
         waist="Sailfi Belt +1",
         legs=gear.Gleti_Legs,
-        feet=gear.Gleti_Feet
+        feet="Nukumi Ocreae +2",
     }
 
     sets.precast.WS['Decimation'] = {
@@ -1074,7 +1078,7 @@ function init_gear_sets()
         back=STR_DA_back,
         waist="Fotia Belt",
         legs=gear.Gleti_Legs,
-        feet=gear.Gleti_Feet
+        feet="Nukumi Ocreae +2",
     }
     sets.precast.WS['Decimation'].Gavialis = set_combine(sets.precast.WS['Ruinator'], {head="Gavialis Helm"})
 
@@ -1115,7 +1119,7 @@ function init_gear_sets()
     sets.precast.WS['Onslaught'] = {
         ammo="Aurgelmir Orb +1",
         head="Ankusa Helm +3",
-        neck="Caro Necklace",
+        neck="Bst. Collar +2",
         ear1="Ishvara Earring",
         ear2="Thrud Earring",
         body=gear.Gleti_Body,
