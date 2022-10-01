@@ -13,7 +13,6 @@
 --              [ F12 ]             Update Current Gear / Report Current Status
 --              [ CTRL+F12 ]        Cycle Idle Modes
 --              [ ALT+F12 ]         Cancel Emergency -PDT/-MDT Mode
---              [ WIN+C ]           Toggle Capacity Points Mode
 --
 --
 --              (Global-Binds.lua contains additional non-job-related keybinds)
@@ -42,6 +41,7 @@ function job_setup()
     -- For th_action_check():
     -- JA IDs for actions that always have TH: Provoke, Animated Flourish
     info.default_ja_ids = S{35, 204}
+
     -- Unblinkable JA IDs for actions that always have TH: Quick/Box/Stutter Step, Desperate/Violent Flourish
     info.default_u_ja_ids = S{201, 202, 203, 205, 207}
 
@@ -66,11 +66,11 @@ function user_setup()
     state.WeaponLock = M(true, 'Weapon Lock')
     state.WeaponSet = M{['description']='Weapon Set', 'Karambit', 'Spharai'}
 
-    gear.Artifact_Head = { name="Anchorite's Crown +2" }
+    gear.Artifact_Head = { name="Anchorite's Crown +3" }
     gear.Artifact_Body = { name="Anchorite's Cyclas +3" }
     gear.Artifact_Hands = { name="Anchorite's Gloves +3" }
-    gear.Artifact_Legs = { name="Anchorite's Hose +2" }    
-    gear.Artifact_Feet = { name="Anchorite's Gaiters +2" }
+    gear.Artifact_Legs = { name="Anchorite's Hose +3" }    
+    gear.Artifact_Feet = { name="Anchorite's Gaiters +3" }
 
     gear.Relic_Head = { name="Hesychast's Crown +3" }
     gear.Relic_Body = { name="Hesychast's Cyclas +3" }
@@ -90,20 +90,32 @@ function user_setup()
     send_command('bind @w gs c toggle WeaponLock')
     send_command('bind @e gs c cycle WeaponSet')
 
-    send_command('bind ^` gs c cycle treasuremode')
-    send_command('bind !t input /ja "Provoke" <t>')
+    send_command('bind ^= gs c cycle treasuremode')
+
+    if player.sub_job == 'WAR' then
+        send_command('bind !t input /ja "Provoke" <t>')
+    end
 
     set_macro_page(1, 2)
     send_command('wait 2; input /lockstyleset 2')
 
-    update_combat_form()
-    update_melee_groups()
-
     state.Auto_Kite = M(false, 'Auto_Kite')
+    Haste = 0
+    MA = false
+    MA_needed = 0
     moving = false
+
+    update_combat_form()
+    determine_haste_group()
+    update_melee_groups()
 end
 
 function user_unload()
+    send_command('unbind @w')
+    send_command('unbind @e')
+    send_command('unbind ^`')
+    send_command('unbind !t')
+    send_command('unbind ^=')
 end
 
 -- Define sets and vars used by this job file.
@@ -114,14 +126,14 @@ function init_gear_sets()
     ---------------------------------------- Precast Sets ------------------------------------------
     ------------------------------------------------------------------------------------------------
 
-    sets.precast.JA['Hundred Fists'] = {legs="Hesychast's Hose +1"}
-    sets.precast.JA['Boost'] = {hands="Anchorite's Gloves +1"}
-    sets.precast.JA['Dodge'] = {feet="Anchorite's Gaiters +1"}
-    sets.precast.JA['Focus'] = {head="Anchorite's Crown +1"}
-    sets.precast.JA['Counterstance'] = {feet="Hesychast's Gaiters +1"}
-    sets.precast.JA['Footwork'] = {feet="Tantra Gaiters +2"}
-    sets.precast.JA['Formless Strikes'] = {body="Hesychast's Cyclas"}
-    sets.precast.JA['Mantra'] = {feet="Hesychast's Gaiters +1"}
+    sets.precast.JA['Hundred Fists'] = {legs=gear.Relic_Legs}
+    sets.precast.JA['Boost'] = {hands=gear.Artifact_Hands}
+    sets.precast.JA['Dodge'] = {feet=gear.Artifact_Feet}
+    sets.precast.JA['Focus'] = {head=gear.Artifact_Head}
+    sets.precast.JA['Counterstance'] = {feet=gear.Relic_Feet}
+    sets.precast.JA['Footwork'] = {feet=gear.Empyrean_Feet}
+    sets.precast.JA['Formless Strikes'] = {body=gear.Relic_Body}
+    sets.precast.JA['Mantra'] = {feet=gear.Relic_Feet}
 
     sets.precast.JA['Chi Blast'] = {
         head="Melee Crown +2",
@@ -160,25 +172,25 @@ function init_gear_sets()
     -- Don't need any special gear for Healing Waltz.
     sets.precast.Waltz['Healing Waltz'] = {}
 
-    sets.precast.Step = {waist="Chaac Belt"}
-    sets.precast.Flourish1 = {waist="Chaac Belt"}
-
     -- Fast cast sets for spells
     sets.precast.FC = {
         ammo="Sapience Orb", --2
-        head=gear.Herc_MAB_head, --7
-        body=gear.Taeon_FC_body, --9
+        -- head=gear.Herc_MAB_head, --7
+        -- body=gear.Taeon_FC_body, --9
         hands="Leyline Gloves", --8
         legs="Rawhide Trousers", --5
         feet=gear.Herc_MAB_feet, --2
-        neck="Orunmila's Torque", --5
+        -- neck="Orunmila's Torque", --5
+        neck="Baetyl Pendant", --4
         ear1="Loquacious Earring", --2
         ear2="Enchntr. Earring +1", --2
-        ring1="Weather. Ring +1", --6(4)
+        ring1="Weather. Ring", --6(4)
         ring2="Kishar Ring", --4
     }
 
-    sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {neck="Magoraga Beads"})
+    sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {
+        neck="Magoraga Beads"
+    })
 
     -- Weaponskill sets
     -- Default set for any weaponskill that isn't any more specifically defined
@@ -314,7 +326,7 @@ function init_gear_sets()
     sets.resting = {
         head="Ocelomeh Headpiece +1",
         neck="Wiglen Gorget",
-        body="Hesychast's Cyclas",
+        body=gear.Relic_Body,
         ring1="Sheltered Ring",
         ring2="Paguroidea Ring"
     }
@@ -326,7 +338,7 @@ function init_gear_sets()
         neck="Wiglen Gorget",
         ear1="Bladeborn Earring",
         ear2="Steelflash Earring",
-        body="Hesychast's Cyclas",
+        body=gear.Relic_Body,
         hands="Hesychast's Gloves +1",
         ring1="Sheltered Ring",
         ring2="Paguroidea Ring",
@@ -342,7 +354,7 @@ function init_gear_sets()
         neck="Wiglen Gorget",
         ear1="Bladeborn Earring",
         ear2="Steelflash Earring",
-        body="Hesychast's Cyclas",
+        body=gear.Relic_Body,
         hands="Hesychast's Gloves +1",
         ring1="Sheltered Ring",
         ring2="Paguroidea Ring",
@@ -359,7 +371,7 @@ function init_gear_sets()
         neck="Wiglen Gorget",
         ear1="Bladeborn Earring",
         ear2="Steelflash Earring",
-        body="Hesychast's Cyclas",
+        body=gear.Relic_Body,
         hands="Hesychast's Gloves +1",
         ring1="Sheltered Ring",
         ring2="Paguroidea Ring",
@@ -375,7 +387,7 @@ function init_gear_sets()
         neck="Wiglen Gorget",
         ear1="Bladeborn Earring",
         ear2="Steelflash Earring",
-        body="Hesychast's Cyclas",
+        body=gear.Relic_Body,
         hands="Hesychast's Gloves +1",
         ring1="Sheltered Ring",
         ring2="Paguroidea Ring",
@@ -391,7 +403,7 @@ function init_gear_sets()
         neck="Wiglen Gorget",
         ear1="Bladeborn Earring",
         ear2="Steelflash Earring",
-        body="Hesychast's Cyclas",
+        body=gear.Relic_Body,
         hands="Hesychast's Gloves +1",
         ring1="Sheltered Ring",
         ring2="Paguroidea Ring",
@@ -790,25 +802,25 @@ end
 
 function determine_haste_group()
     classes.CustomMeleeGroups:clear()
-    -- if DW == true then
-    --     if DW_needed <= 1 then
-    --         classes.CustomMeleeGroups:append('MaxHaste')
-    --     elseif DW_needed > 1 and DW_needed <= 16 then
-    --         classes.CustomMeleeGroups:append('HighHaste')
-    --     elseif DW_needed > 16 and DW_needed <= 21 then
-    --         classes.CustomMeleeGroups:append('MidHaste')
-    --     elseif DW_needed > 21 and DW_needed <= 34 then
-    --         classes.CustomMeleeGroups:append('LowHaste')
-    --     elseif DW_needed > 34 then
-    --         classes.CustomMeleeGroups:append('')
-    --     end
-    -- end
+    if MA_needed <= 1 then
+        classes.CustomMeleeGroups:append('MaxHaste')
+    elseif MA_needed > 1 and MA_needed <= 16 then
+        classes.CustomMeleeGroups:append('HighHaste')
+    elseif MA_needed > 16 and MA_needed <= 21 then
+        classes.CustomMeleeGroups:append('MidHaste')
+    elseif MA_needed > 21 and MA_needed <= 34 then
+        classes.CustomMeleeGroups:append('LowHaste')
+    elseif MA_needed > 34 then
+        classes.CustomMeleeGroups:append('')
+    end
 end
 
 function job_self_command(cmdParams, eventArgs)
     gearinfo(cmdParams, eventArgs)
 end
 
+-- Normal DW cmdParams is ('gearinfo', TotalDW, haste, moving, MA)
+-- If not DW then cmdParams is (gearinfo', DW, haste, moving, MA_needed)
 function gearinfo(cmdParams, eventArgs)
     if cmdParams[1] == 'gearinfo' then
         -- if type(tonumber(cmdParams[2])) == 'number' then
@@ -827,6 +839,7 @@ function gearinfo(cmdParams, eventArgs)
                 Haste = tonumber(cmdParams[3])
             end
         end
+
         if type(cmdParams[4]) == 'string' then
             if cmdParams[4] == 'true' then
                 moving = true
@@ -834,6 +847,19 @@ function gearinfo(cmdParams, eventArgs)
                 moving = false
             end
         end
+
+        if type(tonumber(cmdParams[5])) == 'number' then
+            if tonumber(cmdParams[5]) ~= MA_needed then
+                MA_needed = tonumber(cmdParams[5])
+                MA = true
+            end
+        elseif type(cmdParams[5]) == 'string' then
+            if cmdParams[5] == 'false' then
+                MA_needed = 0
+                MA = false
+            end
+        end
+
         if not midaction() then
             job_update()
         end
