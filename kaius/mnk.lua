@@ -45,11 +45,9 @@ function job_setup()
 
     state.Buff.Footwork = buffactive.Footwork or false
     state.Buff.Impetus = buffactive.Impetus or false
-    state.FootworkWS = M(false, 'Footwork on WS')
 
-    -- TODO: This seems unnecessary now with Empy +2...Like safe to assume its always better to use e+2
-    -- info.impetus_hit_count = 0 
-    -- windower.raw_register_event('action', on_action_for_impetus)
+    info.impetus_hit_count = 0 
+    windower.raw_register_event('action', on_action_for_impetus)
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -131,6 +129,8 @@ function init_gear_sets()
     sets.precast.JA['Footwork'] = { feet="Shukuyu sune-ate" }
     sets.precast.JA['Formless Strikes'] = { body=gear.Relic_Body }
     sets.precast.JA['Mantra'] = { feet=gear.Relic_Feet }
+    sets.precast.JA['Chi Blast'] = {head=gear.Relic_Head}
+
 
     sets.precast.JA['Chi Blast'] = {
         head=gear.Artifact_Head,
@@ -141,8 +141,7 @@ function init_gear_sets()
 
     sets.precast.JA['Chakra'] = {
         ammo="Aurgelmir Orb +1",
-        head=gear.Nyame_Head,
-        -- head="Genmei Kabuto",
+        head="Genmei Kabuto",
         neck="Unmoving Collar +1",
         ear1="Handler's Earring +1",
         ear2="Tuisto Earring",
@@ -150,8 +149,8 @@ function init_gear_sets()
         hands=gear.Relic_Hands,
         ring1="Niqmaddu Ring",
         ring2="Gelatinous Ring +1",
-        back=gear.MNK_TP_Cape,
-        -- waist="Latria Sash", -- TODO (max vit)
+        back=gear.MNK_TP_Cape, -- Should be a VIT Cape
+        -- waist="Latria Sash",
         legs=gear.Tatenashi_Legs,
         feet=gear.Tatenashi_Feet
     }
@@ -161,6 +160,7 @@ function init_gear_sets()
         ammo="Voluspa Tathlum",
         ear1="Handler's Earring +1",
         ear2="Enchanter's Earring +1",
+        head="Kendatsuba Jinpachi +1",
         body="Passion Jacket",
         hands=gear.Relic_Hands,
         waist="Gishdubar Sash",
@@ -206,7 +206,6 @@ function init_gear_sets()
 		ring2="Niqmaddu Ring",
 		back=gear.MNK_WS_Cape,
     }
-
 
     sets.precast.WS.Acc = set_combine(sets.precast.WS, {
         -- TODO
@@ -373,27 +372,18 @@ function init_gear_sets()
     
     -- Midcast Sets
     sets.midcast.FastRecast = {
-        -- TODO
+        ammo="Sapience Orb", --2
+        head=gear.Herc_MAB_head, --7
+        body=gear.Taeon_FC_body, --9
+        hands="Leyline Gloves", --8
+        legs="Rawhide Trousers", --5
+        feet=gear.Herc_MAB_feet, --2
+        neck="Baetyl Pendant", --4 --"Orunmila's Torque" if available
+        ear1="Loquacious Earring", --2
+        ear2="Enchntr. Earring +1", --2
+        ring1="Weather. Ring", --4
+        ring2="Kishar Ring", --4
     }
-        
-    -- Idle sets
-    sets.idle = {
-        ammo="Staunch Tathlum +1",
-        head=gear.Rao_D_Head,
-        neck="Bathy Choker +1",
-        ear1="Infused Earring",
-        ear2="Etiolation Earring", -- Could use Dawn Earring for more Regen
-        body="Hizamaru Haramaki +2",
-        hands=gear.Rao_D_Hands,
-        ring1=gear.Chirich_1,
-        ring2=gear.Chirich_2,
-        back="Moonlight Cape",
-        waist="Moonbow Belt +1",
-        legs=gear.Rao_B_Pants,
-        feet=gear.Rao_D_Feet,
-    }
-
-    sets.idle.Town = sets.idle -- Can change to look cooler
 
     -- Defense sets
     sets.defense.PDT = {
@@ -414,23 +404,22 @@ function init_gear_sets()
     
     sets.defense.MDT = {
         ammo="Staunch Tathlum +1",
-        head=gear.Malignance_Head,
-        neck="Monk's Nodowa +2",
-        ear1="Sherida Earring",
-        ear2="Telos Earring",
-        body=gear.Malignance_Body,
-        hands=gear.Malignance_Hands,
-        ring1="Gere Ring",
-        ring2="Niqmaddu Ring",
-        back=gear.MNK_TP_Cape,
-        waist="Moonbow Belt +1",
-        legs=gear.Malignance_Legs,
-        feet=gear.Malignance_Feet,
-    } -- TODO (same as PDT right now, probably can optimize)
+        head=gear.Nyame_Head,
+        neck="Warder's Charm +1",
+        ear1="Odnowa Earring +1",
+        ear2="Tuisto Earring",
+        body=gear.Nyame_Body,
+        hands=gear.Nyame_Hands,
+        ring1="Defending Ring",
+        ring2="Gelatinous Ring +1",
+        back="Moonlight Cape",
+        waist="Engraved Belt",
+        legs=gear.Nyame_Legs,
+        feet=gear.Nyame_Feet,
+    }
 
     sets.defense.HP = {
         ammo="Aurgelmir Orb +1",
-        -- head=gear.Nyame_Head,
         head="Genmei Kabuto",
         neck="Unmoving Collar +1",
         ear1="Handler's Earring +1",
@@ -447,17 +436,12 @@ function init_gear_sets()
 
 
     -- Engaged sets
-
-    -- Variations for TP weapon and (optional) offense/defense modes.  Code will fall back on previous
-    -- sets if more refined versions aren't defined.
-    -- If you create a set with both offense and defense modes, the offense mode should be first.
-    -- EG: sets.engaged.Dagger.Accuracy.Evasion
     
     -- Normal melee sets
     sets.engaged = {
         ammo="Coiste Bodhar",
-		head=gear.Adhemar_B_Head, -- TODO: Should be A
-		body="Ken. Samue +1", --Mpaca if augmented?
+		head=gear.Adhemar_A_Head,
+		body="Ken. Samue +1",
 		hands=gear.Adhemar_A_Hands,
 		legs=gear.Empyrean_Legs,
 		-- feet=gear.Artifact_Feet, -- Switch when AF @ +3
@@ -471,9 +455,9 @@ function init_gear_sets()
 		back=gear.MNK_TP_Cape,
     }
     
-    sets.engaged.Acc={
-        ammo="Falcon Eye",
-		head =gear.Adhemar_B_Head, -- TODO: Should be A
+    sets.engaged.Acc = {
+        ammo="Ginsen",
+		head =gear.Adhemar_A_Head,
 		body=gear.Mpaca_Body,
 		hands=gear.Adhemar_A_Hands,
 		legs=gear.Tatenashi_Legs,
@@ -481,11 +465,19 @@ function init_gear_sets()
 		neck="Mnk. Nodowa +2",
 		waist="Moonbow Belt +1",
 		ear1="Sherida Earring",
-		ear2="Mache Earring +1",
+		ear2="Telos Earring",
 		ring1="Gere Ring",
 		ring2="Niqmaddu Ring",
 		back=gear.MNK_TP_Cape,
     }
+
+    sets.engaged.MA = set_combine(sets.engaged, {
+        ear2="Mache Earring +1",
+    })
+
+    sets.engaged.Acc.MA = set_combine(sets.engaged.Acc, {
+        ear2="Mache Earring +1",
+    })
 
     -- Defensive melee hybrid sets
     sets.engaged.Hybrid = {
@@ -496,11 +488,10 @@ function init_gear_sets()
         feet=gear.Malignance_Feet,
     }
    
-
     sets.engaged.Counter = {
         ammo="Coiste Bodhar",
 		head=gear.Rao_D_Head,
-		body=gear.Mpaca_Head,
+		body=gear.Mpaca_Body,
 		hands=gear.Malignance_Hands,
 		legs=gear.Empyrean_Legs,
 		feet=gear.Empyrean_Feet,
@@ -511,18 +502,43 @@ function init_gear_sets()
 		ring1="Defending Ring",
 		ring2="Niqmaddu Ring",
 		back=gear.MNK_TP_Cape,
-    }
+    } -- Capped Counter & DT
 
     sets.engaged.Acc.Counter = set_combine(sets.engaged.Counter, {
-        -- TODO
+        ammo="Ginsen",
     })
+
+    sets.engaged.DT = set_combine(sets.engaged, sets.engaged.Hybrid)
+    sets.engaged.Acc.DT = set_combine(sets.engaged.Acc, sets.engaged.Hybrid)
+
+    sets.engaged.DT.MA = set_combine(sets.engaged.MA, sets.engaged.Hybrid)
+    sets.engaged.Acc.DT.MA = set_combine(sets.engaged.Acc.MA, sets.engaged.Hybrid)
+
+     -- Idle sets
+    sets.idle = {
+        ammo="Staunch Tathlum +1",
+        head=gear.Rao_D_Head,
+        neck="Bathy Choker +1",
+        ear1="Infused Earring",
+        ear2="Etiolation Earring", -- Could use Dawn Earring for more Regen
+        body="Hizamaru Haramaki +2",
+        hands=gear.Rao_D_Hands,
+        ring1=gear.Chirich_1,
+        ring2=gear.Chirich_2,
+        back="Moonlight Cape",
+        waist="Moonbow Belt +1",
+        legs=gear.Rao_B_Pants,
+        feet=gear.Rao_D_Feet,
+    }
+
+    sets.idle.Town = sets.engaged
         
     ------------------------------------------------------------------------------------------------
     ---------------------------------------- Special Sets ------------------------------------------
     ------------------------------------------------------------------------------------------------
 
-    sets.buff.Impetus = {body=gear.Empyrean_Body}
-	sets.buff.Footwork = {feet=gear.Artifact_Feet}
+    sets.buff.Impetus = { body=gear.Empyrean_Body }
+	sets.buff.Footwork = { feet=gear.Artifact_Feet }
 
     sets.buff.Doom = {
         neck="Nicander's Necklace", --20
@@ -532,6 +548,7 @@ function init_gear_sets()
     }
 
     sets.TreasureHunter = {
+        ammo="Perfect Lucky Egg",
         head="Volte Cap", 
         waist="Chaac Belt"
     }
@@ -572,13 +589,6 @@ function job_post_precast(spell, action, spellMap, eventArgs)
     end
 end
 
-function job_aftercast(spell, action, spellMap, eventArgs)
-    -- TODO: Do we want this? Why?
-    -- if spell.type == 'WeaponSkill' and not spell.interrupted and state.FootworkWS and state.Buff.Footwork then
-    --     send_command('cancel Footwork')
-    -- end
-end
-
 -- Called when a player gains or loses a buff.
 -- buff == buff gained or lost
 -- gain == true if the buff was gained, false if it was lost.
@@ -614,7 +624,7 @@ end
 
 function get_custom_wsmode(spell, action, spellMap)
     local wsmode
-    if state.OffenseMode.value == 'MidAcc' or state.OffenseMode.value == 'HighAcc' then
+    if state.OffenseMode.value == 'Acc' then
         wsmode = 'Acc'
     end
 
@@ -710,43 +720,24 @@ function check_moving()
     end
 end
 
--- TODO: Not actually doing anything yet with haste calculation,
--- but tested with GearInfo addon, and it is working to calculate MA needed.
+
 function determine_haste_group()
     classes.CustomMeleeGroups:clear()
-    if MA_needed <= 1 then
-        classes.CustomMeleeGroups:append('MaxHaste')
-    elseif MA_needed > 1 and MA_needed <= 16 then
-        classes.CustomMeleeGroups:append('HighHaste')
-    elseif MA_needed > 16 and MA_needed <= 21 then
-        classes.CustomMeleeGroups:append('MidHaste')
-    elseif MA_needed > 21 and MA_needed <= 34 then
-        classes.CustomMeleeGroups:append('LowHaste')
-    elseif MA_needed > 34 then
-        classes.CustomMeleeGroups:append('')
+    -- When haste capped, this should only be over 12 when using Godhands.
+    -- Without haste capped, this will likely always be the case.
+    if MA_needed > 12 then
+        classes.CustomMeleeGroups:append('MA')
     end
-    -- add_to_chat(108, MA_needed)
 end
 
 function job_self_command(cmdParams, eventArgs)
     gearinfo(cmdParams, eventArgs)
 end
 
--- Normal DW cmdParams is ('gearinfo', TotalDW, haste, moving, MA)
--- If not DW then cmdParams is (gearinfo', DW, haste, moving, MA_needed)
+-- Normal DW cmdParams is ('gearinfo' <string>, TotalDW <number>, haste <int>, moving <bool>, MA <number>)
+-- If not DW then cmdParams is (gearinfo' <string>, DW <bool>, haste <number>, moving <bool> , MA_needed <number>)
 function gearinfo(cmdParams, eventArgs)
     if cmdParams[1] == 'gearinfo' then
-        -- if type(tonumber(cmdParams[2])) == 'number' then
-        --     if tonumber(cmdParams[2]) ~= DW_needed then
-        --     DW_needed = tonumber(cmdParams[2])
-        --     DW = true
-        --     end
-        -- elseif type(cmdParams[2]) == 'string' then
-        --     if cmdParams[2] == 'false' then
-        --         DW_needed = 0
-        --         DW = false
-        --     end
-        -- end
         if type(tonumber(cmdParams[3])) == 'number' then
             if tonumber(cmdParams[3]) ~= Haste then
                 Haste = tonumber(cmdParams[3])
@@ -796,70 +787,74 @@ function check_weaponset()
     equip(sets[state.WeaponSet.current])
 end
 
--- -- Keep track of the current hit count while Impetus is up.
--- function on_action_for_impetus(action)
---     if state.Buff.Impetus then
---         -- count melee hits by player
---         if action.actor_id == player.id then
---             if action.category == 1 then
---                 for _,target in pairs(action.targets) do
---                     for _,action in pairs(target.actions) do
---                         -- Reactions (bitset):
---                         -- 1 = evade
---                         -- 2 = parry
---                         -- 4 = block/guard
---                         -- 8 = hit
---                         -- 16 = JA/weaponskill?
---                         -- If action.reaction has bits 1 or 2 set, it missed or was parried. Reset count.
---                         if (action.reaction % 4) > 0 then
---                             info.impetus_hit_count = 0
---                         else
---                             info.impetus_hit_count = info.impetus_hit_count + 1
---                         end
---                     end
---                 end
---             elseif action.category == 3 then
---                 -- Missed weaponskill hits will reset the counter.  Can we tell?
---                 -- Reaction always seems to be 24 (what does this value mean? 8=hit, 16=?)
---                 -- Can't tell if any hits were missed, so have to assume all hit.
---                 -- Increment by the minimum number of weaponskill hits: 2.
---                 for _,target in pairs(action.targets) do
---                     for _,action in pairs(target.actions) do
---                         -- This will only be if the entire weaponskill missed or was parried.
---                         if (action.reaction % 4) > 0 then
---                             info.impetus_hit_count = 0
---                         else
---                             info.impetus_hit_count = info.impetus_hit_count + 2
---                         end
---                     end
---                 end
---             end
---         elseif action.actor_id ~= player.id and action.category == 1 then
---             -- If mob hits the player, check for counters.
---             for _,target in pairs(action.targets) do
---                 if target.id == player.id then
---                     for _,action in pairs(target.actions) do
---                         -- Spike effect animation:
---                         -- 63 = counter
---                         -- ?? = missed counter
---                         if action.has_spike_effect then
---                             -- spike_effect_message of 592 == missed counter
---                             if action.spike_effect_message == 592 then
---                                 info.impetus_hit_count = 0
---                             elseif action.spike_effect_animation == 63 then
---                                 info.impetus_hit_count = info.impetus_hit_count + 1
---                             end
---                         end
---                     end
---                 end
---             end
---         end
+-- Keep track of the current hit count while Impetus is up. This used to be used to dtermine when
+-- to swap in the Empyrean Chest piece for weapon skills. With +2, this seems obsolete, but I kept it
+-- here just for kicks, and made it show in chat log every 10 hits. 
+function on_action_for_impetus(action)
+    if state.Buff.Impetus then
+        -- count melee hits by player
+        if action.actor_id == player.id then
+            if action.category == 1 then
+                for _,target in pairs(action.targets) do
+                    for _,action in pairs(target.actions) do
+                        -- Reactions (bitset):
+                        -- 1 = evade
+                        -- 2 = parry
+                        -- 4 = block/guard
+                        -- 8 = hit
+                        -- 16 = JA/weaponskill?
+                        -- If action.reaction has bits 1 or 2 set, it missed or was parried. Reset count.
+                        if (action.reaction % 4) > 0 then
+                            info.impetus_hit_count = 0
+                        else
+                            info.impetus_hit_count = info.impetus_hit_count + 1
+                        end
+                    end
+                end
+            elseif action.category == 3 then
+                -- Missed weaponskill hits will reset the counter.  Can we tell?
+                -- Reaction always seems to be 24 (what does this value mean? 8=hit, 16=?)
+                -- Can't tell if any hits were missed, so have to assume all hit.
+                -- Increment by the minimum number of weaponskill hits: 2.
+                for _,target in pairs(action.targets) do
+                    for _,action in pairs(target.actions) do
+                        -- This will only be if the entire weaponskill missed or was parried.
+                        if (action.reaction % 4) > 0 then
+                            info.impetus_hit_count = 0
+                        else
+                            info.impetus_hit_count = info.impetus_hit_count + 2
+                        end
+                    end
+                end
+            end
+        elseif action.actor_id ~= player.id and action.category == 1 then
+            -- If mob hits the player, check for counters.
+            for _,target in pairs(action.targets) do
+                if target.id == player.id then
+                    for _,action in pairs(target.actions) do
+                        -- Spike effect animation:
+                        -- 63 = counter
+                        -- ?? = missed counter
+                        if action.has_spike_effect then
+                            -- spike_effect_message of 592 == missed counter
+                            if action.spike_effect_message == 592 then
+                                info.impetus_hit_count = 0
+                            elseif action.spike_effect_animation == 63 then
+                                info.impetus_hit_count = info.impetus_hit_count + 1
+                            end
+                        end
+                    end
+                end
+            end
+        end
         
---         -- add_to_chat(123,'Current Impetus hit count = ' .. tostring(info.impetus_hit_count))
---     else
---         info.impetus_hit_count = 0
---     end
--- end
+        if info.impetus_hit_count % 10 == 0 then
+           add_to_chat(123,'Current Impetus hit count = ' .. tostring(info.impetus_hit_count))
+        end
+    else
+        info.impetus_hit_count = 0
+    end
+end
 
 windower.register_event('zone change',
     function()
