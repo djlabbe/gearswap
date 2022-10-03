@@ -13,6 +13,12 @@ function define_global_sets()
     gear.Malignance_Legs= {name="Malignance Tights"}
     gear.Malignance_Feet = {name="Malignance Boots"}
 
+    -- Tatenashi
+    gear.Tatenashi_Body = {name="Tatenashi Haramaki +1"}
+    gear.Tatenashi_Hands = {name="Tatenashi Gote +1"}
+    gear.Tatenashi_Legs = {name="Tatenashi Haidate +1"}
+    gear.Tatenashi_Feet = {name="Tatenashi Sune-Ate +1"}
+
     -- Odyssey
     gear.Nyame_Head = {name="Nyame Helm"}
     gear.Nyame_Body = {name="Nyame Mail"}
@@ -124,6 +130,7 @@ function define_global_sets()
     gear.Eschite_C_Feet = { name="Eschite Greaves", augments={'Mag. Evasion+15','Spell interruption rate down +15%','Enmity+7',}}
 
     -- -- Adhemar
+    gear.Adhemar_A_Head = {name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}}
     gear.Adhemar_B_Head = {name="Adhemar Bonnet +1", augments={'STR+12','DEX+12','Attack+20',}}
     gear.Adhemar_A_Body = {name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}}
     gear.Adhemar_B_Body = {name="Adhemar Jacket +1", augments={'STR+12','DEX+12','Attack+20',}}
@@ -283,4 +290,12 @@ function define_global_sets()
     gear.RNG_TP_Cape = { name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','AGI+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}}
     gear.RNG_WS1_Cape = { name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','AGI+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}}
     gear.RNG_WS2_Cape = { name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','AGI+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}}
+
+    -- gear.MNK_Tp_Cape = { name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
+    -- gear.MNK_INT_Cape = { name="Segomo's Mantle", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','INT+10','Weapon skill damage +10%',}}
+    -- gear.MNK_WS_Cape = { name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','"Dbl.Atk."+10',}}
+
+    gear.MNK_TP_Cape = { name="Atheling Mantle" }
+    gear.MNK_INT_Cape = { name="Phalangite Mantle" }
+    gear.MNK_WS_Cape = { name="Phalangite Mantle" }
 end

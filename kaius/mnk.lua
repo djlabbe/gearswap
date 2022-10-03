@@ -31,8 +31,6 @@ end
 
 -- Setup vars that are user-independent.
 function job_setup()
-    
-
     no_swap_gear = S{"Warp Ring", "Dim. Ring (Dem)", "Dim. Ring (Holla)", "Dim. Ring (Mea)",
               "Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring"}
 
@@ -49,8 +47,9 @@ function job_setup()
     state.Buff.Impetus = buffactive.Impetus or false
     state.FootworkWS = M(false, 'Footwork on WS')
 
-    info.impetus_hit_count = 0
-    windower.raw_register_event('action', on_action_for_impetus)
+    -- TODO: This seems unnecessary now with Empy +2...Like safe to assume its always better to use e+2
+    -- info.impetus_hit_count = 0 
+    -- windower.raw_register_event('action', on_action_for_impetus)
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -61,28 +60,28 @@ function user_setup()
     state.OffenseMode:options('Normal', 'Acc')
     state.WeaponskillMode:options('Normal', 'Acc')
     state.HybridMode:options('Normal', 'DT', 'Counter')
-    state.PhysicalDefenseMode:options('DT', 'HP')
+    state.PhysicalDefenseMode:options('PDT', 'HP')
 
     state.WeaponLock = M(true, 'Weapon Lock')
-    state.WeaponSet = M{['description']='Weapon Set', 'Karambit', 'Spharai'}
+    state.WeaponSet = M{['description']='Weapon Set', 'Karambit', 'Spharai', 'Xoanon'}
 
-    gear.Artifact_Head = { name="Anchorite's Crown +3" }
-    gear.Artifact_Body = { name="Anchorite's Cyclas +3" }
-    gear.Artifact_Hands = { name="Anchorite's Gloves +3" }
-    gear.Artifact_Legs = { name="Anchorite's Hose +3" }    
-    gear.Artifact_Feet = { name="Anchorite's Gaiters +3" }
+    gear.Artifact_Head = { name="Anchorite's Crown +1" }
+    gear.Artifact_Body = { name="Anchorite's Cyclas +1" }
+    gear.Artifact_Hands = { name="Anchorite's Gloves +1" }
+    gear.Artifact_Legs = { name="Anchorite's Hose +1" }    
+    gear.Artifact_Feet = { name="Anchorite's Gaiters +2" }
 
-    gear.Relic_Head = { name="Hesychast's Crown +3" }
-    gear.Relic_Body = { name="Hesychast's Cyclas +3" }
-    gear.Relic_Hands = { name="Hesychast's Gloves +3" }
-    gear.Relic_Legs = { name="Hesychast's Hose +3" }
-    gear.Relic_Feet = { name="Hesychast's Gaiters +3" }
+    gear.Relic_Head = { name="Hesychast's Crown +1" }
+    gear.Relic_Body = { name="Hesychast's Cyclas +1" }
+    gear.Relic_Hands = { name="Hesychast's Gloves +1" }
+    gear.Relic_Legs = { name="Hesychast's Hose +1" }
+    gear.Relic_Feet = { name="Hesychast's Gaiters +1" }
 
-    gear.Empyrean_Head = { name="Bhikku Crown +2" }
-    gear.Empyrean_Body = { name="Bhikku Cyclas +2" }
-    gear.Empyrean_Hands = { name="Bhikku Gloves +2" }
+    gear.Empyrean_Head = { name="Bhikku Crown +1" }
+    gear.Empyrean_Body = { name="Bhikku Cyclas +1" }
+    gear.Empyrean_Hands = { name="Bhikku Gloves +1" }
     gear.Empyrean_Legs = { name="Bhikku Hose +2" }
-    gear.Empyrean_Feet = { name="Bhikku Gaiters +2" }
+    gear.Empyrean_Feet = { name="Bhikku Gaiters +1" }
     
     -- Additional local binds
     include('Global-Binds.lua') -- OK to remove this line
@@ -105,9 +104,7 @@ function user_setup()
     MA_needed = 0
     moving = false
 
-    update_combat_form()
     determine_haste_group()
-    update_melee_groups()
 end
 
 function user_unload()
@@ -126,47 +123,48 @@ function init_gear_sets()
     ---------------------------------------- Precast Sets ------------------------------------------
     ------------------------------------------------------------------------------------------------
 
-    sets.precast.JA['Hundred Fists'] = {legs=gear.Relic_Legs}
-    sets.precast.JA['Boost'] = {hands=gear.Artifact_Hands}
-    sets.precast.JA['Dodge'] = {feet=gear.Artifact_Feet}
-    sets.precast.JA['Focus'] = {head=gear.Artifact_Head}
-    sets.precast.JA['Counterstance'] = {feet=gear.Relic_Feet}
-    sets.precast.JA['Footwork'] = {feet=gear.Empyrean_Feet}
-    sets.precast.JA['Formless Strikes'] = {body=gear.Relic_Body}
-    sets.precast.JA['Mantra'] = {feet=gear.Relic_Feet}
+    sets.precast.JA['Hundred Fists'] = { legs=gear.Relic_Legs }
+    sets.precast.JA['Boost'] = { hands=gear.Artifact_Hands }
+    sets.precast.JA['Dodge'] = { feet=gear.Artifact_Feet }
+    sets.precast.JA['Focus'] = { head=gear.Artifact_Head }
+    sets.precast.JA['Counterstance'] = { feet=gear.Relic_Feet }
+    sets.precast.JA['Footwork'] = { feet="Shukuyu sune-ate" }
+    sets.precast.JA['Formless Strikes'] = { body=gear.Relic_Body }
+    sets.precast.JA['Mantra'] = { feet=gear.Relic_Feet }
 
     sets.precast.JA['Chi Blast'] = {
-        head="Melee Crown +2",
-        body="Otronif Harness +1",
-        hands="Hesychast's Gloves +1",
-        back="Tuilha Cape",
-        legs="Hesychast's Hose +1",
-        feet="Anchorite's Gaiters +1"
+        head=gear.Artifact_Head,
+        hands=gear.Relic_Hands,
+        legs=gear.Relic_Legs,
+        feet=gear.Artifact_Feet,
     }
 
     sets.precast.JA['Chakra'] = {
-        ammo="Iron Gobbet",
-        head="Felistris Mask",
-        body="Anchorite's Cyclas +1",
-        hands="Hesychast's Gloves +1",
-        ring1="Spiral Ring",
-        back="Iximulew Cape",
-        waist="Caudata Belt",
-        legs="Qaaxo Tights",
-        feet="Thurandaut Boots +1"
+        ammo="Aurgelmir Orb +1",
+        head=gear.Nyame_Head,
+        -- head="Genmei Kabuto",
+        neck="Unmoving Collar +1",
+        ear1="Handler's Earring +1",
+        ear2="Tuisto Earring",
+        body=gear.Artifact_Body,
+        hands=gear.Relic_Hands,
+        ring1="Niqmaddu Ring",
+        ring2="Gelatinous Ring +1",
+        back=gear.MNK_TP_Cape,
+        -- waist="Latria Sash", -- TODO (max vit)
+        legs=gear.Tatenashi_Legs,
+        feet=gear.Tatenashi_Feet
     }
 
     -- Waltz set (chr and vit)
     sets.precast.Waltz = {
-        ammo="Sonia's Plectrum",
-        head="Felistris Mask",
-        body="Otronif Harness +1",
-        hands="Hesychast's Gloves +1",
-        ring1="Spiral Ring",
-        back="Iximulew Cape",
-        waist="Caudata Belt",
-        legs="Qaaxo Tights",
-        feet="Otronif Boots +1"
+        ammo="Voluspa Tathlum",
+        ear1="Handler's Earring +1",
+        ear2="Enchanter's Earring +1",
+        body="Passion Jacket",
+        hands=gear.Relic_Hands,
+        waist="Gishdubar Sash",
+        ring1="Asklepian Ring",
     }
         
     -- Don't need any special gear for Healing Waltz.
@@ -175,18 +173,17 @@ function init_gear_sets()
     -- Fast cast sets for spells
     sets.precast.FC = {
         ammo="Sapience Orb", --2
-        -- head=gear.Herc_MAB_head, --7
-        -- body=gear.Taeon_FC_body, --9
+        head=gear.Herc_MAB_head, --7
+        body=gear.Taeon_FC_body, --9
         hands="Leyline Gloves", --8
         legs="Rawhide Trousers", --5
         feet=gear.Herc_MAB_feet, --2
-        -- neck="Orunmila's Torque", --5
-        neck="Baetyl Pendant", --4
+        neck="Baetyl Pendant", --4 --"Orunmila's Torque" if available
         ear1="Loquacious Earring", --2
         ear2="Enchntr. Earring +1", --2
-        ring1="Weather. Ring", --6(4)
+        ring1="Weather. Ring", --4
         ring2="Kishar Ring", --4
-    }
+    } -- 49%
 
     sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {
         neck="Magoraga Beads"
@@ -195,227 +192,259 @@ function init_gear_sets()
     -- Weaponskill sets
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
-        ammo="Thew Bomblet",
-        head="Whirlpool Mask",
-        neck=gear.ElementalGorget,
-        ear1="Brutal Earring",
-        ear2="Moonshade Earring",
-        body="Qaaxo Harness",
-        hands="Hesychast's Gloves +1",
-        ring1="Rajas Ring",
-        ring2="Epona's Ring",
-        back="Atheling Mantle",
-        waist="Caudata Belt",
-        legs="Quiahuiz Trousers",
-        feet="Manibozho Boots"
+        ammo="Knobkierrie",
+		head=gear.Adhemar_B_Head,
+		body="Ken. Samue +1",
+		hands=gear.Ryuo_A_Hands,
+		legs=gear.Mpaca_Legs,
+		feet=gear.Mpaca_Feet,
+		neck="Mnk. Nodowa +2",
+		waist="Moonbow Belt +1",
+		ear1="Sherida Earring",
+		ear2="Odr Earring",
+		ring1="Gere Ring",
+		ring2="Niqmaddu Ring",
+		back=gear.MNK_WS_Cape,
     }
 
-    sets.precast.WSAcc = {
-        ammo="Honed Tathlum",
-        body="Manibozho Jerkin",
-        back="Letalis Mantle",
-        feet="Qaaxo Leggings"
-    }
 
-    sets.precast.MaxTP = {
-        ear1="Bladeborn Earring",
-        ear2="Steelflash Earring"
-    }
-
-    sets.precast.WS.Acc = set_combine(sets.precast.WS, sets.precast.WSAcc)
+    sets.precast.WS.Acc = set_combine(sets.precast.WS, {
+        -- TODO
+    })
 
     -- Specific weaponskill sets.
 
-    sets.precast.WS['Raging Fists'] = set_combine(sets.precast.WS, {})
+    sets.precast.WS["Victory Smite"] = {
+        ammo="Knobkierrie",
+		head=gear.Adhemar_B_Head,
+		body="Ken. Samue +1",
+		hands=gear.Ryuo_A_Hands,
+		legs=gear.Mpaca_Legs,
+		feet=gear.Mpaca_Feet,
+		neck="Mnk. Nodowa +2",
+		waist="Moonbow Belt +1",
+		ear1="Sherida Earring",
+		ear2="Odr Earring",
+		ring1="Gere Ring",
+		ring2="Niqmaddu Ring",
+		back=gear.MNK_WS_Cape,
+    }
 
-    sets.precast.WS['Howling Fist'] = set_combine(sets.precast.WS, {
-        legs="Manibozho Brais",
-        feet="Daihanshi Habaki"
+    sets.precast.WS["Victory Smite"].Acc = set_combine(sets.precast.WS["Victory Smite"], {
+        -- TODO
     })
 
-    sets.precast.WS['Asuran Fists'] = set_combine(sets.precast.WS, {
-        ear1="Bladeborn Earring",
-        ear2="Moonshade Earring",
-        ring2="Spiral Ring",
-        back="Buquwik Cape"
+    sets.precast.WS['Raging Fists'] = {
+        ammo="Knobkierrie",
+		head=gear.Mpaca_Head,
+		body=gear.Mpaca_Body,
+		hands=gear.Tatenashi_Hands,
+		legs=gear.Tatenashi_Legs,
+		feet=gear.Artifact_Feet,
+		neck="Mnk. Nodowa +2",
+		waist="Moonbow Belt +1",
+		ear1="Schere Earring",
+		ear2="Moonshade Earring",
+		ring1="Gere Ring",
+		ring2="Niqmaddu Ring",
+		back=gear.MNK_WS_Cape,
+    }
+    sets.precast.WS["Raging Fists"].Acc = set_combine(sets.precast.WS["Raging Fists"], {
+        -- TODO
+    })
+   
+    sets.precast.WS['Shijin Spiral'] = {
+        ammo="Knobkierrie",
+		head="Adhemar Bonnet +1",
+		body="Ken. Samue +1",
+		hands=gear.Malignance_Hands,
+		legs=gear.Tatenashi_Legs,
+		feet=gear.Tatenashi_Feet,
+		neck="Mnk. Nodowa +2",
+		waist="Moonbow Belt +1",
+		ear1="Sherida Earring",
+		ear2="Mache Earring +1",
+		ring1="Gere Ring",
+		ring2="Niqmaddu Ring",
+		back=gear.MNK_TP_Cape,
+    }
+
+    sets.precast.WS["Shijin Spiral"].Acc = set_combine(sets.precast.WS["Shijin Spiral"], {
+        head=gear.Malignance_Head,
+        legs=gear.Relic_Legs,
     })
 
-    sets.precast.WS["Ascetic's Fury"] = set_combine(sets.precast.WS, {
-        ammo="Tantra Tathlum",
-        ring1="Spiral Ring",
-        back="Buquwik Cape",
-        feet="Qaaxo Leggings"
+    sets.precast.WS['Howling Fist'] =  {
+        ammo="Knobkierrie",
+		head=gear.Mpaca_Head,
+		body=gear.Tatenashi_Body,
+		hands=gear.Tatenashi_Hands,
+		legs=gear.Tatenashi_Legs,
+		feet=gear.Tatenashi_Feet,
+		neck="Mnk. Nodowa +2",
+		waist="Moonbow Belt +1",
+		ear1="Schere Earring",
+		ear2="Moonshade Earring",
+		ring1="Gere Ring",
+		ring2="Niqmaddu Ring",
+		back=gear.MNK_WS_Cape,
+    }
+
+    sets.precast.WS["Howling Fist"].Acc = set_combine(sets.precast.WS["Howling Fist"], {
+        -- TODO
     })
 
-    sets.precast.WS["Victory Smite"] = set_combine(sets.precast.WS, {
-        neck="Rancor Collar",
-        back="Buquwik Cape",
-        feet="Qaaxo Leggings"
-    })
+    sets.precast.WS['Final Heaven'] =  {
+        ammo="Knobkierrie",
+		head=gear.Mpaca_Head,
+		body=gear.Empyrean_Body,
+		hands=gear.Tatenashi_Hands,
+		legs=gear.Tatenashi_Legs,
+		feet=gear.Nyame_Feet,
+		neck="Mnk. Nodowa +2",
+		waist="Moonbow Belt +1",
+		ear1="Sherida Earring",
+		ear2="Ishvara Earring",
+		ring1="Gere Ring",
+		ring2="Niqmaddu Ring",
+		back=gear.MNK_WS_Cape,
+    }
 
-    sets.precast.WS['Shijin Spiral'] = set_combine(sets.precast.WS, {
-        ear1="Bladeborn Earring",
-        ear2="Steelflash Earring",
-        legs="Manibozho Brais",
-        feet="Daihanshi Habaki"
-    })
-
-    sets.precast.WS['Dragon Kick'] = set_combine(sets.precast.WS, {
-        feet="Daihanshi Habaki"
+    sets.precast.WS["Final Heaven"].Acc = set_combine(sets.precast.WS["Final Heaven"], {
+        -- TODO
     })
 
     sets.precast.WS['Tornado Kick'] = set_combine(sets.precast.WS, {
-        ammo="Tantra Tathlum",
-        ring1="Spiral Ring"
+        ammo="Knobkierrie",
+		head=gear.Mpaca_Head,
+		body=gear.Tatenashi_Body,
+		hands=gear.Tatenashi_Hands,
+		legs=gear.Tatenashi_Legs,
+		feet=gear.Artifact_Feet,
+		neck="Mnk. Nodowa +2",
+		waist="Moonbow Belt +1",
+		ear1="Sherida Earring",
+		ear2="Moonshade Earring",
+		ring1="Gere Ring",
+		ring2="Niqmaddu Ring",
+		back=gear.MNK_WS_Cape,
     })
 
-    sets.precast.WS['Spinning Attack'] = set_combine(sets.precast.WS, {
-        head="Felistris Mask",
-        ear1="Bladeborn Earring",
-        ear2="Steelflash Earring"
+    sets.precast.WS["Tornado Kick"].Acc = set_combine(sets.precast.WS["Tornado Kick"], {
+        -- TODO
     })
 
-    sets.precast.WS["Raging Fists"].Acc = set_combine(sets.precast.WS["Raging Fists"], sets.precast.WSAcc)
-    sets.precast.WS["Howling Fist"].Acc = set_combine(sets.precast.WS["Howling Fist"], sets.precast.WSAcc)
-    sets.precast.WS["Asuran Fists"].Acc = set_combine(sets.precast.WS["Asuran Fists"], sets.precast.WSAcc)
-    sets.precast.WS["Ascetic's Fury"].Acc = set_combine(sets.precast.WS["Ascetic's Fury"], sets.precast.WSAcc)
-    sets.precast.WS["Victory Smite"].Acc = set_combine(sets.precast.WS["Victory Smite"], sets.precast.WSAcc)
-    sets.precast.WS["Shijin Spiral"].Acc = set_combine(sets.precast.WS["Shijin Spiral"], sets.precast.WSAcc)
-    sets.precast.WS["Dragon Kick"].Acc = set_combine(sets.precast.WS["Dragon Kick"], sets.precast.WSAcc)
-    sets.precast.WS["Tornado Kick"].Acc = set_combine(sets.precast.WS["Tornado Kick"], sets.precast.WSAcc)
+    sets.precast.MaxTP = {
+		ear2="Odr Earring",
+    }
+
+    ---- Fall back to default WS set for Asuran Fists, Ascetic's Fury, Dragon Kick, and Spinning Attack ----
+    
+    sets.precast.WS['Shell Crusher'] = {
+        head=gear.Malignance_Head,
+        neck="Moonlight Necklace",
+        ear1="Hermetic Earring", -- Should be Dignitary's
+        ear2="Crepuscular Earring",
+        body=gear.Malignance_Body,
+        hands=gear.Malignance_Hands,
+        legs=gear.Malignance_Legs,
+        feet=gear.Malignance_Feet,
+        ring1=gear.Stikini_1,
+        ring2="Metamorph Ring +1",
+        back=gear.MNK_INT_Cape,
+        waist="Acuity Belt +1",
+        
+    }
 
     sets.precast.WS['Cataclysm'] = {
-        head="Wayfarer Circlet",
-        neck="Stoicheion Medal",
+        head="Pixie Hairpin +1",
+        neck="Sibyl Scarf",
         ear1="Friomisi Earring",
-        ear2="Hecate's Earring",
-        body="Wayfarer Robe",
-        hands="Otronif Gloves",
-        ring1="Acumen Ring",
-        ring2="Demon's Ring",
-        back="Toro Cape",
-        waist="Thunder Belt",
-        legs="Nahtirah Trousers",
-        feet="Qaaxo Leggings"
+        ear2="Moonshade Earring",
+        body=gear.Nyame_Body,
+        hands=gear.Nyame_Hands,
+        legs=gear.Nyame_Legs,
+        feet=gear.Nyame_Feet,
+        ring1="Archon Ring",
+        ring2="Metamorph Ring +1",
+        back=gear.MNK_INT_Cape,
+        waist="Orpheus's Sash",
     }
     
     -- Midcast Sets
     sets.midcast.FastRecast = {
-        head="Whirlpool Mask",
-        ear2="Loquacious Earring",
-        body="Otronif Harness +1",
-        hands="Thaumas Gloves",
-        waist="Black Belt",
-        feet="Otronif Boots +1"
+        -- TODO
     }
         
-    -- Specific spells
-    sets.midcast.Utsusemi = {
-        head="Whirlpool Mask",
-        ear2="Loquacious Earring",
-        body="Otronif Harness +1",
-        hands="Thaumas Gloves",
-        waist="Black Belt",
-        legs="Qaaxo Tights",
-        feet="Otronif Boots +1"
-    }
-
-    -- Sets to return to when not performing an action.
-    
-    -- Resting sets
-    sets.resting = {
-        head="Ocelomeh Headpiece +1",
-        neck="Wiglen Gorget",
-        body=gear.Relic_Body,
-        ring1="Sheltered Ring",
-        ring2="Paguroidea Ring"
-    }
-    
     -- Idle sets
     sets.idle = {
-        ammo="Thew Bomblet",
-        head="Felistris Mask",
-        neck="Wiglen Gorget",
-        ear1="Bladeborn Earring",
-        ear2="Steelflash Earring",
-        body=gear.Relic_Body,
-        hands="Hesychast's Gloves +1",
-        ring1="Sheltered Ring",
-        ring2="Paguroidea Ring",
-        back="Iximulew Cape",
-        waist="Black Belt",
-        legs="Qaaxo Tights",
-        feet="Herald's Gaiters"
+        ammo="Staunch Tathlum +1",
+        head=gear.Rao_D_Head,
+        neck="Bathy Choker +1",
+        ear1="Infused Earring",
+        ear2="Etiolation Earring", -- Could use Dawn Earring for more Regen
+        body="Hizamaru Haramaki +2",
+        hands=gear.Rao_D_Hands,
+        ring1=gear.Chirich_1,
+        ring2=gear.Chirich_2,
+        back="Moonlight Cape",
+        waist="Moonbow Belt +1",
+        legs=gear.Rao_B_Pants,
+        feet=gear.Rao_D_Feet,
     }
 
-    sets.idle.Town = {
-        ammo="Thew Bomblet",
-        head="Felistris Mask",
-        neck="Wiglen Gorget",
-        ear1="Bladeborn Earring",
-        ear2="Steelflash Earring",
-        body=gear.Relic_Body,
-        hands="Hesychast's Gloves +1",
-        ring1="Sheltered Ring",
-        ring2="Paguroidea Ring",
-        back="Iximulew Cape",
-        waist="Black Belt",
-        legs="Qaaxo Tights",
-        feet="Herald's Gaiters"
-    }
+    sets.idle.Town = sets.idle -- Can change to look cooler
 
     -- Defense sets
     sets.defense.PDT = {
-        ammo="Thew Bomblet",
-        head="Felistris Mask",
-        neck="Wiglen Gorget",
-        ear1="Bladeborn Earring",
-        ear2="Steelflash Earring",
-        body=gear.Relic_Body,
-        hands="Hesychast's Gloves +1",
-        ring1="Sheltered Ring",
-        ring2="Paguroidea Ring",
-        back="Iximulew Cape",
-        waist="Black Belt",
-        legs="Qaaxo Tights",
-        feet="Herald's Gaiters"
+        ammo="Staunch Tathlum +1",
+        head=gear.Malignance_Head,
+        neck="Monk's Nodowa +2",
+        ear1="Sherida Earring",
+        ear2="Telos Earring",
+        body=gear.Malignance_Body,
+        hands=gear.Malignance_Hands,
+        ring1="Gere Ring",
+        ring2="Niqmaddu Ring",
+        back=gear.MNK_TP_Cape,
+        waist="Moonbow Belt +1",
+        legs=gear.Malignance_Legs,
+        feet=gear.Malignance_Feet,
     }
+    
+    sets.defense.MDT = {
+        ammo="Staunch Tathlum +1",
+        head=gear.Malignance_Head,
+        neck="Monk's Nodowa +2",
+        ear1="Sherida Earring",
+        ear2="Telos Earring",
+        body=gear.Malignance_Body,
+        hands=gear.Malignance_Hands,
+        ring1="Gere Ring",
+        ring2="Niqmaddu Ring",
+        back=gear.MNK_TP_Cape,
+        waist="Moonbow Belt +1",
+        legs=gear.Malignance_Legs,
+        feet=gear.Malignance_Feet,
+    } -- TODO (same as PDT right now, probably can optimize)
 
     sets.defense.HP = {
-        ammo="Thew Bomblet",
-        head="Felistris Mask",
-        neck="Wiglen Gorget",
-        ear1="Bladeborn Earring",
-        ear2="Steelflash Earring",
-        body=gear.Relic_Body,
-        hands="Hesychast's Gloves +1",
-        ring1="Sheltered Ring",
-        ring2="Paguroidea Ring",
-        back="Iximulew Cape",
-        waist="Black Belt",
-        legs="Qaaxo Tights",
-        feet="Herald's Gaiters"
-    }
+        ammo="Aurgelmir Orb +1",
+        -- head=gear.Nyame_Head,
+        head="Genmei Kabuto",
+        neck="Unmoving Collar +1",
+        ear1="Handler's Earring +1",
+        ear2="Tuisto Earring",
+        body=gear.Artifact_Body,
+        hands=gear.Relic_Hands,
+        ring1="Niqmaddu Ring",
+        ring2="Gelatinous Ring +1",
+        back=gear.MNK_TP_Cape,
+        waist="Eschan Stone",
+        legs=gear.Tatenashi_Legs,
+        feet=gear.Tatenashi_Feet,
+    } 
 
-    sets.defense.MDT = {
-        ammo="Thew Bomblet",
-        head="Felistris Mask",
-        neck="Wiglen Gorget",
-        ear1="Bladeborn Earring",
-        ear2="Steelflash Earring",
-        body=gear.Relic_Body,
-        hands="Hesychast's Gloves +1",
-        ring1="Sheltered Ring",
-        ring2="Paguroidea Ring",
-        back="Iximulew Cape",
-        waist="Black Belt",
-        legs="Qaaxo Tights",
-        feet="Herald's Gaiters"
-    }
-
-    sets.Kiting = { feet="Herald's Gaiters" }
-
-    sets.ExtraRegen = { head="Ocelomeh Headpiece +1" }
 
     -- Engaged sets
 
@@ -426,155 +455,74 @@ function init_gear_sets()
     
     -- Normal melee sets
     sets.engaged = {
-        ammo="Thew Bomblet",
-        head="Felistris Mask",
-        neck="Asperity Necklace",
-        ear1="Bladeborn Earring",
-        ear2="Steelflash Earring",
-        body="Qaaxo Harness",
-        hands="Hesychast's Gloves +1",
-        ring1="Rajas Ring",
-        ring2="Epona's Ring",
-        back="Atheling Mantle",
-        waist="Windbuffet Belt",
-        legs="Hesychast's Hose +1",
-        feet="Anchorite's Gaiters +1"
+        ammo="Coiste Bodhar",
+		head=gear.Adhemar_B_Head, -- TODO: Should be A
+		body="Ken. Samue +1", --Mpaca if augmented?
+		hands=gear.Adhemar_A_Hands,
+		legs=gear.Empyrean_Legs,
+		-- feet=gear.Artifact_Feet, -- Switch when AF @ +3
+        feet=gear.Malignance_Feet,
+		neck="Mnk. Nodowa +2",
+		waist="Moonbow Belt +1",
+		ear1="Sherida Earring",
+		ear2="Telos Earring",
+		ring1="Gere Ring",
+		ring2="Niqmaddu Ring",
+		back=gear.MNK_TP_Cape,
     }
     
-    sets.engaged.Acc = {
-        ammo="Thew Bomblet",
-        head="Felistris Mask",
-        neck="Asperity Necklace",
-        ear1="Bladeborn Earring",
-        ear2="Steelflash Earring",
-        body="Qaaxo Harness",
-        hands="Hesychast's Gloves +1",
-        ring1="Rajas Ring",
-        ring2="Epona's Ring",
-        back="Atheling Mantle",
-        waist="Windbuffet Belt",
-        legs="Hesychast's Hose +1",
-        feet="Anchorite's Gaiters +1"
+    sets.engaged.Acc={
+        ammo="Falcon Eye",
+		head =gear.Adhemar_B_Head, -- TODO: Should be A
+		body=gear.Mpaca_Body,
+		hands=gear.Adhemar_A_Hands,
+		legs=gear.Tatenashi_Legs,
+		feet=gear.Tatenashi_Feet,
+		neck="Mnk. Nodowa +2",
+		waist="Moonbow Belt +1",
+		ear1="Sherida Earring",
+		ear2="Mache Earring +1",
+		ring1="Gere Ring",
+		ring2="Niqmaddu Ring",
+		back=gear.MNK_TP_Cape,
     }
-
 
     -- Defensive melee hybrid sets
-    sets.engaged.PDT = {
-        ammo="Thew Bomblet",
-        head="Felistris Mask",
-        neck="Asperity Necklace",
-        ear1="Bladeborn Earring",
-        ear2="Steelflash Earring",
-        body="Qaaxo Harness",
-        hands="Hesychast's Gloves +1",
-        ring1="Rajas Ring",
-        ring2="Epona's Ring",
-        back="Atheling Mantle",
-        waist="Windbuffet Belt",
-        legs="Hesychast's Hose +1",
-        feet="Anchorite's Gaiters +1"
+    sets.engaged.Hybrid = {
+        ear2="Schere Earring",
+        body=gear.Mpaca_Body,
+        hands=gear.Malignance_Hands,
+        legs=gear.Empyrean_Legs,
+        feet=gear.Malignance_Feet,
     }
    
-    sets.engaged.Acc.PDT = {
-        ammo="Thew Bomblet",
-        head="Felistris Mask",
-        neck="Asperity Necklace",
-        ear1="Bladeborn Earring",
-        ear2="Steelflash Earring",
-        body="Qaaxo Harness",
-        hands="Hesychast's Gloves +1",
-        ring1="Rajas Ring",
-        ring2="Epona's Ring",
-        back="Atheling Mantle",
-        waist="Windbuffet Belt",
-        legs="Hesychast's Hose +1",
-        feet="Anchorite's Gaiters +1"
-    }
 
     sets.engaged.Counter = {
-        ammo="Thew Bomblet",
-        head="Felistris Mask",
-        neck="Asperity Necklace",
-        ear1="Bladeborn Earring",
-        ear2="Steelflash Earring",
-        body="Qaaxo Harness",
-        hands="Hesychast's Gloves +1",
-        ring1="Rajas Ring",
-        ring2="Epona's Ring",
-        back="Atheling Mantle",
-        waist="Windbuffet Belt",
-        legs="Hesychast's Hose +1",
-        feet="Anchorite's Gaiters +1"
+        ammo="Coiste Bodhar",
+		head=gear.Rao_D_Head,
+		body=gear.Mpaca_Head,
+		hands=gear.Malignance_Hands,
+		legs=gear.Empyrean_Legs,
+		feet=gear.Empyrean_Feet,
+		neck="Bathy Choker +1",
+		waist="Moonbow Belt +1",
+		ear1="Sherida Earring",
+		ear2="Bhikku Earring",
+		ring1="Defending Ring",
+		ring2="Niqmaddu Ring",
+		back=gear.MNK_TP_Cape,
     }
 
-    sets.engaged.Acc.Counter = {
-        ammo="Thew Bomblet",
-        head="Felistris Mask",
-        neck="Asperity Necklace",
-        ear1="Bladeborn Earring",
-        ear2="Steelflash Earring",
-        body="Qaaxo Harness",
-        hands="Hesychast's Gloves +1",
-        ring1="Rajas Ring",
-        ring2="Epona's Ring",
-        back="Atheling Mantle",
-        waist="Windbuffet Belt",
-        legs="Hesychast's Hose +1",
-        feet="Anchorite's Gaiters +1"
-    }
-
-
-    -- Hundred Fists/Impetus melee set mods
-    sets.engaged.HF = set_combine(sets.engaged)
-    sets.engaged.HF.Impetus = set_combine(sets.engaged, {body="Tantra Cyclas +2"})
-    sets.engaged.Acc.HF = set_combine(sets.engaged.Acc)
-    sets.engaged.Acc.HF.Impetus = set_combine(sets.engaged.Acc, {body="Tantra Cyclas +2"})
-    sets.engaged.Counter.HF = set_combine(sets.engaged.Counter)
-    sets.engaged.Counter.HF.Impetus = set_combine(sets.engaged.Counter, {body="Tantra Cyclas +2"})
-    sets.engaged.Acc.Counter.HF = set_combine(sets.engaged.Acc.Counter)
-    sets.engaged.Acc.Counter.HF.Impetus = set_combine(sets.engaged.Acc.Counter, {body="Tantra Cyclas +2"})
-
-
-    -- Footwork combat form
-    sets.engaged.Footwork = {
-        ammo="Thew Bomblet",
-        head="Felistris Mask",
-        neck="Asperity Necklace",
-        ear1="Bladeborn Earring",
-        ear2="Steelflash Earring",
-        body="Qaaxo Harness",
-        hands="Hesychast's Gloves +1",
-        ring1="Rajas Ring",
-        ring2="Epona's Ring",
-        back="Atheling Mantle",
-        waist="Windbuffet Belt",
-        legs="Hesychast's Hose +1",
-        feet="Anchorite's Gaiters +1"
-    }
-
-    sets.engaged.Footwork.Acc ={
-        ammo="Thew Bomblet",
-        head="Felistris Mask",
-        neck="Asperity Necklace",
-        ear1="Bladeborn Earring",
-        ear2="Steelflash Earring",
-        body="Qaaxo Harness",
-        hands="Hesychast's Gloves +1",
-        ring1="Rajas Ring",
-        ring2="Epona's Ring",
-        back="Atheling Mantle",
-        waist="Windbuffet Belt",
-        legs="Hesychast's Hose +1",
-        feet="Anchorite's Gaiters +1"
-    }
+    sets.engaged.Acc.Counter = set_combine(sets.engaged.Counter, {
+        -- TODO
+    })
         
-    -- Quick sets for post-precast adjustments, listed here so that the gear can be Validated.
-    sets.impetus_body = {body="Tantra Cyclas +2"}
-    sets.footwork_kick_feet = {feet="Anchorite's Gaiters +1"}
-
     ------------------------------------------------------------------------------------------------
     ---------------------------------------- Special Sets ------------------------------------------
     ------------------------------------------------------------------------------------------------
+
+    sets.buff.Impetus = {body=gear.Empyrean_Body}
+	sets.buff.Footwork = {feet=gear.Artifact_Feet}
 
     sets.buff.Doom = {
         neck="Nicander's Necklace", --20
@@ -592,7 +540,7 @@ function init_gear_sets()
 
     sets.Karambit = { main="Karambit" }
     sets.Spharai = { main="Spharai" }
-
+    sets.Xoanon = { main="Xoanon", sub="Flanged Grip" }
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -605,14 +553,16 @@ end
 
 -- Run after the general precast() is done.
 function job_post_precast(spell, action, spellMap, eventArgs)
-    if spell.type == 'WeaponSkill' and state.DefenseMode.current ~= 'None' then
+
+    if spell.type == 'WeaponSkill' then
         if state.Buff.Impetus and (spell.english == "Ascetic's Fury" or spell.english == "Victory Smite") then
             -- Need 6 hits at capped dDex, or 9 hits if dDex is uncapped, for Tantra to tie or win.
-            if  (info.impetus_hit_count > 8) then
-                equip(sets.impetus_body)
-            end
+            -- * This was true for the +1... what about +2?? I assume it is always better now, so removing the conditional
+            -- if  (info.impetus_hit_count > 8) then
+                equip(sets.buff.Impetus)
+            -- end
         elseif state.Buff.Footwork and (spell.english == "Dragon's Kick" or spell.english == "Tornado Kick") then
-            equip(sets.footwork_kick_feet)
+            equip(sets.buff.Footwork)
         end
         
         -- Replace Moonshade Earring if we're at cap TP
@@ -623,38 +573,16 @@ function job_post_precast(spell, action, spellMap, eventArgs)
 end
 
 function job_aftercast(spell, action, spellMap, eventArgs)
-    if spell.type == 'WeaponSkill' and not spell.interrupted and state.FootworkWS and state.Buff.Footwork then
-        send_command('cancel Footwork')
-    end
+    -- TODO: Do we want this? Why?
+    -- if spell.type == 'WeaponSkill' and not spell.interrupted and state.FootworkWS and state.Buff.Footwork then
+    --     send_command('cancel Footwork')
+    -- end
 end
 
 -- Called when a player gains or loses a buff.
 -- buff == buff gained or lost
 -- gain == true if the buff was gained, false if it was lost.
 function job_buff_change(buff,gain)
-
-     -- Set Footwork as combat form any time it's active and Hundred Fists is not.
-     if buff == 'Footwork' and gain and not buffactive['hundred fists'] then
-        state.CombatForm:set('Footwork')
-    elseif buff == "Hundred Fists" and not gain and buffactive.footwork then
-        state.CombatForm:set('Footwork')
-    else
-        state.CombatForm:reset()
-    end
-    
-    -- Hundred Fists and Impetus modify the custom melee groups
-    if buff == "Hundred Fists" or buff == "Impetus" then
-        classes.CustomMeleeGroups:clear()
-        
-        if (buff == "Hundred Fists" and gain) or buffactive['hundred fists'] then
-            classes.CustomMeleeGroups:append('HF')
-        end
-        
-        if (buff == "Impetus" and gain) or buffactive.impetus then
-            classes.CustomMeleeGroups:append('Impetus')
-        end
-    end
-
     -- Update gear if any of the above changed
     if buff == "Hundred Fists" or buff == "Impetus" or buff == "Footwork" then
         handle_equipping_gear(player.status)
@@ -680,6 +608,7 @@ end
 
 function job_handle_equipping_gear(playerStatus, eventArgs)
     check_gear()
+    determine_haste_group()
     check_moving()
 end
 
@@ -735,8 +664,6 @@ end
 -------------------------------------------------------------------------------------------------------------------
 
 function job_update(cmdParams, eventArgs)
-    update_combat_form()
-    update_melee_groups()
     handle_equipping_gear(player.status)
     th_update(cmdParams, eventArgs)
 end
@@ -744,10 +671,6 @@ end
 
 -- Modify the default idle set after it was constructed.
 function customize_idle_set(idleSet)
-    if player.hpp < 75 then
-        idleSet = set_combine(idleSet, sets.ExtraRegen)
-    end
-
     if state.Auto_Kite.value == true then
         idleSet = set_combine(idleSet, sets.Kiting)
     end
@@ -755,29 +678,16 @@ function customize_idle_set(idleSet)
     return idleSet
 end
 
-
-function update_combat_form()
-    if buffactive.footwork and not buffactive['hundred fists'] then
-        state.CombatForm:set('Footwork')
-    else
-        state.CombatForm:reset()
-    end
-end
-
-function update_melee_groups()
-    classes.CustomMeleeGroups:clear()
-    
-    if buffactive['hundred fists'] then
-        classes.CustomMeleeGroups:append('HF')
-    end
-    
-    if buffactive.impetus then
-        classes.CustomMeleeGroups:append('Impetus')
-    end
-end
-
 -- Modify the default melee set after it was constructed.
 function customize_melee_set(meleeSet)
+
+    if state.Buff['Impetus'] then
+        meleeSet = set_combine(meleeSet, sets.buff.Impetus)
+    end
+    if buffactive.Footwork then
+        meleeSet = set_combine(meleeSet, sets.buff.Footwork)
+    end
+
     if state.TreasureMode.value == 'Fulltime' then
         meleeSet = set_combine(meleeSet, sets.TreasureHunter)
     end
@@ -800,6 +710,8 @@ function check_moving()
     end
 end
 
+-- TODO: Not actually doing anything yet with haste calculation,
+-- but tested with GearInfo addon, and it is working to calculate MA needed.
 function determine_haste_group()
     classes.CustomMeleeGroups:clear()
     if MA_needed <= 1 then
@@ -813,6 +725,7 @@ function determine_haste_group()
     elseif MA_needed > 34 then
         classes.CustomMeleeGroups:append('')
     end
+    -- add_to_chat(108, MA_needed)
 end
 
 function job_self_command(cmdParams, eventArgs)
@@ -867,12 +780,12 @@ function gearinfo(cmdParams, eventArgs)
 end
 
 function check_gear()
-    if no_swap_gear:contains(player.equipment.left_ring) then
+    if no_swap_gear:contains(player.equipment.ring1) then
         disable("ring1")
     else
         enable("ring1")
     end
-    if no_swap_gear:contains(player.equipment.right_ring) then
+    if no_swap_gear:contains(player.equipment.ring2) then
         disable("ring2")
     else
         enable("ring2")
@@ -883,78 +796,78 @@ function check_weaponset()
     equip(sets[state.WeaponSet.current])
 end
 
--- Keep track of the current hit count while Impetus is up.
-function on_action_for_impetus(action)
-    if state.Buff.Impetus then
-        -- count melee hits by player
-        if action.actor_id == player.id then
-            if action.category == 1 then
-                for _,target in pairs(action.targets) do
-                    for _,action in pairs(target.actions) do
-                        -- Reactions (bitset):
-                        -- 1 = evade
-                        -- 2 = parry
-                        -- 4 = block/guard
-                        -- 8 = hit
-                        -- 16 = JA/weaponskill?
-                        -- If action.reaction has bits 1 or 2 set, it missed or was parried. Reset count.
-                        if (action.reaction % 4) > 0 then
-                            info.impetus_hit_count = 0
-                        else
-                            info.impetus_hit_count = info.impetus_hit_count + 1
-                        end
-                    end
-                end
-            elseif action.category == 3 then
-                -- Missed weaponskill hits will reset the counter.  Can we tell?
-                -- Reaction always seems to be 24 (what does this value mean? 8=hit, 16=?)
-                -- Can't tell if any hits were missed, so have to assume all hit.
-                -- Increment by the minimum number of weaponskill hits: 2.
-                for _,target in pairs(action.targets) do
-                    for _,action in pairs(target.actions) do
-                        -- This will only be if the entire weaponskill missed or was parried.
-                        if (action.reaction % 4) > 0 then
-                            info.impetus_hit_count = 0
-                        else
-                            info.impetus_hit_count = info.impetus_hit_count + 2
-                        end
-                    end
-                end
-            end
-        elseif action.actor_id ~= player.id and action.category == 1 then
-            -- If mob hits the player, check for counters.
-            for _,target in pairs(action.targets) do
-                if target.id == player.id then
-                    for _,action in pairs(target.actions) do
-                        -- Spike effect animation:
-                        -- 63 = counter
-                        -- ?? = missed counter
-                        if action.has_spike_effect then
-                            -- spike_effect_message of 592 == missed counter
-                            if action.spike_effect_message == 592 then
-                                info.impetus_hit_count = 0
-                            elseif action.spike_effect_animation == 63 then
-                                info.impetus_hit_count = info.impetus_hit_count + 1
-                            end
-                        end
-                    end
-                end
-            end
-        end
+-- -- Keep track of the current hit count while Impetus is up.
+-- function on_action_for_impetus(action)
+--     if state.Buff.Impetus then
+--         -- count melee hits by player
+--         if action.actor_id == player.id then
+--             if action.category == 1 then
+--                 for _,target in pairs(action.targets) do
+--                     for _,action in pairs(target.actions) do
+--                         -- Reactions (bitset):
+--                         -- 1 = evade
+--                         -- 2 = parry
+--                         -- 4 = block/guard
+--                         -- 8 = hit
+--                         -- 16 = JA/weaponskill?
+--                         -- If action.reaction has bits 1 or 2 set, it missed or was parried. Reset count.
+--                         if (action.reaction % 4) > 0 then
+--                             info.impetus_hit_count = 0
+--                         else
+--                             info.impetus_hit_count = info.impetus_hit_count + 1
+--                         end
+--                     end
+--                 end
+--             elseif action.category == 3 then
+--                 -- Missed weaponskill hits will reset the counter.  Can we tell?
+--                 -- Reaction always seems to be 24 (what does this value mean? 8=hit, 16=?)
+--                 -- Can't tell if any hits were missed, so have to assume all hit.
+--                 -- Increment by the minimum number of weaponskill hits: 2.
+--                 for _,target in pairs(action.targets) do
+--                     for _,action in pairs(target.actions) do
+--                         -- This will only be if the entire weaponskill missed or was parried.
+--                         if (action.reaction % 4) > 0 then
+--                             info.impetus_hit_count = 0
+--                         else
+--                             info.impetus_hit_count = info.impetus_hit_count + 2
+--                         end
+--                     end
+--                 end
+--             end
+--         elseif action.actor_id ~= player.id and action.category == 1 then
+--             -- If mob hits the player, check for counters.
+--             for _,target in pairs(action.targets) do
+--                 if target.id == player.id then
+--                     for _,action in pairs(target.actions) do
+--                         -- Spike effect animation:
+--                         -- 63 = counter
+--                         -- ?? = missed counter
+--                         if action.has_spike_effect then
+--                             -- spike_effect_message of 592 == missed counter
+--                             if action.spike_effect_message == 592 then
+--                                 info.impetus_hit_count = 0
+--                             elseif action.spike_effect_animation == 63 then
+--                                 info.impetus_hit_count = info.impetus_hit_count + 1
+--                             end
+--                         end
+--                     end
+--                 end
+--             end
+--         end
         
-        --add_to_chat(123,'Current Impetus hit count = ' .. tostring(info.impetus_hit_count))
-    else
-        info.impetus_hit_count = 0
-    end
-end
+--         -- add_to_chat(123,'Current Impetus hit count = ' .. tostring(info.impetus_hit_count))
+--     else
+--         info.impetus_hit_count = 0
+--     end
+-- end
 
 windower.register_event('zone change',
     function()
-        if no_swap_gear:contains(player.equipment.left_ring) then
+        if no_swap_gear:contains(player.equipment.ring1) then
             enable("ring1")
             equip(sets.idle)
         end
-        if no_swap_gear:contains(player.equipment.right_ring) then
+        if no_swap_gear:contains(player.equipment.ring2) then
             enable("ring2")
             equip(sets.idle)
         end

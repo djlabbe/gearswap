@@ -574,12 +574,10 @@ function init_gear_sets()
 
     sets.idle = {
         range="Gjallarhorn",
-        -- head="Volte Beret",
-        -- body="Mou. Manteel +1",
+        head="Volte Beret",
+        body="Mou. Manteel +1",
         -- hands="Raetic Bangles +1",
         -- legs="Volte Brais",
-        head=gear.Nyame_Head,
-        body=gear.Nyame_Body,
         hands=gear.Nyame_Hands,
         legs=gear.Nyame_Legs,
         feet=gear.Nyame_Feet,

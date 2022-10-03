@@ -665,8 +665,7 @@ function init_gear_sets()
         main="Daybreak",
         sub="Genmei Shield",
         ammo="Homiliary",
-        -- head="Volte Beret",
-        head=gear.Relic_Head,
+        head="Volte Beret",
         body="Shamash Robe",
         -- body=gear.Artifact_Body,
         -- hands="Raetic Bangles +1",
@@ -688,7 +687,7 @@ function init_gear_sets()
         main="Daybreak",
         sub="Genmei Shield", --10/0
         ammo="Staunch Tathlum +1", --3/3
-        -- head="Volte Beret",
+        head="Volte Beret",
          body="Shamash Robe", --10/0
         -- hands="Gende. Gages +1", --4/4
         -- feet="Volte Gaiters",

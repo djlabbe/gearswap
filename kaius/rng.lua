@@ -118,10 +118,10 @@ function user_setup()
     gear.Artifact_Feet = { name="Orion Socks +2" }
 
     gear.Relic_Head = { name="Arcadian Beret +3" }
-    gear.Relic_Body = { name="Arcadian Jerkin +1" }
+    gear.Relic_Body = { name="Arcadian Jerkin +3" }
     gear.Relic_Legs = { name="Arcadian Braccae +3" }
     gear.Relic_Hands = { name="Arcadian Bracers +3" }
-    -- gear.Relic_Feet = { name="Arcadian Socks +3" }
+    gear.Relic_Feet = { name="Arcadian Socks +3" }
 
     gear.Empyrean_Head = { name="Amini Gapette +1" }
     gear.Empyrean_Body = { name="Amini Caban +1" }
@@ -227,7 +227,7 @@ function init_gear_sets()
     }) --45/42
 
     sets.precast.RA.Flurry2 = set_combine(sets.precast.RA.Flurry1, {
-        -- feet=gear.Relic_Feet, --0/10
+        feet=gear.Relic_Feet, --0/10
         waist="Yemaya Belt", --0/5
     }) --32/57
 
