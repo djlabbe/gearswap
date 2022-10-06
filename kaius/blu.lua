@@ -1127,8 +1127,9 @@ function init_gear_sets()
     }
 
     sets.TreasureHunter = {
+        ammo="Perfect Lucky Egg",
         head="Volte Cap", 
-        hands=gear.Herc_TH_Hands, 
+        hands="Volte Bracers", 
         waist="Chaac Belt"
     }
     sets.midcast.Dia = sets.TreasureHunter
