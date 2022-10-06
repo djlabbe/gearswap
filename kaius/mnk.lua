@@ -158,13 +158,15 @@ function init_gear_sets()
     -- Waltz set (chr and vit)
     sets.precast.Waltz = {
         ammo="Voluspa Tathlum",
-        ear1="Handler's Earring +1",
-        ear2="Enchanter's Earring +1",
         head="Kendatsuba Jinpachi +1",
+        neck="Unmoving Collar +1",
+        ear1="Handler's Earring +1",
+        ear2="Tuisto Earring",
         body="Passion Jacket",
         hands=gear.Relic_Hands,
         waist="Gishdubar Sash",
         ring1="Asklepian Ring",
+        ring2="Gelatinous Ring +1",
     }
         
     -- Don't need any special gear for Healing Waltz.
