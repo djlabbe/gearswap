@@ -219,7 +219,7 @@ function init_gear_sets()
         ear2="Etiolation Earring", --0/3
         ring1="Gelatinous Ring +1", --7/(-1)
         ring2="Defending Ring", --10/10
-        back=gear.COR_SNP_Cape,
+        back=gear.COR_TP_Cape,
         waist="Flume Belt +1", --4/0
     }
 
@@ -246,7 +246,7 @@ function init_gear_sets()
 
     sets.precast.FC = {
         head=gear.Carmine_D_Head, --14
-        body=gear.Taeon_FC_body, --9
+        body=gear.Taeon_FC_Body, --9
         hands="Leyline Gloves", --8
         legs="Rawhide Trousers", --5
         feet=gear.Carmine_B_Feet, --8
@@ -329,7 +329,7 @@ function init_gear_sets()
 
     sets.precast.WS['Wildfire'] = {
         ammo=gear.MAbullet,
-        head=gear.Herc_MAB_head,
+        head=gear.Herc_MAB_Head,
         body=gear.Relic_Body,
         hands=gear.Carmine_D_Hands,
         legs=gear.Nyame_Legs,
@@ -353,7 +353,7 @@ function init_gear_sets()
     })
 
     sets.precast.WS['Evisceration'] = {
-        head=gear.Adhemar_B_head,
+        head=gear.Adhemar_B_Head,
         -- body="Abnoba Kaftan",
         hands="Mummu Wrists +2",
         legs="Zoar Subligar +1",
@@ -369,18 +369,18 @@ function init_gear_sets()
 
     sets.precast.WS['Evisceration'].Acc = set_combine(sets.precast.WS['Evisceration'], {
 
-        body=gear.Adhemar_B_body,
-        legs=gear.Herc_WS_legs,
+        body=gear.Adhemar_B_Body,
+        legs=gear.Herc_WSD_legs,
     })
 
     sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
-        head=gear.Herc_WSD_head,
+        head=gear.Herc_WSD_Head,
         hands="Meg. Gloves +2",
-        legs=gear.Herc_WS_legs,
+        legs=gear.Herc_WSD_legs,
         neck="Comm. Charm +2",
         ring1="Regal Ring",
         ring2="Epaminondas's Ring",
-        back=gear.COR_WS2_Cape,
+        back=gear.COR_WS_Cape,
         waist="Sailfi Belt +1",
     })
 
@@ -390,20 +390,20 @@ function init_gear_sets()
     })
 
     sets.precast.WS['Swift Blade'] = set_combine(sets.precast.WS, {
-        head=gear.Adhemar_B_head,
-        body=gear.Adhemar_B_body,
-        hands=gear.Adhemar_B_hands,
+        head=gear.Adhemar_B_Head,
+        body=gear.Adhemar_B_Body,
+        hands=gear.Adhemar_B_Hands,
         legs="Meg. Chausses +2",
         feet=gear.Herc_TA_feet,
         ear1="Cessance Earring",
         ear2="Brutal Earring",
         ring1="Regal Ring",
         ring2="Epona's Ring",
-        back=gear.COR_WS2_Cape,
+        back=gear.COR_WS_Cape,
     })
 
     sets.precast.WS['Swift Blade'].Acc = set_combine(sets.precast.WS['Swift Blade'], {
-        hands=gear.Adhemar_A_hands,
+        hands=gear.Adhemar_A_Hands,
         ear2="Telos Earring",
     })
 
@@ -430,7 +430,7 @@ function init_gear_sets()
     sets.midcast.FastRecast = sets.precast.FC
 
     sets.midcast.SpellInterrupt = {
-        body=gear.Taeon_Phalanx_body, --10
+        body=gear.Taeon_Phalanx_Body, --10
         hands="Rawhide Gloves", --15
         legs=gear.Carmine_D_Legs, --20
         feet=gear.Taeon_Phalanx_feet, --10
@@ -456,7 +456,7 @@ function init_gear_sets()
 
     sets.midcast.CorsairShot = {
         ammo=gear.QDbullet,
-        head=gear.Herc_MAB_head,
+        head=gear.Herc_MAB_Head,
         body=gear.Relic_Body,
         hands="Carmine Fin. Ga. +1",
         legs=gear.Herc_MAB_legs,
@@ -605,7 +605,7 @@ function init_gear_sets()
     })
 
     sets.idle.Refresh = set_combine(sets.idle, {
-        head=gear.Herc_Idle_head,
+        head=gear.Herc_Idle_Head,
         --body="Mekosu. Harness",
         legs="Rawhide Trousers",
         ring1=gear.Stikini_1,
@@ -660,9 +660,9 @@ function init_gear_sets()
 
     sets.engaged = {
         ammo=gear.RAbullet,
-        head=gear.Adhemar_B_head,
-        body=gear.Adhemar_B_body,
-        hands=gear.Adhemar_B_hands,
+        head=gear.Adhemar_B_Head,
+        body=gear.Adhemar_B_Body,
+        hands=gear.Adhemar_B_Hands,
         legs="Samnuha Tights",
         feet=gear.Herc_TA_feet,
         neck="Iskur Gorget",
@@ -676,7 +676,7 @@ function init_gear_sets()
 
     sets.engaged.LowAcc = set_combine(sets.engaged, {
         head="Dampening Tam",
-        hands=gear.Adhemar_A_hands,
+        hands=gear.Adhemar_A_Hands,
         ring1=gear.Chirich_1,
         neck="Combatant's Torque",
     })
@@ -704,8 +704,8 @@ function init_gear_sets()
     -- No Magic Haste (74% DW to cap)
     sets.engaged.DW = {
         ammo=gear.RAbullet,
-        head=gear.Adhemar_B_head,
-        body=gear.Adhemar_B_body, --6
+        head=gear.Adhemar_B_Head,
+        body=gear.Adhemar_B_Body, --6
         hands="Floral Gauntlets", --5
         legs=gear.Carmine_D_Legs, --6
         feet=gear.Taeon_DW_feet, --9
@@ -725,7 +725,7 @@ function init_gear_sets()
     })
 
     sets.engaged.DW.MidAcc = set_combine(sets.engaged.DW.LowAcc, {
-        hands=gear.Adhemar_A_hands,
+        hands=gear.Adhemar_A_Hands,
         ear1="Cessance Earring",
         ear2="Telos Earring",
         ring1="Regal Ring",
@@ -746,8 +746,8 @@ function init_gear_sets()
     -- 15% Magic Haste (67% DW to cap)
     sets.engaged.DW.LowHaste = {
         ammo=gear.RAbullet,
-        head=gear.Adhemar_B_head,
-        body=gear.Adhemar_B_body, --6
+        head=gear.Adhemar_B_Head,
+        body=gear.Adhemar_B_Body, --6
         hands="Floral Gauntlets", --5
         legs=gear.Carmine_D_Legs, --6
         feet=gear.Taeon_DW_feet, --9
@@ -767,7 +767,7 @@ function init_gear_sets()
     })
 
     sets.engaged.DW.MidAcc.LowHaste = set_combine(sets.engaged.DW.LowAcc.LowHaste, {
-        hands=gear.Adhemar_A_hands,
+        hands=gear.Adhemar_A_Hands,
         ear2="Telos Earring",
         ring1="Regal Ring",
         ring2="Ilabrat Ring",
@@ -787,9 +787,9 @@ function init_gear_sets()
     -- 30% Magic Haste (56% DW to cap)
     sets.engaged.DW.MidHaste = {
         ammo=gear.RAbullet,
-        head=gear.Adhemar_B_head,
-        body=gear.Adhemar_B_body, --6
-        hands=gear.Adhemar_B_hands,
+        head=gear.Adhemar_B_Head,
+        body=gear.Adhemar_B_Body, --6
+        hands=gear.Adhemar_B_Hands,
         legs="Samnuha Tights",
         feet=gear.Taeon_DW_feet, --9
         neck="Iskur Gorget",
@@ -803,7 +803,7 @@ function init_gear_sets()
 
     sets.engaged.DW.LowAcc.MidHaste = set_combine(sets.engaged.DW.MidHaste, {
         head="Dampening Tam",
-        hands=gear.Adhemar_A_hands,
+        hands=gear.Adhemar_A_Hands,
         ring1=gear.Chirich_1,
         neck="Combatant's Torque",
     })
@@ -829,9 +829,9 @@ function init_gear_sets()
     -- 35% Magic Haste (51% DW to cap)
     sets.engaged.DW.HighHaste = {
         ammo=gear.RAbullet,
-        head=gear.Adhemar_B_head,
-        body=gear.Adhemar_B_body, --6
-        hands=gear.Adhemar_B_hands,
+        head=gear.Adhemar_B_Head,
+        body=gear.Adhemar_B_Body, --6
+        hands=gear.Adhemar_B_Hands,
         legs="Samnuha Tights",
         feet=gear.Herc_TA_feet,
         neck="Iskur Gorget",
@@ -845,7 +845,7 @@ function init_gear_sets()
 
     sets.engaged.DW.LowAcc.HighHaste = set_combine(sets.engaged.DW.HighHaste, {
         head="Dampening Tam",
-        hands=gear.Adhemar_A_hands,
+        hands=gear.Adhemar_A_Hands,
         ring1=gear.Chirich_1,
         neck="Combatant's Torque",
     })
@@ -872,10 +872,10 @@ function init_gear_sets()
     -- 45% Magic Haste (36% DW to cap)
     sets.engaged.DW.MaxHaste = {
         ammo=gear.RAbullet,
-        head=gear.Adhemar_B_head,
-        body=gear.Adhemar_B_body, --6
-        hands=gear.Adhemar_B_hands,
-        legs="Samnuha Tights",
+        head=gear.Adhemar_B_Head,
+        body=gear.Adhemar_B_Body, --6
+        hands=gear.Adhemar_B_Hands,
+        legs=gear.Malignance_Legs,
         feet=gear.Herc_TA_feet,
         neck="Iskur Gorget",
         ear1="Suppanomimi", --5
@@ -888,7 +888,7 @@ function init_gear_sets()
 
     sets.engaged.DW.LowAcc.MaxHaste = set_combine(sets.engaged.DW.MaxHaste, {
         head="Dampening Tam",
-        hands=gear.Adhemar_A_hands,
+        hands=gear.Adhemar_A_Hands,
         ring1=gear.Chirich_1,
         waist="Kentarch Belt +1",
     })
@@ -971,8 +971,8 @@ function init_gear_sets()
 
     sets.buff.Doom = {
         neck="Nicander's Necklace", --20
-        ring1={name="Eshmun's Ring", bag="wardrobe3"}, --20
-        ring2={name="Eshmun's Ring", bag="wardrobe4"}, --20
+        ring1=gear.Eshmun_1, --20
+        ring2=gear.Eshmun_2, --20
         waist="Gishdubar Sash", --10
     }
 
@@ -981,7 +981,7 @@ function init_gear_sets()
 
     sets.TreasureHunter = {
         head="Volte Cap", 
-        hands=gear.Herc_TH_hands, 
+        hands=gear.Herc_TH_Hands, 
         feet="Volte Boots", 
         waist="Chaac Belt"
     }

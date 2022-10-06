@@ -75,8 +75,8 @@ function user_setup()
     gear.Relic_Legs = { name="Hesychast's Hose +1" }
     gear.Relic_Feet = { name="Hesychast's Gaiters +1" }
 
-    gear.Empyrean_Head = { name="Bhikku Crown +1" }
-    gear.Empyrean_Body = { name="Bhikku Cyclas +1" }
+    gear.Empyrean_Head = { name="Bhikku Crown +2" }
+    gear.Empyrean_Body = { name="Bhikku Cyclas +2" }
     gear.Empyrean_Hands = { name="Bhikku Gloves +1" }
     gear.Empyrean_Legs = { name="Bhikku Hose +2" }
     gear.Empyrean_Feet = { name="Bhikku Gaiters +1" }
@@ -533,7 +533,7 @@ function init_gear_sets()
         feet=gear.Rao_D_Feet,
     }
 
-    sets.idle.Town = sets.engaged
+    sets.idle.Town = sets.idle
         
     ------------------------------------------------------------------------------------------------
     ---------------------------------------- Special Sets ------------------------------------------
@@ -850,7 +850,7 @@ function on_action_for_impetus(action)
             end
         end
         
-        if info.impetus_hit_count % 10 == 0 then
+        if info.impetus_hit_count > 0 and info.impetus_hit_count % 10 == 0 then
            add_to_chat(123,'Current Impetus hit count = ' .. tostring(info.impetus_hit_count))
         end
     else

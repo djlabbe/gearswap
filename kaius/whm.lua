@@ -562,8 +562,8 @@ function init_gear_sets()
 
     -- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
     sets.idle = {
-        main="Daybreak",
-        sub="Genmei Shield",
+        main="Malignance Pole", --20/20
+        sub="Mensch Strap", --4/0
         ammo="Homiliary",
         head="Inyanga Tiara +2",
         body="Shamash Robe",
@@ -580,23 +580,26 @@ function init_gear_sets()
     }
 
     sets.idle.DT = set_combine(sets.idle, {
-        main="Daybreak",
-        sub="Genmei Shield", --10/0
+        main="Malignance Pole", --20/20
+        sub="Mensch Strap", --4/0
         ammo="Staunch Tathlum +1", --3/3
-        head="Aya. Zucchetto +2", --3/3
+        head="Inyanga Tiara +2", 
         body="Shamash Robe", --10/0
-        hands="Gende. Gages +1", --4/4
-        neck="Loricate Torque +1", --6/6
-        ear1="Odnowa Earring +1", --3/5
-        ring1="Gelatinous Ring +1", --7/(-1)
-        ring2="Defending Ring", --10/10
-        back="Moonlight Cape", --6/6
+        hands=gear.Bunzi_Hands, --8/8
+        legs="Inyanga Shalwar +2", 
+        feet=gear.Bunzi_Feet, --6/6
+        neck="Sibyl Scarf",
+        ring1=gear.Stikini_1,
+        ring2="Inyanga Ring",
+        ear1="Etiolation Earring", --0/3
+        ear2="Eabani Earring",
+        back=gear.WHM_Cure_Cape,
         waist="Carrier's Sash",
-    })
+    }) --51/40
 
     sets.idle.MEva = set_combine(sets.idle.DT, {
-        main="Daybreak",
-        sub="Genmei Shield",
+        main="Malignance Pole", --20/20
+        sub="Mensch Strap", --4/0
         ammo="Staunch Tathlum +1",
         head=gear.Bunzi_Head,
         body=gear.Bunzi_Body,
@@ -616,7 +619,7 @@ function init_gear_sets()
         main="Daybreak",
         sub="Ammurapi Shield",
         ammo="Homiliary",
-        head="Ebers Cap +1",
+        head="Volte Beret",
         body="Theophany Bliaut +3",
         hands="Volte Gloves",
         legs="Ebers Pant. +1",

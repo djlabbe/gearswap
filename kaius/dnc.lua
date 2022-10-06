@@ -307,7 +307,7 @@ function init_gear_sets()
         head="Maxixi Tiara +3",
         body="Maxixi Casaque +3",
         hands="Gazu Bracelet +1",
-        legs=gear.Herc_WS_legs,
+        legs=gear.Herc_WSD_legs,
         feet="Maxixi Toe Shoes +3",
         neck="Etoile Gorget +2",
         ear1="Cessance Earring",
@@ -350,7 +350,7 @@ function init_gear_sets()
     sets.precast.WS = {
         ammo="Aurgelmir Orb +1",
         head=gear.Herc_WSD_head,
-        body=gear.Herc_WS_body,
+        body=gear.Herc_WSD_body,
         hands="Maxixi Bangles +3",
         legs="Horos Tights +3",
         feet="Lustra. Leggings +1",
@@ -407,7 +407,7 @@ function init_gear_sets()
         ammo="Voluspa Tathlum",
         head="Dampening Tam",
         hands=gear.Adhemar_A_hands,
-        legs=gear.Herc_WS_legs,
+        legs=gear.Herc_WSD_legs,
         })
 
     sets.precast.WS['Evisceration'] = set_combine(sets.precast.WS, {
@@ -441,7 +441,7 @@ function init_gear_sets()
 
     sets.precast.WS['Rudra\'s Storm'].Acc = set_combine(sets.precast.WS['Rudra\'s Storm'], {
         ammo="Voluspa Tathlum",
-        legs=gear.Herc_WS_legs,
+        legs=gear.Herc_WSD_legs,
         ear2="Telos Earring",
         waist="Grunfeld Rope",
         })

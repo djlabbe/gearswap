@@ -604,7 +604,7 @@ function init_gear_sets()
     sets.defense.PDT = sets.idle.DT
     sets.defense.MDT = sets.idle.DT
 
-    sets.Kiting = {feet="Herald's Gaiters"}
+    sets.Kiting = { feet="Herald's Gaiters" }
     sets.latent_refresh = {waist="Fucho-no-obi"}
 
     -- Engaged sets
@@ -789,6 +789,7 @@ function customize_melee_set(meleeSet)
     return meleeSet
 end
 
+
 function customize_idle_set(idleSet)
     if state.Buff['Sublimation: Activated'] then
         idleSet = set_combine(idleSet, sets.buff.Sublimation)
@@ -796,6 +797,10 @@ function customize_idle_set(idleSet)
     if player.mpp < 51 then
         idleSet = set_combine(idleSet, sets.latent_refresh)
     end
+    if state.Auto_Kite.value == true then
+       idleSet = set_combine(idleSet, sets.Kiting)
+    end
+
     return idleSet
 end
 
@@ -913,22 +918,6 @@ end
 
 function gearinfo(cmdParams, eventArgs)
     if cmdParams[1] == 'gearinfo' then
-        if type(tonumber(cmdParams[2])) == 'number' then
-            if tonumber(cmdParams[2]) ~= DW_needed then
-            DW_needed = tonumber(cmdParams[2])
-            DW = true
-            end
-        elseif type(cmdParams[2]) == 'string' then
-            if cmdParams[2] == 'false' then
-                DW_needed = 0
-                DW = false
-            end
-        end
-        if type(tonumber(cmdParams[3])) == 'number' then
-            if tonumber(cmdParams[3]) ~= Haste then
-                Haste = tonumber(cmdParams[3])
-            end
-        end
         if type(cmdParams[4]) == 'string' then
             if cmdParams[4] == 'true' then
                 moving = true
