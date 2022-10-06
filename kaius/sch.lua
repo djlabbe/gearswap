@@ -323,7 +323,7 @@ function init_gear_sets()
         ear2="Regal Earring",
         ring2="Archon Ring",
         back=gear.SCH_MAB_Cape,
-        waist="Sacro Cord",
+        -- waist="Sacro Cord",
     })
 
 
@@ -545,7 +545,7 @@ function init_gear_sets()
     }
 
     sets.midcast.Kaustra = {
-        main="Bunzu's Rod", --10
+        main="Bunzi's Rod", --10
         sub="Ammurapi Shield",
         ammo="Pemphredo Tathlum",
         head="Pixie Hairpin +1",
@@ -608,10 +608,10 @@ function init_gear_sets()
 
     sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'], {
         ammo="Pemphredo Tathlum",
-        head="Merlinic Hood",
-        legs="Merlinic Shalwar",
+        -- head="Merlinic Hood",
+        -- legs="Merlinic Shalwar",
         neck="Erra Pendant",
-        waist="Sacro Cord",
+        -- waist="Sacro Cord",
     })
 
     -- sets.midcast.Impact = set_combine(sets.midcast['Elemental Magic'], {

@@ -400,6 +400,22 @@ function init_gear_sets()
         waist="Skrymir Cord +1",
     })
 
+    sets.precast.WS['Blade: Ei'] = {
+        ammo="Seeth. Bomblet +1",
+        head="Pixie Hairpin +1",
+        neck="Sibyl Scarf",
+        body=gear.Nyame_Body,
+        hands=gear.Nyame_Hands,
+        feet=gear.Nyame_Feet,
+        legs=gear.Nyame_Legs,        
+        left_ear="Moonshade Earring",
+        right_ear="Friomisi Earring",
+        left_ring="Epaminondas's Ring",
+        right_ring="Archon Ring",
+        waist="Orpheus's Sash",
+        back=gear.NIN_WS_Cape,
+    }
+
     sets.precast.WS['Savage Blade'] = {
         ammo="Seething Bomblet +1",
         head=gear.Mpaca_Head,
@@ -866,6 +882,7 @@ function init_gear_sets()
     sets.TreasureHunter = {
         ammo="Perfect Lucky Egg",
         head="Volte Cap", 
+        hands="Volte Bracers",
         waist="Chaac Belt"
     }
 

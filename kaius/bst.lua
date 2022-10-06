@@ -112,7 +112,7 @@ function user_setup()
     state.PhysicalDefenseMode:options('PDT', 'PetPDT')
     state.MagicalDefenseMode:options('MDT', 'PetMDT')
 
-    state.WeaponSet = M{['description']='Weapon Set', 'Dolichenus', 'IkeAgw'}
+    state.WeaponSet = M{['description']='Weapon Set', 'Dolichenus'}
     state.WeaponLock = M(false, 'Weapon Lock')
 
     include('Global-Binds.lua')
@@ -556,75 +556,6 @@ function init_gear_sets()
     })
 
 
-    ---------------
-    -- IDLE SETS --
-    ---------------
-
-    sets.idle = {
-        ammo="Staunch Tathlum +1",
-        head=gear.Gleti_Head,
-        neck="Bathy Choker +1",
-        ear1="Tuisto Earring",
-        ear2="Odnowa Earring +1",
-        body=gear.Gleti_Body,
-        hands=gear.Gleti_Hands,
-        ring1=gear.Chirich_1,
-        ring2=gear.Chirich_2,
-        back="Moonlight Cape",
-        waist="Flume Belt +1",
-        legs=gear.Gleti_Legs,
-        feet=gear.Gleti_Feet,
-    }
-
-    sets.idle.Town = {
-        ammo="Staunch Tathlum +1",
-        head=gear.Gleti_Head,
-        neck="Bathy Choker +1",
-        ear1="Tuisto Earring",
-        ear2="Odnowa Earring +1",
-        body="Nukumi Gausape +2",
-        hands="Totemic Gloves +3",
-        ring1=gear.Chirich_1,
-        ring2=gear.Chirich_2,
-        back="Moonlight Cape",
-        waist="Flume Belt +1",
-        legs=gear.Gleti_Legs,
-        feet=gear.Gleti_Feet,
-    }
-
-    sets.idle.Refresh = set_combine(sets.idle, {
-        head="Jumalik Helm",
-        body="Jumalik Mail",
-        ring1=gear.Stikini_1,
-        ring2=gear.Stikini_2
-    })
-
-    sets.idle.Pet = set_combine(sets.idle, {
-        -- back=Pet_Regen_back
-        back="Moonlight Cape",
-    })
-
-    --sets.idle.PetRegen = set_combine(sets.idle.Pet, {neck="Empath Necklace",feet="Emicho Gambieras +1"})
-
-    sets.idle.Pet.Engaged = {
-        ammo="Hesperiidae",
-        head="Emicho Coronet +1",
-        neck="Beastmaster Collar +2",
-        ear1="Domesticator's Earring",
-        ear2="Enmerkar Earring",
-        body= {name="Valorous Mail", augments={'Pet: Mag. Acc.+27','Pet: "Dbl. Atk."+5','Pet: Accuracy+3 Pet: Rng. Acc.+3','Pet: Attack+15 Pet: Rng.Atk.+15',}},
-        hands="Emicho Gauntlets +1",
-        ring1=gear.Varar_1,
-        ring2=gear.Varar_2,
-        back=Ready_Atk_back,
-        waist="Incarnation Sash",
-        legs="Ankusa Trousers +3",
-        feet={name="Taeon Boots", augments={'Pet: Attack+23 Pet: Rng.Atk.+23','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}}
-    }
-
-
-    sets.resting = {}
-
     ------------------
     -- DEFENSE SETS --
     ------------------
@@ -812,7 +743,7 @@ function init_gear_sets()
         hands=gear.Malignance_Hands,
         ring1="Gere Ring",
         ring2="Epona's Ring",
-        back="Phalangite Mantle",
+        back="Atheling Mantle",
         waist="Windbuffet Belt +1",
         legs=gear.Malignance_Legs,
         feet=gear.Malignance_Feet,
@@ -891,7 +822,7 @@ function init_gear_sets()
         hands=gear.Emicho_D_Hands, --6
         ring1="Gere Ring",
         ring2="Epona's Ring",
-        back="Phalangite Mantle",
+        back="Atheling Mantle",
         waist="Reiki Yotai", --7
         legs=gear.Malignance_Legs,
         feet=gear.Taeon_DW_Feet, --9
@@ -1241,7 +1172,7 @@ function init_gear_sets()
         ring1="Epaminondas's Ring",
         ring2="Regal Ring",
         -- back=STR_WS_back,
-        back="Phalangite Mantle",
+        back="Atheling Mantle",
         waist="Sailfi Belt +1",
         -- legs="Ankusa Trousers +3",
         legs=gear.Gleti_Legs,
@@ -1302,6 +1233,63 @@ function init_gear_sets()
 
     sets.midcast.ExtraMAB = {ear1="Hecate's Earring"}
     sets.midcast.ExtraWSDMG = {ear1="Ishvara Earring"}
+
+    
+    ---------------
+    -- IDLE SETS --
+    ---------------
+
+    sets.idle = {
+        ammo="Staunch Tathlum +1",
+        head=gear.Gleti_Head,
+        neck="Bathy Choker +1",
+        ear1="Tuisto Earring",
+        ear2="Odnowa Earring +1",
+        body=gear.Gleti_Body,
+        hands=gear.Gleti_Hands,
+        ring1=gear.Chirich_1,
+        ring2=gear.Chirich_2,
+        back="Moonlight Cape",
+        waist="Flume Belt +1",
+        legs=gear.Gleti_Legs,
+        feet=gear.Gleti_Feet,
+    }
+
+    sets.idle.Town = sets.engaged.DW.MaxHaste
+
+    sets.idle.Refresh = set_combine(sets.idle, {
+        head="Jumalik Helm",
+        body="Jumalik Mail",
+        ring1=gear.Stikini_1,
+        ring2=gear.Stikini_2
+    })
+
+    sets.idle.Pet = set_combine(sets.idle, {
+        -- back=Pet_Regen_back
+        back="Moonlight Cape",
+    })
+
+    --sets.idle.PetRegen = set_combine(sets.idle.Pet, {neck="Empath Necklace",feet="Emicho Gambieras +1"})
+
+    sets.idle.Pet.Engaged = {
+        ammo="Hesperiidae",
+        head="Emicho Coronet +1",
+        neck="Beastmaster Collar +2",
+        ear1="Domesticator's Earring",
+        ear2="Enmerkar Earring",
+        body= {name="Valorous Mail", augments={'Pet: Mag. Acc.+27','Pet: "Dbl. Atk."+5','Pet: Accuracy+3 Pet: Rng. Acc.+3','Pet: Attack+15 Pet: Rng.Atk.+15',}},
+        hands="Emicho Gauntlets +1",
+        ring1=gear.Varar_1,
+        ring2=gear.Varar_2,
+        back=Ready_Atk_back,
+        waist="Incarnation Sash",
+        legs="Ankusa Trousers +3",
+        feet={name="Taeon Boots", augments={'Pet: Attack+23 Pet: Rng.Atk.+23','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}}
+    }
+
+
+    sets.resting = {}
+
 
     ----------------
     -- OTHER SETS --
@@ -1367,11 +1355,6 @@ function init_gear_sets()
     }
 
     -- WEAPON SETS --
-
-    sets.IkeAgw = {
-        main="Ikenga's Axe", 
-        sub="Agwu's Axe"
-    }
 
     sets.Dolichenus = {
         main="Dolichenus",
@@ -2255,7 +2238,6 @@ function determine_haste_group()
             classes.CustomMeleeGroups:append('')
         end
     end
-    -- add_to_chat(104, 'Determined haste...' .. classes.CustomMeleeGroups)
 end
 
 
