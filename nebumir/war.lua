@@ -55,10 +55,8 @@ function user_setup()
     send_command('bind !t input /ja "Provoke" <t>')
 
     -- Set macros and style
-    macroBook = 3
-    styleSet = 3
-    set_macro_page(1, macroBook)
-    send_command('wait 2; input /lockstyleset ' .. styleSet)
+    set_macro_page(1, 1)
+    send_command('wait 2; input /lockstyleset 1' )
 
     state.Auto_Kite = M(false, 'Auto_Kite')
     moving = false

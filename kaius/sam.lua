@@ -554,11 +554,11 @@ end
 function check_weaponset()
     equip(sets[state.WeaponSet.current])
 
-    if state.WeaponSet.current == "Masamune" then
-        send_command('@input /macro set 1')
-    elseif state.WeaponSet.current == "ShiningOne" then
-        send_command('@input /macro set 2')
-    end
+    -- if state.WeaponSet.current == "Masamune" then
+    --     send_command('@input /macro set 1')
+    -- elseif state.WeaponSet.current == "ShiningOne" then
+    --     send_command('@input /macro set 2')
+    -- end
 end
 
 

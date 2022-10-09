@@ -397,13 +397,14 @@ function init_gear_sets()
     -- EG: sets.engaged.Dagger.Accuracy.Evasion
 
     sets.engaged = {
-        ammo="Aurgelmir Orb +1",
         ammo="Yamarang",
-        head="Plun. Bonnet +3",
+        head=gear.Adhemar_A_Head,
         body=gear.Adhemar_B_Body,
         hands=gear.Adhemar_A_Hands,
         -- legs="Samnuha Tights",
-        feet="Plun. Poulaines +3",
+        legs=gear.Malignance_Legs,
+        -- feet="Plun. Poulaines +3",
+        feet=gear.Herc_TA_Feet,
         neck="Asn. Gorget +2",
         ear1="Sherida Earring",
         ear2="Brutal Earring",
