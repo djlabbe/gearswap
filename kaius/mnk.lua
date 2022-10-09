@@ -45,9 +45,6 @@ function job_setup()
 
     state.Buff.Footwork = buffactive.Footwork or false
     state.Buff.Impetus = buffactive.Impetus or false
-
-    info.impetus_hit_count = 0 
-    windower.raw_register_event('action', on_action_for_impetus)
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -67,7 +64,7 @@ function user_setup()
     gear.Artifact_Body = { name="Anchorite's Cyclas +1" }
     gear.Artifact_Hands = { name="Anchorite's Gloves +1" }
     gear.Artifact_Legs = { name="Anchorite's Hose +1" }    
-    gear.Artifact_Feet = { name="Anchorite's Gaiters +2" }
+    gear.Artifact_Feet = { name="Anchorite's Gaiters +3" }
 
     gear.Relic_Head = { name="Hesychast's Crown +1" }
     gear.Relic_Body = { name="Hesychast's Cyclas +1" }
@@ -79,7 +76,7 @@ function user_setup()
     gear.Empyrean_Body = { name="Bhikku Cyclas +2" }
     gear.Empyrean_Hands = { name="Bhikku Gloves +1" }
     gear.Empyrean_Legs = { name="Bhikku Hose +2" }
-    gear.Empyrean_Feet = { name="Bhikku Gaiters +1" }
+    gear.Empyrean_Feet = { name="Bhikku Gaiters +2" }
     
     -- Additional local binds
     include('Global-Binds.lua') -- OK to remove this line
@@ -393,7 +390,7 @@ function init_gear_sets()
         head=gear.Malignance_Head,
         neck="Monk's Nodowa +2",
         ear1="Sherida Earring",
-        ear2="Telos Earring",
+        ear2="Schere Earring",
         body=gear.Malignance_Body,
         hands=gear.Malignance_Hands,
         ring1="Gere Ring",
@@ -446,12 +443,11 @@ function init_gear_sets()
 		body="Ken. Samue +1",
 		hands=gear.Adhemar_A_Hands,
 		legs=gear.Empyrean_Legs,
-		-- feet=gear.Artifact_Feet, -- Switch when AF @ +3
-        feet=gear.Malignance_Feet,
+		feet=gear.Artifact_Feet,
 		neck="Mnk. Nodowa +2",
 		waist="Moonbow Belt +1",
 		ear1="Sherida Earring",
-		ear2="Telos Earring",
+		ear2="Schere Earring",
 		ring1="Gere Ring",
 		ring2="Niqmaddu Ring",
 		back=gear.MNK_TP_Cape,
@@ -533,7 +529,21 @@ function init_gear_sets()
         feet=gear.Rao_D_Feet,
     }
 
-    sets.idle.Town = sets.idle
+    sets.idle.Town ={
+        ammo="Coiste Bodhar",
+		head=gear.Adhemar_A_Head,
+		body=gear.Empyrean_Body,
+		hands=gear.Adhemar_A_Hands,
+		legs=gear.Empyrean_Legs,
+		feet=gear.Artifact_Feet,
+		neck="Mnk. Nodowa +2",
+		waist="Moonbow Belt +1",
+		ear1="Sherida Earring",
+		ear2="Schere Earring",
+		ring1="Gere Ring",
+		ring2="Niqmaddu Ring",
+		back=gear.MNK_TP_Cape,
+    }
         
     ------------------------------------------------------------------------------------------------
     ---------------------------------------- Special Sets ------------------------------------------
@@ -551,6 +561,7 @@ function init_gear_sets()
 
     sets.TreasureHunter = {
         ammo="Perfect Lucky Egg",
+        hands="Volte Bracers",
         head="Volte Cap", 
         waist="Chaac Belt"
     }
@@ -787,75 +798,6 @@ end
 
 function check_weaponset()
     equip(sets[state.WeaponSet.current])
-end
-
--- Keep track of the current hit count while Impetus is up. This used to be used to dtermine when
--- to swap in the Empyrean Chest piece for weapon skills. With +2, this seems obsolete, but I kept it
--- here just for kicks, and made it show in chat log every 10 hits. 
-function on_action_for_impetus(action)
-    if state.Buff.Impetus then
-        -- count melee hits by player
-        if action.actor_id == player.id then
-            if action.category == 1 then
-                for _,target in pairs(action.targets) do
-                    for _,action in pairs(target.actions) do
-                        -- Reactions (bitset):
-                        -- 1 = evade
-                        -- 2 = parry
-                        -- 4 = block/guard
-                        -- 8 = hit
-                        -- 16 = JA/weaponskill?
-                        -- If action.reaction has bits 1 or 2 set, it missed or was parried. Reset count.
-                        if (action.reaction % 4) > 0 then
-                            info.impetus_hit_count = 0
-                        else
-                            info.impetus_hit_count = info.impetus_hit_count + 1
-                        end
-                    end
-                end
-            elseif action.category == 3 then
-                -- Missed weaponskill hits will reset the counter.  Can we tell?
-                -- Reaction always seems to be 24 (what does this value mean? 8=hit, 16=?)
-                -- Can't tell if any hits were missed, so have to assume all hit.
-                -- Increment by the minimum number of weaponskill hits: 2.
-                for _,target in pairs(action.targets) do
-                    for _,action in pairs(target.actions) do
-                        -- This will only be if the entire weaponskill missed or was parried.
-                        if (action.reaction % 4) > 0 then
-                            info.impetus_hit_count = 0
-                        else
-                            info.impetus_hit_count = info.impetus_hit_count + 2
-                        end
-                    end
-                end
-            end
-        elseif action.actor_id ~= player.id and action.category == 1 then
-            -- If mob hits the player, check for counters.
-            for _,target in pairs(action.targets) do
-                if target.id == player.id then
-                    for _,action in pairs(target.actions) do
-                        -- Spike effect animation:
-                        -- 63 = counter
-                        -- ?? = missed counter
-                        if action.has_spike_effect then
-                            -- spike_effect_message of 592 == missed counter
-                            if action.spike_effect_message == 592 then
-                                info.impetus_hit_count = 0
-                            elseif action.spike_effect_animation == 63 then
-                                info.impetus_hit_count = info.impetus_hit_count + 1
-                            end
-                        end
-                    end
-                end
-            end
-        end
-        
-        if info.impetus_hit_count > 0 and info.impetus_hit_count % 10 == 0 then
-           add_to_chat(123,'Current Impetus hit count = ' .. tostring(info.impetus_hit_count))
-        end
-    else
-        info.impetus_hit_count = 0
-    end
 end
 
 windower.register_event('zone change',

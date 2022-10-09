@@ -558,7 +558,7 @@ function init_gear_sets()
         head=gear.Carmine_D_Head,
         neck="Incanter's Torque",
         ear1="Mimir Earring",
-        ear2="Andoaa Erring",
+        ear2="Andoaa Earring",
         hands=gear.Relic_Hands,
         ring1=gear.Stikini_1,
         ring2=gear.Stikini_2,

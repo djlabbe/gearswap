@@ -105,8 +105,8 @@ function user_setup()
     select_default_macro_book()
     set_lockstyle()
 
-    set_macro_page(1, 1) -- page,set
-    send_command('wait 2; input /lockstyleset 1')
+    set_macro_page(1, 20) -- page,set
+    send_command('wait 2; input /lockstyleset 20')
 
     state.Auto_Kite = M(false, 'Auto_Kite')
     moving = false

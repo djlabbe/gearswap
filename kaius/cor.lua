@@ -90,6 +90,7 @@ function job_setup()
     -- QuickDraw Selector
     state.Mainqd = M{['description']='Primary Shot', 'Fire Shot', 'Ice Shot', 'Wind Shot', 'Earth Shot', 'Thunder Shot', 'Water Shot'}
     state.Altqd = M{['description']='Secondary Shot', 'Fire Shot', 'Ice Shot', 'Wind Shot', 'Earth Shot', 'Thunder Shot', 'Water Shot'}
+
     state.UseAltqd = M(false, 'Use Secondary Shot')
     state.SelectqdTarget = M(false, 'Select Quick Draw Target')
     state.IgnoreTargetting = M(false, 'Ignore Targetting')
@@ -99,7 +100,7 @@ function job_setup()
     state.Currentqd = M{['description']='Current Quick Draw', 'Main', 'Alt'}
 
     -- Whether to use Luzaf's Ring
-    state.LuzafRing = M(false, "Luzaf's Ring")
+    state.LuzafRing = M(true, "Luzaf's Ring")
     -- Whether a warning has been given for low ammo
     state.warned = M(false)
 
@@ -147,6 +148,7 @@ function user_setup()
     options.ammo_warning_limit = 10
 
     gear.Artifact_Body = { name= "Laksamana's Frac +3" }
+    gear.Artifact_Legs = { name= "Laksamana's Trews +3" }
 
     gear.Relic_Head = { name= "Lanun Tricorne +3" }
     gear.Relic_Body = { name= "Lanun Frac +3" }
@@ -166,17 +168,39 @@ function user_setup()
     send_command('bind ^= gs c cycle treasuremode')
     send_command ('bind @` gs c toggle LuzafRing')
 
-    send_command('bind ^insert gs c cycleback mainqd')
-    send_command('bind ^delete gs c cycle mainqd')
-    send_command('bind ^home gs c cycle altqd')
-    send_command('bind ^end gs c cycleback altqd')
-    send_command('bind ^pageup gs c toggle selectqdtarget')
-    send_command('bind ^pagedown gs c toggle usealtqd')
+    send_command ('bind ^` input /ja "Bolter\'s Roll" <me>')
+  
+    send_command('bind !insert gs c cycleback mainqd')
+    send_command('bind !delete gs c cycle mainqd')
+    send_command('bind !home gs c cycle altqd')
+    send_command('bind !end gs c cycleback altqd')
+    send_command('bind !pageup gs c toggle selectqdtarget')
+    send_command('bind !pagedown gs c toggle usealtqd')
 
     send_command('bind @q gs c cycle QDMode')
-    send_command('bind @e gs c cycleback WeaponSet')
-    send_command('bind @r gs c cycle WeaponSet')
+    send_command('bind @e gs c cycle WeaponSet')
     send_command('bind @w gs c toggle WeaponLock')
+
+    send_command ('bind !f input /ja "Fold" <me>')
+    send_command ('bind !t input /ja "Triple Shot" <me>')
+
+    -- ALT + Numpad ===> Rolls --
+    send_command('bind !numpad7 input /ja "Samurai Roll" <me>')
+    send_command('bind !numpad8 input /ja "Chaos Roll" <me>')
+    send_command('bind !numpad9 input /ja "Tactician\'s Roll" <me>')  
+
+    send_command('bind !numpad4 input /ja "Fighter\'s Roll" <me>')
+    send_command('bind !numpad5 input /ja "Rogue\'s Roll" <me>')
+    send_command('bind !numpad6 input /ja "Naturalist\'s Roll" <me>')
+
+    send_command('bind !numpad1 input /ja "Wizard\'s Roll" <me>')
+    send_command('bind !numpad2 input /ja "Warlock\'s Roll" <me>')
+    send_command('bind !numpad3 input /ja "Beast Roll" <me>')
+
+    send_command('bind !numpad0 input /ja "Evoker\'s Roll" <me>')
+    send_command('bind !numpad- input /ja "Corsair\'s Roll" <me>')
+    send_command('bind !numpad+ input /ja "Crooked Cards" <me>')
+
 
     set_macro_page(1, 17)
     send_command('wait 2; input /lockstyleset 17')
@@ -193,6 +217,19 @@ end
 
 -- Called when this job file is unloaded (eg: job change)
 function user_unload()
+    send_command ('unbind ^`')
+    send_command('unbind !numpad7')
+    send_command('unbind !numpad8')
+    send_command('unbind !numpad9')  
+    send_command('unbind !numpad4')
+    send_command('unbind !numpad5')
+    send_command('unbind !numpad6')
+    send_command('unbind !numpad1')
+    send_command('unbind !numpad2')
+    send_command('unbind !numpad3')
+    send_command('unbind !numpad0')
+    send_command('unbind !numpad+')
+    send_command('unbind !numpad-')  
 end
 
 -- Define sets and vars used by this job file.
@@ -222,7 +259,6 @@ function init_gear_sets()
     }
 
     sets.precast.CorsairRoll.Duration = {main={name="Rostam"}, range="Compensator"}
-    sets.precast.CorsairRoll.LowerDelay = {back="Gunslinger's Cape"}
 
     sets.precast.CorsairRoll["Caster's Roll"] = set_combine(sets.precast.CorsairRoll, {legs=gear.Empyrean_Legs})
     sets.precast.CorsairRoll["Courser's Roll"] = set_combine(sets.precast.CorsairRoll, {feet=gear.Empyrean_Feet})
@@ -350,6 +386,7 @@ function init_gear_sets()
 
     sets.precast.WS['Leaden Salute'] = set_combine(sets.precast.WS['Wildfire'], {
         head="Pixie Hairpin +1",
+        waist="Svelt. Gouriz +1",
         ear1="Moonshade Earring",
         ring1="Archon Ring",
     })
@@ -359,7 +396,8 @@ function init_gear_sets()
         -- body="Abnoba Kaftan",
         hands="Mummu Wrists +2",
         legs="Zoar Subligar +1",
-        feet="Mummu Gamash. +2",
+        -- feet="Mummu Gamash. +2",
+        feet=gear.Adhemar_D_Feet,
         neck="Fotia Gorget",
         ear1="Mache Earring +1",
         ear2="Odr Earring",
@@ -447,7 +485,7 @@ function init_gear_sets()
 
     sets.midcast.Cure = {
         neck="Incanter's Torque",
-        ear1="Roundel Earring",
+        ear1="Meili Earring",
         ear2="Mendi. Earring",
         ring1="Lebeche Ring",
         ring2="Haoma's Ring",
@@ -464,7 +502,8 @@ function init_gear_sets()
         legs=gear.Herc_MAB_legs,
         feet=gear.Relic_Feet,
         neck="Baetyl Pendant",
-        ear1="Crematio Earring",
+        -- ear1="Crematio Earring",
+        ear1="Novio Earring",
         ear2="Friomisi Earring",
         ring1="Dingir Ring",
         ring2={name="Fenrir Ring +1", bag="wardrobe4"},
@@ -531,7 +570,7 @@ function init_gear_sets()
     })
 
     sets.midcast.RA.HighAcc = set_combine(sets.midcast.RA.Acc, {
-        legs="Laksa. Trews +3",
+        legs=gear.Artifact_Legs,
         ring1="Regal Ring",
         waist="K. Kachina Belt +1",
     })
@@ -586,7 +625,7 @@ function init_gear_sets()
         legs=gear.Malignance_Legs,
         feet=gear.Malignance_Feet,
         neck="Bathy Choker +1",
-        ear1="Sanare Earring",
+        ear1="Infused Earring",
         ear2="Eabani Earring",
         ring1=gear.Chirich_1,
         ring2=gear.Chirich_2,
@@ -614,17 +653,7 @@ function init_gear_sets()
         ring2=gear.Stikini_2,
     })
 
-    sets.idle.Town = set_combine(sets.idle, {
-        head=gear.Malignance_Head, --6/6
-        body=gear.Malignance_Body, --9/9
-        hands=gear.Malignance_Hands, --5/5
-        legs=gear.Malignance_Legs, --7/7
-        feet=gear.Malignance_Feet, --4/4
-        neck="Comm. Charm +2",
-        ear1="Beyla Earring",
-        ear2="Telos Earring",
-        waist="Flume Belt +1",
-    })
+    sets.idle.Town = sets.precast.WS['Leaden Salute']
 
 
     ------------------------------------------------------------------------------------------------
@@ -640,7 +669,7 @@ function init_gear_sets()
         legs=gear.Malignance_Legs, --7/7
         feet=gear.Malignance_Feet, --4/4
         neck="Warder's Charm +1",
-        ear1="Sanare Earring",
+        ear1="Etiolation Earring",
         ear2="Eabani Earring",
         ring1="Purity Ring", --0/4
         ring2="Defending Ring", --10/10
@@ -981,7 +1010,8 @@ function init_gear_sets()
         waist="Gishdubar Sash", --10
     }
 
-    sets.FullTP = {ear1="Crematio Earring"}
+    -- sets.FullTP = {ear1="Crematio Earring"}
+    sets.FullTP = {ear1="Novio Earring"}
     sets.Obi = {waist="Hachirin-no-Obi"}
 
     sets.TreasureHunter = {
@@ -1001,7 +1031,7 @@ function init_gear_sets()
     -- sets.Armageddon_R.Acc = sets.Armageddon_R
     sets.Fomalhaut_M = {main="Rostam", sub="Blurred Knife +1", ranged="Fomalhaut"}
     sets.Fomalhaut_M.Acc = {main="Rostam", sub="Blurred Knife +1", ranged="Fomalhaut"}
-    sets.Fomalhaut_R = {main="Rostam", sub="Blurred Knife +1", ranged="Fomalhaut"}
+    sets.Fomalhaut_R = {main="Rostam", sub="Tauret", ranged="Fomalhaut"}
     sets.Fomalhaut_R.Acc = sets.Fomalhaut_R
     sets.Ataktos = {main="Naegling", sub="Blurred Knife +1", ranged="Anarchy +2"}
     sets.Ataktos.Acc = {main="Naegling", sub="Blurred Knife +1", ranged="Anarchy +2"}
@@ -1592,14 +1622,6 @@ windower.register_event('zone change',
     end
 )
 
--- Select default macro book on initial load or subjob change.
-function select_default_macro_book()
-    if player.sub_job == 'DNC' then
-        set_macro_page(1, 7)
-    else
-        set_macro_page(1, 7)
-    end
-end
 
 function set_lockstyle()
     send_command('wait 2; input /lockstyleset ' .. lockstyleset)
