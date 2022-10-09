@@ -914,7 +914,7 @@ function init_gear_sets()
         neck="Anu Torque",
         ear1="Sherida Earring",
         ear2="Telos Earring",
-        ring1="Hetairoi Ring",
+        ring1="Ilabrat Ring",
         ring2=gear.Chirich_2,
         back=gear.RDM_DW_Cape,
         waist="Windbuffet Belt +1",
@@ -932,7 +932,7 @@ function init_gear_sets()
         waist="Kentarch Belt +1",
     })
 
-    -- No Magic Haste (74% DW to cap)
+    -- No Magic Haste (74% DW to cap) (49% DW Needed)
     sets.engaged.DW = {
         ammo="Aurgelmir Orb +1",
         head=gear.Malignance_Head,
@@ -943,7 +943,7 @@ function init_gear_sets()
         neck="Anu Torque",
         ear1="Eabani Earring", --4
         ear2="Suppanomimi", --5
-        ring1="Hetairoi Ring",
+        ring1="Ilabrat Ring",
         ring2=gear.Chirich_2,
         back=gear.RDM_DW_Cape, --10
         waist="Reiki Yotai", --7
@@ -960,7 +960,7 @@ function init_gear_sets()
         ear2="Mache Earring +1",
     })
 
-    -- 15% Magic Haste (67% DW to cap)
+    -- 15% Magic Haste (67% DW to cap) (42% DW Needed)
     sets.engaged.DW.LowHaste = set_combine(sets.engaged.DW, {
         ammo="Aurgelmir Orb +1",
         head=gear.Malignance_Head,
@@ -971,7 +971,7 @@ function init_gear_sets()
         neck="Anu Torque",
         ear1="Eabani Earring", --4
         ear2="Suppanomimi", --5
-        ring1="Hetairoi Ring",
+        ring1="Ilabrat Ring",
         ring2=gear.Chirich_2,
         back=gear.RDM_DW_Cape, --10
         waist="Reiki Yotai", --7
@@ -988,7 +988,7 @@ function init_gear_sets()
         ear2="Mache Earring +1",
     })
 
-    -- 30% Magic Haste (56% DW to cap)
+    -- 30% Magic Haste (56% DW to cap) (31% DW Needed)
     sets.engaged.DW.MidHaste = set_combine(sets.engaged.DW, {
         ammo="Aurgelmir Orb +1",
         head=gear.Malignance_Head,
@@ -999,7 +999,7 @@ function init_gear_sets()
         neck="Anu Torque",
         ear1="Sherida Earring",
         ear2="Suppanomimi", --5
-        ring1="Hetairoi Ring",
+        ring1="Ilabrat Ring",
         ring2=gear.Chirich_2,
         back=gear.RDM_DW_Cape, --10
         waist="Reiki Yotai", --7
@@ -1024,15 +1024,15 @@ function init_gear_sets()
         body=gear.Malignance_Body,
         hands=gear.Malignance_Hands,
         legs=gear.Malignance_Legs,
-        feet=gear.Taeon_DW_Feet, --9
+        feet=gear.Malignance_Feet,
         neck="Anu Torque",
         ear1="Sherida Earring",
-        ear2="Telos Earring",
-        ring1="Hetairoi Ring",
+        ear2="Suppanomimi", --5
+        ring1="Ilabrat Ring",
         ring2=gear.Chirich_2,
         back=gear.RDM_DW_Cape, --10
         waist="Reiki Yotai", --7
-    }) --26
+    }) --22
 
     sets.engaged.DW.Acc.HighHaste = set_combine(sets.engaged.DW.HighHaste, {
         ammo="Voluspa Tathlum",
@@ -1046,19 +1046,19 @@ function init_gear_sets()
         ring1=gear.Chirich_1,
     })
 
-    -- 45% Magic Haste (36% DW to cap)
+    -- 45% Magic Haste (36% DW to cap) (11% DW Needed)
     sets.engaged.DW.MaxHaste = set_combine(sets.engaged.DW, {
-        ammo="Aurgelmir Orb +1",
+        ammo="Coiste Bodhar",
         head=gear.Malignance_Head,
         body=gear.Malignance_Body,
-        hands=gear.Malignance_Hands,
+        hands=gear.Bunzi_Hands,
         legs=gear.Malignance_Legs,
         feet=gear.Malignance_Feet,
         neck="Anu Torque",
         ear1="Sherida Earring",
         ear2="Telos Earring",
-        ring1="Hetairoi Ring",
-        ring2=gear.Chirich_2,
+        ring1="Ilabrat Ring",
+        ring2="Petrov Ring",
         back=gear.RDM_DW_Cape, --10
         waist="Windbuffet Belt +1",
     }) --10
