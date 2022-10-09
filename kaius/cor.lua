@@ -274,7 +274,7 @@ function init_gear_sets()
         legs=gear.Adhemar_D_legs, --10/13
         feet="Meg. Jam. +2", --10/0
         neck="Comm. Charm +2", --4/0
-        back=gear.COR_SNP_Cape, --10/0
+        back=gear.COR_SNP_Cape, --10/0 --TODO
         waist="Yemaya Belt", --0/5
     } --61/32
 
@@ -460,14 +460,14 @@ function init_gear_sets()
         ammo=gear.QDbullet,
         head=gear.Herc_MAB_Head,
         body=gear.Relic_Body,
-        hands="Carmine Fin. Ga. +1",
+        hands=gear.Carmine_D_Hands,
         legs=gear.Herc_MAB_legs,
         feet=gear.Relic_Feet,
         neck="Baetyl Pendant",
         ear1="Crematio Earring",
         ear2="Friomisi Earring",
         ring1="Dingir Ring",
-        ring2={name="Fenrir Ring +1", bag="wardrobe4"},
+        ring2="Fenrir Ring +1",
         back=gear.COR_WS1_Cape,
         waist="Skrymir Cord +1",
     }
@@ -697,7 +697,7 @@ function init_gear_sets()
         ear1="Mache Earring +1",
         ear2="Odr Earring",
         ring2=gear.Chirich_2,
-        -- waist="Olseni Belt",
+        waist="Kentarch Belt +1",
     })
 
 
