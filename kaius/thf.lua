@@ -103,6 +103,8 @@ function user_setup()
     
     if player.sub_job == 'WAR' then
         send_command('bind !t input /ja "Provoke" <t>')
+    elseif player.sub_job == 'DNC' then
+        send_command('bind !t input /ja "Animated Flourish" <t>')
     end
 
     set_macro_page(1, 6)
@@ -1018,20 +1020,6 @@ function gearinfo(cmdParams, eventArgs)
     end
 end
 
-
--- Automatically use Presto for steps when it's available and we have less than 3 finishing moves
-function job_pretarget(spell, action, spellMap, eventArgs)
-    if spell.type == 'Step' then
-        local allRecasts = windower.ffxi.get_ability_recasts()
-        local prestoCooldown = allRecasts[236]
-        local under3FMs = not buffactive['Finishing Move 3'] and not buffactive['Finishing Move 4'] and not buffactive['Finishing Move 5']
-
-        if player.main_job_level >= 77 and prestoCooldown < 1 and under3FMs then
-            cast_delay(1.1)
-            send_command('input /ja "Presto" <me>')
-        end
-    end
-end
 
 -- State buff checks that will equip buff gear and mark the event as handled.
 function check_buff(buff_name, eventArgs)

@@ -79,7 +79,7 @@ function user_setup()
     state.WeaponskillMode:options('Normal', 'Acc', 'LowBuff')
     state.IdleMode:options('Normal', 'DT', 'Refresh')
 
-    state.WeaponSet = M{['description']='Weapon Set', 'Tauret', 'Gandring'}
+    state.WeaponSet = M{['description']='Weapon Set', 'Naegling'}
     state.WeaponLock = M(false, 'Weapon Lock')
 
     -- Additional local binds
