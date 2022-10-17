@@ -15,6 +15,9 @@ function job_setup()
     state.Buff.Sentinel = buffactive.sentinel or false
     state.Buff.Cover = buffactive.cover or false
     state.Buff.Doom = buffactive.Doom or false
+
+    no_swap_gear = S{"Warp Ring", "Dim. Ring (Dem)", "Dim. Ring (Holla)", "Dim. Ring (Mea)",
+        "Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring"}
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -32,9 +35,29 @@ function user_setup()
     
     state.EquipShield = M(true, 'Equip Shield w/Defense')
 
+    gear.Artifact_Head = { name="Reverence Coronet +1" }
+    gear.Artifact_Body = { name="Reverence Surcoat +1" }
+    gear.Artifact_Hands = { name="Reverence Gauntlets +1" }
+    gear.Artifact_Legs = { name="Reverence Breeches +1" }    
+    gear.Artifact_Feet = { name="Reverence Leggings +1" }
+
+    gear.Relic_Head = { name="Caballarius Coronet +1" }
+    gear.Relic_Body = { name="Caballarius Surcoat +1" }
+    gear.Relic_Hands = { name="Caballarius Gauntlets +1" }
+    gear.Relic_Legs = { name="Caballarius Breeches +1" }
+    gear.Relic_Feet = { name="Caballarius Leggings +3" }
+
+    gear.Empyrean_Head = { name="Chevalier's Armet +1" }
+    gear.Empyrean_Body = { name="Chevalier's Cuirass +1" }
+    gear.Empyrean_Hands = { name="Chevalier's Gauntlets +1" }
+    gear.Empyrean_Legs = { name="Chevalier's Cuisses +1" }
+    gear.Empyrean_Feet = { name="Chevalier's Sabatons +1" }
+
     send_command('bind ^f11 gs c cycle MagicalDefenseMode')
     send_command('bind @f10 gs c toggle EquipShield')
-    send_command('bind @f11 gs c toggle EquipShield')
+
+    -- Additional local binds
+    include('Global-Binds.lua') -- OK to remove this line
 
     -- Default macro set/book
     if player.sub_job == 'WAR' then
@@ -45,6 +68,9 @@ function user_setup()
         set_macro_page(1, 7)
     end
     send_command('wait 2; input /lockstyleset 7')
+
+    state.Auto_Kite = M(false, 'Auto_Kite')
+    moving = false
 end
 
 function user_unload()
@@ -62,14 +88,14 @@ function init_gear_sets()
     --------------------------------------
     
     -- Precast sets to enhance JAs
-    -- sets.precast.JA['Invincible'] = {legs="Caballarius Breeches"}
-    -- sets.precast.JA['Holy Circle'] = {feet="Reverence Leggings +3"}
-    -- sets.precast.JA['Shield Bash'] = {hands="Caballarius Gauntlets +2"}
-    sets.precast.JA['Sentinel'] = {feet="Caballarius Leggings +3"}
-    -- sets.precast.JA['Rampart'] = {head="Caballarius Coronet +1"}
-    -- sets.precast.JA['Fealty'] = {body="Caballarius Surcoat +1"}
-    -- sets.precast.JA['Divine Emblem'] = {feet="Chevalier's Sabatons +1"}
-    -- sets.precast.JA['Cover'] = {head="Reverence Coronet +1"}
+    sets.precast.JA['Invincible'] = {legs=gear.Relic_Legs}
+    sets.precast.JA['Holy Circle'] = {feet=gear.Artifact_Feet}
+    sets.precast.JA['Shield Bash'] = {hands=gear.Relic_Hands}
+    sets.precast.JA['Sentinel'] = {feet=gear.Relic_Feet}
+    sets.precast.JA['Rampart'] = {head=gear.Relic_Head}
+    sets.precast.JA['Fealty'] = {body=gear.Relic_Body}
+    sets.precast.JA['Divine Emblem'] = {feet=gear.Empyrean_Feet}
+    sets.precast.JA['Cover'] = {head=gear.Artifact_Head}
 
     sets.precast.JA['Chivalry'] = { -- Max MND
         ammo="Sapience Orb",
@@ -80,10 +106,10 @@ function init_gear_sets()
         feet=gear.Eschite_A_Feet,
         neck="Unmoving Collar +1",
         waist="Creed Baudrier",
-        left_ear="Tuisto Earring",
-        -- right_ear="Cryptic Earring",
-        left_ring="Apeile Ring +1",
-        right_ring="Eihwaz Ring",
+        ear1="Tuisto Earring",
+        -- ear2="Cryptic Earring",
+        ring1="Apeile Ring +1",
+        ring2="Eihwaz Ring",
         back=gear.PLD_Cape,
     }
 
@@ -93,14 +119,14 @@ function init_gear_sets()
         head=gear.Souveran_C_Head, -- 0/20
         -- body="Rev. Surcoat +3", 
         hands="Leyline Gloves", --5/0
-        legs={ name="Founder's Hose", augments={'MND+8','Mag. Acc.+14','Attack+13','Breath dmg. taken -3%',}}, -- 0/30
+        legs="Founder's Hose",--0/30
         feet=gear.Ody_CURE_Feet, -- 5/20
         neck="Moonlight Necklace", -- 0/15
         waist="Audumbla Sash", -- 0/10
-        left_ear="Tuisto Earring",
-        -- right_ear="Etiolation Earring",
-        left_ring="Weather. Ring", --5/0
-        right_ring="Gelatinous Ring +1",
+        ear1="Tuisto Earring",
+        ear2="Etiolation Earring",
+        ring1="Weather. Ring", --5/0
+        ring2="Gelatinous Ring +1",
         back=gear.PLD_FC_Cape, --8/10
     } -- 23% FC, 112% SIRD
 
@@ -108,24 +134,24 @@ function init_gear_sets()
 
     sets.precast.WS = {
         ammo="Crepuscular Pebble",
-        head="Sakpata's Helm",
-        body="Sakpata's Plate",
-        hands="Sakpata's Gauntlets",
-        legs="Sakpata's Cuisses",
-        feet="Sakpata's Leggings",
+        head=gear.Sakpata_Head,
+        body=gear.Sakpata_Body,
+        hands=gear.Sakpata_Hands,
+        legs=gear.Sakpata_Legs,
+        feet=gear.Sakpata_Feet,
         neck="Unmoving Collar +1",
         waist="Sailfi Belt +1",
-        left_ear="Thrud Earring",
-        right_ear="Moonshade Earring",
-        left_ring="Epaminondas's Ring",
-        right_ring="Regal Ring",
+        ear1="Thrud Earring",
+        ear2="Moonshade Earring",
+        ring1="Epaminondas's Ring",
+        ring2="Regal Ring",
         -- back={ name="Rudianos's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}},
     }
 
     sets.precast.WS.Acc = sets.precast.WS
 
     sets.precast.WS['Sanguine Blade'] = {
-        -- ammo="Ginsen",
+        ammo="Ginsen",
         ear1="Friomisi Earring",
         ring1="Shiva Ring +1",
     }
@@ -139,14 +165,14 @@ function init_gear_sets()
         head=gear.Souveran_C_Head,
         body=gear.Souveran_C_Body,
         hands=gear.Souveran_C_Hands,
-        legs={ name="Founder's Hose", augments={'MND+8','Mag. Acc.+14','Attack+13','Breath dmg. taken -3%',}},
+        legs="Founder's Hose",--0/30
         feet=gear.Eschite_C_Feet,
         neck="Unmoving Collar +1",
         waist="Audumbla Sash",
-        left_ear="Tuisto Earring",
-        right_ear="Knightly Earring",
-        left_ring="Apeile Ring +1",
-        right_ring="Gelatinous Ring +1",
+        ear1="Tuisto Earring",
+        ear2="Knightly Earring",
+        ring1="Apeile Ring +1",
+        ring2="Gelatinous Ring +1",
         back=gear.PLD_Cape,
     }
 
@@ -158,10 +184,10 @@ function init_gear_sets()
         feet=gear.Eschite_A_Feet,
         neck="Unmoving Collar +1",
         waist="Creed Baudrier",
-        left_ear="Tuisto Earring",
-        -- right_ear="Cryptic Earring",
-        left_ring="Apeile Ring +1",
-        right_ring="Eihwaz Ring",
+        ear1="Tuisto Earring",
+        -- ear2="Cryptic Earring",
+        ring1="Apeile Ring +1",
+        ring2="Eihwaz Ring",
         back=gear.PLD_Cape,
     }})
     
@@ -172,14 +198,14 @@ function init_gear_sets()
         head=gear.Souveran_C_Head, --0/20
         body=gear.Souveran_C_Body, --11/0
         hands="Macabre Gaunt. +1", --11/0
-        legs={ name="Founder's Hose", augments={'MND+8','Mag. Acc.+14','Attack+13','Breath dmg. taken -3%',}}, --0/30
+        legs="Founder's Hose",--0/30
         feet=gear.Ody_CURE_Feet, --13/20
         neck="Unmoving Collar +1",
         waist="Audumbla Sash", --0/10
-        left_ear="Nourishing Earring +1", --7/5
-        right_ear="Knightly Earring", --0/9
-        left_ring="Apeile Ring +1",
-        right_ring="Gelatinous Ring +1",
+        ear1="Nourishing Earring +1", --7/5
+        ear2="Knightly Earring", --0/9
+        ring1="Apeile Ring +1",
+        ring2="Gelatinous Ring +1",
         back=gear.PLD_Cape, 
     } -- 42/105
 
@@ -188,14 +214,14 @@ function init_gear_sets()
         head=gear.Souveran_C_Head, --9/20
         body=gear.Souveran_C_Body, --20/0
         hands=gear.Souveran_C_Hands, --9/0
-        legs={ name="Founder's Hose", augments={'MND+8','Mag. Acc.+14','Attack+13','Breath dmg. taken -3%',}}, --0/30
+        legs="Founder's Hose",--0/30
         feet=gear.Ody_CURE_Feet, --0/20
-        neck="Moonlight Necklac", --15/15
+        neck="Moonlight Necklace", --15/15
         waist="Audumbla Sash", --0/10
-        left_ear="Tuisto Earring",
-        right_ear="Odnowa Earring +1",
-        left_ring="Apeile Ring +1", --9/0
-        right_ring="Gelatinous Ring +1",
+        ear1="Tuisto Earring",
+        ear2="Odnowa Earring +1",
+        ring1="Apeile Ring +1", --9/0
+        ring2="Gelatinous Ring +1",
         back=gear.PLD_Cape, --10/0
     } --115 sird
         
@@ -211,14 +237,14 @@ function init_gear_sets()
         head=gear.Souveran_C_Head,
         body=gear.Souveran_C_Body,
         hands=gear.Souveran_C_Hands,
-        legs={ name="Founder's Hose", augments={'MND+8','Mag. Acc.+14','Attack+13','Breath dmg. taken -3%',}},
+        legs="Founder's Hose",--0/30
         feet=gear.Eschite_C_Feet,
         neck="Unmoving Collar +1",
         waist="Audumbla Sash",
-        left_ear="Tuisto Earring",
-        right_ear="Knightly Earring",
-        left_ring="Apeile Ring +1",
-        right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+        ear1="Tuisto Earring",
+        ear2="Knightly Earring",
+        ring1="Apeile Ring +1",
+        ring2="Gelatinous Ring +1",
         back=gear.PLD_Cape,
     }
     
@@ -232,14 +258,14 @@ function init_gear_sets()
         head=gear.Yorium_PHLX_Head,
         body=gear.Yorium_PHLX_Body,
         hands=gear.Souveran_C_Hands,
-        legs="Sakpata's Cuisses",
+        legs=gear.Sakpata_Legs,
         feet=gear.Souveran_D_Feet,
         neck="Incanter's Torque",
         waist="Olympus Sash",
-        left_ear="Mimir Earring",
-        right_ear="Andoaa Earring",
-        left_ring=gear.Stikini_1,
-        right_ring=gear.Stikini_2,
+        ear1="Mimir Earring",
+        ear2="Andoaa Earring",
+        ring1=gear.Stikini_1,
+        ring2=gear.Stikini_2,
         -- back={ name="Weard Mantle", augments={'VIT+4','DEX+3','Enmity+3','Phalanx +5',}},
     }
 
@@ -252,10 +278,10 @@ function init_gear_sets()
         feet=gear.Eschite_A_Feet,
         neck="Unmoving Collar +1",
         waist="Creed Baudrier",
-        left_ear="Tuisto Earring",
-        -- right_ear="Cryptic Earring",
-        left_ring="Apeile Ring +1",
-        right_ring="Eihwaz Ring",
+        ear1="Tuisto Earring",
+        -- ear2="Cryptic Earring",
+        ring1="Apeile Ring +1",
+        ring2="Eihwaz Ring",
         back=gear.PLD_Cape,
     }
 
@@ -264,14 +290,14 @@ function init_gear_sets()
         head=gear.Souveran_C_Head,
         -- body="Rev. Surcoat +3",
         hands="Leyline Gloves",
-        legs={ name="Founder's Hose", augments={'MND+8','Mag. Acc.+14','Attack+13','Breath dmg. taken -3%',}},
+        legs="Founder's Hose",--0/30
         -- feet={ name="Odyssean Greaves", augments={'"Fast Cast"+6','STR+5','Accuracy+3',}},
         neck="Unmoving Collar +1",
         waist="Audumbla Sash",
-        left_ear="Tuisto Earring",
-        -- right_ear="Etiolation Earring",
-        left_ring="Weather. Ring",
-        right_ring="Gelatinous Ring +1",
+        ear1="Tuisto Earring",
+        ear2="Etiolation Earring",
+        ring1="Weather. Ring",
+        ring2="Gelatinous Ring +1",
         -- back={ name="Rudianos's Mantle", augments={'HP+60','"Fast Cast"+10','Spell interruption rate down-6%',}},
     }
 
@@ -288,38 +314,38 @@ function init_gear_sets()
     -- Idle sets
     sets.idle = {
         ammo="Staunch Tathlum +1",
-        head="Sakpata's Helm",
-        body="Sakpata's Plate",
-        hands="Sakpata's Gauntlets",
-        legs="Sakpata's Cuisses",
-        feet="Sakpata's Leggings",
+        head=gear.Sakpata_Head,
+        body=gear.Sakpata_Body,
+        hands=gear.Sakpata_Hands,
+        legs=gear.Sakpata_Legs,
+        feet=gear.Sakpata_Feet,
         neck="Unmoving Collar +1",
         waist="Creed Baudrier",
-        left_ear="Tuisto Earring",
-        right_ear="Odnowa Earring +1",
-        left_ring="Moonlight Ring",
-        right_ring="Moonlight Ring",
+        ear1="Tuisto Earring",
+        ear2="Odnowa Earring +1",
+        ring1="Moonlight Ring",
+        ring2="Moonlight Ring",
         back=gear.PLD_Cape,
     }
 
     sets.idle.Town = {
         ammo="Staunch Tathlum +1",
-        head="Sakpata's Helm",
-        body="Sakpata's Plate",
-        hands="Sakpata's Gauntlets",
-        legs="Carmine Cuisses +1",
-        feet="Sakpata's Leggings",
+        head=gear.Sakpata_Head,
+        body=gear.Sakpata_Body,
+        hands=gear.Sakpata_Hands,
+        legs=gear.Sakpata_Legs,
+        feet=gear.Sakpata_Feet,
         neck="Unmoving Collar +1",
         waist="Creed Baudrier",
-        left_ear="Tuisto Earring",
-        right_ear="Odnowa Earring +1",
-        left_ring="Moonlight Ring",
-        right_ring="Moonlight Ring",
+        ear1="Tuisto Earring",
+        ear2="Odnowa Earring +1",
+        ring1="Moonlight Ring",
+        ring2="Moonlight Ring",
         back=gear.PLD_Cape,
     }
     
     
-    sets.Kiting = {legs="Carmine Cuisses +1"}
+    sets.Kiting = {legs=gear.Carmine_D_Legs}
     sets.latent_refresh = {waist="Fucho-no-obi"}
     --------------------------------------
     -- Defense sets
@@ -327,24 +353,24 @@ function init_gear_sets()
     
 
     -- If EquipShield toggle is on (Win+F10 or Win+F11), equip the weapon/shield combos here when activating or changing defense mode:
-    sets.PhysicalShield = {sub="Ochain"} -- Ochain
-    sets.MagicalShield = {sub="Aegis"} -- Aegis
+    sets.PhysicalShield = {sub="Ochain"}
+    sets.MagicalShield = {sub="Aegis"}
 
     -- Basic defense sets.
         
     sets.defense.PDT = {
         ammo="Staunch Tathlum +1",
-        head="Sakpata's Helm",
-        body="Sakpata's Plate",
-        hands="Sakpata's Gauntlets",
-        legs="Sakpata's Cuisses",
-        feet="Sakpata's Leggings",
+        head=gear.Sakpata_Head,
+        body=gear.Sakpata_Body,
+        hands=gear.Sakpata_Hands,
+        legs=gear.Sakpata_Legs,
+        feet=gear.Sakpata_Feet,
         neck="Unmoving Collar +1",
         waist="Creed Baudrier",
-        left_ear="Tuisto Earring",
-        right_ear="Odnowa Earring +1",
-        left_ring="Eihwaz Ring",
-        right_ring="Gelatinous Ring +1",
+        ear1="Tuisto Earring",
+        ear2="Odnowa Earring +1",
+        ring1="Eihwaz Ring",
+        ring2="Gelatinous Ring +1",
         back="Moonlight Cape",
     }
 
@@ -360,11 +386,11 @@ function init_gear_sets()
 
     sets.defense.MDT = {
         ammo="Staunch Tathlum +1",
-        head="Sakpata's Helm",
-        body="Sakpata's Plate",
-        hands="Sakpata's Gauntlets",
-        legs="Sakpata's Cuisses",
-        feet="Sakpata's Leggings",
+        head=gear.Sakpata_Head,
+        body=gear.Sakpata_Body,
+        hands=gear.Sakpata_Hands,
+        legs=gear.Sakpata_Legs,
+        feet=gear.Sakpata_Feet,
         neck="Moonlight Necklace",
         ear1="Odnowa Earring +1",
         ear2="Eabani Earring",      
@@ -380,19 +406,19 @@ function init_gear_sets()
     --------------------------------------
     
     sets.engaged = {
-        sub="Ochain",
+        sub="Srivasta",
         ammo="Staunch Tathlum +1", --3
-        head="Sakpata's Helm", --7
-        body="Sakpata's Plate", --10
-        hands="Sakpata's Gauntlets", --8
-        legs="Sakpata's Cuisses", --9
-        feet="Sakpata's Leggings", --6
+        head=gear.Sakpata_Head, --7
+        body=gear.Sakpata_Body, --10
+        hands=gear.Sakpata_Hands, --8
+        legs=gear.Sakpata_Legs, --9
+        feet=gear.Sakpata_Feet, --6
         neck="Unmoving Collar +1",
         waist="Asklepian Belt",
-        left_ear="Tuisto Earring",
-        right_ear="Odnowa Earring +1",
-        left_ring="Moonlight Ring", --5
-        right_ring="Moonlight Ring",--5
+        ear1="Tuisto Earring",
+        ear2="Odnowa Earring +1",
+        ring1="Moonlight Ring", --5
+        ring2="Moonlight Ring",--5
         back=gear.PLD_Cape,
     } --53 + (5 cape)
 
@@ -404,7 +430,13 @@ function init_gear_sets()
     --------------------------------------
     -- Custom buff sets
     --------------------------------------
-    sets.buff.Doom = {ring2="Saida Ring"}
+    sets.buff.Doom = {
+        neck="Nicander's Necklace", --20
+        ring1=gear.Eshmun_1, --20
+        ring2=gear.Eshmun_2, --20
+        waist="Gishdubar Sash", --10
+    }
+
     -- sets.buff.Cover = {head="Reverence Coronet +1", body="Caballarius Surcoat"}
 end
 
@@ -441,7 +473,14 @@ end
 -- User code that supplements standard library decisions.
 -------------------------------------------------------------------------------------------------------------------
 
+function job_handle_equipping_gear(playerStatus, eventArgs)
+    check_gear()
+    check_moving()
+end
 
+function job_update(cmdParams, eventArgs)
+    handle_equipping_gear(player.status)
+end
 
 -- Modify the default idle set after it was constructed.
 function customize_idle_set(idleSet)
@@ -450,6 +489,9 @@ function customize_idle_set(idleSet)
     end
     if state.Buff.Doom then
         idleSet = set_combine(idleSet, sets.buff.Doom)
+    end
+    if state.Auto_Kite.value == true then
+        idleSet = set_combine(idleSet, sets.Kiting)
     end
     
     return idleSet
@@ -518,3 +560,62 @@ function display_current_job_state(eventArgs)
 
     eventArgs.handled = true
 end
+
+------------------------------------------------------------------------------------------------------------------
+-- Utility functions specific to this job.
+-------------------------------------------------------------------------------------------------------------------
+
+function job_self_command(cmdParams, eventArgs)
+    gearinfo(cmdParams, eventArgs)
+end
+
+function gearinfo(cmdParams, eventArgs)
+    if cmdParams[1] == 'gearinfo' then
+        if type(cmdParams[4]) == 'string' then
+            if cmdParams[4] == 'true' then
+                moving = true
+            elseif cmdParams[4] == 'false' then
+                moving = false
+            end
+        end
+        if not midaction() then
+            job_update()
+        end
+    end
+end
+
+function check_moving()
+    if state.DefenseMode.value == 'None'  and state.Kiting.value == false then
+        if state.Auto_Kite.value == false and moving then
+            state.Auto_Kite:set(true)
+        elseif state.Auto_Kite.value == true and moving == false then
+            state.Auto_Kite:set(false)
+        end
+    end
+end
+
+function check_gear()
+    if no_swap_gear:contains(player.equipment.ring1) then
+        disable("ring1")
+    else
+        enable("ring1")
+    end
+    if no_swap_gear:contains(player.equipment.ring2) then
+        disable("ring2")
+    else
+        enable("ring2")
+    end
+end
+
+windower.register_event('zone change',
+    function()
+        if no_swap_gear:contains(player.equipment.ring1) then
+            enable("ring1")
+            equip(sets.idle)
+        end
+        if no_swap_gear:contains(player.equipment.ring2) then
+            enable("ring2")
+            equip(sets.idle)
+        end
+    end
+)

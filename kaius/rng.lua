@@ -194,7 +194,7 @@ function init_gear_sets()
         hands="Leyline Gloves", --8
         legs="Rawhide Trousers", --5
         feet=gear.Carmine_B_Feet, --8
-        neck="Orunmila's Torque", --5
+        neck="Baetyl Pendant", --4
         ear1="Loquacious Earring", --2
         ear2="Enchntr. Earring +1", --2
         ring1="Weather. Ring", --6(4)
@@ -858,7 +858,7 @@ function init_gear_sets()
     ---------------------------------------- Special Sets ------------------------------------------
     ------------------------------------------------------------------------------------------------
 
-    sets.buff.Barrage = {hands=gear.Artifact_Feet}
+    sets.buff.Barrage = {hands=gear.Artifact_Hands}
     sets.buff['Velocity Shot'] = set_combine(sets.midcast.RA, {
         body=gear.Empyrean_Body, 
         back=gear.RNG_TP_Cape

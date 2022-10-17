@@ -88,8 +88,8 @@ function user_setup()
         'Quick Etude', 'Swift Etude', 'Vivacious Etude', 'Vital Etude', 'Dextrous Etude', 'Uncanny Etude',
         'Spirited Etude', 'Logical Etude', 'Enchanting Etude', 'Bewitching Etude'}
 
-    -- state.WeaponSet = M{['description']='Weapon Set', 'Carnwenhan', 'Twashtar', 'Tauret', 'Naegling'}
-    state.WeaponSet = M{['description']='Weapon Set', 'Carnwenhan', 'Naegling', 'Tauret'}
+    state.WeaponSet = M{['description']='Weapon Set', 'Carnwenhan', 'Twashtar', 'Tauret', 'Naegling'}
+    -- state.WeaponSet = M{['description']='Weapon Set', 'Carnwenhan', 'Naegling', 'Tauret'}
     state.WeaponLock = M(false, 'Weapon Lock')
 
     -- Additional local binds
@@ -803,9 +803,9 @@ function init_gear_sets()
     sets.Obi = { waist="Hachirin-no-Obi" }
 
     sets.Carnwenhan = { main="Carnwenhan", sub="Blurred Knife +1" }
-    -- sets.Twashtar = { main="Twashtar", sub="Taming Sari" }
+    sets.Twashtar = { main="Twashtar", sub="Fusetto +2" }
     sets.Tauret = { main="Tauret", sub="Ternion Dagger +1" }
-    sets.Naegling = { main="Naegling", sub="Centovente" }
+    sets.Naegling = { main="Naegling", sub="Fusetto +2" }
 
     sets.DefaultShield = { sub="Genmei Shield" }
 

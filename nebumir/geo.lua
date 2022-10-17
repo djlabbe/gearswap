@@ -102,9 +102,6 @@ function user_setup()
     send_command('bind ^delete gs c cycle Element')
     send_command('bind !h input /ma "Haste" <stpc>')
 
-    select_default_macro_book()
-    set_lockstyle()
-
     set_macro_page(1, 20) -- page,set
     send_command('wait 2; input /lockstyleset 20')
 
@@ -152,7 +149,7 @@ function init_gear_sets()
         ear1="Malignance Earring", --4
         ear2="Etiolation Earring", --1
         ring1="Kishar Ring", --4
-        ring2="Weather. Ring", --6(4)
+        ring2="Weatherspoon Ring", --6(4)
         back="Fi Follet Cape +1", --10
         waist="Shinjutsu-no-Obi +1", --5
     }
