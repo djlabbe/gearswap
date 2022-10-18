@@ -130,7 +130,6 @@ function user_setup()
     gear.Empyrean_Legs = { name= "Arbatel Pants +1" }
     gear.Empyrean_Feet = { name= "Arbatel Loafers +1" }
 
-
     send_command('bind !s input /ja Sublimation <me>')
     send_command('bind !e input /ja Enlightenment <me>')
     send_command('bind !m input /ja "Modus Veritas" <t>')
@@ -249,10 +248,8 @@ function init_gear_sets()
         head=gear.Amalric_A_Head, --11
         body="Zendik Robe", --13
         hands=gear.Artifact_Hands, --9
-        -- legs="Volte Brais", --8
         legs=gear.Kaykaus_A_Legs, -- 7
         feet=gear.Relic_Feet, --8
-        -- neck="Orunmila's Torque", --5
         neck="Baetyl Pendant", --4
         ear1="Malignance Earring", --4
         ear2="Enchntr. Earring +1", --2
@@ -260,12 +257,12 @@ function init_gear_sets()
         ring2="Weather. Ring", --4/(3)
         back="Fi Follet Cape +1", --10
         waist="Embla Sash", --5
-    }
+    } --93
 
      sets.precast.FC.Grimoire = {
-        head=gear.Relic_Head, 
-        feet=gear.Artifact_Feet
-    }
+        head=gear.Relic_Head, --13 
+        feet=gear.Artifact_Feet --10
+    } -- 93 - 11 - 8 = 74 + (23) = 97.
 
     sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {
         waist="Siegel Sash"
@@ -520,6 +517,7 @@ function init_gear_sets()
     })
 
     sets.midcast.ElementalEnfeeble = sets.midcast.Enfeebles
+
     sets.midcast.Dispelga = set_combine(sets.midcast.IntEnfeebles, {
         main="Daybreak", 
         sub="Ammurapi Shield", 
