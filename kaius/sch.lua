@@ -124,7 +124,7 @@ function user_setup()
     gear.Relic_Body = { name= "Pedagogy Gown +3" }
     gear.Relic_Hands = { name= "Pedagogy Bracers +3" }
     gear.Relic_Legs = { name= "Pedagogy Pants +3" }
-    gear.Relic_Feet = { name= "Pedagogy Loafers +2" }
+    gear.Relic_Feet = { name= "Pedagogy Loafers +3" }
 
     gear.Empyrean = { }
     gear.Empyrean_Head = { name= "Arbatel Bonnet +2" }

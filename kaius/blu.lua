@@ -1139,7 +1139,7 @@ function init_gear_sets()
     sets.Almace = {main="Almace", sub="Sequence"}
     sets.Naegling = {main="Naegling", sub="Thibron"}
     sets.Maxentius = {main="Maxentius", sub="Thibron"}
-    sets.Nuking = {main="Maxentius", sub="Naegling"}
+    sets.Nuking = {main="Maxentius", sub="Bunzi's Rod"}
 
 end
 

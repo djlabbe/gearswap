@@ -35,6 +35,9 @@ function user_setup()
     
     state.EquipShield = M(true, 'Equip Shield w/Defense')
 
+    state.WeaponSet = M{['description']='Weapon Set', 'Sakpata', 'Naegling'}
+    state.WeaponLock = M(false, 'Weapon Lock')
+
     gear.Artifact_Head = { name="Reverence Coronet +1" }
     gear.Artifact_Body = { name="Reverence Surcoat +1" }
     gear.Artifact_Hands = { name="Reverence Gauntlets +1" }
@@ -53,8 +56,9 @@ function user_setup()
     gear.Empyrean_Legs = { name="Chevalier's Cuisses +1" }
     gear.Empyrean_Feet = { name="Chevalier's Sabatons +1" }
 
-    send_command('bind ^f11 gs c cycle MagicalDefenseMode')
     send_command('bind @f10 gs c toggle EquipShield')
+    send_command('bind @w gs c toggle WeaponLock')
+    send_command('bind @e gs c cycle WeaponSet')
 
     -- Additional local binds
     include('Global-Binds.lua') -- OK to remove this line
@@ -406,7 +410,6 @@ function init_gear_sets()
     --------------------------------------
     
     sets.engaged = {
-        sub="Srivasta",
         ammo="Staunch Tathlum +1", --3
         head=gear.Sakpata_Head, --7
         body=gear.Sakpata_Body, --10
@@ -430,6 +433,8 @@ function init_gear_sets()
     --------------------------------------
     -- Custom buff sets
     --------------------------------------
+    -- sets.buff.Cover = {head="Reverence Coronet +1", body="Caballarius Surcoat"}
+
     sets.buff.Doom = {
         neck="Nicander's Necklace", --20
         ring1=gear.Eshmun_1, --20
@@ -437,7 +442,9 @@ function init_gear_sets()
         waist="Gishdubar Sash", --10
     }
 
-    -- sets.buff.Cover = {head="Reverence Coronet +1", body="Caballarius Surcoat"}
+    sets.Sakpata = { main="Sakpata's Sword", sub="Srivatsa" }
+    sets.Naegling = { main="Naegling", sub="Srivatsa"}
+
 end
 
 
@@ -459,14 +466,27 @@ function job_midcast(spell, action, spellMap, eventArgs)
     end
 end
 
+function job_aftercast(spell, action, spellMap, eventArgs)
+    if player.status ~= 'Engaged' and state.WeaponLock.value == false then
+        check_weaponset()
+    end
+end
+
 -------------------------------------------------------------------------------------------------------------------
 -- Job-specific hooks for non-casting events.
 -------------------------------------------------------------------------------------------------------------------
 
 -- Called when the player's status changes.
 function job_state_change(field, new_value, old_value)
-    classes.CustomDefenseGroups:clear()
-    classes.CustomMeleeGroups:clear()
+
+    
+    if state.WeaponLock.value == true then
+        disable('main','sub')
+    else
+        enable('main','sub')
+    end
+
+    check_weaponset()
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -502,16 +522,16 @@ function customize_melee_set(meleeSet)
     if state.Buff.Doom then
         meleeSet = set_combine(meleeSet, sets.buff.Doom)
     end
+
+    check_weaponset()
     
     return meleeSet
 end
 
 function customize_defense_set(defenseSet)
-    
     if state.EquipShield.value == true then
         defenseSet = set_combine(defenseSet, sets[state.DefenseMode.current .. 'Shield'])
-    end
-    
+    end    
     
     if state.Buff.Doom then
         defenseSet = set_combine(defenseSet, sets.buff.Doom)
@@ -605,6 +625,10 @@ function check_gear()
     else
         enable("ring2")
     end
+end
+
+function check_weaponset()
+    equip(sets[state.WeaponSet.current])
 end
 
 windower.register_event('zone change',

@@ -79,7 +79,7 @@ function user_setup()
     state.WeaponskillMode:options('Normal', 'Acc', 'LowBuff')
     state.IdleMode:options('Normal', 'DT', 'Refresh')
 
-    state.WeaponSet = M{['description']='Weapon Set', 'Twashtar', 'Tauret', 'Gandring'}
+    state.WeaponSet = M{['description']='Weapon Set', 'Twashtar', 'TwashtarTP', 'Tauret', 'Gandring'}
     state.WeaponLock = M(false, 'Weapon Lock')
 
     -- Additional local binds
@@ -101,13 +101,17 @@ function user_setup()
     send_command('bind !numpad3 input /equip Main "Profane Staff"; input /ws "Sunburst" <t>;gs c set WeaponLock true;')
     send_command('bind !numpad0 input /equip Main "Ark Scythe"; input /ws "Shadow of Death" <t>;gs c set WeaponLock true;')
     
+
     if player.sub_job == 'WAR' then
         send_command('bind !t input /ja "Provoke" <t>')
-        set_macro_page(2, 6)
+        set_macro_page(1, 6)
     elseif player.sub_job == 'DNC' then
         send_command('bind !t input /ja "Animated Flourish" <t>')
-        set_macro_page(1, 6)
+        set_macro_page(2, 6)
     end
+
+    send_command('bind !h input /ja "Hide" <me>')
+    send_command('bind !m input /ja "Mug" <me>')
 
     
     send_command('wait 2; input /lockstyleset 6')
@@ -466,7 +470,7 @@ function init_gear_sets()
     -- No Magic Haste (74% DW to cap)
     sets.engaged.DW = {
         ammo="Aurgelmir Orb +1",
-        head=gear.Adhemar_A_Head,
+        head="Skulker's Bonnet +2",
         body=gear.Adhemar_B_Body, -- 6
         hands=gear.Adhemar_A_Hands,
         -- legs="Samnuha Tights",
@@ -514,7 +518,7 @@ function init_gear_sets()
     -- 15% Magic Haste (67% DW to cap)
     sets.engaged.DW.LowHaste = {
         ammo="Aurgelmir Orb +1",
-        head=gear.Adhemar_A_Head,
+        head="Skulker's Bonnet +2",
         body=gear.Adhemar_B_Body, -- 6
         hands=gear.Adhemar_A_Hands,
         -- legs="Samnuha Tights",
@@ -561,7 +565,7 @@ function init_gear_sets()
     -- 30% Magic Haste (56% DW to cap)
     sets.engaged.DW.MidHaste = {
         ammo="Aurgelmir Orb +1",
-        head=gear.Adhemar_A_Head,
+        head="Skulker's Bonnet +2",
         body="Pillager's Vest +3",
         hands=gear.Adhemar_A_Hands,
         -- legs="Samnuha Tights",
@@ -610,7 +614,7 @@ function init_gear_sets()
     -- 35% Magic Haste (51% DW to cap)
     sets.engaged.DW.HighHaste = {
         ammo="Aurgelmir Orb +1",
-        head=gear.Adhemar_A_Head,
+        head="Skulker's Bonnet +2",
         body="Pillager's Vest +3",
         hands=gear.Adhemar_A_Hands,
          -- legs="Samnuha Tights",
@@ -660,10 +664,10 @@ function init_gear_sets()
     sets.engaged.DW.MaxHaste = {
         ammo="Aurgelmir Orb +1",
         -- head="Plun. Bonnet +3",
-        head=gear.Adhemar_A_Head,
+        head="Skulker's Bonnet +2",
         -- body="Pillager's Vest +3",
         body=gear.Gleti_Body,
-        hands=gear.Gleti_Hands,
+        hands=gear.Adhemar_A_Hands,
         -- legs="Samnuha Tights",
         legs=gear.Herc_TA_Legs,
         feet="Plun. Poulaines +3",
@@ -772,6 +776,7 @@ function init_gear_sets()
     }
 
     sets.Twashtar = {main="Twashtar", sub="Gleti's Knife"}
+    sets.TwashtarTP = {main="Twashtar", sub="Fusetto +2"}
     sets.Tauret = {main="Tauret", sub="Gleti's Knife"}
     sets.Gandring = {main="Gandring", sub="Gleti's Knife"}
 
