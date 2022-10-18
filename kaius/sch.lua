@@ -17,7 +17,7 @@
 --              [ WIN+R ]           Cycle Regen Mode
 --              [ WIN+S ]           Toggle Storm Surge
 --
---  Abilities:  [ CTRL+` ]          Immanence
+--  Abilities:  
 --              [ CTRL+- ]          Light Arts/Addendum: White
 --              [ CTRL+= ]          Dark Arts/Addendum: Black
 --              [ CTRL+[ ]          Rapture/Ebullience
@@ -80,8 +80,11 @@ function job_setup()
     state.Weather = M{['description']='Weather',
     "Aurorastorm II", "Thunderstorm II", "Hailstorm II", 'Firestorm II', 'Windstorm II',
     "Rainstorm II", "Sandstorm II", "Voidstorm II"}
-    state.BarEle = M{['description']='BarEle',
-    "Barfire", "Barblizzard", "Baraero", 'Barstone', 'Barthunder', "Barwater"}
+
+    state.BarElement = M{['description']='BarElement', 'Barfire', 'Barblizzard', 'Baraero', 'Barstone', 'Barthunder', 'Barwater'}
+    state.BarStatus = M{['description']='BarStatus', 'Baramnesia', 'Barvirus', 'Barparalyze', 'Barsilence', 'Barpetrify', 'Barpoison', 'Barblind', 'Barsleep'}
+
+
 
     update_active_strategems()
 
@@ -110,7 +113,7 @@ function user_setup()
     include('Global-Binds.lua') -- OK to remove this line
 
     gear.Artifact = { }
-    gear.Artifact_Head = { name= "Academic's Mortarboard +1" }
+    gear.Artifact_Head = { name= "Academic's Mortarboard +2" }
     gear.Artifact_Body = { name= "Academic's Gown +1" }
     gear.Artifact_Hands = { name= "Academic's Bracers +1" }
     gear.Artifact_Legs = { name= "Academic's Pants +1" }
@@ -118,17 +121,17 @@ function user_setup()
 
     gear.Relic = { }
     gear.Relic_Head = { name= "Pedagogy Mortarboard +3" }
-    gear.Relic_Body = { name= "Pedagogy Gown +1" }
+    gear.Relic_Body = { name= "Pedagogy Gown +3" }
     gear.Relic_Hands = { name= "Pedagogy Bracers +3" }
     gear.Relic_Legs = { name= "Pedagogy Pants +3" }
-    gear.Relic_Feet = { name= "Pedagogy Loafers +1" }
+    gear.Relic_Feet = { name= "Pedagogy Loafers +3" }
 
     gear.Empyrean = { }
-    gear.Empyrean_Head = { name= "Arbatel Bonnet +1" }
+    gear.Empyrean_Head = { name= "Arbatel Bonnet +2" }
     gear.Empyrean_Body = { name= "Arbatel Gown +1" }
-    gear.Empyrean_Hands = { name= "Arbatel Bracers +1" }
+    gear.Empyrean_Hands = { name= "Arbatel Bracers +2" }
     gear.Empyrean_Legs = { name= "Arbatel Pants +1" }
-    gear.Empyrean_Feet = { name= "Arbatel Loafers +1" }
+    gear.Empyrean_Feet = { name= "Arbatel Loafers +2" }
 
     send_command('bind !s input /ja Sublimation <me>')
     send_command('bind !e input /ja Enlightenment <me>')
@@ -141,8 +144,6 @@ function user_setup()
     send_command('bind !f input /ma "Flurry" <stpc>')
     send_command('bind !g input /ma "Gravity" <t>')
     send_command('bind !b input /ma "Bind" <t>')
-
-    send_command('bind !` input /ja Immanence <me>')
     
     send_command('bind !- gs c scholar light')
     send_command('bind != gs c scholar dark')
@@ -164,8 +165,11 @@ function user_setup()
 
     send_command('bind !insert gs c cycleback Weather')
     send_command('bind !delete gs c cycle Weather')
-    send_command('bind !insert gs c cycleback BarEle')
-    send_command('bind !delete gs c cycle BarEle')
+    send_command('bind !home gs c cycleback BarElement')
+    send_command('bind !end gs c cycle BarElement')
+    send_command('bind !pageup gs c cycleback BarStatus')
+    send_command('bind !pagedown gs c cycle BarStatus')
+
 
     include('Global-Binds.lua')
 
@@ -248,7 +252,8 @@ function init_gear_sets()
         head=gear.Amalric_A_Head, --11
         body="Zendik Robe", --13
         hands=gear.Artifact_Hands, --9
-        legs=gear.Kaykaus_A_Legs, -- 7
+        -- legs="Volte Brais", --8
+        legs=gear.Agwu_Legs, -- 7
         feet=gear.Relic_Feet, --8
         neck="Baetyl Pendant", --4
         ear1="Malignance Earring", --4
@@ -296,7 +301,7 @@ function init_gear_sets()
 
     sets.precast.WS = {
         --ammo="Floestone",
-        head="Jhakri Coronal +2",
+        head=gear.Nyame_Head,
         body="Jhakri Robe +2",
         hands="Jhakri Cuffs +2",
         legs=gear.Telchine_ENH_Legs,
@@ -306,7 +311,7 @@ function init_gear_sets()
         ear2="Telos Earring",
         ring1="Epaminondas's Ring",
         ring2="Rufescent Ring",
-        back="Relucent Cape",
+        -- back="Relucent Cape",
         waist="Fotia Belt",
     }
 
@@ -373,7 +378,7 @@ function init_gear_sets()
     })
 
     sets.midcast.Curaga = set_combine(sets.midcast.Cure, {
-        neck="Nuna Gorget +1",
+        neck="Argute Stole +2",
         ring1=gear.Stikini_1,
         ring2="Metamor. Ring +1",
         waist="Luminary Sash",
@@ -395,17 +400,22 @@ function init_gear_sets()
         waist="Bishop's Sash",
     }
 
-    sets.midcast.Cursna = set_combine(sets.midcast.StatusRemoval, {
+    sets.midcast.Cursna = {
         main=gear.Gada_ENH,
         sub="Ammurapi Shield",
+        head="Vanya Hood",
         -- hands="Hieros Mittens",
-        feet="Vanya Clogs",
         --feet="Gende. Galosh. +1",
         neck="Debilis Medallion",
         ear1="Beatific Earring",
+        ear2="Meili Earring",
+        body=gear.Relic_Body,
+        ring1="Haoma's Ring",
         ring2="Menelaus's Ring",
         back="Oretan. Cape +1",
-    })
+        legs=gear.Artifact_Legs,
+        feet="Vanya Clogs",
+    }
 
     sets.midcast['Enhancing Magic'] = {
         main=gear.Gada_ENH,
@@ -686,7 +696,7 @@ function init_gear_sets()
         sub="Genmei Shield", --10/0
         ammo="Staunch Tathlum +1", --3/3
         head="Volte Beret",
-         body="Shamash Robe", --10/0
+        body="Shamash Robe", --10/0
         -- hands="Gende. Gages +1", --4/4
         -- feet="Volte Gaiters",
         neck="Loricate Torque +1", --6/6
@@ -703,7 +713,7 @@ function init_gear_sets()
         -- sub="Enki Strap",
         ammo="Ghastly Tathlum +1",
         head=gear.Relic_Head,
-        body=gear.Artifact_Body,
+        body="Shamash Robe",
         hands="Regal Cuffs",
         legs=gear.Relic_Pants,
         feet=gear.Relic_Feet,
@@ -716,6 +726,7 @@ function init_gear_sets()
 
     sets.resting = set_combine(sets.idle, {
         main="Chatoyant Staff",
+        sub="Mensch Strap",
         waist="Shinjutsu-no-Obi +1",
     })
 
@@ -1047,7 +1058,12 @@ function job_self_command(cmdParams, eventArgs)
     elseif cmdParams[1]:lower() == 'nuke' then
         handle_nuking(cmdParams)
         eventArgs.handled = true
+    elseif cmdParams[1]:lower() == 'barelement' then
+        send_command('@input /ma '..state.BarElement.value..' <me>')
+    elseif cmdParams[1]:lower() == 'barstatus' then
+        send_command('@input /ma '..state.BarStatus.value..' <me>')
     end
+
 end
 
 -------------------------------------------------------------------------------------------------------------------

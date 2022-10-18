@@ -125,9 +125,9 @@ function user_setup()
 
     gear.Empyrean_Head = { name="Amini Gapette +1" }
     gear.Empyrean_Body = { name="Amini Caban +1" }
-    gear.Empyrean_Legs = { name="Amini Brague +1" }
-    gear.Empyrean_Hands = { name="Amini Glovelettes +1" }
-    gear.Empyrean_Feet = { name="Amini Bottillons +1" }
+    -- gear.Empyrean_Legs = { name="Amini Brague +1" }
+    -- gear.Empyrean_Hands = { name="Amini Glovelettes +1" }
+    gear.Empyrean_Feet = { name="Amini Bottillons +2" }
 
     send_command('bind @w gs c toggle WeaponLock')
     send_command('bind @e gs c cycleback WeaponSet')
@@ -172,7 +172,7 @@ function init_gear_sets()
 
     -- Precast sets to enhance JAs
     sets.precast.JA['Eagle Eye Shot'] = { legs=gear.Relic_Legs }
-    sets.precast.JA['Bounty Shot'] = { hands=gear.Empyrean_Hands }
+    -- sets.precast.JA['Bounty Shot'] = { hands=gear.Empyrean_Hands }
     sets.precast.JA['Camouflage'] = { body=gear.Artifact_Body }
     sets.precast.JA['Scavenge'] = { feet=gear.Artifact_Feet }
     sets.precast.JA['Shadowbind'] = { hands=gear.Artifact_Feet }
@@ -194,7 +194,7 @@ function init_gear_sets()
         hands="Leyline Gloves", --8
         legs="Rawhide Trousers", --5
         feet=gear.Carmine_B_Feet, --8
-        neck="Orunmila's Torque", --5
+        neck="Baetyl Pendant", --4
         ear1="Loquacious Earring", --2
         ear2="Enchntr. Earring +1", --2
         ring1="Weather. Ring", --6(4)
@@ -249,17 +249,17 @@ function init_gear_sets()
     ------------------------------------------------------------------------------------------------
 
     sets.precast.WS = {
-        head=gear.Artifact_Head,
+        head=gear.Artifact_Head, --10
         body=gear.Ikenga_Body, -- TODO: Herc RA?
-        hands="Meg. Gloves +2",
-        legs=gear.Relic_Legs,
-        feet=gear.Herc_WSD_Feet,
+        hands="Meg. Gloves +2", --7
+        legs=gear.Relic_Legs, --10
+        feet=gear.Empyrean_Feet, --8
         neck="Fotia Gorget",
-        ear1="Ishvara Earring",
+        ear1="Sherida Earring",
         ear2="Moonshade Earring",
         ring1="Regal Ring",
-        ring2="Epaminondas's Ring",
-        back=gear.RNG_WS2_Cape,
+        ring2="Epaminondas's Ring", --5
+        back=gear.RNG_WS2_Cape, --10
         waist="Fotia Belt",
     }
 
@@ -274,6 +274,27 @@ function init_gear_sets()
         feet=gear.Relic_Feet,
         ear1="Beyla Earring",
     })
+
+    sets.precast.WS["Last Stand"] = set_combine(sets.precast.WS, {
+        neck="Scout's Gorget +2",
+    })
+
+    sets.precast.WS['Last Stand'].Acc = set_combine(sets.precast.WS['Last Stand'], {
+        ammo=gear.ACCbullet,
+        feet=gear.Artifact_Feet,
+        ear1="Beyla Earring",
+        ear2="Telos Earring",
+        ring2="Hajduk Ring +1",
+        waist="K. Kachina Belt +1",
+    })
+
+    sets.precast.WS['Last Stand'].Enmity = set_combine(sets.precast.WS['Last Stand'], {
+        hands=gear.Relic_Hands,
+        feet=gear.Relic_Feet,
+        ear1="Beyla Earring",
+    })
+
+
 
     sets.precast.WS['Apex Arrow'] = sets.precast.WS
 
@@ -317,24 +338,7 @@ function init_gear_sets()
         ear1="Beyla Earring",
     })
 
-    sets.precast.WS["Last Stand"] = set_combine(sets.precast.WS, {
-        neck="Scout's Gorget +2",
-    })
-
-    sets.precast.WS['Last Stand'].Acc = set_combine(sets.precast.WS['Last Stand'], {
-        ammo=gear.ACCbullet,
-        feet=gear.Artifact_Feet,
-        ear1="Beyla Earring",
-        ear2="Telos Earring",
-        ring2="Hajduk Ring +1",
-        waist="K. Kachina Belt +1",
-    })
-
-    sets.precast.WS['Last Stand'].Enmity = set_combine(sets.precast.WS['Last Stand'], {
-        hands=gear.Relic_Hands,
-        feet=gear.Relic_Feet,
-        ear1="Beyla Earring",
-    })
+   
 
     sets.precast.WS["Coronach"] = set_combine(sets.precast.WS['Last Stand'], {
         neck="Scout's Gorget +2",
@@ -858,7 +862,7 @@ function init_gear_sets()
     ---------------------------------------- Special Sets ------------------------------------------
     ------------------------------------------------------------------------------------------------
 
-    sets.buff.Barrage = {hands=gear.Artifact_Feet}
+    sets.buff.Barrage = {hands=gear.Artifact_Hands}
     sets.buff['Velocity Shot'] = set_combine(sets.midcast.RA, {
         body=gear.Empyrean_Body, 
         back=gear.RNG_TP_Cape

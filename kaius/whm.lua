@@ -350,7 +350,7 @@ function init_gear_sets()
     sets.midcast.Cursna = set_combine(sets.midcast.StatusRemoval, {
         main="Yagrush",
         sub="Chanter's Shield",
-        body="Ebers Bliaud +1",
+        body="Ebers Bliaut +1",
         hands="Fanatic Gloves", --15
         legs="Th. Pant. +3", --21
         feet="Vanya Clogs", --5
@@ -442,7 +442,7 @@ function init_gear_sets()
         main="Beneficus",
         sub="Ammurapi Shield",
         head="Ebers Cap +1",
-        body="Ebers Bliaud +1",
+        body="Ebers Bliaut +1",
         hands="Ebers Mitts +1",
         legs="Piety Pantaln. +3",
         feet="Ebers Duckbills +1",

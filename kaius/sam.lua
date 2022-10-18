@@ -479,6 +479,9 @@ end
 -- Modify the default melee set after it was constructed.
 function customize_melee_set(meleeSet)
     check_weaponset()
+    if state.Buff.Doom then
+        meleeSet = set_combine(meleeSet, sets.buff.Doom)
+    end
     return meleeSet
 end
 
@@ -551,17 +554,6 @@ function check_moving()
     end
 end
 
-function check_weaponset()
-    equip(sets[state.WeaponSet.current])
-
-    -- if state.WeaponSet.current == "Masamune" then
-    --     send_command('@input /macro set 1')
-    -- elseif state.WeaponSet.current == "ShiningOne" then
-    --     send_command('@input /macro set 2')
-    -- end
-end
-
-
 
 function check_gear()
     if no_swap_gear:contains(player.equipment.left_ring) then
@@ -578,6 +570,11 @@ end
 
 function check_weaponset()
     equip(sets[state.WeaponSet.current])
+    -- if state.WeaponSet.current == "Masamune" then
+    --     send_command('@input /macro set 1')
+    -- elseif state.WeaponSet.current == "ShiningOne" then
+    --     send_command('@input /macro set 2')
+    -- end
 end
 
 windower.register_event('zone change',

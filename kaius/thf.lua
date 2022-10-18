@@ -79,7 +79,7 @@ function user_setup()
     state.WeaponskillMode:options('Normal', 'Acc', 'LowBuff')
     state.IdleMode:options('Normal', 'DT', 'Refresh')
 
-    state.WeaponSet = M{['description']='Weapon Set', 'Tauret', 'Gandring'}
+    state.WeaponSet = M{['description']='Weapon Set', 'Twashtar', 'TwashtarTP', 'Tauret', 'Gandring'}
     state.WeaponLock = M(false, 'Weapon Lock')
 
     -- Additional local binds
@@ -101,13 +101,19 @@ function user_setup()
     send_command('bind !numpad3 input /equip Main "Profane Staff"; input /ws "Sunburst" <t>;gs c set WeaponLock true;')
     send_command('bind !numpad0 input /equip Main "Ark Scythe"; input /ws "Shadow of Death" <t>;gs c set WeaponLock true;')
     
+
     if player.sub_job == 'WAR' then
         send_command('bind !t input /ja "Provoke" <t>')
+        set_macro_page(1, 6)
     elseif player.sub_job == 'DNC' then
         send_command('bind !t input /ja "Animated Flourish" <t>')
+        set_macro_page(2, 6)
     end
 
-    set_macro_page(1, 6)
+    send_command('bind !h input /ja "Hide" <me>')
+    send_command('bind !m input /ja "Mug" <me>')
+
+    
     send_command('wait 2; input /lockstyleset 6')
     
     state.Auto_Kite = M(false, 'Auto_Kite')
@@ -223,7 +229,7 @@ function init_gear_sets()
         ear2="Moonshade Earring",
         ring1="Regal Ring",
         ring2="Epaminondas's Ring",
-        back=gear.THF_TP_Cape,
+        back=gear.THF_WS_Cape,
         waist="Fotia Belt",
     } -- default set
 
@@ -237,6 +243,28 @@ function init_gear_sets()
         head=gear.Adhemar_B_Head,
         body="Meg. Cuirie +2",
     }
+
+    sets.precast.WS['Rudra\'s Storm'] ={
+        ammo="Seething Bomblet +1",
+        neck="Asn. Gorget +2",
+        head=gear.Gleti_Head,
+        body=gear.Gleti_Body,
+        hands="Meg. Gloves +2",
+        legs=gear.Gleti_Legs,
+        feet="Plun. Poulaines +3",
+        ear1="Sherida Earring",
+        ear2="Moonshade Earring",
+        ring1="Regal Ring",
+        ring2="Ilabrat Ring",
+        waist="Kentarch Belt +1",
+        back=gear.THF_WS_Cape,
+    }
+
+    sets.precast.WS['Rudra\'s Storm'].Acc = set_combine(sets.precast.WS['Rudra\'s Storm'], {
+        ammo="Voluspa Tathlum",
+        ear2="Telos Earring",
+        waist="Grunfeld Rope",
+    })
 
     sets.precast.WS['Exenterator'] = set_combine(sets.precast.WS, {
         head=gear.Adhemar_B_Head,
@@ -264,7 +292,7 @@ function init_gear_sets()
         ear2="Mache Earring +1",
         ring1="Begrudging Ring",
         ring2="Mummu Ring",
-        back=gear.THF_TP_Cape,
+        back=gear.THF_WS_Cape,
     })
 
     sets.precast.WS['Evisceration'].Acc = set_combine(sets.precast.WS['Evisceration'], {
@@ -273,18 +301,7 @@ function init_gear_sets()
         ring1="Regal Ring",
     })
 
-    sets.precast.WS['Rudra\'s Storm'] = set_combine(sets.precast.WS, {
-        ammo="Aurgelmir Orb +1",
-        neck="Asn. Gorget +2",
-        ear1="Sherida Earring",
-        waist="Kentarch Belt +1",
-    })
-
-    sets.precast.WS['Rudra\'s Storm'].Acc = set_combine(sets.precast.WS['Rudra\'s Storm'], {
-        ammo="Voluspa Tathlum",
-        ear2="Telos Earring",
-        waist="Grunfeld Rope",
-    })
+   
 
     sets.precast.WS['Mandalic Stab'] = sets.precast.WS["Rudra's Storm"]
     sets.precast.WS['Mandalic Stab'].Acc = sets.precast.WS["Rudra's Storm"].Acc
@@ -453,8 +470,7 @@ function init_gear_sets()
     -- No Magic Haste (74% DW to cap)
     sets.engaged.DW = {
         ammo="Aurgelmir Orb +1",
-        ammo="Yamarang",
-        head="Plun. Bonnet +3",
+        head="Skulker's Bonnet +2",
         body=gear.Adhemar_B_Body, -- 6
         hands=gear.Adhemar_A_Hands,
         -- legs="Samnuha Tights",
@@ -502,8 +518,7 @@ function init_gear_sets()
     -- 15% Magic Haste (67% DW to cap)
     sets.engaged.DW.LowHaste = {
         ammo="Aurgelmir Orb +1",
-        ammo="Yamarang",
-        head="Plun. Bonnet +3",
+        head="Skulker's Bonnet +2",
         body=gear.Adhemar_B_Body, -- 6
         hands=gear.Adhemar_A_Hands,
         -- legs="Samnuha Tights",
@@ -550,14 +565,12 @@ function init_gear_sets()
     -- 30% Magic Haste (56% DW to cap)
     sets.engaged.DW.MidHaste = {
         ammo="Aurgelmir Orb +1",
-        ammo="Yamarang",
-        head="Plun. Bonnet +3",
+        head="Skulker's Bonnet +2",
         body="Pillager's Vest +3",
         hands=gear.Adhemar_A_Hands,
         -- legs="Samnuha Tights",
         legs=gear.Herc_TA_Legs,
-        -- feet="Plun. Poulaines +3",
-        feet=gear.Herc_TA_Feet,
+        feet="Plun. Poulaines +3",
         neck="Asn. Gorget +2",
         ear1="Eabani Earring", --4
         ear2="Suppanomimi", --5
@@ -601,14 +614,12 @@ function init_gear_sets()
     -- 35% Magic Haste (51% DW to cap)
     sets.engaged.DW.HighHaste = {
         ammo="Aurgelmir Orb +1",
-        ammo="Yamarang",
-        head="Plun. Bonnet +3",
+        head="Skulker's Bonnet +2",
         body="Pillager's Vest +3",
         hands=gear.Adhemar_A_Hands,
          -- legs="Samnuha Tights",
         legs=gear.Herc_TA_Legs,
-        -- feet="Plun. Poulaines +3",
-        feet=gear.Herc_TA_Feet,
+        feet="Plun. Poulaines +3",
         neck="Asn. Gorget +2",
         ear1="Sherida Earring",
         ear2="Suppanomimi", --5
@@ -653,19 +664,18 @@ function init_gear_sets()
     sets.engaged.DW.MaxHaste = {
         ammo="Aurgelmir Orb +1",
         -- head="Plun. Bonnet +3",
-        head=gear.Gleti_Head,
+        head="Skulker's Bonnet +2",
         -- body="Pillager's Vest +3",
         body=gear.Gleti_Body,
         hands=gear.Adhemar_A_Hands,
         -- legs="Samnuha Tights",
         legs=gear.Herc_TA_Legs,
-        -- feet="Plun. Poulaines +3",
-        feet=gear.Herc_TA_Feet,
+        feet="Plun. Poulaines +3",
         neck="Asn. Gorget +2",
         ear1="Sherida Earring",
         ear2="Suppanomimi", --5
         ring1="Gere Ring",
-        ring2="Epona's Ring",
+        ring2="Hetairoi Ring",
         back=gear.THF_TP_Cape,
         waist="Windbuffet Belt +1",
     } -- 5%
@@ -765,6 +775,8 @@ function init_gear_sets()
         waist="Gishdubar Sash", --10
     }
 
+    sets.Twashtar = {main="Twashtar", sub="Gleti's Knife"}
+    sets.TwashtarTP = {main="Twashtar", sub="Fusetto +2"}
     sets.Tauret = {main="Tauret", sub="Gleti's Knife"}
     sets.Gandring = {main="Gandring", sub="Gleti's Knife"}
 
