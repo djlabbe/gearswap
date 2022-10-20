@@ -76,8 +76,8 @@ function user_setup()
     state.OffenseMode:options('Normal', 'LowAcc', 'MidAcc', 'HighAcc', 'STP')
     state.HybridMode:options('Normal', 'DT')
     state.RangedMode:options('Normal', 'Acc')
-    state.WeaponskillMode:options('Normal', 'Acc', 'LowBuff')
-    state.IdleMode:options('Normal', 'DT', 'Refresh')
+    state.WeaponskillMode:options('Normal', 'Acc')
+    state.IdleMode:options('Normal', 'DT')
 
     state.WeaponSet = M{['description']='Weapon Set', 'Twashtar', 'TwashtarTP', 'Tauret', 'Gandring'}
     state.WeaponLock = M(false, 'Weapon Lock')
@@ -112,7 +112,6 @@ function user_setup()
 
     send_command('bind !h input /ja "Hide" <me>')
     send_command('bind !m input /ja "Mug" <me>')
-
     
     send_command('wait 2; input /lockstyleset 6')
     
@@ -240,14 +239,14 @@ function init_gear_sets()
 
     sets.precast.WS.Critical = {
         ammo="Yetshila +1",
-        head=gear.Adhemar_B_Head,
-        body="Meg. Cuirie +2",
+        ear1="Odr Earring",
+        feet=gear.Lustratio_D_Feet,
     }
 
     sets.precast.WS['Rudra\'s Storm'] ={
         ammo="Seething Bomblet +1",
         neck="Asn. Gorget +2",
-        head=gear.Gleti_Head,
+        head="Skulker's Bonnet +2",
         body=gear.Gleti_Body,
         hands="Meg. Gloves +2",
         legs=gear.Gleti_Legs,
@@ -263,8 +262,31 @@ function init_gear_sets()
     sets.precast.WS['Rudra\'s Storm'].Acc = set_combine(sets.precast.WS['Rudra\'s Storm'], {
         ammo="Voluspa Tathlum",
         ear2="Telos Earring",
-        waist="Grunfeld Rope",
     })
+
+     sets.precast.WS['Rudra\'s Storm'].SA = set_combine(sets.precast.WS['Rudra\'s Storm'],{
+        ammo="Yetshila +1",
+        ear1="Odr Earring",
+        feet=gear.Lustratio_D_Feet,
+    })
+
+    sets.precast.WS['Rudra\'s Storm'].Acc.SA = sets.precast.WS['Rudra\'s Storm'].SA
+
+    sets.precast.WS['Rudra\'s Storm'].TA = set_combine(sets.precast.WS['Rudra\'s Storm'],{
+        ammo="Yetshila +1",
+        ear1="Odr Earring",
+        feet=gear.Lustratio_D_Feet,
+    })
+
+    sets.precast.WS['Rudra\'s Storm'].Acc.TA = sets.precast.WS['Rudra\'s Storm'].TA
+
+    sets.precast.WS['Rudra\'s Storm'].SATA = set_combine(sets.precast.WS['Rudra\'s Storm'],{
+        ammo="Yetshila +1",
+        ear1="Odr Earring",
+        feet=gear.Lustratio_D_Feet,
+    })
+
+    sets.precast.WS['Rudra\'s Storm'].Acc.SATA = sets.precast.WS['Rudra\'s Storm'].SATA
 
     sets.precast.WS['Exenterator'] = set_combine(sets.precast.WS, {
         head=gear.Adhemar_B_Head,
@@ -286,8 +308,7 @@ function init_gear_sets()
         body=gear.Gleti_Body,
         hands="Mummu Wrists +2",
         legs="Zoar Subligar +1",
-        feet=gear.Gleti_Feet,
-        gear.Lustratio_D_Feet,
+        feet=gear.Lustratio_D_Feet,
         ear1="Sherida Earring",
         ear2="Mache Earring +1",
         ring1="Begrudging Ring",
@@ -358,10 +379,10 @@ function init_gear_sets()
     sets.idle = {
         ammo="Staunch Tathlum +1",
         head=gear.Malignance_Head, --6/6
-        body="Malignance Tabard", --9/9
-        hands="Malignance Gloves", --5/5
-        legs="Malignance Tights", --7/7
-        feet="Malignance Boots", --4/4
+        body=gear.Malignance_Body, --9/9
+        hands=gear.Malignance_Hands, --5/5
+        legs=gear.Malignance_Legs, --7/7
+        feet=gear.Malignance_Feet, --4/4
         neck="Bathy Choker +1",
         ear1="Eabani Earring",
         ear2="Etiolation Earring",
@@ -374,10 +395,10 @@ function init_gear_sets()
     sets.idle.DT = set_combine(sets.idle, {
         ammo="Staunch Tathlum +1", --3/3
         head=gear.Malignance_Head, --6/6
-        body="Malignance Tabard", --9/9
-        hands="Malignance Gloves", --5/5
-        legs="Malignance Tights", --7/7
-        feet="Malignance Boots", --4/4
+        body=gear.Malignance_Body, --9/9
+        hands=gear.Malignance_Hands, --5/5
+        legs=gear.Malignance_Legs, --7/7
+        feet=gear.Malignance_Feet, --4/4
         neck="Warder's Charm +1",
         ear1="Eabani Earring",
         ear2="Etiolation Earring",
@@ -909,9 +930,19 @@ end
 
 function get_custom_wsmode(spell, action, spellMap)
     local wsmode
+
     if state.OffenseMode.value == 'MidAcc' or state.OffenseMode.value == 'HighAcc' then
         wsmode = 'Acc'
     end
+
+    if state.Buff['Sneak Attack'] then
+        wsmode = (wsmode or '') .. 'SA'
+    end
+
+    if state.Buff['Trick Attack'] then
+        wsmode = (wsmode or '') .. 'TA'
+    end
+
     return wsmode
 end
 
