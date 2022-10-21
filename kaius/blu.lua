@@ -178,7 +178,8 @@ function user_setup()
     state.PhysicalDefenseMode:options('PDT', 'MDT')
     state.IdleMode:options('Normal', 'DT')
 
-    state.WeaponSet = M{['description']='Weapon Set', 'Almace', 'Naegling', 'Maxentius', 'Nuking'}
+    -- state.WeaponSet = M{['description']='Weapon Set', 'Almace', 'Naegling', 'Maxentius', 'Nuking'}
+    state.WeaponSet = M{['description']='Weapon Set', 'Naegling', 'Maxentius', 'Nuking'}
     state.WeaponLock = M(false, 'Weapon Lock')
     state.MagicBurst = M(false, 'Magic Burst')
 
@@ -1136,9 +1137,9 @@ function init_gear_sets()
     sets.midcast.Diaga = sets.TreasureHunter
     sets.midcast.Bio = sets.TreasureHunter
 
-    sets.Almace = {main="Almace", sub="Sequence"}
-    sets.Naegling = {main="Naegling", sub="Thibron"}
-    sets.Maxentius = {main="Maxentius", sub="Thibron"}
+    -- sets.Almace = {main="Almace", sub="Sequence"}
+    sets.Naegling = {main="Naegling", sub="Zantetsuken"}
+    sets.Maxentius = {main="Maxentius", sub="Zantetsuken"}
     sets.Nuking = {main="Maxentius", sub="Bunzi's Rod"}
 
 end
