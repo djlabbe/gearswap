@@ -159,7 +159,6 @@ function user_unload()
     send_command('unbind @w')
     send_command('unbind @e')
     send_command('unbind @r')
-    enable('main','sub','range')
 end
 
 
@@ -880,7 +879,6 @@ function init_gear_sets()
     }
 
     sets.FullTP = { ear1="Crematio Earring" }
-    sets.Obi = { waist="Hachirin-no-Obi "}
 
     sets.Annihilator = {main="Perun +1", sub="Blurred Knife +1", ranged="Annihilator"}
     sets.Fomalhaut = {main="Perun +1", sub="Blurred Knife +1", ranged="Fomalhaut"}

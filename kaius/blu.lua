@@ -205,15 +205,13 @@ function user_setup()
     
     
     if player.sub_job == 'RDM' then
-        set_macro_page(2, 5)
+        set_macro_page(2, 16)
     elseif player.sub_job == 'WAR' then
-        set_macro_page(1, 5)
+        set_macro_page(1, 16)
     else
-        set_macro_page(1, 5)
+        set_macro_page(1, 16)
     end
     
-    set_macro_page(1, 16)
-
 
     send_command('wait 2; input /lockstyleset 16')
 
