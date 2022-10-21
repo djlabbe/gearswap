@@ -90,10 +90,10 @@ function user_setup()
     gear.Relic_Legs = { name="Plunderer's Culottes +3" }
     gear.Relic_Feet = { name="Plunderer's Poulaines +3" }
 
-    gear.Empyrean_Head = { name="Skulker's Bonnet +1" }
+    gear.Empyrean_Head = { name="Skulker's Bonnet +2" }
     gear.Empyrean_Body = { name="Skulker's Vest +2" }
     gear.Empyrean_Hands = { name="Skulker's Armlets +1" }
-    gear.Empyrean_Legs = { name="Skulker's Culottes +2" }
+    gear.Empyrean_Legs = { name="Skulker's Culottes +1" }
     gear.Empyrean_Feet = { name="Skulker's Poulaines +1" }
 
     -- Additional local binds
@@ -477,7 +477,7 @@ function init_gear_sets()
     sets.engaged.MidAcc = set_combine(sets.engaged.LowAcc, {
         ammo="Yamarang",
         head="Dampening Tam",
-        body="Pillager's Vest +3",
+        body=gear.Artifact_Body,
         ear1="Cessance Earring",
         ring2="Ilabrat Ring",
         waist="Kentarch Belt +1",
@@ -521,7 +521,7 @@ function init_gear_sets()
     sets.engaged.DW.MidAcc = set_combine(sets.engaged.DW.LowAcc, {
         ammo="Yamarang",
         -- head="Dampening Tam",
-        body="Pillager's Vest +3",
+        body=gear.Artifact_Body,
         ring2="Ilabrat Ring",
         waist="Kentarch Belt +1",
     })
@@ -562,7 +562,7 @@ function init_gear_sets()
     sets.engaged.DW.MidAcc.LowHaste = set_combine(sets.engaged.DW.LowAcc.LowHaste, {
         ammo="Yamarang",
         -- head="Dampening Tam",
-        body="Pillager's Vest +3",
+        body=gear.Artifact_Body,
         ring2="Ilabrat Ring",
         waist="Kentarch Belt +1",
     })
@@ -581,7 +581,7 @@ function init_gear_sets()
     sets.engaged.DW.MidHaste = {
         ammo="Aurgelmir Orb +1",
          head=gear.Empyrean_Head,
-        body="Pillager's Vest +3",
+        body=gear.Artifact_Body,
         hands=gear.Adhemar_A_Hands,
         -- legs="Samnuha Tights",
         legs=gear.Herc_TA_Legs,
@@ -621,7 +621,7 @@ function init_gear_sets()
     sets.engaged.DW.HighHaste = {
         ammo="Aurgelmir Orb +1",
         head=gear.Empyrean_Head,
-        body="Pillager's Vest +3",
+        body=gear.Artifact_Body,
         hands=gear.Adhemar_A_Hands,
          -- legs="Samnuha Tights",
         legs=gear.Herc_TA_Legs,
@@ -662,7 +662,7 @@ function init_gear_sets()
     sets.engaged.DW.MaxHaste = {
         ammo="Aurgelmir Orb +1",
         head=gear.Empyrean_Head,
-        -- body="Pillager's Vest +3",
+        -- body=gear.Artifact_Body,
         body=gear.Gleti_Body,
         hands=gear.Adhemar_A_Hands,
         -- legs="Samnuha Tights",
@@ -670,12 +670,12 @@ function init_gear_sets()
         feet="Plun. Poulaines +3",
         neck="Asn. Gorget +2",
         ear1="Sherida Earring",
-        ear2="Suppanomimi", --5
+        ear2="Dedition Earring",
         ring1="Gere Ring",
         ring2="Hetairoi Ring",
         back=gear.THF_TP_Cape,
-        waist="Windbuffet Belt +1",
-    } -- 5%
+        waist="Reiki Yotai", --7
+    } -- 7%
 
     sets.engaged.DW.LowAcc.MaxHaste = set_combine(sets.engaged.DW.MaxHaste, {
         ring1=gear.Chirich_1,
