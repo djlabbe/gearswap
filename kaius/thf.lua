@@ -85,9 +85,9 @@ function user_setup()
     gear.Artifact_Feet = { name="Pillager's Poulaines +1" }
 
     gear.Relic_Head = { name="Plunderer's Bonnet +3" }
-    gear.Relic_Body = { name="Plunderer's Vest +3" }
+    gear.Relic_Body = { name="Plunderer's Vest +1" }
     gear.Relic_Hands = { name="Plunderer's Armlets +3" }
-    gear.Relic_Legs = { name="Plunderer's Culottes +3" }
+    gear.Relic_Legs = { name="Plunderer's Culottes +1" }
     gear.Relic_Feet = { name="Plunderer's Poulaines +3" }
 
     gear.Empyrean_Head = { name="Skulker's Bonnet +2" }
@@ -188,7 +188,7 @@ function init_gear_sets()
     }
 
     sets.precast.JA['Despoil'] = { 
-        ammo="Barathrum", 
+        -- ammo="Barathrum", 
         legs=gear.Empyrean_Legs, 
         feet=gear.Empyrean_Feet,
     }
@@ -216,7 +216,6 @@ function init_gear_sets()
         body=gear.Taeon_FC_Body, --9
         hands="Leyline Gloves", --8
         legs="Rawhide Trousers", --5
-        -- feet=gear.Herc_MAB_Feet, --2
         -- neck="Orunmila's Torque", --5
         neck="Baetyl Pendant", --4
         ear1="Loquacious Earring", --2
@@ -429,7 +428,7 @@ function init_gear_sets()
         ear1="Sherida Earring",
         ear2="Telos Earring",
         back=gear.THF_TP_Cape,
-        waist="Windbuffet Belt +1",
+        waist="Reiki Yotai",
     })
 
     ------------------------------------------------------------------------------------------------
@@ -464,7 +463,7 @@ function init_gear_sets()
         ear1="Sherida Earring",
         ear2="Brutal Earring",
         ring1="Gere Ring",
-        ring2="Epona's Ring",
+        ring2="Hetairoi Ring",
         back=gear.THF_TP_Cape,
         waist="Windbuffet Belt +1",
     }
@@ -509,7 +508,7 @@ function init_gear_sets()
         ear1="Eabani Earring", --4
         ear2="Suppanomimi", --5
         ring1="Gere Ring",
-        ring2="Epona's Ring",
+        ring2="Hetairoi Ring",
         back=gear.THF_TP_Cape, --Should be DW --10
         waist="Reiki Yotai", --7
     } -- 41%
@@ -550,7 +549,7 @@ function init_gear_sets()
         ear1="Cessance Earring",
         ear2="Suppanomimi", --5
         ring1="Gere Ring",
-        ring2="Epona's Ring",
+        ring2="Hetairoi Ring",
         back=gear.THF_TP_Cape, --Should be DW --10
         waist="Reiki Yotai", --7
     } -- 37%
@@ -590,7 +589,7 @@ function init_gear_sets()
         ear1="Eabani Earring", --4
         ear2="Suppanomimi", --5
         ring1="Gere Ring",
-        ring2="Epona's Ring",
+        ring2="Hetairoi Ring",
         back=gear.THF_TP_Cape, --Should be DW --10
         waist="Reiki Yotai", --7
     } -- 26%
@@ -630,7 +629,7 @@ function init_gear_sets()
         ear1="Sherida Earring",
         ear2="Suppanomimi", --5
         ring1="Gere Ring",
-        ring2="Epona's Ring",
+        ring2="Hetairoi Ring",
         back=gear.THF_TP_Cape, --Should be DW --10
         waist="Reiki Yotai", --7
     } -- 22%

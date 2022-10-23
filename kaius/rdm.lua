@@ -1128,11 +1128,12 @@ function init_gear_sets()
     sets.Obi = {waist="Hachirin-no-Obi"}
 
     sets.TreasureHunter = {
-        head="Volte Cap", --1
-        feet=gear.Merl_TH_Feet, --2
-        waist="Chaac Belt" --1
+        ammo="Perfect Lucky Egg",
+        head="Volte Cap", 
+        hands="Volte Bracers",
+        waist="Chaac Belt"
     }
-
+    
     sets.CroceaDark = { main="Crocea Mors", sub="Ternion Dagger +1" }
     sets.CroceaLight = { main="Crocea Mors", sub="Daybreak" }
     -- sets.Almace = { main="Almace", sub="Ternion Dagger +1" }

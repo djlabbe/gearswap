@@ -372,8 +372,7 @@ function init_gear_sets()
 
     sets.midcast.CureWeather = set_combine(sets.midcast.Cure, {
         main="Chatoyant Staff", --10
-        -- sub="Khonsu", --0/(-5)
-        sub="Enki Strap",
+        sub="Khonsu", --0/(-5)
         waist="Hachirin-no-Obi",
     })
 
@@ -386,8 +385,7 @@ function init_gear_sets()
 
     sets.midcast.StatusRemoval = {
         main="Musa",
-        -- sub="Khonsu", --0/(-5)
-        sub="Enki Strap",
+        sub="Khonsu", --0/(-5)
         head="Vanya Hood",
         body="Vanya Robe",
         hands=gear.Relic_Hands,
@@ -437,8 +435,7 @@ function init_gear_sets()
 
     sets.midcast.EnhancingDuration = {
         main="Musa",
-        -- sub="Khonsu", --0/(-5)
-        sub="Enki Strap",
+        sub="Khonsu", --0/(-5)
         head=gear.Telchine_ENH_Head,
         body=gear.Relic_Body,
         hands=gear.Telchine_ENH_Hands,
@@ -449,8 +446,7 @@ function init_gear_sets()
 
     sets.midcast.Regen = set_combine(sets.midcast.EnhancingDuration, {
         main="Musa",
-        -- sub="Khonsu", --0/(-5)
-        sub="Enki Strap",
+        sub="Khonsu", --0/(-5)
         head=gear.Empyrean_Head,
         body=gear.Telchine_ENH_Body,
         hands=gear.Telchine_ENH_Hands,
@@ -708,8 +704,8 @@ function init_gear_sets()
     })
 
     sets.idle.Town = set_combine(sets.idle, {
-        -- main="Musa",
-        -- sub="Khonsu", --0/(-5)
+        main="Musa",
+        sub="Khonsu", --0/(-5)
         -- sub="Enki Strap",
         ammo="Ghastly Tathlum +1",
         head=gear.Relic_Head,

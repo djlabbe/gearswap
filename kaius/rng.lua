@@ -49,6 +49,7 @@ function job_setup()
     state.warned = M(false)
 
     elemental_ws = S{'Aeolian Edge', 'Trueflight', 'Wildfire'}
+
     no_swap_gear = S{"Warp Ring", "Dim. Ring (Dem)", "Dim. Ring (Holla)", "Dim. Ring (Mea)",
               "Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring",
               "Era. Bul. Pouch", "Dev. Bul. Pouch", "Chr. Bul. Pouch", "Quelling B. Quiver",
@@ -359,7 +360,7 @@ function init_gear_sets()
         body="Cohort Cloak +1",
         hands=gear.Carmine_D_Hands,
         legs=gear.Relic_Legs,
-        feet=gear.Herc_MAB_Feet,
+        feet=gear.Empyrean_Feet,
         neck="Scout's Gorget +2",
         ear1="Moonshade Earring",
         ear2="Friomisi Earring",
@@ -389,7 +390,6 @@ function init_gear_sets()
     }
 
     sets.precast.WS['Evisceration'].Acc = set_combine(sets.precast.WS['Evisceration'], {
-        -- head="Dampening Tam",
         body=gear.Adhemar_B_Body,
         legs=gear.Herc_WSD_Legs,
         ring1="Regal Ring",
@@ -499,7 +499,6 @@ function init_gear_sets()
         hands=gear.Malignance_Hands,
         legs=gear.Malignance_Legs,
         feet=gear.Malignance_Feet,
-        neck="Scout's Gorget +2",
         neck="Bathy Choker +1",
         ear1="Etiolation Earring",
         ear2="Eabani Earring",
@@ -521,19 +520,20 @@ function init_gear_sets()
         back="Moonlight Cape", --6/6
     })
 
-    -- sets.idle.Town = sets.idle
-    -- sets.idle.Town = set_combine(sets.idle, {
-    --     head=gear.Relic_Head,
-    --     body="Oshosi Vest +1",
-    --     hands="Oshosi Gloves +1",
-    --     legs="Oshosi Trousers +1",
-    --     feet="Osh. Leggings +1",
-    --     neck="Scout's Gorget +2",
-    --     ear1="Beyla Earring",
-    --     ear2="Telos Earring",
-    --     back=gear.RNG_RA_Cape,
-    --     waist="K. Kachina Belt +1",
-    -- })
+    sets.idle.Town = {
+        head=gear.Malignance_Head,
+        body=gear.Malignance_Body,
+        hands=gear.Malignance_Hands,
+        legs=gear.Malignance_Legs,
+        feet=gear.Malignance_Feet,
+        neck="Scout's Gorget +2",
+        ear1="Crepuscular earring",
+        ear2="Telos Earring",
+        ring1="Crepuscular Ring",
+        ring2="Regal Ring",      
+        back=gear.RNG_RA_Cape,
+        waist="K. Kachina Belt +1",
+    }
 
 
     ------------------------------------------------------------------------------------------------
@@ -575,7 +575,6 @@ function init_gear_sets()
     }
 
     sets.engaged.LowAcc = set_combine(sets.engaged, {
-        -- head="Dampening Tam",
         hands=gear.Adhemar_A_Hands,
         -- neck="Combatant's Torque",
         ring1=gear.Chirich_1,
@@ -618,7 +617,6 @@ function init_gear_sets()
     } -- 52%
 
     sets.engaged.DW.LowAcc = set_combine(sets.engaged.DW, {
-        -- head="Dampening Tam",
         ring1=gear.Chirich_1,
     })
 
@@ -657,7 +655,6 @@ function init_gear_sets()
     } -- 42%
 
     sets.engaged.DW.LowAcc.LowHaste = set_combine(sets.engaged.DW.LowHaste, {
-        -- head="Dampening Tam",
         -- neck="Combatant's Torque",
         ring1=gear.Chirich_1,
     })
@@ -698,7 +695,6 @@ function init_gear_sets()
       } -- 31%
 
     sets.engaged.DW.LowAcc.MidHaste = set_combine(sets.engaged.DW.MidHaste, {
-        head="Dampening Tam",
         hands=gear.Adhemar_A_Hands,
         neck="Combatant's Torque",
         ring1=gear.Chirich_1,
@@ -741,7 +737,6 @@ function init_gear_sets()
       } -- 27%
 
     sets.engaged.DW.LowAcc.HighHaste = set_combine(sets.engaged.DW.HighHaste, {
-        -- head="Dampening Tam",
         hands=gear.Adhemar_A_Hands,
         -- neck="Combatant's Torque",
         ring1=gear.Chirich_1,
@@ -783,7 +778,6 @@ function init_gear_sets()
     } -- 11%
 
     sets.engaged.DW.LowAcc.MaxHaste = set_combine(sets.engaged.DW.MaxHaste, {
-        -- head="Dampening Tam",
         hands=gear.Adhemar_A_Hands,
         ring1=gear.Chirich_1,
         waist="Kentarch Belt +1",
@@ -887,7 +881,7 @@ function init_gear_sets()
         sub={ name="Malevolence", augments={'INT+4','Mag. Acc.+3','"Mag.Atk.Bns."+2','"Fast Cast"+2',}},
         ranged="Fomalhaut"
     }
-    sets.Armageddon = {main="Perun +1", sub="Malevolence", ranged="Armageddon"}
+    sets.Armageddon = {main="Perun +1", sub="Malevolence", ranged="Blue steel"}
     --sets.Gastraphetes = {main="Malevolence", sub="Malevolence", ranged="Gastraphetes"}
 
     sets.DefaultShield = {sub="Nusku Shield"}

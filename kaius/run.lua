@@ -218,7 +218,7 @@ function init_gear_sets()
         body="Carm. Sc. Mail +1",
         hands="Carmine Fin. Ga. +1",
         legs=gear.Herc_MAB_Legs,
-        feet=gear.Herc_MAB_Feet,
+        -- feet=gear.Herc_MAB_Feet,
         neck="Baetyl Pendant",
         ear1="Crematio Earring",
         ear2="Friomisi Earring",
