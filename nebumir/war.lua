@@ -85,7 +85,7 @@ function init_gear_sets()
         neck={ name="War. Beads +1", augments={'Path: A',}},
         waist="Sailfi Belt +1",
         left_ear="Cessance Earring",
-        right_ear="Brutal Earring",
+        right_ear="Boii Earring",
         left_ring="Flamma Ring",
         right_ring="Petrov Ring",
         back=gear.WAR_TP_Cape,

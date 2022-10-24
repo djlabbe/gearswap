@@ -669,7 +669,7 @@ function init_gear_sets()
         feet="Plun. Poulaines +3",
         neck="Asn. Gorget +2",
         ear1="Sherida Earring",
-        ear2="Dedition Earring",
+        ear2="Skulker's Earring",
         ring1="Gere Ring",
         ring2="Hetairoi Ring",
         back=gear.THF_TP_Cape,

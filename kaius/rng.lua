@@ -134,6 +134,10 @@ function user_setup()
     send_command('bind @e gs c cycleback WeaponSet')
     send_command('bind @r gs c cycle WeaponSet')
 
+    if player.sub_job == 'WAR' then
+        send_command('bind !t input /ja "Provoke" <t>')
+    end
+
 
     if player.sub_job == 'WAR' then
         set_macro_page(1, 11)
