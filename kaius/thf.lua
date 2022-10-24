@@ -315,7 +315,7 @@ function init_gear_sets()
     })
 
     sets.precast.WS['Exenterator'].Acc = set_combine(sets.precast.WS['Exenterator'], {
-        head="Dampening Tam",
+
     })
 
     sets.precast.WS['Evisceration'] = set_combine(sets.precast.WS, {
@@ -475,7 +475,6 @@ function init_gear_sets()
 
     sets.engaged.MidAcc = set_combine(sets.engaged.LowAcc, {
         ammo="Yamarang",
-        head="Dampening Tam",
         body=gear.Artifact_Body,
         ear1="Cessance Earring",
         ring2="Ilabrat Ring",
@@ -489,7 +488,6 @@ function init_gear_sets()
         ear2="Mache Earring +1",
         ring1="Regal Ring",
         ring2=gear.Chirich_2,
-        waist="Olseni Belt",
     })
 
     -- * DNC Native DW Trait: 30% DW
@@ -519,7 +517,6 @@ function init_gear_sets()
 
     sets.engaged.DW.MidAcc = set_combine(sets.engaged.DW.LowAcc, {
         ammo="Yamarang",
-        -- head="Dampening Tam",
         body=gear.Artifact_Body,
         ring2="Ilabrat Ring",
         waist="Kentarch Belt +1",
@@ -533,7 +530,6 @@ function init_gear_sets()
         ear2="Telos Earring",
         ring1="Regal Ring",
         ring2=gear.Chirich_2,
-        -- waist="Olseni Belt",
     })
 
     -- 15% Magic Haste (67% DW to cap)
@@ -560,7 +556,6 @@ function init_gear_sets()
 
     sets.engaged.DW.MidAcc.LowHaste = set_combine(sets.engaged.DW.LowAcc.LowHaste, {
         ammo="Yamarang",
-        -- head="Dampening Tam",
         body=gear.Artifact_Body,
         ring2="Ilabrat Ring",
         waist="Kentarch Belt +1",
@@ -573,7 +568,6 @@ function init_gear_sets()
         ear2="Telos Earring",
         ring1="Regal Ring",
         ring2=gear.Chirich_2,
-        -- waist="Olseni Belt",
     })
 
     -- 30% Magic Haste (56% DW to cap)
@@ -600,7 +594,6 @@ function init_gear_sets()
 
     sets.engaged.DW.MidAcc.MidHaste = set_combine(sets.engaged.DW.LowAcc.MidHaste, {
         ammo="Yamarang",
-        -- head="Dampening Tam",
         ear1="Cessance Earring",
         ring2="Ilabrat Ring",
         waist="Kentarch Belt +1",
@@ -613,7 +606,6 @@ function init_gear_sets()
         ear2="Telos Earring",
         ring1="Regal Ring",
         ring2=gear.Chirich_2,
-        -- waist="Olseni Belt",
     })
 
     -- 35% Magic Haste (51% DW to cap)
@@ -641,7 +633,6 @@ function init_gear_sets()
 
     sets.engaged.DW.MidAcc.HighHaste = set_combine(sets.engaged.DW.LowAcc.HighHaste, {
         ammo="Yamarang",
-        -- head="Dampening Tam",
         ear1="Cessance Earring",
         ring2="Ilabrat Ring",
         waist="Kentarch Belt +1",
@@ -654,7 +645,6 @@ function init_gear_sets()
         ear2="Telos Earring",
         ring1="Regal Ring",
         ring2=gear.Chirich_2,
-        -- waist="Olseni Belt",
     })
 
     -- 45% Magic Haste (36% DW to cap)
@@ -695,7 +685,6 @@ function init_gear_sets()
         ear2="Telos Earring",
         ring1="Regal Ring",
         ring2=gear.Chirich_2,
-        waist="Olseni Belt",
     })
 
     ------------------------------------------------------------------------------------------------
