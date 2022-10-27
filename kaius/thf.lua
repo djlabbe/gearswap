@@ -50,6 +50,7 @@ function job_setup()
     state.Buff['Sneak Attack'] = buffactive['sneak attack'] or false
     state.Buff['Trick Attack'] = buffactive['trick attack'] or false
     state.Buff['Feint'] = buffactive['feint'] or false
+    state.Buff.Doom = false
 
     no_swap_gear = S{"Warp Ring", "Dim. Ring (Dem)", "Dim. Ring (Holla)", "Dim. Ring (Mea)",
               "Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring"}
@@ -815,14 +816,12 @@ end
 -- buff == buff gained or lost
 -- gain == true if the buff was gained, false if it was lost.
 function job_buff_change(buff,gain)
-    if buff == "doom" then
+    if buff == "Doom" then
         if gain then
-            equip(sets.buff.Doom)
+            state.Buff.Doom = true
             send_command('@input /p Doomed.')
-             disable('ring1','ring2','waist')
         else
-            enable('ring1','ring2','waist')
-            handle_equipping_gear(player.status)
+            state.Buff.Doom = false
         end
     end
 
@@ -894,6 +893,9 @@ function get_custom_wsmode(spell, action, spellMap)
 end
 
 function customize_idle_set(idleSet)
+    if state.Buff.Doom then
+        idleSet = set_combine(idleSet, sets.buff.Doom)
+    end
     if state.Auto_Kite.value == true then
        idleSet = set_combine(idleSet, sets.Kiting)
     end
@@ -904,6 +906,9 @@ end
 function customize_melee_set(meleeSet)
     if state.TreasureMode.value == 'Fulltime' then
         meleeSet = set_combine(meleeSet, sets.TreasureHunter)
+    end
+    if state.Buff.Doom then
+        meleeSet = set_combine(meleeSet, sets.buff.Doom)
     end
 
     check_weaponset()

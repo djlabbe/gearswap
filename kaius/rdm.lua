@@ -65,6 +65,7 @@ function job_setup()
     state.Buff.Composure = buffactive.Composure or false
     state.Buff.Saboteur = buffactive.Saboteur or false
     state.Buff.Stymie = buffactive.Stymie or false
+    state.Buff.Doom = false
 
     no_swap_gear = S{"Warp Ring", "Dim. Ring (Dem)", "Dim. Ring (Holla)", "Dim. Ring (Mea)",
               "Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring"}
@@ -1234,14 +1235,12 @@ end
 -------------------------------------------------------------------------------------------------------------------
 
 function job_buff_change(buff,gain)
-    if buff == "doom" then
+    if buff == "Doom" then
         if gain then
-            equip(sets.buff.Doom)
+            state.Buff.Doom = true
             send_command('@input /p Doomed.')
-             disable('ring1','ring2','waist')
         else
-            enable('ring1','ring2','waist')
-            handle_equipping_gear(player.status)
+            state.Buff.Doom = false
         end
     end
 end
@@ -1335,6 +1334,10 @@ function customize_idle_set(idleSet)
         idleSet = set_combine(idleSet, sets.latent_refresh)
     end
 
+    if state.Buff.Doom then
+        idleSet = set_combine(idleSet, sets.buff.Doom)
+    end
+
     if state.Auto_Kite.value == true then
        idleSet = set_combine(idleSet, sets.Kiting)
     end
@@ -1351,6 +1354,9 @@ function customize_melee_set(meleeSet)
     end
     if state.TreasureMode.value == 'Fulltime' then
         meleeSet = set_combine(meleeSet, sets.TreasureHunter)
+    end
+    if state.Buff.Doom then
+        meleeSet = set_combine(meleeSet, sets.buff.Doom)
     end
 
     check_weaponset()

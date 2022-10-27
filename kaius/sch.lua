@@ -84,7 +84,7 @@ function job_setup()
     state.BarElement = M{['description']='BarElement', 'Barfire', 'Barblizzard', 'Baraero', 'Barstone', 'Barthunder', 'Barwater'}
     state.BarStatus = M{['description']='BarStatus', 'Baramnesia', 'Barvirus', 'Barparalyze', 'Barsilence', 'Barpetrify', 'Barpoison', 'Barblind', 'Barsleep'}
 
-
+    state.Buff.Doom = false
 
     update_active_strategems()
 
@@ -934,14 +934,12 @@ function job_buff_change(buff, gain)
         handle_equipping_gear(player.status)
     end
 
-    if buff == "doom" then
+    if buff == "Doom" then
         if gain then
-            equip(sets.buff.Doom)
+            state.Buff.Doom = true
             send_command('@input /p Doomed.')
-             disable('ring1','ring2','waist')
         else
-            enable('ring1','ring2','waist')
-            handle_equipping_gear(player.status)
+            state.Buff.Doom = false
         end
     end
 
@@ -995,6 +993,9 @@ function customize_idle_set(idleSet)
     end
     if player.mpp < 51 then
         idleSet = set_combine(idleSet, sets.latent_refresh)
+    end
+    if state.Buff.Doom then
+        idleSet = set_combine(idleSet, sets.buff.Doom)
     end
     if state.Auto_Kite.value == true then
        idleSet = set_combine(idleSet, sets.Kiting)

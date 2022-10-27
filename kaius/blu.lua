@@ -44,6 +44,7 @@ function job_setup()
     state.Buff.Convergence = buffactive.Convergence or false
     state.Buff.Diffusion = buffactive.Diffusion or false
     state.Buff.Efflux = buffactive.Efflux or false
+    state.Buff.Doom = false
 
     state.Buff['Unbridled Learning'] = buffactive['Unbridled Learning'] or false
     blue_magic_maps = {}
@@ -1244,17 +1245,14 @@ end
 -- buff == buff gained or lost
 -- gain == true if the buff was gained, false if it was lost.
 function job_buff_change(buff,gain)
-    if buff == "doom" then
+    if buff == "Doom" then
         if gain then
-            equip(sets.buff.Doom)
+            state.Buff.Doom = true
             send_command('@input /p Doomed.')
-            disable('ring1','ring2','waist')
         else
-            enable('ring1','ring2','waist')
-            handle_equipping_gear(player.status)
+            state.Buff.Doom = false
         end
     end
-
 end
 
 -- Handle notifications of general user state change.
@@ -1327,6 +1325,9 @@ function customize_idle_set(idleSet)
     if player.mpp < 51 then
         idleSet = set_combine(idleSet, sets.latent_refresh)
     end
+    if state.Buff.Doom then
+        idleSet = set_combine(idleSet, sets.buff.Doom)
+    end
     if state.Auto_Kite.value == true then
        idleSet = set_combine(idleSet, sets.Kiting)
     end
@@ -1339,7 +1340,9 @@ function customize_melee_set(meleeSet)
     if state.TreasureMode.value == 'Fulltime' then
         meleeSet = set_combine(meleeSet, sets.TreasureHunter)
     end
-
+    if state.Buff.Doom then
+        meleeSet = set_combine(meleeSet, sets.buff.Doom)
+    end
     return meleeSet
 end
 

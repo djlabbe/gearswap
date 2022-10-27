@@ -36,6 +36,8 @@ function job_setup()
     wyv_breath_spells = S{'Dia', 'Poison', 'Blaze Spikes', 'Protect', 'Sprout Smack', 'Head Butt', 'Cocoon',
         'Barfira', 'Barblizzara', 'Baraera', 'Barstonra', 'Barthundra', 'Barwatera'}
     wyv_elem_breath = S{'Flame Breath', 'Frost Breath', 'Sand Breath', 'Hydro Breath', 'Gust Breath', 'Lightning Breath'}
+
+    state.Buff.Doom = false
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -560,14 +562,12 @@ end
 -------------------------------------------------------------------------------------------------------------------
 
 function job_buff_change(buff,gain)
-    if buff == "doom" then
+    if buff == "Doom" then
         if gain then
-            equip(sets.buff.Doom)
+            state.Buff.Doom = true
             send_command('@input /p Doomed.')
-             disable('ring1','ring2','waist')
         else
-            enable('ring1','ring2','waist')
-            handle_equipping_gear(player.status)
+            state.Buff.Doom = false
         end
     end
 
@@ -614,6 +614,9 @@ end
 
 -- Modify the default idle set after it was constructed.
 function customize_idle_set(idleSet)
+    if state.Buff.Doom then
+        idleSet = set_combine(idleSet, sets.buff.Doom)
+    end
     if state.Auto_Kite.value == true then
        idleSet = set_combine(idleSet, sets.Kiting)
     end
@@ -623,6 +626,9 @@ end
 
 -- Modify the default melee set after it was constructed.
 function customize_melee_set(meleeSet)
+    if state.Buff.Doom then
+        meleeSet = set_combine(meleeSet, sets.buff.Doom)
+    end
     check_weaponset()
     return meleeSet
 end

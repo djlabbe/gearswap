@@ -37,6 +37,7 @@ function job_setup()
     state.Buff.Sengikori = buffactive.Sengikori or false
     state.Buff['Third Eye'] = buffactive['Third Eye'] or false
     state.Buff['Meikyo Shisui'] = buffactive['Meikyo Shisui'] or false
+    state.Buff.Doom = false
 
     no_swap_gear = S{"Warp Ring", "Dim. Ring (Dem)", "Dim. Ring (Holla)", "Dim. Ring (Mea)",
               "Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring"}
@@ -414,16 +415,15 @@ function job_buff_change(buff,gain)
     if buff == 'Hasso' and not gain then
         add_to_chat(167, 'Hasso just expired!')
     end
-    if buff == "doom" then
+    if buff == "Doom" then
         if gain then
-            equip(sets.buff.Doom)
+            state.Buff.Doom = true
             send_command('@input /p Doomed.')
-            disable('ring1','ring2','waist')
         else
-            enable('ring1','ring2','waist')
-            handle_equipping_gear(player.status)
+            state.Buff.Doom = false
         end
-    elseif buff == "Third Eye" then
+    end
+    if buff == "Third Eye" then
         if gain and state.Buff.Seigan then
             equip(sets.buff.ThirdEye)
             disable('legs')
@@ -472,16 +472,18 @@ function customize_idle_set(idleSet)
     if state.Auto_Kite.value == true then
        idleSet = set_combine(idleSet, sets.Kiting)
     end
+end
+
 
     return idleSet
 end
 
 -- Modify the default melee set after it was constructed.
 function customize_melee_set(meleeSet)
-    check_weaponset()
     if state.Buff.Doom then
         meleeSet = set_combine(meleeSet, sets.buff.Doom)
     end
+    check_weaponset()
     return meleeSet
 end
 

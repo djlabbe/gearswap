@@ -98,8 +98,6 @@ function job_setup()
         DisplayTrue = 1
     end
 
-  
-    -- get_melee_groups()
 end
 
 function user_setup()

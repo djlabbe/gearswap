@@ -44,6 +44,7 @@ function job_setup()
     state.Buff['Unlimited Shot'] = buffactive['Unlimited Shot'] or false
     state.Buff['Velocity Shot'] = buffactive['Velocity Shot'] or false
     state.Buff['Double Shot'] = buffactive['Double Shot'] or false
+    state.Buff.Doom = false
 
     -- Whether a warning has been given for low ammo
     state.warned = M(false)
@@ -54,8 +55,6 @@ function job_setup()
               "Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring",
               "Era. Bul. Pouch", "Dev. Bul. Pouch", "Chr. Bul. Pouch", "Quelling B. Quiver",
               "Yoichi's Quiver", "Artemis's Quiver", "Chrono Quiver"}
-
-    lockstyleset = 1
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -1026,17 +1025,14 @@ function job_buff_change(buff,gain)
         end
     end
 
-    if buff == "doom" then
+    if buff == "Doom" then
         if gain then
-            equip(sets.buff.Doom)
+            state.Buff.Doom = true
             send_command('@input /p Doomed.')
-            disable('ring1','ring2','waist')
         else
-            enable('ring1','ring2','waist')
-            handle_equipping_gear(player.status)
+            state.Buff.Doom = false
         end
     end
-
 end
 
 function job_state_change(stateField, newValue, oldValue)
@@ -1080,6 +1076,9 @@ function customize_melee_set(meleeSet)
     if buffactive['Aftermath: Lv.3'] and player.equipment.main == "Carnwenhan" then
         meleeSet = set_combine(meleeSet, sets.engaged.Aftermath)
     end
+    if state.Buff.Doom then
+        meleeSet = set_combine(meleeSet, sets.buff.Doom)
+    end
 
     check_weaponset()
 
@@ -1103,6 +1102,9 @@ function get_custom_wsmode(spell, action, spellMap)
 end
 
 function customize_idle_set(idleSet)
+    if state.Buff.Doom then
+        idleSet = set_combine(idleSet, sets.buff.Doom)
+    end
     if state.Auto_Kite.value == true then
        idleSet = set_combine(idleSet, sets.Kiting)
     end

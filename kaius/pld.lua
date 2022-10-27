@@ -14,7 +14,7 @@ end
 function job_setup()
     state.Buff.Sentinel = buffactive.sentinel or false
     state.Buff.Cover = buffactive.cover or false
-    state.Buff.Doom = buffactive.Doom or false
+    state.Buff.Doom = buffactive.Protect or false
 
     no_swap_gear = S{"Warp Ring", "Dim. Ring (Dem)", "Dim. Ring (Holla)", "Dim. Ring (Mea)",
         "Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring"}
@@ -44,7 +44,7 @@ function user_setup()
     gear.Artifact_Legs = { name="Reverence Breeches +1" }    
     gear.Artifact_Feet = { name="Reverence Leggings +1" }
 
-    gear.Relic_Head = { name="Caballarius Coronet +1" }
+    gear.Relic_Head = { name="Caballarius Coronet +3" }
     gear.Relic_Body = { name="Caballarius Surcoat +1" }
     gear.Relic_Hands = { name="Caballarius Gauntlets +1" }
     gear.Relic_Legs = { name="Caballarius Breeches +1" }
@@ -357,7 +357,6 @@ function init_gear_sets()
     -- Defense sets
     --------------------------------------
     
-
     -- If EquipShield toggle is on (Win+F10 or Win+F11), equip the weapon/shield combos here when activating or changing defense mode:
     sets.PhysicalShield = {sub="Ochain"}
     sets.MagicalShield = {sub="Aegis"}
@@ -480,15 +479,26 @@ end
 
 -- Called when the player's status changes.
 function job_state_change(field, new_value, old_value)
-
-    
     if state.WeaponLock.value == true then
         disable('main','sub')
     else
         enable('main','sub')
     end
-
     check_weaponset()
+end
+
+-- Called when a player gains or loses a buff.
+-- buff == buff gained or lost
+-- gain == true if the buff was gained, false if it was lost.
+function job_buff_change(buff,gain)
+    if buff == "Doom" then
+        if gain then
+            state.Buff.Doom = true
+            send_command('@input /p Doomed.')
+        else
+            state.Buff.Doom = false
+        end
+    end
 end
 
 -------------------------------------------------------------------------------------------------------------------

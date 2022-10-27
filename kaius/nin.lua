@@ -44,7 +44,7 @@ end
 -- Setup vars that are user-independent.  state.Buff vars initialized here will automatically be tracked.
 function job_setup()
     state.Buff.Migawari = buffactive.migawari or false
-    state.Buff.Doom = buffactive.doom or false
+    state.Buff.Doom = false
     state.Buff.Yonin = buffactive.Yonin or false
     state.Buff.Innin = buffactive.Innin or false
     state.Buff.Futae = buffactive.Futae or false
@@ -62,8 +62,6 @@ function job_setup()
     info.default_u_ja_ids = S{201, 202, 203, 205, 207}
 
     lugra_ws = S{'Blade: Kamu', 'Blade: Shun', 'Blade: Ten'}
-
-    lockstyleset = 1
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -955,9 +953,6 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
             equip(sets.precast.JA['Futae'])
         end
     end
-    if state.Buff.Doom then
-        equip(sets.buff.Doom)
-    end
 end
 
 
@@ -983,17 +978,14 @@ function job_buff_change(buff, gain)
         add_to_chat(61, "*** MIGAWARI DOWN ***")
     end
 
-    if buff == "doom" then
+    if buff == "Doom" then
         if gain then
-            equip(sets.buff.Doom)
+            state.Buff.Doom = true
             send_command('@input /p Doomed.')
-            disable('ring1','ring2','waist')
         else
-            enable('ring1','ring2','waist')
-            handle_equipping_gear(player.status)
+            state.Buff.Doom = false
         end
     end
-
 end
 
 -- Handle notifications of general user state change.
@@ -1045,6 +1037,9 @@ end
 
 -- Modify the default idle set after it was constructed.
 function customize_idle_set(idleSet)
+    if state.Buff.Doom then
+        idleSet = set_combine(idleSet, sets.buff.Doom)
+    end
     if state.Auto_Kite.value == true then
         if world.time >= (17*60) or world.time <= (7*60) then
             idleSet = set_combine(idleSet, sets.NightMovement)
@@ -1064,6 +1059,9 @@ function customize_melee_set(meleeSet)
     end
     if state.Buff.Sange then
         meleeSet = set_combine(meleeSet, sets.buff.Sange)
+    end
+    if state.Buff.Doom then
+        meleeSet = set_combine(meleeSet, sets.buff.Doom)
     end
 
     check_weaponset()

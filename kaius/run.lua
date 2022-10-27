@@ -89,6 +89,8 @@ function job_setup()
 
     rayke_duration = 35
     gambit_duration = 96
+
+    state.Buff.Doom = false
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -910,30 +912,18 @@ function job_state_change(field, new_value, old_value)
 end
 
 function job_buff_change(buff,gain)
-    -- If we gain or lose any haste buffs, adjust which gear set we target.
---    if buffactive['Reive Mark'] then
---        if gain then
---            equip(sets.Reive)
---            disable('neck')
---        else
---            enable('neck')
---        end
---    end
-
     if buff == "terror" then
         if gain then
             equip(sets.defense.PDT)
         end
     end
 
-    if buff == "doom" then
+    if buff == "Doom" then
         if gain then
-            equip(sets.buff.Doom)
+            state.Buff.Doom = true
             send_command('@input /p Doomed.')
-             disable('ring1','ring2','waist')
         else
-            enable('ring1','ring2','waist')
-            handle_equipping_gear(player.status)
+            state.Buff.Doom = false
         end
     end
 
@@ -993,12 +983,9 @@ function customize_idle_set(idleSet)
     if state.Knockback.value == true then
         idleSet = set_combine(idleSet, sets.defense.Knockback)
     end
-    --if state.CP.current == 'on' then
-    --    equip(sets.CP)
-    --    disable('back')
-    --else
-    --    enable('back')
-    --end
+    if state.Buff.Doom then
+        idleSet = set_combine(idleSet, sets.buff.Doom)
+    end
     if state.Auto_Kite.value == true then
        idleSet = set_combine(idleSet, sets.Kiting)
     end
@@ -1019,6 +1006,9 @@ function customize_melee_set(meleeSet)
     if state.Knockback.value == true then
         meleeSet = set_combine(meleeSet, sets.defense.Knockback)
     end
+    if state.Buff.Doom then
+        meleeSet = set_combine(meleeSet, sets.buff.Doom)
+    end
 
     return meleeSet
 end
@@ -1029,6 +1019,9 @@ function customize_defense_set(defenseSet)
     end
     if state.Knockback.value == true then
         defenseSet = set_combine(defenseSet, sets.defense.Knockback)
+    end
+    if state.Buff.Doom then
+        defenseSet = set_combine(defenseSet, sets.buff.Doom)
     end
 
     return defenseSet

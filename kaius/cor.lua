@@ -111,6 +111,8 @@ function job_setup()
     elemental_ws = S{"Aeolian Edge", "Leaden Salute", "Wildfire"}
     no_shoot_ammo = S{"Animikii Bullet", "Hauksbok Bullet"}
 
+    state.Buff.Doom = false
+
     include('Mote-TreasureHunter')
 
     -- For th_action_check():
@@ -120,8 +122,6 @@ function job_setup()
     info.default_u_ja_ids = S{201, 202, 203, 205, 207}
 
     define_roll_values()
-
-    lockstyleset = 1
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -1187,17 +1187,14 @@ function job_buff_change(buff,gain)
         end
     end
 
-    if buff == "doom" then
+    if buff == "Doom" then
         if gain then
-            equip(sets.buff.Doom)
-            --send_command('@input /p Doomed.')
-            disable('ring1','ring2','waist')
+            state.Buff.Doom = true
+            send_command('@input /p Doomed.')
         else
-            enable('ring1','ring2','waist')
-            handle_equipping_gear(player.status)
+            state.Buff.Doom = false
         end
     end
-
 end
 
 -- Handle notifications of general user state change.
@@ -1238,6 +1235,10 @@ end
 
 -- Modify the default melee set after it was constructed.
 function customize_melee_set(meleeSet)
+    if state.Buff.Doom then
+        meleeSet = set_combine(meleeSet, sets.buff.Doom)
+    end
+    retur
     check_weaponset()
 
     return meleeSet
@@ -1260,6 +1261,9 @@ end
 
 -- Modify the default idle set after it was constructed.
 function customize_idle_set(idleSet)
+    if state.Buff.Doom then
+        idleSet = set_combine(idleSet, sets.buff.Doom)
+    end
     if state.Auto_Kite.value == true then
        idleSet = set_combine(idleSet, sets.Kiting)
     end

@@ -66,6 +66,7 @@ function job_setup()
     state.Buff['Afflatus Solace'] = buffactive['Afflatus Solace'] or false
     state.Buff['Afflatus Misery'] = buffactive['Afflatus Misery'] or false
     state.Buff['Sublimation: Activated'] = buffactive['Sublimation: Activated'] or false
+    state.Buff.Doom = false
 
     state.RegenMode = M{['description']='Regen Mode', 'Duration', 'Potency'}
 
@@ -783,17 +784,14 @@ function job_buff_change(buff,gain)
         handle_equipping_gear(player.status)
     end
 
-    if buff == "doom" then
+    if buff == "Doom" then
         if gain then
-            equip(sets.buff.Doom)
-            --send_command('@input /p Doomed.')
-             disable('ring1','ring2','waist')
+            state.Buff.Doom = true
+            send_command('@input /p Doomed.')
         else
-            enable('ring1','ring2','waist')
-            handle_equipping_gear(player.status)
+            state.Buff.Doom = false
         end
     end
-
 end
 
 -- Handle notifications of general user state change.
@@ -871,7 +869,9 @@ function customize_melee_set(meleeSet)
     if buffactive['Aftermath: Lv.3'] and player.equipment.main == "Yagrush" then
         meleeSet = set_combine(meleeSet, sets.engaged.Aftermath)
     end
-
+    if state.Buff.Doom then
+        meleeSet = set_combine(meleeSet, sets.buff.Doom)
+    end
     return meleeSet
 end
 
@@ -881,6 +881,9 @@ function customize_idle_set(idleSet)
     end
     if player.mpp < 51 then
         idleSet = set_combine(idleSet, sets.latent_refresh)
+    end
+    if state.Buff.Doom then
+        idleSet = set_combine(idleSet, sets.buff.Doom)
     end
     if state.Auto_Kite.value == true then
        idleSet = set_combine(idleSet, sets.Kiting)

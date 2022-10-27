@@ -174,15 +174,15 @@ function init_gear_sets()
         head="Vanya Hood", --10
         neck="Cleric's Torque +1", --4
         ear1="Loquacious earring", --2
-        -- ear2="Malignance earring", --4
+        ear2="Etiolation earring", --4
         body="Pinga Tunic +1", --14
-        -- left_ring="Weather. Ring", --5
+        left_ring="Prolix Ring", --2
         right_ring="Kishar Ring", --2
         back="Fi Follet Cape +1", --10
         waist="Embla Sash", --5
         legs="Ayanmo Cosciales +1", --5
         feet="Regal Pumps +1", --4
-    }
+    } --64
 
     sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {
         waist="Siegel Sash",
@@ -194,7 +194,6 @@ function init_gear_sets()
         -- head="Piety Cap +3", --15
         -- feet="Kaykaus Boots +1", --7
         -- ring1="Lebeche Ring", --(2)
-        -- ring2="Weather. Ring", --6(4)
         -- back="Perimede Cape", --(4)
     })
 
@@ -537,8 +536,8 @@ function init_gear_sets()
         legs="Assid. Pants +1",
         feet="Inyan. Crackows +2",
         neck="Loricate Torque +1",
-        ear1="Infused Earring",
-        ear2="Eabani Earring",
+        ear1="Moonshade Earring",
+        ear2="Ebers Earring +1",
         ring1={name="Stikini Ring +1", bag="wardrobe3"},
         ring2="Inyanga Ring",
         back="Alaunus's Cape",
@@ -549,10 +548,10 @@ function init_gear_sets()
         main="Malignance Pole", --20
         sub="Mensch Strap", --4
         ammo="Homiliary",
-        head="Nyame Helm", --7
-        body="Nyame Mail", --9
-        hands="Nyame Gauntlets", --7
-        feet="Nyame Sollerets", --7
+        -- head="Nyame Helm", --7
+        -- body="Nyame Mail", --9
+        -- hands="Nyame Gauntlets", --7
+        -- feet="Nyame Sollerets", --7
         neck="Sibyl Scarf",
         ring1={name="Stikini Ring +1", bag="wardrobe1"},
         ring2={name="Stikini Ring +1", bag="wardrobe2"},
@@ -571,7 +570,7 @@ function init_gear_sets()
         feet="Inyan. Crackows +2",
         neck="Warder's Charm +1",
         ear1="Eabani Earring",
-        -- ear2="Infused Earring",
+        ear2="Ebers Earring +1",
         ring1="Purity Ring",
         ring2="Inyanga Ring",
         back="Alaunus's Cape",
@@ -579,10 +578,10 @@ function init_gear_sets()
     })
 
     sets.idle.Town = {
-        -- main="Malignance Pole",
+     
         -- sub="Mensch Strap",
         ammo="Homiliary",
-        main="Queller Rod",
+        main="Raetic Rod +1",
         sub="Genmei Shield",
         head="Inyanga Tiara +2",
         body="Theo. Bliaut +3",
@@ -590,8 +589,8 @@ function init_gear_sets()
         legs="Assid. Pants +1",
         feet="Inyan. Crackows +2",
         neck="Loricate Torque +1",
-        ear1="Infused Earring",
-        ear2="Eabani Earring",
+        ear1="Moonshade Earring",
+        ear2="Ebers Earring +1",
         ring1={name="Stikini Ring +1", bag="wardrobe3"},
         ring2="Inyanga Ring",
         back="Alaunus's Cape",

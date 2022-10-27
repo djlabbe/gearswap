@@ -45,6 +45,8 @@ function job_setup()
     degrade_array = {
         ['Aspirs'] = {'Aspir','Aspir II','Aspir III'}
     }
+
+    state.Buff.Doom = false
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -784,17 +786,14 @@ function job_buff_change(buff, gain)
         end
     end
 
-    if buff == "doom" then
+    if buff == "Doom" then
         if gain then
-            equip(sets.buff.Doom)
+            state.Buff.Doom = true
             send_command('@input /p Doomed.')
-            disable('ring1','ring2','waist')
         else
-            enable('ring1','ring2','waist')
-            handle_equipping_gear(player.status)
+            state.Buff.Doom = false
         end
     end
-
 end
 
 -- Handle notifications of general user state change.
@@ -854,6 +853,9 @@ function customize_idle_set(idleSet)
     if buffactive['Mana Wall'] then
         idleSet = set_combine(idleSet, sets.precast.JA['Mana Wall'])
     end
+    if state.Buff.Doom then
+        idleSet = set_combine(idleSet, sets.buff.Doom)
+    end
     if state.Auto_Kite.value == true then
        idleSet = set_combine(idleSet, sets.Kiting)
     end
@@ -866,13 +868,18 @@ function customize_melee_set(meleeSet)
     if buffactive['Mana Wall'] then
         meleeSet = set_combine(meleeSet, sets.precast.JA['Mana Wall'])
     end
-
+    if state.Buff.Doom then
+        meleeSet = set_combine(meleeSet, sets.buff.Doom)
+    end
     return meleeSet
 end
 
 function customize_defense_set(defenseSet)
     if buffactive['Mana Wall'] then
         defenseSet = set_combine(defenseSet, sets.precast.JA['Mana Wall'])
+    end
+    if state.Buff.Doom then
+        defenseSet = set_combine(defenseSet, sets.buff.Doom)
     end
 
     return defenseSet

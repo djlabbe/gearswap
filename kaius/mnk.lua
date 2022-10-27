@@ -45,6 +45,7 @@ function job_setup()
 
     state.Buff.Footwork = buffactive.Footwork or false
     state.Buff.Impetus = buffactive.Impetus or false
+    state.Buff.Doom = false
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -609,17 +610,15 @@ function job_buff_change(buff,gain)
         handle_equipping_gear(player.status)
     end
 
-    if buff == "doom" then
+    if buff == "Doom" then
         if gain then
-            equip(sets.buff.Doom)
+            state.Buff.Doom = true
             send_command('@input /p Doomed.')
-             disable('ring1','ring2','waist')
+           
         else
-            enable('ring1','ring2','waist')
-            handle_equipping_gear(player.status)
+            state.Buff.Doom = false
         end
     end
-
 end
 
 
@@ -692,10 +691,14 @@ end
 
 -- Modify the default idle set after it was constructed.
 function customize_idle_set(idleSet)
+    if state.Buff.Doom then
+        idleSet = set_combine(idleSet, sets.buff.Doom)
+    end
     if state.Auto_Kite.value == true then
         idleSet = set_combine(idleSet, sets.Kiting)
     end
 
+ 
     return idleSet
 end
 
@@ -705,12 +708,17 @@ function customize_melee_set(meleeSet)
     if state.Buff['Impetus'] then
         meleeSet = set_combine(meleeSet, sets.buff.Impetus)
     end
+
     if buffactive.Footwork then
         meleeSet = set_combine(meleeSet, sets.buff.Footwork)
     end
 
     if state.TreasureMode.value == 'Fulltime' then
         meleeSet = set_combine(meleeSet, sets.TreasureHunter)
+    end
+
+    if state.Buff.Doom then
+        meleeSet = set_combine(meleeSet, sets.buff.Doom)
     end
 
     return meleeSet
