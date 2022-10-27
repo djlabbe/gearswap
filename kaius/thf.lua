@@ -75,7 +75,7 @@ function user_setup()
     state.WeaponskillMode:options('Normal', 'Acc')
     state.IdleMode:options('Normal', 'DT')
 
-    state.WeaponSet = M{['description']='Weapon Set', 'Twashtar', 'TwashtarTP', 'Tauret', 'Gandring'}
+    state.WeaponSet = M{['description']='Weapon Set', 'Twashtar_Gleti', 'Twashtar_TP', 'Tauret_Twash', 'Tauret_Gleti', 'Gandring'}
     state.WeaponLock = M(false, 'Weapon Lock')
 
     gear.Artifact_Head = { name="Pillager's Bonnet +1" }
@@ -742,9 +742,10 @@ function init_gear_sets()
         waist="Gishdubar Sash", --10
     }
 
-    sets.Twashtar = {main="Twashtar", sub="Gleti's Knife"}
-    sets.TwashtarTP = {main="Twashtar", sub="Fusetto +2"}
-    sets.Tauret = {main="Tauret", sub="Gleti's Knife"}
+    sets.Twashtar_Gleti = {main="Twashtar", sub="Gleti's Knife"}
+    sets.Twashtar_TP = {main="Twashtar", sub="Fusetto +2"}
+    sets.Tauret_Gleti = {main="Tauret", sub="Gleti's Knife"}
+    sets.Tauret_Twash = {main="Tauret", sub="Twashtar"}
     sets.Gandring = {main="Gandring", sub="Gleti's Knife"}
 
 end

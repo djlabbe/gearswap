@@ -60,6 +60,8 @@ function user_setup()
     send_command('bind @w gs c toggle WeaponLock')
     send_command('bind @e gs c cycle WeaponSet')
 
+    send_command('bind !c input /ja "Chivalry" <me>')
+
     -- Additional local binds
     include('Global-Binds.lua') -- OK to remove this line
 

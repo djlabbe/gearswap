@@ -136,12 +136,9 @@ function user_setup()
 
     if player.sub_job == 'WAR' then
         send_command('bind !t input /ja "Provoke" <t>')
-    end
-
-
-    if player.sub_job == 'WAR' then
         set_macro_page(1, 11)
     elseif player.sub_job == 'DNC' then
+        send_command('bind ^` input /ja "Chocobo Jig" <me>')
         set_macro_page(2, 11)
     else
         set_macro_page(1, 11)
@@ -885,7 +882,7 @@ function init_gear_sets()
         sub={ name="Malevolence", augments={'INT+4','Mag. Acc.+3','"Mag.Atk.Bns."+2','"Fast Cast"+2',}},
         ranged="Fomalhaut"
     }
-    sets.Armageddon = {main="Perun +1", sub="Malevolence", ranged="Blue steel"}
+    sets.Armageddon = {main="Perun +1", sub="Malevolence", ranged="Armageddon"}
     --sets.Gastraphetes = {main="Malevolence", sub="Malevolence", ranged="Gastraphetes"}
 
     sets.DefaultShield = {sub="Nusku Shield"}
