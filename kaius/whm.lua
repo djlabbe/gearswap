@@ -564,7 +564,7 @@ function init_gear_sets()
     -- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
     sets.idle = {
         main="Malignance Pole", --20/20
-        sub="Mensch Strap", --4/0
+        sub="Mensch Strap +1", --4/0
         ammo="Homiliary",
         head="Inyanga Tiara +2",
         body="Shamash Robe",
@@ -582,7 +582,7 @@ function init_gear_sets()
 
     sets.idle.DT = set_combine(sets.idle, {
         main="Malignance Pole", --20/20
-        sub="Mensch Strap", --4/0
+        sub="Mensch Strap +1", --4/0
         ammo="Staunch Tathlum +1", --3/3
         head="Inyanga Tiara +2", 
         body="Shamash Robe", --10/0
@@ -600,7 +600,7 @@ function init_gear_sets()
 
     sets.idle.MEva = set_combine(sets.idle.DT, {
         main="Malignance Pole", --20/20
-        sub="Mensch Strap", --4/0
+        sub="Mensch Strap +1", --4/0
         ammo="Staunch Tathlum +1",
         head=gear.Bunzi_Head,
         body=gear.Bunzi_Body,

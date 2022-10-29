@@ -80,7 +80,7 @@ function user_setup()
     state.WeaponLock = M(false, 'Weapon Lock')
 
     gear.Artifact_Head = { name="Pillager's Bonnet +1" }
-    gear.Artifact_Body = { name="Pillager's Vest +2" }
+    gear.Artifact_Body = { name="Pillager's Vest +3" }
     gear.Artifact_Hands = { name="Pillager's Armlets +1" }
     gear.Artifact_Legs = { name="Pillager's Culottes +1" }
     gear.Artifact_Feet = { name="Pillager's Poulaines +1" }
@@ -427,7 +427,8 @@ function init_gear_sets()
         ammo="Aurgelmir Orb +1",
         neck="Asn. Gorget +2",
         ear1="Sherida Earring",
-        ear2="Telos Earring",
+        ear2="Skulker's Earring +1",
+        body=gear.Artifact_Body,
         back=gear.THF_TP_Cape,
         waist="Reiki Yotai",
     })
@@ -455,7 +456,7 @@ function init_gear_sets()
     sets.engaged = {
         ammo="Yamarang",
         head=gear.Adhemar_A_Head,
-        body=gear.Adhemar_B_Body,
+        body=gear.Artifact_Body,
         hands=gear.Adhemar_A_Hands,
         -- legs="Samnuha Tights",
         legs=gear.Malignance_Legs,
@@ -574,7 +575,7 @@ function init_gear_sets()
     -- 30% Magic Haste (56% DW to cap)
     sets.engaged.DW.MidHaste = {
         ammo="Aurgelmir Orb +1",
-         head=gear.Empyrean_Head,
+        head=gear.Empyrean_Head,
         body=gear.Artifact_Body,
         hands=gear.Adhemar_A_Hands,
         -- legs="Samnuha Tights",
@@ -652,15 +653,14 @@ function init_gear_sets()
     sets.engaged.DW.MaxHaste = {
         ammo="Aurgelmir Orb +1",
         head=gear.Empyrean_Head,
-        -- body=gear.Artifact_Body,
-        body=gear.Gleti_Body,
+        body=gear.Artifact_Body,
         hands=gear.Adhemar_A_Hands,
         -- legs="Samnuha Tights",
         legs=gear.Herc_TA_Legs,
         feet="Plun. Poulaines +3",
         neck="Asn. Gorget +2",
         ear1="Sherida Earring",
-        ear2="Skulker's Earring",
+        ear2="Skulker's Earring +1",
         ring1="Gere Ring",
         ring2="Hetairoi Ring",
         back=gear.THF_TP_Cape,

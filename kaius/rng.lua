@@ -133,6 +133,10 @@ function user_setup()
     send_command('bind @e gs c cycleback WeaponSet')
     send_command('bind @r gs c cycle WeaponSet')
 
+    send_command('bind !` input /ja "Velocity Shot" <me>')
+    send_command('bind ^` input /ja "Hover Shot" <me>')
+    send_command('bind !b input /ja "Shadowbind" <t>')
+
     if player.sub_job == 'WAR' then
         send_command('bind !t input /ja "Provoke" <t>')
         set_macro_page(1, 11)
@@ -860,11 +864,7 @@ function init_gear_sets()
         body=gear.Empyrean_Body, 
         back=gear.RNG_TP_Cape
     })
-
-    sets.buff.Camouflage = {
-        body=gear.Artifact_Body
-    }
-
+    
     sets.buff.Doom = {
         neck="Nicander's Necklace", --20
         ring1=gear.Eshmun_1, --20

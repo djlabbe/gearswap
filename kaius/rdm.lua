@@ -395,7 +395,7 @@ function init_gear_sets()
     })
 
     sets.precast.WS['Sanguine Blade'] = {
-        ammo="Ghastly Tathlum +1",
+        ammo="Sroda Tathlum",
         head="Pixie Hairpin +1",
         body=gear.Amalric_A_Body,
         hands="Jhakri Cuffs +2",
@@ -412,7 +412,6 @@ function init_gear_sets()
     }
 
     sets.precast.WS['Seraph Blade'] = set_combine(sets.precast.WS['Sanguine Blade'], {
-        -- head="Merlinic Hood",
         head=empty,
         body="Cohort Cloak +1",
         ear2="Moonshade Earring",
@@ -420,7 +419,6 @@ function init_gear_sets()
     })
 
     sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS['Seraph Dlade'], {
-        -- head="Merlinic Hood",
         ear2="Moonshade Earring",
         ring1="Shiva Ring +1",
         waist="Orpheus's Sash",
