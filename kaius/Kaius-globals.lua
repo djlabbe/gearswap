@@ -75,7 +75,7 @@ function define_global_sets()
     gear.Eshmun_2 = {name="Eshmun's Ring", bag="wardrobe8"}
 
     -- Augmented Weapons
-    gear.Colada_ENH = { name="Colada", augments={'Enh. Mag. eff. dur. +3','INT+5','Mag. Acc.+12','"Mag.Atk.Bns."+16',}}
+    gear.Colada_ENH = { name="Colada", augments={'Enh. Mag. eff. dur. +4','STR+5','Mag. Acc.+18',}}
 
     -- gear.Gada_ENF = {name="Gada", augments={'"Conserve MP"+2','MND+14','Mag. Acc.+20','"Mag.Atk.Bns."+2','DMG:+7',}}
     gear.Gada_ENH = { name="Gada", augments={'Enh. Mag. eff. dur. +6','Mag. Acc.+16',}}

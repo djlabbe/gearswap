@@ -472,9 +472,6 @@ function customize_idle_set(idleSet)
     if state.Auto_Kite.value == true then
        idleSet = set_combine(idleSet, sets.Kiting)
     end
-end
-
-
     return idleSet
 end
 

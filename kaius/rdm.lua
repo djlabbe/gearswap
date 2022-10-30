@@ -109,7 +109,7 @@ function user_setup()
     state.GainSpell = M{['description']='GainSpell', 'Gain-STR', 'Gain-INT', 'Gain-AGI', 'Gain-VIT', 'Gain-DEX', 'Gain-MND', 'Gain-CHR'}
 
     -- state.WeaponSet = M{['description']='Weapon Set', 'CroceaDark', 'CroceaLight', 'Almace', 'Naegling', 'Tauret', 'Idle'}
-    state.WeaponSet = M{['description']='Weapon Set', 'CroceaDark', 'CroceaLight', 'Naegling', 'Tauret'}
+    state.WeaponSet = M{['description']='Weapon Set', 'CroceaKraken', 'CroceaDark', 'CroceaLight', 'Naegling', 'Tauret'}
     state.WeaponLock = M(false, 'Weapon Lock')
     state.MagicBurst = M(false, 'Magic Burst')
     state.SleepMode = M{['description']='Sleep Mode', 'Normal', 'MaxDuration'}
@@ -130,7 +130,7 @@ function user_setup()
     gear.Empyrean_Body = { name="Lethargy Sayon +1" }
     gear.Empyrean_Hands = { name="Lethargy Gantherots +1" }
     gear.Empyrean_Legs = { name="Lethargy Fuseau +1" }
-    gear.Empyrean_Feet = { name="Lethargy Houseaux +2" }
+    gear.Empyrean_Feet = { name="Lethargy Houseaux +3" }
 
     -- Additional local binds
     include('Global-Binds.lua') -- OK to remove this line
@@ -853,7 +853,7 @@ function init_gear_sets()
         body="Shamash Robe",
         hands="Regal Cuffs",
         legs=gear.Relic_Legs,
-        feet=gear.Relic_Feet,
+        feet=gear.Empyrean_Feet,
         neck="Dls. Torque +2",
         ear1="Malignance Earring",
         ear2="Regal Earring",
@@ -1133,6 +1133,7 @@ function init_gear_sets()
         waist="Chaac Belt"
     }
     
+    sets.CroceaKraken = { main="Crocea Mors", sub="Kraken Club" }
     sets.CroceaDark = { main="Crocea Mors", sub="Ternion Dagger +1" }
     sets.CroceaLight = { main="Crocea Mors", sub="Daybreak" }
     -- sets.Almace = { main="Almace", sub="Ternion Dagger +1" }

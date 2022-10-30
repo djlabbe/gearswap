@@ -76,7 +76,7 @@ function user_setup()
     state.WeaponskillMode:options('Normal', 'Acc')
     state.IdleMode:options('Normal', 'DT')
 
-    state.WeaponSet = M{['description']='Weapon Set', 'Twashtar_Gleti', 'Twashtar_TP', 'Tauret_Twash', 'Tauret_Gleti', 'Gandring'}
+    state.WeaponSet = M{['description']='Weapon Set', 'Aeneas_Twash', 'Twashtar_Gleti', 'Twashtar_TP', 'Tauret_Twash', 'Tauret_Gleti', 'Gandring'}
     state.WeaponLock = M(false, 'Weapon Lock')
 
     gear.Artifact_Head = { name="Pillager's Bonnet +1" }
@@ -86,7 +86,7 @@ function user_setup()
     gear.Artifact_Feet = { name="Pillager's Poulaines +1" }
 
     gear.Relic_Head = { name="Plunderer's Bonnet +3" }
-    gear.Relic_Body = { name="Plunderer's Vest +1" }
+    gear.Relic_Body = { name="Plunderer's Vest +3" }
     gear.Relic_Hands = { name="Plunderer's Armlets +3" }
     gear.Relic_Legs = { name="Plunderer's Culottes +1" }
     gear.Relic_Feet = { name="Plunderer's Poulaines +3" }
@@ -322,14 +322,16 @@ function init_gear_sets()
     sets.precast.WS['Evisceration'] = set_combine(sets.precast.WS, {
         ammo="Yetshila +1",
         head=gear.Adhemar_B_Head,
-        body=gear.Gleti_Body,
-        hands="Mummu Wrists +2",
+        neck="Fotia Gorget",
+        body=gear.Relic_Body,
+        hands=gear.Adhemar_B_Hands,
+        waist="Fotia Belt",
         legs="Zoar Subligar +1",
         feet=gear.Lustratio_D_Feet,
-        ear1="Sherida Earring",
-        ear2="Mache Earring +1",
-        ring1="Begrudging Ring",
-        ring2="Mummu Ring",
+        ear1="Odr Earring",
+        ear2="Moonshade Earring",
+        ring1="Ilabrat Ring",
+        ring2="Regal Ring",
         back=gear.THF_WS_Cape,
     })
 
@@ -428,8 +430,13 @@ function init_gear_sets()
         neck="Asn. Gorget +2",
         ear1="Sherida Earring",
         ear2="Skulker's Earring +1",
+        head=gear.Empyrean_Head,
         body=gear.Artifact_Body,
+        hands=gear.Relic_Hands,
         back=gear.THF_TP_Cape,
+        feet=gear.Relic_Feet,
+        ring1="Gere Ring",
+        ring2="Hetairoi Ring",
         waist="Reiki Yotai",
     })
 
@@ -527,7 +534,7 @@ function init_gear_sets()
     sets.engaged.DW.HighAcc = set_combine(sets.engaged.DW.MidAcc, {
         ammo="C. Palug Stone",
         hands="Gazu Bracelet +1",
-        legs="Pill. Culottes +3",
+        legs=gear.Artifact_Legs,
         ear1="Cessance Earring",
         ear2="Telos Earring",
         ring1="Regal Ring",
@@ -566,7 +573,7 @@ function init_gear_sets()
     sets.engaged.DW.HighAcc.LowHaste = set_combine(sets.engaged.DW.MidAcc.LowHaste, {
         ammo="C. Palug Stone",
         hands="Gazu Bracelet +1",
-        legs="Pill. Culottes +3",
+        legs=gear.Artifact_Legs,
         ear2="Telos Earring",
         ring1="Regal Ring",
         ring2=gear.Chirich_2,
@@ -604,7 +611,7 @@ function init_gear_sets()
     sets.engaged.DW.HighAcc.MidHaste = set_combine(sets.engaged.DW.MidAcc.MidHaste, {
         ammo="C. Palug Stone",
         hands="Gazu Bracelet +1",
-        legs="Pill. Culottes +3",
+        legs=gear.Artifact_Legs,
         ear2="Telos Earring",
         ring1="Regal Ring",
         ring2=gear.Chirich_2,
@@ -643,7 +650,7 @@ function init_gear_sets()
     sets.engaged.DW.HighAcc.HighHaste = set_combine(sets.engaged.DW.MidAcc.HighHaste, {
         ammo="C. Palug Stone",
         hands="Gazu Bracelet +1",
-        legs="Pill. Culottes +3",
+        legs=gear.Artifact_Legs,
         ear2="Telos Earring",
         ring1="Regal Ring",
         ring2=gear.Chirich_2,
@@ -682,7 +689,7 @@ function init_gear_sets()
     sets.engaged.DW.HighAcc.MaxHaste = set_combine(sets.engaged.DW.MidAcc.MaxHaste, {
         ammo="C. Palug Stone",
         hands="Gazu Bracelet +1",
-        legs="Pill. Culottes +3",
+        legs=gear.Artifact_Legs,
         ear2="Telos Earring",
         ring1="Regal Ring",
         ring2=gear.Chirich_2,
@@ -743,6 +750,7 @@ function init_gear_sets()
         waist="Gishdubar Sash", --10
     }
 
+    sets.Aeneas_Twash = {main="Aeneas", sub="Twashtar"}
     sets.Twashtar_Gleti = {main="Twashtar", sub="Gleti's Knife"}
     sets.Twashtar_TP = {main="Twashtar", sub="Fusetto +2"}
     sets.Tauret_Gleti = {main="Tauret", sub="Gleti's Knife"}

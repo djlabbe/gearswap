@@ -107,8 +107,8 @@ function user_setup()
     send_command('bind !d input /ja "Divine Seal" <me>')
     send_command('bind !` input /ja "Afflatus Solace" <me>')
     send_command('bind ^` input /ja "Afflatus Misery" <me>')
-    send_command('bind !p input /ma "Protectra V" <stpc>')
-    send_command('bind !o input /ma "Shellra V" <stpc>')
+    send_command('bind !p input /ma "Protectra V" <me>')
+    send_command('bind !o input /ma "Shellra V" <me>')
     send_command('bind !- gs c scholar light')
     send_command('bind != gs c scholar dark')
     send_command('bind ^[ gs c scholar aoe')
@@ -269,9 +269,9 @@ function init_gear_sets()
         neck="Clr. Torque +1", --10/(-25)
         ear1="Glorious Earring", -- (+2)/(-5)
         ear2="Nourishing earring",
-        body="Ebers Bliaut +1",
+        body="Ebers Bliaut +2",
         hands="Theophany Mitts +3",
-        legs="Ebers Pant. +1",
+        legs="Ebers Pant. +2",
         feet="Vanya Clogs", --11(+2)/(-12)    
         ring1="Metamorph Ring +1", --3/(-5)
         ring2="Mephitas's Ring +1",
@@ -332,7 +332,7 @@ function init_gear_sets()
     sets.midcast.Cursna = set_combine(sets.midcast.StatusRemoval, {
         -- main="Yagrush",
         -- sub="Chanter's Shield",
-        body="Ebers Bliaut +1",
+        body="Ebers Bliaut +2",
         -- hands="Fanatic Gloves", --15
         -- legs="Th. Pant. +3", --21
         -- feet="Vanya Clogs", --5
@@ -425,9 +425,9 @@ function init_gear_sets()
         -- main="Beneficus",
         -- sub="Ammurapi Shield",
         -- head="Ebers Cap +1",
-        body="Ebers Bliaut +1",
+        body="Ebers Bliaut +2",
         -- hands="Ebers Mitts +1",
-        -- legs="Piety Pantaln. +3",
+        legs="Piety Pantaln. +2",
         -- feet="Ebers Duckbills +1",
     })
 
@@ -452,7 +452,7 @@ function init_gear_sets()
         ring2=gear.Stikini_2,
         back="Aurist's Cape +1",
         waist="Acuity Belt +1",
-        }
+    }
 
     -- sets.midcast.Banish = set_combine(sets.midcast['Divine Magic'], {
     --     main="Daybreak",
