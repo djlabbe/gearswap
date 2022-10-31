@@ -213,7 +213,7 @@ function init_gear_sets()
 
     -- (10% Snapshot, 5% Rapid from Merits)
     sets.precast.RA = {
-        head=gear.Taeon_RA_Head, --10/0
+        head=gear.Taeon_SNAP_Head, --10/0
         body=gear.Empyrean_Body,
         hands=gear.Carmine_D_Hands, --8/11
         -- legs=gear.Artifact_Legs, --15/0
@@ -315,7 +315,7 @@ function init_gear_sets()
     })
 
     sets.precast.WS['Jishnu\'s Radiance'] = set_combine(sets.precast.WS, {
-        head="Mummu Bonnet +2",
+        head=gear.Adhemar_A_Head,
          -- body="Abnoba Kaftan",
         body=gear.Adhemar_A_Body,
         hands="Mummu Wrists +2",

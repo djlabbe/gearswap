@@ -259,7 +259,7 @@ function init_gear_sets()
         ear2="Trux Earring", --5
         ring1="Pernicious Ring", --5
         ring2="Eihwaz Ring", --5
-        waist="Kasiri Belt", --3
+        -- waist="Kasiri Belt", --3
     }
 
     sets.precast.JA['Provoke'] = sets.Enmity
@@ -367,7 +367,7 @@ function init_gear_sets()
     })
 
     sets.precast.WS['Requiescat'] = {
-       -- head="Luh. Keffiyeh +3",
+        -- head="Luh. Keffiyeh +3",
         -- body="Luhlaza Jubbah +3",
         hands="Jhakri Cuffs +2",
         legs=gear.Relic_Legs,
@@ -393,7 +393,7 @@ function init_gear_sets()
     sets.precast.WS['Expiacion'].Acc = set_combine(sets.precast.WS['Expiacion'], {
         body=gear.Adhemar_B_Body,
         ear2="Telos Earring",
-        })
+    })
 
     sets.precast.WS['Sanguine Blade'] = {
          ammo="Ghastly Tathlum +1",
@@ -639,7 +639,7 @@ function init_gear_sets()
     sets.midcast['Blue Magic'].HealingSelf = set_combine(sets.midcast['Blue Magic'].Healing, {
         -- legs="Gyve Trousers", -- 10
         -- neck="Phalaina Locket", -- 4(4)
-        -- ring2="Asklepian Ring", -- (3)
+        ring2="Asklepian Ring", -- (3)
         back="Solemnity Cape", --7
         waist="Gishdubar Sash", -- (10)
     })

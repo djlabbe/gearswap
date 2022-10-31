@@ -234,7 +234,7 @@ function init_gear_sets()
         ring1="Pernicious Ring", --5
         ring2="Eihwaz Ring", --5
         back=gear.DNC_WTZ_Cape, --10
-        waist="Kasiri Belt", --3
+        -- waist="Kasiri Belt", --3
         }
 
     sets.precast.JA['Provoke'] = sets.Enmity

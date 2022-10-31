@@ -303,7 +303,7 @@ function init_gear_sets()
         ring1="Pernicious Ring",
         ring2="Eihwaz Ring",
         back=Enmity_plus_back,
-        waist="Kasiri Belt",
+        -- waist="Kasiri Belt",
         legs="Zoar Subligar +1",
         -- feet={name="Acro Leggings", augments={'Pet: Mag. Acc.+23','Enmity+10',}}
     }

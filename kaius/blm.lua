@@ -438,7 +438,7 @@ function init_gear_sets()
         ring1="Freke Ring",
         ring2="Metamor. Ring +1",
         back=gear.BLM_MAB_Cape,
-        waist="Refoccilation Stone",
+        waist="Acuity Belt +1",
     }
 
   

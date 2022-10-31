@@ -597,7 +597,7 @@ function init_gear_sets()
         ring1="Freke Ring",
         ring2="Metamor. Ring +1",
         back=gear.SCH_MAB_Cape,
-        waist="Refoccilation Stone",
+        waist="Acuity Belt +1",
     }
 
     sets.midcast['Elemental Magic'].Seidr = set_combine(sets.midcast['Elemental Magic'], {

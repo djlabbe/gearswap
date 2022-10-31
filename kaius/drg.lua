@@ -55,6 +55,24 @@ function user_setup()
 
     include('Global-Binds.lua')
 
+    gear.Artifact_Head = { name="Vishap Armet +3" }
+    gear.Artifact_Body = { name="Vishap Mail +3" }
+    gear.Artifact_Hands = { name="Vishap Finger Gauntlets +3" }
+    gear.Artifact_Legs = { name="Vishap Brais +2" }
+    gear.Artifact_Feet = { name="Vishap Greaves +2" }
+
+    gear.Relic_Head = { name="Pteroslaver Armet +3" }
+    gear.Relic_Body = { name="Pteroslaver Mail +3" }
+    gear.Relic_Hands = { name="Pteroslaver Finger Gauntlets +3" }
+    gear.Relic_Legs = { name="Pteroslaver Brais +3" }
+    gear.Relic_Feet = { name="Pteroslaver Greaves +3" }
+
+    gear.Empyrean_Head = { name="Peltast's Mezail +1" }
+    gear.Empyrean_Body = { name="Peltast's Plackart +1" }
+    gear.Empyrean_Hands = { name="Peltast's Vambraces +1" }
+    gear.Empyrean_Legs = { name="Peltast's Cuissots +1" }
+    gear.Empyrean_Feet = { name="Peltast's Schynbalds +3" }
+
     send_command('bind @w gs c toggle WeaponLock')
     send_command('bind @e gs c cycle WeaponSet')
    
@@ -102,9 +120,6 @@ function init_gear_sets()
     sets.precast.JA['Steady Wing'] = {
         legs="Vishap Brais +3",
         feet="Ptero. Greaves +3",
-        neck="Chanoix's Gorget",
-        ear1="Lancer's Earring",
-        ear2="Anastasi Earring",
         back="Updraft Mantle",
     }
 
@@ -340,10 +355,10 @@ function init_gear_sets()
         ammo="Ghastly Tathlum +1",
         body="Carm. Sc. Mail +1",
         hands="Carmine Fin. Ga. +1",
-        ear1="Crematio Earring",
+        -- ear1="Crematio Earring",
         ear2="Friomisi Earring",
         ring1="Shiva Ring +1",
-        back="Argocham. Mantle",
+        back=gear.DRG_WS1_Cape
     })
 
     sets.precast.WS['Thunder Thrust'] = sets.precast.WS['Raiden Thrust']
@@ -354,15 +369,12 @@ function init_gear_sets()
 
     sets.midcast.HealingBreath = {
         head="Ptero. Armet +3",
-        body=gear.Acro_Pet_Body,
-        hands=gear.Acro_Pet_Hands,
         legs="Vishap Brais +3",
         feet="Ptero. Greaves +3",
         neck="Dgn. Collar +2",
-        ear1="Lancer's Earring",
-        ear2="Anastasi Earring",
+        ring1=gear.Moonlight_1,
+        ring2="Defending Ring",
         back="Updraft Mantle",
-        waist="Glassblower's Belt",
     }
 
     sets.midcast.ElementalBreath = {
@@ -371,10 +383,9 @@ function init_gear_sets()
         hands=gear.Acro_Pet_Hands,
         neck="Lancer's Torque",
         ear1="Enmerkar Earring",
-        ear2="Dragoon's Earring",
+        ear2="Handler's Earring +1",
         ring1="C. Palug Ring",
         back="Updraft Mantle",
-        waist="Glassblower's Belt",
     }
 
     ------------------------------------------------------------------------------------------------
@@ -465,7 +476,7 @@ function init_gear_sets()
         hands=gear.Gleti_Hands,
         legs="Ptero. Brais +3",
         feet="Flam. Gambieras +2",
-        neck="Vim Torque",
+        neck="Vim Torque +1",
         ear1="Sherida Earring",
         ear2="Telos Earring",
         ring1=gear.Moonlight_1,

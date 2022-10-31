@@ -202,7 +202,7 @@ function init_gear_sets()
         feet=gear.Kaykaus_B_Feet, --7
         ring1="Lebeche Ring", --(2)
         ring2="Weather. Ring", --6(4)
-        -- back="Perimede Cape", --(4)
+        back="Perimede Cape", --(4)
         waist="Shinjutsu-no-Obi +1", --5
     })
 
@@ -279,7 +279,7 @@ function init_gear_sets()
     sets.midcast.CureSolace = {
         main="Daybreak",
         sub="Sors Shield",
-        ammo="Pemphredo Tathlum",
+        ammo="Esper Stone +1",
         head=gear.Kaykaus_B_Head, --11(+2)/(-6)
         neck="Clr. Torque +2", --10/(-25)
         ear1="Glorious Earring", -- (+2)/(-5)
@@ -490,7 +490,7 @@ function init_gear_sets()
         ear1="Malignance Earring",
         ring1="Freke Ring",
         ring2="Weather. Ring",
-        waist="Refoccilation Stone",
+        waist="Acuity Belt +1",
     })
 
     sets.midcast.Holy = sets.midcast.Banish
@@ -577,7 +577,7 @@ function init_gear_sets()
         ring1=gear.Stikini_1,
         ring2=gear.Stikini_2,
         back="Moonlight Cape",
-        waist="Slipor Sash",
+        waist="Carrier's Sash",
     }
 
     sets.idle.DT = set_combine(sets.idle, {

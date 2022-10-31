@@ -100,7 +100,7 @@ function user_setup()
     state.OffenseMode:options('Normal', 'Acc')
     state.HybridMode:options('Normal', 'DT')
     state.WeaponskillMode:options('Normal', 'Acc')
-    state.CastingMode:options('Normal', 'Seidr', 'Resistant')
+    state.CastingMode:options('Normal', 'Resistant')
     state.IdleMode:options('Normal', 'DT')
 
     state.EnSpell = M{['description']='EnSpell', 'Enfire', 'Enblizzard', 'Enaero', 'Enstone', 'Enthunder', 'Enwater'}
@@ -283,7 +283,7 @@ function init_gear_sets()
         ammo="Impatiens", --(2)
         ring1="Lebeche Ring", --(2)
         ring2="Weather. Ring", --5/(4)
-        -- back="Perimede Cape", --(4)
+        back="Perimede Cape", --(4)
         waist="Embla Sash",
     })
 
@@ -452,8 +452,8 @@ function init_gear_sets()
         -- ear1="Halasz Earring", --5
         ear2="Magnetic Earring", --8
         ring2="Evanescence Ring", --5
-        waist="Rumination Sash", --10
-        }
+        -- waist="Rumination Sash", --10
+    }
 
     sets.midcast.Utsusemi = sets.midcast.SpellInterrupt
 
@@ -483,7 +483,7 @@ function init_gear_sets()
     })
 
     sets.midcast.CureSelf = set_combine(sets.midcast.Cure, {
-        neck="Phalaina Locket", -- 4(4)
+        -- neck="Phalaina Locket", -- 4(4)
         ring2="Asklepian Ring", -- (3)
         waist="Gishdubar Sash", -- (10)
     })
@@ -504,12 +504,12 @@ function init_gear_sets()
         ear2="Meili Earring",
         ring1="Haoma's Ring",
         ring2="Menelaus's Ring",
-        -- back="Perimede Cape",
+        back="Perimede Cape",
         waist="Bishop's Sash",
     }
 
     sets.midcast.Cursna = set_combine(sets.midcast.StatusRemoval, {
-        hands="Hieros Mittens",
+        -- hands="Hieros Mittens",
         body=gear.Relic_Body,
         neck="Debilis Medallion",
         ear1="Beatific Earring",
@@ -562,7 +562,7 @@ function init_gear_sets()
         ring1=gear.Stikini_1,
         ring2=gear.Stikini_2,
         back=gear.RDM_ENH_Cape,
-        wasit="Olympus Sash",
+        waist="Olympus Sash",
         legs=gear.Artifact_Legs,
         feet=gear.Empyrean_Feet,
     }
@@ -745,7 +745,7 @@ function init_gear_sets()
         ear1="Hirudinea Earring",
         ring1="Archon Ring",
         ring2="Evanescence Ring",
-        -- back="Perimede Cape",
+        back="Perimede Cape",
         waist="Fucho-no-obi",
     })
 
@@ -768,17 +768,17 @@ function init_gear_sets()
         ring1="Freke Ring",
         ring2="Metamor. Ring +1",
         -- back=gear.RDM_INT_Cape,
-        waist="Refoccilation Stone",
-        }
-
-    sets.midcast['Elemental Magic'].Seidr = set_combine(sets.midcast['Elemental Magic'], {
-        ammo="Pemphredo Tathlum",
-        body="Seidr Cotehardie",
-        -- legs="Merlinic Shalwar",
-        -- feet="Merlinic Crackows",
-        neck="Erra Pendant",
         waist="Acuity Belt +1",
-    })
+    }
+
+    -- sets.midcast['Elemental Magic'].Seidr = set_combine(sets.midcast['Elemental Magic'], {
+    --     ammo="Pemphredo Tathlum",
+    --     body="Seidr Cotehardie",
+    --     -- legs="Merlinic Shalwar",
+    --     -- feet="Merlinic Crackows",
+    --     neck="Erra Pendant",
+    --     waist="Acuity Belt +1",
+    -- })
 
     sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'], {
         range="Ullr",
@@ -979,7 +979,7 @@ function init_gear_sets()
     sets.engaged.DW.Acc.LowHaste = set_combine(sets.engaged.DW.LowHaste, {
         ammo="Voluspa Tathlum",
         head=gear.Carmine_D_Head,
-        neck="Combatant's Torque",
+        -- neck="Combatant's Torque",
         ring1=gear.Chirich_1,
         body=gear.Carmine_B_Body,
         hands="Gazu Bracelet +1",
@@ -1007,7 +1007,7 @@ function init_gear_sets()
     sets.engaged.DW.Acc.MidHaste = set_combine(sets.engaged.DW.MidHaste, {
         ammo="Voluspa Tathlum",
         head=gear.Carmine_D_Head,
-        neck="Combatant's Torque",
+        -- neck="Combatant's Torque",
         body=gear.Carmine_B_Body,
         legs=gear.Carmine_D_Legs, --6
         hands="Gazu Bracelet +1",
@@ -1041,7 +1041,7 @@ function init_gear_sets()
         ear1="Cessance Earring",
         ear2="Mache Earring +1",
         legs=gear.Carmine_D_Legs, --6
-        neck="Combatant's Torque",
+        -- neck="Combatant's Torque",
         ring1=gear.Chirich_1,
     })
 
@@ -1109,9 +1109,6 @@ function init_gear_sets()
         waist="Orpheus's Sash",
     }
 
-    sets.engaged.Enspell.Fencer = {
-        ring1="Fencer's Ring"
-    }
 
     ------------------------------------------------------------------------------------------------
     ---------------------------------------- Special Sets ------------------------------------------
@@ -1347,9 +1344,6 @@ end
 function customize_melee_set(meleeSet)
     if state.EnspellMode.value == true then
         meleeSet = set_combine(meleeSet, sets.engaged.Enspell)
-    end
-    if state.EnspellMode.value == true and player.hpp <= 75 and player.tp < 1000 then
-        meleeSet = set_combine(meleeSet, sets.engaged.Enspell.Fencer)
     end
     if state.TreasureMode.value == 'Fulltime' then
         meleeSet = set_combine(meleeSet, sets.TreasureHunter)

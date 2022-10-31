@@ -178,7 +178,7 @@ function init_gear_sets()
         -- ear2="Trux Earring", --5
         -- ring1="Pernicious Ring", --5
         ring2="Eihwaz Ring", --5
-        waist="Kasiri Belt", --3
+        -- waist="Kasiri Belt", --3
     }
 
     sets.precast.JA['Provoke'] = sets.Enmity
