@@ -75,7 +75,6 @@ function job_setup()
         "Stone V", "Water V", "Aero V", "Fire V", "Blizzard V", "Thunder V"}
 
     state.Buff['Sublimation: Activated'] = buffactive['Sublimation: Activated'] or false
-    state.HelixMode = M{['description']='Helix Mode', 'Potency', 'Duration'}
     state.RegenMode = M{['description']='Regen Mode', 'Duration', 'Potency'}
     state.Weather = M{['description']='Weather',
     "Aurorastorm II", "Thunderstorm II", "Hailstorm II", 'Firestorm II', 'Windstorm II',
@@ -114,8 +113,8 @@ function user_setup()
 
     gear.Artifact = { }
     gear.Artifact_Head = { name= "Academic's Mortarboard +2" }
-    gear.Artifact_Body = { name= "Academic's Gown +1" }
-    gear.Artifact_Hands = { name= "Academic's Bracers +1" }
+    gear.Artifact_Body = { name= "Academic's Gown +2" }
+    gear.Artifact_Hands = { name= "Academic's Bracers +2" }
     gear.Artifact_Legs = { name= "Academic's Pants +1" }
     gear.Artifact_Feet = { name= "Academic's Loafers +2" }
 
@@ -158,7 +157,6 @@ function user_setup()
     send_command('bind !; gs c scholar cost')
 
     send_command('bind @q gs c toggle MagicBurst')
-    send_command('bind @h gs c cycle HelixMode')
     send_command('bind @r gs c cycle RegenMode')
     send_command('bind @s gs c toggle StormSurge')
     send_command('bind @w gs c toggle WeaponLock')
@@ -250,7 +248,7 @@ function init_gear_sets()
     --    /RDM --15
         ammo="Sapience Orb", --2
         head=gear.Amalric_A_Head, --11
-        body="Zendik Robe", --13
+        body="Pinga Tunic +1", --15
         hands=gear.Artifact_Hands, --9
         -- legs="Volte Brais", --8
         legs=gear.Agwu_Legs, -- 7
@@ -319,7 +317,7 @@ function init_gear_sets()
         ammo="Ghastly Tathlum +1",
         head="Pixie Hairpin +1",
         body=gear.Relic_Body,
-        legs=gear.Relic_Pants,
+        legs=gear.Relic_Legs,
         feet="Merlinic Crackows",
         ear1="Malignance Earring",
         ear2="Regal Earring",
@@ -418,7 +416,8 @@ function init_gear_sets()
     sets.midcast['Enhancing Magic'] = {
         main=gear.Gada_ENH,
         sub="Ammurapi Shield",
-        ammo="Savant's Treatise",
+        -- ammo="Savant's Treatise",
+        ammo="Pemphredo Tathlum",
         head=gear.Telchine_ENH_Head,
         body=gear.Relic_Body,
         hands=gear.Telchine_ENH_Hands,
@@ -452,7 +451,8 @@ function init_gear_sets()
         hands=gear.Telchine_ENH_Hands,
         legs=gear.Telchine_ENH_Legs,
         feet=gear.Telchine_ENH_Feet,
-        back="Bookworm's Cape",
+        back=gear.SCH_MAB_Cape,
+        -- back="Bookworm's Cape",
     })
 
     sets.midcast.RegenDuration = set_combine(sets.midcast.EnhancingDuration, {
@@ -465,7 +465,6 @@ function init_gear_sets()
     sets.midcast.Refresh = set_combine(sets.midcast.EnhancingDuration, {
         head=gear.Amalric_A_Head,
         waist="Gishdubar Sash",
-        -- back="Grapevine Cape",
     })
 
     sets.midcast.Stoneskin = set_combine(sets.midcast.EnhancingDuration, {
@@ -474,8 +473,8 @@ function init_gear_sets()
     })
 
     sets.midcast.Aquaveil = set_combine(sets.midcast.EnhancingDuration, {
-        main="Vadose Rod",
-        sub="Ammurapi Shield",
+        -- main="Vadose Rod",
+        -- sub="Ammurapi Shield",
         ammo="Staunch Tathlum +1",
         head=gear.Amalric_A_Head,
         hands="Regal Cuffs",
@@ -537,11 +536,11 @@ function init_gear_sets()
         head=gear.Artifact_Head,
         body=gear.Artifact_Body,
         hands=gear.Artifact_Hands,
-        legs=gear.Relic_Pants,
+        legs=gear.Relic_Legs,
         feet=gear.Artifact_Feet,
         neck="Argute Stole +2",
         ear1="Malignance Earring",
-        ear2="Mani Earring",
+        ear2="Regal Earring",
         ring1=gear.Stikini_1,
         ring2=gear.Stikini_2,
         back="Aurist's Cape +1",
@@ -602,10 +601,8 @@ function init_gear_sets()
 
     sets.midcast['Elemental Magic'].Seidr = set_combine(sets.midcast['Elemental Magic'], {
         ammo="Pemphredo Tathlum",
-        head="Merlinic Hood",
         body="Seidr Cotehardie",
-        legs=gear.Relic_Pants,
-        feet="Merlinic Crackows",
+        legs=gear.Relic_Legs,
         neck="Erra Pendant",
         waist="Acuity Belt +1",
     })
@@ -706,12 +703,11 @@ function init_gear_sets()
     sets.idle.Town = set_combine(sets.idle, {
         main="Musa",
         sub="Khonsu", --0/(-5)
-        -- sub="Enki Strap",
         ammo="Ghastly Tathlum +1",
         head=gear.Relic_Head,
         body="Shamash Robe",
         hands="Regal Cuffs",
-        legs=gear.Relic_Pants,
+        legs=gear.Relic_Legs,
         feet=gear.Relic_Feet,
         neck="Argute Stole +2",
         ear1="Malignance Earring",
@@ -743,14 +739,14 @@ function init_gear_sets()
         head="Blistering Sallet +1",
         body="Jhakri Robe +2",
         hands="Gazu Bracelet +1",
-        legs=gear.Relic_Pants,
-        feet=gear.Telchine_STP_Feet,
-        neck="Combatant's Torque",
+        legs=gear.Relic_Legs,
+        feet=gear.Empyrean_Feet,
+        neck="Rep. Plat. Medal",
         ear1="Cessance Earring",
         ear2="Telos Earring",
         ring1="Hetairoi Ring",
         ring2=gear.Chirich_2,
-        back="Relucent Cape",
+        back=gear.SCH_MAB_Cape,
         waist="Windbuffet Belt +1",
     }
 
@@ -813,8 +809,6 @@ function init_gear_sets()
     }
 
     sets.Obi = { waist="Hachirin-no-Obi" }
-    sets.Bookworm = { back="Bookworm's Cape" }
-    -- sets.CP = {back="Mecisto. Mantle"}
 
 end
 
@@ -848,9 +842,6 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
                 equip(sets.midcast.DarkHelix)
             else
                 equip(sets.midcast.Helix)
-            end
-            if state.HelixMode.value == 'Duration' then
-                equip(sets.Bookworm)
             end
         end
         if buffactive['Klimaform'] and spell.element == world.weather_element then
@@ -1010,8 +1001,6 @@ function display_current_job_state(eventArgs)
 
     local c_msg = state.CastingMode.value
 
-    local h_msg = state.HelixMode.value
-
     local r_msg = state.RegenMode.value
 
     local d_msg = 'None'
@@ -1030,7 +1019,6 @@ function display_current_job_state(eventArgs)
     end
 
     add_to_chat(060, '| Magic: ' ..string.char(31,001)..c_msg.. string.char(31,002)..  ' |'
-        ..string.char(31,060).. ' Helix: ' ..string.char(31,001)..h_msg.. string.char(31,002)..  ' |'
         ..string.char(31,060).. ' Regen: ' ..string.char(31,001)..r_msg.. string.char(31,002)..  ' |'
         ..string.char(31,004).. ' Defense: ' ..string.char(31,001)..d_msg.. string.char(31,002)..  ' |'
         ..string.char(31,008).. ' Idle: ' ..string.char(31,001)..i_msg.. string.char(31,002)..  ' |'

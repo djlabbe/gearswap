@@ -999,7 +999,7 @@ function init_gear_sets()
         head=gear.Gleti_Head,
         neck="Fotia Gorget",
         ear1="Sherida Earring",
-        ear2="Sroda Earring",
+        ear2="Nukumi Earring +1",
         body=gear.Gleti_Body,
         hands=gear.Gleti_Hands,
         ring1="Gere Ring",

@@ -88,7 +88,7 @@ function user_setup()
     gear.Relic_Head = { name="Plunderer's Bonnet +3" }
     gear.Relic_Body = { name="Plunderer's Vest +3" }
     gear.Relic_Hands = { name="Plunderer's Armlets +3" }
-    gear.Relic_Legs = { name="Plunderer's Culottes +1" }
+    gear.Relic_Legs = { name="Plunderer's Culottes +3" }
     gear.Relic_Feet = { name="Plunderer's Poulaines +3" }
 
     gear.Empyrean_Head = { name="Skulker's Bonnet +2" }
@@ -114,7 +114,7 @@ function user_setup()
     send_command('bind !numpad1 input /equip Main "Lament";input /ws "Freezebite" <t>;gs c set WeaponLock true;')
     send_command('bind !numpad2 input /equip Main "Profane Staff"; input /ws "Earth Crusher" <t>;gs c set WeaponLock true;')
     send_command('bind !numpad3 input /equip Main "Profane Staff"; input /ws "Sunburst" <t>;gs c set WeaponLock true;')
-    send_command('bind !numpad0 input /equip Main "Ark Scythe"; input /ws "Shadow of Death" <t>;gs c set WeaponLock true;')
+    send_command('bind !numpad0 input /equip Main "Lost Sickle"; input /ws "Shadow of Death" <t>;gs c set WeaponLock true;')
     
 
     if player.sub_job == 'WAR' then
@@ -236,9 +236,9 @@ function init_gear_sets()
     sets.precast.WS = {
         ammo="Aurgelmir Orb +1",
         head=gear.Gleti_Head,
-        body=gear.Gleti_Body,
+        body=gear.Empyrean_Body,
         hands="Meg. Gloves +2",
-        legs=gear.Gleti_Legs,
+        legs=gear.Relic_Legs,
         feet=gear.Herc_WSD_Feet,
         neck="Fotia Gorget",
         ear1="Ishvara Earring",
@@ -263,10 +263,10 @@ function init_gear_sets()
     sets.precast.WS['Rudra\'s Storm'] ={
         ammo="Seething Bomblet +1",
         neck="Asn. Gorget +2",
-        head=gear.Empyrean_Head,
-        body=gear.Gleti_Body,
+        head=gear.Relic_Head,
+        body=gear.Empyrean_Body,
         hands="Meg. Gloves +2",
-        legs=gear.Gleti_Legs,
+        legs=gear.Relic_Legs,
         feet=gear.Relic_Feet,
         ear1="Sherida Earring",
         ear2="Moonshade Earring",
@@ -373,21 +373,6 @@ function init_gear_sets()
 
     sets.midcast.FastRecast = sets.precast.FC
 
-    sets.midcast.SpellInterrupt = {
-        ammo="Staunch Tathlum +1", --11
-        body=gear.Taeon_Phalanx_Body, --10
-        hands="Rawhide Gloves", --15
-        legs=gear.Taeon_Phalanx_Legs, --10
-        feet=gear.Taeon_Phalanx_Feet, --10
-        neck="Loricate Torque +1", --5
-        ear1="Halasz Earring", --5
-        ear2="Magnetic Earring", --8
-        ring2="Evanescence Ring", --5
-    }
-
-    sets.midcast.Utsusemi = sets.midcast.SpellInterrupt
-
-
     ------------------------------------------------------------------------------------------------
     ----------------------------------------- Idle Sets --------------------------------------------
     ------------------------------------------------------------------------------------------------
@@ -444,8 +429,13 @@ function init_gear_sets()
     ---------------------------------------- Defense Sets ------------------------------------------
     ------------------------------------------------------------------------------------------------
 
-    sets.defense.PDT = sets.idle.DT
-    sets.defense.MDT = sets.idle.DT
+    sets.defense.PDT = {
+
+    }
+
+    sets.defense.MDT = {
+
+    }
 
     -- sets.Kiting = {feet="Pill. Poulaines +3"}
     sets.Kiting = {feet="Jute Boots +1"}
@@ -705,7 +695,7 @@ function init_gear_sets()
         hands=gear.Malignance_Hands, --5/5
         legs=gear.Malignance_Legs, --7/7
         feet=gear.Malignance_Feet, --4/4
-        ring2="Defending Ring", --10/10
+        -- ring2="Defending Ring", --10/10
     }
 
     sets.engaged.DT = set_combine(sets.engaged, sets.engaged.Hybrid)

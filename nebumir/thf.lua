@@ -79,7 +79,7 @@ function user_setup()
     state.WeaponskillMode:options('Normal', 'Acc', 'LowBuff')
     state.IdleMode:options('Normal', 'DT', 'Refresh')
 
-    state.WeaponSet = M{['description']='Weapon Set', 'Naegling'}
+    state.WeaponSet = M{['description']='Weapon Set', 'Shijos'}
     state.WeaponLock = M(false, 'Weapon Lock')
 
     -- Additional local binds
@@ -99,7 +99,7 @@ function user_setup()
     send_command('bind !numpad1 input /equip Main "Lament";input /ws "Freezebite" <t>;gs c set WeaponLock true;')
     send_command('bind !numpad2 input /equip Main "Profane Staff"; input /ws "Earth Crusher" <t>;gs c set WeaponLock true;')
     send_command('bind !numpad3 input /equip Main "Profane Staff"; input /ws "Sunburst" <t>;gs c set WeaponLock true;')
-    send_command('bind !numpad0 input /equip Main "Ark Scythe"; input /ws "Shadow of Death" <t>;gs c set WeaponLock true;')
+    send_command('bind !numpad0 input /equip Main "Lost Sickle"; input /ws "Shadow of Death" <t>;gs c set WeaponLock true;')
     
     if player.sub_job == 'WAR' then
         send_command('bind !t input /ja "Provoke" <t>')
@@ -769,8 +769,7 @@ function init_gear_sets()
         waist="Gishdubar Sash", --10
     }
 
-    sets.Tauret = {main="Tauret", sub="Gleti's Knife"}
-    sets.Gandring = {main="Gandring", sub="Gleti's Knife"}
+    sets.Shijos = {main="Shijo", sub="Shijo"}
 
 end
 

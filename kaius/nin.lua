@@ -117,7 +117,7 @@ function user_setup()
     send_command('bind !numpad1 input /equip Main "Lament";input /ws "Freezebite" <t>;gs c set WeaponLock true;')
     send_command('bind !numpad2 input /equip Main "Profane Staff"; input /ws "Earth Crusher" <t>;gs c set WeaponLock true;')
     send_command('bind !numpad3 input /equip Main "Profane Staff"; input /ws "Sunburst" <t>;gs c set WeaponLock true;')
-    send_command('bind !numpad0 input /equip Main "Ark Scythe"; input /ws "Shadow of Death" <t>;gs c set WeaponLock true;')
+    send_command('bind !numpad0 input /equip Main "Lost Sickle"; input /ws "Shadow of Death" <t>;gs c set WeaponLock true;')
     send_command('bind !numpad. input /equip Main "Debahocho +1"; input /equip sub empty; input /ws "Blade: Ei" <t>;gs c set WeaponLock true;')
     send_command('bind !numpad+ input /equip Main "Mutsunokami"; input /ws "Tachi: Jinpu" <t>;gs c set WeaponLock true;')
     send_command('bind !numpad- input /equip Main "Mutsunokami"; input /ws "Tachi: Koki" <t>;gs c set WeaponLock true;')
@@ -274,8 +274,8 @@ function init_gear_sets()
         feet=gear.Relic_Feet,
         neck="Rep. Plat. Medal",
         waist="Sailfi Belt +1",
-        left_ear="Odr Earring",
-        right_ear="Lugra Earring +1",
+        ear1="Odr Earring",
+        ear2="Lugra Earring +1",
         ring1="Gere Ring",
         ring2="Regal Ring",
         back=gear.NIN_WS_Cape,
@@ -293,8 +293,8 @@ function init_gear_sets()
         feet=gear.Relic_Feet,
         neck="Rep. Plat. Medal",
         waist="Sailfi Belt +1",
-        left_ear="Moonshade Earring",
-        right_ear="Lugra Earring +1",
+        ear1="Moonshade Earring",
+        ear2="Lugra Earring +1",
         ring1="Gere Ring",
         ring2="Regal Ring",
         back=gear.NIN_WS_Cape,
@@ -314,8 +314,8 @@ function init_gear_sets()
         feet="Ken. Sune-Ate +1",
         neck="Ninja Nodowa +2",
         waist="Fotia Belt",
-        left_ear="Moonshade Earring",
-        right_ear="Lugra Earring +1",
+        ear1="Moonshade Earring",
+        ear2="Lugra Earring +1",
         ring1="Gere Ring",
         ring2="Regal Ring",
         back=gear.NIN_TP_Cape,
@@ -335,8 +335,8 @@ function init_gear_sets()
         feet=gear.Relic_Feet,
         neck="Fotia Gorget",
         waist="Fotia Belt",
-        left_ear="Mache Earring +1",
-        right_ear="Lugra Earring +1",
+        ear1="Mache Earring +1",
+        ear2="Lugra Earring +1",
         ring1="Gere Ring",
         ring2="Regal Ring",
         back=gear.NIN_TP_Cape,
@@ -353,8 +353,8 @@ function init_gear_sets()
         feet="Tatena. Sune. +1",
         neck="Ninja Nodowa +2",
         waist="Sailfi Belt +1", 
-        left_ear="Odr Earring",
-        right_ear="Lugra Earring +1",
+        ear1="Odr Earring",
+        ear2="Lugra Earring +1",
         ring1="Gere Ring",
         ring2="Epona's Ring",
         back=gear.NIN_TP_Cape,
@@ -370,10 +370,10 @@ function init_gear_sets()
         hands=gear.Nyame_Hands,
         feet=gear.Nyame_Feet,
         legs=gear.Nyame_Legs,        
-        left_ear="Moonshade Earring",
-        right_ear="Lugra Earring +1",
-        left_ring="Gere Ring",
-        right_ring="Epaminondas's Ring",
+        ear1="Moonshade Earring",
+        ear2="Lugra Earring +1",
+        ring1="Gere Ring",
+        ring2="Epaminondas's Ring",
         waist="Orpheus's Sash",
         back=gear.NIN_WS_Cape,
     }
@@ -405,10 +405,10 @@ function init_gear_sets()
         hands=gear.Nyame_Hands,
         feet=gear.Nyame_Feet,
         legs=gear.Nyame_Legs,        
-        left_ear="Moonshade Earring",
-        right_ear="Friomisi Earring",
-        left_ring="Epaminondas's Ring",
-        right_ring="Archon Ring",
+        ear1="Moonshade Earring",
+        ear2="Friomisi Earring",
+        ring1="Epaminondas's Ring",
+        ring2="Archon Ring",
         waist="Orpheus's Sash",
         back=gear.NIN_WS_Cape,
     }
@@ -422,10 +422,10 @@ function init_gear_sets()
         feet=gear.Herc_WSD_Feet,
         neck="Ninja Nodowa +2",
         waist="Sailfi Belt +1",
-        left_ear="Moonshade Earring",
-        right_ear="Lugra Earring +1",
-        left_ring="Gere Ring",
-        right_ring="Epaminondas's Ring",
+        ear1="Moonshade Earring",
+        ear2="Lugra Earring +1",
+        ring1="Gere Ring",
+        ring2="Epaminondas's Ring",
         back=gear.NIN_WS_Cape,
     } 
 
@@ -444,7 +444,7 @@ function init_gear_sets()
         legs=gear.Taeon_Phalanx_Legs, --10
         feet=gear.Taeon_Phalanx_Feet, --10
         neck="Moonlight Necklace", --15
-        -- ear1="Halasz Earring", --5
+        ear1="Halasz Earring", --5
         -- ear2="Magnetic Earring", --8
         ring1="Evanescence Ring", --5
         -- back=gear.NIN_FC_Cape, --10
@@ -469,10 +469,10 @@ function init_gear_sets()
         feet=gear.Relic_Feet,
         neck="Sibyl Scarf",
         waist="Skrymir Cord +1",
-        left_ear="Hermetic Earring",
-        right_ear="Friomisi Earring",
-        left_ring="Metamorph Ring +1",
-        right_ring="Dingir Ring",
+        ear1="Hermetic Earring",
+        ear2="Friomisi Earring",
+        ring1="Metamorph Ring +1",
+        ring2="Dingir Ring",
         back=gear.NIN_TP_Cape,
     }
 
@@ -574,10 +574,10 @@ function init_gear_sets()
         feet=gear.Artifact_Feet,
         neck="Ninja Nodowa +2",
         waist="Reiki Yotai",
-        left_ear="Crep. Earring",
-        right_ear="Telos Earring",
-        left_ring="Gere Ring",
-        right_ring="Regal Ring",
+        ear1="Crep. Earring",
+        ear2="Telos Earring",
+        ring1="Gere Ring",
+        ring2="Regal Ring",
         back=gear.NIN_MEVA_Cape,
     })
 
@@ -684,12 +684,12 @@ function init_gear_sets()
         ammo="Date Shuriken",
         head=gear.Ryuo_C_Head, --9
         neck="Ninja Nodowa +2",
-        left_ear="Telos Earring",
-        right_ear="Dedition Earring",
+        ear1="Telos Earring",
+        ear2="Dedition Earring",
         body=gear.Adhemar_A_Body, --6
         hands=gear.Adhemar_A_Hands,
-        left_ring="Gere Ring",
-        right_ring="Epona's Ring",
+        ring1="Gere Ring",
+        ring2="Epona's Ring",
         back=gear.NIN_TP_Cape,
         waist="Reiki Yotai", --7        
         legs="Ken. Hakama +1",
@@ -722,12 +722,12 @@ function init_gear_sets()
         ammo="Date Shuriken",
         head=gear.Ryuo_C_Head, --9
         neck="Ninja Nodowa +2",
-        left_ear="Telos Earring",
-        right_ear="Dedition Earring",
+        ear1="Telos Earring",
+        ear2="Dedition Earring",
         body="Tatena. Harama. +1",
         hands=gear.Adhemar_A_Hands,
-        left_ring="Gere Ring",
-        right_ring="Epona's Ring",
+        ring1="Gere Ring",
+        ring2="Epona's Ring",
         back=gear.NIN_TP_Cape,
         waist="Reiki Yotai", --7        
         legs="Ken. Hakama +1",
@@ -760,12 +760,12 @@ function init_gear_sets()
         ammo="Date Shuriken",
         head=gear.Malignance_Head,
         neck="Ninja Nodowa +2",
-        left_ear="Telos Earring",
-        right_ear="Dedition Earring",
+        ear1="Telos Earring",
+        ear2="Dedition Earring",
         body="Tatena. Harama. +1",
         hands=gear.Adhemar_A_Hands,
-        left_ring="Gere Ring",
-        right_ring="Epona's Ring",
+        ring1="Gere Ring",
+        ring2="Epona's Ring",
         back=gear.NIN_TP_Cape,
         waist="Sailfi Belt +1",        
         legs="Ken. Hakama +1",
@@ -809,8 +809,8 @@ function init_gear_sets()
         ear1="Eabani Earring",
         ear2="Odnowa Earring +1",
         waist="Engraved Belt",
-        ring1="Gelatinous Ring +1",
-        ring2="Defending Ring",
+        ring1="Defending Ring",
+        ring2="Gelatinous Ring +1",
         back=gear.NIN_MEVA_Cape,
     }
 
@@ -860,7 +860,7 @@ function init_gear_sets()
     sets.buff.Migawari = { }
     sets.buff.Yonin = {}
     sets.buff.Innin = {}
-    sets.buff.Sange = { ammo="Hachiya Shuriken" }
+    -- sets.buff.Sange = { ammo="Hachiya Shuriken" }
 
     sets.magic_burst = {
         feet=gear.Artifact_Feet,
@@ -1244,16 +1244,17 @@ function th_action_check(category, param)
 end
 
 function check_gear()
-    if no_swap_gear:contains(player.equipment.left_ring) then
+    if no_swap_gear:contains(player.equipment.ring1) then
         disable("ring1")
     else
         enable("ring1")
     end
-    if no_swap_gear:contains(player.equipment.right_ring) then
+    if no_swap_gear:contains(player.equipment.ring2) then
         disable("ring2")
     else
         enable("ring2")
     end
+
 end
 
 function check_weaponset()
@@ -1262,31 +1263,11 @@ end
 
 windower.register_event('zone change',
     function()
-        if no_swap_gear:contains(player.equipment.left_ring) then
+        if no_swap_gear:contains(player.equipment.ring1) then
             enable("ring1")
             equip(sets.idle)
         end
-        if no_swap_gear:contains(player.equipment.right_ring) then
-            enable("ring2")
-            equip(sets.idle)
-        end
-    end
-)
-
-function check_weaponset()
-    equip(sets[state.WeaponSet.current])
-    if player.sub_job ~= 'NIN' and player.sub_job ~= 'DNC' then
-       equip(sets.DefaultShield)
-    end
-end
-
-windower.register_event('zone change',
-    function()
-        if no_swap_gear:contains(player.equipment.left_ring) then
-            enable("ring1")
-            equip(sets.idle)
-        end
-        if no_swap_gear:contains(player.equipment.right_ring) then
+        if no_swap_gear:contains(player.equipment.ring2) then
             enable("ring2")
             equip(sets.idle)
         end

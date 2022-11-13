@@ -449,7 +449,7 @@ function init_gear_sets()
         -- hands=gear.Chironic_WSD_Hands, --20
         legs="Carmine Cuisses +1", --20
         neck="Loricate Torque +1", --5
-        -- ear1="Halasz Earring", --5
+        ear1="Halasz Earring", --5
         ear2="Magnetic Earring", --8
         ring2="Evanescence Ring", --5
         -- waist="Rumination Sash", --10
@@ -605,7 +605,7 @@ function init_gear_sets()
         ammo="Staunch Tathlum +1",
         head=gear.Amalric_A_Head,
         hands="Regal Cuffs",
-        -- ear1="Halasz Earring",
+        ear1="Halasz Earring",
         ring1="Freke Ring",
         -- ring2="Evanescence Ring",
         waist="Emphatikos Rope",

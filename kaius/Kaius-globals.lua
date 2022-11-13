@@ -213,11 +213,13 @@ function define_global_sets()
     gear.Herc_MAB_Feet = { name="Herculean Boots", augments={'"Mag.Atk.Bns."+21','Weapon skill damage +3%','INT+9',}}
 
     gear.Herc_WSD_Head ={ name="Herculean Helm", augments={'Accuracy+14','Weapon skill damage +3%','STR+7','Attack+10',}}
-    gear.Herc_WSD_Hands = { name="Herculean Gloves", augments={'Weapon skill damage +3%','INT+14','Mag. Acc.+3','"Mag.Atk.Bns."+6',}}
+    -- gear.Herc_WSD_Hands = { name="Herculean Gloves", augments={'Weapon skill damage +3%','INT+14','Mag. Acc.+3','"Mag.Atk.Bns."+6',}}
+    gear.Herc_WSD_Body = { name="Herculean Vest", augments={'Accuracy+14 Attack+14','Weapon skill damage +4%','STR+9','Accuracy+5','Attack+5',}}
     gear.Herc_WSD_Legs = { name="Herculean Trousers", augments={'Attack+18','Weapon skill damage +5%','AGI+4','Accuracy+7',}}
     gear.Herc_WSD_Feet = { name="Herculean Boots", augments={'Pet: INT+2','Enmity-4','Weapon skill damage +6%',}}
 
     -- -- Valorous
+    gear.Valo_QA_Body = { name="Valorous Mail", augments={'Crit.hit rate+5','STR+8','Quadruple Attack +2','Accuracy+19 Attack+19',}}
     gear.Valo_PET_Body = { name="Valorous Mail", augments={'Pet: Mag. Acc.+24','Pet: "Dbl.Atk."+4 Pet: Crit.hit rate +4','Pet: MND+8','Pet: Accuracy+12 Pet: Rng. Acc.+12',}}
    
     gear.Valo_WSD_Head = { name="Valorous Mask", augments={'Attack+18','Sklchn.dmg.+5%','STR+12','Accuracy+13',}}

@@ -250,16 +250,13 @@ function init_gear_sets()
     -- Enmity set
     sets.Enmity = {
         ammo="Sapience Orb", --2
-        head="Halitus Helm", --8
         body="Emet Harness +1", --10
-        hands="Kurys Gloves", --9
-        feet="Ahosi Leggings", --7
+        -- hands="Kurys Gloves", --9
         neck="Unmoving Collar +1", --10
-        ear1="Cryptic Earring", --4
-        ear2="Trux Earring", --5
-        ring1="Pernicious Ring", --5
+        -- ear1="Cryptic Earring", --4
+        -- ear2="Trux Earring", --5
+        -- ring1="Pernicious Ring", --5
         ring2="Eihwaz Ring", --5
-        -- waist="Kasiri Belt", --3
     }
 
     sets.precast.JA['Provoke'] = sets.Enmity
@@ -277,19 +274,20 @@ function init_gear_sets()
         -- Colada 4
         ammo="Sapience Orb", --2
         head="Carmine Mask +1", --14
-        body="Luhlaza Jubbah +3", --9
+        body="Pinga Tunic +1", --9
         hands="Leyline Gloves", --8
         legs="Aya. Cosciales +2", --6
         feet="Carmine Greaves +1", --8
-        neck="Orunmila's Torque", --5
+        -- neck="Orunmila's Torque", --5
+        neck="Baetyl Pendant", --4
         ear1="Loquacious Earring", --2
         ear2="Enchntr. Earring +1", --2
         ring1="Kishar Ring", --4
-        ring2="Weather. Ring +1", --6(4)
-        back="Swith Cape +1", --4
+        ring2="Weather. Ring", --6(4)
+        back="Fi Follet Cape +1", --10
     }
 
-    sets.precast.FC['Blue Magic'] = set_combine(sets.precast.FC, {body="Hashishin Mintan +1"})
+    -- sets.precast.FC['Blue Magic'] = set_combine(sets.precast.FC, {body="Hashishin Mintan +1"})
     sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {waist="Siegel Sash"})
     sets.precast.FC.Cure = set_combine(sets.precast.FC, {ammo="Impatiens", ear1="Mendi. Earring"})
 
@@ -324,9 +322,8 @@ function init_gear_sets()
     sets.precast.WS.Acc = set_combine(sets.precast.WS, {
         ammo="Voluspa Tathlum",
         -- head="Dampening Tam",
-        hands=gear.Herc_WSD_Hands,
         ear2="Telos Earring",
-        })
+    })
 
     sets.precast.WS['Chant du Cygne'] = set_combine(sets.precast.WS, {
         head=gear.Adhemar_B_Head,
@@ -430,7 +427,7 @@ function init_gear_sets()
 
     sets.precast.WS['Flash Nova'] = set_combine(sets.precast.WS['Sanguine Blade'], {
         head=gear.Herc_MAB_Head,
-        ring2="Weather. Ring +1",
+        ring2="Weather. Ring",
     })
 
     ------------------------------------------------------------------------------------------------
@@ -446,7 +443,7 @@ function init_gear_sets()
         legs=gear.Carmine_D_Legs, --20
         feet=gear.Taeon_Phalanx_Feet, --10
         neck="Loricate Torque +1", --5
-        -- ear1="Halasz Earring", --5
+        ear1="Halasz Earring", --5
         ear2="Magnetic Earring", --8
         ring2="Evanescence Ring", --5
         waist="Rumination Sash", --10
@@ -624,9 +621,9 @@ function init_gear_sets()
     sets.midcast['Blue Magic'].Healing = {
        ammo="Staunch Tathlum +1",
         head=gear.Carmine_D_Head,
-        body="Vrikodara Jupon", -- 13
+        body="Pinga Tunic +1", -- 15
         hands=gear.Telchine_ENH_Hands, -- 10
-        -- legs="Assim. Shalwar +3",
+        legs="Pinga Pants +1",
         -- neck="Nuna Gorget +1",
         ear1="Mendi. Earring", -- 5
         ear2="Regal Earring",
@@ -825,7 +822,7 @@ function init_gear_sets()
     }
 
     sets.engaged.LowAcc = set_combine(sets.engaged, {
-        head="Dampening Tam",
+        -- head="Dampening Tam",
         hands=gear.Adhemar_A_Hands,
         ring1=gear.Chirich_1,
     })
@@ -845,7 +842,7 @@ function init_gear_sets()
         neck="Mirage Stole +2",
         ear2="Mache Earring +1",
         ring1=gear.Chirich_1,
-        waist="Olseni Belt",
+        -- waist="Olseni Belt",
     })
 
     -- Base Dual-Wield Values:
@@ -874,7 +871,7 @@ function init_gear_sets()
     } -- 37%
 
     sets.engaged.DW.LowAcc = set_combine(sets.engaged.DW, {
-        head="Dampening Tam",
+        -- head="Dampening Tam",
         hands=gear.Adhemar_A_Hands,
         ring1=gear.Chirich_1,
     })
@@ -892,7 +889,7 @@ function init_gear_sets()
         ear1="Cessance Earring",
         ear2="Mache Earring +1",
         ring1=gear.Chirich_1,
-        waist="Olseni Belt",
+        -- waist="Olseni Belt",
     })
 
     -- 15% Magic Haste (67% DW to cap)
@@ -913,7 +910,7 @@ function init_gear_sets()
     }) -- 37%
 
     sets.engaged.DW.LowAcc.LowHaste = set_combine(sets.engaged.DW.LowHaste, {
-        head="Dampening Tam",
+        -- head="Dampening Tam",
         hands=gear.Adhemar_A_Hands,
         ring1=gear.Chirich_1,
     })
@@ -931,7 +928,7 @@ function init_gear_sets()
         ear1="Cessance Earring",
         ear2="Mache Earring +1",
         ring1=gear.Chirich_1,
-        waist="Olseni Belt",
+        -- waist="Olseni Belt",
     })
 
     -- 30% Magic Haste (56% DW to cap)
@@ -953,7 +950,7 @@ function init_gear_sets()
     } -- 27%
 
     sets.engaged.DW.LowAcc.MidHaste = set_combine(sets.engaged.DW.MidHaste, {
-        head="Dampening Tam",
+        -- head="Dampening Tam",
         hands=gear.Adhemar_A_Hands,
         ring1=gear.Chirich_1,
     })
@@ -973,7 +970,7 @@ function init_gear_sets()
         ear1="Cessance Earring",
         ear2="Mache Earring +1",
         ring1=gear.Chirich_1,
-        waist="Olseni Belt",
+        -- waist="Olseni Belt",
     })
 
     -- 35% Magic Haste (51% DW to cap)
@@ -995,7 +992,7 @@ function init_gear_sets()
     } -- 22%
 
     sets.engaged.DW.LowAcc.HighHaste = set_combine(sets.engaged.DW.HighHaste, {
-        head="Dampening Tam",
+        -- head="Dampening Tam",
         hands=gear.Adhemar_A_Hands,
         ring1=gear.Chirich_1,
         waist="Kentarch Belt +1",
@@ -1014,7 +1011,7 @@ function init_gear_sets()
         ear1="Cessance Earring",
         ear2="Mache Earring +1",
         ring1=gear.Chirich_1,
-        waist="Olseni Belt",
+        -- waist="Olseni Belt",
     })
 
     -- 45% Magic Haste (36% DW to cap)
@@ -1036,7 +1033,7 @@ function init_gear_sets()
     } -- 6%
 
     sets.engaged.DW.LowAcc.MaxHaste = set_combine(sets.engaged.DW.MaxHaste, {
-        head="Dampening Tam",
+        -- head="Dampening Tam",
         hands=gear.Adhemar_A_Hands,
         ring1=gear.Chirich_1,
     })
@@ -1053,7 +1050,7 @@ function init_gear_sets()
         legs=gear.Carmine_D_Legs,
         ear2="Mache Earring +1",
         ring1=gear.Chirich_1,
-        waist="Olseni Belt",
+        -- waist="Olseni Belt",
     })
 
     ------------------------------------------------------------------------------------------------

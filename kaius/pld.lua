@@ -39,7 +39,7 @@ function user_setup()
     state.WeaponLock = M(false, 'Weapon Lock')
 
     gear.Artifact_Head = { name="Reverence Coronet +1" }
-    gear.Artifact_Body = { name="Reverence Surcoat +1" }
+    gear.Artifact_Body = { name="Reverence Surcoat +2" }
     gear.Artifact_Hands = { name="Reverence Gauntlets +1" }
     gear.Artifact_Legs = { name="Reverence Breeches +1" }    
     gear.Artifact_Feet = { name="Reverence Leggings +1" }
@@ -47,7 +47,7 @@ function user_setup()
     gear.Relic_Head = { name="Caballarius Coronet +3" }
     gear.Relic_Body = { name="Caballarius Surcoat +1" }
     gear.Relic_Hands = { name="Caballarius Gauntlets +1" }
-    gear.Relic_Legs = { name="Caballarius Breeches +1" }
+    gear.Relic_Legs = { name="Caballarius Breeches +3" }
     gear.Relic_Feet = { name="Caballarius Leggings +3" }
 
     gear.Empyrean_Head = { name="Chevalier's Armet +1" }
@@ -60,6 +60,7 @@ function user_setup()
     send_command('bind @w gs c toggle WeaponLock')
     send_command('bind @e gs c cycle WeaponSet')
 
+    send_command('bind !` input /ja "Majesty" <me>')
     send_command('bind !c input /ja "Chivalry" <me>')
 
     -- Additional local binds
@@ -123,7 +124,7 @@ function init_gear_sets()
     sets.precast.FC = { -- FC/SIRD
         ammo="Staunch Tathlum +1", -- 0/11
         head=gear.Souveran_C_Head, -- 0/20
-        -- body="Rev. Surcoat +3", 
+        body=gear.Artifact_Body, -- 5/0 
         hands="Leyline Gloves", --5/0
         legs="Founder's Hose",--0/30
         feet=gear.Ody_CURE_Feet, -- 5/20
@@ -134,7 +135,7 @@ function init_gear_sets()
         ring1="Weather. Ring", --5/0
         ring2="Gelatinous Ring +1",
         back=gear.PLD_FC_Cape, --8/10
-    } -- 23% FC, 112% SIRD
+    } -- 28% FC, 112% SIRD
 
     sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {waist="Siegel Sash"})
 
@@ -342,7 +343,7 @@ function init_gear_sets()
         legs=gear.Sakpata_Legs,
         feet=gear.Sakpata_Feet,
         neck="Unmoving Collar +1",
-        waist="Creed Baudrier",
+        waist="Asklepian Belt",
         ear1="Tuisto Earring",
         ear2="Odnowa Earring +1",
         ring1="Moonlight Ring",
@@ -491,6 +492,9 @@ end
 -- buff == buff gained or lost
 -- gain == true if the buff was gained, false if it was lost.
 function job_buff_change(buff,gain)
+    if buff == 'Majesty' and not gain then
+        add_to_chat(167, 'Majesty just expired!')
+    end
     if buff == "Doom" then
         if gain then
             state.Buff.Doom = true

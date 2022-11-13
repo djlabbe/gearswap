@@ -44,6 +44,7 @@ function job_setup()
     state.Buff['Unlimited Shot'] = buffactive['Unlimited Shot'] or false
     state.Buff['Velocity Shot'] = buffactive['Velocity Shot'] or false
     state.Buff['Double Shot'] = buffactive['Double Shot'] or false
+    no_shoot_ammo = S{"Animikii Bullet", "Hauksbok Arrow" }
     state.Buff.Doom = false
 
     -- Whether a warning has been given for low ammo
@@ -63,13 +64,13 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('Normal', 'LowAcc', 'MidAcc', 'HighAcc')
+    state.OffenseMode:options('Normal', 'LowAcc', 'MidAcc', 'HighAcc', 'Kraken')
     state.HybridMode:options('Normal', 'DT')
     state.RangedMode:options('Normal', 'Acc', 'HighAcc', 'Critical')
     state.WeaponskillMode:options('Normal', 'Acc', 'Enmity')
     state.IdleMode:options('Normal', 'DT')
 
-    state.WeaponSet = M{['description']='Weapon Set', 'Fomalhaut_TF', 'Fomalhaut', 'Armageddon', 'Annihilator'}
+    state.WeaponSet = M{['description']='Weapon Set', 'Fomalhaut_TF', 'Fomalhaut', 'Armageddon', 'Annihilator', 'Savage'}
     state.WeaponLock = M(false, 'Weapon Lock')
 
     DefaultAmmo = {['Yoichinoyumi'] = "Chrono Arrow",
@@ -79,6 +80,7 @@ function user_setup()
                    ['Armageddon'] = "Chrono Bullet",
                    ['Gastraphetes'] = "Quelling Bolt",
                    ['Fomalhaut'] = "Chrono Bullet",
+                   ['Sparrowhawk'] = "Beetle Arrow",
                    }
 
     AccAmmo = {    ['Yoichinoyumi'] = "Yoichi's Arrow",
@@ -379,6 +381,21 @@ function init_gear_sets()
         waist="Skrymir Cord +1",
     })
 
+    sets.precast.WS['Savage Blade'] = {
+        head=gear.Artifact_Head,
+        neck="Scout's Gorget +2",
+        ear1="Moonshade Earring",
+        ear2="Ishvara Earring",
+        body=gear.Herc_WSD_Body,
+        hands="Meg. Gloves +2",
+        ring1="Regal Ring",
+        ring2="Epaminondas's Ring",
+        back=gear.RNG_WS1_Cape,
+        waist="Sailfi Belt +1",
+        legs=gear.Relic_Legs,
+        feet=gear.Empyrean_Feet,
+    }
+
     sets.precast.WS['Evisceration'] = {
         head=gear.Adhemar_B_Head,
         -- body="Abnoba Kaftan",
@@ -392,6 +409,7 @@ function init_gear_sets()
         back=gear.RNG_TP_Cape,
         waist="Fotia Belt",
     }
+
 
     sets.precast.WS['Evisceration'].Acc = set_combine(sets.precast.WS['Evisceration'], {
         body=gear.Adhemar_B_Body,
@@ -600,6 +618,23 @@ function init_gear_sets()
         -- waist="Olseni Belt",
     })
 
+    sets.engaged.Kraken = {
+        head=gear.Malignance_Head, --6/6
+        legs=gear.Malignance_Legs, --8/8
+        body=gear.Malignance_Body, --9/9
+        hands=gear.Malignance_Hands, --5/5
+        feet=gear.Malignance_Feet, --4/4
+        neck="Iskur Gorget",
+        ear1="Crep. Earring",
+        ear2="Telos Earring",
+        waist="Kentarch Belt +1",
+        ring1=gear.Chirich_1,
+        ring2=gear.Chirich_2,
+        back=gear.RNG_TP_Cape,
+    }
+
+
+
     -- * DNC Subjob DW Trait: +15%
     -- * NIN Subjob DW Trait: +25%
 
@@ -620,6 +655,24 @@ function init_gear_sets()
         waist="Windbuffet Belt +1",
     } -- 52%
 
+        
+    sets.engaged.DW.Kraken = {
+        head=gear.Malignance_Head, --6/6
+        legs=gear.Malignance_Legs, --8/8
+        body=gear.Malignance_Body, --9/9
+        hands=gear.Malignance_Hands, --5/5
+        feet=gear.Malignance_Feet, --4/4
+        neck="Iskur Gorget",
+        ear1="Crep. Earring",
+        ear2="Telos Earring",
+        waist="Kentarch Belt +1",
+        ring1=gear.Chirich_1,
+        ring2=gear.Chirich_2,
+        back=gear.RNG_TP_Cape,
+    }
+
+    sets.precast.WS['Empyreal Arrow'] = sets.engaged.DW.Kraken
+
     sets.engaged.DW.LowAcc = set_combine(sets.engaged.DW, {
         ring1=gear.Chirich_1,
     })
@@ -638,7 +691,7 @@ function init_gear_sets()
         ear2="Mache Earring +1",
         ring1="Regal Ring",
         ring2=gear.Chirich_2,
-        waist="Olseni Belt",
+        -- waist="Olseni Belt",
     })
 
     -- 15% Magic Haste (67% DW to cap)
@@ -874,6 +927,8 @@ function init_gear_sets()
 
     sets.FullTP = { ear1="Crematio Earring" }
 
+    sets.Savage = {main="Naegling", sub="Kraken Club", ranged="Sparrowhawk +2", ammo="Hauksbok Arrow"}
+
     sets.Annihilator = {main="Perun +1", sub="Blurred Knife +1", ranged="Annihilator"}
     sets.Fomalhaut = {main="Perun +1", sub="Blurred Knife +1", ranged="Fomalhaut"}
     sets.Fomalhaut_TF= {
@@ -916,6 +971,7 @@ end
 
 function job_post_precast(spell, action, spellMap, eventArgs)
     if spell.action_type == 'Ranged Attack' then
+        special_ammo_check()
         if spell.action_type == 'Ranged Attack' then
             if player.equipment.ranged == "Gastraphetes" then
                 if flurry == 2 then
@@ -938,9 +994,12 @@ function job_post_precast(spell, action, spellMap, eventArgs)
                 equip({waist="Yemaya Belt"})
             end
         end
-      elseif spell.type == 'WeaponSkill' then
+    elseif spell.type == 'WeaponSkill' then
         if (spell.english == 'Trueflight' or spell.english == 'Aeolian Edge') and player.tp > 2900 then
             equip(sets.FullTP)
+        end
+        if (spell.skill == 'Archery') then
+            special_ammo_check()
         end
         -- Equip obi if weather/day matches for WS.
         if elemental_ws:contains(spell.name) then
@@ -961,7 +1020,11 @@ function job_post_precast(spell, action, spellMap, eventArgs)
                 equip({waist="Hachirin-no-Obi"})
             end
         end
+    elseif (spell.english == 'Shadow Bind') then
+        special_ammo_check()
     end
+    
+    
 end
 
 -- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
@@ -1283,6 +1346,16 @@ function update_offense_mode()
         state.CombatForm:set('DW')
     else
         state.CombatForm:reset()
+    end
+end
+
+
+function special_ammo_check()
+    -- Stop if Animikii/Hauksbok equipped
+    if no_shoot_ammo:contains(player.equipment.ammo) then
+        cancel_spell()
+        add_to_chat(123, '** Action Canceled: [ '.. player.equipment.ammo .. ' equipped!! ] **')
+        return
     end
 end
 

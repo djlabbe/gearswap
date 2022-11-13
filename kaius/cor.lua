@@ -137,7 +137,7 @@ function user_setup()
     state.IdleMode:options('Normal', 'DT', 'Refresh')
 
     -- state.WeaponSet = M{['description']='Weapon Set', 'DeathPenalty_M', 'DeathPenalty_R', 'Armageddon_M', 'Armageddon_R', 'Fomalhaut_M', 'Fomalhaut_R', 'Ataktos'}
-    state.WeaponSet = M{['description']='Weapon Set', 'Fomalhaut_M', 'Fomalhaut_R', 'Ataktos'}
+    state.WeaponSet = M{['description']='Weapon Set', 'Armageddon_M', 'Armageddon_R', 'Fomalhaut_M', 'Fomalhaut_R', 'Ataktos'}
     state.WeaponLock = M(false, 'Weapon Lock')
 
     gear.RAbullet = "Chrono Bullet"
@@ -148,7 +148,7 @@ function user_setup()
     options.ammo_warning_limit = 10
 
     gear.Artifact_Body = { name= "Laksamana's Frac +3" }
-    gear.Artifact_Legs = { name= "Laksamana's Trews +3" }
+    -- gear.Artifact_Legs = { name= "Laksamana's Trews +3" }
 
     gear.Relic_Head = { name= "Lanun Tricorne +3" }
     gear.Relic_Body = { name= "Lanun Frac +3" }
@@ -378,7 +378,7 @@ function init_gear_sets()
         ear2="Friomisi Earring",
         ring1="Dingir Ring",
         ring2="Epaminondas's Ring",
-        back=gear.COR_WS1_Cape,
+        back=gear.COR_WS_Cape,
         waist="Skrymir Cord +1",
     }
 
@@ -507,7 +507,7 @@ function init_gear_sets()
         ear2="Friomisi Earring",
         ring1="Dingir Ring",
         ring2="Fenrir Ring +1",
-        back=gear.COR_WS1_Cape,
+        back=gear.COR_WS_Cape,
         waist="Skrymir Cord +1",
     }
 
@@ -539,7 +539,7 @@ function init_gear_sets()
         ear2="Digni. Earring",
         ring1="Regal Ring",
         ring2="Weather. Ring",
-        back=gear.COR_WS1_Cape,
+        back=gear.COR_WS_Cape,
         waist="K. Kachina Belt +1",
     }
 
@@ -570,7 +570,7 @@ function init_gear_sets()
     })
 
     sets.midcast.RA.HighAcc = set_combine(sets.midcast.RA.Acc, {
-        legs=gear.Artifact_Legs,
+        -- legs=gear.Artifact_Legs,
         ring1="Regal Ring",
         waist="K. Kachina Belt +1",
     })
@@ -653,7 +653,7 @@ function init_gear_sets()
         ring2=gear.Stikini_2,
     })
 
-    sets.idle.Town = sets.precast.WS['Leaden Salute']
+    sets.idle.Town = sets.idle
 
 
     ------------------------------------------------------------------------------------------------
@@ -1025,10 +1025,10 @@ function init_gear_sets()
     -- sets.DeathPenalty_M.Acc = {main={name="Rostam", bag="wardrobe3"}, sub={name="Rostam", bag="wardrobe"}, ranged="Death Penalty"}
     -- sets.DeathPenalty_R = {main="Lanun Knife", sub="Tauret", ranged="Death Penalty"}
     -- sets.DeathPenalty_R.Acc = {main="Lanun Knife", sub={name="Rostam", bag="wardrobe"}, ranged="Death Penalty"}
-    -- sets.Armageddon_M = {main="Naegling", sub="Tauret", ranged="Armageddon"}
-    -- sets.Armageddon_M.Acc = {main={name="Rostam", bag="wardrobe3"}, sub={name="Rostam", bag="wardrobe4"}, ranged="Armageddon"}
-    -- sets.Armageddon_R = {main="Lanun Knife", sub="Kustawi +1", ranged="Armageddon"}
-    -- sets.Armageddon_R.Acc = sets.Armageddon_R
+    sets.Armageddon_M = {main="Naegling", sub="Tauret", ranged="Armageddon"}
+    sets.Armageddon_M.Acc = {main="Rostam", sub="Blurred Knife +1", ranged="Armageddon"}
+    sets.Armageddon_R = {main="Rostam", sub="Kustawi +1", ranged="Armageddon"}
+    sets.Armageddon_R.Acc = sets.Armageddon_R
     sets.Fomalhaut_M = {main="Rostam", sub="Blurred Knife +1", ranged="Fomalhaut"}
     sets.Fomalhaut_M.Acc = {main="Rostam", sub="Blurred Knife +1", ranged="Fomalhaut"}
     sets.Fomalhaut_R = {main="Rostam", sub="Tauret", ranged="Fomalhaut"}
@@ -1238,7 +1238,6 @@ function customize_melee_set(meleeSet)
     if state.Buff.Doom then
         meleeSet = set_combine(meleeSet, sets.buff.Doom)
     end
-    retur
     check_weaponset()
 
     return meleeSet

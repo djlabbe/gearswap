@@ -208,10 +208,11 @@ function init_gear_sets()
 
     sets.precast.FC.Curaga = sets.precast.FC.Cure
     sets.precast.FC.CureSolace = sets.precast.FC.Cure
-    sets.precast.FC.Impact = set_combine(sets.precast.FC, {
-        head=empty, body="Twilight Cloak", 
-        waist="Shinjutsu-no-Obi +1"
-    })
+
+    -- sets.precast.FC.Impact = set_combine(sets.precast.FC, {
+    --     head=empty, body="Twilight Cloak", 
+    --     waist="Shinjutsu-no-Obi +1"
+    -- })
 
     sets.precast.FC.Dispelga = set_combine(sets.precast.FC, {
         main="Daybreak", 
@@ -241,7 +242,7 @@ function init_gear_sets()
     }
 
     sets.precast.WS['Black Halo'] = set_combine(sets.precast.WS, {
-        neck="Caro Necklace",
+        neck="Rep. Plat. Medal",
     })
 
     sets.precast.WS['Hexa Strike'] = set_combine(sets.precast.WS, {
@@ -657,7 +658,7 @@ function init_gear_sets()
         body="Ayanmo Corazza +2",
         hands=gear.Telchine_STP_Hands,
         legs="Aya. Cosciales +2",
-        feet=gear.Chironic_QA_Feet,
+        feet=gear.Bunzi_Feet,
         neck="Combatant's Torque",
         ear1="Cessance Earring",
         ear2="Telos Earring",
@@ -669,8 +670,6 @@ function init_gear_sets()
 
     sets.engaged.Acc = set_combine(sets.engaged, {
         hands="Gazu Bracelet +1",
-        feet="Volte Boots",
-        waist="Olseni Belt",
     })
 
     sets.engaged.DW = {
@@ -680,20 +679,19 @@ function init_gear_sets()
         body="Ayanmo Corazza +2",
         hands=gear.Telchine_STP_Hands,
         legs="Aya. Cosciales +2",
-        feet=gear.Chironic_QA_Feet,
+        feet=gear.Bunzi_Feet,
         neck="Combatant's Torque",
         ear1="Cessance Earring",
         ear2="Suppanomimi", --5
         ring1=gear.Chirich_1,
         ring2=gear.Chirich_2,
         back=gear.WHM_DA_Cape,
-        waist="Shetal Stone", --6
+        waist="Windbuffet Belt +1",
     }
 
     sets.engaged.DW.Acc = set_combine(sets.engaged.DW, {
         sub="Sindri",
         hands="Gazu Bracelet +1",
-        feet="Volte Boots",
     })
 
     sets.engaged.Aftermath = {
@@ -707,7 +705,11 @@ function init_gear_sets()
     }
 
     -- Buff sets: Gear that needs to be worn to actively enhance a current player buff.
-    sets.buff['Divine Caress'] = {hands="Ebers Mitts +1", back="Mending Cape"}
+    sets.buff['Divine Caress'] = {
+        hands="Ebers Mitts +1", 
+        back="Mending Cape"
+    }
+
     sets.buff['Devotion'] = {head="Piety Cap +3"}
     sets.buff.Sublimation = {waist="Embla Sash"}
 

@@ -120,7 +120,7 @@ function init_gear_sets()
     ------------------------------------------------------------------------------------------------
 
     sets.precast.JA['Hundred Fists'] = { legs=gear.Relic_Legs }
-    sets.precast.JA['Boost'] = { hands=gear.Artifact_Hands }
+    -- sets.precast.JA['Boost'] = { hands=gear.Artifact_Hands }
     sets.precast.JA['Dodge'] = { feet=gear.Artifact_Feet }
     sets.precast.JA['Focus'] = { head=gear.Artifact_Head }
     sets.precast.JA['Counterstance'] = { feet=gear.Relic_Feet }
@@ -530,7 +530,7 @@ function init_gear_sets()
 
     sets.idle.Town ={
         ammo="Coiste Bodhar",
-		head=gear.Adhemar_A_Head,
+		head=gear.Empyrean_Head,
 		body=gear.Empyrean_Body,
 		hands=gear.Adhemar_A_Hands,
 		legs=gear.Empyrean_Legs,
