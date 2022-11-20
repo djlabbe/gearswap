@@ -13,5 +13,5 @@ sets.exported={
     right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
     left_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
     right_ring="Defending Ring",
-    back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Parrying rate+5%',}},
+    back=,
 }

@@ -125,7 +125,7 @@ function user_setup()
     gear.Relic_Feet = { name="Futhark Boots +1" }
 
     gear.Empyrean_Head = { name="Erilaz Galea +1" }
-    gear.Empyrean_Body = { name="Erilaz Surcoat +1" }
+    gear.Empyrean_Body = { name="Erilaz Surcoat +2" }
     gear.Empyrean_Legs = { name="Erilaz Leg Guards +2" }
     gear.Empyrean_Hands = { name="Erilaz Gauntlets +1" }
     gear.Empyrean_Feet = { name="Erilaz Greaves +1" }
