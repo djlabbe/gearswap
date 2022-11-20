@@ -39,29 +39,33 @@ function user_setup()
     state.WeaponLock = M(false, 'Weapon Lock')
 
     gear.Artifact_Head = { name="Reverence Coronet +1" }
-    gear.Artifact_Body = { name="Reverence Surcoat +2" }
+    gear.Artifact_Body = { name="Reverence Surcoat +3" }
     gear.Artifact_Hands = { name="Reverence Gauntlets +1" }
     gear.Artifact_Legs = { name="Reverence Breeches +1" }    
     gear.Artifact_Feet = { name="Reverence Leggings +1" }
 
     gear.Relic_Head = { name="Caballarius Coronet +3" }
-    gear.Relic_Body = { name="Caballarius Surcoat +1" }
-    gear.Relic_Hands = { name="Caballarius Gauntlets +1" }
+    gear.Relic_Body = { name="Caballarius Surcoat +3" }
+    gear.Relic_Hands = { name="Caballarius Gauntlets +3" }
     gear.Relic_Legs = { name="Caballarius Breeches +3" }
     gear.Relic_Feet = { name="Caballarius Leggings +3" }
 
-    gear.Empyrean_Head = { name="Chevalier's Armet +1" }
+    gear.Empyrean_Head = { name="Chevalier's Armet +2" }
     gear.Empyrean_Body = { name="Chevalier's Cuirass +1" }
     gear.Empyrean_Hands = { name="Chevalier's Gauntlets +1" }
-    gear.Empyrean_Legs = { name="Chevalier's Cuisses +1" }
+    gear.Empyrean_Legs = { name="Chevalier's Cuisses +2" }
     gear.Empyrean_Feet = { name="Chevalier's Sabatons +1" }
 
     send_command('bind @f10 gs c toggle EquipShield')
     send_command('bind @w gs c toggle WeaponLock')
     send_command('bind @e gs c cycle WeaponSet')
 
+    send_command('bind !t input /ja "Shield Bash" <t>')
     send_command('bind !` input /ja "Majesty" <me>')
-    send_command('bind !c input /ja "Chivalry" <me>')
+    send_command('bind !p input /ma "Protect V" <stpc>')
+    send_command('bind !o input /ma "Shell IV" <stpc>')
+
+    send_command('bind !c input /ma "Holy Circle" <me>')
 
     -- Additional local binds
     include('Global-Binds.lua') -- OK to remove this line
@@ -321,13 +325,13 @@ function init_gear_sets()
     -- Idle sets
     sets.idle = {
         ammo="Staunch Tathlum +1",
-        head=gear.Sakpata_Head,
+        head=gear.Empyrean_Head,
         body=gear.Sakpata_Body,
         hands=gear.Sakpata_Hands,
-        legs=gear.Sakpata_Legs,
+        legs=gear.Empyrean_Legs,
         feet=gear.Sakpata_Feet,
         neck="Unmoving Collar +1",
-        waist="Creed Baudrier",
+        waist="Sailfi Belt +1",
         ear1="Tuisto Earring",
         ear2="Odnowa Earring +1",
         ring1="Moonlight Ring",
@@ -337,13 +341,13 @@ function init_gear_sets()
 
     sets.idle.Town = {
         ammo="Staunch Tathlum +1",
-        head=gear.Sakpata_Head,
-        body=gear.Sakpata_Body,
+        head=gear.Empyrean_Head,
+        body=gear.Artifact_Body,
         hands=gear.Sakpata_Hands,
-        legs=gear.Sakpata_Legs,
-        feet=gear.Sakpata_Feet,
+        legs=gear.Empyrean_Legs,
+        feet=gear.Relic_Feet,
         neck="Unmoving Collar +1",
-        waist="Asklepian Belt",
+        waist="Sailfi Belt +1",
         ear1="Tuisto Earring",
         ear2="Odnowa Earring +1",
         ring1="Moonlight Ring",
@@ -413,19 +417,19 @@ function init_gear_sets()
     
     sets.engaged = {
         ammo="Staunch Tathlum +1", --3
-        head=gear.Sakpata_Head, --7
+        head=gear.Empyrean_Head, 
         body=gear.Sakpata_Body, --10
         hands=gear.Sakpata_Hands, --8
-        legs=gear.Sakpata_Legs, --9
+        legs=gear.Empyrean_Legs, --12
         feet=gear.Sakpata_Feet, --6
         neck="Unmoving Collar +1",
-        waist="Asklepian Belt",
+        waist="Sailfi Belt +1",
         ear1="Tuisto Earring",
         ear2="Odnowa Earring +1",
         ring1="Moonlight Ring", --5
         ring2="Moonlight Ring",--5
         back=gear.PLD_Cape,
-    } --53 + (5 cape)
+    } --49% DT
 
 
     sets.engaged.Acc =  sets.engaged
@@ -435,7 +439,7 @@ function init_gear_sets()
     --------------------------------------
     -- Custom buff sets
     --------------------------------------
-    -- sets.buff.Cover = {head="Reverence Coronet +1", body="Caballarius Surcoat"}
+    sets.buff.Cover = {head=gear.Artifact_Head, body=gear.Relic_Body}
 
     sets.buff.Doom = {
         neck="Nicander's Necklace", --20

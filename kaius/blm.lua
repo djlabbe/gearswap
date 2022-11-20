@@ -115,7 +115,7 @@ function init_gear_sets()
         back=gear.BLM_Death_Cape,
     }
 
-    sets.precast.JA.Manafont = { body="Arch. Coat +1" }
+    sets.precast.JA.Manafont = { body=gear.Relic_Body }
 
     -- Fast cast sets for spells
     sets.precast.FC = {
@@ -132,7 +132,7 @@ function init_gear_sets()
         ear1="Malignance Earring", --4
         ear2="Enchntr. Earring +1", --2
         ring1="Kishar Ring", --4
-        ring2="Weather. Ring +1", --5
+        ring2="Weather. Ring", --5
         back="Fi Follet Cape +1", --10
         waist="Embla Sash",
     }
@@ -150,10 +150,12 @@ function init_gear_sets()
     })
 
     sets.precast.FC.Curaga = sets.precast.FC.Cure
-    sets.precast.FC.Impact = set_combine(sets.precast.FC, {
-        head=empty, body="Twilight Cloak", 
-        waist="Shinjutsu-no-Obi +1"
-    })
+
+    -- sets.precast.FC.Impact = set_combine(sets.precast.FC, {
+    --     head=empty, body="Twilight Cloak", 
+    --     waist="Shinjutsu-no-Obi +1"
+    -- })
+
     sets.precast.FC.Dispelga = set_combine(sets.precast.FC, {
         main="Daybreak", 
         sub="Ammurapi Shield", 
@@ -175,7 +177,7 @@ function init_gear_sets()
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
         --ammo="Floestone",
-        head="Jhakri Coronal +2",
+        head=gear.Nyame_Head,
         body="Jhakri Robe +2",
         hands="Jhakri Cuffs +2",
         legs=gear.Telchine_ENH_Legs,
@@ -214,11 +216,12 @@ function init_gear_sets()
         hands=gear.Telchine_ENH_Hands,
         legs=gear.Amalric_A_Legs,
         feet="Medium's Sabots",
-        neck="Orunmila's Torque",
+        -- neck="Orunmila's Torque",
+        neck="Baetyl Pendant",
         ear1="Etiolation Earring",
         ear2="Loquacious Earring",
         ring1="Mephitas's Ring +1",
-        ring2="Mephitas's Ring",
+        ring2="Fenrir Ring +1",
         back="Bane Cape",
         waist="Shinjutsu-no-Obi +1",
     } -- Max MP
@@ -237,7 +240,7 @@ function init_gear_sets()
         feet="Medium's Sabots", --12
         neck="Nodens Gorget", --5
         ear1="Mendi. Earring", --5
-        ear2="Roundel Earring", --5
+        ear2="Regal Earring", --5
         ring1="Lebeche Ring", --3/(-5)
         ring2="Haoma's Ring",
         back="Oretan. Cape +1", --6
@@ -245,7 +248,7 @@ function init_gear_sets()
     }
 
     sets.midcast.Curaga = set_combine(sets.midcast.Cure, {
-        neck="Nuna Gorget +1",
+        -- neck="Nuna Gorget +1",
         ring1=gear.Stikini_1,
         ring2="Metamor. Ring +1",
         waist="Luminary Sash",
@@ -369,12 +372,12 @@ function init_gear_sets()
         ammo="Pemphredo Tathlum",
         head="Ea Hat +1",
         body="Ea Houppe. +1",
-        hands="Raetic Bangles +1",
+        hands=gear.Amalric_D_Hands,
         legs="Ea Slops +1",
         feet="Merlinic Crackows",
         neck="Erra Pendant",
         ear1="Malignance Earring",
-        ear2="Mani Earring",
+        ear2="Regal Earring",
         ring1=gear.Stikini_1,
         ring2=gear.Stikini_2,
         back=gear.BLM_MAB_Cape,
@@ -383,7 +386,7 @@ function init_gear_sets()
 
     sets.midcast.Drain = set_combine(sets.midcast['Dark Magic'], {
         head="Pixie Hairpin +1",
-        feet="Merlinic Crackows",
+        feet=gear.Agwu_Feet,
         ear1="Hirudinea Earring",
         ring1="Evanescence Ring",
         ring2="Archon Ring",
@@ -449,7 +452,7 @@ function init_gear_sets()
         ammo="Pemphredo Tathlum",
         legs="Merlinic Shalwar",
         neck="Sanctity Necklace",
-        waist="Sacro Cord",
+        waist="Acuity Belt +1",
     })
 
     sets.midcast['Elemental Magic'].Spaekona = set_combine(sets.midcast['Elemental Magic'], {
@@ -488,18 +491,18 @@ function init_gear_sets()
         main="Daybreak",
         sub="Genmei Shield",
         ammo="Ghastly Tathlum +1",
-        head=gear.Nyame_Head,
+        head=gear.Agwu_Head,
         body="Shamash Robe",
         -- hands="Raetic Bangles +1",
         hands="Volte Gloves",
         -- legs="Volte Brais",
         legs="Assid. Pants +1",
-        -- feet="Volte Gaiters",
+        feet=gear.Agwu_Feet,
         neck="Bathy Choker +1",
         ear1="Etiolation Earring",
         ear2="Lugalbanda Earring",
         ring1=gear.Stikini_1,
-        ring2="Mephitas's Ring +1",
+        ring2=gear.Stikini_2,
         back=gear.BLM_MAB_Cape,
         waist="Carrier's Sash",
     }
@@ -509,9 +512,9 @@ function init_gear_sets()
         sub="Genmei Shield", --10/0
         ammo="Staunch Tathlum +1", --3/3
         head="Volte Beret",
-        body="Mallquis Saio +2", --8/8
-        hands="Raetic Bangles +1",
-        feet="Volte Gaiters",
+        body="Shamash Robe", --8/8
+        hands="Volte Gloves",
+        feet=gear.Agwu_Feet,
         neck="Loricate Torque +1", --6/6
         ear1="Etiolation Earring",
         ear2="Lugalbanda Earring",
@@ -553,7 +556,7 @@ function init_gear_sets()
 
     sets.Kiting = { feet="Herald's Gaiters" }
     sets.latent_refresh = { waist="Fucho-no-obi" }
-    sets.latent_dt = { ear2="Sorcerer's Earring" }
+    -- sets.latent_dt = { ear2="Sorcerer's Earring" }
 
     sets.magic_burst = {
         main="Marin Staff +1",
@@ -594,7 +597,7 @@ function init_gear_sets()
         ear1="Malignance Earring",
         ear2="Regal Earring",
         ring1="Mephitas's Ring +1",
-        ring2="Mephitas's Ring",
+        ring2="Defending Ring",
         back=gear.BLM_Death_Cape,
         waist="Shinjutsu-no-Obi +1",
     }
@@ -603,7 +606,7 @@ function init_gear_sets()
         ammo="Sapience Orb",
         head=gear.Amalric_A_Head, --11
         -- body="Rosette Jaseran +1",
-        body="Zendic Robe", --14
+        body="Zendik Robe", --14
         hands="Agwu's Gages", --6
         -- legs="Volte Brais", --8 
         feet=gear.Amalric_D_Feet, --6
@@ -648,8 +651,8 @@ function init_gear_sets()
         body="Jhakri Robe +2",
         hands="Gazu Bracelet +1",
         legs=gear.Telchine_ENH_Legs,
-        feet="Battlecast Gaiters",
-        neck="Combatant's Torque",
+        feet=gear.Agwu_Feet,
+        neck="Sanctity Necklace",
         ear1="Cessance Earring",
         ear2="Telos Earring",
         ring1="Hetairoi Ring",
@@ -805,12 +808,12 @@ function job_state_change(stateField, newValue, oldValue)
     end
 end
 
--- latent DT set auto equip on HP% change
-    windower.register_event('hpp change', function(new, old)
-        if new<=25 then
-            equip(sets.latent_dt)
-        end
-    end)
+-- -- latent DT set auto equip on HP% change
+--     windower.register_event('hpp change', function(new, old)
+--         if new<=25 then
+--             equip(sets.latent_dt)
+--         end
+--     end)
 
 
 -------------------------------------------------------------------------------------------------------------------

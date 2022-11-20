@@ -109,7 +109,7 @@ function user_setup()
     state.GainSpell = M{['description']='GainSpell', 'Gain-STR', 'Gain-INT', 'Gain-AGI', 'Gain-VIT', 'Gain-DEX', 'Gain-MND', 'Gain-CHR'}
 
     -- state.WeaponSet = M{['description']='Weapon Set', 'CroceaDark', 'CroceaLight', 'Almace', 'Naegling', 'Tauret', 'Idle'}
-    state.WeaponSet = M{['description']='Weapon Set', 'CroceaKraken', 'CroceaDark', 'CroceaLight', 'Naegling', 'Tauret'}
+    state.WeaponSet = M{['description']='Weapon Set', 'CroceaLight', 'CroceaDark', 'CroceaKraken', 'Naegling', 'Tauret'}
     state.WeaponLock = M(false, 'Weapon Lock')
     state.MagicBurst = M(false, 'Magic Burst')
     state.SleepMode = M{['description']='Sleep Mode', 'Normal', 'MaxDuration'}
@@ -126,10 +126,10 @@ function user_setup()
     gear.Relic_Legs = { name="Vitiation Tights +3" }
     gear.Relic_Feet = { name="Vitiation Boots +3" }
 
-    gear.Empyrean_Head = { name="Lethargy Chappel +1" }
-    gear.Empyrean_Body = { name="Lethargy Sayon +1" }
-    gear.Empyrean_Hands = { name="Lethargy Gantherots +1" }
-    gear.Empyrean_Legs = { name="Lethargy Fuseau +1" }
+    gear.Empyrean_Head = { name="Lethargy Chappel +2" }
+    gear.Empyrean_Body = { name="Lethargy Sayon +2" }
+    gear.Empyrean_Hands = { name="Lethargy Gantherots +2" }
+    gear.Empyrean_Legs = { name="Lethargy Fuseau +2" }
     gear.Empyrean_Feet = { name="Lethargy Houseaux +3" }
 
     -- Additional local binds
@@ -399,7 +399,7 @@ function init_gear_sets()
         head="Pixie Hairpin +1",
         body=gear.Amalric_A_Body,
         hands="Jhakri Cuffs +2",
-        legs=gear.Amalric_A_Legs,
+        legs=gear.Empyrean_Legs,
         feet=gear.Empyrean_Feet,
         neck="Baetyl Pendant",
         ear1="Malignance Earring",
@@ -819,16 +819,16 @@ function init_gear_sets()
     sets.idle = {
         ammo="Homiliary",
         head=gear.Relic_Head,
-        body="Shamash Robe",
+        body=gear.Empyrean_Body,
         hands="Volte Gloves",
-        legs=gear.Malignance_Legs,
-        feet=gear.Malignance_Feet,
-        neck="Bathy Choker +1",
+        legs=gear.Bunzi_Legs,
+        feet=gear.Bunzi_Feet,
+        neck="Sibyl Scarf",
         ear1="Odnowa Earring +1",
         ear2="Etiolation Earring",
         ring1=gear.Stikini_1,
         ring2=gear.Stikini_2,
-        back="Moonlight Cape",
+        back=gear.RDM_MND_Cape,
         waist="Flume Belt +1",
     }
 
@@ -849,10 +849,10 @@ function init_gear_sets()
 
     sets.idle.Town = set_combine(sets.idle, {
         ammo="Regal Gem",
-        head=gear.Relic_Head,
-        body="Shamash Robe",
+        head=gear.Empyrean_Head,
+        body=gear.Empyrean_Body,
         hands="Regal Cuffs",
-        legs=gear.Relic_Legs,
+        legs=gear.Empyrean_Legs,
         feet=gear.Empyrean_Feet,
         neck="Dls. Torque +2",
         ear1="Malignance Earring",

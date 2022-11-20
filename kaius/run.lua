@@ -395,17 +395,17 @@ function init_gear_sets()
         ear2="Ishvara Earring",
         back=gear.RUN_WS1_Cape,
         waist="Sailfi Belt +1",
-        })
+    })
 
     sets.precast.WS['Fell Cleave'].Acc = set_combine(sets.precast.WS.Acc, {
         ear2="Ishvara Earring",
         back=gear.RUN_WS1_Cape,
         waist="Sailfi Belt +1",
-        })
+    })
 
     sets.precast.WS['Fell Cleave'].Safe = set_combine(sets.precast.WS, {
         feet="Futhark Boots +3",
-        })
+    })
 
     sets.precast.WS['Steel Cyclone'] = sets.precast.WS['Fell Cleave']
     sets.precast.WS['Steel Cyclone'].Acc = sets.precast.WS['Fell Cleave'].Acc

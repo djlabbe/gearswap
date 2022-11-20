@@ -115,7 +115,7 @@ function user_setup()
     gear.Empyrean_Head = { name="Ebers Cap +1" }
     gear.Empyrean_Body = { name="Ebers Bliaut +3" }
     gear.Empyrean_Hands = { name="Ebers Mitts +1" }
-    gear.Empyrean_Legs = { name="Ebers Pantaloons +2" }
+    gear.Empyrean_Legs = { name="Ebers Pantaloons +3" }
     gear.Empyrean_Feet = { name="Ebers Duckbills +1" }
 
     -- Additional local binds
@@ -291,7 +291,7 @@ function init_gear_sets()
         ear2="Nourishing earring",
         body="Ebers Bliaut +3",
         hands="Theophany Mitts +3",
-        legs="Ebers Pant. +2",
+        legs="Ebers Pant. +3",
         feet="Vanya Clogs", --11(+2)/(-12)    
         ring1="Metamorph Ring +1", --3/(-5)
         ring2="Mephitas's Ring +1",
@@ -605,7 +605,7 @@ function init_gear_sets()
         head=gear.Relic_Head,
         body=gear.Empyrean_Body,
         hands=gear.Artifact_Hands,
-        legs=gear.Relic_Legs,
+        legs=gear.Empyrean_Legs,
         feet=gear.Artifact_Feet,
         neck="Loricate Torque +1",
         ear1="Moonshade Earring",

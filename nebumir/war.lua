@@ -80,7 +80,7 @@ function init_gear_sets()
         head="Flam. Zucchetto +2",
         body="Sakpata's Breastplate", --12
         hands="Sakpata's Gauntlets", --8
-        legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
+        legs="Pumm. Cuisses +3",
         feet="Flam. Gambieras +2",
         neck={ name="War. Beads +1", augments={'Path: A',}},
         waist="Sailfi Belt +1",

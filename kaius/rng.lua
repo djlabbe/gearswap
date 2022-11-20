@@ -1020,7 +1020,7 @@ function job_post_precast(spell, action, spellMap, eventArgs)
                 equip({waist="Hachirin-no-Obi"})
             end
         end
-    elseif (spell.english == 'Shadow Bind') then
+    elseif (spell.english == 'Shadowbind') then
         special_ammo_check()
     end
     

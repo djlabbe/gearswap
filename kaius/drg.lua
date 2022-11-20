@@ -71,19 +71,25 @@ function user_setup()
 
     gear.Empyrean_Head = { name="Peltast's Mezail +2" }
     gear.Empyrean_Body = { name="Peltast's Plackart +2" }
-    gear.Empyrean_Hands = { name="Peltast's Vambraces +1" }
+    gear.Empyrean_Hands = { name="Peltast's Vambraces +2" }
     gear.Empyrean_Legs = { name="Peltast's Cuissots +1" }
     gear.Empyrean_Feet = { name="Peltast's Schynbalds +1" }
 
     send_command('bind @w gs c toggle WeaponLock')
     send_command('bind @e gs c cycle WeaponSet')
+
+    send_command('bind !a input /ja "Dragon Breaker" <me>')
+    send_command('bind !c input /ja "Ancient Circle" <me>')
    
     if player.sub_job == 'SAM' then
         send_command('bind !` input /ja "Hasso" <me>')
         send_command('bind ^` input /ja "Seigan" <me>')
         set_macro_page(1, 14)
-    else
+    elseif player.sub_job == 'DNC' then
+        send_command('bind ^` input /ja "Chocobo Jig" <me>')
         set_macro_page(2, 14)
+    else
+        set_macro_page(3, 14)
     end
 
     state.Auto_Kite = M(false, 'Auto_Kite')
@@ -186,6 +192,22 @@ function init_gear_sets()
 
     sets.precast.WS.Acc = set_combine(sets.precast.WS, {})
     sets.precast.WS.AttackCap = set_combine(sets.precast.WS, {})
+
+    sets.precast.WS["Savage Blade"] = {
+        ammo="Knobkierrie",
+        head=gear.Empyrean_Head,
+        body=gear.Gleti_Body,
+        hands=gear.Relic_Hands,
+        legs=gear.Artifact_Legs,
+        feet="Sulevia's Leggings +2",
+        neck="Dragoon's Collar +2",
+        waist="Sailfi Belt +1",
+        ear1="Thrud Earring",
+        ear2="Moonshade Earring",
+        ring1="Niqmaddu Ring",
+        ring2="Regal Ring",
+        back=gear.DRG_WS1_Cape,
+    }
 
     ---------------
     -- Stardiver --
@@ -408,7 +430,7 @@ function init_gear_sets()
         ammo="Staunch Tathlum +1", --3/3
         head="Hjarrandi Helm", --10/10
         body="Hjarrandi Breast.",
-        hands="Sulev. Gauntlets +2", --5/5
+        hands=gear.Empyrean_Hands, --5/5
         legs=gear.Gleti_Legs,
         feet=gear.Relic_Feet,
         neck="Bathy Choker +1",
@@ -416,7 +438,7 @@ function init_gear_sets()
         ear2="Etiolation Earring",
         ring1=gear.Chirich_1,
         ring2=gear.Chirich_2,
-        back="Moonlight Cape", --6/6
+        back=gear.DRG_TP_Cape, --6/6
         waist="Flume Belt +1", --4/0
     }
 
@@ -456,9 +478,9 @@ function init_gear_sets()
 
     sets.idle.Town = set_combine(sets.idle, {
         ammo="Coiste Bodhar",
-        head=gear.Relic_Head,
-        body=gear.Relic_Body,
-        hands=gear.Artifact_Hands,
+        head=gear.Empyrean_Head,
+        body=gear.Empyrean_Body,
+        hands=gear.Empyrean_Hands,
         legs=gear.Relic_Legs,
         feet=gear.Relic_Feet,
         neck="Dgn. Collar +2",
@@ -489,7 +511,7 @@ function init_gear_sets()
         ammo="Coiste Bodhar",
         head="Flam. Zucchetto +2",
         body=gear.Empyrean_Body,
-        hands=gear.Gleti_Hands,
+        hands=gear.Empyrean_Hands,
         legs=gear.Relic_Legs,
         feet="Flam. Gambieras +2",
         neck="Vim Torque +1",
@@ -520,14 +542,15 @@ function init_gear_sets()
     ------------------------------------------------------------------------------------------------
 
     sets.engaged.Hybrid = {
-        neck="Dgn. Collar +2", --6/6
-        head=gear.Gleti_Head,
-        body=gear.Gleti_Body,
-        legs="Sulevia's Cuisses +2",
-        waist="Sailfi Belt +1",
-        ring1="Moonlight Ring", --5/5
-        ring2="Defending Ring", --10/10
-    }
+        ammo="Coiste Bodhar",
+        neck="Dgn. Collar +2",
+        head="Hjarrandi Helm", --10/10
+        body="Hjarrandi Breastplate", --12/12
+        legs="Sulevia's Cuisses +2", --7/7
+        hands="Sulevia's Gauntlets +2", --5/5
+        ring1=gear.Moonlight_1, --5/5
+        ring2=gear.Moonlight_2, --5/5
+    } --49/49 (cape = 5/5)
 
     sets.engaged.DT = set_combine(sets.engaged, sets.engaged.Hybrid)
     sets.engaged.Acc.DT = set_combine(sets.engaged.Acc, sets.engaged.Hybrid)
@@ -546,7 +569,7 @@ function init_gear_sets()
 
     sets.Trishula = { main="Trishula", sub="Utu Grip" }
     sets.ShiningOne = { main="Shining One", sub="Utu Grip" }
-    sets.Naegling = { main="Naegling", sub="Kraken Club" }
+    sets.Naegling = { main="Naegling", sub=empty }
 
 end
 
