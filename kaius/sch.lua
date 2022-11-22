@@ -708,7 +708,7 @@ function init_gear_sets()
         body="Shamash Robe",
         hands="Regal Cuffs",
         legs=gear.Relic_Legs,
-        feet=gear.Relic_Feet,
+        feet=gear.Artifact_Feet,
         neck="Argute Stole +2",
         ear1="Malignance Earring",
         ear2="Regal Earring",
