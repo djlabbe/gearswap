@@ -15,7 +15,6 @@
 --              [ ALT+F12 ]         Cancel Emergency -PDT/-MDT Mode
 --              [ WIN+H ]           Toggle Charm Defense Mods
 --              [ WIN+D ]           Toggle Death Defense Mods
---              [ WIN+A ]           AttackMode: Capped/Uncapped WS Modifier
 --              [ WIN+C ]           Toggle Capacity Points Mode
 --
 --  Abilities:  [ CTRL+` ]          Use current Rune
@@ -107,7 +106,6 @@ function user_setup()
 
     state.WeaponSet = M{['description']='Weapon Set', 'Aettir'}
     -- state.WeaponSet = M{['description']='Weapon Set', 'Epeolatry', 'Lionheart', 'Aettir', 'Lycurgos'}
-    state.AttackMode = M{['description']='Attack', 'Uncapped', 'Capped'}
     state.WeaponLock = M(false, 'Weapon Lock')
 
     state.Runes = M{['description']='Runes', 'Ignis', 'Gelus', 'Flabra', 'Tellus', 'Sulpor', 'Unda', 'Lux', 'Tenebrae'}
@@ -121,8 +119,8 @@ function user_setup()
     gear.Relic_Head = { name="Futhark Bandeau +1" }
     gear.Relic_Body = { name="Futhark Coat +1" }
     gear.Relic_Legs = { name="Futhark Trousers +3" }
-    gear.Relic_Hands = { name="Futhark Mitons +1" }
-    gear.Relic_Feet = { name="Futhark Boots +1" }
+    gear.Relic_Hands = { name="Futhark Mitons +3" }
+    gear.Relic_Feet = { name="Futhark Boots +3" }
 
     gear.Empyrean_Head = { name="Erilaz Galea +1" }
     gear.Empyrean_Body = { name="Erilaz Surcoat +1" }
@@ -139,9 +137,6 @@ function user_setup()
 
     send_command('bind !insert gs c cycleback Runes')
     send_command('bind !delete gs c cycle Runes')
-
-
-    send_command('bind @a gs c cycle AttackMode')
 
     send_command('bind @e gs c cycle WeaponSet')
     send_command('bind @w gs c toggle WeaponLock')
@@ -212,8 +207,8 @@ function init_gear_sets()
     sets.precast.JA['Lunge'] = {
         ammo="Ghastly Tathlum +1",
         head=gear.Herc_MAB_Head,
-        body="Carm. Sc. Mail +1",
-        hands="Carmine Fin. Ga. +1",
+        body=gear.Carmine_B_Body,
+        hands=gear.Carmine_D_Hands,
         legs=gear.Herc_MAB_Legs,
         -- feet=gear.Herc_MAB_Feet,
         neck="Baetyl Pendant",
@@ -253,15 +248,15 @@ function init_gear_sets()
     sets.precast.FC = {
         ammo="Sapience Orb", --2
         head={name="Rune. Bandeau +3", priority=3},
-        body=gear.Taeon_FC_Body, --9
+        body=gear.Empyrean_Body, --10
         hands="Leyline Gloves", --8
         legs="Aya. Cosciales +2", --6
-        feet="Carmine Greaves +1", --8
+        feet=gear.Carmine_B_Feet, --8
         neck="Orunmila's Torque", --5
         ear1={name="Tuisto Earring", priority=5},
         ear2={name="Odnowa Earring +1", priority=4},
         ring1={name="Moonlight Ring", priority=2},
-        ring2="Weather. Ring +1", --6(4)
+        ring2="Weather. Ring", --6(4)
         back=gear.RUN_FC_Cape, --10
         waist={name="Oneiros Belt", priority=1}
         }
@@ -299,7 +294,7 @@ function init_gear_sets()
         ring2="Niqmaddu Ring",
         back=gear.RUN_WS1_Cape,
         waist="Fotia Belt",
-        }
+    }
 
     sets.precast.WS.Acc = set_combine(sets.precast.WS, {
         ammo="Voluspa Tathlum",
@@ -440,7 +435,7 @@ function init_gear_sets()
         ring2="Evanescence Ring", --5
         back=gear.RUN_FC_Cape, --10
         waist="Audumbla Sash", --10
-        } -- +10% from merit points
+    } -- +10% from merit points
 
     sets.midcast.Utsusemi = sets.midcast.SpellInterrupt
 
@@ -465,7 +460,7 @@ function init_gear_sets()
         head="Erilaz Galea +1",
         hands="Regal Gauntlets",
         legs="Futhark Trousers +3",
-        })
+    })
 
     sets.midcast['Phalanx'] = set_combine(sets.midcast['Enhancing Magic'], {
         main="Deacon Sword", --4
@@ -474,19 +469,19 @@ function init_gear_sets()
         hands=gear.Taeon_Phalanx_Hands, --3(10)
         legs=gear.Taeon_Phalanx_Legs, --3(10)
         feet=gear.Taeon_Phalanx_Feet, --3(10)
-        })
+    })
 
     sets.midcast['Aquaveil'] = set_combine(sets.midcast['Enhancing Magic'], {
         main="Nibiru Faussar", --1
         -- sub="Refined Grip +1",
-        })
+    })
 
     sets.midcast.Temper = {
         main="Pukulatmuj +1",
         head=gear.Carmine_D_Head,
         body="Manasa Chasuble",
-        hands="Runeist's Mitons +3",
-        legs="Carmine Cuisses +1",
+        hands=gear.Artifact_Hands,
+        legs=gear.Carmine_D_Legs,
         feet={name="Turms Leggings +1", priority=2},
         neck="Incanter's Torque",
         ear1="Mimir Earring",
@@ -495,10 +490,10 @@ function init_gear_sets()
         ring2=gear.Stikini_2,
         back="Merciful Cape",
         waist="Olympus Sash",
-        }
+    }
 
     sets.midcast.Regen = set_combine(sets.midcast['Enhancing Magic'], {head="Rune. Bandeau +3", neck="Sacro Gorget"})
-    sets.midcast.Refresh = set_combine(sets.midcast['Enhancing Magic'], {head="Erilaz Galea +1", waist="Gishdubar Sash"})
+    sets.midcast.Refresh = set_combine(sets.midcast['Enhancing Magic'], {head=gear.Empyrean_Head, waist="Gishdubar Sash"})
     sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {waist="Siegel Sash"})
     sets.midcast.Protect = set_combine(sets.midcast['Enhancing Magic'], {ring2="Sheltered Ring"})
     sets.midcast.Shell = sets.midcast.Protect
@@ -521,92 +516,34 @@ function init_gear_sets()
         ring2="Weather. Ring +1",
         back="Evasionist's Cape",
         waist="Acuity Belt +1",
-        }
+    }
 
     sets.midcast.Flash = sets.Enmity
     sets.midcast.Foil = sets.Enmity
     sets.midcast.Stun = sets.Enmity
     sets.midcast.Utsusemi = sets.midcast.SpellInterrupt
 
-    sets.midcast['Blue Magic'] = {}
+    sets.midcast['Blue Magic'] = {
+        ammo="Staunch Tathlum",
+        head=gear.Empyrean_Head, --8
+        body="Emet Harness +1", --10
+        -- hands="Kurys Gloves", --9       
+        legs=gear.Carmine_D_Legs,
+        feet=gear.Empyrean_Feet,
+        neck="Moonlight Necklace"
+        -- ear1="Cryptic Earring",
+        -- ear2="Trux Earring",
+        ring1="Supershear Ring",
+        ring2="Eihwaz Ring",
+        back=gear.RUN_HPD_Cape, --10
+        waist="Audumbla Sash", --3
+    }
     sets.midcast['Blue Magic'].Enmity = sets.Enmity
     sets.midcast['Blue Magic'].Cure = sets.midcast.Cure
     sets.midcast['Blue Magic'].Buff = {}
 
 
-    ------------------------------------------------------------------------------------------------
-    ----------------------------------------- Idle Sets --------------------------------------------
-    ------------------------------------------------------------------------------------------------
-
-    sets.idle = {
-        -- sub="Mensch Strap +1",
-        ammo="Homiliary",
-        head=gear.Nyame_Head,
-        body=gear.Nyame_Body,
-        hands=gear.Nyame_Hands,
-        legs=gear.Nyame_Legs,
-        feet=gear.Nyame_Feet,
-        -- head="Turms Cap +1",
-        -- body="Futhark Coat +3",
-        -- hands="Regal Gauntlets",
-        -- legs="Turms Subligar +1",
-        -- feet="Turms Leggings +1",
-        neck="Bathy Choker +1",
-        ear1="Etiolation Earring",
-        ear2="Odnowa Earring +1",
-        ring1=gear.Chirich_1,
-        ring2=gear.Chirich_2,
-        back=gear.RUN_HPD_Cape,
-        -- waist="Ioskeha Belt +1",
-        waist="Engraved Belt",
-        }
-
-    sets.idle.DT = {
-        -- sub="Mensch Strap +1", --5/0
-        ammo="Staunch Tathlum +1", --3/3
-        head=gear.Nyame_Head,
-        body=gear.Nyame_Body,
-        hands=gear.Nyame_Hands,
-        legs=gear.Nyame_Legs,
-        feet=gear.Nyame_Feet,
-        -- head="Fu. Bandeau +3", --6/0
-        -- body="Runeist's Coat +3",
-        -- hands="Turms Mittens +1",
-        -- legs="Turms Subligar +1",
-        -- feet="Turms Leggings +1",
-        neck="Futhark Torque +2", --7/7
-        ear1="Etiolation Earring",
-        ear2="Odnowa Earring +1", --0/2
-        ring1="Moonlight Ring", --5/5
-        ring2="Defending Ring", --10/10
-        back=gear.RUN_HPD_Cape, --10/0
-        waist="Flume Belt +1", --4/0
-        }
-
-    sets.idle.Refresh = set_combine(sets.idle, {
-        ammo="Homiliary",
-        head=gear.Herc_Idle_Head,
-        body="Runeist's Coat +3",
-        hands="Regal Gauntlets",
-        legs="Rawhide Trousers",
-        ring1=gear.Stikini_1,
-        ring2=gear.Stikini_2,
-        })
-
-    sets.idle.Town = set_combine(sets.idle, {
-        -- ammo="Aurgelmir Orb +1",
-        -- head="Turms Cap +1",
-        -- body="Ashera Harness",
-        -- neck="Futhark Torque +2",
-        -- ear1="Etiolation Earring",
-        head=gear.Nyame_Head,
-        body=gear.Nyame_Body,
-        hands=gear.Nyame_Hands,
-        legs=gear.Nyame_Legs,
-        feet=gear.Nyame_Feet,
-    })
-
-    sets.Kiting = {legs="Carmine Cuisses +1"}
+    
 
 
     ------------------------------------------------------------------------------------------------
@@ -618,9 +555,9 @@ function init_gear_sets()
         ammo="Staunch Tathlum +1", --3/3
         -- head="Turms Cap +1",
         head=gear.Nyame_Head,
-        body=gear.Nyame_Body,
+        body=gear.Empyrean_Body,
         hands="Turms Mittens +1",
-        legs="Eri. Leg Guards +2", --11
+        legs=gear.Empyrean_Legs, --11
         -- body="Runeist's Coat +3",
         -- hands="Turms Mittens +1",
         -- legs="Eri. Leg Guards +1", --7/0
@@ -631,7 +568,7 @@ function init_gear_sets()
         ring1="Gelatinous Ring +1", --7/(-1)
         ring2="Defending Ring", --10/10
         -- back=gear.RUN_HPD_Cape, --10/0
-        back="Moonlight Cape",
+        back=gear.RUN_HPD_Cape,
         waist="Engraved Belt",
     }
 
@@ -671,10 +608,10 @@ function init_gear_sets()
 
     sets.defense.Parry = {
         hands="Turms Mittens +1",
-        legs="Eri. Leg Guards +1",
+        legs=gear.Empyrean_Legs,
         feet="Turms Leggings +1",
         back=gear.RUN_HPP_Cape,
-        }
+    }
 
     ------------------------------------------------------------------------------------------------
     ---------------------------------------- Engaged Sets ------------------------------------------
@@ -766,6 +703,69 @@ function init_gear_sets()
         back=gear.RUN_TP_Cape,
         waist="Sailfi Belt +1",
     }
+
+    ------------------------------------------------------------------------------------------------
+    ----------------------------------------- Idle Sets --------------------------------------------
+    ------------------------------------------------------------------------------------------------
+
+    sets.idle = {
+        -- sub="Mensch Strap +1",
+        ammo="Homiliary",
+        head=gear.Nyame_Head,
+        body=gear.Nyame_Body,
+        hands=gear.Nyame_Hands,
+        legs=gear.Nyame_Legs,
+        feet=gear.Nyame_Feet,
+        -- head="Turms Cap +1",
+        -- body="Futhark Coat +3",
+        -- hands="Regal Gauntlets",
+        -- legs="Turms Subligar +1",
+        -- feet="Turms Leggings +1",
+        neck="Bathy Choker +1",
+        ear1="Etiolation Earring",
+        ear2="Odnowa Earring +1",
+        ring1=gear.Chirich_1,
+        ring2=gear.Chirich_2,
+        back=gear.RUN_HPD_Cape,
+        -- waist="Ioskeha Belt +1",
+        waist="Engraved Belt",
+        }
+
+    sets.idle.DT = {
+        -- sub="Mensch Strap +1", --5/0
+        ammo="Staunch Tathlum +1", --3/3
+        head=gear.Nyame_Head,
+        body=gear.Nyame_Body,
+        hands=gear.Nyame_Hands,
+        legs=gear.Nyame_Legs,
+        feet=gear.Nyame_Feet,
+        -- head="Fu. Bandeau +3", --6/0
+        -- body="Runeist's Coat +3",
+        -- hands="Turms Mittens +1",
+        -- legs="Turms Subligar +1",
+        -- feet="Turms Leggings +1",
+        neck="Futhark Torque +2", --7/7
+        ear1="Etiolation Earring",
+        ear2="Odnowa Earring +1", --0/2
+        ring1="Moonlight Ring", --5/5
+        ring2="Defending Ring", --10/10
+        back=gear.RUN_HPD_Cape, --10/0
+        waist="Flume Belt +1", --4/0
+    }
+
+    sets.idle.Refresh = set_combine(sets.idle, {
+        ammo="Homiliary",
+        head=gear.Herc_Idle_Head,
+        body=gear.Artifact_Body,
+        hands="Regal Gauntlets",
+        legs="Rawhide Trousers",
+        ring1=gear.Stikini_1,
+        ring2=gear.Stikini_2,
+    })
+
+    sets.idle.Town = sets.defense.PDT
+
+    sets.Kiting = {legs=gear.Carmine_D_Legs}
 
     ------------------------------------------------------------------------------------------------
     ---------------------------------------- Special Sets ------------------------------------------
@@ -1037,7 +1037,6 @@ function display_current_job_state(eventArgs)
         m_msg = m_msg .. '/' ..state.HybridMode.value
     end
 
-    local am_msg = '(' ..string.sub(state.AttackMode.value,1,1).. ')'
 
     local ws_msg = state.WeaponskillMode.value
 
@@ -1056,7 +1055,7 @@ function display_current_job_state(eventArgs)
 
     add_to_chat(r_color, string.char(129,121).. '  ' ..string.upper(r_msg).. '  ' ..string.char(129,122)
         ..string.char(31,210).. ' Melee' ..cf_msg.. ': ' ..string.char(31,001)..m_msg.. string.char(31,002).. ' |'
-        ..string.char(31,207).. ' WS' ..am_msg.. ': ' ..string.char(31,001)..ws_msg.. string.char(31,002)..  ' |'
+        ..string.char(31,207).. ' WS: ' ..string.char(31,001)..ws_msg.. string.char(31,002)..  ' |'
         ..string.char(31,060)
         ..string.char(31,004).. ' Defense: ' ..string.char(31,001)..d_msg.. string.char(31,002).. ' |'
         ..string.char(31,008).. ' Idle: ' ..string.char(31,001)..i_msg.. string.char(31,002).. ' |'
@@ -1084,8 +1083,6 @@ end
 
 function get_custom_wsmode(spell, action, spellMap)
     if spell.type == 'WeaponSkill' then
-        if state.AttackMode.value == 'Uncapped' and state.DefenseMode.value == 'None' and state.HybridMode.value == 'Normal' then
-            return "Uncapped"
         elseif state.DefenseMode.value ~= 'None' or state.HybridMode.value == 'DT' then
             return "Safe"
         end
