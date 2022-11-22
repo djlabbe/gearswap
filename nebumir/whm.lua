@@ -607,13 +607,13 @@ function init_gear_sets()
         hands=gear.Artifact_Hands,
         legs=gear.Empyrean_Legs,
         feet=gear.Artifact_Feet,
-        neck="Loricate Torque +1",
+        neck="Cleric's Torque +1",
         ear1="Moonshade Earring",
         ear2="Ebers Earring +1",
         ring1=gear.Stikini_1,
         ring2=gear.Stikini_2,
         back="Alaunus's Cape",
-        waist="Slipor Sash",
+        waist="Shinjutsu-no-obi +1",
     }
     
     

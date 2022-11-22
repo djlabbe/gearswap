@@ -116,7 +116,7 @@ function user_setup()
     gear.Artifact_Body = { name= "Academic's Gown +2" }
     gear.Artifact_Hands = { name= "Academic's Bracers +2" }
     gear.Artifact_Legs = { name= "Academic's Pants +1" }
-    gear.Artifact_Feet = { name= "Academic's Loafers +2" }
+    gear.Artifact_Feet = { name= "Academic's Loafers +3" }
 
     gear.Relic = { }
     gear.Relic_Head = { name= "Pedagogy Mortarboard +3" }
@@ -708,7 +708,7 @@ function init_gear_sets()
         body="Shamash Robe",
         hands="Regal Cuffs",
         legs=gear.Relic_Legs,
-        feet=gear.Relic_Feet,
+        feet=gear.Artifact_Feet,
         neck="Argute Stole +2",
         ear1="Malignance Earring",
         ear2="Regal Earring",

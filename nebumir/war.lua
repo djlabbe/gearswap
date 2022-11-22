@@ -81,7 +81,7 @@ function init_gear_sets()
         body="Sakpata's Breastplate", --12
         hands="Sakpata's Gauntlets", --8
         legs="Pumm. Cuisses +3",
-        feet="Flam. Gambieras +2",
+        feet="Pummeler's Calligae +3",
         neck={ name="War. Beads +1", augments={'Path: A',}},
         waist="Sailfi Belt +1",
         left_ear="Cessance Earring",
