@@ -462,8 +462,8 @@ function init_gear_sets()
         feet=gear.Relic_Feet,
         neck="Dgn. Collar +2",
         ear1="Enmerkar Earring",
-        ear2="Anastasi Earring",
-        waist="Isa Belt",
+        -- ear2="Anastasi Earring",
+        -- waist="Isa Belt",
     })
 
     sets.idle.DT.Pet = set_combine(sets.idle.Pet, {

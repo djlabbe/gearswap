@@ -49,9 +49,9 @@ function user_setup()
 
     gear.Relic_Head = { name= "Fallen's Burgeonet +3" }
     gear.Relic_Body = { name= "Fallen's Cuirass +1" }
-    gear.Relic_Hands = { name= "Fallen's Gauntlets +1" }
+    gear.Relic_Hands = { name= "Fallen's Finger Gauntlets +1" }
     gear.Relic_Legs = { name= "Fallen's Flanchard +3" }
-    gear.Relic_Feet = { name= "Fallen's Sollerets +1" }
+    gear.Relic_Feet = { name= "Fallen's Sollerets +3" }
 
     -- gear.Empyrean_Head = { name= "Heathen's Burgeonet +1" }
     gear.Empyrean_Body = { name= "Heathen's Cuirass +1" }
@@ -321,6 +321,82 @@ function init_gear_sets()
 
 
     ------------------------------------------------------------------------------------------------
+    ---------------------------------------- Defense Sets ------------------------------------------
+    ------------------------------------------------------------------------------------------------
+
+    sets.defense.PDT = {
+        head=gear.Sakpata_Head, --7
+        body=gear.Sakpata_Body, --10
+        hands=gear.Sakpata_Hands, --8
+        legs=gear.Sakpata_Legs, --9
+        feet=gear.Sakpata_Feet, --6
+        ring1=gear.Moonlight_1, --5
+        ring2=gear.Moonlight_2, --5
+    } --50
+
+    sets.defense.MDT = {
+        ammo="Staunch Tathlum +1", --3
+        head=gear.Sakpata_Head, --10
+        body=gear.Sakpata_Body, --12
+        hands=gear.Sakpata_Hands, --8
+        legs=gear.Sakpata_Legs, --9
+        feet=gear.Sakpata_Feet, --6
+        neck="Warder's Charm +1",
+        ear1="Odnowa Earring +1", --3/5a
+    }
+
+    ------------------------------------------------------------------------------------------------
+    ---------------------------------------- Engaged Sets ------------------------------------------
+    ------------------------------------------------------------------------------------------------
+
+    -- Variations for TP weapon and (optional) offense/defense modes.  Code will fall back on previous
+    -- sets if more refined versions aren't defined.
+    -- If you create a set with both offense and defense modes, the offense mode should be first.
+    -- EG: sets.engaged.Dagger.Accuracy.Evasion
+
+    sets.engaged = {
+        ammo="Coiste Bodhar",
+        head="Flamma Zucchetto +2",
+        body=gear.Valo_QA_Body,
+        hands=gear.Sakpata_Hands,
+        legs=gear.Artifact_Legs,
+        feet="Flamma Gambieras +2",
+        neck="Abyssal Beads +2",
+        waist="Sailfi Belt +1",
+        ear1="Cessance Earring",
+        ear2="Telos Earring",      
+        ring1="Niqmaddu ring",
+        ring2="Hetairoi Ring",
+        back= gear.DRK_TP_Cape,
+    }
+
+    sets.engaged.Acc = set_combine(sets.engaged, {
+        ammo="Seeth. Bomblet +1",
+        hands="Gazu Bracelet +1",
+    })
+
+    sets.engaged.Aftermath = {
+        -- ammo="Yetshila +1", --2/6
+        -- head="Blistering Sallet +1", --10/0
+        -- body="Hjarrandi Breast.", --13/0
+        -- hands="Flam. Manopolas +2", --8/0,
+    }
+
+    ------------------------------------------------------------------------------------------------
+    ---------------------------------------- Hybrid Sets -------------------------------------------
+    ------------------------------------------------------------------------------------------------
+
+    sets.engaged.Hybrid = {
+        body=gear.Sakpata_Body, --10
+        hands=gear.Sakpata_Hands, --8
+        legs=gear.Sakpata_Legs, --9
+        right_ring=gear.Moonlight_2, --5
+    } --33
+
+    sets.engaged.DT = set_combine(sets.engaged, sets.engaged.Hybrid)
+    sets.engaged.Acc.DT = set_combine(sets.engaged.Acc, sets.engaged.Hybrid)
+
+       ------------------------------------------------------------------------------------------------
     ----------------------------------------- Idle Sets --------------------------------------------
     ------------------------------------------------------------------------------------------------
 
@@ -352,100 +428,9 @@ function init_gear_sets()
         back="Moonlight Cape", --6/6
     })
 
-     sets.idle.Town = set_combine(sets.idle.DT, {
-        ammo="Aurgelmir Orb +1",
-        head=gear.Relic_Head,
-        body=gear.Artifact_Body,
-        hands=gear.Sakpata_Hands,
-        legs=gear.Artifact_Legs,
-        feet=gear.Artifact_Feet,
-        neck="Abyssal Beads +2",
-        waist="Sailfi Belt +1",
-        left_ear="Cessance Earring",
-        right_ear="Telos Earring",
-        left_ring="Niqmaddu ring",
-        right_ring="Hetairoi Ring",
-        back= gear.DRK_TP_Cape,
-    })
+     sets.idle.Town = sets.engaged
 
     sets.idle.Weak = set_combine(sets.idle, {})
-
-    ------------------------------------------------------------------------------------------------
-    ---------------------------------------- Defense Sets ------------------------------------------
-    ------------------------------------------------------------------------------------------------
-
-    sets.defense.PDT = {
-        head="Hjarrandi Helm", --10
-        body="Hjarrandi Breastplate", --12
-        hands=gear.Sakpata_Hands, --8
-        legs=gear.Sakpata_Legs, --9
-        feet=gear.Sakpata_Feet, --6
-        ring2=gear.Moonlight_2, --5
-    }
-
-    sets.defense.MDT = {
-        ammo="Staunch Tathlum +1", --3
-        head=gear.Sakpata_Head, --10
-        body=gear.Sakpata_Body, --12
-        hands=gear.Sakpata_Hands, --8
-        legs=gear.Sakpata_Legs, --9
-        feet=gear.Sakpata_Feet, --6
-        neck="Warder's Charm +1",
-        ear1="Odnowa Earring +1", --3/5a
-    }
-
-    ------------------------------------------------------------------------------------------------
-    ---------------------------------------- Engaged Sets ------------------------------------------
-    ------------------------------------------------------------------------------------------------
-
-    -- Variations for TP weapon and (optional) offense/defense modes.  Code will fall back on previous
-    -- sets if more refined versions aren't defined.
-    -- If you create a set with both offense and defense modes, the offense mode should be first.
-    -- EG: sets.engaged.Dagger.Accuracy.Evasion
-
-    sets.engaged = {
-        ammo="Coiste Bodhar",
-        head="Flamma Zucchetto +2",
-        body=gear.Sakpata_Body,
-        hands=gear.Sakpata_Hands,
-        legs=gear.Artifact_Legs,
-        feet="Flamma Gambieras +2",
-        neck="Abyssal Beads +2",
-        waist="Sailfi Belt +1",
-        ear1="Brutal Earring",
-        ear2="Cessance Earring",
-        ring1="Niqmaddu ring",
-        ring2="Hetairoi Ring",
-        back= gear.DRK_TP_Cape,
-    }
-
-    sets.engaged.Acc = set_combine(sets.engaged, {
-        ammo="Seeth. Bomblet +1",
-        hands="Gazu Bracelet +1",
-    })
-
-    sets.engaged.Aftermath = {
-        ammo="Yetshila +1", --2/6
-        head="Blistering Sallet +1", --10/0
-        body="Hjarrandi Breast.", --13/0
-        hands="Flam. Manopolas +2", --8/0,
-    }
-
-    ------------------------------------------------------------------------------------------------
-    ---------------------------------------- Hybrid Sets -------------------------------------------
-    ------------------------------------------------------------------------------------------------
-
-    sets.engaged.Hybrid = {
-        head=gear.Sakpata_Head, --7
-        body="Hjarrandi Breast.", --12
-        hands=gear.Sakpata_Hands, --8
-        legs=gear.Sakpata_Legs, --9
-        feet=gear.Sakpata_Feet, --6
-        right_ring=gear.Moonlight_2,
-    } --47
-
-    sets.engaged.DT = set_combine(sets.engaged, sets.engaged.Hybrid)
-    sets.engaged.Acc.DT = set_combine(sets.engaged.Acc, sets.engaged.Hybrid)
 
     ------------------------------------------------------------------------------------------------
     ---------------------------------------- Special Sets ------------------------------------------

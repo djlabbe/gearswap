@@ -30,19 +30,25 @@
 -------------------------------------------------------------------------------------------------------------------
 
     -- Default Spell HotKeys
-    if player.main_job == 'DNC' or player.sub_job == 'DNC' then
+      -- Default Spell HotKeys
+      if player.main_job == 'DNC' or player.sub_job == 'DNC' then
         send_command('bind !, input /ja "Spectral Jig" <me>')
         send_command('unbind !.')
+    elseif player.main_job == 'NIN' then
+        send_command('bind !, input /ma "Monomi: Ichi" <me>')
+        send_command('bind !. input /ma "Tonko: Ni" <me>')
     elseif player.main_job == 'RDM' or player.sub_job == 'RDM'
         or player.main_job == 'SCH' or player.sub_job == 'SCH'
         or player.main_job == 'WHM' or player.sub_job == 'WHM' then
         send_command('bind !, input /ma "Sneak" <me>')
         send_command('bind !. input /ma "Invisible" <me>')
+    elseif player.sub_job == 'NIN' then
+        send_command('bind !, input /ma "Monomi: Ichi" <me>')
+        send_command('bind !. input /ma "Tonko: Ni" <me>')
     else
         send_command('bind !, input /item "Silent Oil" <me>')
         send_command('bind !. input /item "Prism Powder" <me>')
     end
-
 
     -- Default Status Cure HotKeys (SHIFT + Numpad)
     send_command('bind ~numpad7 input /ma "Paralyna" <stpc>')

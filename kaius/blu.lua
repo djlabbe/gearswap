@@ -399,7 +399,7 @@ function init_gear_sets()
         hands=gear.Amalric_D_Hands,
         legs=gear.Amalric_A_Legs,
         feet=gear.Amalric_D_Feet,
-        neck="Baetyl Pendant",
+        neck="Sibyl Scarf",
         ear1="Moonshade Earring",
         ear2="Regal Earring",
         ring1="Epaminondas's Ring",
@@ -534,7 +534,7 @@ function init_gear_sets()
         hands=gear.Amalric_D_Hands,
         legs=gear.Relic_Legs,
         feet=gear.Amalric_D_Feet,
-        neck="Baetyl Pendant",
+        neck="Sibyl Scarf",
         ear1="Friomisi Earring",
         ear2="Regal Earring",
         ring1="Shiva Ring +1",
@@ -581,8 +581,9 @@ function init_gear_sets()
 
     sets.midcast['Blue Magic'].MagicalChr = set_combine(sets.midcast['Blue Magic'].Magical, {
         ammo="Voluspa Tathlum",
-        ear1="Regal Earring",
-        ear2="Enchntr. Earring +1"
+        ear1="Enchntr. Earring +1",
+        ear2="Regal Earring",
+     
     })
 
     sets.midcast['Blue Magic'].MagicAccuracy = {
@@ -769,19 +770,7 @@ function init_gear_sets()
         back="Moonlight Cape", --6/6
     })
 
-    sets.idle.Town = set_combine(sets.idle, {
-        ammo="Aurgelmir Orb +1",
-        head=gear.Malignance_Head,
-        body=gear.Artifact_Body,
-        hands=gear.Malignance_Hands,
-        legs=gear.Malignance_Legs,
-        feet=gear.Malignance_Feet,
-        neck="Sibyl Scarf",
-        ear1="Eabani Earring",
-        ear2="Telos Earring",
-        back=gear.BLU_TP_Cape,
-        waist="Flume Belt +1",
-    })
+    sets.idle.Town = sets.midcast['Blue Magic'].Magical
 
     sets.idle.Weak = sets.idle.DT
 

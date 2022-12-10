@@ -112,7 +112,7 @@ function user_setup()
     include('Global-Binds.lua') -- OK to remove this line
 
     gear.Artifact = { }
-    gear.Artifact_Head = { name= "Academic's Mortarboard +2" }
+    gear.Artifact_Head = { name= "Academic's Mortarboard +3" }
     gear.Artifact_Body = { name= "Academic's Gown +2" }
     gear.Artifact_Hands = { name= "Academic's Bracers +2" }
     gear.Artifact_Legs = { name= "Academic's Pants +1" }
@@ -126,7 +126,7 @@ function user_setup()
     gear.Relic_Feet = { name= "Pedagogy Loafers +3" }
 
     gear.Empyrean = { }
-    gear.Empyrean_Head = { name= "Arbatel Bonnet +2" }
+    gear.Empyrean_Head = { name= "Arbatel Bonnet +3" }
     gear.Empyrean_Body = { name= "Arbatel Gown +1" }
     gear.Empyrean_Hands = { name= "Arbatel Bracers +2" }
     gear.Empyrean_Legs = { name= "Arbatel Pants +1" }
@@ -138,6 +138,8 @@ function user_setup()
 
     send_command('bind !p input /ma "Protect V" <stpc>')
     send_command('bind !o input /ma "Shell V" <stpc>')
+    send_command('bind !i input /ma "Phalanx" <me>')
+    send_command('bind !u input /ma "Aquaveil" <me>')
 
     send_command('bind !h input /ma "Haste" <stpc>')
     send_command('bind !f input /ma "Flurry" <stpc>')
@@ -168,8 +170,23 @@ function user_setup()
     send_command('bind !pageup gs c cycleback BarStatus')
     send_command('bind !pagedown gs c cycle BarStatus')
 
+    -- ALT + Numpad ===> Enfeebles --
+    send_command('bind !numpad7 input /ma "Paralyze" <t>')
+    send_command('bind !numpad8 input /ma "Slow" <t>')
+    send_command('bind !numpad9 input /ma "Silence" <t>')  
+    send_command('bind !numpad5 input /ma "Distract" <t>')
+    send_command('bind !numpad6 input /ma "Frazzle" <t>')
+    send_command('bind !numpad2 input /ma "Blind" <t>')
+    send_command('bind !numpad3 input /ma "Poison II" <t>')
+    
 
+    if player.sub_job == 'RDM' then
+        send_command('bind !y input /ja "Convert" <me>')
+    end
+
+    
     include('Global-Binds.lua')
+
 
     set_macro_page(1, 20)
     send_command('wait 2; input /lockstyleset 20')
@@ -186,10 +203,14 @@ function user_unload()
 
     send_command('unbind !p') -- Prot
     send_command('unbind !o') -- Shell
+    send_command('unbind !i') -- Phalanx
+    send_command('unbind !u') -- Aquaveil
+    send_command('unbind !y') -- Convert
     send_command('unbind !h') -- Haste
     send_command('unbind !f') -- Flurry
     send_command('unbind !g') -- Gravity
     send_command('unbind !b') -- Bind
+    send_command('unbind !c') -- Convert
 
     send_command('unbind ^`') -- Imm
     send_command('unbind !`') -- MB Mode
@@ -245,7 +266,7 @@ function init_gear_sets()
 
     -- Fast cast sets for spells
     sets.precast.FC = {
-    --    /RDM --15
+    --    /RDM --20
         ammo="Sapience Orb", --2
         head=gear.Amalric_A_Head, --11
         body="Pinga Tunic +1", --15
@@ -303,7 +324,7 @@ function init_gear_sets()
         body="Jhakri Robe +2",
         hands="Jhakri Cuffs +2",
         legs=gear.Telchine_ENH_Legs,
-        feet="Jhakri Pigaches +2",
+        feet=gear.Nyame_Feet,
         neck="Fotia Gorget",
         ear1="Moonshade Earring",
         ear2="Telos Earring",
@@ -416,7 +437,6 @@ function init_gear_sets()
     sets.midcast['Enhancing Magic'] = {
         main=gear.Gada_ENH,
         sub="Ammurapi Shield",
-        -- ammo="Savant's Treatise",
         ammo="Pemphredo Tathlum",
         head=gear.Telchine_ENH_Head,
         body=gear.Relic_Body,
@@ -441,7 +461,7 @@ function init_gear_sets()
         legs=gear.Telchine_ENH_Legs,
         feet=gear.Telchine_ENH_Feet,
         waist="Embla Sash",
-        }
+    }
 
     sets.midcast.Regen = set_combine(sets.midcast.EnhancingDuration, {
         main="Musa",
@@ -452,12 +472,12 @@ function init_gear_sets()
         legs=gear.Telchine_ENH_Legs,
         feet=gear.Telchine_ENH_Feet,
         back=gear.SCH_MAB_Cape,
-        -- back="Bookworm's Cape",
+        back=gear.SCH_REG_Cape,
     })
 
     sets.midcast.RegenDuration = set_combine(sets.midcast.EnhancingDuration, {
         head=gear.Telchine_ENH_Head,
-        back=gear.SCH_FC_Cape,
+        back=gear.SCH_MAB_Cape,
     })
 
     sets.midcast.Haste = sets.midcast.EnhancingDuration
@@ -582,8 +602,8 @@ function init_gear_sets()
 
     -- Elemental Magic
     sets.midcast['Elemental Magic'] = {
-        main="Bunzi's Rod",
-        sub="Ammurapi Shield",
+        main="Marin Staff +1",
+        sub="Enki Strap",
         ammo="Ghastly Tathlum +1",
         head=gear.Relic_Head,
         body=gear.Amalric_A_Body,
@@ -663,19 +683,15 @@ function init_gear_sets()
     ------------------------------------------------------------------------------------------------
 
     sets.idle = {
-        main="Daybreak",
-        sub="Genmei Shield",
+        main="Malignance Pole",
+        sub="Khonsu",
         ammo="Homiliary",
         head="Volte Beret",
         body="Shamash Robe",
-        -- body=gear.Artifact_Body,
-        -- hands="Raetic Bangles +1",
         hands="Volte Gloves",
-        -- legs="Volte Brais",
         legs="Assid. Pants +1",
-        -- feet="Volte Gaiters",
         feet=gear.Artifact_Feet,
-        neck="Bathy Choker +1",
+        neck="Sibyl Scarf",
         ear1="Etiolation Earring",
         ear2="Lugalbanda Earring",
         ring1=gear.Stikini_1,
@@ -685,8 +701,8 @@ function init_gear_sets()
     }
 
     sets.idle.DT = set_combine(sets.idle, {
-        main="Daybreak",
-        sub="Genmei Shield", --10/0
+        main="Malignance Pole",
+        sub="Khonsu",
         ammo="Staunch Tathlum +1", --3/3
         head="Volte Beret",
         body="Shamash Robe", --10/0
@@ -704,7 +720,7 @@ function init_gear_sets()
         main="Musa",
         sub="Khonsu", --0/(-5)
         ammo="Ghastly Tathlum +1",
-        head=gear.Relic_Head,
+        head=gear.Empyrean_Head,
         body="Shamash Robe",
         hands="Regal Cuffs",
         legs=gear.Relic_Legs,
@@ -783,8 +799,6 @@ function init_gear_sets()
     sets.buff['Klimaform'] = {feet=gear.Empyrean_Feet}
 
     sets.buff.FullSublimation = {
-    --    main="Siriti", --1
-    --    sub="Genmei Shield", --10/0
        head=gear.Artifact_Head, --4
        body=gear.Relic_Body, --5
        ear1="Savant's Earring", --1
@@ -1047,6 +1061,8 @@ function job_self_command(cmdParams, eventArgs)
         send_command('@input /ma '..state.BarElement.value..' <me>')
     elseif cmdParams[1]:lower() == 'barstatus' then
         send_command('@input /ma '..state.BarStatus.value..' <me>')
+    elseif cmdParams[1]:lower() == 'weather' then
+        send_command('@input /ma "'..state.Weather.value..'" <me>')
     end
 
 end
@@ -1142,17 +1158,13 @@ function sch_skillchain(cmdParams)
 	elseif sctype == 'transfixion' then
 		send_command('input /p [Transfixion][Skillchain];pause .1;input /ja "Immanence" <me>;pause 2.0;input /ma "noctohelix" <t>;pause 4.0;input /ja "Immanence" <me>;pause 2.0;input /p Closing [Transfixion][Light];input /ma "luminohelix" <t>;')
 	elseif sctype == 'distortion' then
-		send_command('input /p [Distortion][Skillchain];pause .1;input /ja "Immanence" <me>;pause 2.0;input /ma "luminohelix" <t>;pause 4.0;input /ja "Immanence" <me>;pause 2.0;input /p Closing [Distortion][Water][Ice]input /ma "stone" <t>;')
+		send_command('input /p [Distortion][Skillchain];pause .1;input /ja "Immanence" <me>;pause 2.0;input /ma "luminohelix" <t>;pause 4.0;input /ja "Immanence" <me>;pause 2.0;input /p Closing [Distortion][Water][Ice];input /ma "stone" <t>;')
 	elseif sctype == 'fragmentation' then
-		send_command('input /p [Fragmentation][Skillchain];pause .1;input /ja "Immanence" <me>;pause 2.0;input /ma "blizzard" <t>;pause 4.0;input /ja "Immanence" <me>;pause 2.0;input /p Closing [Fragmentation][Wind][Thunder]input /ma "water" <t>;')
+		send_command('input /p [Fragmentation][Skillchain];pause .1;input /ja "Immanence" <me>;pause 2.0;input /ma "blizzard" <t>;pause 4.0;input /ja "Immanence" <me>;pause 2.0;input /p Closing [Fragmentation][Wind][Thunder];input /ma "water" <t>;')
 	elseif sctype == 'fusion' then
 		send_command('input /p [Fusion][Skillchain];pause .1;input /ja "Immanence" <me>;pause 2.0;input /ma "fire" <t>;pause 4.0;input /ja "Immanence" <me>;pause 2.0;input /p Closing [Fusion][Fire][Light];input /ma "thunder" <t>;')
 	elseif sctype == 'gravitation' then
 		send_command('input /p [Gravitation][Skillchain];pause .1;input /ja "Immanence" <me>;pause 2.0;input /ma "aero" <t>;pause 4.0;input /ja "Immanence" <me>;pause 2.0;input /p Closing [Gravitation][Stone][Dark];input /ma "noctohelix" <t>;')
-	elseif sctype == '3' then
-		send_command('input /p ***Executing Multi-Step Self-Skillchain***;pause .1;input /ja "Immanence" <me>;pause 2.0;input /ma "aero" <t>;pause 4.0;input /ja "Immanence" <me>;pause 2.0;input /ma "stone" <t>;pause 4.0;input /ja "Immanence" <me>;pause 2.0;input /ma "aero" <t>')
-	elseif sctype == '30k' then
-		send_command('input /p ***Executing Self-Skillchain + MB***;pause .1;input /ja "Immanence" <me>;pause 2.0;input /ma "water" <t>;pause 4.0;input /ja "Immanence" <me>;pause 2.0;input /ma "thunder" <t>;pause 4.0;input /ja "Ebullience" <me>;pause 1.5;input /ma "Thunder V" <t>;')
 	else
 		add_to_chat(123,'Error: Unknown skillchain ['..sctype..']')
 	end

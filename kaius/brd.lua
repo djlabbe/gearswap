@@ -664,7 +664,7 @@ function init_gear_sets()
         head="Ayanmo Zucchetto +2", --6
         body="Agony Jerkin +1", --4
         hands="Gazu Bracelet +1",
-        legs="Zoar Subligar +1",
+        legs="Volte Tights",
         feet="Ayanmo Gambieras +2",
         neck="Bard's Charm +2",
         ear1="Cessance Earring",

@@ -343,7 +343,7 @@ function init_gear_sets()
         ammo="Staunch Tathlum +1",
         head=gear.Empyrean_Head,
         body=gear.Artifact_Body,
-        hands=gear.Sakpata_Hands,
+        hands=gear.Relic_Hands,
         legs=gear.Empyrean_Legs,
         feet=gear.Relic_Feet,
         neck="Unmoving Collar +1",
@@ -499,7 +499,7 @@ function job_buff_change(buff,gain)
     if buff == 'Majesty' and not gain then
         add_to_chat(167, 'Majesty just expired!')
     end
-    if buff == "Doom" then
+    if buff == "doom" then
         if gain then
             state.Buff.Doom = true
             send_command('@input /p Doomed.')

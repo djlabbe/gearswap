@@ -530,7 +530,7 @@ function init_gear_sets()
         -- hands="Kurys Gloves", --9       
         legs=gear.Carmine_D_Legs,
         feet=gear.Empyrean_Feet,
-        neck="Moonlight Necklace"
+        neck="Moonlight Necklace",
         -- ear1="Cryptic Earring",
         -- ear2="Trux Earring",
         ring1="Supershear Ring",
@@ -538,14 +538,13 @@ function init_gear_sets()
         back=gear.RUN_HPD_Cape, --10
         waist="Audumbla Sash", --3
     }
+
     sets.midcast['Blue Magic'].Enmity = sets.Enmity
     sets.midcast['Blue Magic'].Cure = sets.midcast.Cure
     sets.midcast['Blue Magic'].Buff = {}
 
 
     
-
-
     ------------------------------------------------------------------------------------------------
     ---------------------------------------- Defense Sets ------------------------------------------
     ------------------------------------------------------------------------------------------------
@@ -729,7 +728,7 @@ function init_gear_sets()
         back=gear.RUN_HPD_Cape,
         -- waist="Ioskeha Belt +1",
         waist="Engraved Belt",
-        }
+    }
 
     sets.idle.DT = {
         -- sub="Mensch Strap +1", --5/0
@@ -986,8 +985,7 @@ end
 
 -- Modify the default melee set after it was constructed.
 function customize_melee_set(meleeSet)
-    if buffactive['Aftermath: Lv.3'] and player.equipment.main == "Epeolatry"
-        and state.DefenseMode.value == 'None' then
+    if buffactive['Aftermath: Lv.3'] and player.equipment.main == "Epeolatry" and state.DefenseMode.value == 'None' then
         if state.HybridMode.value == "DT" then
             meleeSet = set_combine(meleeSet, sets.engaged.Aftermath.DT)
         else
@@ -1083,7 +1081,7 @@ end
 
 function get_custom_wsmode(spell, action, spellMap)
     if spell.type == 'WeaponSkill' then
-        elseif state.DefenseMode.value ~= 'None' or state.HybridMode.value == 'DT' then
+        if state.DefenseMode.value ~= 'None' or state.HybridMode.value == 'DT' then
             return "Safe"
         end
     end

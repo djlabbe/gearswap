@@ -70,7 +70,7 @@ function user_setup()
     state.WeaponskillMode:options('Normal', 'Acc', 'Enmity')
     state.IdleMode:options('Normal', 'DT')
 
-    state.WeaponSet = M{['description']='Weapon Set', 'Fomalhaut_TF', 'Fomalhaut', 'Armageddon', 'Annihilator', 'Savage'}
+    state.WeaponSet = M{['description']='Weapon Set', 'Gastraphetes', 'Fomalhaut', 'Armageddon', 'Annihilator', 'Savage'}
     state.WeaponLock = M(false, 'Weapon Lock')
 
     DefaultAmmo = {['Yoichinoyumi'] = "Chrono Arrow",
@@ -78,7 +78,8 @@ function user_setup()
                    ['Fail-Not'] = "Chrono Arrow",
                    ['Annihilator'] = "Chrono Bullet",
                    ['Armageddon'] = "Chrono Bullet",
-                   ['Gastraphetes'] = "Quelling Bolt",
+                --    ['Gastraphetes'] = "Quelling Bolt",
+                   ['Gastraphetes'] = "Damascus Bolt",
                    ['Fomalhaut'] = "Chrono Bullet",
                    ['Sparrowhawk'] = "Beetle Arrow",
                    }
@@ -237,17 +238,18 @@ function init_gear_sets()
         waist="Yemaya Belt", --0/5
     }) --32/57
 
-    --[[
+    
     sets.precast.RA.Gastra = {
         head="Orion Beret +3", --15/0
-        }
+    }
     sets.precast.RA.Gastra.Flurry1 = set_combine(sets.precast.RA.Gastra, {
         feet="Arcadian Socks +3", --0/10
-        })
+    })
+
     sets.precast.RA.Gastra.Flurry2 = set_combine(sets.precast.RA.Gastra.Flurry1, {
         legs="Pursuer's Pants", --0/19
-        })
-    ]]--
+    })
+    
 
 
     ------------------------------------------------------------------------------------------------
@@ -265,7 +267,7 @@ function init_gear_sets()
         ear2="Moonshade Earring",
         ring1="Regal Ring",
         ring2="Epaminondas's Ring", --5
-        back=gear.RNG_WS2_Cape, --10
+        back=gear.RNG_LS_Cape, --10
         waist="Fotia Belt",
     }
 
@@ -372,7 +374,7 @@ function init_gear_sets()
         ear2="Friomisi Earring",
         ring1="Weather. Ring",
         ring2="Epaminondas's Ring",
-        back=gear.RNG_WS1_Cape,
+        back=gear.RNG_TF_Cape,
         waist="Eschan Stone",
     }
 
@@ -390,7 +392,7 @@ function init_gear_sets()
         hands="Meg. Gloves +2",
         ring1="Regal Ring",
         ring2="Epaminondas's Ring",
-        back=gear.RNG_WS1_Cape,
+        back=gear.RNG_LS_Cape,
         waist="Sailfi Belt +1",
         legs=gear.Relic_Legs,
         feet=gear.Empyrean_Feet,
@@ -630,7 +632,7 @@ function init_gear_sets()
         waist="Kentarch Belt +1",
         ring1=gear.Chirich_1,
         ring2=gear.Chirich_2,
-        back=gear.RNG_TP_Cape,
+        back=gear.RNG_DW_Cape,
     }
 
 
@@ -668,7 +670,7 @@ function init_gear_sets()
         waist="Kentarch Belt +1",
         ring1=gear.Chirich_1,
         ring2=gear.Chirich_2,
-        back=gear.RNG_TP_Cape,
+        back=gear.RNG_DW_Cape,
     }
 
     sets.precast.WS['Empyreal Arrow'] = sets.engaged.DW.Kraken
@@ -706,10 +708,10 @@ function init_gear_sets()
         ear2="Eabani Earring", --4
         ring1="Hetairoi Ring",
         ring2="Epona's Ring",
-        back=gear.RNG_TP_Cape,
+        back=gear.RNG_DW_Cape, --10
          -- waist="Reiki Yotai", --7
          waist="Windbuffet Belt +1",
-    } -- 42%
+    } -- 52%
 
     sets.engaged.DW.LowAcc.LowHaste = set_combine(sets.engaged.DW.LowHaste, {
         -- neck="Combatant's Torque",
@@ -746,10 +748,10 @@ function init_gear_sets()
         ear2="Eabani Earring", --4
         ring1="Hetairoi Ring",
         ring2="Epona's Ring",
-        back=gear.RNG_TP_Cape,
+        back=gear.RNG_DW_Cape,
          -- waist="Reiki Yotai", --7
          waist="Windbuffet Belt +1",
-      } -- 31%
+      } -- 41%
 
     sets.engaged.DW.LowAcc.MidHaste = set_combine(sets.engaged.DW.MidHaste, {
         hands=gear.Adhemar_A_Hands,
@@ -788,10 +790,10 @@ function init_gear_sets()
         ear2="Eabani Earring", --4
         ring1="Hetairoi Ring",
         ring2="Epona's Ring",
-        back=gear.RNG_TP_Cape,
+        back=gear.RNG_DW_Cape,
           -- waist="Reiki Yotai", --7
           waist="Windbuffet Belt +1",
-      } -- 27%
+      } -- 37%
 
     sets.engaged.DW.LowAcc.HighHaste = set_combine(sets.engaged.DW.HighHaste, {
         hands=gear.Adhemar_A_Hands,
@@ -820,19 +822,18 @@ function init_gear_sets()
     -- 45% Magic Haste (36% DW to cap)
     sets.engaged.DW.MaxHaste = {
         head=gear.Adhemar_B_Head,
-        body=gear.Adhemar_B_Body, --6
+        body=gear.Malignance_Body,
         hands=gear.Adhemar_B_Hands,
-        -- legs="Samnuha Tights",
         legs=gear.Herc_TA_Legs,
         feet=gear.Herc_TA_Feet,
         neck="Iskur Gorget",
-        ear1="Suppanomimi", --5
+        ear1="Sherida Earring",
         ear2="Telos Earring",
         ring1="Hetairoi Ring",
         ring2="Epona's Ring",
-        back=gear.RNG_TP_Cape,
+        back=gear.RNG_DW_Cape,
         waist="Windbuffet Belt +1",
-    } -- 11%
+    } -- 10%
 
     sets.engaged.DW.LowAcc.MaxHaste = set_combine(sets.engaged.DW.MaxHaste, {
         hands=gear.Adhemar_A_Hands,
@@ -931,13 +932,12 @@ function init_gear_sets()
 
     sets.Annihilator = {main="Perun +1", sub="Blurred Knife +1", ranged="Annihilator"}
     sets.Fomalhaut = {main="Perun +1", sub="Blurred Knife +1", ranged="Fomalhaut"}
-    sets.Fomalhaut_TF= {
-        main={ name="Malevolence", augments={'INT+10','"Mag.Atk.Bns."+6',}},
-        sub={ name="Malevolence", augments={'INT+4','Mag. Acc.+3','"Mag.Atk.Bns."+2','"Fast Cast"+2',}},
-        ranged="Fomalhaut"
-    }
     sets.Armageddon = {main="Perun +1", sub="Malevolence", ranged="Armageddon"}
-    --sets.Gastraphetes = {main="Malevolence", sub="Malevolence", ranged="Gastraphetes"}
+    sets.Gastraphetes = {
+        main={ name="Malevolence", augments={'INT+10','"Mag.Atk.Bns."+6',}},
+        sub={ name="Malevolence", augments={'INT+4','Mag. Acc.+3','"Mag.Atk.Bns."+2','"Fast Cast"+2',}}, 
+        ranged="Gastraphetes"
+    }
 
     sets.DefaultShield = {sub="Nusku Shield"}
 

@@ -150,6 +150,10 @@ function user_setup()
     send_command('bind !s input /ja "Saboteur" <me>')
     send_command('bind !p input /ma "Protect V" <stpc>')
     send_command('bind !o input /ma "Shell V" <stpc>')
+    send_command('bind !i input /ma "Phalanx II" <stpc>')
+    send_command('bind !u input /ma "Aquaveil" <me>')
+    send_command('bind !y input /ja "Convert" <me>')
+
     send_command('bind !h input /ma "Haste II" <stpc>')
     send_command('bind !f input /ma "Flurry II" <stpc>')
     send_command('bind !g input /ma "Gravity II" <t>')
@@ -220,6 +224,9 @@ function user_unload()
     send_command('unbind !s')
     send_command('unbind !p')
     send_command('unbind !o')
+    send_command('unbind !i')
+    send_command('unbind !u')
+    send_command('unbind !y')
     send_command('unbind !h')
     send_command('unbind !f')
     send_command('unbind !g')
@@ -418,11 +425,11 @@ function init_gear_sets()
         ring1="Weather. Ring",
     })
 
-    sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS['Seraph Dlade'], {
-        ear2="Moonshade Earring",
+    sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS['Seraph Blade'], {
         ring1="Shiva Ring +1",
-        waist="Orpheus's Sash",
     })
+
+    sets.precast.WS['Red Lotus Blade'] = sets.precast.WS['Aeolian Edge']
 
     sets.precast.WS['Black Halo'] = set_combine(sets.precast.WS['Savage Blade'], {
         ear2="Sherida Earring",
@@ -642,7 +649,7 @@ function init_gear_sets()
         ring2="Metamor. Ring +1",
         back="Aurist's Cape +1",
         waist="Luminary Sash",
-        }
+    }
 
     sets.midcast.MndEnfeeblesAcc = set_combine(sets.midcast.MndEnfeebles, {
         main="Crocea Mors",

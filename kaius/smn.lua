@@ -194,7 +194,7 @@ function init_gear_sets()
     --------------------------------------
     
     -- Precast sets to enhance JAs
-    sets.precast.JA['Astral Flow'] = {head="Glyphic Horn"}
+    sets.precast.JA['Astral Flow'] = {head="Glyphic Horn +1"}
     
     -- Max Summoning skill, and any +Siphon effects --
     sets.precast.JA['Elemental Siphon'] = {
@@ -400,7 +400,7 @@ function init_gear_sets()
     -- Idle sets
     sets.idle = {
         main="Gridarvor",
-        sub="Elan Strap +1",
+        sub="Oneiros Grip",
         ammo="Sancus Sachet +1",
         head="Beckoner's Horn +1",
         neck="Caller's Pendant",

@@ -90,21 +90,35 @@ function user_setup()
 
     state.WeaponLock = M(false, 'Weapon Lock')
 
+    gear.Artifact_Head = { name= "Theophany Cap +1" }
+    gear.Artifact_Body = { name="Theophany Bliaut +3" }
+    gear.Artifact_Hands = { name="Theophany Mitts +1" }
+    gear.Artifact_Legs = { name="Theophany Pantaloons +1" }
+    gear.Artifact_Feet = { name="Theophany Duckbills +1" }
+
+    gear.Relic_Head = { name="Piety Cap +1" }
+    gear.Relic_Body = { name="Piety Bliaut +1" }
+    gear.Relic_Hands = { name="Piety Mitts +1" }
+    gear.Relic_Legs = { name="Piety Pantaloons +3" }
+    gear.Relic_Feet = { name="Piety Duckbills +1" }
+
+    gear.Empyrean_Head = { name="Ebers Cap +1" }
+    gear.Empyrean_Body = { name="Ebers Bliaut +1" }
+    gear.Empyrean_Hands = { name="Ebers Mitts +1" }
+    gear.Empyrean_Legs = { name="Ebers Pantaloons +1" }
+    gear.Empyrean_Feet = { name="Ebers Duckbills +1" }
+
     -- Additional local binds
     include('Global-Binds.lua') -- OK to remove this line
 
     send_command('bind !` input /ja "Afflatus Solace" <me>')
     send_command('bind ^` input /ja "Afflatus Misery" <me>')
-    send_command('bind !s input /ja Sublimation <me>')
 
     send_command('bind !- gs c scholar light')
     send_command('bind != gs c scholar dark')
 
-    send_command('bind !- gs c scholar addendum')
-    send_command('bind != gs c scholar addendum')
-
-    send_command('bind ^; gs c scholar speed')   
     send_command('bind ^[ gs c scholar aoe')
+    send_command('bind ^; gs c scholar speed')   
     send_command('bind !; gs c scholar cost')
 
     send_command('bind !insert gs c cycleback BoostSpell')
@@ -114,6 +128,7 @@ function user_setup()
     send_command('bind !pageup gs c cycleback BarStatus')
     send_command('bind !pagedown gs c cycle BarStatus')
 
+    send_command('bind !s input /ja Sublimation <me>')
     send_command('bind !d input /ja "Divine Seal" <me>')
     send_command('bind !p input /ma "Protectra V" <me>')
     send_command('bind !o input /ma "Shellra V" <me>')
@@ -963,6 +978,7 @@ end
 function update_sublimation()
     state.Buff['Sublimation: Activated'] = buffactive['Sublimation: Activated'] or false
 end
+
 
 -- General handling of strategems in an Arts-agnostic way.
 -- Format: gs c scholar <strategem>

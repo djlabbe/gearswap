@@ -62,16 +62,26 @@ function user_setup()
     state.MagicBurst = M(false, 'Magic Burst')
     state.DeathMode = M(false, 'Death Mode')
 
-    lowTierNukes = S{'Stone', 'Water', 'Aero', 'Fire', 'Blizzard', 'Thunder'}
-
     -- Additional local binds
     include('Global-Binds.lua') -- OK to remove this line
+
+    -- gear.Artifact_Head = { name="Spaekona's Petasos +3" }
+    gear.Artifact_Body = { name="Spaekona's Coat +3" }
+    -- gear.Artifact_Hands = { name="Spaekona's Gloves +3" }
+    -- gear.Artifact_Legs = { name="Spaekona's Tonban +3" }
+    -- gear.Artifact_Feet = { name="Spaekona's Sabots +3" }
 
     gear.Relic_Head = { name="Archmage's Petasos +3" }
     gear.Relic_Body = { name="Archmage's Coat +3" }
     gear.Relic_Hands = { name="Archmage's Gloves +3" }
     gear.Relic_Legs = { name="Archmage's Tonban +3" }
     gear.Relic_Feet = { name="Archmage's Sabots +3" }
+
+    -- gear.Empyrean_Head = { name="Wicce Petasos +1" }
+    -- gear.Empyrean_Body = { name="Wicce Coat +1" }
+    -- gear.Empyrean_Hands = { name="Wicce Gloves +1" }
+    -- gear.Empyrean_Legs = { name="Wicce Tonban +1" }
+    gear.Empyrean_Feet = { name="Wicce Sabots +1" }
 
     send_command('bind @q gs c toggle MagicBurst')
     send_command('bind @d gs c toggle DeathMode')
@@ -80,6 +90,7 @@ function user_setup()
     if player.sub_job == 'RDM' then
         send_command('bind !g input /ma "Gravity" <t>')
     end
+
     send_command('bind !t input /ma "Stun" <t>')
     send_command('bind !b input /ma "Bind" <t>')
 
@@ -95,7 +106,7 @@ function user_unload()
     send_command('unbind !t')
     send_command('unbind @q')
     send_command('unbind @d')
-    send_command('unbind @w')
+    send_command('unbind @w') 
     send_command('unbind !g')
     send_command('unbind !b')
 end
@@ -119,23 +130,20 @@ function init_gear_sets()
 
     -- Fast cast sets for spells
     sets.precast.FC = {
-    --    /RDM --15
         ammo="Sapience Orb", --2
         head=gear.Amalric_A_Head, --11
         body="Zendik Robe", --13
         hands="Merlinic Dastanas", --6
-        -- legs="Volte Brais", --8
-        -- feet="Volte Gaiters", --6
+        legs=gear.Agwu_Legs, --7
         feet="Regal Pumps +1", --6
-        -- neck="Orunmila's Torque", --5
-        neck="Baetyl Pendant",
+        neck="Baetyl Pendant", --4
         ear1="Malignance Earring", --4
         ear2="Enchntr. Earring +1", --2
         ring1="Kishar Ring", --4
         ring2="Weather. Ring", --5
         back="Fi Follet Cape +1", --10
-        waist="Embla Sash",
-    }
+        waist="Embla Sash", --5
+    } --79
 
     sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {
         waist="Siegel Sash",
@@ -151,11 +159,6 @@ function init_gear_sets()
 
     sets.precast.FC.Curaga = sets.precast.FC.Cure
 
-    -- sets.precast.FC.Impact = set_combine(sets.precast.FC, {
-    --     head=empty, body="Twilight Cloak", 
-    --     waist="Shinjutsu-no-Obi +1"
-    -- })
-
     sets.precast.FC.Dispelga = set_combine(sets.precast.FC, {
         main="Daybreak", 
         sub="Ammurapi Shield", 
@@ -166,22 +169,16 @@ function init_gear_sets()
         ring2=gear.Stikini_2,
     })
 
-    -- sets.precast.FC.Impact.DeathMode = set_combine(sets.precast.FC.DeathMode, {
-    --     head=empty, 
-    --     body="Twilight Cloak", 
-    --     waist="Shinjutsu-no-Obi +1"
-    -- })
-
     -- Weaponskill sets
 
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
         --ammo="Floestone",
         head=gear.Nyame_Head,
-        body="Jhakri Robe +2",
+        body=gear.Agwu_Body,
         hands="Jhakri Cuffs +2",
         legs=gear.Telchine_ENH_Legs,
-        feet="Jhakri Pigaches +2",
+        feet=gear.Nyame_Feet,
         neck="Fotia Gorget",
         ear1="Moonshade Earring",
         ear2="Telos Earring",
@@ -353,8 +350,7 @@ function init_gear_sets()
         ring1=gear.Stikini_1,
         ring2=gear.Stikini_2,
         back="Aurist's Cape +1",
-        -- waist="Luminary Sash",
-        waist="Acuity Belt +1",
+        waist="Luminary Sash",
     } -- MND/Magic accuracy
 
     sets.midcast.IntEnfeebles = set_combine(sets.midcast.MndEnfeebles, {
@@ -429,13 +425,13 @@ function init_gear_sets()
     sets.midcast['Elemental Magic'] = {
         main="Marin Staff +1",
         sub="Enki Strap",
-        ammo="Ghastly Tathlum +1",
+        ammo="Sroda Tathlum",
         head=gear.Relic_Head,
         body=gear.Relic_Body,
         hands=gear.Relic_Hands,
         legs=gear.Relic_Legs,
         feet=gear.Relic_Hands,
-        neck="Saevus Pendant +1",
+        neck="Sorcerer's Stole +2",
         ear1="Malignance Earring",
         ear2="Regal Earring",
         ring1="Freke Ring",
@@ -465,18 +461,6 @@ function init_gear_sets()
         neck="Erra Pendant",
     })
 
-    -- sets.midcast.Impact = set_combine(sets.midcast['Elemental Magic'], {
-    --     head=empty,
-    --     body="Twilight Cloak",
-    --     ring2="Archon Ring",
-    -- })
-
-    -- sets.midcast.Impact.Resistant = set_combine(sets.midcast['Elemental Magic'].Resistant, {
-    --     sub="Khonsu",
-    --     head=empty,
-    --     body="Twilight Cloak",
-    -- })
-
     -- Initializes trusts at iLvl 119
     sets.midcast.Trust = sets.precast.FC
 
@@ -488,17 +472,15 @@ function init_gear_sets()
     -- Idle sets
 
     sets.idle = {
-        main="Daybreak",
-        sub="Genmei Shield",
+        main="Malignance Pole",
+        sub="Khonsu",
         ammo="Ghastly Tathlum +1",
         head=gear.Agwu_Head,
         body="Shamash Robe",
-        -- hands="Raetic Bangles +1",
         hands="Volte Gloves",
-        -- legs="Volte Brais",
         legs="Assid. Pants +1",
         feet=gear.Agwu_Feet,
-        neck="Bathy Choker +1",
+        neck="Sibyl Scarf",
         ear1="Etiolation Earring",
         ear2="Lugalbanda Earring",
         ring1=gear.Stikini_1,
@@ -508,8 +490,8 @@ function init_gear_sets()
     }
 
     sets.idle.DT = set_combine(sets.idle, {
-        main="Daybreak",
-        sub="Genmei Shield", --10/0
+        main="Malignance Pole",
+        sub="Khonsu",
         ammo="Staunch Tathlum +1", --3/3
         head="Volte Beret",
         body="Shamash Robe", --8/8
@@ -531,12 +513,11 @@ function init_gear_sets()
     }
 
     sets.idle.Town = set_combine(sets.idle, {
-        -- main=gear.Grioavolr_MB,
-        -- sub="Khonsu",
-        main="Bunzi's Rod",
-        sub="Ammurapi Shield",
+        main="Marin Staff +1",
+        sub="Khonsu",
+        ammo="Sroda Tathlum";
         head=gear.Relic_Head,
-        body=gear.Relic_Body,
+        body=gear.Artifact_Body,
         hands=gear.Relic_Hands,
         legs=gear.Relic_Legs,
         feet=gear.Relic_Feet,
@@ -560,15 +541,15 @@ function init_gear_sets()
 
     sets.magic_burst = {
         main="Marin Staff +1",
-        sub="Alber Strap",
+        sub="Enki Strap",
         head="Ea Hat +1", --7/(7)
         neck="Sorcerer's Stole +2",
         ear1="Malignance Earring",
         ear2="Regal Earring",
         body="Ea Houppe. +1", --9/(9)
-        hands=gear.Agwu_Hands, --8
+        hands=gear.Amalric_D_Hands,
         ring1="Freke Ring",
-        ring2="Mujin Band", --(5)
+        ring2="Metamorph Ring +1",
         back=gear.BLM_MAB_Cape, --5
         waist="Acuity Belt +1",
         legs="Ea Slops +1", --8/(8)
@@ -576,7 +557,6 @@ function init_gear_sets()
     }
 
     sets.magic_burst.Resistant = {
-        ring1="Metamorph Ring +1",
         feet=gear.Relic_Feet, --11
     }
 
@@ -645,10 +625,8 @@ function init_gear_sets()
     -- Normal melee group
 
     sets.engaged = {
-        main="Maxentius",
-        sub="Ammurapi Shield",
         head="Blistering Sallet +1",
-        body="Jhakri Robe +2",
+        body=gear.Agwu_Body,
         hands="Gazu Bracelet +1",
         legs=gear.Telchine_ENH_Legs,
         feet=gear.Agwu_Feet,

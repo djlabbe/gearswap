@@ -121,31 +121,32 @@ function user_setup()
     -- Additional local binds
     include('Global-Binds.lua') -- OK to remove this line
 
-    send_command('bind !s input /ja Sublimation <me>')
-    send_command('bind !d input /ja "Divine Seal" <me>')
+
     send_command('bind !` input /ja "Afflatus Solace" <me>')
     send_command('bind ^` input /ja "Afflatus Misery" <me>')
-    send_command('bind !p input /ma "Protectra V" <me>')
-    send_command('bind !o input /ma "Shellra V" <me>')
-    -- send_command('bind !p input /ma "Protect V" <stpc>')
-    -- send_command('bind !o input /ma "Shell V" <stpc>')
+
     send_command('bind !- gs c scholar light')
     send_command('bind != gs c scholar dark')
+
     send_command('bind ^[ gs c scholar aoe')
-    send_command('bind numlock gs c scholar aoe')
     send_command('bind ^; gs c scholar speed')   
     send_command('bind !; gs c scholar cost')
+
     send_command('bind !insert gs c cycleback BoostSpell')
     send_command('bind !delete gs c cycle BoostSpell')
     send_command('bind !home gs c cycleback BarElement')
     send_command('bind !end gs c cycle BarElement')
     send_command('bind !pageup gs c cycleback BarStatus')
     send_command('bind !pagedown gs c cycle BarStatus')
-    send_command('bind @w gs c toggle WeaponLock')
-    send_command('bind @e gs c cycle RegenMode')
+
+    send_command('bind !s input /ja Sublimation <me>')
+    send_command('bind !d input /ja "Divine Seal" <me>')
+    send_command('bind !p input /ma "Protectra V" <me>')
+    send_command('bind !o input /ma "Shellra V" <me>')
     send_command('bind !h input /ma "Haste" <stpc>')
 
-   
+    send_command('bind @w gs c toggle WeaponLock')
+    send_command('bind @e gs c cycle RegenMode')
 
     styleSet = 2
     set_macro_page(1, 2) -- page,set
@@ -158,27 +159,34 @@ function user_setup()
 end
 
 function user_unload()
-    send_command('unbind !s')
-    send_command('unbind !d')
     send_command('unbind !`')
     send_command('unbind ^`')
-    send_command('unbind !p')
-    send_command('unbind !o')
+    send_command('unbind !s')
+
     send_command('unbind !-')
     send_command('unbind !=')
-    send_command('unbind ^[')
-    send_command('unbind numlock gs c scholar aoe')
+
+    send_command('unbind !-')
+    send_command('unbind !=')
+
     send_command('unbind ^;')   
+    send_command('unbind ^[')
     send_command('unbind !;')
-    send_command('unbind ^!nsert')
+
+    send_command('unbind !insert')
     send_command('unbind !delete')
     send_command('unbind !home')
     send_command('unbind !end')
     send_command('unbind !pageup')
     send_command('unbind !pagedown')
+
+    send_command('unbind !d')
+    send_command('unbind !p')
+    send_command('unbind !o')
+    send_command('unbind !h')
+
+    send_command('unbind @r')
     send_command('unbind @w')
-    send_command('unbind @e')
-  
 end
 
 -- Define sets and vars used by this job file.
@@ -293,7 +301,7 @@ function init_gear_sets()
         hands="Theophany Mitts +3",
         legs="Ebers Pant. +3",
         feet="Vanya Clogs", --11(+2)/(-12)    
-        ring1="Metamorph Ring +1", --3/(-5)
+        ring1="Janniston Ring",
         ring2="Mephitas's Ring +1",
         back="Alaunus's Cape",
         waist="Shinjutsu-no-Obi +1",
@@ -467,7 +475,7 @@ function init_gear_sets()
         feet=gear.Artifact_Feet,
         -- neck="Erra Pendant",
         -- ear1="Digni. Earring",
-        -- ear2="Regal Earring",
+        ear2="Regal Earring",
         ring1=gear.Stikini_1,
         ring2=gear.Stikini_2,
         back="Aurist's Cape +1",
@@ -610,7 +618,7 @@ function init_gear_sets()
         neck="Cleric's Torque +1",
         ear1="Moonshade Earring",
         ear2="Ebers Earring +1",
-        ring1=gear.Stikini_1,
+        ring1="Janniston Ring",
         ring2=gear.Stikini_2,
         back="Alaunus's Cape",
         waist="Shinjutsu-no-obi +1",

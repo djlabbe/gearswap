@@ -70,7 +70,7 @@ function user_setup()
 
     -- gear.Empyrean_Head = { name= "Kasuga Kabuto +1" }
     gear.Empyrean_Body = { name= "Kasuga Domaru +2" }
-    gear.Empyrean_Hands = { name= "Kasuga Kote +1" }
+    gear.Empyrean_Hands = { name= "Kasuga Kote +2" }
     gear.Empyrean_Legs = { name= "Kasuga Haidate +2" }
     -- gear.Empyrean_Feet = { name= "Kasuga Sune-Ate +1" }
 
@@ -204,9 +204,9 @@ function init_gear_sets()
         ammo="Knobkierrie", --6
         head=gear.Mpaca_Head,
         body=gear.Relic_Body, --10
-        hands=gear.Valo_WSD_Hands, --3
+        hands=gear.Empyrean_Hands, --8
         legs= gear.Artifact_Legs, --10
-        feet=gear.Valo_WSD_Feet, --4
+        feet=gear.Nyame_Feet, --5
         neck="Sam. Nodowa +2",
         waist="Sailfi Belt +1",
         left_ear="Thrud Earring", --3
@@ -214,12 +214,12 @@ function init_gear_sets()
         left_ring="Niqmaddu Ring",
         right_ring="Epaminondas's Ring", --5
         back=gear.SAM_WS_Cape, --10
-    } --48
+    } --54
 
     sets.precast.WS.Acc = set_combine(sets.precast.WS, {})
 
     sets.precast.WS.HighTP = set_combine(sets.precast.WS, {
-        head=gear.Valo_WSD_Head,
+        -- head=gear.Valo_WSD_Head,
         ear2="Lugra Earring +1",
     })
 
@@ -293,7 +293,7 @@ function init_gear_sets()
         hands=gear.Rao_D_Hands,
         legs=gear.Empyrean_Legs,
         feet=gear.Rao_D_Feet,
-        neck="Loricate Torque +1",
+        neck="Bathy Choker +1",
         waist="Flume Belt +1",
         ear1="Etiolation Earring",
         ear2="Eabani Earring",
