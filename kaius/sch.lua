@@ -130,7 +130,7 @@ function user_setup()
     gear.Empyrean_Body = { name= "Arbatel Gown +1" }
     gear.Empyrean_Hands = { name= "Arbatel Bracers +2" }
     gear.Empyrean_Legs = { name= "Arbatel Pants +1" }
-    gear.Empyrean_Feet = { name= "Arbatel Loafers +2" }
+    gear.Empyrean_Feet = { name= "Arbatel Loafers +3" }
 
     send_command('bind !s input /ja Sublimation <me>')
     send_command('bind !e input /ja Enlightenment <me>')
@@ -724,7 +724,7 @@ function init_gear_sets()
         body="Shamash Robe",
         hands="Regal Cuffs",
         legs=gear.Relic_Legs,
-        feet=gear.Artifact_Feet,
+        feet=gear.Empyrean_Feet,
         neck="Argute Stole +2",
         ear1="Malignance Earring",
         ear2="Regal Earring",

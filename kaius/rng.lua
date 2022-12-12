@@ -78,8 +78,7 @@ function user_setup()
                    ['Fail-Not'] = "Chrono Arrow",
                    ['Annihilator'] = "Chrono Bullet",
                    ['Armageddon'] = "Chrono Bullet",
-                --    ['Gastraphetes'] = "Quelling Bolt",
-                   ['Gastraphetes'] = "Damascus Bolt",
+                   ['Gastraphetes'] = "Quelling Bolt",
                    ['Fomalhaut'] = "Chrono Bullet",
                    ['Sparrowhawk'] = "Beetle Arrow",
                    }
@@ -368,7 +367,7 @@ function init_gear_sets()
         body="Cohort Cloak +1",
         hands=gear.Carmine_D_Hands,
         legs=gear.Relic_Legs,
-        feet=gear.Empyrean_Feet,
+        feet=gear.Nyame_Feet,
         neck="Scout's Gorget +2",
         ear1="Moonshade Earring",
         ear2="Friomisi Earring",
@@ -545,6 +544,8 @@ function init_gear_sets()
     })
 
     sets.idle.Town = {
+        range="Gastraphetes",
+        ammo="Quelling Bolt",
         head=gear.Malignance_Head,
         body=gear.Malignance_Body,
         hands=gear.Malignance_Hands,

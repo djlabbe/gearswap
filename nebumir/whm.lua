@@ -331,7 +331,7 @@ function init_gear_sets()
     })
 
     sets.midcast.CuragaWeather = {
-        body="Theo. Briault +3", --0(+6)/(-6)
+        body=gear.Artifact_Body, --0(+6)/(-6)
         -- hands="Kaykaus Cuffs +1", --11/(-6)
         ring1="Metamor. Ring +1",
         ring2="Mephitas's Ring +1",

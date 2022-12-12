@@ -313,9 +313,9 @@ function init_gear_sets()
         head=gear.Empyrean_Head, --0/14
         body="Oshosi Vest +1", --14/0
         hands=gear.Relic_Hands, --13/0
-        legs=gear.Adhemar_D_legs, --10/13
+        legs=gear.Adhemar_D_Legs, --10/13
         feet="Meg. Jam. +2", --10/0
-        neck="Comm. Charm +2", --4/0
+        neck="Comm. Charm +1", --4/0
         back=gear.COR_SNP_Cape, --10/0 --TODO
         waist="Yemaya Belt", --0/5
     } --61/32
@@ -339,7 +339,7 @@ function init_gear_sets()
         head=gear.Relic_Head,
         body=gear.Artifact_Body,
         hands=gear.Empyrean_Hands,
-        legs=gear.Herc_RA_legs,
+        legs=gear.Herc_RA_Legs,
         feet=gear.Relic_Feet,
         neck="Fotia Gorget",
         ear1="Moonshade Earring",
@@ -378,7 +378,7 @@ function init_gear_sets()
         hands=gear.Carmine_D_Hands,
         legs=gear.Nyame_Legs,
         feet=gear.Relic_Feet,
-        neck="Comm. Charm +2",
+        neck="Comm. Charm +1",
         -- ear1="Crematio Earring",
         ear1="Novio Earring",
         ear2="Friomisi Earring",
@@ -416,14 +416,14 @@ function init_gear_sets()
     sets.precast.WS['Evisceration'].Acc = set_combine(sets.precast.WS['Evisceration'], {
 
         body=gear.Adhemar_B_Body,
-        legs=gear.Herc_WSD_legs,
+        legs=gear.Herc_WSD_Legs,
     })
 
     sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
         head=gear.Herc_WSD_Head,
         hands=gear.Empyrean_Hands,
-        legs=gear.Herc_WSD_legs,
-        neck="Comm. Charm +2",
+        legs=gear.Herc_WSD_Legs,
+        neck="Comm. Charm +1",
         ring1="Regal Ring",
         ring2="Epaminondas's Ring",
         back=gear.COR_WS_Cape,
@@ -505,7 +505,7 @@ function init_gear_sets()
         head=gear.Herc_MAB_Head,
         body=gear.Relic_Body,
         hands=gear.Carmine_D_Hands,
-        legs=gear.Herc_MAB_legs,
+        legs=gear.Herc_MAB_Legs,
         feet=gear.Relic_Feet,
         neck="Baetyl Pendant",
         -- ear1="Crematio Earring",
@@ -540,7 +540,7 @@ function init_gear_sets()
         hands=gear.Artifact_Hands,
         legs=gear.Malignance_Legs,
         feet=gear.Artifact_Feet,
-        neck="Comm. Charm +2",
+        neck="Comm. Charm +1",
         ear1="Enchntr. Earring +1",
         ear2="Digni. Earring",
         ring1="Regal Ring",
