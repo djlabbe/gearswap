@@ -179,6 +179,20 @@ function user_setup()
     send_command('bind !numpad2 input /ma "Blind" <t>')
     send_command('bind !numpad3 input /ma "Poison II" <t>')
     
+     -- CTRL + Numpad ===> SelfSC --
+     send_command('bind ^numpad7 input /gs c skillchain fusion')
+     send_command('bind ^numpad8 input /gs c skillchain distortion')
+     send_command('bind ^numpad9 input /gs c skillchain fragmentation')
+
+     send_command('bind ^numpad4 input /gs c skillchain scission')
+     send_command('bind ^numpad5 input /gs c skillchain reverberation')
+     send_command('bind ^numpad6 input /gs c skillchain detonation')
+     send_command('bind ^numpad1 input /gs c skillchain liquefaction')
+     send_command('bind ^numpad2 input /gs c skillchain induration')
+     send_command('bind ^numpad3 input /gs c skillchain impaction')
+     send_command('bind ^numpad0 input /gs c skillchain gravitation')
+
+ 
 
     if player.sub_job == 'RDM' then
         send_command('bind !y input /ja "Convert" <me>')
@@ -323,7 +337,7 @@ function init_gear_sets()
         head=gear.Nyame_Head,
         body="Jhakri Robe +2",
         hands="Jhakri Cuffs +2",
-        legs=gear.Telchine_ENH_Legs,
+        legs=gear.Nyame_Legs,
         feet=gear.Nyame_Feet,
         neck="Fotia Gorget",
         ear1="Moonshade Earring",
@@ -775,6 +789,7 @@ function init_gear_sets()
         sub="Ammurapi Shield",
         ammo="Ghastly Tathlum +1",
         head=gear.Relic_Head, --(4)
+        -- head=gear.Agwu_Head, --7
         neck="Argute Stole +2", --10
         ear1="Malignance Earring",
         ear2="Regal Earring",
@@ -784,9 +799,9 @@ function init_gear_sets()
         ring2="Mujin Band", --(5)
         back=gear.SCH_MAB_Cape,
         waist="Acuity Belt +1",
-        legs=gear.Agwu_Legs,
+        legs=gear.Agwu_Legs, --9
         feet=gear.Agwu_Feet, --6
-    } -- 36/15
+    } -- 45/15
 
     --sets.buff['Ebullience'] = {head=gear.Empyrean_Head}
     sets.buff['Rapture'] = {head=gear.Empyrean_Head}

@@ -218,8 +218,7 @@ function init_gear_sets()
         head=gear.Taeon_SNAP_Head, --10/0
         body=gear.Empyrean_Body,
         hands=gear.Carmine_D_Hands, --8/11
-        -- legs=gear.Artifact_Legs, --15/0
-        legs=gear.Adhemar_D_Legs, --10/0
+        legs=gear.Artifact_Legs, --15/0
         feet="Meg. Jam. +2", --10/0
         neck="Scout's Gorget +2", --4/0
         ring1="Crepuscular Ring", --3/0
@@ -239,10 +238,10 @@ function init_gear_sets()
 
     
     sets.precast.RA.Gastra = {
-        head="Orion Beret +3", --15/0
+        head=gear.Artifact_Head, --15/0
     }
     sets.precast.RA.Gastra.Flurry1 = set_combine(sets.precast.RA.Gastra, {
-        feet="Arcadian Socks +3", --0/10
+        feet=gear.Relic_Feet, --0/10
     })
 
     sets.precast.RA.Gastra.Flurry2 = set_combine(sets.precast.RA.Gastra.Flurry1, {
@@ -504,7 +503,7 @@ function init_gear_sets()
     }
 
     sets.TrueShot = {
-        -- body="Nisroch Jerkin",
+        body="Nisroch Jerkin",
         legs="Osh. Trousers +1",
     }
 

@@ -558,7 +558,7 @@ function init_gear_sets()
         ammo="Homiliary",
         main="Queller Rod",
         sub="Genmei Shield",
-        head="Inyanga Tiara +2",
+        head="Volte Beret",
         body=gear.Empyrean_Body,
         hands="Inyanga Dastanas +2",
         legs="Assid. Pants +1",

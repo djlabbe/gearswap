@@ -61,14 +61,9 @@
         send_command('bind ~numpad0 input /ma "Erase" <stpc>')
     end
 
-    -- Default Item HotKeys (CTRL)
-    send_command('bind ^numpad7 input /item "Remedy" <me>')
-    send_command('bind ^numpad8 input /item "Holy Water" <me>')
-    send_command('bind ^numpad9 input /item "Echo Drops" <me>')
-   
-    send_command('bind ^numpad4 input /item "Antidote" <me>')
-    send_command('bind ^numpad5 input /item "Remedy" <me>')
-    send_command('bind ^numpad6 input /item "Eye Drops" <me>')
+    -- Default Item HotKeys (ALT +/-)
+    send_command('bind !numpad- input /item "Remedy" <me>')
+    send_command('bind !numpad+ input /item "Holy Water" <me>')
 
     -- Trust Hotkeys (Windows Key)
     send_command('bind @numpad7 input /ma "Valaineral" <me>')
@@ -81,6 +76,6 @@
     
     send_command('bind @numpad1 input /ma "Koru-Moru" <me>')
     send_command('bind @numpad2 input /ma "Shantotto II" <me>')
-    send_command('bind @numpad3 input /ma "Cornelia" <me>')
+    send_command('bind @numpad3 input /ma "Monberaux" <me>')
 
     send_command('bind @numpad0 input /ma "Yoran-Oran (UC)" <me>')
