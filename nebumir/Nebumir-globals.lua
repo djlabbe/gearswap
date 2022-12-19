@@ -5,13 +5,21 @@
 -------------------------------------------------------------------------------------------------------------------
 
 function define_global_sets()
-
+    
     -- Duplicate Items
-    gear.Stikini_1 = {name="Stikini Ring +1", bag="wardrobe3"}
-    gear.Stikini_2 = {name="Stikini Ring +1", bag="wardrobe4"}
+    gear.Stikini_1 = {name="Stikini Ring +1", bag="wardrobe4"}
+    gear.Stikini_2 = {name="Stikini Ring +1", bag="wardrobe5"}
 
-    gear.Chirich_1 = {name="Chirich Ring +1", bag="wardrobe3"}
-    gear.Chirich_2 = {name="Chirich Ring +1", bag="wardrobe4"}
+    gear.Chirich_1 = {name="Chirich Ring +1", bag="wardrobe4"}
+    gear.Chirich_2 = {name="Chirich Ring +1", bag="wardrobe5"}
+
+    -- Malignance
+    gear.Malignance_Head = {name="Malignance Chapeau"}
+    gear.Malignance_Body = {name="Malignance Tabard"}
+    gear.Malignance_Hands = {name="Malignance Gloves"}
+    gear.Malignance_Legs= {name="Malignance Tights"}
+    gear.Malignance_Feet = {name="Malignance Boots"}
+
 
     gear.Telchine_ENH_Head = { name="Telchine Cap", augments={'Enh. Mag. eff. dur. +10',}}
     -- gear.Telchine_ENH_Body = { name="Telchine Chas.", augments={'Mag. Evasion+20','"Conserve MP"+5','Enh. Mag. eff. dur. +10',}}
@@ -50,6 +58,10 @@ function define_global_sets()
 
     gear.WHM_Cure_Cape = { name="Alaunus's Cape", augments={'MND+20','Eva.+20 /Mag. Eva.+20','MND+10','"Cure" potency +10%',}}
     
+    gear.BLM_MAB_Cape = { name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10',}}
+    gear.BLM_Death_Cape = { name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10',}}
+
+
     gear.WAR_TP_Cape = { name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
     gear.WAR_WS1_Cape = { name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
 

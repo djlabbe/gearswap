@@ -75,6 +75,11 @@ function init_gear_sets()
         body="Pummeler's Lorica +3",
     }
 
+    sets.precast.JA["Warcry"] = {
+        body="Agoge Mask +3",
+    }
+
+
     sets.engaged = {
         ammo="Ginsen",
         head="Flam. Zucchetto +2",

@@ -701,7 +701,7 @@ function init_gear_sets()
         sub="Khonsu",
         ammo="Homiliary",
         head="Volte Beret",
-        body="Shamash Robe",
+        body=gear.Empyrean_Body
         hands="Volte Gloves",
         legs="Assid. Pants +1",
         feet=gear.Artifact_Feet,
@@ -719,7 +719,7 @@ function init_gear_sets()
         sub="Khonsu",
         ammo="Staunch Tathlum +1", --3/3
         head="Volte Beret",
-        body="Shamash Robe", --10/0
+        body=gear.Empyrean_Body --10/0
         -- hands="Gende. Gages +1", --4/4
         -- feet="Volte Gaiters",
         neck="Loricate Torque +1", --6/6
@@ -735,9 +735,9 @@ function init_gear_sets()
         sub="Khonsu", --0/(-5)
         ammo="Ghastly Tathlum +1",
         head=gear.Empyrean_Head,
-        body="Shamash Robe",
-        hands="Regal Cuffs",
-        legs=gear.Relic_Legs,
+        body=gear.Empyrean_Body,
+        hands=gear.Empyrean_Body,
+        legs=gear.Empyrean_Legs,
         feet=gear.Empyrean_Feet,
         neck="Argute Stole +2",
         ear1="Malignance Earring",
@@ -800,7 +800,7 @@ function init_gear_sets()
         back=gear.SCH_MAB_Cape,
         waist="Acuity Belt +1",
         legs=gear.Agwu_Legs, --9
-        feet=gear.Agwu_Feet, --6
+        feet=gear.Empyrean_Feet, --6
     } -- 45/15
 
     --sets.buff['Ebullience'] = {head=gear.Empyrean_Head}

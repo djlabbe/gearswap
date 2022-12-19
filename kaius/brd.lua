@@ -267,7 +267,7 @@ function init_gear_sets()
         head="Blistering Sallet +1",
         body=gear.Relic_Head,
         -- hands=gear.Chironic_WSD_Hands,
-        hands="Gazu Bracelet +1",
+        hands="Gazu Bracelets +1",
         legs=gear.Relic_Legs,
         feet=gear.Relic_Feet,
         neck="Fotia Gorget",
@@ -309,7 +309,7 @@ function init_gear_sets()
     })
 
     sets.precast.WS['Rudra\'s Storm'] = set_combine(sets.precast.WS, {
-        legs="Lustr. Subligar +1",
+        -- legs="Lustr. Subligar +1",
         feet=gear.Lustratio_D_Feet,
         neck="Bard's Charm +2",
         waist="Grunfeld Rope",
@@ -663,7 +663,7 @@ function init_gear_sets()
         range=gear.Linos_TP,
         head="Ayanmo Zucchetto +2", --6
         body="Agony Jerkin +1", --4
-        hands="Gazu Bracelet +1",
+        hands="Gazu Bracelets +1",
         legs="Volte Tights",
         feet="Ayanmo Gambieras +2",
         neck="Bard's Charm +2",
@@ -677,7 +677,7 @@ function init_gear_sets()
 
     sets.engaged.Acc = set_combine(sets.engaged, {
         -- head="Aya. Zucchetto +2",
-        -- hands="Gazu Bracelet +1",
+        -- hands="Gazu Bracelets +1",
         feet=gear.Relic_Feet,
         waist="Kentarch Belt +1",
     })
@@ -690,8 +690,8 @@ function init_gear_sets()
         range=gear.Linos_TP,
         head="Ayanmo Zucchetto +2",
         body="Agony Jerkin +1",
-        hands="Gazu Bracelet +1",
-        legs="Zoar Subligar +1",
+        hands="Gazu Bracelets +1",
+        legs="Volte Tights",
         feet="Ayanmo Gambieras +2",
         neck="Bard's Charm +2",
         ear1="Eabani Earring", --4
@@ -724,8 +724,8 @@ function init_gear_sets()
         range=gear.Linos_TP,
         head="Ayanmo Zucchetto +2",
         body="Agony Jerkin +1",
-        hands="Gazu Bracelet +1",
-        legs="Zoar Subligar +1",
+        hands="Gazu Bracelets +1",
+        legs="Volte Tights",
         feet="Ayanmo Gambieras +2",
         neck="Bard's Charm +2",
         ear1="Eabani Earring", --4
@@ -748,7 +748,7 @@ function init_gear_sets()
         -- head="Volte Tiara",
         -- body="Ashera Harness",
         -- hands=gear.Telchine_STP_Hands,
-        legs="Aya. Cosciales +2",
+        legs="Volte Tights",
         -- feet="Volte Spats",
         neck="Bard's Charm +2",
         ring1=gear.Chirich_1,

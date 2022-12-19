@@ -79,7 +79,7 @@ function user_setup()
     state.WeaponskillMode:options('Normal', 'Acc', 'LowBuff')
     state.IdleMode:options('Normal', 'DT', 'Refresh')
 
-    state.WeaponSet = M{['description']='Weapon Set', 'Shijos'}
+    state.WeaponSet = M{['description']='Weapon Set', 'Tauret'}
     state.WeaponLock = M(false, 'Weapon Lock')
 
     -- Additional local binds
@@ -769,7 +769,7 @@ function init_gear_sets()
         waist="Gishdubar Sash", --10
     }
 
-    sets.Shijos = {main="Shijo", sub="Shijo"}
+    sets.Tauret = {main="Tauret", sub={ name="Shijo", augments={'DEX+15','"Dual Wield"+5','"Triple Atk."+2',}}}
 
 end
 

@@ -1244,16 +1244,16 @@ function th_action_check(category, param)
 end
 
 function check_gear()
-    if no_swap_gear:contains(player.equipment.ring1) then
-        disable("ring1")
-    else
-        enable("ring1")
-    end
-    if no_swap_gear:contains(player.equipment.ring2) then
-        disable("ring2")
-    else
-        enable("ring2")
-    end
+    -- if no_swap_gear:contains(player.equipment.ring1) then
+    --     disable("ring1")
+    -- else
+    --     enable("ring1")
+    -- end
+    -- if no_swap_gear:contains(player.equipment.ring2) then
+    --     disable("ring2")
+    -- else
+    --     enable("ring2")
+    -- end
 
 end
 

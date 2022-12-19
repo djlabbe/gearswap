@@ -945,7 +945,7 @@ function init_gear_sets()
         body=gear.Malignance_Body,
         hands=gear.Malignance_Hands,
         legs=gear.Carmine_D_Legs, --6
-        feet=gear.Taeon_DW_Feet, --9
+        feet=gear.Malignance_Feet,
         neck="Anu Torque",
         ear1="Eabani Earring", --4
         ear2="Suppanomimi", --5
@@ -973,7 +973,7 @@ function init_gear_sets()
         body=gear.Malignance_Body,
         hands=gear.Malignance_Hands,
         legs=gear.Carmine_D_Legs, --6
-        feet=gear.Taeon_DW_Feet, --9
+        feet=gear.Malignance_Feet,
         neck="Anu Torque",
         ear1="Eabani Earring", --4
         ear2="Suppanomimi", --5
@@ -1001,7 +1001,7 @@ function init_gear_sets()
         body=gear.Malignance_Body,
         hands=gear.Malignance_Hands,
         legs=gear.Malignance_Legs, 
-        feet=gear.Taeon_DW_Feet, --9
+        feet=gear.Malignance_Feet,
         neck="Anu Torque",
         ear1="Sherida Earring",
         ear2="Suppanomimi", --5

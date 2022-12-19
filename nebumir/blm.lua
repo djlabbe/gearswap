@@ -77,11 +77,11 @@ function user_setup()
     gear.Relic_Legs = { name="Archmage's Tonban +3" }
     gear.Relic_Feet = { name="Archmage's Sabots +3" }
 
-    -- gear.Empyrean_Head = { name="Wicce Petasos +1" }
-    -- gear.Empyrean_Body = { name="Wicce Coat +1" }
-    -- gear.Empyrean_Hands = { name="Wicce Gloves +1" }
-    -- gear.Empyrean_Legs = { name="Wicce Tonban +1" }
-    gear.Empyrean_Feet = { name="Wicce Sabots +1" }
+    gear.Empyrean_Head = { name="Wicce Petasos +2" }
+    gear.Empyrean_Body = { name="Wicce Coat +2" }
+    gear.Empyrean_Hands = { name="Wicce Gloves +2" }
+    gear.Empyrean_Legs = { name="Wicce Chausses +2" }
+    gear.Empyrean_Feet = { name="Wicce Sabots +2" }
 
     send_command('bind @q gs c toggle MagicBurst')
     send_command('bind @d gs c toggle DeathMode')
@@ -180,7 +180,7 @@ function init_gear_sets()
         legs=gear.Telchine_ENH_Legs,
         feet=gear.Nyame_Feet,
         neck="Fotia Gorget",
-        ear1="Moonshade Earring",
+        -- ear1="Moonshade Earring",
         ear2="Telos Earring",
         ring1="Epaminondas's Ring",
         ring2="Shukuyu Ring",
@@ -236,8 +236,8 @@ function init_gear_sets()
         hands=gear.Telchine_ENH_Hands, --10
         feet="Medium's Sabots", --12
         neck="Nodens Gorget", --5
-        ear1="Mendi. Earring", --5
-        ear2="Regal Earring", --5
+        ear1="Regal Earring", --5
+        ear2="Mendi. Earring", --5     
         ring1="Lebeche Ring", --3/(-5)
         ring2="Haoma's Ring",
         back="Oretan. Cape +1", --6
@@ -345,8 +345,8 @@ function init_gear_sets()
         legs="Ea Slops +1",
         -- feet="Skaoi Boots",
         neck="Erra Pendant",
-        ear1="Malignance Earring",
-        ear2="Vor Earring",
+        ear1="Vor Earring",
+        ear2="Wicce Earring +2",
         ring1=gear.Stikini_1,
         ring2=gear.Stikini_2,
         back="Aurist's Cape +1",
@@ -372,8 +372,8 @@ function init_gear_sets()
         legs="Ea Slops +1",
         feet="Merlinic Crackows",
         neck="Erra Pendant",
-        ear1="Malignance Earring",
-        ear2="Regal Earring",
+        ear1="Regal Earring",
+        ear2="Wicce Earring +2",
         ring1=gear.Stikini_1,
         ring2=gear.Stikini_2,
         back=gear.BLM_MAB_Cape,
@@ -405,8 +405,8 @@ function init_gear_sets()
         legs=gear.Amalric_A_Legs,
         feet="Merlinic Crackows", --11
         neck="Mizu. Kubikazari", --10
-        ear1="Malignance Earring",
-        ear2="Regal Earring",
+        ear1="Regal Earring",
+        ear2="Wicce Earring +2",
         ring1="Mephitas's Ring +1",
         ring2="Metamor. Ring +1",
         back=gear.BLM_Death_Cape, --5
@@ -426,14 +426,14 @@ function init_gear_sets()
         main="Marin Staff +1",
         sub="Enki Strap",
         ammo="Sroda Tathlum",
-        head=gear.Relic_Head,
-        body=gear.Relic_Body,
-        hands=gear.Relic_Hands,
-        legs=gear.Relic_Legs,
+        head=gear.Empyrean_Head,
+        body=gear.Empyrean_Body,
+        hands=gear.Empyrean_Hands,
+        legs=gear.Empyrean_Legs,
         feet=gear.Relic_Feet,
-        neck="Sorcerer's Stole +2",
-        ear1="Malignance Earring",
-        ear2="Regal Earring",
+        neck="Sorcerer's Stole +1",
+        ear1="Regal Earring",
+        ear2="Wicce Earring +2",
         ring1="Freke Ring",
         ring2="Metamor. Ring +1",
         back=gear.BLM_MAB_Cape,
@@ -444,20 +444,18 @@ function init_gear_sets()
 
     sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'], {
         main="Marin Staff +1",
-        sub="Khonsu",
+        sub="Enki Strap",
         ammo="Pemphredo Tathlum",
-        legs="Merlinic Shalwar",
         neck="Sanctity Necklace",
         waist="Acuity Belt +1",
     })
 
     sets.midcast['Elemental Magic'].Spaekona = set_combine(sets.midcast['Elemental Magic'], {
         main="Marin Staff +1",
-        sub="Khonsu",
+        sub="Enki Strap",
         ammo="Pemphredo Tathlum",
         body="Spaekona's Coat +2",
-        legs="Merlinic Shalwar",
-        feet="Merlinic Crackows",
+        legs=gear.Empyrean_Legs,
         neck="Erra Pendant",
     })
 
@@ -473,10 +471,10 @@ function init_gear_sets()
 
     sets.idle = {
         main="Malignance Pole",
-        sub="Khonsu",
+        sub="Enki Strap",
         ammo="Ghastly Tathlum +1",
         head=gear.Agwu_Head,
-        body="Shamash Robe",
+        gear.Empyrean_Body,
         hands="Volte Gloves",
         legs="Assid. Pants +1",
         feet=gear.Agwu_Feet,
@@ -491,10 +489,10 @@ function init_gear_sets()
 
     sets.idle.DT = set_combine(sets.idle, {
         main="Malignance Pole",
-        sub="Khonsu",
+        sub="Enki Strap",
         ammo="Staunch Tathlum +1", --3/3
         head="Volte Beret",
-        body="Shamash Robe", --8/8
+        gear.Empyrean_Body, --8/8
         hands="Volte Gloves",
         feet=gear.Agwu_Feet,
         neck="Loricate Torque +1", --6/6
@@ -512,23 +510,23 @@ function init_gear_sets()
         back=gear.BLM_Death_Cape,
     }
 
-    sets.idle.Town = set_combine(sets.idle, {
+    sets.idle.Town =  {
         main="Marin Staff +1",
-        sub="Khonsu",
+        sub="Enki Strap",
         ammo="Sroda Tathlum";
-        head=gear.Relic_Head,
-        body=gear.Artifact_Body,
-        hands=gear.Relic_Hands,
-        legs=gear.Relic_Legs,
-        feet=gear.Relic_Feet,
-        neck="Sorcerer's Stole +2",
-        ear1="Malignance Earring",
-        ear2="Regal Earring",
+        head=gear.Empyrean_Head,
+        body=gear.Empyrean_Body,
+        hands=gear.Empyrean_Hands,
+        legs=gear.Empyrean_Legs,
+        feet=gear.Empyrean_Feet,
+        neck="Sorcerer's Stole +1",
+        ear1="Regal Earring",
+        ear2="Wicce Earring +2",
         ring1="Freke Ring",
         ring2="Metamor. Ring +1",
         back=gear.BLM_MAB_Cape,
         waist="Acuity Belt +1",
-    })
+    }
 
     -- Defense sets
 
@@ -543,16 +541,16 @@ function init_gear_sets()
         main="Marin Staff +1",
         sub="Enki Strap",
         head="Ea Hat +1", --7/(7)
-        neck="Sorcerer's Stole +2",
-        ear1="Malignance Earring",
-        ear2="Regal Earring",
-        body="Ea Houppe. +1", --9/(9)
+        neck="Sorcerer's Stole +1",
+        ear1="Regal Earring",
+        ear2="Wicce Earring +2",
+        body=gear.Empyrean_Body,
         hands=gear.Amalric_D_Hands,
         ring1="Freke Ring",
         ring2="Metamorph Ring +1",
         back=gear.BLM_MAB_Cape, --5
         waist="Acuity Belt +1",
-        legs="Ea Slops +1", --8/(8)
+        legs=gear.Empyrean_Legs,
         feet=gear.Agwu_Feet,
     }
 
@@ -574,8 +572,8 @@ function init_gear_sets()
         legs=gear.Amalric_A_Legs,
         feet=gear.Nyame_Feet,
         neck="Sanctity Necklace",
-        ear1="Malignance Earring",
-        ear2="Regal Earring",
+        ear1="Regal Earring",
+        ear2="Wicce Earring +2",
         ring1="Mephitas's Ring +1",
         ring2="Defending Ring",
         back=gear.BLM_Death_Cape,

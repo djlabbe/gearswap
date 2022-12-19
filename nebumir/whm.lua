@@ -450,7 +450,7 @@ function init_gear_sets()
     })
 
     sets.midcast.BarElement = set_combine(sets.midcast['Enhancing Magic'], {
-        -- main="Beneficus",
+        main="Beneficus",
         -- sub="Ammurapi Shield",
         head=gear.Empyrean_Head,
         body=gear.Empyrean_Body,
@@ -521,8 +521,8 @@ function init_gear_sets()
         -- main="Yagrush",
         -- sub="Ammurapi Shield",
         ammo="Clarus Stone",
-        head=empty;
-        body="Cohort Cloak +1",
+        -- head=empty;
+        -- body="Cohort Cloak +1",
         hands="Regal Cuffs",
         legs=gear.Chironic_ENF_Legs,
         feet="Regal pumps +1",
@@ -556,7 +556,7 @@ function init_gear_sets()
         -- main="Malignance Pole",
         -- sub="Mensch Strap",
         ammo="Homiliary",
-        main="Queller Rod",
+        main="Daybreak",
         sub="Genmei Shield",
         head="Volte Beret",
         body=gear.Empyrean_Body,
@@ -641,22 +641,22 @@ function init_gear_sets()
     -- EG: sets.engaged.Dagger.Accuracy.Evasion
 
     -- -- Basic set for if no TP weapon is defined.
-    -- sets.engaged = {
-    --     main="Yagrush",
-    --     sub="Ammurapi Shield",
-    --     head="Blistering Sallet +1",
-    --     body="Ayanmo Corazza +2",
-    --     hands=gear.Telchine_STP_Hands,
-    --     legs="Aya. Cosciales +2",
-    --     feet=gear.Chironic_QA_Feet,
-    --     neck="Combatant's Torque",
-    --     ear1="Cessance Earring",
-    --     ear2="Telos Earring",
-    --     ring1=gear.Chirich_1,
-    --     ring2=gear.Chirich_2,
-    --     back=gear.WHM_DA_Cape,
-    --     waist="Windbuffet Belt +1",
-    --     }
+    sets.engaged = {
+        main="Yagrush",
+        sub="Ammurapi Shield",
+        head="Blistering Sallet +1",
+        body="Ayanmo Corazza +2",
+        hands=gear.Telchine_STP_Hands,
+        legs="Aya. Cosciales +2",
+        feet=gear.Chironic_QA_Feet,
+        neck="Combatant's Torque",
+        ear1="Cessance Earring",
+        ear2="Telos Earring",
+        ring1=gear.Chirich_1,
+        ring2=gear.Chirich_2,
+        back=gear.WHM_DA_Cape,
+        waist="Windbuffet Belt +1",
+        }
 
     -- sets.engaged.Acc = set_combine(sets.engaged, {
     --     hands="Gazu Bracelet +1",

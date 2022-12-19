@@ -48,8 +48,8 @@ function user_setup()
     gear.Artifact_Feet = { name= "Ignominy Sollerets +3" }
 
     gear.Relic_Head = { name= "Fallen's Burgeonet +3" }
-    gear.Relic_Body = { name= "Fallen's Cuirass +1" }
-    gear.Relic_Hands = { name= "Fallen's Finger Gauntlets +1" }
+    gear.Relic_Body = { name= "Fallen's Cuirass +3" }
+    gear.Relic_Hands = { name= "Fallen's Finger Gauntlets +3" }
     gear.Relic_Legs = { name= "Fallen's Flanchard +3" }
     gear.Relic_Feet = { name= "Fallen's Sollerets +3" }
 

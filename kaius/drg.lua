@@ -416,7 +416,7 @@ function init_gear_sets()
 
     sets.midcast.ElementalBreath = {
         head=gear.Relic_Head,
-        -- ear1="Enmerkar Earring",
+        ear1="Enmerkar Earring",
         ear2="Handler's Earring +1",
         -- ring1="C. Palug Ring",
         back="Updraft Mantle",
