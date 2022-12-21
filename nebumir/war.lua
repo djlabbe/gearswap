@@ -76,7 +76,7 @@ function init_gear_sets()
     }
 
     sets.precast.JA["Warcry"] = {
-        body="Agoge Mask +3",
+        head="Agoge Mask +3",
     }
 
 

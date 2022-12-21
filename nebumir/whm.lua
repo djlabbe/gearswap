@@ -103,7 +103,7 @@ function user_setup()
     gear.Artifact_Head = { name= "Theophany Cap +1" }
     gear.Artifact_Body = { name="Theophany Bliaut +3" }
     gear.Artifact_Hands = { name="Theophany Mitts +3" }
-    gear.Artifact_Legs = { name="Theophany Pantaloons +1" }
+    gear.Artifact_Legs = { name="Theophany Pantaloons +3" }
     gear.Artifact_Feet = { name="Theophany Duckbills +3" }
 
     gear.Relic_Head = { name="Piety Cap +3" }

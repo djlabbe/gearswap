@@ -127,9 +127,9 @@ function user_setup()
 
     gear.Empyrean = { }
     gear.Empyrean_Head = { name= "Arbatel Bonnet +3" }
-    gear.Empyrean_Body = { name= "Arbatel Gown +1" }
+    gear.Empyrean_Body = { name= "Arbatel Gown +3" }
     gear.Empyrean_Hands = { name= "Arbatel Bracers +2" }
-    gear.Empyrean_Legs = { name= "Arbatel Pants +1" }
+    gear.Empyrean_Legs = { name= "Arbatel Pants +2" }
     gear.Empyrean_Feet = { name= "Arbatel Loafers +3" }
 
     send_command('bind !s input /ja Sublimation <me>')
@@ -701,7 +701,7 @@ function init_gear_sets()
         sub="Khonsu",
         ammo="Homiliary",
         head="Volte Beret",
-        body=gear.Empyrean_Body
+        body=gear.Empyrean_Body,
         hands="Volte Gloves",
         legs="Assid. Pants +1",
         feet=gear.Artifact_Feet,
@@ -719,7 +719,7 @@ function init_gear_sets()
         sub="Khonsu",
         ammo="Staunch Tathlum +1", --3/3
         head="Volte Beret",
-        body=gear.Empyrean_Body --10/0
+        body=gear.Empyrean_Body, --10/0
         -- hands="Gende. Gages +1", --4/4
         -- feet="Volte Gaiters",
         neck="Loricate Torque +1", --6/6
@@ -736,7 +736,7 @@ function init_gear_sets()
         ammo="Ghastly Tathlum +1",
         head=gear.Empyrean_Head,
         body=gear.Empyrean_Body,
-        hands=gear.Empyrean_Body,
+        hands=gear.Empyrean_Hands,
         legs=gear.Empyrean_Legs,
         feet=gear.Empyrean_Feet,
         neck="Argute Stole +2",
@@ -778,6 +778,7 @@ function init_gear_sets()
         ring2=gear.Chirich_2,
         back=gear.SCH_MAB_Cape,
         waist="Windbuffet Belt +1",
+        
     }
 
     ------------------------------------------------------------------------------------------------

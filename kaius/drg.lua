@@ -57,11 +57,11 @@ function user_setup()
 
     include('Global-Binds.lua')
 
-    gear.Artifact_Head = { name="Vishap Armet +3" }
-    gear.Artifact_Body = { name="Vishap Mail +3" }
+    gear.Artifact_Head = { name="Vishap Armet +1" }
+    gear.Artifact_Body = { name="Vishap Mail +1" }
     gear.Artifact_Hands = { name="Vishap Finger Gauntlets +3" }
-    gear.Artifact_Legs = { name="Vishap Brais +3" }
-    gear.Artifact_Feet = { name="Vishap Greaves +3" }
+    gear.Artifact_Legs = { name="Vishap Brais +1" }
+    gear.Artifact_Feet = { name="Vishap Greaves +1" }
 
     gear.Relic_Head = { name="Pteroslaver Armet +3" }
     gear.Relic_Body = { name="Pteroslaver Mail +3" }
