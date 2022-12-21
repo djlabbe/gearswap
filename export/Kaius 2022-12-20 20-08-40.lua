@@ -1,0 +1,17 @@
+sets.exported={
+    main="Naegling",
+    sub="Blurred Shield +1",
+    ammo={ name="Coiste Bodhar", augments={'Path: A',}},
+    head="Flam. Zucchetto +2",
+    body={ name="Sakpata's Plate", augments={'Path: A',}},
+    hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
+    legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
+    feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
+    neck={ name="War. Beads +2", augments={'Path: A',}},
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    left_ear="Cessance Earring",
+    right_ear={ name="Schere Earring", augments={'Path: A',}},
+    left_ring="Niqmaddu Ring",
+    right_ring="Petrov Ring",
+    back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}},
+}

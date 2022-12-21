@@ -661,7 +661,8 @@ function init_gear_sets()
 
     sets.midcast.Helix = {
         main="Bunzi's Rod",
-        sub="Culminus",
+        sub="Ammurapi Shield",
+        -- sub="Culminus", --Technically better non MB
         ammo="Ghastly Tathlum +1",
         head=gear.Agwu_Head,
         neck="Argute Stole +2",
@@ -778,7 +779,7 @@ function init_gear_sets()
         ring2=gear.Chirich_2,
         back=gear.SCH_MAB_Cape,
         waist="Windbuffet Belt +1",
-        
+
     }
 
     ------------------------------------------------------------------------------------------------
