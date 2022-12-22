@@ -197,20 +197,21 @@ function init_gear_sets()
     -- Fast cast sets for spells
 
     sets.precast.FC = {
-        -- main="Marin Staff +1",--3
+        main="Marin Staff +1",--3
+        sub="Clerisy Strap +1", --3
         ammo="Incantor Stone", --2
         head="Vanya Hood", --10
         neck="Cleric's Torque +1", --4
         ear1="Loquacious earring", --2
-        ear2="Etiolation earring", --4
+        ear2="Malignance earring", --4
         body="Pinga Tunic", --14
         left_ring="Prolix Ring", --2
-        right_ring="Kishar Ring", --2
+        right_ring="Kishar Ring", --4
         back="Fi Follet Cape +1", --10
         waist="Embla Sash", --5
         legs="Ayanmo Cosciales +1", --5
         feet="Regal Pumps +1", --4
-    } --64
+    } --69
 
     sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {
         waist="Siegel Sash",

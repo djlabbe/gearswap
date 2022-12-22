@@ -156,9 +156,9 @@ function user_setup()
     gear.Artifact_Body = { name= "Laksamana's Frac +3" }
     -- gear.Artifact_Legs = { name= "Laksamana's Trews +3" }
 
-    gear.Relic_Head = { name= "Lanun Tricorne +1" }
-    gear.Relic_Body = { name= "Lanun Frac +1" }
-    gear.Relic_Hands = { name= "Lanun Gants +1" }
+    gear.Relic_Head = { name= "Lanun Tricorne +2" }
+    gear.Relic_Body = { name= "Lanun Frac +3" }
+    gear.Relic_Hands = { name= "Lanun Gants +3" }
     gear.Relic_Legs = { name= "Lanun Trews +1" }
     gear.Relic_Feet = { name= "Lanun Bottes +3" }
 
@@ -167,6 +167,14 @@ function user_setup()
     gear.Empyrean_Hands = { name= "Chasseur's Gants +2" }
     gear.Empyrean_Legs = { name= "Chasseur's Culottes +2" }
     gear.Empyrean_Feet = { name= "Chasseur's Bottes +1" }
+
+    gear.COR_SNP_Cape = { name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
+    gear.COR_RA_Cape = { name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
+    gear.COR_DW_Cape = { name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
+    gear.COR_TP_Cape = { name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
+    gear.COR_WS1_Cape = { name="Camulus's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}} --*
+    gear.COR_WS2_Cape = { name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+10','Weapon skill damage +10%',}} --*
+    gear.COR_WS3_Cape = { name="Camulus's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
 
     -- Additional local binds
     include('Global-Binds.lua') -- OK to remove this line
@@ -260,7 +268,7 @@ function init_gear_sets()
         ear2="Etiolation Earring", --0/3
         ring1="Gelatinous Ring +1", --7/(-1)
         ring2="Defending Ring", --10/10
-        back=gear.COR_TP_Cape,
+        back=gear.COR_SNP_Cape,
         waist="Flume Belt +1", --4/0
     }
 
@@ -316,7 +324,7 @@ function init_gear_sets()
         legs=gear.Adhemar_D_Legs, --10/13
         feet="Meg. Jam. +2", --10/0
         neck="Comm. Charm +1", --4/0
-        back=gear.COR_SNP_Cape, --10/0 --TODO
+        back=gear.COR_SNP_Cape, --10/0
         waist="Yemaya Belt", --0/5
     } --61/32
 
@@ -384,7 +392,7 @@ function init_gear_sets()
         ear2="Friomisi Earring",
         ring1="Dingir Ring",
         ring2="Epaminondas's Ring",
-        back=gear.COR_WS_Cape,
+        back=gear.COR_WS3_Cape,
         waist="Skrymir Cord +1",
     }
 
@@ -394,6 +402,7 @@ function init_gear_sets()
         head="Pixie Hairpin +1",
         waist="Svelt. Gouriz +1",
         ear1="Moonshade Earring",
+        back=gear.COR_WS2_Cape,
         ring1="Archon Ring",
     })
 
@@ -426,7 +435,7 @@ function init_gear_sets()
         neck="Comm. Charm +1",
         ring1="Regal Ring",
         ring2="Epaminondas's Ring",
-        back=gear.COR_WS_Cape,
+        back=gear.COR_WS1_Cape,
         waist="Sailfi Belt +1",
     })
 
@@ -445,7 +454,7 @@ function init_gear_sets()
         ear2="Brutal Earring",
         ring1="Regal Ring",
         ring2="Epona's Ring",
-        back=gear.COR_WS_Cape,
+        back=gear.COR_WS1_Cape,
     })
 
     sets.precast.WS['Swift Blade'].Acc = set_combine(sets.precast.WS['Swift Blade'], {
@@ -513,7 +522,7 @@ function init_gear_sets()
         ear2="Friomisi Earring",
         ring1="Dingir Ring",
         ring2="Fenrir Ring +1",
-        back=gear.COR_WS_Cape,
+        back=gear.COR_WS3_Cape,
         waist="Skrymir Cord +1",
     }
 
@@ -545,7 +554,7 @@ function init_gear_sets()
         ear2="Digni. Earring",
         ring1="Regal Ring",
         ring2="Weather. Ring",
-        back=gear.COR_WS_Cape,
+        back=gear.COR_WS3_Cape,
         waist="K. Kachina Belt +1",
     }
 
@@ -1044,8 +1053,8 @@ function init_gear_sets()
     -- sets.Fomalhaut_M.Acc = {main="Rostam", sub="Blurred Knife +1", ranged="Fomalhaut"}
     -- sets.Fomalhaut_R = {main="Rostam", sub="Tauret", ranged="Fomalhaut"}
     -- sets.Fomalhaut_R.Acc = sets.Fomalhaut_R
-    sets.Ataktos = {main="Naegling", sub="Blurred Knife +1", ranged="Anarchy +2"}
-    sets.Ataktos.Acc = {main="Naegling", sub="Blurred Knife +1", ranged="Anarchy +2"}
+    sets.Ataktos = {main="Naegling", sub="Blurred Knife +1", ranged="Anarchy"}
+    sets.Ataktos.Acc = {main="Naegling", sub="Blurred Knife +1", ranged="Anarchy"}
 
     sets.DefaultShield = {sub="Nusku Shield"}
 

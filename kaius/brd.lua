@@ -119,6 +119,11 @@ function user_setup()
     gear.Empyrean_Legs = { name= "Fili Rhingrave +1" }
     gear.Empyrean_Feet = { name= "Fili Cothurnes +1" }
 
+    gear.BRD_Song_Cape = { name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10',}} --*
+    gear.BRD_TP_Cape = { name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Store TP"+10','Phys. dmg. taken-10%',}}
+    gear.BRD_WS1_Cape = { name="Intarabus's Cape", augments={'CHR+20','Accuracy+20 Attack+20','CHR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}} --*
+    gear.BRD_WS2_Cape = { name="Intarabus's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}} --*
+
     send_command('bind !` gs c cycle SongMode')
     send_command('bind ^` input /ma "Chocobo Mazurka" <me>')
     send_command('bind !p input /ja "Pianissimo" <me>')
@@ -210,9 +215,9 @@ function init_gear_sets()
         sub=gear.Kali_Song, --7
         head="Vanya Hood", --10
         body="Inyanga Jubbah +2", --14
-        -- hands="Gende. Gages +1", --7
+        hands="Volte Gloves", --6
         legs="Kaykaus Tights +1", --7
-        -- feet="Volte Gaiters", --6
+        feet=gear.Empyrean_Feet, --10
         neck="Baetyl Pendant", --4
         ear1="Enchanter's Earring +1", --2    
         ear2="Etiolation Earring", --1
@@ -220,7 +225,7 @@ function init_gear_sets()
         ring2="Kishar Ring", --4
         back="Fi Follet Cape +1", --10
         waist="Embla Sash", --5
-    }
+    } --91
 
     sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {waist="Siegel Sash"})
 
@@ -577,7 +582,6 @@ function init_gear_sets()
         range="Gjallarhorn",
         head="Volte Beret",
         body="Mou. Manteel +1",
-        -- hands="Raetic Bangles +1",
         -- legs="Volte Brais",
         hands=gear.Bunzi_Hands,
         legs=gear.Bunzi_Legs,
@@ -595,7 +599,6 @@ function init_gear_sets()
     sets.idle.DT = {
         head=gear.Artifact_Head, --6/0
         body=gear.Artifact_Body, --7/0
-        -- hands="Raetic Bangles +1",
         hands=gear.Nyame_Hands,
         legs=gear.Artifact_Legs, --8/8
         feet="Inyan. Crackows +2", --0/3
@@ -612,7 +615,6 @@ function init_gear_sets()
     sets.idle.MEva = {
         head="Inyanga Tiara +2", --0/5
         body="Inyanga Jubbah +2", --0/8
-        -- hands="Raetic Bangles +1",
         legs="Inyanga Shalwar +2", --0/6
         feet="Inyan. Crackows +2", --0/3
         neck="Warder's Charm +1",
@@ -665,7 +667,7 @@ function init_gear_sets()
         body="Agony Jerkin +1", --4
         hands="Gazu Bracelets +1",
         legs="Volte Tights",
-        feet="Ayanmo Gambieras +2",
+        feet=gear.Nyame_Feet,
         neck="Bard's Charm +2",
         ear1="Cessance Earring",
         ear2="Telos Earring",
@@ -692,7 +694,7 @@ function init_gear_sets()
         body="Agony Jerkin +1",
         hands="Gazu Bracelets +1",
         legs="Volte Tights",
-        feet="Ayanmo Gambieras +2",
+        feet=gear.Nyame_Feet,
         neck="Bard's Charm +2",
         ear1="Eabani Earring", --4
         ear2="Suppanomimi", --5
@@ -726,7 +728,7 @@ function init_gear_sets()
         body="Agony Jerkin +1",
         hands="Gazu Bracelets +1",
         legs="Volte Tights",
-        feet="Ayanmo Gambieras +2",
+        feet=gear.Nyame_Feet,
         neck="Bard's Charm +2",
         ear1="Eabani Earring", --4
         ear2="Telos Earring",

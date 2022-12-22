@@ -1174,7 +1174,7 @@ function init_gear_sets()
         waist="Sailfi Belt +1",
         -- legs="Ankusa Trousers +3",
         legs=gear.Gleti_Legs,
-        feet=gear.Valo_WSD_Feet,
+        feet=gear.Nyame_Feet,
         -- feet="Ankusa Gaiters +3"
     }
 

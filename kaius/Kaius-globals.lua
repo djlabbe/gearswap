@@ -225,7 +225,7 @@ function define_global_sets()
     gear.Valo_WSD_Head = { name="Valorous Mask", augments={'Attack+18','Sklchn.dmg.+5%','STR+12','Accuracy+13',}}
     gear.Valo_WSD_Body = { name="Valorous Mail", augments={'AGI+8','Weapon Skill Acc.+9','Weapon skill damage +5%','Accuracy+4 Attack+4','Mag. Acc.+17 "Mag.Atk.Bns."+17',}}
     gear.Valo_WSD_Hands ={ name="Valorous Mitts", augments={'Weapon skill damage +3%','STR+10','Accuracy+7','Attack+13',}}
-    gear.Valo_WSD_Feet = { name="Valorous Greaves", augments={'Attack+15','Weapon skill damage +4%','STR+4','Accuracy+4',}}
+    -- gear.Valo_WSD_Feet = { name="Valorous Greaves", augments={'Attack+15','Weapon skill damage +4%','STR+4','Accuracy+4',}}
 
     -- -- Odyssean
     gear.Ody_CURE_Feet = { name="Odyssean Greaves", augments={'Accuracy+29','"Cure" potency +6%','STR+5','Attack+1',}}
@@ -253,23 +253,18 @@ function define_global_sets()
     gear.RDM_ENH_Cape = { name="Ghostfyre Cape", augments={'Enfb.mag. skill +7','Enha.mag. skill +10','Mag. Acc.+7','Enh. Mag. eff. dur. +20',}}
 
     gear.PLD_Cape = { name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Damage taken-5%',}}
-    gear.PLD_FC_Cape = { name="Rudianos's Mantle", augments={'"Fast Cast"+8','Spell interruption rate down-10%',}}
-
-    gear.BRD_Song_Cape = { name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10',}} --*
-    gear.BRD_TP_Cape = { name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Store TP"+10','Phys. dmg. taken-10%',}}
-    gear.BRD_WS1_Cape = { name="Intarabus's Cape", augments={'CHR+20','Accuracy+20 Attack+20','CHR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}} --*
-    gear.BRD_WS2_Cape = { name="Intarabus's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}} --*
+    gear.PLD_FC_Cape = { name="Rudianos's Mantle", augments={'"Fast Cast"+8','Spell interruption rate down -10%',}}
 
     gear.COR_SNP_Cape = { name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
     gear.COR_RA_Cape = { name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
     gear.COR_DW_Cape = { name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
     gear.COR_TP_Cape = { name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
-    gear.COR_WS1_Cape = { name="Camulus's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}}
-    gear.COR_WS2_Cape = { name="Camulus's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}}
-    gear.COR_WS3_Cape = { name="Camulus's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}}
+    gear.COR_WS1_Cape = { name="Camulus's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}} --*
+    gear.COR_WS2_Cape = { name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+10','Weapon skill damage +10%',}} --*
+    gear.COR_WS3_Cape = { name="Camulus's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
 
-    gear.DRG_TP_Cape = { name="Brigantia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Haste"+10','Damage taken-5%',}}-- *
-    gear.DRG_WS1_Cape = { name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}} -- *
+    gear.DRG_TP_Cape = { name="Brigantia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Haste"+10','Damage taken-5%',}} --*
+    gear.DRG_WS1_Cape = { name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}} --*
     gear.DRG_WS2_Cape = { name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','"Dbl.Atk."+10',}} -- *
    
     gear.DRK_TP_Cape = { name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}} --*

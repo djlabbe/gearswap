@@ -271,7 +271,7 @@ function init_gear_sets()
 
     sets.precast.WS['Rudra\'s Storm'] = set_combine(sets.precast.WS, {
         ammo="Aurgelmir Orb +1",
-        neck="Asn. Gorget +2",
+        neck="Asn. Gorget +1",
         ear1="Sherida Earring",
         waist="Kentarch Belt +1",
     })
@@ -372,7 +372,7 @@ function init_gear_sets()
 
     -- sets.idle.Town = set_combine(sets.idle, {
     --     ammo="Aurgelmir Orb +1",
-    --     neck="Asn. Gorget +2",
+    --     neck="Asn. Gorget +1",
     --     ear1="Sherida Earring",
     --     ear2="Telos Earring",
     --     back=gear.THF_TP_Cape,
@@ -456,15 +456,14 @@ function init_gear_sets()
 
     -- No Magic Haste (74% DW to cap)
     sets.engaged.DW = {
-        ammo="Aurgelmir Orb +1",
-        ammo="Yamarang",
+        ammo="Ginsen",
         head="Plun. Bonnet +3",
         body=gear.Adhemar_B_Body, -- 6
         hands=gear.Adhemar_A_Hands,
         -- legs="Samnuha Tights",
         legs=gear.Herc_TA_Legs,
         feet=gear.Taeon_DW_Feet, --9
-        neck="Asn. Gorget +2",
+        neck="Asn. Gorget +1",
         ear1="Eabani Earring", --4
         ear2="Suppanomimi", --5
         ring1="Gere Ring",
@@ -478,7 +477,7 @@ function init_gear_sets()
     })
 
     sets.engaged.DW.MidAcc = set_combine(sets.engaged.DW.LowAcc, {
-        ammo="Yamarang",
+        ammo="Ginsen",
         -- head="Dampening Tam",
         body="Pillager's Vest +3",
         ring2="Ilabrat Ring",
@@ -505,15 +504,14 @@ function init_gear_sets()
 
     -- 15% Magic Haste (67% DW to cap)
     sets.engaged.DW.LowHaste = {
-        ammo="Aurgelmir Orb +1",
-        ammo="Yamarang",
+        ammo="Ginsen",
         head="Plun. Bonnet +3",
         body=gear.Adhemar_B_Body, -- 6
         hands=gear.Adhemar_A_Hands,
         -- legs="Samnuha Tights",
         legs=gear.Herc_TA_Legs,
         feet=gear.Taeon_DW_Feet, --9
-        neck="Asn. Gorget +2",
+        neck="Asn. Gorget +1",
         ear1="Cessance Earring",
         ear2="Suppanomimi", --5
         ring1="Gere Ring",
@@ -527,7 +525,7 @@ function init_gear_sets()
     })
 
     sets.engaged.DW.MidAcc.LowHaste = set_combine(sets.engaged.DW.LowAcc.LowHaste, {
-        ammo="Yamarang",
+        ammo="Ginsen",
         -- head="Dampening Tam",
         body="Pillager's Vest +3",
         ring2="Ilabrat Ring",
@@ -553,8 +551,7 @@ function init_gear_sets()
 
     -- 30% Magic Haste (56% DW to cap)
     sets.engaged.DW.MidHaste = {
-        ammo="Aurgelmir Orb +1",
-        ammo="Yamarang",
+        ammo="Ginsen",
         head="Plun. Bonnet +3",
         body="Pillager's Vest +3",
         hands=gear.Adhemar_A_Hands,
@@ -562,7 +559,7 @@ function init_gear_sets()
         legs=gear.Herc_TA_Legs,
         -- feet="Plun. Poulaines +3",
         feet=gear.Herc_TA_Feet,
-        neck="Asn. Gorget +2",
+        neck="Asn. Gorget +1",
         ear1="Eabani Earring", --4
         ear2="Suppanomimi", --5
         ring1="Gere Ring",
@@ -576,7 +573,7 @@ function init_gear_sets()
     })
 
     sets.engaged.DW.MidAcc.MidHaste = set_combine(sets.engaged.DW.LowAcc.MidHaste, {
-        ammo="Yamarang",
+        ammo="Ginsen",
         -- head="Dampening Tam",
         ear1="Cessance Earring",
         ring2="Ilabrat Ring",
@@ -604,8 +601,7 @@ function init_gear_sets()
 
     -- 35% Magic Haste (51% DW to cap)
     sets.engaged.DW.HighHaste = {
-        ammo="Aurgelmir Orb +1",
-        ammo="Yamarang",
+        ammo="Ginsen",
         head="Plun. Bonnet +3",
         body="Pillager's Vest +3",
         hands=gear.Adhemar_A_Hands,
@@ -613,7 +609,7 @@ function init_gear_sets()
         legs=gear.Herc_TA_Legs,
         -- feet="Plun. Poulaines +3",
         feet=gear.Herc_TA_Feet,
-        neck="Asn. Gorget +2",
+        neck="Asn. Gorget +1",
         ear1="Sherida Earring",
         ear2="Suppanomimi", --5
         ring1="Gere Ring",
@@ -653,23 +649,20 @@ function init_gear_sets()
         ring2=gear.Chirich_2,
     })
 
+
     -- 45% Magic Haste (36% DW to cap)
     sets.engaged.DW.MaxHaste = {
-        ammo="Aurgelmir Orb +1",
-        -- head="Plun. Bonnet +3",
-        head=gear.Gleti_Head,
-        -- body="Pillager's Vest +3",
-        body=gear.Gleti_Body,
-        hands=gear.Adhemar_A_Hands,
-        -- legs="Samnuha Tights",
+        ammo="Ginsen",
+        head="Adhemar Bonnet +1",
+        body="Pillager's Vest +2",
+        hands="Adhemar Wristbands +1",
         legs=gear.Herc_TA_Legs,
-        -- feet="Plun. Poulaines +3",
-        feet=gear.Herc_TA_Feet,
-        neck="Asn. Gorget +2",
+        feet="Malignance Boots",
+        neck="Asn. Gorget +1",
         ear1="Sherida Earring",
         ear2="Suppanomimi", --5
-        ring1="Gere Ring",
-        ring2="Epona's Ring",
+        ring1="Petrov Ring",
+        ring2="Rajas Ring",
         back=gear.THF_TP_Cape,
         waist="Windbuffet Belt +1",
     } -- 5%

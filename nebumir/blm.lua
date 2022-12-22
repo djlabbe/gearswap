@@ -432,7 +432,7 @@ function init_gear_sets()
         legs=gear.Empyrean_Legs,
         feet=gear.Relic_Feet,
         neck="Sorcerer's Stole +1",
-        ear1="Regal Earring",
+        ear1="Malignance Earring",
         ear2="Wicce Earring +2",
         ring1="Freke Ring",
         ring2="Metamor. Ring +1",
@@ -513,14 +513,14 @@ function init_gear_sets()
     sets.idle.Town =  {
         main="Marin Staff +1",
         sub="Enki Strap",
-        ammo="Sroda Tathlum";
+        ammo="Ghastly Tathlum +1";
         head=gear.Empyrean_Head,
         body=gear.Empyrean_Body,
         hands=gear.Empyrean_Hands,
         legs=gear.Empyrean_Legs,
         feet=gear.Empyrean_Feet,
         neck="Sorcerer's Stole +1",
-        ear1="Regal Earring",
+        ear1="Malignance Earring",
         ear2="Wicce Earring +2",
         ring1="Freke Ring",
         ring2="Metamor. Ring +1",

@@ -417,7 +417,7 @@ function init_gear_sets()
         ear2="Skulker's Earring +1",
         head=gear.Empyrean_Head,
         body=gear.Artifact_Body,
-        hands=gear.Relic_Hands,
+        hands=gear.Adhemar_A_Hands,
         back=gear.THF_TP_Cape,
         feet=gear.Relic_Feet,
         ring1="Gere Ring",
@@ -694,7 +694,7 @@ function init_gear_sets()
         body=gear.Malignance_Body, --9/9
         hands=gear.Malignance_Hands, --5/5
         legs=gear.Malignance_Legs, --7/7
-        feet=gear.Malignance_Feet, --4/4
+        -- feet=gear.Malignance_Feet, --4/4
         -- ring2="Defending Ring", --10/10
     }
 
