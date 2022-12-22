@@ -108,6 +108,8 @@ function user_setup()
     gear.Empyrean_Legs = { name="Ebers Pantaloons +1" }
     gear.Empyrean_Feet = { name="Ebers Duckbills +1" }
 
+    gear.WHM_Cure_Cape = { name="Alaunus's Cape", augments={'MND+20','Eva.+20 /Mag. Eva.+20','"Cure" potency +10%','Spell interruption rate down-10%',}}
+
     -- Additional local binds
     include('Global-Binds.lua') -- OK to remove this line
 

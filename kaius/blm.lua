@@ -83,6 +83,10 @@ function user_setup()
     -- gear.Empyrean_Legs = { name="Wicce Tonban +1" }
     gear.Empyrean_Feet = { name="Wicce Sabots +1" }
 
+    gear.BLM_MAB_Cape = { name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10','Phys. dmg. taken-10%',}}
+    gear.BLM_Death_Cape = { name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10','Phys. dmg. taken-10%',}}
+
+
     send_command('bind @q gs c toggle MagicBurst')
     send_command('bind @d gs c toggle DeathMode')
     send_command('bind @w gs c toggle WeaponLock')
