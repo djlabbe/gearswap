@@ -289,8 +289,6 @@ function init_gear_sets()
     -- Cure sets
 
     sets.midcast.CureSolace = {
-        -- main="Chatoyant Staff", --10(+20)
-        -- sub="Enki Strap",
         main="Raetic Rod +1",
         sub="Sors Shield",
         ammo="Clarus Stone",
@@ -436,7 +434,7 @@ function init_gear_sets()
 
     sets.midcast.Aquaveil = set_combine(sets.midcast.EnhancingDuration, {
         -- main="Vadose Rod",
-        -- sub="Ammurapi Shield",
+        sub="Ammurapi Shield",
         ammo="Staunch Tathlum +1",
         hands="Regal Cuffs",
         ear1="Halasz Earring",
@@ -452,7 +450,7 @@ function init_gear_sets()
 
     sets.midcast.BarElement = set_combine(sets.midcast['Enhancing Magic'], {
         main="Beneficus",
-        -- sub="Ammurapi Shield",
+        sub="Ammurapi Shield",
         head=gear.Empyrean_Head,
         body=gear.Empyrean_Body,
         hands=gear.Empyrean_Hands,
@@ -467,14 +465,14 @@ function init_gear_sets()
 
     sets.midcast['Divine Magic'] = {
         -- main="Yagrush",
-        -- sub="Ammurapi Shield",
-        -- ammo="Ghastly Tathlum +1",
+        sub="Ammurapi Shield",
+        ammo="Ghastly Tathlum +1",
         head=gear.Artifact_Head,
         body=gear.Artifact_Body,
         hands=gear.Relic_Hands,
         legs=gear.Chironic_ENF_Legs,
         feet=gear.Artifact_Feet,
-        -- neck="Erra Pendant",
+        neck="Erra Pendant",
         -- ear1="Digni. Earring",
         ear2="Regal Earring",
         ring1=gear.Stikini_1,
@@ -483,19 +481,19 @@ function init_gear_sets()
         waist="Acuity Belt +1",
     }
 
-    -- sets.midcast.Banish = set_combine(sets.midcast['Divine Magic'], {
-    --     main="Daybreak",
-    --     sub="Ammurapi Shield",
-    --     head=empty;
-    --     body="Cohort Cloak +1",
-    --     hands="Fanatic Gloves",
-    --     legs="Kaykaus Tights +1",
-    --     neck="Sanctity Necklace",
-    --     ear1="Malignance Earring",
-    --     ring1="Freke Ring",
-    --     ring2="Weather. Ring",
-    --     waist="Refoccilation Stone",
-    --     })
+    sets.midcast.Banish = set_combine(sets.midcast['Divine Magic'], {
+        main="Daybreak",
+        sub="Ammurapi Shield",
+        -- head=empty;
+        -- body="Cohort Cloak +1",
+        hands="Fanatic Gloves",
+        legs="Kaykaus Tights +1",
+        neck="Sanctity Necklace",
+        ear1="Malignance Earring",
+        ring1="Freke Ring",
+        ring2="Weather. Ring",
+        waist="Refoccilation Stone",
+    })
 
     -- sets.midcast.Holy = sets.midcast.Banish
 
@@ -554,11 +552,9 @@ function init_gear_sets()
 
     -- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
     sets.idle = {
-        -- main="Malignance Pole",
-        -- sub="Mensch Strap",
-        ammo="Homiliary",
         main="Daybreak",
         sub="Genmei Shield",
+        ammo="Homiliary",
         head="Volte Beret",
         body=gear.Empyrean_Body,
         hands="Inyanga Dastanas +2",
@@ -607,10 +603,9 @@ function init_gear_sets()
     })
 
     sets.idle.Town = {
-        -- sub="Mensch Strap",
+        main="Daybreak",
+        sub="Ammurapi Shield",
         ammo="Homiliary",
-        main="Raetic Rod +1",
-        sub="Genmei Shield",
         head=gear.Relic_Head,
         body=gear.Empyrean_Body,
         hands=gear.Artifact_Hands,
