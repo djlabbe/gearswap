@@ -12,7 +12,6 @@
 --              [ F12 ]             Update Current Gear / Report Current Status
 --              [ CTRL+F12 ]        Cycle Idle Modes
 --              [ ALT+F12 ]         Cancel Emergency -PDT/-MDT Mode
---              [ WIN+R ]           Toggle Regen Mode
 --              [ WIN+C ]           Toggle Capacity Points Mode
 --
 --  Abilities:  [ CTRL+` ]          Afflatus Solace
@@ -75,7 +74,6 @@ function job_setup()
     state.Buff['Afflatus Misery'] = buffactive['Afflatus Misery'] or false
     state.Buff['Sublimation: Activated'] = buffactive['Sublimation: Activated'] or false
 
-    state.RegenMode = M{['description']='Regen Mode', 'Duration', 'Potency'}
 
     no_swap_gear = S{"Warp Ring", "Dim. Ring (Dem)", "Dim. Ring (Holla)", "Dim. Ring (Mea)",
               "Trizek Ring", "Echad Ring", "Facility Ring", "Capacity Ring"}
@@ -146,7 +144,6 @@ function user_setup()
     send_command('bind !h input /ma "Haste" <stpc>')
 
     send_command('bind @w gs c toggle WeaponLock')
-    send_command('bind @e gs c cycle RegenMode')
 
     styleSet = 2
     set_macro_page(1, 2) -- page,set
@@ -218,7 +215,7 @@ function init_gear_sets()
     })
 
     sets.precast.FC.Cure = set_combine(sets.precast.FC, {
-        main="Queller Rod", --7
+        -- main="Queller Rod", --7
         -- ammo="Impatiens", --(2)
         head=gear.Relic_Head, --15
         -- feet="Kaykaus Boots +1", --7
@@ -238,11 +235,11 @@ function init_gear_sets()
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
         -- ammo="Floestone",
-        -- head="Piety Cap +3",
-        -- body="Piety Briault +3",
-        -- hands="Piety Mitts +3",
-        -- legs="Piety Pantaln. +3",
-        -- feet="Piety Duckbills +2",
+        head=gear.Relic_Head,
+        body=gear.Relic_Body,
+        hands=gear.Relic_Hands,
+        legs=gear.Relic_Legs,
+        feet=gear.Relic_Feet,
         -- neck="Fotia Gorget",
         -- ear1="Moonshade Earring",
         -- ear2="Ishvara Earring",
@@ -296,9 +293,9 @@ function init_gear_sets()
         neck="Clr. Torque +1", --10/(-25)
         ear1="Glorious Earring", -- (+2)/(-5)
         ear2="Nourishing earring",
-        body="Ebers Bliaut +3",
-        hands="Theophany Mitts +3",
-        legs="Ebers Pant. +3",
+        body=gear.Empyrean_Body,
+        hands=gear.Artifact_Hands,
+        legs=gear.Empyrean_Legs,
         feet="Vanya Clogs", --11(+2)/(-12)    
         ring1="Janniston Ring",
         ring2="Mephitas's Ring +1",
@@ -378,7 +375,7 @@ function init_gear_sets()
     -- 110 total Enhancing Magic Skill; caps even without Light Arts
     sets.midcast['Enhancing Magic'] = {
         -- main="Gada",
-        -- sub="Ammurapi Shield",
+        sub="Ammurapi Shield",
         head=gear.Telchine_ENH_Head,
         body=gear.Telchine_ENH_Body,
         hands=gear.Telchine_ENH_Hands,
@@ -395,32 +392,25 @@ function init_gear_sets()
 
     sets.midcast.EnhancingDuration = {
         -- main="Gada",
-        -- sub="Ammurapi Shield",
+        sub="Ammurapi Shield",
         head=gear.Telchine_ENH_Head,
         body=gear.Telchine_ENH_Body,
         hands=gear.Telchine_ENH_Hands,
         legs=gear.Telchine_ENH_Legs,
         feet=gear.Telchine_ENH_Feet,
         waist="Embla Sash",
-        }
+    }
 
     sets.midcast.Regen = set_combine(sets.midcast.EnhancingDuration, {
         main="Bolelabunga",
-        -- sub="Ammurapi Shield",
+        sub="Ammurapi Shield",
         head="Inyanga Tiara +2",
-        -- body="Piety Briault +3",
-        body=gear.Telchine_ENH_Body,
-        hands=gear.Telchine_ENH_Hands,
-        legs=gear.Telchine_ENH_Legs,
-        feet=gear.Telchine_ENH_Feet,
+        body=gear.Relic_Body,
+        hands=gear.Empyrean_Hands,
+        legs=gear.Artifact_Legs,
+        feet=gear.Artifact_Feet,
     })
 
-    sets.midcast.RegenDuration = set_combine(sets.midcast.EnhancingDuration, {
-        body=gear.Telchine_ENH_Body,
-        hands=gear.Telchine_ENH_Hands,
-        -- legs="Th. Pant. +3",
-        -- feet="Theo. Duckbills +3",
-    })
 
     sets.midcast.Refresh = set_combine(sets.midcast.EnhancingDuration, {
         waist="Gishdubar Sash",
@@ -566,7 +556,7 @@ function init_gear_sets()
         ring1=gear.Stikini_1,
         ring2="Inyanga Ring",
         back="Alaunus's Cape",
-        waist="Slipor Sash",
+        waist="Carrier's Sash",
     }
 
     sets.idle.DT = set_combine(sets.idle, {
@@ -581,7 +571,7 @@ function init_gear_sets()
         ring1=gear.Stikini_1,
         ring2=gear.Stikini_2,
         back="Alaunus's Cape",
-        waist="Slipor Sash",
+        waist="Carrier's Sash",
     })
 
     sets.idle.MEva = set_combine(sets.idle.DT, {
@@ -706,9 +696,6 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
                 equip(sets.midcast.Refresh)
             end
         end
-        if spellMap == "Regen" and state.RegenMode.value == 'Duration' then
-            equip(sets.midcast.RegenDuration)
-        end
     end
 end
 
@@ -831,7 +818,6 @@ end
 function display_current_job_state(eventArgs)
     local c_msg = state.CastingMode.value
 
-    local r_msg = state.RegenMode.value
 
     local d_msg = 'None'
     if state.DefenseMode.value ~= 'None' then
@@ -846,7 +832,6 @@ function display_current_job_state(eventArgs)
     end
 
     add_to_chat(060, '| Magic: ' ..string.char(31,001)..c_msg.. string.char(31,002)..  ' |'
-        ..string.char(31,060).. ' Regen: ' ..string.char(31,001)..r_msg.. string.char(31,002)..  ' |'
         ..string.char(31,004).. ' Defense: ' ..string.char(31,001)..d_msg.. string.char(31,002)..  ' |'
         ..string.char(31,008).. ' Idle: ' ..string.char(31,001)..i_msg.. string.char(31,002)..  ' |'
         ..string.char(31,002)..msg)
