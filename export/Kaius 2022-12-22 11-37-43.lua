@@ -1,0 +1,17 @@
+sets.exported={
+    main="Deacon Tabar",
+    sub="Agwu's Axe",
+    ammo="Voluspa Tathlum",
+    head={ name="Nyame Helm", augments={'Path: B',}},
+    body="Nyame Mail",
+    hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+    legs={ name="Nyame Flanchard", augments={'Path: B',}},
+    feet={ name="Nyame Sollerets", augments={'Path: B',}},
+    neck={ name="Bst. Collar +2", augments={'Path: A',}},
+    waist="Incarnation Sash",
+    left_ear="Crep. Earring",
+    right_ear="Enmerkar Earring",
+    left_ring="Tali'ah Ring",
+    right_ring="Defending Ring",
+    back="Moonlight Cape",
+}

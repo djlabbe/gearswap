@@ -110,11 +110,11 @@ function user_setup()
     gear.Relic_Legs = { name="Piety Pantaloons +3" }
     gear.Relic_Feet = { name="Piety Duckbills +3" }
 
-    gear.Empyrean_Head = { name="Ebers Cap +1" }
+    gear.Empyrean_Head = { name="Ebers Cap +2" }
     gear.Empyrean_Body = { name="Ebers Bliaut +3" }
-    gear.Empyrean_Hands = { name="Ebers Mitts +1" }
+    gear.Empyrean_Hands = { name="Ebers Mitts +2" }
     gear.Empyrean_Legs = { name="Ebers Pantaloons +3" }
-    gear.Empyrean_Feet = { name="Ebers Duckbills +1" }
+    gear.Empyrean_Feet = { name="Ebers Duckbills +2" }
 
     -- Additional local binds
     include('Global-Binds.lua') -- OK to remove this line
@@ -197,7 +197,7 @@ function init_gear_sets()
         main="Marin Staff +1",--3
         sub="Clerisy Strap +1", --3
         ammo="Incantor Stone", --2
-        head="Vanya Hood", --10
+        head=gear.Empyrean_Head, --10
         neck="Cleric's Torque +1", --4
         ear1="Loquacious earring", --2
         ear2="Malignance earring", --4
@@ -206,7 +206,7 @@ function init_gear_sets()
         right_ring="Kishar Ring", --4
         back="Fi Follet Cape +1", --10
         waist="Embla Sash", --5
-        legs="Ayanmo Cosciales +1", --5
+        legs="Ayanmo Cosciales +2", --5
         feet="Regal Pumps +1", --4
     } --69
 
@@ -481,7 +481,7 @@ function init_gear_sets()
         neck="Sanctity Necklace",
         ear1="Malignance Earring",
         ring1="Freke Ring",
-        ring2="Weather. Ring",
+        -- ring2="Weather. Ring",
         waist="Refoccilation Stone",
     })
 
@@ -642,7 +642,7 @@ function init_gear_sets()
         ring2=gear.Chirich_2,
         back=gear.WHM_DA_Cape,
         waist="Windbuffet Belt +1",
-        }
+    }
 
     -- sets.engaged.Acc = set_combine(sets.engaged, {
     --     hands="Gazu Bracelet +1",

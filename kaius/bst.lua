@@ -521,20 +521,21 @@ function init_gear_sets()
     })
 
     sets.midcast.Pet.MagicAccReady = set_combine(sets.midcast.Pet.Normal, {
-        main="Pangu",
-        sub=Ready_MAcc_Axe,
+        main="Deacon Tabar",
+        sub="Agwu's Axe",
         ammo="Voluspa Tathlum",
-        head=gear.Gleti_Head,
-        neck="Beastmaster Collar +2",
-        ear1="Kyrene's Earring",
-        ear2="Enmerkar Earring",
-        body=gear.Gleti_Body,
-        hands=gear.Gleti_Hands,
-        ring1="Tali'ah Ring",
-        ring2="Cath Palug Ring",
-        back=Ready_MAcc_back,
-        legs=gear.Gleti_Legs,
-        feet=gear.Gleti_Feet
+        head={ name="Nyame Helm", augments={'Path: B',}},
+        body="Nyame Mail",
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        legs={ name="Nyame Flanchard", augments={'Path: B',}},
+        feet={ name="Nyame Sollerets", augments={'Path: B',}},
+        neck={ name="Bst. Collar +2", augments={'Path: A',}},
+        waist="Incarnation Sash",
+        left_ear="Crep. Earring",
+        right_ear="Enmerkar Earring",
+        left_ring="Tali'ah Ring",
+        right_ring="Defending Ring",
+        back="Moonlight Cape",
     })
 
     sets.midcast.Pet.MultiStrike = set_combine(sets.midcast.Pet.Normal, {
@@ -1235,25 +1236,11 @@ function init_gear_sets()
     
     ---------------
     -- IDLE SETS --
-    ---------------
+    ---------------/
 
-    sets.idle = {
-        ammo="Staunch Tathlum +1",
-        head=gear.Gleti_Head,
-        neck="Bathy Choker +1",
-        ear1="Tuisto Earring",
-        ear2="Odnowa Earring +1",
-        body=gear.Gleti_Body,
-        hands=gear.Gleti_Hands,
-        ring1=gear.Chirich_1,
-        ring2=gear.Chirich_2,
-        back="Moonlight Cape",
-        waist="Flume Belt +1",
-        legs=gear.Gleti_Legs,
-        feet=gear.Gleti_Feet,
-    }
+    sets.idle = sets.midcast.Pet.MagicAccReady
 
-    sets.idle.Town = sets.engaged.DW.MaxHaste
+    sets.idle.Town = sets.midcast.Pet.MagicAccReady
 
     sets.idle.Refresh = set_combine(sets.idle, {
         head="Jumalik Helm",
