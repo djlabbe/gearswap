@@ -634,7 +634,7 @@ function init_gear_sets()
         body="Ayanmo Corazza +2",
         hands=gear.Telchine_STP_Hands,
         legs="Aya. Cosciales +2",
-        feet=gear.Chironic_QA_Feet,
+        feet=gear.Nyame_Feet,
         neck="Combatant's Torque",
         ear1="Cessance Earring",
         ear2="Telos Earring",

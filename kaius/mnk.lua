@@ -78,6 +78,10 @@ function user_setup()
     gear.Empyrean_Hands = { name="Bhikku Gloves +1" }
     gear.Empyrean_Legs = { name="Bhikku Hose +2" }
     gear.Empyrean_Feet = { name="Bhikku Gaiters +2" }
+
+    gear.MNK_TP_Cape = { name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
+    gear.MNK_INT_Cape = { name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
+    gear.MNK_WS_Cape = { name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
     
     -- Additional local binds
     include('Global-Binds.lua') -- OK to remove this line

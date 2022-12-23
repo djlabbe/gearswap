@@ -132,6 +132,10 @@ function user_setup()
     gear.Empyrean_Legs = { name="Lethargy Fuseau +2" }
     gear.Empyrean_Feet = { name="Lethargy Houseaux +3" }
 
+    gear.RDM_DW_Cape = { name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dual Wield"+10','Phys. dmg. taken-10%',}}
+    gear.RDM_MND_Cape = { name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%','Mag. Evasion+15',}} --*
+    gear.RDM_ENH_Cape = { name="Ghostfyre Cape", augments={'Enfb.mag. skill +7','Enha.mag. skill +10','Mag. Acc.+7','Enh. Mag. eff. dur. +20',}}
+
     -- Additional local binds
     include('Global-Binds.lua') -- OK to remove this line
 

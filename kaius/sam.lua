@@ -74,6 +74,10 @@ function user_setup()
     gear.Empyrean_Legs = { name= "Kasuga Haidate +2" }
     -- gear.Empyrean_Feet = { name= "Kasuga Sune-Ate +1" }
 
+     -- gear.SAM_TP_Cape = { name="Takaha Mantle", augments={'STR+3','"Zanshin"+3','"Store TP"+3',}}
+    gear.SAM_TP_Cape = { name="Smertrios's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Store TP"+10','Phys. dmg. taken-10%',}}
+    gear.SAM_WS_Cape = { name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}} --*
+
     -- Additional local binds
     include('Global-Binds.lua')
 

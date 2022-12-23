@@ -99,6 +99,10 @@ function user_setup()
     gear.Empyrean_Hands = { name = "Hattori Tekko +1" }
     gear.Empyrean_Feet = { name = "Hattori Kyahan +1" }
 
+    gear.NIN_TP_Cape = { name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Store TP"+10','Damage taken-5%',}}
+    gear.NIN_WS_Cape = { name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%','Damage taken-5%',}}
+    gear.NIN_MEVA_Cape = { name="Andartia's Mantle", augments={'DEX+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','"Store TP"+10','Mag. Evasion+15',}} --*
+
     send_command('bind ^= gs c cycle treasuremode')
     send_command('bind !` input /ja "Innin" <me>')
     send_command('bind ^` input /ja "Yonin" <me>')

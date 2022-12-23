@@ -111,26 +111,26 @@ function user_setup()
     -- Additional local binds
     include('Global-Binds.lua') -- OK to remove this line
 
-    gear.Artifact = { }
     gear.Artifact_Head = { name= "Academic's Mortarboard +3" }
     gear.Artifact_Body = { name= "Academic's Gown +2" }
     gear.Artifact_Hands = { name= "Academic's Bracers +2" }
     gear.Artifact_Legs = { name= "Academic's Pants +1" }
     gear.Artifact_Feet = { name= "Academic's Loafers +3" }
 
-    gear.Relic = { }
     gear.Relic_Head = { name= "Pedagogy Mortarboard +3" }
     gear.Relic_Body = { name= "Pedagogy Gown +3" }
     gear.Relic_Hands = { name= "Pedagogy Bracers +3" }
     gear.Relic_Legs = { name= "Pedagogy Pants +3" }
     gear.Relic_Feet = { name= "Pedagogy Loafers +3" }
 
-    gear.Empyrean = { }
     gear.Empyrean_Head = { name= "Arbatel Bonnet +3" }
     gear.Empyrean_Body = { name= "Arbatel Gown +3" }
     gear.Empyrean_Hands = { name= "Arbatel Bracers +2" }
     gear.Empyrean_Legs = { name= "Arbatel Pants +2" }
     gear.Empyrean_Feet = { name= "Arbatel Loafers +3" }
+
+    gear.SCH_MAB_Cape = { name="Lugh's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10','Mag. Evasion+15',}}
+    gear.SCH_REG_Cape = { name="Bookworm's Cape", augments={'INT+1','MND+3','Helix eff. dur. +13','"Regen" potency+10',}}
 
     send_command('bind !s input /ja Sublimation <me>')
     send_command('bind !e input /ja Enlightenment <me>')
@@ -333,19 +333,51 @@ function init_gear_sets()
     ------------------------------------------------------------------------------------------------
 
     sets.precast.WS = {
-        --ammo="Floestone",
+        ammo="Ghastly Tathlum +1",
         head=gear.Nyame_Head,
-        body="Jhakri Robe +2",
-        hands="Jhakri Cuffs +2",
+        body=gear.Nyame_Body,
+        hands=gear.Nyame_Hands,
         legs=gear.Nyame_Legs,
         feet=gear.Nyame_Feet,
-        neck="Fotia Gorget",
+        neck="Sibyl Scarf",
         ear1="Moonshade Earring",
-        ear2="Telos Earring",
+        ear2="Regal Earring",
         ring1="Epaminondas's Ring",
         ring2="Rufescent Ring",
-        -- back="Relucent Cape",
-        waist="Fotia Belt",
+        back=gear.SCH_MAB_Cape,
+        waist="Orpheus Sash",
+    }
+
+    sets.precast.WS['Cataclysm'] = {
+        ammo="Ghastly Tathlum +1",
+        head="Pixie Hairpin +1",
+        body=gear.Nyame_Body,
+        hands=gear.Nyame_Hands,
+        legs=gear.Nyame_Legs,
+        feet=gear.Nyame_Feet,
+        neck="Sibyl Scarf",
+        ear1="Moonshade Earring",
+        ear2="Regal Earring",
+        ring1="Epaminondas's Ring",
+        ring2="Archon Ring",
+        back=gear.SCH_MAB_Cape,
+        waist="Orpheus Sash",
+    }
+
+      sets.precast.WS['Aeolian Edge'] = {
+        ammo="Ghastly Tathlum +1",
+        head=gear.Nyame_Head,
+        body=gear.Nyame_Body,
+        hands=gear.Nyame_Hands,
+        legs=gear.Nyame_Legs,
+        feet=gear.Nyame_Feet,
+        neck="Argute Stole +2",
+        ear1="Malignance Earring",
+        ear2="Regal Earring",
+        ring1="Freke Ring",
+        ring2="Metamorph Ring +1",
+        back=gear.SCH_MAB_Cape,
+        waist="Orpheus Sash",
     }
 
     sets.precast.WS['Omniscience'] = set_combine(sets.precast.WS, {
@@ -768,12 +800,12 @@ function init_gear_sets()
 
     sets.engaged = {
         head="Blistering Sallet +1",
-        body="Jhakri Robe +2",
+        body=gear.Nyame_Body,
         hands="Gazu Bracelet +1",
-        legs=gear.Relic_Legs,
-        feet=gear.Empyrean_Feet,
+        legs=gear.Nyame_Legs,
+        feet=gear.Nyame_Feet,
         neck="Rep. Plat. Medal",
-        ear1="Cessance Earring",
+        ear1="Crep. Earring",
         ear2="Telos Earring",
         ring1="Hetairoi Ring",
         ring2=gear.Chirich_2,

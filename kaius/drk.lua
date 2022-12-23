@@ -196,11 +196,11 @@ function init_gear_sets()
 
     sets.precast.WS['Torcleaver'] = {
         ammo="Knobkierrie", --6
-        head="Ratri Sallet +1", --8
+        head=gear.Nyame_Head, --8
         body=gear.Artifact_Body, --10
-        hands=gear.Sakpata_Hands,
+        hands=gear.Nyame_Hands,
         legs=gear.Relic_Legs, --10
-        feet="Sulev. Leggings +2", --7 
+        feet=gear.Nyame_Feet, --7 
         neck="Abyssal Beads +2",
         waist="Sailfi Belt +1",
         left_ear="Thrud Earring", --3

@@ -97,6 +97,9 @@ function user_setup()
     gear.Empyrean_Legs = { name="Skulker's Culottes +1" }
     gear.Empyrean_Feet = { name="Skulker's Poulaines +1" }
 
+    gear.THF_TP_Cape = { name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Store TP"+10','Phys. dmg. taken-10%',}}
+    gear.THF_WS_Cape = { name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}} --*
+
     -- Additional local binds
     include('Global-Binds.lua') -- OK to remove this line
 

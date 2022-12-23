@@ -340,8 +340,8 @@ function init_gear_sets()
         ammo=gear.WSbullet,
         head=gear.Relic_Head,
         body=gear.Artifact_Body,
-        hands="Meg. Gloves +2",
-        legs=gear.Herc_RA_Legs,
+        hands=gear.Nyame_Hands,
+        legs=gear.Nyame_Legs,
         feet=gear.Relic_Feet,
         neck="Fotia Gorget",
         ear1="Moonshade Earring",
@@ -375,10 +375,11 @@ function init_gear_sets()
 
     sets.precast.WS['Wildfire'] = {
         ammo=gear.MAbullet,
-        head=gear.Herc_MAB_Head,
+        head=gear.Nyame_Head,
         body=gear.Relic_Body,
-        hands=gear.Carmine_D_Hands,
+        hands=gear.Nyame_Hands,
         legs=gear.Nyame_Legs,
+        feet=gear.Nyame_Feet,
         feet=gear.Relic_Feet,
         neck="Comm. Charm +2",
         -- ear1="Crematio Earring",
@@ -422,9 +423,11 @@ function init_gear_sets()
     })
 
     sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
-        head=gear.Herc_WSD_Head,
-        hands="Meg. Gloves +2",
-        legs=gear.Herc_WSD_Legs,
+        head=gear.Nyame_Head,
+        body=gear.Nyame_Body,
+        hands=gear.Nyame_Hands,
+        legs=gear.Nyame_Legs,
+        feet=gear.Nyame_Feet,
         neck="Comm. Charm +2",
         ring1="Regal Ring",
         ring2="Epaminondas's Ring",

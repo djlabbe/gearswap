@@ -86,7 +86,6 @@ function user_setup()
     gear.BLM_MAB_Cape = { name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10','Phys. dmg. taken-10%',}}
     gear.BLM_Death_Cape = { name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10','Phys. dmg. taken-10%',}}
 
-
     send_command('bind @q gs c toggle MagicBurst')
     send_command('bind @d gs c toggle DeathMode')
     send_command('bind @w gs c toggle WeaponLock')
@@ -179,9 +178,9 @@ function init_gear_sets()
     sets.precast.WS = {
         --ammo="Floestone",
         head=gear.Nyame_Head,
-        body=gear.Agwu_Body,
-        hands="Jhakri Cuffs +2",
-        legs=gear.Telchine_ENH_Legs,
+        body=gear.Nyame_Body,
+        hands=gear.Nyame_Hands,
+        legs=gear.Nyame_Legs,
         feet=gear.Nyame_Feet,
         neck="Fotia Gorget",
         ear1="Moonshade Earring",
@@ -199,8 +198,8 @@ function init_gear_sets()
         head="Pixie Hairpin +1",
         body=gear.Amalric_A_Body,
         hands=gear.Amalric_D_Hands,
-        legs="Merlinic Shalwar",
-        feet="Merlinic Crackows",
+        legs=gear.Nyame_Legs,
+        feet=gear.Nyame_Feet,
         neck="Baetyl Pendant",
         ear1="Malignance Earring",
         ear2="Moonshade Earring",

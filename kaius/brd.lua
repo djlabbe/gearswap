@@ -89,8 +89,7 @@ function user_setup()
         'Quick Etude', 'Swift Etude', 'Vivacious Etude', 'Vital Etude', 'Dextrous Etude', 'Uncanny Etude',
         'Spirited Etude', 'Logical Etude', 'Enchanting Etude', 'Bewitching Etude'}
 
-    state.WeaponSet = M{['description']='Weapon Set', 'Carnwenhan', 'Twashtar', 'Tauret', 'Naegling'}
-    -- state.WeaponSet = M{['description']='Weapon Set', 'Carnwenhan', 'Naegling', 'Tauret'}
+    state.WeaponSet = M{['description']='Weapon Set', 'Naegling', 'Carnwenhan', 'Twashtar', 'Tauret', }
     state.WeaponLock = M(false, 'Weapon Lock')
 
     -- Additional local binds
@@ -274,13 +273,11 @@ function init_gear_sets()
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
         range=gear.Linos_WS,
-        -- head=gear.Chironic_WSD_Head,
-        head="Blistering Sallet +1",
-        body=gear.Relic_Head,
-        -- hands=gear.Chironic_WSD_Hands,
-        hands="Gazu Bracelets +1",
-        legs=gear.Relic_Legs,
-        feet=gear.Relic_Feet,
+        head=gear.Nyame_Head,
+        body=gear.Nyame_Body,
+        hands=gear.Nyame_Hands,
+        legs=gear.Nyame_Legs,
+        feet=gear.Nyame_Feet,
         neck="Fotia Gorget",
         ear1="Ishvara Earring",
         ear2="Moonshade Earring",
@@ -320,18 +317,12 @@ function init_gear_sets()
     })
 
     sets.precast.WS['Rudra\'s Storm'] = set_combine(sets.precast.WS, {
-        -- legs="Lustr. Subligar +1",
-        feet=gear.Lustratio_D_Feet,
         neck="Bard's Charm +2",
         waist="Grunfeld Rope",
         back=gear.BRD_WS2_Cape,
     })
 
     sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS, {
-        head=empty;
-        body="Cohort Cloak +1",
-        legs=gear.Kaykaus_A_Legs,
-        -- feet="Volte Gaiters",
         neck="Baetyl Pendant",
         ring2="Shiva Ring +1",
         ear1="Friomisi Earring",
@@ -340,8 +331,6 @@ function init_gear_sets()
     })
 
     sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
-        feet=gear.Lustratio_D_Feet,
-        body="Agony Jerkin +1",
         neck="Bard's Charm +2",
         ring1="Epaminondas's Ring",
         ring2="Metamorph Ring +1",
@@ -359,7 +348,7 @@ function init_gear_sets()
 
     sets.midcast.SpellInterrupt = {
         ammo="Staunch Tathlum +1", --11
-        hands=gear.Chironic_WSD_Hands, --20
+        -- hands=gear.Chironic_WSD_Hands, --20
         neck="Loricate Torque +1", --5
         ear1="Halasz Earring", --5
         ear2="Magnetic Earring", --8
