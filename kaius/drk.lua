@@ -158,11 +158,11 @@ function init_gear_sets()
 
     sets.precast.WS = {
         ammo="Knobkierrie",
-        head="Flamma Zucchetto +2",
+        head=gear.Nyame_Head,
         body=gear.Artifact_Body,
-        hands= gear.Valo_WSD_Hands,
+        hands= gear.Nyame_Hands,
         legs=gear.Relic_Legs,
-        feet="Sulev. Leggings +2",
+        feet=gear.Nyame_Legs,
         neck="Abyssal Beads +2",
         waist="Sailfi Belt +1",
         left_ear="Thrud Earring",
@@ -178,11 +178,11 @@ function init_gear_sets()
 
     sets.precast.WS['Catastrophe'] = {
         ammo="Crepuscular Pebble",
-        head="Ratri Sallet +1",
+        head=gear.Nyame_Head, --8
         body=gear.Artifact_Body,
-        hands="Rat. Gadlings +1",
+        hands=gear.Nyame_Hands, --8
         legs=gear.Relic_Legs,
-        feet="Sulev. Leggings +2",
+        feet=gear.Nyame_Feet, --8 
         neck="Abyssal Beads +2",
         waist="Sailfi Belt +1",
         left_ear="Thrud Earring",
@@ -198,9 +198,9 @@ function init_gear_sets()
         ammo="Knobkierrie", --6
         head=gear.Nyame_Head, --8
         body=gear.Artifact_Body, --10
-        hands=gear.Nyame_Hands,
+        hands=gear.Nyame_Hands, --8
         legs=gear.Relic_Legs, --10
-        feet=gear.Nyame_Feet, --7 
+        feet=gear.Nyame_Feet, --8 
         neck="Abyssal Beads +2",
         waist="Sailfi Belt +1",
         left_ear="Thrud Earring", --3
@@ -208,17 +208,17 @@ function init_gear_sets()
         left_ring="Niqmaddu Ring",
         right_ring="Regal Ring",
         back= gear.DRK_WS2_Cape, --10
-    }
+    } --63
 
     sets.precast.WS['Torcleaver'].Acc = set_combine(sets.precast.WS['Torcleaver'], {})
 
     sets.precast.WS['Cross Reaper'] = {
         ammo="Knobkierrie",
-        head="Ratri Sallet +1",
+        head=gear.Nyame_Head, --8
         body=gear.Artifact_Body,
-        hands="Ratri Gadlings +1",
+        hands=gear.Nyame_Hands, --8
         legs=gear.Relic_Legs,
-        feet="Sulev. Leggings +2",
+         feet=gear.Nyame_Feet, --8 
         neck="Abyssal Beads +2",
         waist="Sailfi Belt +1",
         left_ear="Thrud Earring",
@@ -234,9 +234,9 @@ function init_gear_sets()
         ammo="Knobkierrie",
         head=gear.Relic_Head,
         body=gear.Artifact_Body,
-        hands= gear.Valo_WSD_Hands,
+        hands=gear.Nyame_Hands,
         legs=gear.Relic_Legs,
-        feet="Sulev. Leggings +2",
+        feet=gear.Nyame_Feet,
         neck="Abyssal Beads +2",
         waist="Fotia Belt",
         left_ear="Thrud Earring",
@@ -257,16 +257,16 @@ function init_gear_sets()
     sets.midcast['Enfeebling Magic'] = {
         ammo="Pemphredo Tathlum",
         head=gear.Carmine_D_Head,
-        body="Hjarrandi Breast.",
-        hands="Ratri Gadlings +1",
-        legs="Ratri Cuisses +1",
+        body=gear.Artifact_Body,
+        hands=gear.Nyame_Hands,
+        legs=gear.Nyame_Legs,
         feet=gear.Artifact_Feet,
-        neck="Erra Pendant",
-        -- ear1="Digni. Earring",
+        neck="Incanter's Torque",
+        ear1="Digni. Earring",
         ear2="Malignance Earring",
         ring1=gear.Stikini_1,
         ring2=gear.Stikini_2,
-        waist="Skrymir Cord +1",
+        waist="Casso Sash",
     }
 
     sets.midcast['Dark Magic'] = {
@@ -276,8 +276,7 @@ function init_gear_sets()
         hands="Ratri Gadlings +1",
         legs=gear.Relic_Legs,
         feet="Rat. Sollerets +1",
-        neck="Erra Pendant",
-        -- ear1="Mani Earring",
+        ear1="Mani Earring",
         ear2="Malignance Earring",
         ring1=gear.Stikini_1,
         ring2=gear.Stikini_2,
@@ -286,14 +285,19 @@ function init_gear_sets()
     }
 
     sets.midcast.Drain = set_combine(sets.midcast['Dark Magic'], {
+        ammo="Pemphredo Tathlum",
+        head="Pixie Hairpin +1",  
+        neck="Erra Pendant",  
+        ear1="Nehalennia Earring"
+        ear2="Hirudinea Earring",
+        body=gear.Carmine_B_Body,
         hands=gear.Relic_Hands,
-        feet=gear.Artifact_Hands,
-        head="Pixie Hairpin +1",        
-        ear1="Hirudinea Earring",
         ring1="Evanescence Ring",
         ring2="Archon Ring",
         back=gear.DRK_DRK_Cape,
         waist="Austerity Belt +1",
+        legs=gear.Empyrean_Legs, -- TODO?
+        feet="Rat. Sollerets +1",
     })
 
     sets.midcast.Aspir = sets.midcast.Drain
@@ -302,8 +306,8 @@ function init_gear_sets()
         head=gear.Artifact_Head,
         hands="Pavor Gauntlets",
         ring1="Kishar Ring",
-        -- back="Chuparrosa Mantle",
-        -- waist="Casso Sash",
+        back="Chuparrosa Mantle",
+        waist="Casso Sash",
     })
 
     sets.midcast['Absorb-TP'] = set_combine(sets.midcast.Absorb, {hands=gear.Empyrean_Hands})
@@ -311,10 +315,11 @@ function init_gear_sets()
     sets.midcast.Stun = sets.midcast['Dark Magic']
 
     sets.midcast['Dread Spikes'] = set_combine(sets.midcast['Dark Magic'], {
+        main="Crepuscular Scythe",
         head="Ratri Sallet +1",
         neck="Unmoving Collar +1",
         body=gear.Empyrean_Body,
-        hands="Rat. Gadlings +1",
+        hands="Ratri Gadlings +1",
         legs="Ratri Cuisses +1",
         feet="Ratri Sollerets +1",
         ear1="Odnowa Earring +1",
