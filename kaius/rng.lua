@@ -371,8 +371,8 @@ function init_gear_sets()
     sets.precast.WS["Trueflight"] = {
         head=empty,
         body="Cohort Cloak +1",
-        hands=gear.Carmine_D_Hands,
-        legs=gear.Relic_Legs,
+        hands=gear.Nyame_Hands,
+        legs=gear.Nyame_Legs,
         feet=gear.Nyame_Feet,
         neck="Scout's Gorget +2",
         ear1="Moonshade Earring",
