@@ -346,7 +346,7 @@ function init_gear_sets()
         feet="Malignance Boots",
         neck="Asn. Gorget +1",
         ear1="Sherida Earring",
-        ear2="Brutal Earring",
+        ear2="Skulker's Earring +1",
         -- ring1="Gere Ring",
         -- ring2="Epona's Ring",
         ring1="Petrov Ring",

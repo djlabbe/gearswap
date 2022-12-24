@@ -187,7 +187,7 @@ function init_gear_sets()
     sets.precast.JA['Steal'] = {
         -- ammo="Barathrum",
         head=gear.Relic_Head,
-        hands=gear.Artifact_Hands,
+        -- hands=gear.Artifact_Hands,
         feet=gear.Artifact_Feet,
     }
 
@@ -216,11 +216,10 @@ function init_gear_sets()
 
     sets.precast.FC = {
         ammo="Sapience Orb",
-        -- head=gear.Herc_MAB_Head, --7
+        head=gear.Herc_MAB_Head, --7
         body=gear.Taeon_FC_Body, --9
         hands="Leyline Gloves", --8
         legs="Rawhide Trousers", --5
-        -- neck="Orunmila's Torque", --5
         neck="Baetyl Pendant", --4
         ear1="Loquacious Earring", --2
         ear2="Enchntr. Earring +1", --2
@@ -242,7 +241,7 @@ function init_gear_sets()
         body=gear.Empyrean_Body,
         hands="Meg. Gloves +2",
         legs=gear.Relic_Legs,
-        feet=gear.Herc_WSD_Feet,
+        feet=gear.Relic_Feet,
         neck="Fotia Gorget",
         ear1="Ishvara Earring",
         ear2="Moonshade Earring",
@@ -268,7 +267,7 @@ function init_gear_sets()
         neck="Asn. Gorget +2",
         head=gear.Relic_Head,
         body=gear.Empyrean_Body,
-        hands="Meg. Gloves +2",
+        hands=gear.Nyame_Hands,
         legs=gear.Relic_Legs,
         feet=gear.Relic_Feet,
         ear1="Sherida Earring",
@@ -485,7 +484,7 @@ function init_gear_sets()
 
     sets.engaged.HighAcc = set_combine(sets.engaged.MidAcc, {
         ammo="C. Palug Stone",
-        hands="Gazu Bracelet +1",
+        hands="Gazu Bracelets +1",
         legs=gear.Artifact_Legs,
         ear2="Mache Earring +1",
         ring1="Regal Ring",
@@ -526,7 +525,7 @@ function init_gear_sets()
 
     sets.engaged.DW.HighAcc = set_combine(sets.engaged.DW.MidAcc, {
         ammo="C. Palug Stone",
-        hands="Gazu Bracelet +1",
+        hands="Gazu Bracelets +1",
         legs=gear.Artifact_Legs,
         ear1="Cessance Earring",
         ear2="Telos Earring",
@@ -565,7 +564,7 @@ function init_gear_sets()
 
     sets.engaged.DW.HighAcc.LowHaste = set_combine(sets.engaged.DW.MidAcc.LowHaste, {
         ammo="C. Palug Stone",
-        hands="Gazu Bracelet +1",
+        hands="Gazu Bracelets +1",
         legs=gear.Artifact_Legs,
         ear2="Telos Earring",
         ring1="Regal Ring",
@@ -603,7 +602,7 @@ function init_gear_sets()
 
     sets.engaged.DW.HighAcc.MidHaste = set_combine(sets.engaged.DW.MidAcc.MidHaste, {
         ammo="C. Palug Stone",
-        hands="Gazu Bracelet +1",
+        hands="Gazu Bracelets +1",
         legs=gear.Artifact_Legs,
         ear2="Telos Earring",
         ring1="Regal Ring",
@@ -642,7 +641,7 @@ function init_gear_sets()
 
     sets.engaged.DW.HighAcc.HighHaste = set_combine(sets.engaged.DW.MidAcc.HighHaste, {
         ammo="C. Palug Stone",
-        hands="Gazu Bracelet +1",
+        hands="Gazu Bracelets +1",
         legs=gear.Artifact_Legs,
         ear2="Telos Earring",
         ring1="Regal Ring",
@@ -681,7 +680,7 @@ function init_gear_sets()
 
     sets.engaged.DW.HighAcc.MaxHaste = set_combine(sets.engaged.DW.MidAcc.MaxHaste, {
         ammo="C. Palug Stone",
-        hands="Gazu Bracelet +1",
+        hands="Gazu Bracelets +1",
         legs=gear.Artifact_Legs,
         ear2="Telos Earring",
         ring1="Regal Ring",

@@ -361,7 +361,7 @@ function init_gear_sets()
   -- Gear to enhance certain classes of songs.
     sets.midcast.Ballad = { legs=gear.Empyrean_Legs }
     -- sets.midcast.Carol = { hands="Mousai Gages +1" }
-    -- sets.midcast.Etude = { head="Mousai Turban +1" }
+    sets.midcast.Etude = { head="Mousai Turban +1" }
     sets.midcast.HonorMarch = { range="Marsyas", hands=gear.Empyrean_Hands }
     sets.midcast.Lullaby = {
         body=gear.Empyrean_Body,
@@ -374,7 +374,7 @@ function init_gear_sets()
     sets.midcast.Minne = { legs="Mou. Seraweels +1" }
     sets.midcast.Minuet = { body=gear.Empyrean_Body }
     sets.midcast.Paeon = { head=gear.Artifact_Head }
-    -- sets.midcast.Threnody = { body="Mou. Manteel +1" }
+    sets.midcast.Threnody = { body="Mou. Manteel +1" }
     sets.midcast['Adventurer\'s Dirge'] = { range="Marsyas", hands=gear.Relic_Hands }
     sets.midcast['Adventurer\'s Dirge'] = { range="Marsyas" }
     sets.midcast['Foe Sirvente'] = { head=gear.Relic_Head }
