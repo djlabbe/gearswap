@@ -411,7 +411,7 @@ function init_gear_sets()
         feet="Malignance Boots",
         neck="Asn. Gorget +1",
         ear1="Sherida Earring",
-        ear2="Brutal Earring",
+        ear2="Skulker's Earring +1",
         -- ring1="Gere Ring",
         -- ring2="Epona's Ring",
         ring1="Petrov Ring",
@@ -512,8 +512,8 @@ function init_gear_sets()
         legs=gear.Herc_TA_Legs,
         feet=gear.Taeon_DW_Feet, --9
         neck="Asn. Gorget +1",
-        ear1="Cessance Earring",
-        ear2="Suppanomimi", --5
+        ear1="Suppanomimi", --5
+        ear2="Skulker's Earring +1",
         ring1="Gere Ring",
         ring2="Epona's Ring",
         back=gear.THF_TP_Cape, --Should be DW --10
@@ -660,7 +660,7 @@ function init_gear_sets()
         feet="Malignance Boots",
         neck="Asn. Gorget +1",
         ear1="Sherida Earring",
-        ear2="Suppanomimi", --5
+        ear2="Skulker's Earring +1",
         ring1="Petrov Ring",
         ring2="Rajas Ring",
         back=gear.THF_TP_Cape,
