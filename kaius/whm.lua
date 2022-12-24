@@ -194,7 +194,7 @@ function init_gear_sets()
         -- main="Marin Staff +1",--3
         -- main="Malignance Pole", -- 150HP
         ammo="Incantor Stone", --2
-        head="Vanya Hood", --10
+        head=gear.Bunzi_Head, --10
         neck="Cleric's Torque +2", --4
         -- ear1="Loquacious earring", --2
         ear1="Odnowa Earring +1",

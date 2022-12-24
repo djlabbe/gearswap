@@ -659,7 +659,7 @@ function init_gear_sets()
     sets.engaged = {
         range=gear.Linos_TP,
         head="Ayanmo Zucchetto +2", --6
-        body="Agony Jerkin +1", --4
+        body="Ayanmo Corazza +2", --(6/6)
         hands="Gazu Bracelets +1",
         legs="Volte Tights",
         feet=gear.Nyame_Feet,
@@ -720,18 +720,18 @@ function init_gear_sets()
     sets.engaged.DW.MaxHaste = {
         range=gear.Linos_TP,
         head="Ayanmo Zucchetto +2",
-        body="Agony Jerkin +1",
-        hands="Gazu Bracelets +1",
+        body="Ayanmo Corazza +2", --(6/6)
+        hands=gear.Bunzi_Hands, --(8/8)
         legs="Volte Tights",
-        feet=gear.Nyame_Feet,
+        feet=gear.Nyame_Feet, --(7/7)
         neck="Bard's Charm +2",
         ear1="Eabani Earring", --4
         ear2="Telos Earring",
-        ring1=gear.Chirich_1,
-        ring2=gear.Chirich_2,
-        back=gear.BRD_TP_Cape,
+        ring1=gear.Moonlight_1, --(5/5)
+        ring2=gear.Moonlight_2, --(5/5)
+        back=gear.BRD_TP_Cape, --(10/0)
         waist="Reiki Yotai", --7
-    }
+    } --DT=(41/31)|DW=11
 
     sets.engaged.DW.MaxHaste.Acc = set_combine(sets.engaged.DW.MaxHaste, {
         head="Aya. Zucchetto +2",
@@ -758,9 +758,7 @@ function init_gear_sets()
     ------------------------------------------------------------------------------------------------
 
     sets.engaged.Hybrid = {
-        neck="Loricate Torque +1", --6/6
-        ring1="Moonlight Ring", --5/5
-        ring2="Defending Ring", --10/10
+        legs=gear.Nyame_Legs
     }
 
     sets.engaged.DT = set_combine(sets.engaged, sets.engaged.Hybrid)
