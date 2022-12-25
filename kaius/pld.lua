@@ -57,7 +57,7 @@ function user_setup()
     gear.Empyrean_Feet = { name="Chevalier's Sabatons +1" }
 
     gear.PLD_Cape = { name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Damage taken-5%',}}
-    gear.PLD_FC_Cape = { name="Rudianos's Mantle", augments={'"Fast Cast"+8','Spell interruption rate down -10%',}}
+    gear.PLD_FC_Cape = { name="Rudianos's Mantle", augments={'"Fast Cast"+10','Spell interruption rate down -10%',}}
 
     send_command('bind @f10 gs c toggle EquipShield')
     send_command('bind @w gs c toggle WeaponLock')

@@ -119,7 +119,7 @@ function user_setup()
     gear.Relic_Feet = { name= "Bihu Slippers +3" }
 
     gear.Empyrean_Head = { name= "Fili Calot +1" }
-    gear.Empyrean_Body = { name= "Fili Hongreline +1" }
+    gear.Empyrean_Body = { name= "Fili Hongreline +2" }
     gear.Empyrean_Hands = { name= "Fili Manchettes +1" }
     gear.Empyrean_Legs = { name= "Fili Rhingrave +1" }
     gear.Empyrean_Feet = { name= "Fili Cothurnes +1" }
@@ -385,7 +385,7 @@ function init_gear_sets()
     -- For song buffs (duration and AF3 set bonus)
     sets.midcast.SongEnhancing = {
         main="Carnwenhan",
-        sub=gear.Kali_Song,
+        sub=gear.Kali_Idle,
         range="Gjallarhorn",
         head=gear.Empyrean_Head,
         body=gear.Empyrean_Body,
@@ -686,7 +686,7 @@ function init_gear_sets()
     sets.engaged.DW = {
         range=gear.Linos_TP,
         head="Ayanmo Zucchetto +2",
-        body="Agony Jerkin +1",
+        body="Ayanmo Corazza +2",
         hands="Gazu Bracelets +1",
         legs="Volte Tights",
         feet=gear.Nyame_Feet,
