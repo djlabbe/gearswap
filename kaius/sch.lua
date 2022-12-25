@@ -801,7 +801,7 @@ function init_gear_sets()
     sets.engaged = {
         head="Blistering Sallet +1",
         body=gear.Nyame_Body,
-        hands="Gazu Bracelet +1",
+        hands="Gazu Bracelets +1",
         legs=gear.Nyame_Legs,
         feet=gear.Nyame_Feet,
         neck="Rep. Plat. Medal",

@@ -334,15 +334,15 @@ function init_gear_sets()
 
     sets.precast.WS = {
         ammo="Aurgelmir Orb +1",
-        head=gear.Relic_Head,
-        body=gear.Relic_Body,
-        hands=gear.Artifact_Hands,
-        legs=gear.Relic_Legs,
+        head=gear.Nyame_Head,
+        body=gear.Nyame_Body,
+        hands=gear.Nyame_Hands,
+        legs=gear.Nyame_Legs,
         feet=gear.Empyrean_Feet,
         neck="Fotia Gorget",
         ear1="Ishvara Earring",
         ear2="Moonshade Earring",
-        ring1="Rufescent Ring",
+        ring1="Metamorph Ring +1",
         ring2="Epaminondas's Ring",
         back=gear.RDM_MND_Cape,
         waist="Fotia Belt",
@@ -408,7 +408,7 @@ function init_gear_sets()
     sets.precast.WS['Sanguine Blade'] = {
         ammo="Sroda Tathlum",
         head="Pixie Hairpin +1",
-        body=gear.Amalric_A_Body,
+        body=gear.Nyame_Body,
         hands="Jhakri Cuffs +2",
         legs=gear.Empyrean_Legs,
         feet=gear.Empyrean_Feet,
@@ -423,8 +423,8 @@ function init_gear_sets()
     }
 
     sets.precast.WS['Seraph Blade'] = set_combine(sets.precast.WS['Sanguine Blade'], {
-        head=empty,
-        body="Cohort Cloak +1",
+        head=gear.Nyame_Head,
+        body=gear.Nyame_Body,
         ear2="Moonshade Earring",
         ring1="Weather. Ring",
     })
@@ -436,13 +436,15 @@ function init_gear_sets()
     sets.precast.WS['Red Lotus Blade'] = sets.precast.WS['Aeolian Edge']
 
     sets.precast.WS['Black Halo'] = set_combine(sets.precast.WS['Savage Blade'], {
+        neck="Dls. Torque +2",
+        ear1="Regal Earring",
         ear2="Sherida Earring",
-        ring1="Rufescent Ring",
+        ring1="Metamorph Ring +1",
     })
 
     sets.precast.WS['Black Halo'].Acc = set_combine(sets.precast.WS['Black Halo'], {
         ammo="Voluspa Tathlum",
-        -- neck="Combatant's Torque",
+        neck="Combatant's Torque",
         ear2="Telos Earring",
         waist="Grunfeld Rope",
     })

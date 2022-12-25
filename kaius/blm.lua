@@ -61,6 +61,8 @@ function user_setup()
     state.WeaponLock = M(false, 'Weapon Lock')
     state.MagicBurst = M(false, 'Magic Burst')
     state.DeathMode = M(false, 'Death Mode')
+    state.WeaponSet = M{['description']='Weapon Set', 'Xoanon', 'Malevolence' }
+
 
     -- Additional local binds
     include('Global-Binds.lua') -- OK to remove this line
@@ -88,7 +90,9 @@ function user_setup()
 
     send_command('bind @q gs c toggle MagicBurst')
     send_command('bind @d gs c toggle DeathMode')
+
     send_command('bind @w gs c toggle WeaponLock')
+    send_command('bind @e gs c cycle WeaponSet')
 
     if player.sub_job == 'RDM' then
         send_command('bind !g input /ma "Gravity" <t>')
@@ -176,7 +180,7 @@ function init_gear_sets()
 
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
-        --ammo="Floestone",
+        ammo="Ghastly Tathlum +1",
         head=gear.Nyame_Head,
         body=gear.Nyame_Body,
         hands=gear.Nyame_Hands,
@@ -630,13 +634,13 @@ function init_gear_sets()
     sets.engaged = {
         head="Blistering Sallet +1",
         body=gear.Agwu_Body,
-        hands="Gazu Bracelet +1",
-        legs=gear.Telchine_ENH_Legs,
-        feet=gear.Agwu_Feet,
+        hands="Gazu Bracelets +1",
+        legs=gear.Nyame_Legs,
+        feet=gear.Nyame_Feet,
         neck="Sanctity Necklace",
         ear1="Cessance Earring",
         ear2="Telos Earring",
-        ring1="Hetairoi Ring",
+        ring1=gear.Chirich_1,
         ring2=gear.Chirich_2,
         back="Relucent Cape",
     }
@@ -651,6 +655,9 @@ function init_gear_sets()
     sets.DarkAffinity = { head="Pixie Hairpin +1",ring2="Archon Ring" }
     sets.Obi = { waist="Hachirin-no-Obi" }
 
+    sets.Xoanon = { main="Xoanon", sub="Khonsu" }
+    sets.Malevolence = { main=gear.Malevolence_A, sub="Ammurapi Shield"}
+    sets.DefaultShield = { sub="Ammurapi Shield" }
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -748,6 +755,9 @@ function job_aftercast(spell, action, spellMap, eventArgs)
             send_command('@timers c "Break ['..spell.target.name..']" 30 down spells/00255.png')
         end
     end
+    if player.status ~= 'Engaged' and state.WeaponLock.value == false then
+        check_weaponset()
+    end
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -787,6 +797,7 @@ function job_state_change(stateField, newValue, oldValue)
     else
         enable('main','sub')
     end
+    check_weaponset()
 end
 
 -- -- latent DT set auto equip on HP% change
@@ -855,6 +866,7 @@ function customize_melee_set(meleeSet)
     if state.Buff.Doom then
         meleeSet = set_combine(meleeSet, sets.buff.Doom)
     end
+    check_weaponset()
     return meleeSet
 end
 
@@ -967,6 +979,13 @@ function check_gear()
         disable("ring2")
     else
         enable("ring2")
+    end
+end
+
+function check_weaponset()
+    equip(sets[state.WeaponSet.current])
+    if player.sub_job ~= 'NIN' and player.sub_job ~= 'DNC' then
+       equip(sets.DefaultShield)
     end
 end
 
