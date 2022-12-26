@@ -522,7 +522,7 @@ function init_gear_sets()
     })
 
     sets.idle.Pet = set_combine(sets.idle, {
-        body=gear.Artifact_Body,
+        -- body=gear.Artifact_Body,
         hands=gear.Relic_Hands,
         feet=gear.Relic_Feet,
         neck="Dgn. Collar +2",

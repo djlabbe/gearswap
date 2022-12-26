@@ -214,7 +214,7 @@ function init_gear_sets()
 
     sets.precast.FC.Cure = set_combine(sets.precast.FC, {
         main="Queller Rod", --7
-        sub="Ammurapi Shield"
+        sub="Ammurapi Shield",
         -- ammo="Impatiens", --(2)
         head=gear.Relic_Head, --15
         -- feet="Kaykaus Boots +1", --7
