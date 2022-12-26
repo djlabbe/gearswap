@@ -457,10 +457,8 @@ function init_gear_sets()
         legs="Assiduity Pants +1",
         feet=gear.Artifact_Feet,
         neck="Loricate Torque +1",
-        -- ear1="Lugalbanda Earring",
-        -- ear2="Etiolation Earring",
-        ear1="Infused Earring",
-        ear2="Handler's Earring +1",
+        ear1="Lugalbanda Earring",
+        ear2="Etiolation Earring",
         ring1=gear.Stikini_1,
         ring2=gear.Stikini_2,
         back=gear.GEO_Idle_Cape,
@@ -564,7 +562,7 @@ function init_gear_sets()
         ring1="Petrov Ring",
         ring2="Hetairoi Ring",
         waist="Cetl Belt",
-        }
+    }
 
 
     --------------------------------------
@@ -579,7 +577,7 @@ function init_gear_sets()
         feet="Bagua Sandals +3",
         neck="Mizu. Kubikazari", --10
         ring2="Mujin Band", --(5)
-        }
+    }
 
     sets.buff.Doom = {ring1={name="Saida Ring", bag="wardrobe3"}, ring2={name="Saida Ring", bag="wardrobe4"},}
     sets.Obi = {waist="Hachirin-no-Obi"}
