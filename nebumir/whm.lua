@@ -194,28 +194,27 @@ function init_gear_sets()
     -- Fast cast sets for spells
 
     sets.precast.FC = {
-        main="Marin Staff +1",--3
-        sub="Clerisy Strap +1", --3
         ammo="Incantor Stone", --2
         head=gear.Empyrean_Head, --10
-        neck="Cleric's Torque +1", --4
+        neck="Cleric's Torque +1", --8
         ear1="Loquacious earring", --2
         ear2="Malignance earring", --4
         body="Pinga Tunic", --14
-        left_ring="Prolix Ring", --2
-        right_ring="Kishar Ring", --4
+        ring1="Prolix Ring", --2
+        ring2="Kishar Ring", --4
         back="Fi Follet Cape +1", --10
         waist="Embla Sash", --5
-        legs="Ayanmo Cosciales +2", --5
-        feet="Regal Pumps +1", --4
-    } --69
+        legs="Ayanmo Cosciales +2", --6
+        feet="Regal Pumps +1", --7
+    } --74
 
     sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {
         waist="Siegel Sash",
     })
 
     sets.precast.FC.Cure = set_combine(sets.precast.FC, {
-        -- main="Queller Rod", --7
+        main="Queller Rod", --7
+        sub="Ammurapi Shield"
         -- ammo="Impatiens", --(2)
         head=gear.Relic_Head, --15
         -- feet="Kaykaus Boots +1", --7
@@ -289,7 +288,7 @@ function init_gear_sets()
         main="Raetic Rod +1",
         sub="Sors Shield",
         ammo="Clarus Stone",
-        head="Vanya Hood", --11(+2)/(-6)
+        head="Kaykaus Mitra +1", --11(+2)/(-6)
         neck="Clr. Torque +1", --10/(-25)
         ear1="Glorious Earring", -- (+2)/(-5)
         ear2="Nourishing earring",
@@ -374,7 +373,7 @@ function init_gear_sets()
 
     -- 110 total Enhancing Magic Skill; caps even without Light Arts
     sets.midcast['Enhancing Magic'] = {
-        -- main="Gada",
+        main="Gada",
         sub="Ammurapi Shield",
         head=gear.Telchine_ENH_Head,
         body=gear.Telchine_ENH_Body,
@@ -391,7 +390,7 @@ function init_gear_sets()
     }
 
     sets.midcast.EnhancingDuration = {
-        -- main="Gada",
+        main="Gada",
         sub="Ammurapi Shield",
         head=gear.Telchine_ENH_Head,
         body=gear.Telchine_ENH_Body,
@@ -426,7 +425,7 @@ function init_gear_sets()
         -- main="Vadose Rod",
         sub="Ammurapi Shield",
         ammo="Staunch Tathlum +1",
-        hands="Regal Cuffs",
+        -- hands="Regal Cuffs",
         ear1="Halasz Earring",
         ear2="Magnetic Earring",
         ring1="Freke Ring",
@@ -508,7 +507,7 @@ function init_gear_sets()
     -- Custom spell classes
     sets.midcast.MndEnfeebles = {
         -- main="Yagrush",
-        -- sub="Ammurapi Shield",
+        sub="Ammurapi Shield",
         ammo="Clarus Stone",
         -- head=empty;
         -- body="Cohort Cloak +1",
@@ -560,23 +559,14 @@ function init_gear_sets()
     }
 
     sets.idle.DT = set_combine(sets.idle, {
-        main="Malignance Pole", --20
-        sub="Mensch Strap", --4
         ammo="Homiliary",
-        -- head="Nyame Helm", --7
-        -- body="Nyame Mail", --9
-        -- hands="Nyame Gauntlets", --7
-        -- feet="Nyame Sollerets", --7
-        neck="Sibyl Scarf",
+        neck="Loricate Torque +1",
         ring1=gear.Stikini_1,
-        ring2=gear.Stikini_2,
-        back="Alaunus's Cape",
+        ring2="Defending Ring",
         waist="Carrier's Sash",
     })
 
     sets.idle.MEva = set_combine(sets.idle.DT, {
-        main="Malignance Pole",
-        sub="Mensch Strap",
         ammo="Staunch Tathlum +1",
         head="Inyanga Tiara +2",
         body=gear.Artifact_Body,
@@ -652,9 +642,9 @@ function init_gear_sets()
 
 
     -- Buff sets: Gear that needs to be worn to actively enhance a current player buff.
-    -- sets.buff['Divine Caress'] = {hands="Ebers Mitts +1", back="Mending Cape"}
-    -- sets.buff['Devotion'] = {head="Piety Cap +3"}
-    -- sets.buff.Sublimation = {waist="Embla Sash"}
+    sets.buff['Divine Caress'] = {hands=gear.Empyrean_Hands, back="Mending Cape"}
+    sets.buff['Devotion'] = {head=gear.Relic_Head}
+    sets.buff.Sublimation = {waist="Embla Sash"}
 
     sets.Obi = {waist="Hachirin-no-Obi"}
 
