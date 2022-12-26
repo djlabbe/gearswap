@@ -381,7 +381,7 @@ function init_gear_sets()
 
     sets.precast.WS['Wildfire'] = {
         ammo=gear.MAbullet,
-        head=gear.Herc_MAB_Head,
+        head=gear.Nyame_Head,
         body=gear.Relic_Body,
         hands=gear.Carmine_D_Hands,
         legs=gear.Nyame_Legs,
@@ -511,10 +511,10 @@ function init_gear_sets()
 
     sets.midcast.CorsairShot = {
         ammo=gear.QDbullet,
-        head=gear.Herc_MAB_Head,
+        head=gear.Nyame_Head,
         body=gear.Relic_Body,
         hands=gear.Carmine_D_Hands,
-        legs=gear.Herc_MAB_Legs,
+        legs=gear.Nyame_Legs,
         feet=gear.Relic_Feet,
         neck="Baetyl Pendant",
         -- ear1="Crematio Earring",

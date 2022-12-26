@@ -177,7 +177,7 @@ function init_gear_sets()
     -- Fast cast sets for spells
     sets.precast.FC = {
         ammo="Sapience Orb", --2
-        head=gear.Herc_MAB_head, --7
+        head=gear.Herc_WSD_head, --7
         body=gear.Taeon_FC_body, --9
         hands="Leyline Gloves", --8
         legs="Rawhide Trousers", --5
@@ -376,7 +376,7 @@ function init_gear_sets()
     -- Midcast Sets
     sets.midcast.FastRecast = {
         ammo="Sapience Orb", --2
-        head=gear.Herc_MAB_head, --7
+        head=gear.Herc_WSD_head, --7
         body=gear.Taeon_FC_body, --9
         hands="Leyline Gloves", --8
         legs="Rawhide Trousers", --5

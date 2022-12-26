@@ -325,11 +325,11 @@ function init_gear_sets()
 
     sets.precast.FC = {
         ammo="Sapience Orb",
-        head=gear.Herc_MAB_head, --7
+        head=gear.Herc_WSD_head, --7
         body=gear.Taeon_FC_body, --9
         hands="Leyline Gloves", --8
         legs="Rawhide Trousers", --5
-        feet=gear.Herc_MAB_feet, --2
+        feet=gear.Herc_WSD_feet, --2
         neck="Orunmila's Torque", --5
         ear1="Loquacious Earring", --2
         ear2="Enchntr. Earring +1", --2
@@ -448,7 +448,7 @@ function init_gear_sets()
 
     sets.precast.WS['Aeolian Edge'] = {
         ammo="Ghastly Tathlum +1",
-        head=gear.Herc_MAB_head,
+        head=gear.Nyame_Head,
         -- body="Samnuha Coat",
         hands="Maxixi Bangles +3",
         legs="Horos Tights +3",

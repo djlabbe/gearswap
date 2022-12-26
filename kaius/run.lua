@@ -211,11 +211,11 @@ function init_gear_sets()
 
     sets.precast.JA['Lunge'] = {
         ammo="Ghastly Tathlum +1",
-        head=gear.Herc_MAB_Head,
+        head=gear.Nyame_Head,
         body=gear.Carmine_B_Body,
         hands=gear.Carmine_D_Hands,
-        legs=gear.Herc_MAB_Legs,
-        -- feet=gear.Herc_MAB_Feet,
+        legs=gear.Nyame_Legs,
+        feet=gear.Nyame_Feet,
         neck="Baetyl Pendant",
         ear1="Crematio Earring",
         ear2="Friomisi Earring",
