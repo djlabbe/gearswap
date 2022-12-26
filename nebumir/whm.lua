@@ -217,7 +217,7 @@ function init_gear_sets()
         sub="Ammurapi Shield"
         -- ammo="Impatiens", --(2)
         head=gear.Relic_Head, --15
-        -- feet="Kaykaus Boots +1", --7
+        feet=gear.Kaykaus_B_Feet, --7
         -- ring1="Lebeche Ring", --(2)
         -- back="Perimede Cape", --(4)
     })
@@ -269,33 +269,20 @@ function init_gear_sets()
 
     sets.midcast.FC = sets.precast.FC
 
-    sets.midcast.ConserveMP = {
-        --main="Sucellus",
-        --sub="Thuellaic Ecu +1",
-        head="Vanya Hood",
-        --body="Vedic Coat",
-        --hands="Shrieker's Cuffs",
-        legs="Vanya Slops",
-        feet="Kaykaus Boots +1",
-        ear2="Mendi. Earring",
-        back="Solemnity Cape",
-        waist="Shinjutsu-no-Obi +1",
-    }
-
     -- Cure sets
 
     sets.midcast.CureSolace = {
         main="Raetic Rod +1",
         sub="Sors Shield",
         ammo="Clarus Stone",
-        head="Kaykaus Mitra +1", --11(+2)/(-6)
-        neck="Clr. Torque +1", --10/(-25)
-        ear1="Glorious Earring", -- (+2)/(-5)
+        head=gear.Kaykaus_B_Head,
+        neck="Clr. Torque +1", 
+        ear1="Glorious Earring",
         ear2="Nourishing earring",
         body=gear.Empyrean_Body,
         hands=gear.Artifact_Hands,
         legs=gear.Empyrean_Legs,
-        feet="Vanya Clogs", --11(+2)/(-12)    
+        feet=gear.Kaykaus_B_Feet,   
         ring1="Janniston Ring",
         ring2="Mephitas's Ring +1",
         back="Alaunus's Cape",

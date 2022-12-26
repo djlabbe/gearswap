@@ -20,7 +20,6 @@ function define_global_sets()
     gear.Malignance_Legs= {name="Malignance Tights"}
     gear.Malignance_Feet = {name="Malignance Boots"}
 
-
     gear.Telchine_ENH_Head = { name="Telchine Cap", augments={'Enh. Mag. eff. dur. +10',}}
     -- gear.Telchine_ENH_Body = { name="Telchine Chas.", augments={'Mag. Evasion+20','"Conserve MP"+5','Enh. Mag. eff. dur. +10',}}
     gear.Telchine_ENH_Hands = { name="Telchine Gloves", augments={'Enh. Mag. eff. dur. +8',}}
@@ -29,9 +28,6 @@ function define_global_sets()
 
     -- -- Kaykaus
     gear.Kaykaus_B_Head = { name="Kaykaus Mitra +1", augments={'MP+80','"Cure" spellcasting time -7%','Enmity-6',}}
-    gear.Kaykaus_A_Body = { name="Kaykaus Bliaut +1", augments={'MP+80','MND+12','Mag. Acc.+20',}}
-    gear.Kaykaus_D_Hands = { name="Kaykaus Cuffs +1", augments={'MP+80','"Conserve MP"+7','"Fast Cast"+4',}}
-    gear.Kaykaus_A_Legs = { name="Kaykaus Tights +1", augments={'MP+80','MND+12','Mag. Acc.+20',}}
     gear.Kaykaus_B_Feet = { name="Kaykaus Boots +1", augments={'MP+80','"Cure" spellcasting time -7%','Enmity-6',}}
 
     gear.Amalric_D_Hands = { name="Amalric Gages +1", augments={'INT+12','Mag. Acc.+20','"Mag.Atk.Bns."+20',}}
