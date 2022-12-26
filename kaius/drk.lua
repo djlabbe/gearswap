@@ -288,7 +288,7 @@ function init_gear_sets()
         ammo="Pemphredo Tathlum",
         head="Pixie Hairpin +1",  
         neck="Erra Pendant",  
-        ear1="Nehalennia Earring"
+        ear1="Nehalennia Earring",
         ear2="Hirudinea Earring",
         body=gear.Carmine_B_Body,
         hands=gear.Relic_Hands,
