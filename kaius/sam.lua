@@ -223,7 +223,7 @@ function init_gear_sets()
     sets.precast.WS.Acc = set_combine(sets.precast.WS, {})
 
     sets.precast.WS.HighTP = set_combine(sets.precast.WS, {
-        -- head=gear.Valo_WSD_Head,
+        head=gear.Nyame_Head,
         ear2="Lugra Earring +1",
     })
 

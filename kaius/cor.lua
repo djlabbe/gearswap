@@ -418,7 +418,7 @@ function init_gear_sets()
     sets.precast.WS['Evisceration'].Acc = set_combine(sets.precast.WS['Evisceration'], {
 
         body=gear.Adhemar_B_Body,
-        legs=gear.Herc_WSD_Legs,
+        legs=gear.Nyame_Legs,
     })
 
     sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {

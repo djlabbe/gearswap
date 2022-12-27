@@ -308,12 +308,12 @@ function init_gear_sets()
 
     sets.precast.WS = {
        ammo="Aurgelmir Orb +1",
-        head=gear.Herc_WSD_Head,
+        head=gear.Nyame_Head,
         body=gear.Artifact_Body,
         body=gear.Malignance_Body,
         hands="Jhakri Cuffs +2",
         legs=gear.Relic_Legs,
-        feet=gear.Herc_WSD_Feet,
+        feet=gear.Nyame_Feet,
         neck="Fotia Gorget",
         ear1="Moonshade Earring",
         ear2="Ishvara Earring",

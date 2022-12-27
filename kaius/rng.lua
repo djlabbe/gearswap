@@ -150,7 +150,7 @@ function user_setup()
         send_command('bind !t input /ja "Provoke" <t>')
         set_macro_page(1, 11)
     elseif player.sub_job == 'DNC' then
-        send_command('bind ^` input /ja "Chocobo Jig" <me>')
+        send_command('bind @` input /ja "Chocobo Jig" <me>')
         set_macro_page(2, 11)
     else
         set_macro_page(1, 11)
@@ -263,7 +263,7 @@ function init_gear_sets()
 
     sets.precast.WS = {
         head=gear.Artifact_Head, --10
-        body=gear.Ikenga_Body, -- TODO: Herc RA?
+        body=gear.Ikenga_Body,
         hands="Meg. Gloves +2", --7
         legs=gear.Relic_Legs, --10
         feet=gear.Empyrean_Feet, --8
@@ -393,7 +393,7 @@ function init_gear_sets()
         neck="Scout's Gorget +2",
         ear1="Moonshade Earring",
         ear2="Ishvara Earring",
-        body=gear.Herc_WSD_Body,
+        body=gear.Nyame_Body,
         hands="Meg. Gloves +2",
         ring1="Regal Ring",
         ring2="Epaminondas's Ring",
@@ -420,7 +420,7 @@ function init_gear_sets()
 
     sets.precast.WS['Evisceration'].Acc = set_combine(sets.precast.WS['Evisceration'], {
         body=gear.Adhemar_B_Body,
-        legs=gear.Herc_WSD_Legs,
+        legs=gear.Nyame_Legs,
         ring1="Regal Ring",
     })
 

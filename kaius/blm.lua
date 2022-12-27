@@ -570,7 +570,6 @@ function init_gear_sets()
     -- Death Sets
 
     sets.idle.DeathMode = {
-        -- main=gear.Lathi_MAB,
         main=gear.Grioavolr_MB,
         sub="Khonsu",
         ammo="Ghastly Tathlum +1",

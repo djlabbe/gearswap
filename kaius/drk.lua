@@ -69,6 +69,7 @@ function user_setup()
     if player.sub_job == 'SAM' then
         send_command('bind !` input /ja "Hasso" <me>')
         send_command('bind ^` input /ja "Seigan" <me>')
+        send_command('bind ^c input /ja "Warding Circle" <me>')
     end
 
     send_command('bind !t input /ma "Stun" <t>')
@@ -77,7 +78,6 @@ function user_setup()
     send_command('bind !m input /ja "Consume Mana" <me>')
     send_command('bind !a input /ja "Arcane Crest" <t>')
     send_command('bind !c input /ja "Arcane Circle" <me>')
-    send_command('bind ^c input /ja "Warding Circle" <me>')
 
     send_command('bind @w gs c toggle WeaponLock')
     send_command('bind @a gs c toggle Critical')
@@ -386,10 +386,10 @@ function init_gear_sets()
     })
 
     sets.engaged.Aftermath = {
-        -- ammo="Yetshila +1", --2/6
-        -- head="Blistering Sallet +1", --10/0
-        -- body="Hjarrandi Breast.", --13/0
-        -- hands="Flam. Manopolas +2", --8/0,
+        ammo="Yetshila +1", --2/6
+        head="Blistering Sallet +1", --10/0
+        body="Hjarrandi Breast.", --13/0
+        hands="Flam. Manopolas +2", --8/0,
     }
 
     ------------------------------------------------------------------------------------------------

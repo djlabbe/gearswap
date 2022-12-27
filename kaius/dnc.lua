@@ -307,7 +307,7 @@ function init_gear_sets()
         head="Maxixi Tiara +3",
         body="Maxixi Casaque +3",
         hands="Gazu Bracelet +1",
-        legs=gear.Herc_WSD_legs,
+        legs=gear.Nyame_Legs,
         feet="Maxixi Toe Shoes +3",
         neck="Etoile Gorget +2",
         ear1="Cessance Earring",
@@ -329,7 +329,7 @@ function init_gear_sets()
         body=gear.Taeon_FC_body, --9
         hands="Leyline Gloves", --8
         legs="Rawhide Trousers", --5
-        feet=gear.Herc_WSD_feet, --2
+        feet=gear.Nyame_Feet, --2
         neck="Orunmila's Torque", --5
         ear1="Loquacious Earring", --2
         ear2="Enchntr. Earring +1", --2
@@ -349,8 +349,8 @@ function init_gear_sets()
 
     sets.precast.WS = {
         ammo="Aurgelmir Orb +1",
-        head=gear.Herc_WSD_head,
-        body=gear.Herc_WSD_body,
+        head=gear.Nyame_Head,
+        body=gear.Nyame_Body,
         hands="Maxixi Bangles +3",
         legs="Horos Tights +3",
         feet="Lustra. Leggings +1",
@@ -407,8 +407,8 @@ function init_gear_sets()
         ammo="Voluspa Tathlum",
         head="Dampening Tam",
         hands=gear.Adhemar_A_hands,
-        legs=gear.Herc_WSD_legs,
-        })
+        legs=gear.Nyame_Legs,
+    })
 
     sets.precast.WS['Evisceration'] = set_combine(sets.precast.WS, {
         ammo="Charis Feather",
@@ -441,10 +441,10 @@ function init_gear_sets()
 
     sets.precast.WS['Rudra\'s Storm'].Acc = set_combine(sets.precast.WS['Rudra\'s Storm'], {
         ammo="Voluspa Tathlum",
-        legs=gear.Herc_WSD_legs,
+        legs=gear.Nyame_Legs,
         ear2="Telos Earring",
         waist="Grunfeld Rope",
-        })
+    })
 
     sets.precast.WS['Aeolian Edge'] = {
         ammo="Ghastly Tathlum +1",
@@ -452,7 +452,7 @@ function init_gear_sets()
         -- body="Samnuha Coat",
         hands="Maxixi Bangles +3",
         legs="Horos Tights +3",
-        feet=gear.Herc_WSD_feet,
+        feet=gear.Nyame_Feet,
         neck="Baetyl Pendant",
         ear1="Crematio Earring",
         ear2="Friomisi Earring",

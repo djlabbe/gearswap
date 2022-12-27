@@ -503,7 +503,7 @@ function init_gear_sets()
 
     sets.midcast.Curaga = set_combine(sets.midcast.Cure, {
         ammo="Regal Gem",
-         ring1=gear.Stikini_1,
+        ring1=gear.Stikini_1,
         ring2=gear.Stikini_2,
         waist="Luminary Sash",
     })
@@ -591,7 +591,7 @@ function init_gear_sets()
     })
 
     sets.midcast.Refresh = set_combine(sets.midcast.EnhancingDuration, {
-        head=gear.Amalric_A_Head, -- +1
+        head=gear.Amalric_A_Head, -- +2
         body=gear.Artifact_Body, -- +3
         legs=gear.Empyrean_Legs, -- +2
     })

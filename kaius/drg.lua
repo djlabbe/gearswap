@@ -180,11 +180,11 @@ function init_gear_sets()
 
     sets.precast.WS = {
         ammo="Aurgelmir Orb +1",
-        head=gear.Relic_Head,
-        body=gear.Gleti_Body,
-        hands="Sulev. Gauntlets +2",
-        legs="Sulev. Cuisses +2",
-        feet="Sulevia's Leggings +2",
+        head=gear.Nyame_Head,
+        body=gear.Nyame_Legs,
+        hands=gear.Nyame_Hands,
+        legs=gear.Nyame_Legs,
+        feet=gear.Nyame_Feet,
         neck="Fotia Gorget",
         waist="Sailfi Belt +1",
         ear1="Sherida Earring",
@@ -223,7 +223,7 @@ function init_gear_sets()
         ear1="Sherida Earring",
         ear2="Moonshade Earring",
         body=gear.Valo_QA_Body,
-        hands=gear.Nyame_Hands,
+        hands=gear.Empyrean_Hands,
         ring1="Niqmaddu Ring",
         ring2="Regal Ring",
         back=gear.DRG_WS2_Cape,
@@ -234,8 +234,8 @@ function init_gear_sets()
 
     sets.precast.WS['Stardiver'].Acc = set_combine(sets.precast.WS['Stardiver'], {
         ammo="Voluspa Tathlum",
-        legs=gear.Artifact_Legs,
-        feet=gear.Artifact_Feet,
+        -- legs=gear.Artifact_Legs,
+        -- feet=gear.Artifact_Feet,
     })
 
     sets.precast.WS['Stardiver'].AttackCap = set_combine(sets.precast.WS['Stardiver'], {
@@ -244,7 +244,7 @@ function init_gear_sets()
         neck="Dragoon's Collar +2",
         hands=gear.Gleti_Hands,
         legs=gear.Gleti_Legs,
-        feet=gear.Relic_Feet,
+        feet="Flam. Gambieras +2",
     })
 
     ---------------
@@ -253,14 +253,14 @@ function init_gear_sets()
     sets.precast.WS['Camlann\'s Torment'] = {
         ammo="Knobkierrie",
         head=gear.Empyrean_Head,
-        body=gear.Gleti_Body,
+        body=gear.Nyame_Body,
         hands=gear.Artifact_Hands,
-        legs=gear.Relic_Legs,
-        feet="Sulevia's Leggings +2",
+        legs=gear.Nyame_Legs,
+        feet=gear.Nyame_Feet,
         neck="Dgn. Collar +2",
         waist="Sailfi Belt +1",
         ear1="Thrud Earring",
-        ear2="Moonshade Earring",
+        ear2="Sherida Earring",
         ring1="Niqmaddu ring",
         ring2="Regal Ring",
         back=gear.DRG_WS1_Cape,
@@ -277,10 +277,19 @@ function init_gear_sets()
     -- Sonic --
     ------------
     sets.precast.WS['Sonic Thrust'] = {
+        ammo="Knobkierrie",
+        head=gear.Empyrean_Head,
+        body=gear.Nyame_Body,
+        hands=gear.Artifact_Hands,
+        legs=gear.Nyame_Legs,
+        feet=gear.Nyame_Feet,
         neck="Dgn. Collar +2",
-        ear2="Ishvara Earring",
-        ring2="Epaminondas's Ring",
         waist="Sailfi Belt +1",
+        ear1="Thrud Earring",
+        ear2="Moonshade Earring",
+        ring1="Niqmaddu ring",
+        ring2="Regal Ring",
+        back=gear.DRG_WS1_Cape,
     }
 
     sets.precast.WS['Sonic Thrust'].Acc = set_combine(sets.precast.WS['Sonic Thrust'], {})
@@ -295,9 +304,9 @@ function init_gear_sets()
     -------------
     sets.precast.WS['Impulse Drive'] = {
         head=gear.Empyrean_Head,
-        body=gear.Nyame_Body,
+        body="Hjarrandi Breastplate",
         hands=gear.Relic_Hands,
-        legs=gear.Nyame_Legs,
+        legs=gear.Gletti_Legs,
         neck="Dgn. Collar +2",
         ear1="Thrud Earring",
         ear2="Moonshade Earring",
@@ -324,10 +333,9 @@ function init_gear_sets()
 
     sets.precast.WS['Impulse Drive'].HighTP = set_combine(sets.precast.WS['Impulse Drive'], {
         hands=gear.Relic_Hands,
-        legs=gear.Artifact_Hands,
-        back=gear.DRG_WS2_Cape,
+        -- legs=gear.Artifact_Legs,
+        -- back=gear.DRG_WS2_Cape,
         ear2="Ishvara Earring",
-        ring1="Regal Ring",
     })
 
     ----------------
@@ -392,15 +400,21 @@ function init_gear_sets()
     -- Raiden/Thunder --
     --------------------
 
-    sets.precast.WS['Raiden Thrust'] = set_combine(sets.precast.WS, {
-        ammo="Ghastly Tathlum +1",
-        body=gear.Carmine_B_Body,
-        hands=gear.Carmine_D_Hands,
-        -- ear1="Crematio Earring",
-        ear2="Friomisi Earring",
-        ring1="Shiva Ring +1",
-        back=gear.DRG_WS1_Cape
-    })
+    sets.precast.WS['Raiden Thrust'] = {
+        ammo="Knobkierrie",
+        head=gear.Nyame_Head,
+        neck="Sibyl Scarf",
+        ear1="Friomisi Earring",
+        ear2="Moonshade Earring",
+        body=gear.Nyame_Head,
+        hands=gear.Nyame_Hands,
+        ring1="Epaminondas's Ring",
+        ring2="Shiva Ring +1",
+        back=gear.DRG_WS1_Cape,
+        waist="Sailfi Belt +1",
+        legs=gear.Nyame_Legs,
+        feet=gear.Nyame_Feet,
+    }
 
     sets.precast.WS['Thunder Thrust'] = sets.precast.WS['Raiden Thrust']
 
@@ -419,10 +433,14 @@ function init_gear_sets()
     }
 
     sets.midcast.ElementalBreath = {
+        ammo="Voluspa Tathlum",
         head=gear.Relic_Head,
+        neck="Adad Amulet",
         ear1="Enmerkar Earring",
         ear2="Handler's Earring +1",
         -- ring1="C. Palug Ring",
+        ring2="Defending Ring",
+        waist="Incarnation Sash",
         back="Updraft Mantle",
     }
 
