@@ -64,7 +64,7 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('Normal', 'Acc', 'Kraken')
+    state.OffenseMode:options('Normal', 'Acc')
     state.HybridMode:options('Normal', 'DT')
     state.RangedMode:options('Normal', 'Acc', 'Critical')
     state.WeaponskillMode:options('Normal', 'Acc', 'Enmity')
@@ -612,164 +612,52 @@ function init_gear_sets()
         waist="Kentarch Belt +1",
     })
 
-    sets.engaged.Kraken = {
-        head=gear.Malignance_Head, --6/6
-        legs=gear.Malignance_Legs, --8/8
-        body=gear.Malignance_Body, --9/9
-        hands=gear.Malignance_Hands, --5/5
-        feet=gear.Malignance_Feet, --4/4
-        neck="Iskur Gorget",
-        ear1="Crep. Earring",
-        ear2="Telos Earring",
-        waist="Kentarch Belt +1",
-        ring1=gear.Chirich_1,
-        ring2=gear.Chirich_2,
-        back=gear.RNG_DW_Cape,
-    }
-
-
-
     -- * DNC Subjob DW Trait: +15%
     -- * NIN Subjob DW Trait: +25%
 
     -- No Magic Haste (74% DW to cap)
     sets.engaged.DW = {
-        head=gear.Adhemar_B_Head,
-        body=gear.Adhemar_B_Body, --6
-        hands="Floral Gauntlets", --5
-        legs=gear.Carmine_D_Legs, --6
-        feet=gear.Taeon_DW_Feet, --9
+        head=gear.Malignance_Head,
+        body=gear.Malignance_Body,
+        hands=gear.Malignance_Hands,
+        legs=gear.Malignance_Legs,
+        feet=gear.Malignance_Feet,
         neck="Iskur Gorget",
         ear1="Suppanomimi", --5
         ear2="Eabani Earring", --4
         ring1="Hetairoi Ring",
         ring2="Epona's Ring",
         back=gear.RNG_DW_Cape, --10
-        -- waist="Reiki Yotai", --7
         waist="Windbuffet Belt +1",
     } -- 52%
 
-        
-    sets.engaged.DW.Kraken = {
-        head=gear.Malignance_Head, --6/6
-        legs=gear.Malignance_Legs, --8/8
-        body=gear.Malignance_Body, --9/9
-        hands=gear.Malignance_Hands, --5/5
-        feet=gear.Malignance_Feet, --4/4
-        neck="Iskur Gorget",
+    sets.engaged.DW.Acc = set_combine(sets.engaged.DW, {
         ear1="Crep. Earring",
         ear2="Telos Earring",
-        waist="Kentarch Belt +1",
         ring1=gear.Chirich_1,
         ring2=gear.Chirich_2,
-        back=gear.RNG_DW_Cape,
-    }
-
-    sets.precast.WS['Empyreal Arrow'] = sets.engaged.DW.Kraken
-
-    sets.engaged.DW.Acc = set_combine(sets.engaged.DW, {
-        head=gear.Carmine_D_Head,
-        hands="Gazu Bracelet +1",
-        ear1="Cessance Earring",
-        ear2="Mache Earring +1",
-        ring1="Regal Ring",
-        ring2=gear.Chirich_2,
         waist="Kentarch Belt +1",
-        -- waist="Olseni Belt",
     })
 
     -- 15% Magic Haste (67% DW to cap)
-    sets.engaged.DW.LowHaste = {
-        head=gear.Adhemar_B_Head,
-        body=gear.Adhemar_B_Body,
-        hands="Floral Gauntlets", --5
-        legs=gear.Carmine_D_Legs, --6
-         feet=gear.Taeon_DW_Feet, --9
-        neck="Iskur Gorget",
-        ear1="Suppanomimi", --5
-        ear2="Eabani Earring", --4
-        ring1="Hetairoi Ring",
-        ring2="Epona's Ring",
-        back=gear.RNG_DW_Cape, --10
-         -- waist="Reiki Yotai", --7
-         waist="Windbuffet Belt +1",
-    } -- 52%
-
-    sets.engaged.DW.Acc.LowHaste = set_combine(sets.engaged.DW.LowHaste, {
-        head=gear.Carmine_D_Head,
-        hands="Gazu Bracelet +1",
-        ear1="Cessance Earring",
-        ear2="Telos Earring",
-        ring1="Regal Ring",
-        ring2=gear.Chirich_2,
-        waist="Kentarch Belt +1",
-    })
+    sets.engaged.DW.LowHaste = sets.engaged.DW
+    sets.engaged.DW.Acc.LowHaste = sets.engaged.DW.Acc
 
     -- 30% Magic Haste (56% DW to cap)
-    sets.engaged.DW.MidHaste = {
-        head=gear.Adhemar_B_Head,
-        body=gear.Adhemar_B_Body,
-        hands=gear.Adhemar_B_Hands,
-        -- legs="Samnuha Tights",
-        legs=gear.Herc_TA_Legs,
-        feet=gear.Taeon_DW_Feet, --9
-        neck="Iskur Gorget",
-        ear1="Suppanomimi", --5
-        ear2="Eabani Earring", --4
-        ring1="Hetairoi Ring",
-        ring2="Epona's Ring",
-        back=gear.RNG_DW_Cape,
-         -- waist="Reiki Yotai", --7
-         waist="Windbuffet Belt +1",
-      } -- 41%
-
-    sets.engaged.DW.Acc.MidHaste = set_combine(sets.engaged.DW.MidHaste, {
-        head=gear.Carmine_D_Head,
-        hands="Gazu Bracelet +1",
-        legs=gear.Carmine_D_Legs,
-        ear1="Cessance Earring",
-         ear2="Telos Earring",
-        ring1="Regal Ring",
-        ring2=gear.Chirich_2,
-        waist="Kentarch Belt +1",
-    })
+    sets.engaged.DW.MidHaste = sets.engaged.DW.LowHaste
+    sets.engaged.DW.Acc.MidHaste = sets.engaged.DW.Acc.LowHaste
 
     -- 35% Magic Haste (51% DW to cap)
-    sets.engaged.DW.HighHaste = {
-        head=gear.Adhemar_B_Head,
-        body=gear.Adhemar_B_Body, --6
-        hands=gear.Adhemar_B_Hands,
-        -- legs="Samnuha Tights",
-        legs=gear.Herc_TA_Legs,
-        feet=gear.Herc_TA_Feet,
-        neck="Iskur Gorget",
-        ear1="Suppanomimi", --5
-        ear2="Eabani Earring", --4
-        ring1="Hetairoi Ring",
-        ring2="Epona's Ring",
-        back=gear.RNG_DW_Cape,
-          -- waist="Reiki Yotai", --7
-          waist="Windbuffet Belt +1",
-      } -- 37%
-
-    sets.engaged.DW.Acc.HighHaste = set_combine(sets.engaged.DW.HighHaste, {
-        head=gear.Carmine_D_Head,
-        hands="Gazu Bracelet +1",
-        legs=gear.Carmine_D_Legs,
-        ear1="Cessance Earring",
-        ear2="Telos Earring",
-        ring1="Regal Ring",
-        ring2=gear.Chirich_2,
-        waist="Kentarch Belt +1",
-    })
+    sets.engaged.DW.HighHaste =  sets.engaged.DW.MidHaste
+    sets.engaged.DW.Acc.HighHaste =  sets.engaged.DW.Acc.MidHaste
 
     -- 45% Magic Haste (36% DW to cap)
     sets.engaged.DW.MaxHaste = {
-        head=gear.Adhemar_B_Head,
+        head=gear.Malignance_Head,
         body=gear.Malignance_Body,
-        hands=gear.Adhemar_B_Hands,
-        legs=gear.Herc_TA_Legs,
-        feet=gear.Herc_TA_Feet,
+        hands=gear.Malignance_Hands,
+        legs=gear.Malignance_Legs,
+        feet=gear.Malignance_Feet,
         neck="Iskur Gorget",
         ear1="Sherida Earring",
         ear2="Telos Earring",
@@ -780,26 +668,18 @@ function init_gear_sets()
     } -- 10%
 
     sets.engaged.DW.Acc.MaxHaste = set_combine(sets.engaged.DW.MaxHaste, {
-        head=gear.Carmine_D_Head,
-        hands="Gazu Bracelet +1",
-        legs=gear.Carmine_D_Legs,
-        ear1="Cessance Earring",
+        ear1="Crep. Earring",
         ear2="Telos Earring",
-        ring1="Regal Ring",
+        ring1=gear.Chirich_1,
         ring2=gear.Chirich_2,
         waist="Kentarch Belt +1",
     })
-
-    sets.engaged.DW.MaxHastePlus = set_combine(sets.engaged.DW.MaxHaste, {back=gear.RNG_DW_Cape})
-    sets.engaged.DW.Acc.MaxHastePlus = set_combine(sets.engaged.DW.Acc.MaxHaste, {back=gear.RNG_DW_Cape})
 
     ------------------------------------------------------------------------------------------------
     ---------------------------------------- Hybrid Sets -------------------------------------------
     ------------------------------------------------------------------------------------------------
 
     sets.engaged.Hybrid = {
-        head=gear.Adhemar_D_Head, --4/0
-        neck="Loricate Torque +1", --6/6
         ring2="Defending Ring", --10/10
     }
 
@@ -820,9 +700,6 @@ function init_gear_sets()
 
     sets.engaged.DW.DT.MaxHaste = set_combine(sets.engaged.DW.MaxHaste, sets.engaged.Hybrid)
     sets.engaged.DW.Acc.DT.MaxHaste = set_combine(sets.engaged.DW.Acc.MaxHaste, sets.engaged.Hybrid)
-
-    sets.engaged.DW.DT.MaxHastePlus = set_combine(sets.engaged.DW.MaxHastePlus, sets.engaged.Hybrid)
-    sets.engaged.DW.Acc.DT.MaxHastePlus = set_combine(sets.engaged.DW.Acc.MaxHastePlus, sets.engaged.Hybrid)
 
 
     ------------------------------------------------------------------------------------------------
@@ -1160,9 +1037,7 @@ function determine_haste_group()
     if DW == true then
         if DW_needed <= 11 then
             classes.CustomMeleeGroups:append('MaxHaste')
-        elseif DW_needed > 11 and DW_needed <= 21 then
-            classes.CustomMeleeGroups:append('MaxHastePlus')
-        elseif DW_needed > 21 and DW_needed <= 27 then
+        elseif DW_needed > 11 and DW_needed <= 27 then
             classes.CustomMeleeGroups:append('HighHaste')
         elseif DW_needed > 27 and DW_needed <= 31 then
             classes.CustomMeleeGroups:append('MidHaste')
