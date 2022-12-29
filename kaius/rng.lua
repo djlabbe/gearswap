@@ -587,12 +587,11 @@ function init_gear_sets()
     -- EG: sets.engaged.Dagger.Accuracy.Evasion
 
     sets.engaged = {
-        head=gear.Adhemar_B_Head,
-        body=gear.Adhemar_B_Body,
-        hands=gear.Adhemar_B_Hands,
-        -- legs="Samnuha Tights",
-        legs=gear.Herc_TA_Legs,
-        feet=gear.Herc_TA_Feet,
+        head=gear.Malignance_Head,
+        body=gear.Malignance_Body,
+        hands=gear.Malignance_Hands,
+        legs=gear.Malignance_Legs,
+        feet=gear.Malignance_Feet,
         neck="Iskur Gorget",
         ear1="Sherida Earring",
         ear2="Brutal Earring",
@@ -607,7 +606,7 @@ function init_gear_sets()
         hands="Gazu Bracelets +1",
         ear1="Cessance Earring",
         ear2="Telos Earring",
-        ring1="Regal Ring",
+        ring1=gear.Chirich_1,
         ring2=gear.Chirich_2,
         waist="Kentarch Belt +1",
     })
@@ -629,7 +628,7 @@ function init_gear_sets()
         ring2="Epona's Ring",
         back=gear.RNG_DW_Cape, --10
         waist="Windbuffet Belt +1",
-    } -- 52%
+    }
 
     sets.engaged.DW.Acc = set_combine(sets.engaged.DW, {
         ear1="Crep. Earring",

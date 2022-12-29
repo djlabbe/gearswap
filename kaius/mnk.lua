@@ -181,7 +181,7 @@ function init_gear_sets()
         body=gear.Taeon_FC_body, --9
         hands="Leyline Gloves", --8
         legs="Rawhide Trousers", --5
-        neck="Baetyl Pendant", --4 --"Orunmila's Torque" if available
+        neck="Baetyl Pendant", --4
         ear1="Loquacious Earring", --2
         ear2="Enchntr. Earring +1", --2
         ring1="Weather. Ring", --4

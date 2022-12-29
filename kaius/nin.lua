@@ -195,8 +195,8 @@ function init_gear_sets()
     sets.precast.Waltz = {
         ammo="Yamarang",
         body="Passion Jacket",
-        -- legs="Dashing Subligar",
-        -- ring1="Asklepian Ring",
+        legs="Dashing Subligar",
+        ring1="Asklepian Ring",
         waist="Gishdubar Sash",
     }
 
@@ -210,7 +210,6 @@ function init_gear_sets()
         body=gear.Taeon_FC_Body, --9
         hands="Leyline Gloves", --8
         legs="Rawhide Trousers", --5
-        -- neck="Orunmila's Torque", --5
         neck="Baetyl Pendant", --4
         ear1="Loquacious Earring", --2
         ear2="Enchntr. Earring +1", --2
