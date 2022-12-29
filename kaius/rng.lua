@@ -604,7 +604,7 @@ function init_gear_sets()
 
     sets.engaged.Acc = set_combine(sets.engaged, {
         head=gear.Carmine_D_Head,
-        hands="Gazu Bracelet +1",
+        hands="Gazu Bracelets +1",
         ear1="Cessance Earring",
         ear2="Telos Earring",
         ring1="Regal Ring",

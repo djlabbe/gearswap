@@ -170,8 +170,8 @@ function job_buff_change(buff,gain)
     if buff == "doom" then
         if gain then
             equip(sets.buff.Doom)
+            disable('ring1','ring2','waist')
             send_command('@input /p Doomed.')
-             disable('ring1','ring2','waist')
         else
             enable('ring1','ring2','waist')
             handle_equipping_gear(player.status)

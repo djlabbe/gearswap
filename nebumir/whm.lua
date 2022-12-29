@@ -194,6 +194,8 @@ function init_gear_sets()
     -- Fast cast sets for spells
 
     sets.precast.FC = {
+        main=gear.Gada_FC, --6
+        sub="Ammurapi Shield",
         ammo="Incantor Stone", --2
         head=gear.Empyrean_Head, --10
         neck="Cleric's Torque +1", --8
@@ -206,7 +208,7 @@ function init_gear_sets()
         waist="Embla Sash", --5
         legs="Ayanmo Cosciales +2", --6
         feet="Regal Pumps +1", --7
-    } --74
+    } --79
 
     sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {
         waist="Siegel Sash",
@@ -360,7 +362,7 @@ function init_gear_sets()
 
     -- 110 total Enhancing Magic Skill; caps even without Light Arts
     sets.midcast['Enhancing Magic'] = {
-        main="Gada",
+        main=gear.Gada_ENH,
         sub="Ammurapi Shield",
         head=gear.Telchine_ENH_Head,
         body=gear.Telchine_ENH_Body,
@@ -377,7 +379,7 @@ function init_gear_sets()
     }
 
     sets.midcast.EnhancingDuration = {
-        main="Gada",
+        main=gear.Gada_ENH,
         sub="Ammurapi Shield",
         head=gear.Telchine_ENH_Head,
         body=gear.Telchine_ENH_Body,
@@ -622,7 +624,7 @@ function init_gear_sets()
     }
 
     -- sets.engaged.Acc = set_combine(sets.engaged, {
-    --     hands="Gazu Bracelet +1",
+    --     hands="Gazu Bracelets +1",
     --     feet="Volte Boots",
     --     waist="Olseni Belt",
     --     })

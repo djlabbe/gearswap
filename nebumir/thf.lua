@@ -436,7 +436,7 @@ function init_gear_sets()
 
     sets.engaged.HighAcc = set_combine(sets.engaged.MidAcc, {
         ammo="C. Palug Stone",
-        hands="Gazu Bracelet +1",
+        hands="Gazu Bracelets +1",
         legs="Pill. Culottes +3",
         ear2="Mache Earring +1",
         ring1="Regal Ring",
@@ -486,7 +486,7 @@ function init_gear_sets()
 
     sets.engaged.DW.HighAcc = set_combine(sets.engaged.DW.MidAcc, {
         ammo="C. Palug Stone",
-        hands="Gazu Bracelet +1",
+        hands="Gazu Bracelets +1",
         legs="Pill. Culottes +3",
         ear1="Cessance Earring",
         ear2="Telos Earring",
@@ -534,7 +534,7 @@ function init_gear_sets()
 
     sets.engaged.DW.HighAcc.LowHaste = set_combine(sets.engaged.DW.MidAcc.LowHaste, {
         ammo="C. Palug Stone",
-        hands="Gazu Bracelet +1",
+        hands="Gazu Bracelets +1",
         legs="Pill. Culottes +3",
         ear2="Telos Earring",
         ring1="Regal Ring",
@@ -582,7 +582,7 @@ function init_gear_sets()
 
     sets.engaged.DW.HighAcc.MidHaste = set_combine(sets.engaged.DW.MidAcc.MidHaste, {
         ammo="C. Palug Stone",
-        hands="Gazu Bracelet +1",
+        hands="Gazu Bracelets +1",
         legs="Pill. Culottes +3",
         ear2="Telos Earring",
         ring1="Regal Ring",
@@ -633,7 +633,7 @@ function init_gear_sets()
 
     sets.engaged.DW.HighAcc.HighHaste = set_combine(sets.engaged.DW.MidAcc.HighHaste, {
         ammo="C. Palug Stone",
-        hands="Gazu Bracelet +1",
+        hands="Gazu Bracelets +1",
         legs="Pill. Culottes +3",
         ear2="Telos Earring",
         ring1="Regal Ring",
@@ -681,7 +681,7 @@ function init_gear_sets()
 
     sets.engaged.DW.HighAcc.MaxHaste = set_combine(sets.engaged.DW.MidAcc.MaxHaste, {
         ammo="C. Palug Stone",
-        hands="Gazu Bracelet +1",
+        hands="Gazu Bracelets +1",
         legs="Pill. Culottes +3",
         ear2="Telos Earring",
         ring1="Regal Ring",
@@ -709,7 +709,7 @@ function init_gear_sets()
         hands=gear.Malignance_Hands, --5/5
         legs=gear.Malignance_Legs, --7/7
         feet=gear.Malignance_Feet, --4/4
-        ring2="Defending Ring", --10/10
+        -- ring2="Defending Ring", --10/10
     }
 
     sets.engaged.DT = set_combine(sets.engaged, sets.engaged.Hybrid)

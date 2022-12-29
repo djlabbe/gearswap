@@ -308,11 +308,12 @@ function init_gear_sets()
 
     sets.precast.WS = {
        ammo="Aurgelmir Orb +1",
-        head=gear.Nyame_Head,
+        head=gear.Herc_WSD_Head,
         body=gear.Artifact_Body,
+        body=gear.Malignance_Body,
         hands="Jhakri Cuffs +2",
         legs=gear.Relic_Legs,
-        feet=gear.Nyame_Feet,
+        feet=gear.Herc_WSD_Feet,
         neck="Fotia Gorget",
         ear1="Moonshade Earring",
         ear2="Ishvara Earring",
@@ -429,7 +430,7 @@ function init_gear_sets()
     sets.precast.WS['Realmrazer'].Acc = sets.precast.WS['Requiescat'].Acc
 
     sets.precast.WS['Flash Nova'] = set_combine(sets.precast.WS['Sanguine Blade'], {
-        head=gear.Herc_MAB_Head,
+        head=gear.Nyame_Head,
         ring2="Weather. Ring",
     })
 
@@ -485,7 +486,7 @@ function init_gear_sets()
     sets.midcast['Blue Magic'].PhysicalAcc = set_combine(sets.midcast['Blue Magic'].Physical, {
         ammo="Voluspa Tathlum",
         head=gear.Carmine_D_Head,
-        hands="Gazu Bracelet +1",
+        hands="Gazu Bracelets +1",
         legs=gear.Carmine_D_Legs,
         neck="Mirage Stole +2",
         ear2="Telos Earring",
@@ -829,7 +830,7 @@ function init_gear_sets()
 
     sets.engaged.HighAcc = set_combine(sets.engaged.MidAcc, {
         head="Carmine Mask +1",
-        hands="Gazu Bracelet +1",
+        hands="Gazu Bracelets +1",
         legs="Carmine Cuisses +1",
         neck="Mirage Stole +2",
         ear2="Mache Earring +1",
@@ -877,7 +878,7 @@ function init_gear_sets()
 
     sets.engaged.DW.HighAcc = set_combine(sets.engaged.DW.MidAcc, {
         head=gear.Carmine_D_Head,
-        hands="Gazu Bracelet +1",
+        hands="Gazu Bracelets +1",
         ear1="Cessance Earring",
         ear2="Mache Earring +1",
         ring1=gear.Chirich_1,
@@ -916,7 +917,7 @@ function init_gear_sets()
 
     sets.engaged.DW.HighAcc.LowHaste = set_combine(sets.engaged.DW.MidAcc.LowHaste, {
         head="Carmine Mask +1",
-        hands="Gazu Bracelet +1",
+        hands="Gazu Bracelets +1",
         ear1="Cessance Earring",
         ear2="Mache Earring +1",
         ring1=gear.Chirich_1,
@@ -957,7 +958,7 @@ function init_gear_sets()
 
     sets.engaged.DW.HighAcc.MidHaste = set_combine(sets.engaged.DW.MidAcc.MidHaste, {
         head=gear.Carmine_D_Head,
-        hands="Gazu Bracelet +1",
+        hands="Gazu Bracelets +1",
         legs=gear.Carmine_D_Legs,
         ear1="Cessance Earring",
         ear2="Mache Earring +1",
@@ -998,7 +999,7 @@ function init_gear_sets()
 
     sets.engaged.DW.HighAcc.HighHaste = set_combine(sets.engaged.DW.MidAcc.HighHaste, {
         head=gear.Carmine_D_Head,
-        hands="Gazu Bracelet +1",
+        hands="Gazu Bracelets +1",
         legs=gear.Carmine_D_Legs,
         ear1="Cessance Earring",
         ear2="Mache Earring +1",
@@ -1038,7 +1039,7 @@ function init_gear_sets()
 
     sets.engaged.DW.HighAcc.MaxHaste = set_combine(sets.engaged.DW.MidAcc.MaxHaste, {
         head=gear.Carmine_D_Head,
-        hands="Gazu Bracelet +1",
+        hands="Gazu Bracelets +1",
         legs=gear.Carmine_D_Legs,
         ear2="Mache Earring +1",
         ring1=gear.Chirich_1,

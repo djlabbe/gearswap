@@ -686,7 +686,7 @@ function init_gear_sets()
     }
 
     sets.engaged.Acc = set_combine(sets.engaged, {
-        hands="Gazu Bracelet +1",
+        hands="Gazu Bracelets +1",
     })
 
     sets.engaged.DW = {
@@ -708,7 +708,7 @@ function init_gear_sets()
 
     sets.engaged.DW.Acc = set_combine(sets.engaged.DW, {
         sub="Sindri",
-        hands="Gazu Bracelet +1",
+        hands="Gazu Bracelets +1",
     })
 
     sets.engaged.Aftermath = {

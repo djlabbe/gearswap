@@ -382,7 +382,7 @@ function init_gear_sets()
 
     sets.engaged.Acc = set_combine(sets.engaged, {
         ammo="Seeth. Bomblet +1",
-        hands="Gazu Bracelet +1",
+        hands="Gazu Bracelets +1",
     })
 
     sets.engaged.Aftermath = {

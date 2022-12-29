@@ -75,7 +75,7 @@ function user_setup()
     -- gear.Empyrean_Legs = { name="Peltast's Cuissots +1" }
     -- gear.Empyrean_Feet = { name="Peltast's Schynbalds +1" }
 
-    gear.DRG_TP_Cape = { name="Brigantia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Haste"+10','Damage taken-5%',}} --*
+    gear.DRG_TP_Cape = { name="Brigantia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Damage taken-5%',}} --*
     gear.DRG_WS1_Cape = { name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}} --*
     gear.DRG_WS2_Cape = { name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','"Dbl.Atk."+10',}} -- *
 
@@ -493,10 +493,10 @@ function init_gear_sets()
     sets.engaged.Hybrid = {
         ammo="Coiste Bodhar",
         neck="Dgn. Collar +2",
-        head="Hjarrandi Helm", --10/10
-        body="Hjarrandi Breastplate", --12/12
-        legs="Sulevia's Cuisses +2", --7/7
-        hands="Sulevia's Gauntlets +2", --5/5
+        -- head="Hjarrandi Helm", --10/10
+        -- body="Hjarrandi Breastplate", --12/12
+        -- legs="Sulevia's Cuisses +2", --7/7
+        -- hands="Sulevia's Gauntlets +2", --5/5
         ring1=gear.Moonlight_1, --5/5
         ring2=gear.Moonlight_2, --5/5
     } --49/49 (cape = 5/5)

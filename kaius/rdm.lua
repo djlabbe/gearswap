@@ -936,7 +936,7 @@ function init_gear_sets()
         head=gear.Carmine_D_Head,
         -- neck="Combatant's Torque",
         body=gear.Carmine_B_Body,
-        hands="Gazu Bracelet +1",
+        hands="Gazu Bracelets +1",
         legs="Carmine Cuisses +1",
         ear1="Cessance Earring",
         ear2="Mache Earring +1",
@@ -967,7 +967,7 @@ function init_gear_sets()
         -- neck="Combatant's Torque",
         ring1=gear.Chirich_1,
         body=gear.Carmine_B_Body,
-        hands="Gazu Bracelet +1",
+        hands="Gazu Bracelets +1",
         ear1="Cessance Earring",
         ear2="Mache Earring +1",
     })
@@ -995,7 +995,7 @@ function init_gear_sets()
         -- neck="Combatant's Torque",
         ring1=gear.Chirich_1,
         body=gear.Carmine_B_Body,
-        hands="Gazu Bracelet +1",
+        hands="Gazu Bracelets +1",
         ear1="Cessance Earring",
         ear2="Mache Earring +1",
     })
@@ -1023,7 +1023,7 @@ function init_gear_sets()
         -- neck="Combatant's Torque",
         body=gear.Carmine_B_Body,
         legs=gear.Carmine_D_Legs, --6
-        hands="Gazu Bracelet +1",
+        hands="Gazu Bracelets +1",
         ear1="Cessance Earring",
         ear2="Telos Earring",
         ring1=gear.Chirich_1,
@@ -1050,7 +1050,7 @@ function init_gear_sets()
         ammo="Voluspa Tathlum",
         head=gear.Carmine_D_Head,
         body=gear.Carmine_B_Body,
-        hands="Gazu Bracelet +1",
+        hands="Gazu Bracelets +1",
         ear1="Cessance Earring",
         ear2="Mache Earring +1",
         legs=gear.Carmine_D_Legs, --6
@@ -1079,7 +1079,7 @@ function init_gear_sets()
         ammo="Voluspa Tathlum",
         head=gear.Carmine_D_Head,
         body=gear.Carmine_B_Body,
-        hands="Gazu Bracelet +1",
+        hands="Gazu Bracelets +1",
         legs=gear.Carmine_D_Legs,
         ear1="Cessance Earring",
         ear2="Mache Earring +1",
