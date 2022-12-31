@@ -656,7 +656,7 @@ function init_gear_sets()
         ammo="C. Palug Stone",
         head=gear.Carmine_D_Head,
         body="Carm. Sc. Mail +1",
-        hands="Gazu Bracelet +1",
+        hands="Gazu Bracelets +1",
         legs="Carmine Cuisses +1",
         ear1="Odr Earring",
         ear2="Mache Earring +1",

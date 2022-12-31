@@ -138,7 +138,7 @@ function init_gear_sets()
     sets.precast.FC = {
     --  /RDM --15
         ranged="Dunna", --3
-        main="Sucellus", --5
+        main=gear.GADA_FC, --6
         sub="Chanter's Shield", --3
         head="Amalric Coif +1", --11
         body=gear.Merl_MB_body, --6
@@ -554,7 +554,7 @@ function init_gear_sets()
         sub="Genmei Shield",
         head="Jhakri Coronal +2",
         body="Jhakri Robe +2",
-        hands="Gazu Bracelet +1",
+        hands="Gazu Bracelets +1",
         legs="Jhakri Slops +2",
         feet="Jhakri Pigaches +2",
         ear1="Cessance Earring",

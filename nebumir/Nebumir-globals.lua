@@ -13,6 +13,10 @@ function define_global_sets()
     gear.Chirich_1 = {name="Chirich Ring +1", bag="wardrobe4"}
     gear.Chirich_2 = {name="Chirich Ring +1", bag="wardrobe5"}
 
+    ----Weapons
+    gear.Gada_FC = { name="Gada", augments={'"Fast Cast"+6','DMG:+5',}}
+    gear.Gada_ENH = { name="Gada", augments={'Enh. Mag. eff. dur. +6','"Mag.Atk.Bns."+15',}}
+
     -- Malignance
     gear.Malignance_Head = {name="Malignance Chapeau"}
     gear.Malignance_Body = {name="Malignance Tabard"}

@@ -270,7 +270,7 @@ function init_gear_sets()
         ammo="C. Palug Stone",
         head="Maxixi Tiara +3",
         body="Maxixi Casaque +3",
-        hands="Gazu Bracelet +1",
+        hands="Gazu Bracelets +1",
         legs="Mummu Kecks +2",
         feet="Horos T. Shoes +3",
         neck="Etoile Gorget +2",
@@ -306,7 +306,7 @@ function init_gear_sets()
         ammo="C. Palug Stone",
         head="Maxixi Tiara +3",
         body="Maxixi Casaque +3",
-        hands="Gazu Bracelet +1",
+        hands="Gazu Bracelets +1",
         legs=gear.Nyame_Legs,
         feet="Maxixi Toe Shoes +3",
         neck="Etoile Gorget +2",
@@ -340,7 +340,7 @@ function init_gear_sets()
         ammo="Impatiens",
         body="Passion Jacket",
         ring1="Lebeche Ring",
-        })
+    })
 
 
     ------------------------------------------------------------------------------------------------
@@ -584,7 +584,7 @@ function init_gear_sets()
     sets.engaged.HighAcc = set_combine(sets.engaged.MidAcc, {
         ammo="C. Palug Stone",
         body="Maxixi Casaque +3",
-        hands="Gazu Bracelet +1",
+        hands="Gazu Bracelets +1",
         legs="Horos Tights +3",
         ear2="Mache Earring +1",
         ring1="Regal Ring",
@@ -635,7 +635,7 @@ function init_gear_sets()
     sets.engaged.DW.HighAcc = set_combine(sets.engaged.DW.MidAcc, {
         ammo="C. Palug Stone",
         body="Maxixi Casaque +3",
-        hands="Gazu Bracelet +1",
+        hands="Gazu Bracelets +1",
         legs="Horos Tights +3",
         ear2="Mache Earring +1",
         ring1="Regal Ring",
@@ -683,7 +683,7 @@ function init_gear_sets()
     sets.engaged.DW.HighAcc.LowHaste = set_combine(sets.engaged.DW.MidAcc.LowHaste, {
         ammo="C. Palug Stone",
         body="Maxixi Casaque +3",
-        hands="Gazu Bracelet +1",
+        hands="Gazu Bracelets +1",
         legs="Horos Tights +3",
         ear2="Mache Earring +1",
         ring1="Regal Ring",
@@ -731,7 +731,7 @@ function init_gear_sets()
     sets.engaged.DW.HighAcc.MidHaste = set_combine(sets.engaged.DW.MidAcc.MidHaste, {
         ammo="C. Palug Stone",
         body="Maxixi Casaque +3",
-        hands="Gazu Bracelet +1",
+        hands="Gazu Bracelets +1",
         legs="Horos Tights +3",
         ear2="Mache Earring +1",
         ring1="Regal Ring",
@@ -779,7 +779,7 @@ function init_gear_sets()
         ammo="C. Palug Stone",
         head="Maxixi Tiara +3", --8
         body="Maxixi Casaque +3",
-        hands="Gazu Bracelet +1",
+        hands="Gazu Bracelets +1",
         legs="Horos Tights +3",
         ear2="Mache Earring +1",
         ring1="Regal Ring",
@@ -829,7 +829,7 @@ function init_gear_sets()
         ammo="C. Palug Stone",
         head="Maxixi Tiara +3", --8
         body="Maxixi Casaque +3",
-        hands="Gazu Bracelet +1",
+        hands="Gazu Bracelets +1",
         legs="Horos Tights +3",
         ear2="Mache Earring +1",
         ring1="Regal Ring",

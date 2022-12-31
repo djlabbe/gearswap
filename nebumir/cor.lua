@@ -743,7 +743,7 @@ function init_gear_sets()
 
     sets.engaged.HighAcc = set_combine(sets.engaged.MidAcc, {
         head=gear.Carmine_D_Head,
-        hands="Gazu Bracelet +1",
+        hands="Gazu Bracelets +1",
         ear1="Mache Earring +1",
         ear2="Odr Earring",
         ring2=gear.Chirich_2,
@@ -759,7 +759,7 @@ function init_gear_sets()
         ammo=gear.RAbullet,
         head=gear.Adhemar_B_Head,
         body=gear.Adhemar_B_Body, --6
-        hands="Floral Gauntlets", --5
+        hands=gear.Malignance_Hands,
         legs=gear.Carmine_D_Legs, --6
         feet=gear.Taeon_DW_Feet, --9
         neck="Iskur Gorget",
@@ -788,7 +788,7 @@ function init_gear_sets()
 
     sets.engaged.DW.HighAcc = set_combine(sets.engaged.DW.MidAcc, {
         head=gear.Carmine_D_Head,
-        hands="Gazu Bracelet +1",
+        hands="Gazu Bracelets +1",
         ear1="Mache Earring +1",
         ear2="Odr Earring",
         ring2=gear.Chirich_2,
@@ -801,7 +801,7 @@ function init_gear_sets()
         ammo=gear.RAbullet,
         head=gear.Adhemar_B_Head,
         body=gear.Adhemar_B_Body, --6
-        hands="Floral Gauntlets", --5
+        hands=gear.Malignance_Hands,
         legs=gear.Carmine_D_Legs, --6
         feet=gear.Taeon_DW_Feet, --9
         neck="Iskur Gorget",
@@ -829,7 +829,7 @@ function init_gear_sets()
 
     sets.engaged.DW.HighAcc.LowHaste = set_combine(sets.engaged.DW.MidAcc.LowHaste, {
         head=gear.Carmine_D_Head,
-        hands="Gazu Bracelet +1",
+        hands="Gazu Bracelets +1",
         ear1="Mache Earring +1",
         ear2="Odr Earring",
         ring2=gear.Chirich_2,
@@ -871,7 +871,7 @@ function init_gear_sets()
 
     sets.engaged.DW.HighAcc.MidHaste = set_combine(sets.engaged.DW.MidAcc.MidHaste, {
         head=gear.Carmine_D_Head,
-        hands="Gazu Bracelet +1",
+        hands="Gazu Bracelets +1",
         legs=gear.Carmine_D_Legs,
         ear1="Mache Earring +1",
         ear2="Odr Earring",
@@ -914,7 +914,7 @@ function init_gear_sets()
 
     sets.engaged.DW.HighAcc.HighHaste = set_combine(sets.engaged.DW.MidAcc.HighHaste, {
         head=gear.Carmine_D_Head,
-        hands="Gazu Bracelet +1",
+        hands="Gazu Bracelets +1",
         legs=gear.Carmine_D_Legs,
         ear1="Mache Earring +1",
         ear2="Odr Earring",
@@ -957,7 +957,7 @@ function init_gear_sets()
 
     sets.engaged.DW.HighAcc.MaxHaste = set_combine(sets.engaged.DW.MidAcc.MaxHaste, {
         head=gear.Carmine_D_Head,
-        hands="Gazu Bracelet +1",
+        hands="Gazu Bracelets +1",
         legs=gear.Carmine_D_Legs,
         ear1="Mache Earring +1",
         ear2="Odr Earring",
