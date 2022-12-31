@@ -316,7 +316,7 @@ function init_gear_sets()
     })
 
     sets.midcast.Aquaveil = set_combine(sets.midcast.EnhancingDuration, {
-        -- main="Vadose Rod",
+        main="Vadose Rod",
         sub="Ammurapi Shield",
         ammo="Staunch Tathlum +1",
         head=gear.Amalric_A_Head,

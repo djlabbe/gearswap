@@ -383,7 +383,7 @@ function init_gear_sets()
         body=gear.Telchine_ENH_Body,
         hands=gear.Telchine_ENH_Hands,
         legs=gear.Telchine_ENH_Legs,
-        feet=gear.Telchine_ENH_Feet,
+        feet=gear.Artifact_Feet,
         waist="Embla Sash",
     }
 
@@ -409,7 +409,7 @@ function init_gear_sets()
     })
 
     sets.midcast.Aquaveil = set_combine(sets.midcast.EnhancingDuration, {
-        -- main="Vadose Rod",
+        main="Vadose Rod",
         sub="Ammurapi Shield",
         ammo="Staunch Tathlum +1",
         -- hands="Regal Cuffs",
