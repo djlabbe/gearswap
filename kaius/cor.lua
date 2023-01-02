@@ -337,8 +337,8 @@ function init_gear_sets()
 
     sets.precast.WS = {
         ammo=gear.WSbullet,
-        head=gear.Relic_Head,
-        body=gear.Artifact_Body,
+        head=gear.Nyame_Head,
+        body=gear.Nyame_Body,
         hands=gear.Nyame_Hands,
         legs=gear.Nyame_Legs,
         feet=gear.Relic_Feet,
@@ -378,7 +378,6 @@ function init_gear_sets()
         body=gear.Relic_Body,
         hands=gear.Nyame_Hands,
         legs=gear.Nyame_Legs,
-        feet=gear.Nyame_Feet,
         feet=gear.Relic_Feet,
         neck="Comm. Charm +2",
         -- ear1="Crematio Earring",
@@ -481,14 +480,14 @@ function init_gear_sets()
 
     sets.midcast.SpellInterrupt = {
         body=gear.Taeon_Phalanx_Body, --10
-        hands="Rawhide Gloves", --15
+        -- hands="Rawhide Gloves", --15
         legs=gear.Carmine_D_Legs, --20
         feet=gear.Taeon_Phalanx_Feet, --10
         neck="Loricate Torque +1", --5
         ear1="Halasz Earring", --5
         ear2="Magnetic Earring", --8
         ring2="Evanescence Ring", --5
-        waist="Rumination Sash", --10
+        -- waist="Rumination Sash", --10
     }
 
     sets.midcast.Utsusemi = sets.midcast.SpellInterrupt
@@ -546,7 +545,7 @@ function init_gear_sets()
         feet=gear.Artifact_Feet,
         neck="Comm. Charm +2",
         ear1="Enchntr. Earring +1",
-        ear2="Digni. Earring",
+        ear2="Hermetic Earring",
         ring1="Regal Ring",
         ring2="Weather. Ring",
         back=gear.COR_WS1_Cape,

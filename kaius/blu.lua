@@ -307,13 +307,12 @@ function init_gear_sets()
     ------------------------------------------------------------------------------------------------
 
     sets.precast.WS = {
-       ammo="Aurgelmir Orb +1",
-        head=gear.Herc_WSD_Head,
-        body=gear.Artifact_Body,
-        body=gear.Malignance_Body,
-        hands="Jhakri Cuffs +2",
-        legs=gear.Relic_Legs,
-        feet=gear.Herc_WSD_Feet,
+        ammo="Aurgelmir Orb +1",
+        head=gear.Nyame_Head,
+        body=gear.Nyame_Body,
+        hands=gear.Nyame_Hands,
+        legs=gear.Nyame_Legs,
+        feet=gear.Nyame_Feet,
         neck="Fotia Gorget",
         ear1="Moonshade Earring",
         ear2="Ishvara Earring",
@@ -368,11 +367,11 @@ function init_gear_sets()
     })
 
     sets.precast.WS['Requiescat'] = {
-        -- head="Luh. Keffiyeh +3",
-        -- body="Luhlaza Jubbah +3",
-        hands="Jhakri Cuffs +2",
-        legs=gear.Relic_Legs,
-        -- feet="Luhlaza Charuqs +3",
+        head=gear.Nyame_Head,
+        body=gear.Nyame_Body,
+        hands=gear.Nyame_Hands,
+        legs=gear.Nyame_Legs,
+        feet=gear.Nyame_Feet,
         neck="Fotia Gorget",
         ear1="Moonshade Earring",
         ear2="Brutal Earring",

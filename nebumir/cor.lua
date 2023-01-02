@@ -398,6 +398,21 @@ function init_gear_sets()
 
     sets.precast.WS['Hot Shot'] = sets.precast.WS['Wildfire']
 
+    sets.precast.WS['Detonator'] = {
+        head={ name="Herculean Helm", augments={'Attack+23','Weapon skill damage +4%','STR+7',}},
+        body="Meg. Cuirie +2",
+        hands="Chasseur's Gants +2",
+        legs="Chas. Culottes +2",
+        feet="Mummu Gamash. +2",
+        neck={ name="Comm. Charm +1", augments={'Path: A',}},
+        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+        left_ear="Cessance Earring",
+        right_ear="Telos Earring",
+        left_ring="Chirich Ring +1",
+        right_ring="Petrov Ring",
+        back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+2','Weapon skill damage +10%',}},
+    }
+
     sets.precast.WS['Leaden Salute'] = set_combine(sets.precast.WS['Wildfire'], {
         head="Pixie Hairpin +1",
         waist="Svelt. Gouriz +1",
@@ -756,19 +771,18 @@ function init_gear_sets()
 
     -- No Magic Haste (74% DW to cap)
     sets.engaged.DW = {
-        ammo=gear.RAbullet,
-        head=gear.Adhemar_B_Head,
-        body=gear.Adhemar_B_Body, --6
-        hands=gear.Malignance_Hands,
-        legs=gear.Carmine_D_Legs, --6
-        feet=gear.Taeon_DW_Feet, --9
-        neck="Iskur Gorget",
-        ear1="Suppanomimi", --5
-        ear2="Brutal Earring",
-        ring1="Hetairoi Ring",
-        ring2="Epona's Ring",
-        back=gear.COR_DW_Cape, --10
-        waist="Reiki Yotai", --7
+        head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+        body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+        hands="Chasseur's Gants +2",
+        legs="Chas. Culottes +2",
+        feet="Malignance Boots",
+        neck="Sanctity Necklace",
+        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+        left_ear="Cessance Earring",
+        right_ear="Telos Earring",
+        left_ring="Chirich Ring +1",
+        right_ring="Petrov Ring",
+        back={ name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dual Wield"+10','Phys. dmg. taken-8%',}},
     } -- 48%
 
     sets.engaged.DW.LowAcc = set_combine(sets.engaged.DW, {
@@ -807,8 +821,8 @@ function init_gear_sets()
         neck="Iskur Gorget",
         ear1="Suppanomimi", --5
         ear2="Eabani Earring", --4
-        ring1="Hetairoi Ring",
-        ring2="Epona's Ring",
+        ring1=gear.Chirich_1,
+        ring2=gear.Chirich_2,
         back=gear.COR_TP_Cape,
         waist="Reiki Yotai", --7
     } -- 42%
@@ -848,8 +862,8 @@ function init_gear_sets()
         neck="Iskur Gorget",
         ear1="Suppanomimi", --5
         ear2="Eabani Earring", --4
-        ring1="Hetairoi Ring",
-        ring2="Epona's Ring",
+        ring1=gear.Chirich_1,
+        ring2=gear.Chirich_2,
         back=gear.COR_TP_Cape,
         waist="Reiki Yotai", --7
     } -- 31%
@@ -891,8 +905,8 @@ function init_gear_sets()
         neck="Iskur Gorget",
         ear1="Suppanomimi", --5
         ear2="Eabani Earring", --4
-        ring1="Hetairoi Ring",
-        ring2="Epona's Ring",
+        ring1=gear.Chirich_1,
+        ring2=gear.Chirich_2,
         back=gear.COR_TP_Cape,
         waist="Reiki Yotai", --7
     } -- 27%
@@ -934,8 +948,8 @@ function init_gear_sets()
         neck="Iskur Gorget",
         ear1="Suppanomimi", --5
         ear2="Telos Earring",
-        ring1="Hetairoi Ring",
-        ring2="Epona's Ring",
+        ring1=gear.Chirich_1,
+        ring2=gear.Chirich_2,
         back=gear.COR_TP_Cape,
         waist="Windbuffet Belt +1",
     } -- 11%
@@ -1053,8 +1067,8 @@ function init_gear_sets()
     -- sets.Fomalhaut_M.Acc = {main="Rostam", sub="Blurred Knife +1", ranged="Fomalhaut"}
     -- sets.Fomalhaut_R = {main="Rostam", sub="Tauret", ranged="Fomalhaut"}
     -- sets.Fomalhaut_R.Acc = sets.Fomalhaut_R
-    sets.Ataktos = {main="Naegling", sub="Blurred Knife +1", ranged="Anarchy"}
-    sets.Ataktos.Acc = {main="Naegling", sub="Blurred Knife +1", ranged="Anarchy"}
+    sets.Ataktos = {main="Naegling", sub="Blurred Knife +1", ranged="Anarchy +2"}
+    sets.Ataktos.Acc = {main="Naegling", sub="Blurred Knife +1", ranged="Anarchy +2"}
 
     sets.DefaultShield = {sub="Nusku Shield"}
 
@@ -1443,6 +1457,10 @@ function gearinfo(cmdParams, eventArgs)
             job_update()
         end
     end
+    -- send_command('@input /item "Barrels of Fun" <me>')
+    -- if (player.tp > 1000) then 
+    --     send_command('@input /ws "Hot Shot" <t>')
+    -- end
 end
 
 function define_roll_values()

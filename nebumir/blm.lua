@@ -66,7 +66,7 @@ function user_setup()
     include('Global-Binds.lua') -- OK to remove this line
 
     -- gear.Artifact_Head = { name="Spaekona's Petasos +3" }
-    gear.Artifact_Body = { name="Spaekona's Coat +3" }
+    gear.Artifact_Body = { name="Spaekona's Coat +2" }
     -- gear.Artifact_Hands = { name="Spaekona's Gloves +3" }
     -- gear.Artifact_Legs = { name="Spaekona's Tonban +3" }
     -- gear.Artifact_Feet = { name="Spaekona's Sabots +3" }
@@ -80,7 +80,7 @@ function user_setup()
     gear.Empyrean_Head = { name="Wicce Petasos +2" }
     gear.Empyrean_Body = { name="Wicce Coat +2" }
     gear.Empyrean_Hands = { name="Wicce Gloves +2" }
-    gear.Empyrean_Legs = { name="Wicce Chausses +2" }
+    gear.Empyrean_Legs = { name="Wicce Chausses +3" }
     gear.Empyrean_Feet = { name="Wicce Sabots +2" }
 
     send_command('bind @q gs c toggle MagicBurst')
@@ -475,8 +475,8 @@ function init_gear_sets()
         ammo="Ghastly Tathlum +1",
         head=gear.Agwu_Head,
         gear.Empyrean_Body,
-        hands="Volte Gloves",
-        legs="Assid. Pants +1",
+        hands=gear.Empyrean_Hands,
+        legs=gear.Empyrean_Legs,
         feet=gear.Agwu_Feet,
         neck="Sibyl Scarf",
         ear1="Etiolation Earring",

@@ -114,7 +114,7 @@ function user_setup()
     include('Global-Binds.lua') -- OK to remove this line
 
     gear.Artifact_Head = { name="Orion Beret +3" }
-    gear.Artifact_Body = { name="Orion Jerkin +1" }
+    -- gear.Artifact_Body = { name="Orion Jerkin +1" }
     gear.Artifact_Legs = { name="Orion Braccae +1" }
     gear.Artifact_Hands = { name="Orion Bracers +2" }
     gear.Artifact_Feet = { name="Orion Socks +2" }
@@ -186,7 +186,7 @@ function init_gear_sets()
     -- Precast sets to enhance JAs
     sets.precast.JA['Eagle Eye Shot'] = { legs=gear.Relic_Legs }
     -- sets.precast.JA['Bounty Shot'] = { hands=gear.Empyrean_Hands }
-    sets.precast.JA['Camouflage'] = { body=gear.Artifact_Body }
+    -- sets.precast.JA['Camouflage'] = { body=gear.Artifact_Body }
     sets.precast.JA['Scavenge'] = { feet=gear.Artifact_Feet }
     sets.precast.JA['Shadowbind'] = { hands=gear.Artifact_Feet }
     sets.precast.JA['Sharpshot'] = { legs=gear.Artifact_Legs }
@@ -369,8 +369,8 @@ function init_gear_sets()
     })
 
     sets.precast.WS["Trueflight"] = {
-        head=empty,
-        body="Cohort Cloak +1",
+        head=gear.Nyame_Head,
+        body=gear.Nyame_Body,
         hands=gear.Nyame_Hands,
         legs=gear.Nyame_Legs,
         feet=gear.Nyame_Feet,
@@ -474,7 +474,7 @@ function init_gear_sets()
 
     sets.midcast.RA.Acc = set_combine(sets.midcast.RA, {
         head=gear.Artifact_Head,
-        body=gear.Artifact_Body,
+        -- body=gear.Artifact_Body,
         hands=gear.Artifact_Hands,
         feet=gear.Artifact_Feet,
         ear1="Beyla Earring",

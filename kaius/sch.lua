@@ -126,7 +126,7 @@ function user_setup()
     gear.Empyrean_Head = { name= "Arbatel Bonnet +3" }
     gear.Empyrean_Body = { name= "Arbatel Gown +3" }
     gear.Empyrean_Hands = { name= "Arbatel Bracers +2" }
-    gear.Empyrean_Legs = { name= "Arbatel Pants +2" }
+    gear.Empyrean_Legs = { name= "Arbatel Pants +3" }
     gear.Empyrean_Feet = { name= "Arbatel Loafers +3" }
 
     gear.SCH_MAB_Cape = { name="Lugh's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10','Mag. Evasion+15',}}
@@ -775,6 +775,8 @@ function init_gear_sets()
         neck="Argute Stole +2",
         ear1="Malignance Earring",
         ear2="Regal Earring",
+        ring1="Freke Ring",
+        ring2="Metamorph Ring +1",
         back=gear.SCH_MAB_Cape,
         waist="Acuity Belt +1",
     })

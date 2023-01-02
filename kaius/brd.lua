@@ -100,7 +100,7 @@ function user_setup()
     -- How many extra songs we can keep from Daurdabla/Terpander
     info.ExtraSongs = 2
 
-    gear.Kali_Idle = {name="Kali", augments={'MP+60','Mag. Acc.+20','"Refresh"+1',}}
+    -- gear.Kali_Idle = {name="Kali", augments={'MP+60','Mag. Acc.+20','"Refresh"+1',}}
     gear.Kali_Song = {name="Kali", augments={'DMG:+15','CHR+15','Mag. Acc.+15',}}
     gear.Linos_TP = {name="Linos", augments={'Accuracy+13 Attack+13','"Dbl.Atk."+3','Quadruple Attack +3',}}
     gear.Linos_STP = {name="Linos", augments={'Accuracy +16','Store TP +4','Quadruple Attack +3',}}
@@ -216,8 +216,8 @@ function init_gear_sets()
 
     -- Fast cast sets for spells
     sets.precast.FC = {
-        main=gear.Kali_Idle, --7
-        sub=gear.Kali_Song, --7
+        -- main=gear.Kali_Idle, --7
+        -- sub=gear.Kali_Song, --7
         head="Vanya Hood", --10
         body="Inyanga Jubbah +2", --14
         hands="Volte Gloves", --6
