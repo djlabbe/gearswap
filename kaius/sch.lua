@@ -201,7 +201,6 @@ function user_setup()
     
     include('Global-Binds.lua')
 
-
     set_macro_page(1, 20)
     send_command('wait 2; input /lockstyleset 20')
 
@@ -281,6 +280,7 @@ function init_gear_sets()
     -- Fast cast sets for spells
     sets.precast.FC = {
     --    /RDM --20
+        main="Musa", --10
         ammo="Sapience Orb", --2
         head=gear.Amalric_A_Head, --11
         body="Pinga Tunic +1", --15
@@ -418,27 +418,27 @@ function init_gear_sets()
     sets.midcast.FastRecast = sets.precast.FC
 
     sets.midcast.Cure = {
-        main="Daybreak", --30
-        sub="Sors Shield", --3/(-5)
-        ammo="Esper Stone +1", --0/(-5)
+        main="Musa", --25
+        sub="Khonsu", --0/(-5)
+        ammo="Staunch Tathlum +1",
         head=gear.Kaykaus_B_Head, --11(+2)/(-6)
-        body=gear.Kaykaus_A_Body, --(+4)/(-6)
+        body=gear.Empyrean_Body, --(-28)
         hands=gear.Relic_Hands, --(+3)/(-7)
         legs=gear.Kaykaus_A_Legs, --11(+2)/(-6)
         feet=gear.Kaykaus_B_Feet, --11(+2)/(-12)
-        neck="Incanter's Torque",
-        ear1="Beatific Earring",
-        ear2="Meili Earring",
-        ring1="Lebeche Ring", --3/(-5)
-        ring2="Menelaus's Ring",
+        neck="Loricate Torque +1",
+        ear1="Mendicant's Earring",
+        ear2="Magnetic Earring",
+        ring1="Mephitas's Ring +1", --3/(-5)
+        ring2="Gelatinous Ring +1",
         back="Fi Follet Cape +1",
-        waist="Bishop's Sash",
+        waist="Shinjutsu-no-Obi +1",
     }
 
     sets.midcast.CureWeather = set_combine(sets.midcast.Cure, {
         main="Chatoyant Staff", --10
-        sub="Khonsu", --0/(-5)
         waist="Hachirin-no-Obi",
+        back="Twilight Cape",
     })
 
     sets.midcast.Curaga = set_combine(sets.midcast.Cure, {
@@ -499,8 +499,8 @@ function init_gear_sets()
     }
 
     sets.midcast.EnhancingDuration = {
-        main="Musa",
-        sub="Khonsu", --0/(-5)
+        main=gear.Gada_ENH,
+        sub="Ammurapi Shield",
         head=gear.Telchine_ENH_Head,
         body=gear.Relic_Body,
         hands=gear.Telchine_ENH_Hands,
@@ -680,16 +680,6 @@ function init_gear_sets()
         neck="Erra Pendant",
         -- waist="Sacro Cord",
     })
-
-    -- sets.midcast.Impact = set_combine(sets.midcast['Elemental Magic'], {
-    --     main="Akademos",
-    --     -- sub="Khonsu", --0/(-5)
-    --     sub="Enki Strap",
-    --     head=empty,
-    --     body="Twilight Cloak",
-    --     ring2="Archon Ring",
-    --     waist="Shinjutsu-no-Obi +1",
-    -- })
 
     sets.midcast.Helix = {
         main="Bunzi's Rod",

@@ -39,7 +39,7 @@ function user_setup()
     state.HybridMode:options('Normal', 'DT')
     state.IdleMode:options('Normal', 'DT')
 
-    state.WeaponSet = M{['description']='Weapon Set', 'Naegling' }
+    state.WeaponSet = M{['description']='Weapon Set', 'Chango', 'Naegling', 'Loxotic', 'ShiningOne' }
     state.WeaponLock = M(false, 'Weapon Lock')
 
     -- Additional local binds
@@ -85,26 +85,42 @@ function init_gear_sets()
 
     sets.engaged = {
         ammo="Coiste Bodhar",
-        head="Flam. Zucchetto +2",
-        body="Tatenashi Haramaki +1", --12
-        hands="Tatenashi Gote +1", --8
-        legs="Tatenashi Haidate +1",
-        feet="Tatenashi Sune-Ate +1",
+        head=gear.Sakpata_Head,
+        body=gear.Sakpata_Body,
+        hands=gear.Sakpata_Hands,
+        legs=gear.Sakpata_Legs,
+        feet=gear.Sakpata_Feet,
+        neck="Vim Torque +1",
+        waist="Sailfi Belt +1",
+        ear1="Schere Earring",
+        ear2="Cessance Earring",
+        ring1="Niqmaddu Ring",
+        ring2="Petrov Ring",
+        back=gear.WAR_TP_Cape,
+    }
+
+    sets.engaged.Naegling = {
+        ammo="Coiste Bodhar",
+        head="Flamma Zucchetto +2",
+        body=gear.Sakpata_Body,
+        hands=gear.Sakpata_Hands,
+        legs=gear.Sakpata_Legs,
+        feet="Flam. Gambieras +2",
         neck="War. Beads +2",
         waist="Sailfi Belt +1",
-        left_ear="Cessance Earring",
-        right_ear="Schere Earring",
-        left_ring="Niqmaddu Ring",
-        right_ring="Petrov Ring",
+        ear1="Schere Earring",
+        ear2="Telos Earring",
+        ring1="Niqmaddu Ring",
+        ring2="Flamma Ring",
         back=gear.WAR_TP_Cape,
     }
 
     sets.engaged.Hybrid = {
-        head="Sakpata's Helm", --7
-        body="Sakpata's Breastplate", --12
-        hands="Sakpata's Gauntlets", --8
-        legs="Sakpata's Cuisses", --9
-        feet="Sakpata's Leggings", --6
+        head=gear.Sakpata_Head,
+        body=gear.Sakpata_Body,
+        hands=gear.Sakpata_Hands,
+        legs=gear.Sakpata_Legs,
+        feet=gear.Sakpata_Feet,
     }
 
     sets.engaged.Acc = {
@@ -151,6 +167,9 @@ function init_gear_sets()
 
     sets.idle = set_combine(sets.engaged, sets.engaged.Hybrid)
     sets.Naegling = { main="Naegling", sub="Blurred Shield +1" }
+    sets.Loxotic = { main="Loxotic Mace +1", sub="Blurred Shield +1" }
+    sets.ShiningOne = { main="Shining One", sub="Utu Grip" }
+    sets.Chango = { main="Chango", sub="Utu Grip" }
     sets.Kiting = { feet="Hermes' Sandals" }
 
 end
