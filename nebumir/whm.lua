@@ -217,11 +217,11 @@ function init_gear_sets()
     sets.precast.FC.Cure = set_combine(sets.precast.FC, {
         main="Queller Rod", --7
         sub="Ammurapi Shield",
-        -- ammo="Impatiens", --(2)
+        ammo="Impatiens", --(2)
         head=gear.Relic_Head, --15
         feet=gear.Kaykaus_B_Feet, --7
-        -- ring1="Lebeche Ring", --(2)
-        -- back="Perimede Cape", --(4)
+        ring1="Lebeche Ring", --(2)
+        back="Perimede Cape", --(4)
     })
 
     sets.precast.FC.Curaga = sets.precast.FC.Cure
@@ -292,8 +292,8 @@ function init_gear_sets()
       }
 
     sets.midcast.CureSolaceWeather = set_combine(sets.midcast.CureSolace, {
-        -- ear2="Nourish. Earring +1", --7
-        -- waist="Hachirin-no-Obi",
+        ear2="Nourish. Earring +1", --7
+        waist="Hachirin-no-Obi",
     })
 
     sets.midcast.CureNormal = set_combine(sets.midcast.CureSolace, {
@@ -301,14 +301,14 @@ function init_gear_sets()
      })
 
     sets.midcast.CureWeather = set_combine(sets.midcast.CureNormal, {
-        -- hands="Kaykaus Cuffs +1", --11/(-6)
-        -- ear2="Nourish. Earring +1", --7
-        -- waist="Hachirin-no-Obi",
+        hands=gear.Kaykaus_D_Hands, --11/(-6)
+        ear2="Nourish. Earring +1", --7
+        waist="Hachirin-no-Obi",
     })
 
     sets.midcast.CuragaNormal = set_combine(sets.midcast.CureNormal, {
         body=gear.Artifact_Body, --0(+6)/(-6)
-        hands="Theophany Mitts +3",
+        hands=gear.Artifact_Hands,
         ring1="Metamor. Ring +1",
         ring2="Mephitas's Ring +1",
         -- waist="Luminary Sash",
@@ -316,11 +316,11 @@ function init_gear_sets()
 
     sets.midcast.CuragaWeather = {
         body=gear.Artifact_Body, --0(+6)/(-6)
-        -- hands="Kaykaus Cuffs +1", --11/(-6)
+        hands=gear.Kaykaus_D_Hands, --11/(-6)
         ring1="Metamor. Ring +1",
         ring2="Mephitas's Ring +1",
-        -- back="Twilight Cape",
-        -- waist="Hachirin-no-Obi",
+        back="Twilight Cape",
+        waist="Hachirin-no-Obi",
     }
 
     --sets.midcast.CureMelee = sets.midcast.CureSolace
@@ -333,12 +333,12 @@ function init_gear_sets()
         -- hands="Fanatic Gloves",
         legs="Aya. Cosciales +1",
         -- -- neck="Orunmila's Torque",
-        -- ear1="Loquacious Earring",
-        -- -- ear2="Etiolation Earring",
-        -- ring1="Kishar Ring",
+        ear1="Loquacious Earring",
+        ear2="Etiolation Earring",
+        ring1="Kishar Ring",
         -- ring2="Weather. Ring",
         back=gear.WHM_Cure_Cape,
-        -- waist="Embla Sash",
+        waist="Embla Sash",
     }
 
     sets.midcast.Cursna = set_combine(sets.midcast.StatusRemoval, {
@@ -347,7 +347,7 @@ function init_gear_sets()
         body=gear.Empyrean_Body,
         -- hands="Fanatic Gloves", --15
         legs=gear.Artifact_Legs, --21
-        -- feet="Vanya Clogs", --5
+        feet="Vanya Clogs", --5
         --feet="Gende. Galosh. +1", --10
         neck="Debilis Medallion", --15
         ear1="Beatific Earring",
@@ -423,7 +423,7 @@ function init_gear_sets()
     })
 
     sets.midcast.Auspice = set_combine(sets.midcast.EnhancingDuration, {
-        -- feet="Ebers Duckbills +1",
+        feet=gear.Empyrean_Feet,
     })
 
     sets.midcast.BarElement = set_combine(sets.midcast['Enhancing Magic'], {
@@ -476,8 +476,8 @@ function init_gear_sets()
     -- sets.midcast.Holy = sets.midcast.Banish
 
     sets.midcast['Dark Magic'] = {
-        -- main="Rubicundity",
-        -- sub="Ammurapi Shield",
+        main="Rubicundity",
+        sub="Ammurapi Shield",
         ammo="Clarus Stone",
         head="Pixie Hairpin +1",
         body=gear.Artifact_Body,
@@ -572,21 +572,21 @@ function init_gear_sets()
     })
 
     sets.idle.Town = {
-        main="Daybreak",
+        main="Raetic Rod +1",
         sub="Ammurapi Shield",
-        ammo="Homiliary",
-        head=gear.Relic_Head,
+        ammo="Clarus Stone",
+        head=gear.Kaykaus_B_Head,
         body=gear.Empyrean_Body,
         hands=gear.Artifact_Hands,
         legs=gear.Empyrean_Legs,
-        feet=gear.Artifact_Feet,
+        feet=gear.Kaykaus_B_Feet,
         neck="Cleric's Torque +1",
-        ear1="Moonshade Earring",
+        ear1="Glorious Earring",
         ear2="Ebers Earring +1",
         ring1="Janniston Ring",
-        ring2=gear.Stikini_2,
+        ring2="Mephitas's Ring +1",
         back="Alaunus's Cape",
-        waist="Shinjutsu-no-obi +1",
+        waist="Hachirin-no-obi",
     }
     
     

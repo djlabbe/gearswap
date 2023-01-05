@@ -1069,7 +1069,7 @@ function init_gear_sets()
         neck="Baetyl Pendant",
         ear1="Moonshade Earring",
         ear2="Friomisi Earring",
-        -- body="Sacro Breastplate",
+        body="Sacro Breastplate",
         body="Nukumi Gausape +2",
         -- hands="Leyline Gloves",
         hands="Totemic Gloves +3",

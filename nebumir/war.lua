@@ -45,6 +45,24 @@ function user_setup()
     -- Additional local binds
     include('Global-Binds.lua')
 
+    -- gear.Artifact_Head = { name= "Pummeler's Mask +1" }
+    gear.Artifact_Body = { name= "Pummeler's Lorica +1" }
+    -- gear.Artifact_Hands = { name= "Pummeler's Mufflers +1" }
+    gear.Artifact_Legs = { name= "Pummeler's Cuisses +3" }
+    gear.Artifact_Feet = { name= "Pummeler's Calligae +3" }
+
+    gear.Relic_Head = { name= "Agoge Mask +3" }
+    gear.Relic_Body = { name= "Agoge Lorica +1" }
+    -- gear.Relic_Hands = { name= "Agoge Mufflers +1" }
+    -- gear.Relic_Legs = { name= "Agoge Cuisses +1" }
+    gear.Relic_Feet = { name= "Agoge Calligae +1" }
+
+    -- gear.Empyrean_Head = { name= "Boii Mask +1" }
+    gear.Empyrean_Body = { name= "Boii Lorica +1" }
+    gear.Empyrean_Hands = { name= "Boii Mufflers +1" }
+    -- gear.Empyrean_Legs = { name= "Boii Cuisses +1" }
+    -- gear.Empyrean_Feet = { name= "Boii Calligae +1" }
+
     send_command('bind @w gs c toggle WeaponLock')
     send_command('bind @e gs c cycle WeaponSet')
     
@@ -76,7 +94,7 @@ function init_gear_sets()
     }
 
     sets.precast.JA["Warcry"] = {
-        head="Agoge Mask +3",
+        head=gear.Relic_Head
     }
 
 

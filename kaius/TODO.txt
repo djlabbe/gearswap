@@ -2,7 +2,9 @@ Capes:
 
 WAR TP
 WAR Upheaval
-
+DRG Haste
+RNG Savage Blade
+COR SNP/Roll
 
 Cursna Gloves
 DRG AF Cards for legs

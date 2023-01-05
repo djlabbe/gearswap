@@ -163,7 +163,7 @@ function init_gear_sets()
     sets.precast.FC = {
         ammo="Sapience Orb", --2
         head=gear.Carmine_D_Head, --14
-        -- body="Sacro Breastplate", --10
+        body="Sacro Breastplate", --10
         hands="Leyline Gloves", --8
         legs="Aya. Cosciales +2", --6
         feet="Carmine Greaves +1", --8

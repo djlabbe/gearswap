@@ -339,18 +339,16 @@ function init_gear_sets()
         head="Adhemar Bonnet +1",
         -- body=gear.Adhemar_B_Body,
         body="Pillager's Vest +2",
-        hands="Adhemar Wristbands +1",
-        -- legs="Samnuha Tights",
-        legs="Herculean Trousers",
-        -- feet="Plun. Poulaines +3",
-        feet="Malignance Boots",
+        hands=gear.Malignance_Hands,
+        legs=gear.Malignance_Legs,
+        feet=gear.Malignance_Feet,
         neck="Asn. Gorget +1",
         ear1="Sherida Earring",
         ear2="Skulker's Earring +1",
         -- ring1="Gere Ring",
         -- ring2="Epona's Ring",
         ring1="Petrov Ring",
-        ring2="Rajas Ring",
+        ring2="Hetairoi Ring",
         back="Toutatis's Cape",
         waist="Windbuffet Belt +1",
     }
@@ -359,9 +357,9 @@ function init_gear_sets()
         ammo="Staunch Tathlum +1", --3/3
         head=gear.Malignance_Head, --6/6
         body="Malignance Tabard", --9/9
-        hands="Malignance Gloves", --5/5
-        legs="Malignance Tights", --7/7
-        feet="Malignance Boots", --4/4
+        hands=gear.Malignance_Hands,
+        legs=gear.Malignance_Legs,
+        feet=gear.Malignance_Feet,
         neck="Warder's Charm +1",
         ear1="Eabani Earring",
         ear2="Etiolation Earring",
@@ -415,7 +413,7 @@ function init_gear_sets()
         -- ring1="Gere Ring",
         -- ring2="Epona's Ring",
         ring1="Petrov Ring",
-        ring2="Rajas Ring",
+        ring2="Hetairoi Ring",
         back="Toutatis's Cape",
         waist="Windbuffet Belt +1",
     }
@@ -662,7 +660,7 @@ function init_gear_sets()
         ear1="Sherida Earring",
         ear2="Skulker's Earring +1",
         ring1="Petrov Ring",
-        ring2="Rajas Ring",
+        ring2="Hetairoi Ring",
         back=gear.THF_TP_Cape,
         waist="Windbuffet Belt +1",
     } -- 5%

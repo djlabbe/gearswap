@@ -45,6 +45,24 @@ function user_setup()
     -- Additional local binds
     include('Global-Binds.lua')
 
+    -- gear.Artifact_Head = { name= "Pummeler's Mask +1" }
+    gear.Artifact_Body = { name= "Pummeler's Lorica +1" }
+    -- gear.Artifact_Hands = { name= "Pummeler's Mufflers +1" }
+    -- gear.Artifact_Legs = { name= "Pummeler's Cuisses +1" }
+    -- gear.Artifact_Feet = { name= "Pummeler's Calligae +1" }
+
+    gear.Relic_Head = { name= "Agoge Mask +3" }
+    gear.Relic_Body = { name= "Agoge Lorica +1" }
+    -- gear.Relic_Hands = { name= "Agoge Mufflers +1" }
+    -- gear.Relic_Legs = { name= "Agoge Cuisses +1" }
+    gear.Relic_Feet = { name= "Agoge Calligae +3" }
+
+    -- gear.Empyrean_Head = { name= "Boii Mask +1" }
+    gear.Empyrean_Body = { name= "Boii Lorica +1" }
+    gear.Empyrean_Hands = { name= "Boii Mufflers +1" }
+    -- gear.Empyrean_Legs = { name= "Boii Cuisses +1" }
+    -- gear.Empyrean_Feet = { name= "Boii Calligae +1" }
+
     gear.WAR_TP_Cape = { name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
     gear.WAR_WS1_Cape = { name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
 
@@ -75,44 +93,55 @@ end
 function init_gear_sets()
 
     sets.precast.JA["Berserk"] = {
-        body="Pummeler's Lorica +3",
+        body=gear.Artifact_Body,
+        feet=gear.Relic_Feet,
     }
 
     sets.precast.JA["Warcry"] = {
-        head="Agoge Mask +3",
+        head=gear.Relic_Head
     }
 
+    sets.precast.JA['Restraint'] = {
+        hands=gear.Empyrean_Hands,
+    }
+
+    sets.precast.JA['Blood Rage'] = {
+        body=gear.Empyrean_Body,
+    }
+    
+    sets.precast.JA['Aggressor'] = {
+        body=gear.Relic_Body,
+        head=gear.Relic_Head,
+    }
+
+    sets.precast.FC = {
+        ammo="Sapience Orb", --2
+        head=gear.Sakpata_Head, --8
+        hands="Leyline Gloves", --8
+        neck="Baetyl Pendant", --4
+        ear1="Etiolation Earring", --1
+        ear2="Enchanter's Earring +1", --2
+        ring2="Weather. Ring",
+    }
 
     sets.engaged = {
         ammo="Coiste Bodhar",
-        head=gear.Sakpata_Head,
+        head="Flam. Zucchetto +2", --STP6 TA5
         body=gear.Sakpata_Body,
-        hands=gear.Sakpata_Hands,
-        legs=gear.Sakpata_Legs,
-        feet=gear.Sakpata_Feet,
+        hands="Tatena. Gote +1",
+        legs="Tatena. Haidate +1",
+        feet="Tatena. Sune. +1",
         neck="Vim Torque +1",
         waist="Sailfi Belt +1",
         ear1="Schere Earring",
-        ear2="Cessance Earring",
+        ear2="Telos Earring",
         ring1="Niqmaddu Ring",
         ring2="Petrov Ring",
         back=gear.WAR_TP_Cape,
     }
 
-    sets.engaged.Naegling = {
-        ammo="Coiste Bodhar",
-        head="Flamma Zucchetto +2",
-        body=gear.Sakpata_Body,
-        hands=gear.Sakpata_Hands,
-        legs=gear.Sakpata_Legs,
-        feet="Flam. Gambieras +2",
-        neck="War. Beads +2",
-        waist="Sailfi Belt +1",
-        ear1="Schere Earring",
-        ear2="Telos Earring",
-        ring1="Niqmaddu Ring",
-        ring2="Flamma Ring",
-        back=gear.WAR_TP_Cape,
+    sets.engaged.Acc = {
+        -- TODO
     }
 
     sets.engaged.Hybrid = {
@@ -123,39 +152,95 @@ function init_gear_sets()
         feet=gear.Sakpata_Feet,
     }
 
-    sets.engaged.Acc = {
-
-    }
+   
     
     sets.engaged.DT = set_combine(sets.engaged, sets.engaged.Hybrid)
     sets.engaged.Acc.DT = set_combine(sets.engaged.Acc, sets.engaged.Hybrid)
 
     sets.precast.WS = {
-        head=gear.Sakpata_Head,
-        body=gear.Sakpata_Body,
+        head=gear.Relic_Head, --WSD10
+        body=gear.Nyame_Body,
         neck="Fotia Gorget",
-        ring="Niqmaddu Ring",
+        ring1="Niqmaddu Ring",
         ring2="Epaminondas's Ring",
         legs=gear.Nyame_Legs,
+        hands=gear.Nyame_Hands,
         ear1="Moonshade Earring",
         ear2="Thrud Earring",
         waist="Sailfi Belt +1",
         ammo="Knobkierrie",
-        feet="Sulevia's Leggings +2",
+        feet=gear.Nyame_Feet,
         back=gear.WAR_WS1_Cape,
     }
 
-    sets.precast.WS.Acc = {
+    sets.precast.WS.Acc = set_combine(sets.precast.WS, {
         -- TODO
+    })
+
+    sets.precast.WS['Savage Blade'] = { --OH WSD7
+        ammo="Knobkierrie", --WSD6
+        head=gear.Relic_Head, --WSD10
+        body=gear.Relic_Head, --WSD10
+        -- hands="Boii Mufflers +3",  --WSD12
+        hands=gear.Nyame_Hands,
+        -- legs="Boii cuisses +3", --PDL10
+        legs=gear.Nyame_Legs,
+        feet=gear.Nyame_Feet, --WSD8
+        neck="Warrior's Bead Necklace +2",
+        waist="Sailfi Belt +1",
+        ear1="Moonshade Earring", 
+        ear2="Thrud Earring", --WSD3
+        ring1="Niqmaddu Ring",
+        ring2="Regal Ring",       
+        back=gear.WAR_WS1_Cape, --WSD10
+    }    --Fencer3(TPB+1210) WSD66 PDL10
+
+    sets.precast.WS['Upheaval'] = { --TPB500
+        ammo="Knobkierrie", --WSD6
+        head=gear.Relic_Head, --WSD10
+        neck="Warrior's bead necklace +2",  --DA6
+        ear1="Moonshade Earring", --TPB250
+        ear2="Thrud Earring", --WSD3
+        body=gear.Nyame_Body, --WSD10 DA2
+        hands=gear.Nyame_Hands,  --TPB100 WSD12
+        ring1="Niqmaddu Ring", --QA3
+        ring2="Gelatinous Ring +1",
+        back=gear.WAR_WS1_Cape, --WSD10
+        waist="Sailfi Belt +1", --TA2 DA5
+        legs=gear.Nyame_Legs, --PDL10 DA8
+        feet=gear.Nyame_Feet, --WSD8 DA2
+    } --TPB850 - WSD59 - PDL10 - QA3 - TA2 - DA56
+
+    sets.precast.WS['Cataclysm'] = {
+        ammo="Knobkierrie",
+        head="Pixie Hairpin +1",
+        body=gear.Nyame_Legs,
+        hands=gear.Nyame_Hands,
+        legs=gear.Nyame_Legs,
+        feet=gear.Nyame_Feet,
+        neck="Sibyl Scarf",
+        waist="Eschan Stone",
+        left_ear="Moonshade Earring",
+        right_ear="Friomisi Earring",
+        ring1="Niqmaddu Ring",
+        ring2="Regal Ring",
+        back=gear.WAR_WS1_Cape,
     }
 
-    -- Add custom WSs here
-    -- sets.precast.WS['Raging Fists'] = {
-        -- TODO
-    -- }
-
-    sets.precast.FC = {
-         -- TODO
+    sets.idle = {
+        ammo="Staunch Tathlum +1",
+        head=gear.Sakpata_Head,
+        body=gear.Sakpata_Body,
+        hands=gear.Sakpata_Hands,
+        legs=gear.Sakpata_Legs,
+        feet=gear.Sakpata_Feet,
+        neck="Bathy Choker +1",
+        ear1="Odnowa Earring +1",
+        ear2="Etiolation Earring",
+        ring1=gear.Chirich_1,
+        ring2=gear.Chirich_2,
+        back=gear.WAR_TP_Cape,
+        waist="Flume Belt +1"
     }
 
     sets.buff.Doom = {
@@ -165,7 +250,6 @@ function init_gear_sets()
         waist="Gishdubar Sash", --10
     }
 
-    sets.idle = set_combine(sets.engaged, sets.engaged.Hybrid)
     sets.Naegling = { main="Naegling", sub="Blurred Shield +1" }
     sets.Loxotic = { main="Loxotic Mace +1", sub="Blurred Shield +1" }
     sets.ShiningOne = { main="Shining One", sub="Utu Grip" }

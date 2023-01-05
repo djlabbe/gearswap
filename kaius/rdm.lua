@@ -799,7 +799,7 @@ function init_gear_sets()
         -- legs="Merlinic Shalwar",
         -- feet="Merlinic Crackows",
         neck="Erra Pendant",
-        -- waist="Sacro Cord",
+        waist="Sacro Cord",
     })
 
     -- sets.midcast.Impact = set_combine(sets.midcast['Elemental Magic'], {

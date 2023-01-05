@@ -422,7 +422,7 @@ function init_gear_sets()
     })
 
     sets.precast.WS['Evisceration'] = {
-        head=gear.Adhemar_B_Head,
+        head=gear.Adhemar_A_Head,
         -- body="Abnoba Kaftan",
         hands="Mummu Wrists +2",
         legs="Zoar Subligar +1",
@@ -439,7 +439,7 @@ function init_gear_sets()
 
     sets.precast.WS['Evisceration'].Acc = set_combine(sets.precast.WS['Evisceration'], {
 
-        body=gear.Adhemar_B_Body,
+        body=gear.Adhemar_A_Body,
         legs=gear.Herc_WSD_Legs,
     })
 
@@ -460,8 +460,8 @@ function init_gear_sets()
     })
 
     sets.precast.WS['Swift Blade'] = set_combine(sets.precast.WS, {
-        head=gear.Adhemar_B_Head,
-        body=gear.Adhemar_B_Body,
+        head=gear.Adhemar_A_Head,
+        body=gear.Adhemar_A_Body,
         hands=gear.Adhemar_B_Hands,
         legs="Meg. Chausses +2",
         feet=gear.Herc_TA_Feet,
@@ -724,8 +724,8 @@ function init_gear_sets()
 
     sets.engaged = {
         ammo=gear.RAbullet,
-        head=gear.Adhemar_B_Head,
-        body=gear.Adhemar_B_Body,
+        head=gear.Adhemar_A_Head,
+        body=gear.Adhemar_A_Body,
         hands=gear.Adhemar_B_Hands,
         -- legs="Samnuha Tights",
         legs=gear.Empyrean_Legs,
@@ -813,8 +813,8 @@ function init_gear_sets()
     -- 15% Magic Haste (67% DW to cap)
     sets.engaged.DW.LowHaste = {
         ammo=gear.RAbullet,
-        head=gear.Adhemar_B_Head,
-        body=gear.Adhemar_B_Body, --6
+        head=gear.Adhemar_A_Head,
+        body=gear.Adhemar_A_Body, --6
         hands=gear.Malignance_Hands,
         legs=gear.Carmine_D_Legs, --6
         feet=gear.Taeon_DW_Feet, --9
@@ -854,8 +854,8 @@ function init_gear_sets()
     -- 30% Magic Haste (56% DW to cap)
     sets.engaged.DW.MidHaste = {
         ammo=gear.RAbullet,
-        head=gear.Adhemar_B_Head,
-        body=gear.Adhemar_B_Body, --6
+        head=gear.Adhemar_A_Head,
+        body=gear.Adhemar_A_Body, --6
         hands=gear.Adhemar_B_Hands,
         legs=gear.Empyrean_Legs,
         feet=gear.Taeon_DW_Feet, --9
@@ -896,8 +896,8 @@ function init_gear_sets()
     -- 35% Magic Haste (51% DW to cap)
     sets.engaged.DW.HighHaste = {
         ammo=gear.RAbullet,
-        head=gear.Adhemar_B_Head,
-        body=gear.Adhemar_B_Body, --6
+        head=gear.Adhemar_A_Head,
+        body=gear.Adhemar_A_Body, --6
         hands=gear.Adhemar_B_Hands,
          -- legs="Samnuha Tights",
         legs=gear.Empyrean_Legs,
@@ -940,8 +940,8 @@ function init_gear_sets()
     -- 45% Magic Haste (36% DW to cap)
     sets.engaged.DW.MaxHaste = {
         ammo=gear.RAbullet,
-        head=gear.Adhemar_B_Head,
-        body=gear.Adhemar_B_Body, --6
+        head=gear.Adhemar_A_Head,
+        body=gear.Adhemar_A_Body, --6
         hands=gear.Adhemar_B_Hands,
         legs=gear.Empyrean_Legs,
         feet=gear.Herc_TA_Feet,

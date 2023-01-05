@@ -78,7 +78,7 @@ function user_setup()
     gear.Relic_Feet = { name="Archmage's Sabots +3" }
 
     gear.Empyrean_Head = { name="Wicce Petasos +2" }
-    gear.Empyrean_Body = { name="Wicce Coat +2" }
+    gear.Empyrean_Body = { name="Wicce Coat +3" }
     gear.Empyrean_Hands = { name="Wicce Gloves +2" }
     gear.Empyrean_Legs = { name="Wicce Chausses +3" }
     gear.Empyrean_Feet = { name="Wicce Sabots +2" }

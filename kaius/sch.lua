@@ -125,7 +125,7 @@ function user_setup()
 
     gear.Empyrean_Head = { name= "Arbatel Bonnet +3" }
     gear.Empyrean_Body = { name= "Arbatel Gown +3" }
-    gear.Empyrean_Hands = { name= "Arbatel Bracers +2" }
+    gear.Empyrean_Hands = { name= "Arbatel Bracers +3" }
     gear.Empyrean_Legs = { name= "Arbatel Pants +3" }
     gear.Empyrean_Feet = { name= "Arbatel Loafers +3" }
 
@@ -390,7 +390,7 @@ function init_gear_sets()
         ear2="Regal Earring",
         ring2="Archon Ring",
         back=gear.SCH_MAB_Cape,
-        -- waist="Sacro Cord",
+        waist="Sacro Cord",
     })
 
 
@@ -678,7 +678,7 @@ function init_gear_sets()
         -- head="Merlinic Hood",
         -- legs="Merlinic Shalwar",
         neck="Erra Pendant",
-        -- waist="Sacro Cord",
+        waist="Sacro Cord",
     })
 
     sets.midcast.Helix = {
