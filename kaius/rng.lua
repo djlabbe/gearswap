@@ -126,7 +126,7 @@ function user_setup()
     gear.Relic_Feet = { name="Arcadian Socks +3" }
 
     gear.Empyrean_Head = { name="Amini Gapette +1" }
-    gear.Empyrean_Body = { name="Amini Caban +1" }
+    gear.Empyrean_Body = { name="Amini Caban +2" }
     -- gear.Empyrean_Legs = { name="Amini Brague +1" }
     -- gear.Empyrean_Hands = { name="Amini Glovelettes +1" }
     gear.Empyrean_Feet = { name="Amini Bottillons +2" }
@@ -457,7 +457,7 @@ function init_gear_sets()
 
     sets.midcast.RA = {
         head=gear.Relic_Head,
-        body=gear.Ikenga_Body,
+        gear.Empyrean_Body,
         hands=gear.Ikenga_Hands,
         legs=gear.Ikenga_Legs,
         feet=gear.Ikenga_Feet,
@@ -813,6 +813,8 @@ function job_post_precast(spell, action, spellMap, eventArgs)
             end
         end
     elseif (spell.english == 'Shadowbind') then
+        special_ammo_check()
+    elseif (spell.english == 'Bounty Shot') then
         special_ammo_check()
     end
     

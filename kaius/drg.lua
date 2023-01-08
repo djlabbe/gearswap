@@ -72,7 +72,7 @@ function user_setup()
     gear.Empyrean_Head = { name="Peltast's Mezail +2" }
     gear.Empyrean_Body = { name="Peltast's Plackart +2" }
     gear.Empyrean_Hands = { name="Peltast's Vambraces +2" }
-    -- gear.Empyrean_Legs = { name="Peltast's Cuissots +1" }
+    gear.Empyrean_Legs = { name="Peltast's Cuissots +2" }
     -- gear.Empyrean_Feet = { name="Peltast's Schynbalds +1" }
 
     gear.DRG_TP_Cape = { name="Brigantia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Damage taken-5%',}} --*
@@ -137,8 +137,8 @@ function init_gear_sets()
         ammo="Aurgelmir Orb +1",
         head="Flamma Zucchetto +2",
         neck="Vim Torque +1",
-        ear1="Sherida Earring",
-        ear2="Telos Earring",
+        ear1="Telos Earring",
+        ear2="Sherida Earring",
         body=gear.Relic_Body,
         hands=gear.Artifact_Hands,
         legs=gear.Relic_Legs,
@@ -187,8 +187,8 @@ function init_gear_sets()
         feet=gear.Nyame_Feet,
         neck="Fotia Gorget",
         waist="Sailfi Belt +1",
-        ear1="Sherida Earring",
-        ear2="Moonshade Earring",
+        ear1="Moonshade Earring",
+        ear2="Sherida Earring",
         ring1="Niqmaddu ring",
         ring2="Epaminondas's Ring",
         back=gear.DRG_WS1_Cape,
@@ -196,6 +196,10 @@ function init_gear_sets()
 
     sets.precast.WS.Acc = set_combine(sets.precast.WS, {})
     sets.precast.WS.AttackCap = set_combine(sets.precast.WS, {})
+
+    ------------------
+    -- Savage Blade --
+    ------------------
 
     sets.precast.WS["Savage Blade"] = {
         ammo="Knobkierrie",
@@ -206,8 +210,8 @@ function init_gear_sets()
         feet=gear.Nyame_Feet,
         neck="Dragoon's Collar +2",
         waist="Sailfi Belt +1",
-        ear1="Thrud Earring",
-        ear2="Moonshade Earring",
+        ear1="Moonshade Earring",
+        ear2="Thrud Earring",
         ring1="Niqmaddu Ring",
         ring2="Regal Ring",
         back=gear.DRG_WS1_Cape,
@@ -220,8 +224,8 @@ function init_gear_sets()
         ammo="Knobkierrie",
         head=gear.Relic_Head,
         neck="Fotia Gorget",
-        ear1="Sherida Earring",
-        ear2="Moonshade Earring",
+        ear1="Moonshade Earring",
+        ear2="Sherida Earring",     
         body=gear.Valo_QA_Body,
         hands=gear.Empyrean_Hands,
         ring1="Niqmaddu Ring",
@@ -259,8 +263,8 @@ function init_gear_sets()
         feet=gear.Nyame_Feet,
         neck="Dgn. Collar +2",
         waist="Sailfi Belt +1",
-        ear1="Thrud Earring",
-        ear2="Sherida Earring",
+        ear1="Sherida Earring",
+        ear2="Thrud Earring",      
         ring1="Niqmaddu ring",
         ring2="Regal Ring",
         back=gear.DRG_WS1_Cape,
@@ -285,8 +289,8 @@ function init_gear_sets()
         feet=gear.Nyame_Feet,
         neck="Dgn. Collar +2",
         waist="Sailfi Belt +1",
-        ear1="Thrud Earring",
         ear2="Moonshade Earring",
+        ear1="Sherida Earring",    
         ring1="Niqmaddu ring",
         ring2="Regal Ring",
         back=gear.DRG_WS1_Cape,
@@ -306,10 +310,11 @@ function init_gear_sets()
         head=gear.Empyrean_Head,
         body="Hjarrandi Breastplate",
         hands=gear.Relic_Hands,
-        legs=gear.Gletti_Legs,
+        legs=gear.Empyrean_Legs,
+        feet=gear.Nyame_Feet,
         neck="Dgn. Collar +2",
-        ear1="Thrud Earring",
-        ear2="Moonshade Earring",
+        ear1="Moonshade Earring",
+        ear2="Thrud Earring",
         ring1="Niqmaddu Ring",
         ring2="Regal Ring",
         back=gear.DRG_WS1_Cape,
@@ -347,6 +352,7 @@ function init_gear_sets()
         hands=gear.Gleti_Hands,
         legs="Zoar Subligar +1",
         neck="Dgn. Collar +2",
+        ear1="Moonshade Earring",
         ear2="Brutal Earring",
         ring1="Niqmaddu Ring",
         ring2="Regal Ring",
@@ -362,6 +368,26 @@ function init_gear_sets()
         head=gear.Relic_Head,
         feet=gear.Relic_Feet,
     })
+
+    ---------------------
+    -- Wheeling Thrust --
+    ---------------------
+
+    sets.precast.WS["Wheeling Thrust"] = {
+        ammo="Knobkierrie",
+        head=gear.Empyrean_Head,
+        body=gear.Nyame_Body,
+        hands=gear.Relic_Hands,
+        legs=gear.Nyame_Legs,
+        feet=gear.Nyame_Feet,
+        neck="Dragoon's Collar +2",
+        waist="Sailfi Belt +1",
+        ear1="Thrud Earring",
+        ear2="Sherida Earring",
+        ring1="Niqmaddu Ring",
+        ring2="Regal Ring",
+        back=gear.DRG_WS1_Cape,
+    }
 
     ----------------
     -- Geirskogul --
@@ -463,9 +489,10 @@ function init_gear_sets()
         hands=gear.Empyrean_Hands,
         legs=gear.Relic_Legs,
         feet="Flam. Gambieras +2",
-        neck="Vim Torque +1",
-        ear1="Sherida Earring",
-        ear2="Telos Earring",
+        -- neck="Vim Torque +1",
+         neck="Dgn. Collar +2",
+        ear1="Telos Earring",
+        ear2="Sherida Earring",
         ring1="Niqmaddu Ring",
         ring2=gear.Moonlight_2,
         back=gear.DRG_TP_Cape,
@@ -491,8 +518,9 @@ function init_gear_sets()
     ------------------------------------------------------------------------------------------------
 
     sets.engaged.Hybrid = {
-        ammo="Coiste Bodhar",
-        neck="Dgn. Collar +2",
+        -- neck="Dgn. Collar +2",
+        head="Sulevia's Mask +2", --6/6
+        body=gear.Gleti_Body, --9/0
         -- head="Hjarrandi Helm", --10/10
         -- body="Hjarrandi Breastplate", --12/12
         -- legs="Sulevia's Cuisses +2", --7/7

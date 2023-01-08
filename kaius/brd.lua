@@ -360,7 +360,7 @@ function init_gear_sets()
 
   -- Gear to enhance certain classes of songs.
     sets.midcast.Ballad = { legs=gear.Empyrean_Legs }
-    -- sets.midcast.Carol = { hands="Mousai Gages +1" }
+    sets.midcast.Carol = { hands="Mousai Gages +1" }
     sets.midcast.Etude = { head="Mousai Turban +1" }
     sets.midcast.HonorMarch = { range="Marsyas", hands=gear.Empyrean_Hands }
     sets.midcast.Lullaby = {

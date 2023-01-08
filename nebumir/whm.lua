@@ -98,7 +98,7 @@ function user_setup()
 
     state.WeaponLock = M(false, 'Weapon Lock')
 
-    gear.Artifact_Head = { name= "Theophany Cap +1" }
+    gear.Artifact_Head = { name= "Theophany Cap +2" }
     gear.Artifact_Body = { name="Theophany Bliaut +3" }
     gear.Artifact_Hands = { name="Theophany Mitts +3" }
     gear.Artifact_Legs = { name="Theophany Pantaloons +3" }

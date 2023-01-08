@@ -88,7 +88,7 @@ function user_setup()
     gear.Artifact_Head = { name= "Geomancy Galero" }
     gear.Artifact_Body = { name= "Geomancy Tunic +3" }
     gear.Artifact_Hands = { name= "Geomancy Mitaines +3" }
-    gear.Artifact_Legs = { name= "Geomancy Pants" }
+    gear.Artifact_Legs = { name= "Geomancy Pants +1" }
     gear.Artifact_Feet = { name= "Geomancy Sandals +3" }
 
     gear.Empyrean_Head = { name= "Azimuth Hood +1" }
@@ -140,7 +140,7 @@ function init_gear_sets()
         ranged="Dunna", --3
         main=gear.GADA_FC, --6
         sub="Chanter's Shield", --3
-        head="Amalric Coif +1", --11
+        head=gear.Amalric_A_Head, --11
         body=gear.Merl_MB_body, --6
         hands=gear.Merl_FC_hands, --7
         legs=gear.Artifact_Legs, --15
@@ -149,7 +149,7 @@ function init_gear_sets()
         ear1="Malignance Earring", --4
         ear2="Etiolation Earring", --1
         ring1="Kishar Ring", --4
-        ring2="Weatherspoon Ring", --6(4)
+        ring2="Prolix Ring", 
         back="Fi Follet Cape +1", --10
         waist="Shinjutsu-no-Obi +1", --5
     }
@@ -189,16 +189,16 @@ function init_gear_sets()
     }
 
     sets.precast.WS['Hexastrike'] = set_combine(sets.precast.WS, {
-        neck="Caro Necklace",
-        waist="Grunfeld Rope",
+        -- neck="Caro Necklace",
+        -- waist="Grunfeld Rope",
     })
 
     sets.precast.WS['Exudation'] = sets.precast.WS['Hexastrike']
 
     sets.precast.WS['Flash Nova'] = {
-        head="Bagua Galero +3",
-        body="Amalric Doublet +1",
-        hands="Amalric Gages +1",
+        head=gear.Relic_Head,
+        body=gear.Amalric_A_Body,
+        hands=gear.Amalric_D_Hands,
         legs="Amalric Slops +1",
         feet="Amalric Nails +1",
         neck="Saevus Pendant +1",
@@ -218,22 +218,22 @@ function init_gear_sets()
     sets.midcast.FastRecast = {
         main="Sucellus",
         sub="Chanter's Shield",
-        head="Amalric Coif +1",
+        head=gear.Amalric_A_Head,
         hands=gear.Merl_FC_hands,
         legs=gear.Artifact_Legs,
         ear1="Malignance Earring",
         ear2="Etiolation Earring",
         ring1="Kishar Ring",
-        ring2="Weather. Ring +1",
+        ring2="Prolix Ring", 
         back=gear.GEO_FC_Cape,
         waist="Shinjutsu-no-Obi +1",
-        } -- Haste
+    } -- Haste
 
    sets.midcast.Geomancy = {
         main="Idris",
         sub="Chanter's Shield",
         head=gear.Empyrean_Head,
-        body="Amalric Doublet +1",
+        body=gear.Amalric_A_Body,
         hands=gear.Artifact_Hands,
         legs="Vanya Slops",
         feet="Amalric Nails +1",
@@ -271,7 +271,7 @@ function init_gear_sets()
     }
 
     sets.midcast.Curaga = set_combine(sets.midcast.Cure, {
-        neck="Nuna Gorget +1",
+        -- neck="Nuna Gorget +1",
         ring2="Metamor. Ring +1",
         waist="Luminary Sash",
     })
@@ -287,7 +287,7 @@ function init_gear_sets()
         main=gear.Gada_ENH,
         sub="Ammurapi Shield",
         head="Befouled Crown",
-        body="Telchine Chas.",
+        body=gear.Telchine_ENH_Body,
         hands=gear.Telchine_ENH_Hands,
         legs=gear.Telchine_ENH_Legs,
         feet=gear.Telchine_ENH_Feet,
@@ -304,7 +304,7 @@ function init_gear_sets()
         main=gear.Gada_ENH,
         sub="Ammurapi Shield",
         head=gear.Telchine_ENH_Head,
-        body="Telchine Chas.",
+        body=gear.Telchine_ENH_Body,
         hands=gear.Telchine_ENH_Hands,
         legs=gear.Telchine_ENH_Legs,
         feet=gear.Telchine_ENH_Feet,
@@ -317,7 +317,7 @@ function init_gear_sets()
     })
 
     sets.midcast.Refresh = set_combine(sets.midcast.EnhancingDuration, {
-        head="Amalric Coif +1",
+        head=gear.Amalric_A_Head,
     })
 
     sets.midcast.Stoneskin = set_combine(sets.midcast.EnhancingDuration, {
@@ -328,7 +328,7 @@ function init_gear_sets()
     sets.midcast.Aquaveil = set_combine(sets.midcast.EnhancingDuration, {
         main="Vadose Rod",
         sub="Ammurapi Shield",
-        head="Amalric Coif +1",
+        head=gear.Amalric_A_Head,
         ear2="Magnetic Earring",
     })
 
@@ -357,11 +357,11 @@ function init_gear_sets()
 
     sets.midcast.IntEnfeebles = set_combine(sets.midcast.MndEnfeebles, {
         ring1="Freke Ring",
-        ring2="Weather. Ring +1",
+        ring2="Metamorph Ring +1",
         waist="Acuity Belt +1",
-        }) -- INT/Magic accuracy
+    }) -- INT/Magic accuracy
 
-    sets.midcast.LockedEnfeebles = {body="Geomancy Tunic +3"}
+    sets.midcast.LockedEnfeebles = {body=gear.Artifact_Body}
 
     sets.midcast.Dispelga = set_combine(sets.midcast.IntEnfeebles, {main="Daybreak", sub="Ammurapi Shield"})
 
@@ -383,13 +383,13 @@ function init_gear_sets()
     }
 
     sets.midcast.Drain = set_combine(sets.midcast['Dark Magic'], {
-        head="Bagua Galero +3",
+        head=gear.Relic_Head,
         ring1="Evanescence Ring",
         ring2="Archon Ring",
         ear1="Hirudinea Earring",
         ear2="Mani Earring",
         waist="Fucho-no-Obi",
-        })
+    })
 
     sets.midcast.Aspir = sets.midcast.Drain
 
@@ -399,11 +399,11 @@ function init_gear_sets()
     -- Elemental Magic sets
 
     sets.midcast['Elemental Magic'] = {
-        main={ name="Solstice", augments={'INT+15','"Mag.Atk.Bns."+10','"Refresh"+1',}},
-        sub="Culminus",
+        main="Marin Staff +1",
+        sub="Enki Strap",
         range="Dunna",
         head=gear.Relic_Head,
-        body={ name="Merlinic Jubbah", augments={'"Mag.Atk.Bns."+28','"Fast Cast"+7','Mag. Acc.+13',}},
+        body=gear.Amalric_A_Body,
         hands="Amalric Gages +1",
         legs=gear.Relic_Legs,
         feet=gear.Relic_Feet,
@@ -413,33 +413,21 @@ function init_gear_sets()
         ear2="Regal Earring",     
         left_ring="Jhakri Ring",
         right_ring="Metamor. Ring +1",
-        back={ name="Nantosuelta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10',}},
+        back=gear.GEO_MB_Cape,
     }
 
     sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'], {
         -- main="Idris",
-        -- sub="Ammurapi Shield",
+        sub="Ammurapi Shield",
         hands=gear.Relic_Hands,
         legs=gear.Merl_MAB_legs,
         feet=gear.Merl_MAB_feet,
         neck="Sanctity Necklace",
-        ear2="Digni. Earring",
+        -- ear2="Digni. Earring",
         waist="Acuity Belt +1",
     })
 
     sets.midcast.GeoElem = set_combine(sets.midcast['Elemental Magic'], {})
-
-    sets.midcast['Elemental Magic'].Seidr = set_combine(sets.midcast['Elemental Magic'].Resistant, {
-        body="Seidr Cotehardie",
-        })
-
-    sets.midcast.GeoElem.Seidr = set_combine(sets.midcast['Elemental Magic'].Seidr, {})
-
-    sets.midcast.Impact = set_combine(sets.midcast['Elemental Magic'], {
-        head=empty,
-        body="Twilight Cloak",
-        ring2="Archon Ring",
-    })
 
     -- Initializes trusts at iLvl 119
     sets.midcast.Trust = sets.precast.FC
@@ -449,8 +437,8 @@ function init_gear_sets()
     ------------------------------------------------------------------------------------------------
 
     sets.idle = {
-        -- main="Bolelabunga",
-        -- sub="Genmei Shield",
+        main="Solstice", --0/0/25/0
+        sub="Genmei Shield", --10/0/0/0
         head=gear.Relic_Head,
         body=gear.Artifact_Body,
         hands=gear.Relic_Hands,
@@ -462,7 +450,7 @@ function init_gear_sets()
         ring1=gear.Stikini_1,
         ring2=gear.Stikini_2,
         back=gear.GEO_Idle_Cape,
-        waist="Slipor Sash",
+        waist="Carrier's Sash",
     }
 
     sets.resting = set_combine(sets.idle, {
@@ -479,20 +467,19 @@ function init_gear_sets()
         ring1="Gelatinous Ring +1", --7/(-1)
         ring2="Defending Ring", --10/10
         back=gear.GEO_Idle_Cape, --5/5
-        waist="Slipor Sash", --0/3
+        waist="Carrier's Sash",
     })
 
     -- .Pet sets are for when Luopan is present.
     sets.idle.Pet = set_combine(sets.idle, {
         -- Pet: -DT (37.5% to cap) / Pet: Regen
-        main="Idris", --0/0/25/0
+        main="Solstice", --0/0/25/0
         sub="Genmei Shield", --10/0/0/0
         head=gear.Telchine_ENH_Head, --0/0/0/3
         body=gear.Artifact_Body, --0/0/0/3
         hands=gear.Artifact_Hands, --3/0/13/0
         legs=gear.Telchine_ENH_Legs, --0/0/0/3
         feet=gear.Relic_Feet, --0/0/0/5
-        -- neck="Bagua Charm +1",
         neck="Loricate Torque +1",
         ear1="Etiolation Earring",
         ear2="Odnowa Earring +1", --3/3/0/0
@@ -507,7 +494,7 @@ function init_gear_sets()
         back=gear.GEO_Idle_Cape, --5/5
         })
 
-    sets.PetHP = {head="Bagua Galero +3"}
+    sets.PetHP = {head=gear.Relic_Head}
 
     -- .Indi sets are for when an Indi-spell is active.
     --sets.idle.Indi = set_combine(sets.idle, {})
@@ -515,9 +502,9 @@ function init_gear_sets()
     --sets.idle.DT.Indi = set_combine(sets.idle.DT, {})
     --sets.idle.DT.Pet.Indi = set_combine(sets.idle.DT.Pet, {})
 
-    sets.idle.Town = set_combine(sets.idle, {
-        -- main="Idris",
-        -- sub="Ammurapi Shield",
+    sets.idle.Town = {
+        main="Solstice",
+        sub="Ammurapi Shield",
         head=gear.Relic_Head,
         body=gear.Artifact_Body,
         hands=gear.Relic_Hands,
@@ -528,14 +515,14 @@ function init_gear_sets()
         ear2="Regal Earring",
         back=gear.GEO_Pet_Cape,
         waist="Acuity Belt +1",
-    })
+    }
 
     -- Defense sets
 
     sets.defense.PDT = sets.idle.DT
     sets.defense.MDT = sets.idle.DT
 
-    sets.Kiting = {feet="Geo. Sandals +3"}
+    sets.Kiting = {feet=gear.Artifact_Feet}
 
     sets.latent_refresh = {waist="Fucho-no-Obi"}
 
@@ -561,7 +548,7 @@ function init_gear_sets()
         ear2="Brutal Earring",
         ring1="Petrov Ring",
         ring2="Hetairoi Ring",
-        waist="Cetl Belt",
+        waist="Windbuffet Belt +1",
     }
 
 
@@ -579,7 +566,11 @@ function init_gear_sets()
         ring2="Mujin Band", --(5)
     }
 
-    sets.buff.Doom = {ring1={name="Saida Ring", bag="wardrobe3"}, ring2={name="Saida Ring", bag="wardrobe4"},}
+    sets.buff.Doom = {
+        ring1={name="Saida Ring", bag="wardrobe3"}, 
+        ring2={name="Saida Ring", bag="wardrobe4"},
+    }
+
     sets.Obi = {waist="Hachirin-no-Obi"}
     -- sets.CP = {back="Mecisto. Mantle"}
 
