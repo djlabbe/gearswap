@@ -138,6 +138,7 @@ function init_gear_sets()
         ammo="Sapience Orb", --2
         head=gear.Carmine_D_Head, --10
         hands="Leyline Gloves", --8
+        body="Sacro Breastplate",
         -- legs=gear.Ody_FC_Legs, -- 5
         feet=gear.Carmine_B_Feet, -- 8
         neck="Baetyl Pendant", --4

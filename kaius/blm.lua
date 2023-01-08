@@ -79,10 +79,10 @@ function user_setup()
     gear.Relic_Legs = { name="Archmage's Tonban +3" }
     gear.Relic_Feet = { name="Archmage's Sabots +3" }
 
-    -- gear.Empyrean_Head = { name="Wicce Petasos +1" }
-    -- gear.Empyrean_Body = { name="Wicce Coat +1" }
-    -- gear.Empyrean_Hands = { name="Wicce Gloves +1" }
-    -- gear.Empyrean_Legs = { name="Wicce Tonban +1" }
+    gear.Empyrean_Head = { name="Wicce Petasos +1" }
+    gear.Empyrean_Body = { name="Wicce Coat +1" }
+    gear.Empyrean_Hands = { name="Wicce Gloves +1" }
+    gear.Empyrean_Legs = { name="Wicce Tonban +1" }
     gear.Empyrean_Feet = { name="Wicce Sabots +1" }
 
     gear.BLM_MAB_Cape = { name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10','Phys. dmg. taken-10%',}}
@@ -129,7 +129,7 @@ function init_gear_sets()
 
     -- Precast sets to enhance JAs
     sets.precast.JA['Mana Wall'] = {
-        feet="Wicce Sabots +1",
+        feet=gear.Empyrean_Feet,
         back=gear.BLM_Death_Cape,
     }
 

@@ -139,7 +139,7 @@ function init_gear_sets()
     --  /RDM --15
         ranged="Dunna", --3
         main=gear.GADA_FC, --6
-        sub="Chanter's Shield", --3
+        -- sub="Chanter's Shield", --3
         head=gear.Amalric_A_Head, --11
         body=gear.Merl_MB_body, --6
         hands=gear.Merl_FC_hands, --7
@@ -149,10 +149,10 @@ function init_gear_sets()
         ear1="Malignance Earring", --4
         ear2="Etiolation Earring", --1
         ring1="Kishar Ring", --4
-        ring2="Prolix Ring", 
+        ring2="Prolix Ring", --2?
         back="Fi Follet Cape +1", --10
         waist="Shinjutsu-no-Obi +1", --5
-    }
+    } --76
 
     sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {
         back="Perimede Cape",
@@ -230,8 +230,8 @@ function init_gear_sets()
     } -- Haste
 
    sets.midcast.Geomancy = {
-        main="Idris",
-        sub="Chanter's Shield",
+        -- main="Idris",
+        -- sub="Chanter's Shield",
         head=gear.Empyrean_Head,
         body=gear.Amalric_A_Body,
         hands=gear.Artifact_Hands,
@@ -249,7 +249,7 @@ function init_gear_sets()
     sets.midcast.Geomancy.Indi = set_combine(sets.midcast.Geomancy, {
         head="Vanya Hood",
         legs=gear.Relic_Legs,
-        feet="Azimuth Gaiters +1",
+        feet=gear.Empyrean_Feet,
         back="Lifestream Cape",
     })
 
@@ -273,13 +273,13 @@ function init_gear_sets()
     sets.midcast.Curaga = set_combine(sets.midcast.Cure, {
         -- neck="Nuna Gorget +1",
         ring2="Metamor. Ring +1",
-        waist="Luminary Sash",
+        -- waist="Luminary Sash",
     })
 
     sets.midcast.Cursna = set_combine(sets.midcast.Cure, {
         neck="Malison Medallion",
         -- ring1={name="Haoma's Ring", bag="wardrobe3"},
-        -- ring2={name="Haoma's Ring", bag="wardrobe4"},
+        ring2="Haoma's Ring",
         back="Oretan. Cape +1",
     })
 
@@ -401,10 +401,10 @@ function init_gear_sets()
     sets.midcast['Elemental Magic'] = {
         main="Marin Staff +1",
         sub="Enki Strap",
-        range="Dunna",
+        ammo="Ghastly Tathlum +1",
         head=gear.Relic_Head,
         body=gear.Amalric_A_Body,
-        hands="Amalric Gages +1",
+        hands=gear.Amalric_D_Hands,
         legs=gear.Relic_Legs,
         feet=gear.Relic_Feet,
         neck="Baetyl Pendant",
@@ -492,7 +492,7 @@ function init_gear_sets()
     sets.idle.DT.Pet = set_combine(sets.idle.Pet, {
         body="Mallquis Saio +2", --8/8
         back=gear.GEO_Idle_Cape, --5/5
-        })
+    })
 
     sets.PetHP = {head=gear.Relic_Head}
 
@@ -535,21 +535,21 @@ function init_gear_sets()
     -- If you create a set with both offense and defense modes, the offense mode should be first.
     -- EG: sets.engaged.Dagger.Accuracy.Evasion
 
-    -- Normal melee group
-    sets.engaged = {
-        main="Idris",
-        sub="Genmei Shield",
-        head="Jhakri Coronal +2",
-        body="Jhakri Robe +2",
-        hands="Gazu Bracelets +1",
-        legs="Jhakri Slops +2",
-        feet="Jhakri Pigaches +2",
-        ear1="Cessance Earring",
-        ear2="Brutal Earring",
-        ring1="Petrov Ring",
-        ring2="Hetairoi Ring",
-        waist="Windbuffet Belt +1",
-    }
+    -- -- Normal melee group
+    -- sets.engaged = {
+    --     main="Idris",
+    --     sub="Genmei Shield",
+    --     head="Jhakri Coronal +2",
+    --     body="Jhakri Robe +2",
+    --     hands="Gazu Bracelets +1",
+    --     legs="Jhakri Slops +2",
+    --     feet="Jhakri Pigaches +2",
+    --     ear1="Cessance Earring",
+    --     ear2="Brutal Earring",
+    --     ring1="Petrov Ring",
+    --     ring2="Hetairoi Ring",
+    --     waist="Windbuffet Belt +1",
+    -- }
 
 
     --------------------------------------
