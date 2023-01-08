@@ -280,7 +280,7 @@ function init_gear_sets()
         head=gear.Kaykaus_B_Head,
         neck="Clr. Torque +1", 
         ear1="Glorious Earring",
-        ear2="Nourishing earring",
+        ear2="Nourishing earring +1",
         body=gear.Empyrean_Body,
         hands=gear.Artifact_Hands,
         legs=gear.Empyrean_Legs,
@@ -292,7 +292,7 @@ function init_gear_sets()
       }
 
     sets.midcast.CureSolaceWeather = set_combine(sets.midcast.CureSolace, {
-        ear2="Nourish. Earring +1", --7
+        ear2="Nourishing Earring +1", --7
         waist="Hachirin-no-Obi",
     })
 
@@ -302,7 +302,7 @@ function init_gear_sets()
 
     sets.midcast.CureWeather = set_combine(sets.midcast.CureNormal, {
         hands=gear.Kaykaus_D_Hands, --11/(-6)
-        ear2="Nourish. Earring +1", --7
+        ear2="Nourishing Earring +1", --7
         waist="Hachirin-no-Obi",
     })
 
@@ -331,7 +331,7 @@ function init_gear_sets()
         head="Vanya Hood",
         body=gear.Empyrean_Body,
         -- hands="Fanatic Gloves",
-        legs="Aya. Cosciales +1",
+        legs="Aya. Cosciales +2",
         -- -- neck="Orunmila's Torque",
         ear1="Loquacious Earring",
         ear2="Etiolation Earring",
@@ -500,7 +500,7 @@ function init_gear_sets()
         ammo="Clarus Stone",
         -- head=empty;
         -- body="Cohort Cloak +1",
-        hands="Regal Cuffs",
+        hands=gear.Kaykaus_D_Hands,
         legs=gear.Chironic_ENF_Legs,
         feet="Regal pumps +1",
         neck="Erra Pendant",
@@ -606,22 +606,22 @@ function init_gear_sets()
     -- EG: sets.engaged.Dagger.Accuracy.Evasion
 
     -- -- Basic set for if no TP weapon is defined.
-    sets.engaged = {
-        main="Yagrush",
-        sub="Ammurapi Shield",
-        head="Blistering Sallet +1",
-        body="Ayanmo Corazza +2",
-        hands=gear.Telchine_STP_Hands,
-        legs="Aya. Cosciales +2",
-        feet=gear.Nyame_Feet,
-        neck="Combatant's Torque",
-        ear1="Cessance Earring",
-        ear2="Telos Earring",
-        ring1=gear.Chirich_1,
-        ring2=gear.Chirich_2,
-        back=gear.WHM_DA_Cape,
-        waist="Windbuffet Belt +1",
-    }
+    -- sets.engaged = {
+    --     main="Yagrush",
+    --     sub="Ammurapi Shield",
+    --     head="Blistering Sallet +1",
+    --     body="Ayanmo Corazza +2",
+    --     hands=gear.Telchine_STP_Hands,
+    --     legs="Aya. Cosciales +2",
+    --     feet=gear.Nyame_Feet,
+    --     neck="Combatant's Torque",
+    --     ear1="Cessance Earring",
+    --     ear2="Telos Earring",
+    --     ring1=gear.Chirich_1,
+    --     ring2=gear.Chirich_2,
+    --     back=gear.WHM_DA_Cape,
+    --     waist="Windbuffet Belt +1",
+    -- }
 
     -- sets.engaged.Acc = set_combine(sets.engaged, {
     --     hands="Gazu Bracelets +1",

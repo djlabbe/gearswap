@@ -44,7 +44,7 @@ function job_setup()
     state.Buff['Unlimited Shot'] = buffactive['Unlimited Shot'] or false
     state.Buff['Velocity Shot'] = buffactive['Velocity Shot'] or false
     state.Buff['Double Shot'] = buffactive['Double Shot'] or false
-    no_shoot_ammo = S{"Animikii Bullet", "Hauksbok Arrow" }
+    no_shoot_ammo = S{"Animikii Bullet", "Hauksbok Arrow", "Stone Arrow" }
     state.Buff.Doom = false
 
     -- Whether a warning has been given for low ammo
@@ -80,7 +80,6 @@ function user_setup()
                    ['Armageddon'] = "Chrono Bullet",
                    ['Gastraphetes'] = "Quelling Bolt",
                    ['Fomalhaut'] = "Chrono Bullet",
-                   ['Sparrowhawk'] = "Beetle Arrow",
                    }
 
     AccAmmo = {    ['Yoichinoyumi'] = "Yoichi's Arrow",
@@ -127,8 +126,8 @@ function user_setup()
 
     gear.Empyrean_Head = { name="Amini Gapette +1" }
     gear.Empyrean_Body = { name="Amini Caban +2" }
-    -- gear.Empyrean_Legs = { name="Amini Brague +1" }
-    -- gear.Empyrean_Hands = { name="Amini Glovelettes +1" }
+    gear.Empyrean_Legs = { name="Amini Brague +2" }
+    gear.Empyrean_Hands = { name="Amini Glovelettes +2" }
     gear.Empyrean_Feet = { name="Amini Bottillons +2" }
 
     gear.RNG_DW_Cape ={ name="Belenus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dual Wield"+10','Phys. dmg. taken-10%',}}
@@ -390,17 +389,18 @@ function init_gear_sets()
 
     sets.precast.WS['Savage Blade'] = {
         head=gear.Artifact_Head,
+        body=gear.Nyame_Body,
+        hands=gear.Nyame_Hands,
+        legs=gear.Relic_Legs,
+        feet=gear.Empyrean_Feet,
         neck="Scout's Gorget +2",
         ear1="Moonshade Earring",
-        ear2="Ishvara Earring",
-        body=gear.Nyame_Body,
-        hands="Meg. Gloves +2",
+        ear2="Ishvara Earring",       
         ring1="Regal Ring",
         ring2="Epaminondas's Ring",
         back=gear.RNG_LS_Cape,
         waist="Sailfi Belt +1",
-        legs=gear.Relic_Legs,
-        feet=gear.Empyrean_Feet,
+      
     }
 
     sets.precast.WS['Evisceration'] = {
@@ -457,10 +457,10 @@ function init_gear_sets()
 
     sets.midcast.RA = {
         head=gear.Relic_Head,
-        gear.Empyrean_Body,
-        hands=gear.Ikenga_Hands,
-        legs=gear.Ikenga_Legs,
-        feet=gear.Ikenga_Feet,
+        body=gear.Empyrean_Body,
+        hands=gear.Empyrean_Hands,
+        legs=gear.Empyrean_Legs,
+        feet=gear.Malignance_Feet,
         neck="Scout's Gorget +2",
         -- ear1="Enervating Earring",
         ear1="Crepuscular Earring",
@@ -473,10 +473,10 @@ function init_gear_sets()
     }
 
     sets.midcast.RA.Acc = set_combine(sets.midcast.RA, {
-        head=gear.Artifact_Head,
+        -- head=gear.Artifact_Head,
         -- body=gear.Artifact_Body,
-        hands=gear.Artifact_Hands,
-        feet=gear.Artifact_Feet,
+        -- hands=gear.Artifact_Hands,
+        feet=gear.Empyrean_Feet,
         ear1="Beyla Earring",
         ring2="Hajduk Ring +1",
         waist="K. Kachina Belt +1",
@@ -547,8 +547,6 @@ function init_gear_sets()
     })
 
     sets.idle.Town = {
-        range="Gastraphetes",
-        ammo="Quelling Bolt",
         head=gear.Malignance_Head,
         body=gear.Malignance_Body,
         hands=gear.Malignance_Hands,
@@ -721,7 +719,6 @@ function init_gear_sets()
     sets.FullTP = { ear1="Crematio Earring" }
 
     sets.Savage = {main="Naegling", sub="Kraken Club", ranged="Sparrowhawk +2", ammo="Hauksbok Arrow"}
-
     sets.Annihilator = {main="Perun +1", sub="Blurred Knife +1", ranged="Annihilator"}
     sets.Fomalhaut = {main="Perun +1", sub="Blurred Knife +1", ranged="Fomalhaut"}
     sets.Armageddon = {main="Perun +1", sub="Malevolence", ranged="Armageddon"}
@@ -812,9 +809,7 @@ function job_post_precast(spell, action, spellMap, eventArgs)
                 equip({waist="Hachirin-no-Obi"})
             end
         end
-    elseif (spell.english == 'Shadowbind') then
-        special_ammo_check()
-    elseif (spell.english == 'Bounty Shot') then
+    elseif (spell.english == 'Shadowbind' or spell.english == 'Bounty Shot' or spell.english == 'Eagle Eye Shot') then
         special_ammo_check()
     end
     
